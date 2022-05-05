@@ -10,7 +10,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>be.vlaanderen.vip.mock</groupId>
-	<artifactId>magdaservice</artifactId>
+	<artifactId>magda</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>magdaservice</name>
 	<description>MAGDA diensten Mock voor afnemers</description>
@@ -34,6 +34,8 @@
 
 	<modules>
 		<module>service</module>
+		<module>mock</module>
+		<module>connector</module>
 	</modules>
 
 
