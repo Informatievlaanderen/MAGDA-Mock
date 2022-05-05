@@ -1,0 +1,236 @@
+<geef:GeefBewijsResponse xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefBewijs</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-02-24</Datum>
+                    <Tijd>13:42:49.544</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>7c706caf-6ab7-4c4a-8405-bc3054758309</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>Afzender-A</Identificatie>
+                    <Referte>XE:760:19849:1989</Referte>
+                    <Hoedanigheid>188</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>1989</Referte>
+                <Inhoud>
+                    <Bewijzen>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte>6f54d33b-3bd2-4469-926a-99ac674ddcfe</Bewijsreferte>
+                                <Bewijsmutatiereferte>ce3f2c86-0557-4bf5-9578-878e0fcdca2d</Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code>1</Code>
+                                <DatumModificatie>
+                                    <Datum>30.09.2013</Datum>
+                                    <Tijd>10:17:17.796</Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam>VDAB</Naam>
+                                <Bewijsreferte>BBTITEL_ERKENNING-24238</Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ>90122500456</INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam>Authentiek</Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam>Ervaringsbewijzen</Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam>Wettelijk certificaat</Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam>Eindbewijs</Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam>Vlaams Subsidieagentschap Werk en Sociale Economie (VSAWSE)</Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code>840005</Code>
+                                    <Naam>Interne transportmiddelen</Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar>2013</Jaar>
+                                    <Maand>06</Maand>
+                                    <Dag>28</Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam>Ervaringsbewijs van reachtruckchauffeur (m/v)</VolledigeNaam>
+                                <Land>
+                                    <Code>BEL</Code>
+                                </Land>
+                                <Taal>
+                                    <Code>nld</Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam>MIN VLAAM GEM/Ervaringsbewijs</Naam>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam>Niet van toepassing</Naam>
+                                    <Code>Reachtruckchauffeur</Code>
+                                </Studierichting>
+                                <Specialisatie>
+                                    <Naam>Niet van toepassing</Naam>
+                                    <Code>Niet van toepassing</Code>
+                                </Specialisatie>
+                                <DetailOnderwerp>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </DetailOnderwerp>
+                                <UrenVolwassenenonderwijs>0</UrenVolwassenenonderwijs>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam>Bewijs omschrijving</Naam>
+                                        <Inhoud>Ervaringsbewijs van reachtruckchauffeur (m/v)</Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code>840</Code>
+                                    <Naam>Transport</Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte>9e72bbc7-df8f-4388-bcbc-85d3fc0384d2</Bewijsreferte>
+                                <Bewijsmutatiereferte>5d55720c-8b9c-41f7-aa08-a259f84e5c8a</Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code>1</Code>
+                                <DatumModificatie>
+                                    <Datum>30.09.2013</Datum>
+                                    <Tijd>10:16:11.276</Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam>VDAB</Naam>
+                                <Bewijsreferte>BBTITEL_ERKENNING-24191</Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ>90122500456</INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam>Authentiek</Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam>Ervaringsbewijzen</Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam>Wettelijk certificaat</Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam>Eindbewijs</Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam>Vlaams Subsidieagentschap Werk en Sociale Economie (VSAWSE)</Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code>840005</Code>
+                                    <Naam>Interne transportmiddelen</Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar>2013</Jaar>
+                                    <Maand>06</Maand>
+                                    <Dag>27</Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam>Ervaringsbewijs van heftruckchauffeur (m/v)</VolledigeNaam>
+                                <Land>
+                                    <Code>BEL</Code>
+                                </Land>
+                                <Taal>
+                                    <Code>nld</Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam>MIN VLAAM GEM/Ervaringsbewijs</Naam>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam>Niet van toepassing</Naam>
+                                    <Code>Heftruckchauffeur</Code>
+                                </Studierichting>
+                                <Specialisatie>
+                                    <Naam>Niet van toepassing</Naam>
+                                    <Code>Niet van toepassing</Code>
+                                </Specialisatie>
+                                <DetailOnderwerp>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </DetailOnderwerp>
+                                <UrenVolwassenenonderwijs>0</UrenVolwassenenonderwijs>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam>Bewijs omschrijving</Naam>
+                                        <Inhoud>Ervaringsbewijs van heftruckchauffeur (m/v)</Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code>840</Code>
+                                    <Naam>Transport</Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                    </Bewijzen>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</geef:GeefBewijsResponse>

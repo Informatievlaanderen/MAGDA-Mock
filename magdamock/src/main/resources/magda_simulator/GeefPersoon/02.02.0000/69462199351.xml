@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-07-12</Datum>
+					<Tijd>06:47:59.865</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>67519146-9f01-4ca1-bd52-11fb76d7544d</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-bo-con2</Identificatie>
+					<Referte>XE:1086:25685:1782</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>1782</Referte>
+				<Inhoud>
+					<Persoon>
+						<INSZ>69462199351</INSZ>
+						<Naam DatumBegin="1969-06-21">
+							<Achternamen>
+								<Achternaam>Verstappen</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Jerry</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht DatumBegin="1969-06-21">
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Omschrijving>Mannelijk</Omschrijving>
+						</Geslacht>
+						<Register>
+							<Code>BIS</Code>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1969-06-21">
+								<Code>129</Code>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1969-06-21">
+							<Datum>1969-06-21</Datum>
+							<Plaats>
+								<Gemeente>
+									<Naam>Nergenshuizen</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>129</NISCode>
+									<ISOCode>NLD</ISOCode>
+									<Naam>NEDERLAND</Naam>
+								</Land>
+							</Plaats>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="1993-12-07">
+								<Code>20</Code>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+
+							<Hoofdverblijfplaats DatumBegin="2014-10-01">
+								<Straatnaam>
+									<String>Coolsingel</String>
+									<Taal>nl</Taal>
+								</Straatnaam>
+								<Huisnummer>20</Huisnummer>
+								<Gemeentenaam>
+									<String>Rotterdam</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>NEDERLAND</String>
+									<Taal>nl</Taal>
+								</Land>                                
+
+							</Hoofdverblijfplaats>
+						</Adressen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>
+

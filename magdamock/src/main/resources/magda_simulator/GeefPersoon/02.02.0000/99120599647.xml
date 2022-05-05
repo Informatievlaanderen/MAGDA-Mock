@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-06-01</Datum>
+					<Tijd>12:20:57.408</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>77dace71-616b-442a-8a84-e8762038906a</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+					<Referte>XE:420:11815:1419</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>6048</Referte>
+				<Inhoud>
+					<Persoon DatumCreatie="2001-08-08" DatumModificatie="2014-10-09">
+						<INSZ>99120599647</INSZ>
+						<Naam DatumBegin="1999-12-05">
+							<Achternamen>
+								<Achternaam>Janssens</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Nadège</Voornaam>
+								<Voornaam>Luce</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+							<Omschrijving>Vrouwelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="1999-12-05">
+							<Plaats>
+								<Land>
+									<NISCode>402</NISCode>
+									<ISOCode>USA</ISOCode>
+									<Naam>Verenigde Staten van Amerika</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>2</Code>
+								<Omschrijving>Frans</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register>
+							<Code>02</Code>
+							<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1999-12-05">
+								<Code>150</Code>
+								<Omschrijving>Belg</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1999-12-05">
+							<Datum>1999-12-05</Datum>
+							<Plaats>
+								<Gemeente>
+									<Naam>Annapolis,Maryland</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>402</NISCode>
+									<ISOCode>USA</ISOCode>
+									<Naam>Verenigde Staten van Amerika</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer>00000</Aktenummer>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="1999-12-05">
+								<Code>10</Code>
+								<Omschrijving>Ongehuwd</Omschrijving>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<VerblijfplaatsBuitenland DatumBegin="2005-10-19">
+								<DiplomatiekePost>
+									<Code>4112</Code>
+									<Omschrijving>Washington D.C.</Omschrijving>
+									<Land>
+										<NISCode>402</NISCode>
+										<ISOCode>USA</ISOCode>
+										<Naam>Verenigde Staten van Amerika</Naam>
+									</Land>
+								</DiplomatiekePost>
+								<Land>
+									<NISCode>402</NISCode>
+									<ISOCode>USA</ISOCode>
+									<Naam>Verenigde Staten van Amerika</Naam>
+								</Land>
+								<Teksten>
+									<Tekst>Alameda Parkway 382</Tekst>
+									<Tekst>21012 ARNOLD MD</Tekst>
+								</Teksten>
+							</VerblijfplaatsBuitenland>
+						</Adressen>
+						<Afstammingen>
+							<Afstamming DatumBegin="1999-12-05">
+								<Type>
+									<Code>10</Code>
+									<Omschrijving>Kind</Omschrijving>
+								</Type>
+								<Ouders>
+									<Ouder>
+										<INSZ>58121599900</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Janssens</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Michael</Voornaam>
+												<Voornaam>Harvey</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+											<Omschrijving>Mannelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>1958-12-15</Geboortedatum>
+									</Ouder>
+									<!--
+                                    <Ouder>
+                                        <INSZ>63010599885</INSZ>
+                                        <Naam>
+                                            <Achternamen>
+                                                <Achternaam>Dubois</Achternaam>
+                                            </Achternamen>
+                                            <Voornamen>
+                                                <Voornaam>Sophie</Voornaam>
+                                                <Voornaam>Ghislaine</Voornaam>
+                                                <Voornaam>Brigitte</Voornaam>
+                                            </Voornamen>
+                                        </Naam>
+                                        <Geslacht>
+                                            <Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+<Omschrijving>Vrouwelijk</Omschrijving>
+                                        </Geslacht>
+                                        <Geboortedatum>1963-01-05</Geboortedatum>
+                                    </Ouder>
+                                    -->
+								</Ouders>
+							</Afstamming>
+						</Afstammingen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>

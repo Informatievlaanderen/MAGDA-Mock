@@ -1,0 +1,321 @@
+<geef:GeefBewijsResponse xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefBewijs</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-05-05</Datum>
+                    <Tijd>07:46:54.152</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>9fc6d2fa-d315-41ce-b755-ceb0c6604e71</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>wse.vlaanderen.be/vdab/mint-aip-bo</Identificatie>
+                    <Referte>XE:193:25162:8285</Referte>
+                    <Hoedanigheid>801</Hoedanigheid>
+                    <Gebruiker>77050526771</Gebruiker>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>8285</Referte>
+                <Inhoud>
+                    <Bewijzen>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte>108f7578-0ed1-49fb-969f-af0b43d33fbf</Bewijsreferte>
+                                <Bewijsmutatiereferte>02da55f0-d780-4c43-934e-7af8b357fbb7</Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code>1</Code>
+                                <DatumModificatie>
+                                    <Datum>11.09.2014</Datum>
+                                    <Tijd>01:49:59.089</Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam>Secundair onderwijs</Naam>
+                                <Bewijsreferte>2014082123351803297800001H</Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ>98061320946</INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam>Authentiek</Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam>Secundair onderwijs</Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam>OV3</Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam>Attest</Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam>Eindbewijs</Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam>Secundaire school</Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code>521001</Code>
+                                    <Naam>Lassen</Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar>2014</Jaar>
+                                    <Maand>06</Maand>
+                                    <Dag>30</Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam>Niet beschikbaar</VolledigeNaam>
+                                <Land>
+                                    <Code>BEL</Code>
+                                </Land>
+                                <Taal>
+                                    <Code>nld</Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam>Buso De Kouter</Naam>
+                                    <Nummer>112789</Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam>Buitengewoon</Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam>Hoeklasser</Naam>
+                                    <Code>032808</Code>
+                                </Studierichting>
+                                <UrenVolwassenenonderwijs>0</UrenVolwassenenonderwijs>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam>Bewijs omschrijving</Naam>
+                                        <Inhoud>Attest OV3 Secundair onderwijs Hoeklasser</Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code>521</Code>
+                                    <Naam>Mechanica en metaal</Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte>b568a1b3-e9d6-43e7-b685-1aae14671f4a</Bewijsreferte>
+                                <Bewijsmutatiereferte>124a0e83-4531-410e-8976-2edd3cc1a277</Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code>1</Code>
+                                <DatumModificatie>
+                                    <Datum>12.07.2013</Datum>
+                                    <Tijd>05:35:47.472</Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam>Secundair onderwijs</Naam>
+                                <Bewijsreferte>2013070503395849760300001H</Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ>98061320946</INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam>Authentiek</Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam>Secundair onderwijs</Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam>OV3</Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam>Attest</Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam>Eindbewijs</Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam>Secundaire school</Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code>521001</Code>
+                                    <Naam>Lassen</Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar>2013</Jaar>
+                                    <Maand>06</Maand>
+                                    <Dag>30</Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam>Niet beschikbaar</VolledigeNaam>
+                                <Land>
+                                    <Code>BEL</Code>
+                                </Land>
+                                <Taal>
+                                    <Code>nld</Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam>Buso - De Kouter</Naam>
+                                    <Nummer>112789</Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam>Buitengewoon</Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam>Hoeklasser</Naam>
+                                    <Code>032807</Code>
+                                </Studierichting>
+                                <UrenVolwassenenonderwijs>0</UrenVolwassenenonderwijs>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam>Bewijs omschrijving</Naam>
+                                        <Inhoud>Attest OV3 Secundair onderwijs Hoeklasser</Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code>521</Code>
+                                    <Naam>Mechanica en metaal</Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte>7956c447-975d-483e-8c17-b4a681e4b968</Bewijsreferte>
+                                <Bewijsmutatiereferte>3772160d-0aa1-4165-8c2e-0841c8ad3a0a</Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code>1</Code>
+                                <DatumModificatie>
+                                    <Datum>16.07.2012</Datum>
+                                    <Tijd>20:51:55.568</Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam>Secundair onderwijs</Naam>
+                                <Bewijsreferte>2012071222362415463600001H</Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ>98061320946</INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam>Authentiek</Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam>Secundair onderwijs</Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam>OV3</Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam>Attest</Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam>Eindbewijs</Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam>Secundaire school</Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code>10001</Code>
+                                    <Naam>Algemene vorming</Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar>2012</Jaar>
+                                    <Maand>06</Maand>
+                                    <Dag>30</Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam>Niet beschikbaar</VolledigeNaam>
+                                <Land>
+                                    <Code>BEL</Code>
+                                </Land>
+                                <Taal>
+                                    <Code>nld</Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam>Buso - De Kouter</Naam>
+                                    <Nummer>112789</Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam>Buitengewoon</Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam>Observatiejaar</Naam>
+                                    <Code>015001</Code>
+                                </Studierichting>
+                                <UrenVolwassenenonderwijs>0</UrenVolwassenenonderwijs>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam>Bewijs omschrijving</Naam>
+                                        <Inhoud>Attest OV3 Secundair onderwijs Observatiejaar</Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code>010</Code>
+                                    <Naam>Basisopleidingen, algemene opleidingen</Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                    </Bewijzen>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</geef:GeefBewijsResponse>
+

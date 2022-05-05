@@ -1,0 +1,43 @@
+<web:GeefGezinssamenstellingResponse
+        xmlns:web="http://webservice.geefgezinssamenstellingdienst-02_00.persoon-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefGezinssamenstelling</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-07-17</Datum>
+                    <Tijd>15:11:26.938</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie/>
+                    <Naam>VIP</Naam>
+                    <Referte>0eacce49-6036-4dc6-b940-b0103cbbba45</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+                    <Referte>XE:1096:25725:8364</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>5800</Referte>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>30001</Identificatie>
+                        <Oorsprong>MAGDA</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2015-05-06</Datum>
+                            <Tijd>17:29:51.106</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefGezinssamenstellingResponse>

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefGezinssamenstellingResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefgezinssamenstelling/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefGezinssamenstelling</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-07-17</Datum>
+                    <Tijd>15:11:26.938</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie/>
+                    <Naam>VIP</Naam>
+                    <Referte>0eacce49-6036-4dc6-b940-b0103cbbba45</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+                    <Referte>XE:1096:25725:8364</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>8364</Referte>
+                <Inhoud>
+                    <Gezinsleden>
+                        <Gezinslid>
+                            <INSZ>57011399711</INSZ>
+                            <Naam DatumBegin="1967-12-24">
+                                <Achternamen>
+                                    <Achternaam>Dubois</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Ludo</Voornaam>
+                                    <Voornaam>René</Voornaam>
+                                    <Voornaam>Gabriel</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                            <Geslacht>
+                                <Code>1</Code>
+                                <Omschrijving>Mannelijk</Omschrijving>
+                            </Geslacht>
+                            <Geboortedatum>1957-01-13</Geboortedatum>
+                            <Positie>
+                                <Code>01</Code>
+                                <Omschrijving Taal="nl">gezinshoofd</Omschrijving>
+                            </Positie>
+                            <Adressen>
+                                <Hoofdverblijfplaats DatumBegin="1997-08-13">
+                                    <Straatnaam>
+                                        <String>Dorpsstraat</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>433</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Kortenberg</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>2340</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                            </Adressen>
+                            <Bron>
+                                <Code>RR</Code>
+                                <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                            </Bron>
+                            <Beheerder DatumBegin="1997-08-13">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>24055</NISCode>
+                                        <Naam>Kortenberg</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                        </Gezinslid>
+                        <Gezinslid DatumBegin="1997-07-09">
+                            <INSZ>62080599816</INSZ>
+                            <Naam DatumBegin="1997-07-09">
+                                <Achternamen>
+                                    <Achternaam>Janssens</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Anna</Voornaam>
+                                    <Voornaam>Maria</Voornaam>
+                                    <Voornaam>Magdalena</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                            <Geslacht>
+                                <Code>2</Code>
+                                <Omschrijving>Vrouwelijk</Omschrijving>
+                            </Geslacht>
+                            <Geboortedatum>1962-08-05</Geboortedatum>
+                            <Positie>
+                                <Code>02</Code>
+                                <Omschrijving Taal="nl">echtgenoot/echtgenote</Omschrijving>
+                            </Positie>
+                            <Adressen>
+                                <Hoofdverblijfplaats DatumBegin="1997-08-13">
+                                    <Straatnaam>
+                                        <String>Dorpsstraat</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>433</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Kortenberg</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>2340</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                            </Adressen>
+                            <Bron>
+                                <Code>RR</Code>
+                                <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                            </Bron>
+                            <Beheerder DatumBegin="1997-08-13">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>24055</NISCode>
+                                        <Naam>Kortenberg</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                        </Gezinslid>
+                        <Gezinslid DatumBegin="2001-05-18">
+                            <INSZ>00031499788</INSZ>
+                            <Naam DatumBegin="2001-05-18">
+                                <Achternamen>
+                                    <Achternaam>Dubois</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Hans</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                            <Geslacht>
+                                <Code>1</Code>
+                                <Omschrijving>Mannelijk</Omschrijving>
+                            </Geslacht>
+                            <Geboortedatum>2000-03-14</Geboortedatum>
+                            <Positie>
+                                <Code>03</Code>
+                                <Omschrijving Taal="nl">zoon/dochter</Omschrijving>
+                            </Positie>
+                            <Adressen>
+                                <Hoofdverblijfplaats DatumBegin="1997-08-13">
+                                    <Straatnaam>
+                                        <String>Dorpsstraat</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>433</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Kortenberg</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>2340</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                            </Adressen>
+                            <Bron>
+                                <Code>RR</Code>
+                                <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                            </Bron>
+                            <Beheerder DatumBegin="1997-08-13">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>24055</NISCode>
+                                        <Naam>Kortenberg</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                        </Gezinslid>
+                        <Gezinslid DatumBegin="2005-09-11">
+                            <INSZ>02021599892</INSZ>
+                            <Naam DatumBegin="2005-09-11">
+                                <Achternamen>
+                                    <Achternaam>Dubois</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Patricia</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                            <Geslacht>
+                                <Code>2</Code>
+                                <Omschrijving>Vrouwelijk</Omschrijving>
+                            </Geslacht>
+                            <Geboortedatum>2002-02-15</Geboortedatum>
+                            <Positie>
+                                <Code>03</Code>
+                                <Omschrijving Taal="nl">zoon/dochter</Omschrijving>
+                            </Positie>
+                            <Adressen>
+                                <Hoofdverblijfplaats DatumBegin="1997-08-13">
+                                    <Straatnaam>
+                                        <String>Dorpsstraat</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>433</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Kortenberg</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>2340</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                            </Adressen>
+                            <Bron>
+                                <Code>RR</Code>
+                                <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                            </Bron>
+                            <Beheerder DatumBegin="1997-08-13">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>24055</NISCode>
+                                        <Naam>Kortenberg</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                        </Gezinslid>
+
+                        <Gezinslid DatumBegin="2005-09-11">
+                            <INSZ>12060199772</INSZ>
+                            <Naam DatumBegin="2005-09-11">
+                                <Achternamen>
+                                    <Achternaam>Dubois</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Athénaïs</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                            <Geslacht>
+                                <Code>2</Code>
+                                <Omschrijving>Vrouwelijk</Omschrijving>
+                            </Geslacht>
+                            <Geboortedatum>2012-06-01</Geboortedatum>
+                            <Positie>
+                                <Code>03</Code>
+                                <Omschrijving Taal="nl">zoon/dochter</Omschrijving>
+                            </Positie>
+                            <Adressen>
+                                <Hoofdverblijfplaats DatumBegin="1997-08-13">
+                                    <Straatnaam>
+                                        <String>Dorpsstraat</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>433</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Kortenberg</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>2340</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                            </Adressen>
+                            <Bron>
+                                <Code>RR</Code>
+                                <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                            </Bron>
+                            <Beheerder DatumBegin="1997-08-13">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>24055</NISCode>
+                                        <Naam>Kortenberg</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                        </Gezinslid>
+                    </Gezinsleden>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefGezinssamenstellingResponse>

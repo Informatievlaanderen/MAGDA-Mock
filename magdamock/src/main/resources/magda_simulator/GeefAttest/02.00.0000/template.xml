@@ -1,0 +1,37 @@
+
+<web:GeefAttestResponse xmlns:web="http://webservice.geefattestdienst-02_00.persoon-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefAttest</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-02-27</Datum>
+                    <Tijd>15:55:34.948</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>a7c032c9-0f6e-420b-bbd9-2c7ce9f110fe</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip</Identificatie>
+                    <Referte>XE:461:10480:2050</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>XE:184:3346:794</Referte>
+                <Inhoud>
+                    <Attest>
+                        <INSZ>12345698745</INSZ>
+                        <Document>BASE64</Document>
+                    </Attest>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefAttestResponse>

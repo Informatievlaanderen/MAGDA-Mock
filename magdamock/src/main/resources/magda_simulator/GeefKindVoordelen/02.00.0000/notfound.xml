@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web:GeefKindVoordelenResponse
+        xmlns:web="http://webservice.geefkindvoordelendienst-02_00.gezin-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefKindVoordelen</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2020-10-21</Datum>
+                    <Tijd>11:39:58.708</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>eded3540-c9b9-4753-a451-2801dc131e5d</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>wvg.vlaanderen.be/kg/groeipakket</Identificatie>
+                    <Referte>A_QT_700502_113958</Referte>
+                    <Hoedanigheid>301</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>5800</Referte>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>30001</Identificatie>
+                        <Oorsprong>MAGDA</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2015-05-06</Datum>
+                            <Tijd>17:29:51.106</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefKindVoordelenResponse>

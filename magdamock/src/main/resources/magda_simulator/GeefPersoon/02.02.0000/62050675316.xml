@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-06-01</Datum>
+					<Tijd>12:21:30.840</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>16c54b39-19a3-4850-a444-4a241a994ed9</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+					<Referte>XE:420:11815:1419</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>6048</Referte>
+				<Inhoud>
+					<Persoon DatumCreatie="1975-03-05" DatumModificatie="2011-03-14">
+						<INSZ>62050675316</INSZ>
+						<Naam DatumBegin="1962-08-05">
+							<Achternamen>
+								<Achternaam>Mitterand</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam GebruikelijkeVoornaam="1">Jean</Voornaam>
+								<Voornaam>Paul</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Omschrijving>Mannelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="1971-03-19">
+							<Plaats>
+								<Gemeente>
+									<NISCode>84077</NISCode>
+									<Naam>Libramont-Chevigny</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>1</Code>
+								<Omschrijving Taal="nl">JA</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>2</Code>
+								<Omschrijving Taal="nl">Frans</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register>
+							<Code>02</Code>
+							<Omschrijving Taal="nl">Bevolkingsregister</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1962-08-05">
+								<Code>150</Code>
+								<Omschrijving>Belg</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1962-08-05">
+							<Datum>1962-08-05</Datum>
+							<Plaats>
+								<Gemeente>
+									<NISCode>84077</NISCode>
+									<Naam>Libramont-Chevigny</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer>00000</Aktenummer>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="1983-04-06">
+								<Code>20</Code>
+								<Omschrijving>Gehuwd</Omschrijving>
+								<Partner>
+									<INSZ>57011399711</INSZ>
+									<Naam>
+										<Achternamen>
+											<Achternaam>Dubois</Achternaam>
+										</Achternamen>
+										<Voornamen>
+											<Voornaam>Ludo</Voornaam>
+											<Voornaam>René</Voornaam>
+											<Voornaam>Gabriel</Voornaam>
+										</Voornamen>
+									</Naam>
+									<Geslacht>
+										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+										<Omschrijving>Mannelijk</Omschrijving>
+									</Geslacht>
+									<Geboortedatum>1957-01-13</Geboortedatum>
+								</Partner>
+								<Plaats>
+									<Gemeente>
+										<NISCode>84077</NISCode>
+										<Naam>Libramont-Chevigny</Naam>
+									</Gemeente>
+									<Land>
+										<NISCode>150</NISCode>
+										<ISOCode>BEL</ISOCode>
+										<Naam>BELGIE</Naam>
+									</Land>
+								</Plaats>
+								<Aktenummer>0036</Aktenummer>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="1983-04-06">
+								<Straatnaam>
+									<String>Rue de la Cortaille</String>
+									<Taal>fr</Taal>
+								</Straatnaam>
+								<Huisnummer>9</Huisnummer>
+								<Gemeentenaam>
+									<String>Libramont-Chevigny</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>BELGIE</String>
+									<Taal>nl</Taal>
+								</Land>
+								<Postcode>6800</Postcode>
+								<NISCodeLand>150</NISCodeLand>
+								<ISOCodeLand>BEL</ISOCodeLand>
+								<NISCodeGemeente>84077</NISCodeGemeente>
+							</Hoofdverblijfplaats>
+						</Adressen>
+						<Afstammingen>
+							<Afstamming DatumBegin="1962-08-05">
+								<Type>
+									<Code>00</Code>
+									<Omschrijving>Kind</Omschrijving>
+								</Type>
+								<Ouders>
+									<Ouder>
+										<INSZ>18010999788</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Mitterand</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>August</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+											<Omschrijving>Mannelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>1918-01-09</Geboortedatum>
+									</Ouder>
+									<Ouder>
+										<INSZ>28031099887</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Mitterand</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Irène</Voornaam>
+												<Voornaam>Alice</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+											<Omschrijving>Vrouwelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>1928-03-10</Geboortedatum>
+									</Ouder>
+								</Ouders>
+							</Afstamming>
+						</Afstammingen>
+						<Referentiepersoon DatumBegin="1983-04-06">
+							<INSZ>57011399711</INSZ>
+							<Naam>
+								<Achternamen>
+									<Achternaam>Dubois</Achternaam>
+								</Achternamen>
+								<Voornamen>
+									<Voornaam>Ludo</Voornaam>
+									<Voornaam>René</Voornaam>
+									<Voornaam>Gabriel</Voornaam>
+								</Voornamen>
+							</Naam>
+							<Geslacht>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+								<Omschrijving>Mannelijk</Omschrijving>
+							</Geslacht>
+							<Geboortedatum>1957-01-13</Geboortedatum>
+							<Positie>
+								<Code>02</Code>
+								<Omschrijving>Echtgenoot</Omschrijving>
+							</Positie>
+							<Woonvorm>
+								<Code>00</Code>
+							</Woonvorm>
+						</Referentiepersoon>
+						<Identiteitsbewijzen>
+							<Identiteitsbewijs DatumBegin="1992-12-23">
+								<Type>
+									<Code>0050</Code>
+									<Omschrijving>identiteitskaart voor Belgen in het buitenland</Omschrijving>
+								</Type>
+								<Nummer>434465376534</Nummer>
+								<Vervalgegevens>
+									<Vervaldatum>1997-12-22</Vervaldatum>
+									<Tekst>Tekst</Tekst>
+								</Vervalgegevens>
+								<Plaats>
+									<Gemeente>
+										<NISCode>84077</NISCode>
+										<Naam>Libramont-Chevigny</Naam>
+									</Gemeente>
+									<Land>
+										<NISCode>150</NISCode>
+										<ISOCode>BEL</ISOCode>
+										<Naam>BELGIE</Naam>
+									</Land>
+								</Plaats>
+							</Identiteitsbewijs>
+						</Identiteitsbewijzen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-07-12</Datum>
+					<Tijd>07:13:13.876</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>c299fadd-0783-4dd4-9f8f-bf15c2133166</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-bo-con2</Identificatie>
+					<Referte>XE:1086:25685:1782</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>1782</Referte>
+				<Inhoud>
+					<Persoon>
+						<INSZ>86030100348</INSZ>
+						<Naam DatumBegin="1986-03-01">
+							<Achternamen>
+								<Achternaam>Janssens</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>ANDREAS</Voornaam>
+								<Voornaam GebruikelijkeVoornaam="1">GERARDUS</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht DatumBegin="1986-03-01">
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Omschrijving>Mannelijk</Omschrijving>
+						</Geslacht>
+						<Register>
+							<Code>BLABLA</Code>
+							<Omschrijving Taal="nl">BLA BLA CODE</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1986-03-01">
+								<Code>129</Code>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1986-03-01">
+							<Datum>1986-03-01</Datum>
+							<Plaats>
+								<Gemeente>
+									<Naam>Kortenberg</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>129</NISCode>
+									<ISOCode>NLD</ISOCode>
+									<Naam>NEDERLAND</Naam>
+								</Land>
+							</Plaats>
+						</Geboorte>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>
+

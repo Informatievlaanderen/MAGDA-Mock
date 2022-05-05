@@ -1,0 +1,40 @@
+<raad:RaadpleegLeerkredietsaldoResponse xmlns:raad="http://raadpleegleerkredietsaldo.persoondienst-01_00.dho2.ov.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>RaadpleegLeerkredietsaldo</Naam>
+      <Versie>01.00.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2022-01-25</Datum>
+          <Tijd>00:26:13.013</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>143354</Identificatie>
+          <Referte>DHOREFERTE</Referte>
+        </Afzender>
+
+        <Ontvanger>
+          <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-mock</Identificatie>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>Mijn referte</Referte>
+        <Uitzonderingen>
+          <Uitzondering>
+            <Identificatie>50030</Identificatie>
+            <Oorsprong>DHO</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2015-05-06</Datum>
+              <Tijd>17:29:51.106</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
+</raad:RaadpleegLeerkredietsaldoResponse>

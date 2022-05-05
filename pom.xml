@@ -16,6 +16,8 @@
 	<description>MAGDA diensten Mock voor afnemers</description>
 	<properties>
 		<java.version>11</java.version>
+		<mapstruct-lombok.version>0.2.0</mapstruct-lombok.version>
+		<lombok.version>1.18.22</lombok.version>
 	</properties>
 
 	<!-- infrastructure -->
@@ -33,9 +35,10 @@
 	</distributionManagement>
 
 	<modules>
-		<module>service</module>
-		<module>mock</module>
-		<module>connector</module>
+		<module>magdaservice</module>
+		<module>magdamock</module>
+		<module>magdaconnector</module>
+		<module>interfaces</module>
 	</modules>
 
 

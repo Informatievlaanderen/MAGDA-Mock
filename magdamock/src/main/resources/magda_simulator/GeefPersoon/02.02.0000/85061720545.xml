@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefPersoon</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-06-01</Datum>
+                    <Tijd>12:21:40.797</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+                    <Referte>XE:420:11815:1419</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>6048</Referte>
+                <Inhoud>
+                    <Persoon DatumCreatie="1971-09-09" DatumModificatie="2002-10-02">
+                        <INSZ>85061720545</INSZ>
+                        <Naam DatumBegin="1971-09-09">
+                            <Achternamen>
+                                <Achternaam>Pelemans</Achternaam>
+                            </Achternamen>
+                            <Voornamen>
+                                <Voornaam>Ronny</Voornaam>
+                            </Voornamen>
+                        </Naam>
+                        <Geslacht>
+                            <Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+                            <Omschrijving>Mannelijk</Omschrijving>
+                        </Geslacht>
+                        <Beheerder DatumBegin="2002-07-07">
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>24055</NISCode>
+                                    <Naam>Kortenberg</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Fusie>
+                                <Code>Code</Code>
+                                <Omschrijving Taal="nl">Omschrijving</Omschrijving>
+                            </Fusie>
+                            <Taalregime>
+                                <Code>2</Code>
+                                <Omschrijving>Frans</Omschrijving>
+                            </Taalregime>
+                        </Beheerder>
+                        <Register>
+                            <Code>02</Code>
+                            <Omschrijving Taal="nl">Omschrijving</Omschrijving>
+                        </Register>
+                        <Nationaliteiten>
+                            <Nationaliteit DatumBegin="1985-06-17">
+                                <Code>150</Code>
+                                <Omschrijving>Belg</Omschrijving>
+                            </Nationaliteit>
+                        </Nationaliteiten>
+                        <Geboorte DatumBegin="1985-06-17">
+                            <Datum>1985-06-17</Datum>
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>23016</NISCode>
+                                    <Naam>Dilbeek</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Aktenummer>00000</Aktenummer>
+                        </Geboorte>
+                        <BurgerlijkeStaten>
+                            <BurgerlijkeStaat DatumBegin="1985-06-17">
+                                <Code>10</Code>
+                                <Omschrijving>Ongehuwd</Omschrijving>
+                            </BurgerlijkeStaat>
+                        </BurgerlijkeStaten>
+                        <Adressen>
+                            <Hoofdverblijfplaats DatumBegin="2005-02-28">
+                                <Straatnaam>
+                                    <String>Rozenlaan</String>
+                                    <Taal>nl</Taal>
+                                </Straatnaam>
+                                <Huisnummer>15</Huisnummer>
+                                <Gemeentenaam>
+                                    <String>Bredene</String>
+                                    <Taal>nl</Taal>
+                                </Gemeentenaam>
+                                <Land>
+                                    <String>BELGIE</String>
+                                    <Taal>nl</Taal>
+                                </Land>
+                                <Postcode>8450</Postcode>
+                                <NISCodeLand>150</NISCodeLand>
+                                <ISOCodeLand>BEL</ISOCodeLand>
+                                <NISCodeGemeente>35002</NISCodeGemeente>
+                            </Hoofdverblijfplaats>
+                        </Adressen>
+                        <Afstammingen>
+                            <Afstamming DatumBegin="1985-06-17">
+                                <Type>
+                                    <Code>00</Code>
+                                    <Omschrijving>Kind</Omschrijving>
+                                </Type>
+                                <Ouders>
+                                    <Ouder>
+                                        <INSZ>43010199777</INSZ>
+                                        <Naam>
+                                            <Achternamen>
+                                                <Achternaam>Janssens</Achternaam>
+                                            </Achternamen>
+                                            <Voornamen>
+                                                <Voornaam>Elio</Voornaam>
+                                                <Voornaam>Franco</Voornaam>
+                                            </Voornamen>
+                                        </Naam>
+                                        <Geslacht>
+                                            <Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+                                            <Omschrijving>Mannelijk</Omschrijving>
+                                        </Geslacht>
+                                        <Geboortedatum>1943-01-01</Geboortedatum>
+                                    </Ouder>
+                                    <Ouder>
+                                        <INSZ>44071999884</INSZ>
+                                        <Naam>
+                                            <Achternamen>
+                                                <Achternaam>Dubois</Achternaam>
+                                            </Achternamen>
+                                            <Voornamen>
+                                                <Voornaam>Claudine</Voornaam>
+                                                <Voornaam>Marie</Voornaam>
+                                                <Voornaam>Ghislaine</Voornaam>
+                                            </Voornamen>
+                                        </Naam>
+                                        <Geslacht>
+                                            <Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+                                            <Omschrijving>Vrouwelijk</Omschrijving>
+                                        </Geslacht>
+                                        <Geboortedatum>1944-07-19</Geboortedatum>
+                                    </Ouder>
+                                </Ouders>
+                            </Afstamming>
+                        </Afstammingen>
+                        <Identiteitsbewijzen>
+                            <Identiteitsbewijs DatumBegin="2000-01-01">
+                                <Type>
+                                    <Code>0000</Code>
+                                    <Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
+                                </Type>
+                                <Nummer>654534735656</Nummer>
+                                <Vervalgegevens>
+                                    <Vervaldatum>2018-03-14</Vervaldatum>
+                                    <Tekst>Tekst</Tekst>
+                                </Vervalgegevens>
+                            </Identiteitsbewijs>
+                        </Identiteitsbewijzen>
+                    </Persoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefPersoonResponse>

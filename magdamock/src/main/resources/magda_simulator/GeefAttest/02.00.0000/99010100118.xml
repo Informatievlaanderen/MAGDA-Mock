@@ -1,0 +1,37 @@
+<web:GeefAttestResponse xmlns:web="http://webservice.geefattestdienst-02_00.persoon-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefAttest</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2018-05-29</Datum>
+                    <Tijd>09:04:21.120</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>c93de064-d012-43e6-b506-3c979fe9bafd</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-aip</Identificatie>
+                    <Referte>5E492874-2BE9-4D19-B178-F382C1397897</Referte>
+                    <Hoedanigheid>1300</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Uitzonderingen>
+            <Uitzondering>
+                <Identificatie>60007</Identificatie>
+                <Oorsprong>MAGDA</Oorsprong>
+                <Type>FOUT</Type>
+                <Tijdstip>
+                    <Datum>2018-05-29</Datum>
+                    <Tijd>09:04:21.121</Tijd>
+                </Tijdstip>
+                <Diagnose>Kan antwoord bron niet interpreteren</Diagnose>
+            </Uitzondering>
+        </Uitzonderingen>
+    </Repliek>
+</web:GeefAttestResponse>

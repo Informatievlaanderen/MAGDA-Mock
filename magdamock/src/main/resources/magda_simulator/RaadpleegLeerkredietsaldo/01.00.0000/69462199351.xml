@@ -1,0 +1,34 @@
+<raad:RaadpleegLeerkredietsaldoResponse xmlns:raad="http://raadpleegleerkredietsaldo.persoondienst-01_00.dho2.ov.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>RaadpleegLeerkredietsaldo</Naam>
+      <Versie>01.00.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2022-01-25</Datum>
+          <Tijd>00:26:13.013</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>143354</Identificatie>
+          <Referte>DHOREFERTE</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>aiv-</Identificatie>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Uitzonderingen>
+      <Uitzondering>
+        <Identificatie>99996</Identificatie>
+        <Oorsprong>DHO</Oorsprong>
+        <Type>FOUT</Type>
+        <Tijdstip>
+          <Datum>2017-03-08</Datum>
+          <Tijd>10:05:00.000</Tijd>
+        </Tijdstip>
+        <Diagnose>Te veel gelijktijdige bevragingen</Diagnose>
+      </Uitzondering>
+    </Uitzonderingen>
+  </Repliek>
+</raad:RaadpleegLeerkredietsaldoResponse>

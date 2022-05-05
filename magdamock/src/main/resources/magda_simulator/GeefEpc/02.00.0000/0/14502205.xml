@@ -1,0 +1,755 @@
+<ns3:GeefEpcResponse xmlns:ns3="http://webservice.geefepcdienst-02_00.energie-02_00.epb.vea.lne.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefEpc</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-12-12</Datum>
+                    <Tijd>13:51:59.504</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>87b9889d-26ff-473c-b453-f4a13fbc5e55</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/vkbp-aip-ml</Identificatie>
+                    <Referte>XE:1194:29721:9233</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>9233</Referte>
+                <Inhoud>
+                    <MijnEnergieDetails>
+                        <EnergieEenheid>
+                            <Epc id="149378">
+                                <Identificatie>
+                                    <Attestnummer>20091010-0000177165-00000015-3</Attestnummer>
+                                </Identificatie>
+                                <BouwjaarGekend>false</BouwjaarGekend>
+                                <DatumModificatie>2009-10-10T00:00:00+02:00</DatumModificatie>
+                                <Actief>true</Actief>
+                                <Status>Geldig</Status>
+                                <DatumIngediend>2009-10-10</DatumIngediend>
+                                <DatumGeldigheid>2019-10-10</DatumGeldigheid>
+                                <Scores>
+                                    <Score type="primaireEnergieVerbruikPerVierkanteMeter">
+                                        <Waarde meeteenheid="kWh/m²">340.00</Waarde>
+                                        <GemiddeldeWaardeGemeente meeteenheid="kWh/m²">442.81</GemiddeldeWaardeGemeente>
+                                        <GemiddeldeWaardeProvincie meeteenheid="kWh/m²">429.67</GemiddeldeWaardeProvincie>
+                                        <GemiddeldeWaardeVlaanderen meeteenheid="kWh/m²">420.02</GemiddeldeWaardeVlaanderen>
+                                    </Score>
+                                    <Score type="co2Emissie">
+                                        <Waarde meeteenheid="Kg/jaar">12762.36</Waarde>
+                                    </Score>
+                                    <Score type="gemiddeldeUwaardeSchil">
+                                        <Waarde meeteenheid="W/m²K">0.00</Waarde>
+                                        <GemiddeldeWaardeGemeente meeteenheid="W/m²K">1.43</GemiddeldeWaardeGemeente>
+                                        <GemiddeldeWaardeProvincie meeteenheid="W/m²K">1.47</GemiddeldeWaardeProvincie>
+                                        <GemiddeldeWaardeVlaanderen meeteenheid="W/m²K">1.47</GemiddeldeWaardeVlaanderen>
+                                    </Score>
+                                    <Score type="totaalPrimaireEnergieverbruik">
+                                        <Waarde meeteenheid="kWh/jaar">97478.61</Waarde>
+                                    </Score>
+                                    <Score type="gemiddeldInstallatierendementVoorRuimteverwarming">
+                                        <Waarde>0.66</Waarde>
+                                    </Score>
+                                    <ScoreKleur>
+                                        <Code>#b4da08</Code>
+                                        <Balk>
+                                            <Inhoud>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgJy0vL1czQy8vRFREIFNWRyAxLjAvL0VOJwogICAgICAgICAgJ2h0dHA6Ly93d3cudzMub3JnL1RSLzIwMDEvUkVDLVNWRy0yMDAxMDkwNC9EVEQvc3ZnMTAuZHRkJz4KPHN2ZyBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTpub25lOyBzaGFwZS1yZW5kZXJpbmc6YXV0bzsgZm9udC1mYW1pbHk6J0RpYWxvZyc7IHRleHQtcmVuZGVyaW5nOmF1dG87IGZpbGwtb3BhY2l0eToxOyBjb2xvci1pbnRlcnBvbGF0aW9uOmF1dG87IGNvbG9yLXJlbmRlcmluZzphdXRvOyBmb250LXNpemU6MTJweDsgZmlsbDpibGFjazsgc3Ryb2tlOmJsYWNrOyBpbWFnZS1yZW5kZXJpbmc6YXV0bzsgc3Ryb2tlLW1pdGVybGltaXQ6MTA7IHN0cm9rZS1saW5lY2FwOnNxdWFyZTsgc3Ryb2tlLWxpbmVqb2luOm1pdGVyOyBmb250LXN0eWxlOm5vcm1hbDsgc3Ryb2tlLXdpZHRoOjE7IHN0cm9rZS1kYXNob2Zmc2V0OjA7IGZvbnQtd2VpZ2h0Om5vcm1hbDsgc3Ryb2tlLW9wYWNpdHk6MTsiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjUwMCIgY29udGVudFNjcmlwdFR5cGU9InRleHQvZWNtYXNjcmlwdCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHpvb21BbmRQYW49Im1hZ25pZnkiIHZlcnNpb249IjEuMCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjAwIgo+PCEtLUdlbmVyYXRlZCBieSB0aGUgQmF0aWsgR3JhcGhpY3MyRCBTVkcgR2VuZXJhdG9yLS0+PGRlZnMgaWQ9ImdlbmVyaWNEZWZzIgogIC8+PGcKICA+PGRlZnMgaWQ9ImRlZnMxIgogICAgPjxsaW5lYXJHcmFkaWVudCB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgaWQ9ImdyYWRpZW50MSIgc3R5bGU9ImNvbG9yLWludGVycG9sYXRpb246c1JHQjsiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBzcHJlYWRNZXRob2Q9InBhZCIgeGxpbms6c2hvdz0icmVwbGFjZSIgeGxpbms6dHlwZT0ic2ltcGxlIiB4MT0iMC4wIiB5MT0iMC4wIiB4Mj0iNDAwLjAiIHkyPSIwLjAiIHhsaW5rOmFjdHVhdGU9Im9uUmVxdWVzdCIKICAgICAgPjxzdG9wIHN0eWxlPSJzdG9wLWNvbG9yOnJnYigzOSwxNDMsNjgpOyIgb2Zmc2V0PSIwJSIKICAgICAgICAvPjxzdG9wIHN0eWxlPSJzdG9wLWNvbG9yOnJnYigzOSwxNDMsNjgpOyIgb2Zmc2V0PSIzMCUiCiAgICAgICAgLz48c3RvcCBzdHlsZT0ic3RvcC1jb2xvcjp5ZWxsb3c7IiBvZmZzZXQ9IjY1JSIKICAgICAgICAvPjxzdG9wIHN0eWxlPSJzdG9wLWNvbG9yOnJnYigyNTUsMTcsMTYpOyIgb2Zmc2V0PSIxMDAlIgogICAgICAvPjwvbGluZWFyR3JhZGllbnQKICAgID48L2RlZnMKICAgID48ZyBzdHlsZT0iZmlsbDp1cmwoI2dyYWRpZW50MSk7IHN0cm9rZTp1cmwoI2dyYWRpZW50MSk7IgogICAgPjxyZWN0IHg9IjYwIiB5PSI0MCIgd2lkdGg9IjQwMCIgc3R5bGU9InN0cm9rZTpub25lOyIgaGVpZ2h0PSIxMCIKICAgICAgLz48bGluZSB4MT0iODUiIHgyPSI0MzUiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNTAiCiAgICAgIC8+PGxpbmUgeDE9Ijg1IiB4Mj0iODUiIHkxPSI0MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iODIiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+MDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjExMCIgeDI9IjExMCIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIxMDQiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+NTA8L3RleHQKICAgICAgPjxsaW5lIHgxPSIxMzUiIHgyPSIxMzUiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iMTI2IiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjEwMDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjE2MCIgeDI9IjE2MCIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIxNTEiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+MTUwPC90ZXh0CiAgICAgID48bGluZSB4MT0iMTg1IiB4Mj0iMTg1IiB5MT0iNTAiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTpncmF5OyBzdHJva2Utd2lkdGg6MC41OyIgeTI9IjYwIgogICAgICAvPjx0ZXh0IHg9IjE3NiIgeT0iNjgiIHN0eWxlPSJmaWxsOmJsYWNrOyBzdHJva2U6bm9uZTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgID4yMDA8L3RleHQKICAgICAgPjxsaW5lIHgxPSIyMTAiIHgyPSIyMTAiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iMjAxIiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjI1MDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjIzNSIgeDI9IjIzNSIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIyMjYiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+MzAwPC90ZXh0CiAgICAgID48bGluZSB4MT0iMjYwIiB4Mj0iMjYwIiB5MT0iNTAiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTpncmF5OyBzdHJva2Utd2lkdGg6MC41OyIgeTI9IjYwIgogICAgICAvPjx0ZXh0IHg9IjI1MSIgeT0iNjgiIHN0eWxlPSJmaWxsOmJsYWNrOyBzdHJva2U6bm9uZTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgID4zNTA8L3RleHQKICAgICAgPjxsaW5lIHgxPSIyODUiIHgyPSIyODUiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iMjc2IiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjQwMDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjMxMCIgeDI9IjMxMCIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIzMDEiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+NDUwPC90ZXh0CiAgICAgID48bGluZSB4MT0iMzM1IiB4Mj0iMzM1IiB5MT0iNTAiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTpncmF5OyBzdHJva2Utd2lkdGg6MC41OyIgeTI9IjYwIgogICAgICAvPjx0ZXh0IHg9IjMyNiIgeT0iNjgiIHN0eWxlPSJmaWxsOmJsYWNrOyBzdHJva2U6bm9uZTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgID41MDA8L3RleHQKICAgICAgPjxsaW5lIHgxPSIzNjAiIHgyPSIzNjAiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iMzUxIiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjU1MDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjM4NSIgeDI9IjM4NSIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIzNzYiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+NjAwPC90ZXh0CiAgICAgID48bGluZSB4MT0iNDEwIiB4Mj0iNDEwIiB5MT0iNTAiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTpncmF5OyBzdHJva2Utd2lkdGg6MC41OyIgeTI9IjYwIgogICAgICAvPjx0ZXh0IHg9IjQwMSIgeT0iNjgiIHN0eWxlPSJmaWxsOmJsYWNrOyBzdHJva2U6bm9uZTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgID42NTA8L3RleHQKICAgICAgPjxsaW5lIHgxPSI0MzUiIHgyPSI0MzUiIHkxPSI0MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iNDI2IiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjcwMDwvdGV4dAogICAgICA+PHBvbHlnb24gc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZS13aWR0aDowLjU7IHN0cm9rZTpub25lOyIgcG9pbnRzPSIgMjQ1IDMwIDI1NSA0MCAyNjUgMzAiCiAgICAgIC8+PHRleHQgeD0iMjQ0IiB5PSIyNSIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjM0MDwvdGV4dAogICAgPjwvZwogID48L2cKPjwvc3ZnCj4K</Inhoud>
+                                            <Extensie>svg</Extensie>
+                                        </Balk>
+                                    </ScoreKleur>
+                                </Scores>
+                                <Ligging>
+                                    <Adres>
+                                        <Straat>
+                                            <Naam>Houte</Naam>
+                                        </Straat>
+                                        <HuisNummer>123</HuisNummer>
+                                        <Gemeente>
+                                            <PostCode>9860</PostCode>
+                                            <Naam>Oosterzele</Naam>
+                                        </Gemeente>
+                                    </Adres>
+                                </Ligging>
+                                <EpcEenheidType>EPC bestaand</EpcEenheidType>
+                                <Personen>
+                                    <Persoon>
+                                        <NatuurlijkPersoon>
+                                            <Voornaam>BEA</Voornaam>
+                                            <Naam>MERCKX</Naam>
+                                        </NatuurlijkPersoon>
+                                        <Registratie>
+                                            <EpCode>EP09350</EpCode>
+                                            <Organisatie>
+                                                <Firmanaam>MERCKX CONSULT</Firmanaam>
+                                                <Rechtsvorm>Gewone commanditaire vennootschap</Rechtsvorm>
+                                                <KboNummer>0811365606</KboNummer>
+                                            </Organisatie>
+                                            <Rol>
+                                                <TypeRol>Energiedeskundige</TypeRol>
+                                            </Rol>
+                                        </Registratie>
+                                    </Persoon>
+                                </Personen>
+                                <Details>
+                                    <BeschermdVolume meeteenheid="m³">850.39</BeschermdVolume>
+                                    <Bestemming>Wonen</Bestemming>
+                                    <Bouwvorm>Halfopen bebouwing</Bouwvorm>
+                                    <BrutoVloerOppervlakte meeteenheid="m²">286.48</BrutoVloerOppervlakte>
+                                    <GebouwType>Eéngezinswoning</GebouwType>
+                                    <Schildelen>
+                                        <Schildeel>
+                                            <Type>Voorgevel</Type>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Naam>straatkant</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">32.27</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">1.389</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>raam-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.64</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>straatkant-O3-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.27</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>raam-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.64</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Deur of poort</Categorie>
+                                                    <Naam>straatkant-O4-D1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">8.45</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Geen profiel</Type>
+                                                    </Profiel>
+                                                    <UWaarde meeteenheid="W/m²K">4.000</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Deur of poort</Categorie>
+                                                    <Naam>straatkant-O5-D1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">2.13</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Geen profiel</Type>
+                                                    </Profiel>
+                                                    <UWaarde meeteenheid="W/m²K">4.000</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Naam>binnekoer</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">29.03</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">1.389</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>raam-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.86</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>raam-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.86</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Naam>VG-G3</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.25</NettoOppervlakte>
+                                                    <Begrenzing>AOR</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">2.174</UWaarde>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">76.40</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Type>Achtergevel</Type>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Naam>binnenkoer</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">17.43</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">1.389</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>binnenkoer-O1-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>binnenkoer-O2-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Deur of poort</Categorie>
+                                                    <Naam>binnenkoer-O3-D1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">2.01</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Geen profiel</Type>
+                                                    </Profiel>
+                                                    <UWaarde meeteenheid="W/m²K">4.000</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Naam>achteraan</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">42.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">1.389</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>achteraan-O1-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>achteraan-O5-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>achteraan-O6-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>achteraan-O7-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>achteraan-O8-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>achteraan-O9-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.28</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Naam>voutekamer</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.25</NettoOppervlakte>
+                                                    <Begrenzing>AOR</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">2.174</UWaarde>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">70.77</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Type>Linkergevel</Type>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Naam>LG-G1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">58.32</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">1.389</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>LG-G1-O1-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.64</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>LG-G1-O9-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.64</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>LG-G1-O10-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.64</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>LG-G1-O11-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.64</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>LG-G1-O12-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.64</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>LG-G1-O13-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.64</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>LG-G1-O14-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.64</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>LG-G1-O15-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.64</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Deur of poort</Categorie>
+                                                    <Naam>LG-G1-O16-D1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.89</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Geen profiel</Type>
+                                                    </Profiel>
+                                                    <UWaarde meeteenheid="W/m²K">4.000</UWaarde>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">65.33</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Type>Rechtergevel</Type>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Naam>binnenkoer</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">13.93</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">1.389</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>binnenkoer-O1-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>binnenkoer-O6-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>binnenkoer-O7-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>binnenkoer-O8-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>binnenkoer-O9-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.10</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Gewone dubbele beglazing</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>binnenkoer-O10-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.89</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">1.970</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Naam>binnenkoer-O11-B1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.89</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <Profiel>
+                                                        <Type>Hout</Type>
+                                                    </Profiel>
+                                                    <Beglazing>
+                                                        <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">1.970</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Naam>voutekamer</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">2.25</NettoOppervlakte>
+                                                    <Begrenzing>AOR</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">2.174</UWaarde>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">25.46</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Type>Hellend dak voor</Type>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Dak</Categorie>
+                                                    <Naam>DV-HD1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">35.22</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">1.370</UWaarde>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">35.22</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Type>Hellend dak achter</Type>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Dak</Categorie>
+                                                    <Naam>DA-HD1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">22.00</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">1.370</UWaarde>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">22.00</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Type>Hellend dak links</Type>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Dak</Categorie>
+                                                    <Naam>DL-HD1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">11.65</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.752</UWaarde>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">11.65</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Type>Hellend dak rechts</Type>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Dak</Categorie>
+                                                    <Naam>DR-HD1</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">3.91</NettoOppervlakte>
+                                                    <Begrenzing>Buiten</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.752</UWaarde>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">3.91</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Type>Plafond</Type>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Plafond</Categorie>
+                                                    <Naam>boven inkom</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">23.15</NettoOppervlakte>
+                                                    <UWaarde meeteenheid="W/m²K">1.333</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Plafond</Categorie>
+                                                    <Naam>boven keuken</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">20.94</NettoOppervlakte>
+                                                    <Isolatielagen>
+                                                        <Isolatielaag>
+                                                            <NaamMateriaal>MW</NaamMateriaal>
+                                                            <DikteIsolatieMateriaal meeteenheid="mm">140</DikteIsolatieMateriaal>
+                                                        </Isolatielaag>
+                                                    </Isolatielagen>
+                                                    <UWaarde meeteenheid="W/m²K">0.317</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Plafond</Categorie>
+                                                    <Naam>rest</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">95.94</NettoOppervlakte>
+                                                    <Isolatielagen>
+                                                        <Isolatielaag>
+                                                            <NaamMateriaal>MW</NaamMateriaal>
+                                                            <DikteIsolatieMateriaal meeteenheid="mm">80</DikteIsolatieMateriaal>
+                                                        </Isolatielaag>
+                                                    </Isolatielagen>
+                                                    <UWaarde meeteenheid="W/m²K">0.513</UWaarde>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">140.03</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Type>Vloer</Type>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Vloer</Categorie>
+                                                    <Naam>voutekamer</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">13.60</NettoOppervlakte>
+                                                    <Begrenzing>AOR</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">2.041</UWaarde>
+                                                </Constructiedeel>
+                                                <Constructiedeel>
+                                                    <Categorie>Vloer</Categorie>
+                                                    <Naam>rest van de woning</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">272.86</NettoOppervlakte>
+                                                    <Begrenzing>Grond</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.758</UWaarde>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">286.46</Oppervlakte>
+                                        </Schildeel>
+                                    </Schildelen>
+                                    <Installaties>
+                                        <InstallatiesVoorRuimteverwarming>
+                                            <InstallatieVoorRuimteVerwarming>
+                                                <Opwekkingstoestellen>
+                                                    <Opwekkingstoestel>
+                                                        <SoortOpwekkingstoestel>Individueel</SoortOpwekkingstoestel>
+                                                        <TypeOpwekkingstoestel>Niet condenserend gesloten - Gasketel</TypeOpwekkingstoestel>
+                                                        <ToestelBinnenHetBeschermdVolume>true</ToestelBinnenHetBeschermdVolume>
+                                                        <FabricagejaarKetel>2004</FabricagejaarKetel>
+                                                    </Opwekkingstoestel>
+                                                </Opwekkingstoestellen>
+                                                <Afgiftesystemen>
+                                                    <SoortAfgifteSysteem>Radiatoren/convectoren</SoortAfgifteSysteem>
+                                                </Afgiftesystemen>
+                                            </InstallatieVoorRuimteVerwarming>
+                                        </InstallatiesVoorRuimteverwarming>
+                                        <InstallatiesVoorSanitairWarmWater>
+                                            <InstallatieVoorSanitairWarmWater>
+                                                <Opwekkingstoestellen>
+                                                    <Opwekkingstoestel>
+                                                        <SoortOpwekkingstoestel>Individueel</SoortOpwekkingstoestel>
+                                                        <TypeOpwekkingstoestel>Gas doorstroom</TypeOpwekkingstoestel>
+                                                    </Opwekkingstoestel>
+                                                </Opwekkingstoestellen>
+                                                <OpslagvatAanwezig>false</OpslagvatAanwezig>
+                                            </InstallatieVoorSanitairWarmWater>
+                                        </InstallatiesVoorSanitairWarmWater>
+                                        <Koelingen>
+                                            <Koeling>
+                                                <ActieveKoeling>false</ActieveKoeling>
+                                            </Koeling>
+                                        </Koelingen>
+                                        <VentilatieSystemen>
+                                            <VentilatieSysteem>
+                                                <TypeVentilatiesysteem>Geen mechanische af- of toevoer</TypeVentilatiesysteem>
+                                            </VentilatieSysteem>
+                                        </VentilatieSystemen>
+                                    </Installaties>
+                                </Details>
+                            </Epc>
+                        </EnergieEenheid>
+                    </MijnEnergieDetails>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</ns3:GeefEpcResponse>

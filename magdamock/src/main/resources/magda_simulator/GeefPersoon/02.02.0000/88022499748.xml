@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-08-07</Datum>
+					<Tijd>08:27:26.867</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>40871d03-f7d7-43ed-b316-6125754b85d1</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+					<Referte>XE:1086:25971:8415</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>8415</Referte>
+				<Inhoud>
+					<Persoon DatumCreatie="1988-02-24" DatumModificatie="1996-03-03">
+						<INSZ>88022499748</INSZ>
+						<Naam DatumBegin="1902-08-08">
+							<Achternamen>
+								<Achternaam>Janssens</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Alfredo</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Omschrijving>Mannelijk</Omschrijving>
+						</Geslacht>
+						<Statussen>
+							<Status DatumBegin="1994-04-28">
+								<Code>992</Code>
+								<Omschrijving>Afgeschreven naar het buitenland</Omschrijving>
+							</Status>
+						</Statussen>
+						<Beheerder DatumBegin="1987-04-03">
+							<Plaats>
+								<Gemeente>
+									<NISCode>24055</NISCode>
+									<Naam>Kortenberg</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>2</Code>
+								<Omschrijving Taal="nl">Frans</Omschrijving>
+
+							</Taalregime>
+						</Beheerder>
+						<Register DatumBegin="1987-04-03">
+							<Code>3</Code>
+							<Omschrijving>Ambtenaar Europese Unie (omzendbrief 13 maart 1989</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1902-08-08">
+								<Code>128</Code>
+								<Omschrijving>Italië</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="1902-08-08">
+								<Code>10</Code>
+								<Omschrijving>Ongehuwd</Omschrijving>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="2014-05-23">								
+								<Straatnaam>
+									<String>Dorpsstraat</String>
+									<Taal>nl</Taal>
+								</Straatnaam>
+								<Huisnummer>405</Huisnummer>
+								<Gemeentenaam>
+									<String>Kortenberg</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>BELGIE</String>
+									<Taal>nl</Taal>
+								</Land>
+								<Postcode>2340</Postcode>
+								<NISCodeLand>150</NISCodeLand>
+								<ISOCodeLand>BEL</ISOCodeLand>
+								<NISCodeGemeente>24055</NISCodeGemeente>
+							</Hoofdverblijfplaats>
+							<AangifteAdreswijziging DatumBegin="1994-04-28">
+								<Datum>1994-04-28</Datum>
+								<Tekst>rayé pour l'étranger (serait décédé)</Tekst>
+							</AangifteAdreswijziging>
+						</Adressen>
+						<Afstammingen>
+							<Afstamming DatumBegin="1902-08-08">
+								<Type>
+									<Code>08</Code>
+									<Omschrijving>Onbekende afstamming</Omschrijving>
+								</Type>
+							</Afstamming>
+						</Afstammingen>
+						<AfstammingenDalendeLijn>
+							<AfstammingDalendeLijn DatumBegin="2013-12-17">
+								<Type>
+									<Code>12</Code>
+									<Omschrijving>Kind</Omschrijving>
+								</Type>
+								<Kind>
+									<INSZ>13121799842</INSZ>
+									<Naam>
+										<Achternamen>
+											<Achternaam>Janssens</Achternaam>
+										</Achternamen>
+										<Voornamen>
+											<Voornaam>Mieke</Voornaam>
+										</Voornamen>
+									</Naam>
+									<Geslacht>
+										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+										<Omschrijving>Vrouwelijk</Omschrijving>
+									</Geslacht>
+									<Geboortedatum>1988-02-24</Geboortedatum>
+								</Kind>
+							</AfstammingDalendeLijn>
+							<AfstammingDalendeLijn DatumBegin="2010-01-11">
+								<Type>
+									<Code>12</Code>
+									<Omschrijving>Kind</Omschrijving>
+								</Type>
+								<Kind>
+									<INSZ>10011199882</INSZ>
+									<Naam>
+										<Achternamen>
+											<Achternaam>Janssens</Achternaam>
+										</Achternamen>
+										<Voornamen>
+											<Voornaam>Moniekske</Voornaam>
+										</Voornamen>
+									</Naam>
+									<Geslacht>
+										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+										<Omschrijving>Vrouwelijk</Omschrijving>
+									</Geslacht>
+									<Geboortedatum>2010-01-11</Geboortedatum>
+								</Kind>
+							</AfstammingDalendeLijn>
+						</AfstammingenDalendeLijn>
+						<Referentiepersoon DatumBegin="1987-04-03" DatumEinde="1994-04-28">
+							<INSZ>33040499789</INSZ>
+							<Naam>
+								<Achternamen>
+									<Achternaam>Janssens</Achternaam>
+								</Achternamen>
+								<Voornamen>
+									<Voornaam>Rocco</Voornaam>
+								</Voornamen>
+							</Naam>
+							<Geslacht>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+								<Omschrijving>Mannelijk</Omschrijving>
+							</Geslacht>
+							<Geboortedatum>1933-04-04</Geboortedatum>
+							<Positie>
+								<Code>06</Code>
+								<Omschrijving>Vader</Omschrijving>
+							</Positie>
+						</Referentiepersoon>
+						<Gezinsleden>
+							<Gezinslid DatumBegin="1994-04-28">
+								<Positie>
+									<Code>01</Code>
+									<Omschrijving>Alleenstaand</Omschrijving>
+								</Positie>
+							</Gezinslid>
+						</Gezinsleden>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>
+

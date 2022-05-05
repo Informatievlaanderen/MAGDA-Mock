@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-08-03</Datum>
+					<Tijd>10:00:44.368</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>6889d772-131e-4c66-849a-753aba23ca13</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-bo</Identificatie>
+					<Referte>XE:1086:25921:8391</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>8391</Referte>
+				<Inhoud>
+					<Persoon DatumCreatie="1985-09-12" DatumModificatie="2014-09-17">
+						<INSZ>63020199719</INSZ>
+						<Naam DatumBegin="1963-02-01">
+							<Achternamen>
+								<Achternaam>Janssens</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Philippe</Voornaam>
+								<Voornaam>Henri</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Omschrijving>Mannelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="2014-09-02">
+							<Plaats>
+								<Land>
+									<NISCode>112</NISCode>
+									<ISOCode>GBR</ISOCode>
+									<Naam>Verenigd Koninkrijk</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>2</Code>
+								<Omschrijving>Frans</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register>
+							<Code>02</Code>
+							<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1963-02-01">
+								<Code>150</Code>
+								<Omschrijving>Belg</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1963-02-01">
+							<Datum>1963-02-01</Datum>
+							<Plaats>
+								<Gemeente>
+									<NISCode>24055</NISCode>
+									<Naam>Kortenberg</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer>00000</Aktenummer>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="2014-09-09">
+								<Code>51</Code>
+								<Omschrijving>Gescheiden van tafel en bed</Omschrijving>
+								<Partner>
+									<INSZ>69102699733</INSZ>
+									<Naam>
+										<Achternamen>
+											<Achternaam>Dubois</Achternaam>
+										</Achternamen>
+										<Voornamen>
+											<Voornaam>Eric</Voornaam>
+											<Voornaam>Roland</Voornaam>
+											<Voornaam>Emile</Voornaam>
+										</Voornamen>
+									</Naam>
+									<Geslacht>
+										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+										<Omschrijving>Mannelijk</Omschrijving>
+									</Geslacht>
+									<Geboortedatum>1969-10-26</Geboortedatum>
+								</Partner>
+								<Plaats>
+									<Gemeente>
+										<NISCode>73066</NISCode>
+										<Naam>Riemst</Naam>
+									</Gemeente>
+									<Land>
+										<NISCode>150</NISCode>
+										<ISOCode>BEL</ISOCode>
+										<Naam>BELGIE</Naam>
+									</Land>
+								</Plaats>
+								<Aktenummer>0105</Aktenummer>
+								<Uitspraak>
+									<Datum>2014-09-08</Datum>
+									<Rechtbank>
+										<Code>02</Code>
+										<Omschrijving>Arrest van het Hof van Beroep</Omschrijving>
+									</Rechtbank>
+									<OverschrijvingRegister>
+										<Datum>2014-09-09</Datum>
+										<Plaats>
+											<Gemeente>
+												<NISCode>23025</NISCode>
+												<Naam>Grimbergen</Naam>
+											</Gemeente>
+											<Land>
+												<NISCode>150</NISCode>
+												<ISOCode>BEL</ISOCode>
+												<Naam>BELGIE</Naam>
+											</Land>
+										</Plaats>
+									</OverschrijvingRegister>
+								</Uitspraak>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="1997-12-13">														
+								<Straatnaam>
+									<String>Dorpsstraat</String>
+									<Taal>nl</Taal>
+								</Straatnaam>
+								<Huisnummer>405</Huisnummer>
+								<Gemeentenaam>
+									<String>Kortenberg</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>BELGIE</String>
+									<Taal>nl</Taal>
+								</Land>
+								<Postcode>2340</Postcode>
+								<NISCodeLand>150</NISCodeLand>
+								<ISOCodeLand>BEL</ISOCodeLand>
+								<NISCodeGemeente>24055</NISCodeGemeente>
+							</Hoofdverblijfplaats>
+							<VerblijfplaatsBuitenland DatumBegin="2014-09-05">
+								<DiplomatiekePost>
+									<Code>1267</Code>
+									<Omschrijving>Parijs</Omschrijving>
+									<Land>
+										<NISCode>111</NISCode>
+										<ISOCode>FRA</ISOCode>
+										<Naam>Frankrijk</Naam>
+									</Land>
+								</DiplomatiekePost>
+								<Land>
+									<NISCode>111</NISCode>
+									<ISOCode>FRA</ISOCode>
+									<Naam>Frankrijk</Naam>
+								</Land>
+								<Teksten>
+									<Tekst>3, Rue des Moulins</Tekst>
+									<Tekst>11360 - Albas</Tekst>
+								</Teksten>
+							</VerblijfplaatsBuitenland>
+							<PostadresBuitenland DatumBegin="2007-02-20" DatumEinde="2014-09-01">
+								<Land>
+									<NISCode>235</NISCode>
+									<ISOCode>THA</ISOCode>
+									<Naam>Thailand</Naam>
+								</Land>
+								<Teksten>
+									<Tekst>Londen,SW3 3PP</Tekst>
+									<Tekst>Test</Tekst>
+								</Teksten>
+							</PostadresBuitenland>
+						</Adressen>
+						<Afstammingen>
+							<Afstamming DatumBegin="1963-02-01">
+								<Type>
+									<Code>00</Code>
+									<Omschrijving>Kind</Omschrijving>
+								</Type>
+								<Ouders>
+									<Ouder>
+										<INSZ>33092499709</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Janssens</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Jacques</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+											<Omschrijving>Mannelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>1933-09-24</Geboortedatum>
+									</Ouder>
+									<Ouder>
+										<INSZ>36122299855</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Peeters</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Sabina</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+											<Omschrijving>Vrouwelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>1936-12-22</Geboortedatum>
+									</Ouder>
+								</Ouders>
+							</Afstamming>
+						</Afstammingen>
+						<Referentiepersoon DatumBegin="1996-04-16" DatumEinde="1997-12-13">
+							<INSZ>33092499709</INSZ>
+							<Naam>
+								<Achternamen>
+									<Achternaam>Janssensh</Achternaam>
+								</Achternamen>
+								<Voornamen>
+									<Voornaam>Jacques</Voornaam>
+								</Voornamen>
+							</Naam>
+							<Geslacht>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+								<Omschrijving>Mannelijk</Omschrijving>
+							</Geslacht>
+							<Geboortedatum>1933-09-24</Geboortedatum>
+							<Positie>
+								<Code>03</Code>
+								<Omschrijving>Zoon</Omschrijving>
+							</Positie>
+						</Referentiepersoon>
+						<Gezinsleden>
+							<Gezinslid DatumBegin="1997-12-13">
+								<Positie>
+									<Code>01</Code>
+									<Omschrijving>Alleenstaand</Omschrijving>
+								</Positie>
+							</Gezinslid>
+						</Gezinsleden>
+						<Identiteitsbewijzen>
+							<Identiteitsbewijs DatumBegin="2003-09-17">
+								<Type>
+									<Code>0000</Code>
+									<Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
+								</Type>
+								<Nummer>346335555664</Nummer>
+
+								<Vervalgegevens>
+									<Vervaldatum>2013-09-16</Vervaldatum>
+									<Tekst>Tekst</Tekst>
+								</Vervalgegevens>
+								<Plaats>
+									<Land>
+										<NISCode>112</NISCode>
+										<ISOCode>GBR</ISOCode>
+										<Naam>Verenigd Koninkrijk</Naam>
+									</Land>
+								</Plaats>
+							</Identiteitsbewijs>
+						</Identiteitsbewijzen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>
+

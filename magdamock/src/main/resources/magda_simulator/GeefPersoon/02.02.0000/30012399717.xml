@@ -1,0 +1,148 @@
+<geef:GeefPersoonResponse xmlns:geef="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-05-05</Datum>
+					<Tijd>07:46:52.589</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>MagdaGateway</Naam>
+					<Referte>c42275a3-f433-4fa1-b469-e47651f08208</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>wse.vlaanderen.be/vdab/mint-aip-bo</Identificatie>
+					<Referte>XE:193:25162:8280</Referte>
+					<Hoedanigheid>801</Hoedanigheid>
+					<Gebruiker>77050526771</Gebruiker>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>vraagreferte</Referte>
+				<Inhoud>
+					<Persoon DatumCreatie="1969-11-01" DatumModificatie="1997-09-16">
+						<INSZ>30012399717</INSZ>
+						<Naam DatumBegin="1930-01-23">
+							<Achternamen>
+								<Achternaam>Janssens</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Jan</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code>1</Code>
+							<Omschrijving>Mannelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="1930-01-23">
+							<Plaats>
+								<Gemeente>
+									<NISCode>72020</NISCode>
+									<Naam>Lommel</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>2</Code>
+								<Omschrijving Taal="nl">Frans</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register>
+							<Code>02</Code>
+							<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1930-01-23">
+								<Code>150</Code>
+								<Omschrijving>BELGIE</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1930-01-23">
+							<Datum>1930-01-23</Datum>
+							<Plaats>
+								<Gemeente>
+									<NISCode>72020</NISCode>
+									<Naam>Lommel</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer>0058</Aktenummer>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="1997-08-27">
+								<Code>30</Code>
+								<Omschrijving>Weduwnaar</Omschrijving>
+								<Plaats>
+									<Gemeente>
+										<NISCode>35013</NISCode>
+										<Naam>Oostende</Naam>
+									</Gemeente>
+									<Land>
+										<NISCode>150</NISCode>
+										<ISOCode>BEL</ISOCode>
+										<Naam>BELGIE</Naam>
+									</Land>
+								</Plaats>
+								<Aktenummer>0821</Aktenummer>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="1959-06-01">					
+								<Straatnaam>
+									<String>Balendijk</String>
+									<Taal>nl</Taal>
+								</Straatnaam>
+								<Huisnummer>85</Huisnummer>
+								<Gemeentenaam>
+									<String>Lommel</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>BELGIE</String>
+									<Taal>nl</Taal>
+								</Land>
+								<Postcode>3920</Postcode>
+								<NISCodeGemeente>72020</NISCodeGemeente>                                                               
+							</Hoofdverblijfplaats>
+						</Adressen>
+						<Gezinsleden>
+							<Gezinslid DatumBegin="1997-08-27">
+								<Positie>
+									<Code>01</Code>
+									<Omschrijving>Alleenstaand</Omschrijving>
+								</Positie>
+							</Gezinslid>
+						</Gezinsleden>
+						<Identiteitsbewijzen>
+							<Identiteitsbewijs DatumBegin="1989-03-07">
+								<Type>
+									<Code>0000</Code>
+									<Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
+								</Type>
+								<Nummer>486001838733</Nummer>
+							</Identiteitsbewijs>
+						</Identiteitsbewijzen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</geef:GeefPersoonResponse>

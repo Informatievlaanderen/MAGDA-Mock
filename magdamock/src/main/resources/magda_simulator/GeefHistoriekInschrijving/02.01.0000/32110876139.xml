@@ -1,0 +1,48 @@
+<web:GeefHistoriekInschrijvingResponse
+        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefHistoriekInschrijving</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2016-03-15</Datum>
+                    <Tijd>08:39:50.573</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>c4662841-745e-419f-8683-b99128a842ff</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>uri</Identificatie>
+                    <Referte>XE:760:19849:1989</Referte>
+                    <Hoedanigheid>188</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Uitzonderingen>
+            <Uitzondering>
+                <Identificatie>99996</Identificatie>
+                <Oorsprong>MAGDA</Oorsprong>
+                <Type>FOUT</Type>
+                <Tijdstip>
+                    <Datum>2017-03-08</Datum>
+                    <Tijd>10:05:00</Tijd>
+                </Tijdstip>
+                <Diagnose>Te veel gelijktijdige bevragingen</Diagnose>
+            </Uitzondering>
+            <Uitzondering>
+                <Identificatie>99997</Identificatie>
+                <Oorsprong>MAGDA</Oorsprong>
+                <Type>FOUT</Type>
+                <Tijdstip>
+                    <Datum>2017-03-08</Datum>
+                    <Tijd>10:05:01</Tijd>
+                </Tijdstip>
+                <Diagnose>Achterliggende service niet bereikbaar</Diagnose>
+            </Uitzondering>
+        </Uitzonderingen>
+    </Repliek>
+</web:GeefHistoriekInschrijvingResponse>

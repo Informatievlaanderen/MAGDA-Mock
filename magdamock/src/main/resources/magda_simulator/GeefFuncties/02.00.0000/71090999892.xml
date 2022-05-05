@@ -1,0 +1,114 @@
+<web:GeefFunctiesResponse xmlns:web="http://webservice.geeffunctiesdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefFuncties</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-03-30</Datum>
+                    <Tijd>12:12</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>5285d56c-5e38-4d93-91bc-438da82285e9</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>rwo.vlaanderen.be/vmsw/kbi-dossiers-p-aip-bo</Identificatie>
+                    <Referte>XE:1044:24661:8102</Referte>
+                    <Hoedanigheid>3003</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>4556</Referte>
+                <Inhoud>
+                    <Functies>
+                        <Functie DatumModificatie="2009-05-11">
+                            <AuthentiekeBron>
+                                <Code>03</Code>
+                                <Omschrijving>KBO</Omschrijving>
+                            </AuthentiekeBron>
+                            <FunctiehouderVan>0242069537</FunctiehouderVan>
+                            <AanduidingPersoonOnderneming>
+                                <Code>1</Code>
+                                <Omschrijving>Vertegenwoordiging door natuurlijke persoon</Omschrijving>
+                            </AanduidingPersoonOnderneming>
+                            <INSZ>71090999892</INSZ>
+                            <VolgNummer>001</VolgNummer>
+                            <AardFunctie>
+                                <Code>10005</Code>
+                                <Omschrijving>Lid DirectieComité</Omschrijving>
+                            </AardFunctie>
+                            <Periode>
+                                <Begin>2009-05-01</Begin>
+                                <Einde>2015-01-31</Einde>
+                            </Periode>
+                            <AanduidingVrijstelling>
+                                <Code>999</Code>
+                                <Omschrijving>geen vrijstelling mogelijk</Omschrijving>
+                            </AanduidingVrijstelling>
+                        </Functie>
+                        <Functie DatumModificatie="2009-05-11">
+                            <AuthentiekeBron>
+                                <Code>03</Code>
+                                <Omschrijving>KBO</Omschrijving>
+                            </AuthentiekeBron>
+                            <FunctiehouderVan>0242069537</FunctiehouderVan>
+                            <AanduidingPersoonOnderneming>
+                                <Code>1</Code>
+                                <Omschrijving>Vertegenwoordiging door natuurlijke persoon</Omschrijving>
+                            </AanduidingPersoonOnderneming>
+                            <INSZ>71090999892</INSZ>
+                            <VolgNummer>002</VolgNummer>
+                            <AardFunctie>
+                                <Code>10021</Code>
+                                <Omschrijving>Vast vertegenwoordiger Commisaris</Omschrijving>
+                            </AardFunctie>
+                            <Periode>
+                                <Begin>2005-04-01</Begin>
+                                <Einde>2009-04-28</Einde>
+                            </Periode>
+                            <AanduidingVrijstelling>
+                                <Code>999</Code>
+                                <Omschrijving>geen vrijstelling mogelijk</Omschrijving>
+                            </AanduidingVrijstelling>
+                        </Functie>
+                        <Functie DatumModificatie="2009-05-11">
+                            <AuthentiekeBron>
+                                <Code>03</Code>
+                                <Omschrijving>KBO</Omschrijving>
+                            </AuthentiekeBron>
+                            <FunctiehouderVan>0472400490</FunctiehouderVan>
+                            <AanduidingPersoonOnderneming>
+                                <Code>1</Code>
+                                <Omschrijving>Vertegenwoordiging door natuurlijke persoon</Omschrijving>
+                            </AanduidingPersoonOnderneming>
+                            <INSZ>71090999892</INSZ>
+                            <VolgNummer>001</VolgNummer>
+                            <AardFunctie>
+                                <Code>20090</Code>
+                                <Omschrijving>Basiskennis bedrijfsbeheer</Omschrijving>
+                            </AardFunctie>
+                            <Periode>
+                                <Begin>2009-04-28</Begin>
+                                <Einde>9999-12-31</Einde>
+                            </Periode>
+                            <AanduidingVrijstelling>
+                                <Code>Y</Code>
+                                <Omschrijving>vrijstelling bekomen</Omschrijving>
+                            </AanduidingVrijstelling>
+                            <SoortVrijstelling>
+                                <Code>001</Code>
+                                <Omschrijving>Verworven rechten: actief bij de start van de reglementering</Omschrijving>
+                            </SoortVrijstelling>
+                        </Functie>
+                    </Functies>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefFunctiesResponse>
+

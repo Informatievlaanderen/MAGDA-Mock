@@ -1,0 +1,434 @@
+<web:GeefHistoriekInschrijvingResponse
+        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefHistoriekInschrijving</Naam>
+            <Versie>02.01.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-05-05</Datum>
+                    <Tijd>07:00:50.763</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>972f0f73-34c5-4448-a4e3-34fe74e316ba</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+                    <Referte>XE:1072:25160:8241</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>972f0f73-34c5-4448-a4e3-34fe74e316ba</Referte>
+                <Inhoud>
+                    <Inschrijvingen>
+                        <Inschrijving
+                        >
+                            <Bron>LP</Bron>
+                            <Referte>52569bfb-bb1a-4ccc-96f0-6acac90f5323</Referte>
+                            <Instelling>
+                                <Instellingsnummer>19191</Instellingsnummer>
+                                <OfficieleNaam>Vrije Klein Klein Kleuterje School</OfficieleNaam>
+                                <Instantie>Kleuterschool</Instantie>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Bissegemstraat</Naam>
+                                    </Straat>
+                                    <Huisnummer>22</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>34041</NISCode>
+                                        <PostCode>8560</PostCode>
+                                        <Naam>GULLEGEM</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>056 41 42 82</Telefoonnummer>
+                                    <Email>bissegemstraat@gullegem.be</Email>
+                                    <Website>http://school.gullegem.be/</Website>
+                                </Contactgegevens>
+                            </Instelling>
+                            <OnderwijsLocatie>
+                                <Nummer>2</Nummer>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Poststraat</Naam>
+                                    </Straat>
+                                    <Huisnummer>20</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>34041</NISCode>
+                                        <PostCode>8560</PostCode>
+                                        <Naam>WEVELGEM</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>056 41 29 70</Telefoonnummer>
+                                    <Email></Email>
+                                    <Website></Website>
+                                </Contactgegevens>
+                            </OnderwijsLocatie>
+                            <LeerplichtOnderwijs>
+                                <SoortProgramma>
+                                    <Code>1</Code>
+                                    <Omschrijving>Voltijds</Omschrijving>
+                                </SoortProgramma>
+                                <DatumInschrijving>2003-09-01</DatumInschrijving>
+                                <DatumEersteLes>2003-09-01</DatumEersteLes>
+                                <Schooljaar>2003</Schooljaar>
+                                <InschrijvingAdministratieveGroep>
+                                    <Referte>60785944-d07d-4288-bf75-cb026b0aaf13</Referte>
+                                    <Periode>
+                                        <Begin>2003-09-01</Begin>
+                                        <Einde>2004-08-31</Einde>
+                                    </Periode>
+                                    <AdministratieveGroep>
+                                        <Nummer>14905</Nummer>
+                                        <Naam>laatste kleuterjaar</Naam>
+                                        <Niveau>
+                                            <Code>1</Code>
+                                            <Omschrijving>Kleuter onderwijs</Omschrijving>
+                                        </Niveau>
+                                        <SoortOnderwijs>
+                                            <Code>1</Code>
+                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
+                                        </SoortOnderwijs>
+                                    </AdministratieveGroep>
+                                    <Uitschrijving>
+                                        <Aanleiding>
+                                            <Code>X</Code>
+                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                                        </Aanleiding>
+                                        <SituatieNa>
+                                            <Code>10</Code>
+                                            <Omschrijving>Geen informatie</Omschrijving>
+                                        </SituatieNa>
+                                    </Uitschrijving>
+                                    <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
+                                    <GewezenAnderstaligeNieuwkomer>0</GewezenAnderstaligeNieuwkomer>
+                                </InschrijvingAdministratieveGroep>
+                            </LeerplichtOnderwijs>
+                        </Inschrijving>
+                        <Inschrijving
+                        >
+                            <Bron>LP</Bron>
+                            <Referte>57f12fa9-5221-4cc9-adaa-d5ab335f7b64</Referte>
+                            <Instelling>
+                                <Instellingsnummer>112318</Instellingsnummer>
+                                <OfficieleNaam>Provinciaal Technisch Instituut</OfficieleNaam>
+                                <Instantie>Secundaire school</Instantie>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Graaf Karel de Goedelaan</Naam>
+                                    </Straat>
+                                    <Huisnummer>7</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>34022</NISCode>
+                                        <PostCode>8500</PostCode>
+                                        <Naam>KORTRIJK</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>056 22 13 41</Telefoonnummer>
+                                    <Email>info@pti.be</Email>
+                                    <Website>http://www.pti.be</Website>
+                                </Contactgegevens>
+                            </Instelling>
+                            <OnderwijsLocatie>
+                                <Nummer>2</Nummer>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Condédreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>10</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>34022</NISCode>
+                                        <PostCode>8500</PostCode>
+                                        <Naam>KORTRIJK</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>056 22 13 41</Telefoonnummer>
+                                    <Email></Email>
+                                    <Website></Website>
+                                </Contactgegevens>
+                            </OnderwijsLocatie>
+                            <LeerplichtOnderwijs>
+                                <SoortProgramma>
+                                    <Code>1</Code>
+                                    <Omschrijving>Voltijds</Omschrijving>
+                                </SoortProgramma>
+                                <DatumInschrijving>2014-05-06</DatumInschrijving>
+                                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                                <Schooljaar>2015</Schooljaar>
+                                <InschrijvingAdministratieveGroep>
+                                    <Referte>1ff4ef43-71ac-403d-a83d-b686f8e9946f</Referte>
+                                    <Periode>
+                                        <Begin>2015-09-01</Begin>
+                                        <Einde>2016-08-31</Einde>
+                                    </Periode>
+                                    <AdministratieveGroep>
+                                        <Nummer>29135</Nummer>
+                                        <Naam>2e leerjaar in de 1e graad Agro- en biotechnieken</Naam>
+                                        <Niveau>
+                                            <Code>3</Code>
+                                            <Omschrijving>Secundair onderwijs</Omschrijving>
+                                        </Niveau>
+                                        <SoortOnderwijs>
+                                            <Code>1</Code>
+                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
+                                        </SoortOnderwijs>
+                                    </AdministratieveGroep>
+                                    <Uitschrijving>
+                                        <Aanleiding>
+                                            <Code>X</Code>
+                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                                        </Aanleiding>
+                                        <SituatieNa>
+                                            <Code>10</Code>
+                                            <Omschrijving>Geen informatie</Omschrijving>
+                                        </SituatieNa>
+                                    </Uitschrijving>
+                                </InschrijvingAdministratieveGroep>
+                            </LeerplichtOnderwijs>
+                        </Inschrijving>
+                        <Inschrijving
+                        >
+                            <Bron>LP</Bron>
+                            <Referte>57f12fa9-5221-4cc9-adaa-d5ab335f7b64</Referte>
+                            <Instelling>
+                                <Instellingsnummer>112318</Instellingsnummer>
+                                <OfficieleNaam>Provinciaal Technisch Instituut</OfficieleNaam>
+                                <Instantie>Secundaire school</Instantie>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Graaf Karel de Goedelaan</Naam>
+                                    </Straat>
+                                    <Huisnummer>7</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>34022</NISCode>
+                                        <PostCode>8500</PostCode>
+                                        <Naam>KORTRIJK</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>056 22 13 41</Telefoonnummer>
+                                    <Email>info@pti.be</Email>
+                                    <Website>http://www.pti.be</Website>
+                                </Contactgegevens>
+                            </Instelling>
+                            <OnderwijsLocatie>
+                                <Nummer>2</Nummer>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Condédreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>10</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>34022</NISCode>
+                                        <PostCode>8500</PostCode>
+                                        <Naam>KORTRIJK</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>056 22 13 41</Telefoonnummer>
+                                    <Email></Email>
+                                    <Website></Website>
+                                </Contactgegevens>
+                            </OnderwijsLocatie>
+                            <LeerplichtOnderwijs>
+                                <SoortProgramma>
+                                    <Code>1</Code>
+                                    <Omschrijving>Voltijds</Omschrijving>
+                                </SoortProgramma>
+                                <DatumInschrijving>2014-05-06</DatumInschrijving>
+                                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                                <Schooljaar>2016</Schooljaar>
+                                <InschrijvingAdministratieveGroep>
+                                    <Referte>2b5948a6-32a9-414c-a7e3-f2fa523e33de</Referte>
+                                    <Periode>
+                                        <Begin>2016-09-01</Begin>
+                                        <Einde>2017-08-31</Einde>
+                                    </Periode>
+                                    <AdministratieveGroep>
+                                        <Nummer>35443</Nummer>
+                                        <Naam>1e leerjaar in de 2e graad Plant-, dier- en milieutechnieken TSO</Naam>
+                                        <Niveau>
+                                            <Code>3</Code>
+                                            <Omschrijving>Secundair onderwijs</Omschrijving>
+                                        </Niveau>
+                                        <SoortOnderwijs>
+                                            <Code>1</Code>
+                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
+                                        </SoortOnderwijs>
+                                    </AdministratieveGroep>
+                                    <Uitschrijving>
+                                        <Aanleiding>
+                                            <Code>X</Code>
+                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                                        </Aanleiding>
+                                        <SituatieNa>
+                                            <Code>10</Code>
+                                            <Omschrijving>Geen informatie</Omschrijving>
+                                        </SituatieNa>
+                                    </Uitschrijving>
+                                </InschrijvingAdministratieveGroep>
+                            </LeerplichtOnderwijs>
+                        </Inschrijving>
+                        <Inschrijving
+                        >
+                            <Bron>LP</Bron>
+                            <Referte>57f12fa9-5221-4cc9-adaa-d5ab335f7b64</Referte>
+                            <Instelling>
+                                <Instellingsnummer>112318</Instellingsnummer>
+                                <OfficieleNaam>Provinciaal Technisch Instituut</OfficieleNaam>
+                                <Instantie>Secundaire school</Instantie>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Graaf Karel de Goedelaan</Naam>
+                                    </Straat>
+                                    <Huisnummer>7</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>34022</NISCode>
+                                        <PostCode>8500</PostCode>
+                                        <Naam>KORTRIJK</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>056 22 13 41</Telefoonnummer>
+                                    <Email>info@pti.be</Email>
+                                    <Website>http://www.pti.be</Website>
+                                </Contactgegevens>
+                            </Instelling>
+                            <OnderwijsLocatie>
+                                <Nummer>2</Nummer>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Condédreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>10</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>34022</NISCode>
+                                        <PostCode>8500</PostCode>
+                                        <Naam>KORTRIJK</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>056 22 13 41</Telefoonnummer>
+                                    <Email></Email>
+                                    <Website></Website>
+                                </Contactgegevens>
+                            </OnderwijsLocatie>
+                            <LeerplichtOnderwijs>
+                                <SoortProgramma>
+                                    <Code>1</Code>
+                                    <Omschrijving>Voltijds</Omschrijving>
+                                </SoortProgramma>
+                                <DatumInschrijving>2014-05-06</DatumInschrijving>
+                                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                                <Schooljaar>2014</Schooljaar>
+                                <InschrijvingAdministratieveGroep>
+                                    <Referte>71a4bb20-1d1c-478c-9915-f3bd69e4cb14</Referte>
+                                    <Periode>
+                                        <Begin>2014-09-01</Begin>
+                                        <Einde>2015-08-31</Einde>
+                                    </Periode>
+                                    <AdministratieveGroep>
+                                        <Nummer>6246</Nummer>
+                                        <Naam>1ste leerjaar A</Naam>
+                                        <Niveau>
+                                            <Code>3</Code>
+                                            <Omschrijving>Secundair onderwijs</Omschrijving>
+                                        </Niveau>
+                                        <SoortOnderwijs>
+                                            <Code>1</Code>
+                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
+                                        </SoortOnderwijs>
+                                    </AdministratieveGroep>
+                                    <Uitschrijving>
+                                        <Aanleiding>
+                                            <Code>X</Code>
+                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                                        </Aanleiding>
+                                        <SituatieNa>
+                                            <Code>10</Code>
+                                            <Omschrijving>Geen informatie</Omschrijving>
+                                        </SituatieNa>
+                                    </Uitschrijving>
+                                </InschrijvingAdministratieveGroep>
+                            </LeerplichtOnderwijs>
+                        </Inschrijving>
+                    </Inschrijvingen>
+                </Inhoud>
+                <Uitzonderingen>
+                    <Uitzondering
+                    >
+                        <Identificatie>30101</Identificatie>
+                        <Oorsprong>DHO2</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2017-05-05</Datum>
+                            <Tijd>07:00:50.673</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+                        <Annotaties>
+                            <Annotatie>
+                                <Naam>dho2logid</Naam>
+                                <Waarde>
+                                    8cb1dad1-9741-4e93-9f56-53d707007b15/20170505070047892/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
+                                </Waarde>
+                            </Annotatie>
+                        </Annotaties>
+                    </Uitzondering>
+                    <Uitzondering
+                    >
+                        <Identificatie>30101</Identificatie>
+                        <Oorsprong>DVNCI</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2017-05-05</Datum>
+                            <Tijd>07:00:50.471</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+                        <Annotaties>
+                            <Annotatie>
+                                <Naam>davincilogid</Naam>
+                                <Waarde>
+                                    d72fb119-74b7-446e-b7e2-07ace2b1afa9/20170505070047884/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
+                                </Waarde>
+                            </Annotatie>
+                        </Annotaties>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefHistoriekInschrijvingResponse>
+

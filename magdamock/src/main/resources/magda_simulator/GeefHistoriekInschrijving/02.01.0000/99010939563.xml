@@ -1,0 +1,699 @@
+<web:GeefHistoriekInschrijvingResponse
+        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefHistoriekInschrijving</Naam>
+            <Versie>02.01.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-05-05</Datum>
+                    <Tijd>07:00:20.506</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>af3289a9-028e-4e13-b0de-3dcbbdba8c93</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+                    <Referte>XE:1072:25160:8233</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>af3289a9-028e-4e13-b0de-3dcbbdba8c93</Referte>
+                <Inhoud>
+                    <Inschrijvingen>
+                        <Inschrijving
+                        >
+                            <Bron>LP</Bron>
+                            <Referte>f68ed43b-5aef-49ad-9242-062c78d99863</Referte>
+                            <Instelling>
+                                <Instellingsnummer>27284</Instellingsnummer>
+                                <OfficieleNaam>GO! school voor buitengewoon secundair o</OfficieleNaam>
+                                <Instantie>Secundaire school</Instantie>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Nieuwe St.-Annadreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>27</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>31005</NISCode>
+                                        <PostCode>8200</PostCode>
+                                        <Naam>SINT-ANDRIES</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>050 38 86 60</Telefoonnummer>
+                                    <Email>sbso.sint-andries@g-o.be</Email>
+                                    <Website>www.devarens.be</Website>
+                                </Contactgegevens>
+                            </Instelling>
+                            <OnderwijsLocatie>
+                                <Nummer>1</Nummer>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Nieuwe St.-Annadreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>27</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>31005</NISCode>
+                                        <PostCode>8200</PostCode>
+                                        <Naam>SINT-ANDRIES</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>050 38 86 60</Telefoonnummer>
+                                    <Email>sbso.sint-andries@g-o.be</Email>
+                                    <Website>www.devarens.be</Website>
+                                </Contactgegevens>
+                            </OnderwijsLocatie>
+                            <LeerplichtOnderwijs>
+                                <SoortProgramma>
+                                    <Code>1</Code>
+                                    <Omschrijving>Voltijds</Omschrijving>
+                                </SoortProgramma>
+                                <DatumInschrijving>2013-01-15</DatumInschrijving>
+                                <DatumEersteLes>2013-01-17</DatumEersteLes>
+                                <Schooljaar>2016</Schooljaar>
+                                <InschrijvingAdministratieveGroep>
+                                    <Referte>af2cf3fc-8e73-4e42-8057-c01b7192e1a6</Referte>
+                                    <Periode>
+                                        <Begin>2016-09-01</Begin>
+                                        <Einde>2017-08-31</Einde>
+                                    </Periode>
+                                    <AdministratieveGroep>
+                                        <Nummer>32796</Nummer>
+                                        <Naam>2e jaar opleidingsfase Tuinbouwarbeider</Naam>
+                                        <Niveau>
+                                            <Code>3</Code>
+                                            <Omschrijving>Secundair onderwijs</Omschrijving>
+                                        </Niveau>
+                                        <SoortOnderwijs>
+                                            <Code>2</Code>
+                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                                        </SoortOnderwijs>
+                                    </AdministratieveGroep>
+                                    <TypeBuitengewoon>
+                                        <Code>3</Code>
+                                        <Omschrijving>Karakteriële stoornis</Omschrijving>
+                                    </TypeBuitengewoon>
+                                    <Uitschrijving>
+                                        <Aanleiding>
+                                            <Code>X</Code>
+                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                                        </Aanleiding>
+                                        <SituatieNa>
+                                            <Code>10</Code>
+                                            <Omschrijving>Geen informatie</Omschrijving>
+                                        </SituatieNa>
+                                    </Uitschrijving>
+                                </InschrijvingAdministratieveGroep>
+                            </LeerplichtOnderwijs>
+                        </Inschrijving>
+                        <Inschrijving
+                        >
+                            <Bron>LP</Bron>
+                            <Referte>f68ed43b-5aef-49ad-9242-062c78d99863</Referte>
+                            <Instelling>
+                                <Instellingsnummer>27284</Instellingsnummer>
+                                <OfficieleNaam>GO! school voor buitengewoon secundair o</OfficieleNaam>
+                                <Instantie>Secundaire school</Instantie>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Nieuwe St.-Annadreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>27</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>31005</NISCode>
+                                        <PostCode>8200</PostCode>
+                                        <Naam>SINT-ANDRIES</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>050 38 86 60</Telefoonnummer>
+                                    <Email>sbso.sint-andries@g-o.be</Email>
+                                    <Website>www.devarens.be</Website>
+                                </Contactgegevens>
+                            </Instelling>
+                            <OnderwijsLocatie>
+                                <Nummer>1</Nummer>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Nieuwe St.-Annadreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>27</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>31005</NISCode>
+                                        <PostCode>8200</PostCode>
+                                        <Naam>SINT-ANDRIES</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>050 38 86 60</Telefoonnummer>
+                                    <Email>sbso.sint-andries@g-o.be</Email>
+                                    <Website>www.devarens.be</Website>
+                                </Contactgegevens>
+                            </OnderwijsLocatie>
+                            <LeerplichtOnderwijs>
+                                <SoortProgramma>
+                                    <Code>1</Code>
+                                    <Omschrijving>Voltijds</Omschrijving>
+                                </SoortProgramma>
+                                <DatumInschrijving>2013-01-15</DatumInschrijving>
+                                <DatumEersteLes>2013-01-17</DatumEersteLes>
+                                <Schooljaar>2015</Schooljaar>
+                                <InschrijvingAdministratieveGroep>
+                                    <Referte>a363a98c-9db6-4f09-b3c7-5eb68cadf4e2</Referte>
+                                    <Periode>
+                                        <Begin>2016-02-17</Begin>
+                                        <Einde>2016-08-31</Einde>
+                                    </Periode>
+                                    <AdministratieveGroep>
+                                        <Nummer>32796</Nummer>
+                                        <Naam>2e jaar opleidingsfase Tuinbouwarbeider</Naam>
+                                        <Niveau>
+                                            <Code>3</Code>
+                                            <Omschrijving>Secundair onderwijs</Omschrijving>
+                                        </Niveau>
+                                        <SoortOnderwijs>
+                                            <Code>2</Code>
+                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                                        </SoortOnderwijs>
+                                    </AdministratieveGroep>
+                                    <TypeBuitengewoon>
+                                        <Code>3</Code>
+                                        <Omschrijving>Karakteriële stoornis</Omschrijving>
+                                    </TypeBuitengewoon>
+                                    <Uitschrijving>
+                                        <Aanleiding>
+                                            <Code>X</Code>
+                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                                        </Aanleiding>
+                                        <SituatieNa>
+                                            <Code>10</Code>
+                                            <Omschrijving>Geen informatie</Omschrijving>
+                                        </SituatieNa>
+                                    </Uitschrijving>
+                                </InschrijvingAdministratieveGroep>
+                            </LeerplichtOnderwijs>
+                        </Inschrijving>
+                        <Inschrijving
+                        >
+                            <Bron>LP</Bron>
+                            <Referte>f68ed43b-5aef-49ad-9242-062c78d99863</Referte>
+                            <Instelling>
+                                <Instellingsnummer>27284</Instellingsnummer>
+                                <OfficieleNaam>GO! school voor buitengewoon secundair o</OfficieleNaam>
+                                <Instantie>Secundaire school</Instantie>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Nieuwe St.-Annadreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>27</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>31005</NISCode>
+                                        <PostCode>8200</PostCode>
+                                        <Naam>SINT-ANDRIES</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>050 38 86 60</Telefoonnummer>
+                                    <Email>sbso.sint-andries@g-o.be</Email>
+                                    <Website>www.devarens.be</Website>
+                                </Contactgegevens>
+                            </Instelling>
+                            <OnderwijsLocatie>
+                                <Nummer>1</Nummer>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Nieuwe St.-Annadreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>27</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>31005</NISCode>
+                                        <PostCode>8200</PostCode>
+                                        <Naam>SINT-ANDRIES</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>050 38 86 60</Telefoonnummer>
+                                    <Email>sbso.sint-andries@g-o.be</Email>
+                                    <Website>www.devarens.be</Website>
+                                </Contactgegevens>
+                            </OnderwijsLocatie>
+                            <LeerplichtOnderwijs>
+                                <SoortProgramma>
+                                    <Code>1</Code>
+                                    <Omschrijving>Voltijds</Omschrijving>
+                                </SoortProgramma>
+                                <DatumInschrijving>2013-01-15</DatumInschrijving>
+                                <DatumEersteLes>2013-01-17</DatumEersteLes>
+                                <Schooljaar>2013</Schooljaar>
+                                <InschrijvingAdministratieveGroep>
+                                    <Referte>e98a75c9-be51-4981-8ea2-c048d6dce074</Referte>
+                                    <Periode>
+                                        <Begin>2013-09-01</Begin>
+                                        <Einde>2014-03-09</Einde>
+                                    </Periode>
+                                    <AdministratieveGroep>
+                                        <Nummer>32743</Nummer>
+                                        <Naam>1e jaar opleidingsfase Schilder-decorateur</Naam>
+                                        <Niveau>
+                                            <Code>3</Code>
+                                            <Omschrijving>Secundair onderwijs</Omschrijving>
+                                        </Niveau>
+                                        <SoortOnderwijs>
+                                            <Code>2</Code>
+                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                                        </SoortOnderwijs>
+                                    </AdministratieveGroep>
+                                    <TypeBuitengewoon>
+                                        <Code>3</Code>
+                                        <Omschrijving>Karakteriële stoornis</Omschrijving>
+                                    </TypeBuitengewoon>
+                                    <Uitschrijving>
+                                        <Aanleiding>
+                                            <Code>E</Code>
+                                            <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
+                                        </Aanleiding>
+                                        <SituatieNa>
+                                            <Code>9</Code>
+                                            <Omschrijving>Andere</Omschrijving>
+                                        </SituatieNa>
+                                    </Uitschrijving>
+                                </InschrijvingAdministratieveGroep>
+                            </LeerplichtOnderwijs>
+                        </Inschrijving>
+                        <Inschrijving
+                        >
+                            <Bron>LP</Bron>
+                            <Referte>f68ed43b-5aef-49ad-9242-062c78d99863</Referte>
+                            <Instelling>
+                                <Instellingsnummer>27284</Instellingsnummer>
+                                <OfficieleNaam>GO! school voor buitengewoon secundair o</OfficieleNaam>
+                                <Instantie>Secundaire school</Instantie>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Nieuwe St.-Annadreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>27</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>31005</NISCode>
+                                        <PostCode>8200</PostCode>
+                                        <Naam>SINT-ANDRIES</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>050 38 86 60</Telefoonnummer>
+                                    <Email>sbso.sint-andries@g-o.be</Email>
+                                    <Website>www.devarens.be</Website>
+                                </Contactgegevens>
+                            </Instelling>
+                            <OnderwijsLocatie>
+                                <Nummer>1</Nummer>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Nieuwe St.-Annadreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>27</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>31005</NISCode>
+                                        <PostCode>8200</PostCode>
+                                        <Naam>SINT-ANDRIES</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>050 38 86 60</Telefoonnummer>
+                                    <Email>sbso.sint-andries@g-o.be</Email>
+                                    <Website>www.devarens.be</Website>
+                                </Contactgegevens>
+                            </OnderwijsLocatie>
+                            <LeerplichtOnderwijs>
+                                <SoortProgramma>
+                                    <Code>1</Code>
+                                    <Omschrijving>Voltijds</Omschrijving>
+                                </SoortProgramma>
+                                <DatumInschrijving>2013-01-15</DatumInschrijving>
+                                <DatumEersteLes>2013-01-17</DatumEersteLes>
+                                <Schooljaar>2014</Schooljaar>
+                                <InschrijvingAdministratieveGroep>
+                                    <Referte>3a6096ae-d2e9-4c80-8aa8-973385dd7f3a</Referte>
+                                    <Periode>
+                                        <Begin>2014-09-01</Begin>
+                                        <Einde>2015-08-31</Einde>
+                                    </Periode>
+                                    <AdministratieveGroep>
+                                        <Nummer>32795</Nummer>
+                                        <Naam>1e jaar opleidingsfase Tuinbouwarbeider</Naam>
+                                        <Niveau>
+                                            <Code>3</Code>
+                                            <Omschrijving>Secundair onderwijs</Omschrijving>
+                                        </Niveau>
+                                        <SoortOnderwijs>
+                                            <Code>2</Code>
+                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                                        </SoortOnderwijs>
+                                    </AdministratieveGroep>
+                                    <TypeBuitengewoon>
+                                        <Code>3</Code>
+                                        <Omschrijving>Karakteriële stoornis</Omschrijving>
+                                    </TypeBuitengewoon>
+                                    <Uitschrijving>
+                                        <Aanleiding>
+                                            <Code>X</Code>
+                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                                        </Aanleiding>
+                                        <SituatieNa>
+                                            <Code>10</Code>
+                                            <Omschrijving>Geen informatie</Omschrijving>
+                                        </SituatieNa>
+                                    </Uitschrijving>
+                                </InschrijvingAdministratieveGroep>
+                            </LeerplichtOnderwijs>
+                        </Inschrijving>
+                        <Inschrijving
+                        >
+                            <Bron>LP</Bron>
+                            <Referte>f68ed43b-5aef-49ad-9242-062c78d99863</Referte>
+                            <Instelling>
+                                <Instellingsnummer>27284</Instellingsnummer>
+                                <OfficieleNaam>GO! school voor buitengewoon secundair o</OfficieleNaam>
+                                <Instantie>Secundaire school</Instantie>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Nieuwe St.-Annadreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>27</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>31005</NISCode>
+                                        <PostCode>8200</PostCode>
+                                        <Naam>SINT-ANDRIES</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>050 38 86 60</Telefoonnummer>
+                                    <Email>sbso.sint-andries@g-o.be</Email>
+                                    <Website>www.devarens.be</Website>
+                                </Contactgegevens>
+                            </Instelling>
+                            <OnderwijsLocatie>
+                                <Nummer>1</Nummer>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Nieuwe St.-Annadreef</Naam>
+                                    </Straat>
+                                    <Huisnummer>27</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>31005</NISCode>
+                                        <PostCode>8200</PostCode>
+                                        <Naam>SINT-ANDRIES</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>050 38 86 60</Telefoonnummer>
+                                    <Email>sbso.sint-andries@g-o.be</Email>
+                                    <Website>www.devarens.be</Website>
+                                </Contactgegevens>
+                            </OnderwijsLocatie>
+                            <LeerplichtOnderwijs>
+                                <SoortProgramma>
+                                    <Code>1</Code>
+                                    <Omschrijving>Voltijds</Omschrijving>
+                                </SoortProgramma>
+                                <DatumInschrijving>2013-01-15</DatumInschrijving>
+                                <DatumEersteLes>2013-01-17</DatumEersteLes>
+                                <Schooljaar>2013</Schooljaar>
+                                <InschrijvingAdministratieveGroep>
+                                    <Referte>3f56704a-4442-4077-a8ce-5e3d0603ebb5</Referte>
+                                    <Periode>
+                                        <Begin>2014-03-10</Begin>
+                                        <Einde>2014-08-31</Einde>
+                                    </Periode>
+                                    <AdministratieveGroep>
+                                        <Nummer>32743</Nummer>
+                                        <Naam>1e jaar opleidingsfase Schilder-decorateur</Naam>
+                                        <Niveau>
+                                            <Code>3</Code>
+                                            <Omschrijving>Secundair onderwijs</Omschrijving>
+                                        </Niveau>
+                                        <SoortOnderwijs>
+                                            <Code>2</Code>
+                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                                        </SoortOnderwijs>
+                                    </AdministratieveGroep>
+                                    <TypeBuitengewoon>
+                                        <Code>3</Code>
+                                        <Omschrijving>Karakteriële stoornis</Omschrijving>
+                                    </TypeBuitengewoon>
+                                    <Uitschrijving>
+                                        <Aanleiding>
+                                            <Code>X</Code>
+                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                                        </Aanleiding>
+                                        <SituatieNa>
+                                            <Code>10</Code>
+                                            <Omschrijving>Geen informatie</Omschrijving>
+                                        </SituatieNa>
+                                    </Uitschrijving>
+                                </InschrijvingAdministratieveGroep>
+                            </LeerplichtOnderwijs>
+                        </Inschrijving>
+                        <Inschrijving
+                        >
+                            <Bron>LP</Bron>
+                            <Referte>35ea1d3c-d576-4925-8009-9e67d69e5dcd</Referte>
+                            <Instelling>
+                                <Instellingsnummer>127415</Instellingsnummer>
+                                <OfficieleNaam>SYNTRA Vlaanderen</OfficieleNaam>
+                                <Instantie>SYNTRA Vlaanderen</Instantie>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Kanselarijstraat</Naam>
+                                    </Straat>
+                                    <Huisnummer>19</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>23025</NISCode>
+                                        <PostCode>1000</PostCode>
+                                        <Naam>BRUSSEL</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>02 227 49 65</Telefoonnummer>
+                                    <Email>ingrid.heiremans@syntravlaanderen.be</Email>
+                                    <Website>http://www.syntravlaanderen.be</Website>
+                                </Contactgegevens>
+                            </Instelling>
+                            <OnderwijsLocatie>
+                                <Nummer>18</Nummer>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Autoweg-Zuid</Naam>
+                                    </Straat>
+                                    <Huisnummer>3</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>44021</NISCode>
+                                        <PostCode>9051</PostCode>
+                                        <Naam>SINT-DENIJS-WESTREM</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>09 222 85 81</Telefoonnummer>
+                                    <Email></Email>
+                                    <Website></Website>
+                                </Contactgegevens>
+                            </OnderwijsLocatie>
+                            <LeerplichtOnderwijs>
+                                <SoortProgramma>
+                                    <Code>5</Code>
+                                    <Omschrijving>Syntra</Omschrijving>
+                                </SoortProgramma>
+                                <DatumInschrijving>2015-09-08</DatumInschrijving>
+                                <DatumEersteLes>2015-09-08</DatumEersteLes>
+                                <Schooljaar>2015</Schooljaar>
+                                <InschrijvingAdministratieveGroep>
+                                    <Referte>4043517f-edda-4334-9f6c-abf6f472eef4</Referte>
+                                    <Periode>
+                                        <Begin>2015-09-08</Begin>
+                                        <Einde>2015-09-13</Einde>
+                                    </Periode>
+                                    <AdministratieveGroep>
+                                        <Nummer>37200</Nummer>
+                                        <Naam>Leertijd administratieve groep</Naam>
+                                        <Niveau>
+                                            <Code>3</Code>
+                                            <Omschrijving>Secundair onderwijs</Omschrijving>
+                                        </Niveau>
+                                        <SoortOnderwijs>
+                                            <Code>1</Code>
+                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
+                                        </SoortOnderwijs>
+                                    </AdministratieveGroep>
+                                </InschrijvingAdministratieveGroep>
+                            </LeerplichtOnderwijs>
+                        </Inschrijving>
+                        <Inschrijving
+                        >
+                            <Bron>LP</Bron>
+                            <Referte>35ea1d3c-d576-4925-8009-9e67d69e5dcd</Referte>
+                            <Instelling>
+                                <Instellingsnummer>127415</Instellingsnummer>
+                                <OfficieleNaam>SYNTRA Vlaanderen</OfficieleNaam>
+                                <Instantie>SYNTRA Vlaanderen</Instantie>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Kanselarijstraat</Naam>
+                                    </Straat>
+                                    <Huisnummer>19</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>23025</NISCode>
+                                        <PostCode>1000</PostCode>
+                                        <Naam>BRUSSEL</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>02 227 49 65</Telefoonnummer>
+                                    <Email>ingrid.heiremans@syntravlaanderen.be</Email>
+                                    <Website>http://www.syntravlaanderen.be</Website>
+                                </Contactgegevens>
+                            </Instelling>
+                            <OnderwijsLocatie>
+                                <Nummer>18</Nummer>
+                                <Adres>
+                                    <Straat>
+                                        <Naam>Autoweg-Zuid</Naam>
+                                    </Straat>
+                                    <Huisnummer>3</Huisnummer>
+                                    <Gemeente>
+                                        <NISCode>44021</NISCode>
+                                        <PostCode>9051</PostCode>
+                                        <Naam>SINT-DENIJS-WESTREM</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                    </Land>
+                                </Adres>
+                                <Contactgegevens>
+                                    <Telefoonnummer>09 222 85 81</Telefoonnummer>
+                                    <Email></Email>
+                                    <Website></Website>
+                                </Contactgegevens>
+                            </OnderwijsLocatie>
+                            <LeerplichtOnderwijs>
+                                <SoortProgramma>
+                                    <Code>5</Code>
+                                    <Omschrijving>Syntra</Omschrijving>
+                                </SoortProgramma>
+                                <DatumInschrijving>2015-09-08</DatumInschrijving>
+                                <DatumEersteLes>2015-09-08</DatumEersteLes>
+                                <Schooljaar>2015</Schooljaar>
+                                <InschrijvingAdministratieveGroep>
+                                    <Referte>61c63be8-8447-4de7-a04a-3cb32885e541</Referte>
+                                    <Periode>
+                                        <Begin>2015-09-14</Begin>
+                                        <Einde>2016-02-16</Einde>
+                                    </Periode>
+                                    <AdministratieveGroep>
+                                        <Nummer>37313</Nummer>
+                                        <Naam>tuinaannemer</Naam>
+                                        <Niveau>
+                                            <Code>3</Code>
+                                            <Omschrijving>Secundair onderwijs</Omschrijving>
+                                        </Niveau>
+                                        <SoortOnderwijs>
+                                            <Code>1</Code>
+                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
+                                        </SoortOnderwijs>
+                                    </AdministratieveGroep>
+                                </InschrijvingAdministratieveGroep>
+                            </LeerplichtOnderwijs>
+                        </Inschrijving>
+                    </Inschrijvingen>
+                </Inhoud>
+                <Uitzonderingen>
+                    <Uitzondering
+                    >
+                        <Identificatie>30101</Identificatie>
+                        <Oorsprong>DHO2</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2017-05-05</Datum>
+                            <Tijd>07:00:20.349</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+                        <Annotaties>
+                            <Annotatie>
+                                <Naam>dho2logid</Naam>
+                                <Waarde>
+                                    c4aebc51-dfd4-4dbc-b51f-8e70ed617343/20170505065958785/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
+                                </Waarde>
+                            </Annotatie>
+                        </Annotaties>
+                    </Uitzondering>
+                    <Uitzondering
+                    >
+                        <Identificatie>30101</Identificatie>
+                        <Oorsprong>DVNCI</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2017-05-05</Datum>
+                            <Tijd>07:00:10.376</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+                        <Annotaties>
+                            <Annotatie>
+                                <Naam>davincilogid</Naam>
+                                <Waarde>
+                                    e02565e1-80ec-4f8b-a53c-2a7c80fda819/20170505065958786/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
+                                </Waarde>
+                            </Annotatie>
+                        </Annotaties>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefHistoriekInschrijvingResponse>
+

@@ -1,0 +1,967 @@
+<ns3:GeefEpcResponse xmlns:ns3="http://webservice.geefepcdienst-02_00.energie-02_00.epb.vea.lne.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefEpc</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-11-03</Datum>
+                    <Tijd>13:48:26.643</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>VEA</Identificatie>
+                    <Referte>6f9b199a-0a69-4521-a27b-bf4f99b72a20</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>VEA</Identificatie>
+                    <Referte>Test</Referte>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>Test</Referte>
+                <Inhoud>
+                    <MijnEnergieDetails>
+                        <EnergieEenheid>
+                            <Epc id="486207">
+                                <Identificatie>
+                                    <Attestnummer>attest1</Attestnummer>
+                                </Identificatie>
+                                <DatumModificatie>2017-11-03T16:34:51+02:00</DatumModificatie>
+                                <Actief>true</Actief>
+                                <Status>Actief</Status>
+                                <DatumIngediend>2017-11-03</DatumIngediend>
+                                <DatumGeldigheid>2027-11-03</DatumGeldigheid>
+                                <Scores>
+                                    <Score type="epeil">
+                                        <Eis>90.00</Eis>
+                                        <Waarde>24.00</Waarde>
+                                        <Voldaan>true</Voldaan>
+                                        <GemiddeldeWaardeGemeente>68.00</GemiddeldeWaardeGemeente>
+                                        <GemiddeldeWaardeProvincie>70.00</GemiddeldeWaardeProvincie>
+                                        <GemiddeldeWaardeVlaanderen>71.00</GemiddeldeWaardeVlaanderen>
+                                    </Score>
+                                    <Score type="co2Emissie">
+                                        <Waarde meeteenheid="Kg">350.12</Waarde>
+                                    </Score>
+                                    <Score type="primaireEnergieVerbruikPerVierkanteMeter">
+                                        <Waarde meeteenheid="kWh/m²">22.32</Waarde>
+                                        <GemiddeldeWaardeGemeente meeteenheid="kWh/m²">114.11</GemiddeldeWaardeGemeente>
+                                        <GemiddeldeWaardeProvincie meeteenheid="kWh/m²">429.03</GemiddeldeWaardeProvincie>
+                                        <GemiddeldeWaardeVlaanderen meeteenheid="kWh/m²">118.74</GemiddeldeWaardeVlaanderen>
+                                    </Score>
+                                    <Score type="gemiddeldeUwaardeSchil">
+                                        <Waarde meeteenheid="W/m²K">0.42</Waarde>
+                                        <GemiddeldeWaardeGemeente meeteenheid="W/m²K">0.44</GemiddeldeWaardeGemeente>
+                                        <GemiddeldeWaardeProvincie meeteenheid="W/m²K">0.44</GemiddeldeWaardeProvincie>
+                                        <GemiddeldeWaardeVlaanderen meeteenheid="W/m²K">0.44</GemiddeldeWaardeVlaanderen>
+                                    </Score>
+                                    <Score type="uEnRWaarden">
+                                        <Voldaan>true</Voldaan>
+                                    </Score>
+                                    <Score type="kpeil">
+                                        <Eis>45.00</Eis>
+                                        <Waarde>35.00</Waarde>
+                                        <Voldaan>true</Voldaan>
+                                        <GemiddeldeWaardeGemeente>35.00</GemiddeldeWaardeGemeente>
+                                        <GemiddeldeWaardeProvincie>35.00</GemiddeldeWaardeProvincie>
+                                        <GemiddeldeWaardeVlaanderen>35.00</GemiddeldeWaardeVlaanderen>
+                                    </Score>
+                                    <Score type="aandeelHernieuwbareEnergie">
+                                        <Eis meeteenheid="kWh/m²">10.00</Eis>
+                                        <Waarde meeteenheid="kWh/m²">23.81</Waarde>
+                                        <Voldaan>true</Voldaan>
+                                    </Score>
+                                    <Score type="totaalPrimaireEnergieverbruik">
+                                        <Waarde meeteenheid="kWh/jaar">2232.25</Waarde>
+                                    </Score>
+                                    <Score type="nettoEnergiebehoefte">
+                                        <Eis meeteenheid="kWh/m².jaar">90.00</Eis>
+                                        <Waarde meeteenheid="kWh/m².jaar">27.32</Waarde>
+                                        <Voldaan>true</Voldaan>
+                                    </Score>
+                                    <Score type="risicoOpOververhitting">
+                                        <Voldaan>true</Voldaan>
+                                    </Score>
+                                    <Score type="ventilatie">
+                                        <Voldaan>false</Voldaan>
+                                    </Score>
+                                    <ScoreKleur>
+                                        <Code>#008500</Code>
+                                        <Balk>
+                                            <Inhoud>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgJy0vL1czQy8vRFREIFNWRyAxLjAvL0VOJwogICAgICAgICAgJ2h0dHA6Ly93d3cudzMub3JnL1RSLzIwMDEvUkVDLVNWRy0yMDAxMDkwNC9EVEQvc3ZnMTAuZHRkJz4KPHN2ZyBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTpub25lOyBzaGFwZS1yZW5kZXJpbmc6YXV0bzsgZm9udC1mYW1pbHk6J0RpYWxvZyc7IHRleHQtcmVuZGVyaW5nOmF1dG87IGZpbGwtb3BhY2l0eToxOyBjb2xvci1pbnRlcnBvbGF0aW9uOmF1dG87IGNvbG9yLXJlbmRlcmluZzphdXRvOyBmb250LXNpemU6MTJweDsgZmlsbDpibGFjazsgc3Ryb2tlOmJsYWNrOyBpbWFnZS1yZW5kZXJpbmc6YXV0bzsgc3Ryb2tlLW1pdGVybGltaXQ6MTA7IHN0cm9rZS1saW5lY2FwOnNxdWFyZTsgc3Ryb2tlLWxpbmVqb2luOm1pdGVyOyBmb250LXN0eWxlOm5vcm1hbDsgc3Ryb2tlLXdpZHRoOjE7IHN0cm9rZS1kYXNob2Zmc2V0OjA7IGZvbnQtd2VpZ2h0Om5vcm1hbDsgc3Ryb2tlLW9wYWNpdHk6MTsiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjUwMCIgY29udGVudFNjcmlwdFR5cGU9InRleHQvZWNtYXNjcmlwdCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHpvb21BbmRQYW49Im1hZ25pZnkiIHZlcnNpb249IjEuMCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjAwIgo+PCEtLUdlbmVyYXRlZCBieSB0aGUgQmF0aWsgR3JhcGhpY3MyRCBTVkcgR2VuZXJhdG9yLS0+PGRlZnMgaWQ9ImdlbmVyaWNEZWZzIgogIC8+PGcKICA+PGRlZnMgaWQ9ImRlZnMxIgogICAgPjxsaW5lYXJHcmFkaWVudCB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgaWQ9ImdyYWRpZW50MSIgc3R5bGU9ImNvbG9yLWludGVycG9sYXRpb246c1JHQjsiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBzcHJlYWRNZXRob2Q9InBhZCIgeGxpbms6c2hvdz0icmVwbGFjZSIgeGxpbms6dHlwZT0ic2ltcGxlIiB4MT0iMC4wIiB5MT0iMC4wIiB4Mj0iNDAwLjAiIHkyPSIwLjAiIHhsaW5rOmFjdHVhdGU9Im9uUmVxdWVzdCIKICAgICAgPjxzdG9wIHN0eWxlPSJzdG9wLWNvbG9yOnJnYigzOSwxNDMsNjgpOyIgb2Zmc2V0PSIwJSIKICAgICAgICAvPjxzdG9wIHN0eWxlPSJzdG9wLWNvbG9yOnJnYigzOSwxNDMsNjgpOyIgb2Zmc2V0PSIzMCUiCiAgICAgICAgLz48c3RvcCBzdHlsZT0ic3RvcC1jb2xvcjp5ZWxsb3c7IiBvZmZzZXQ9IjY1JSIKICAgICAgICAvPjxzdG9wIHN0eWxlPSJzdG9wLWNvbG9yOnJnYigyNTUsMTcsMTYpOyIgb2Zmc2V0PSIxMDAlIgogICAgICAvPjwvbGluZWFyR3JhZGllbnQKICAgID48L2RlZnMKICAgID48ZyBzdHlsZT0iZmlsbDp1cmwoI2dyYWRpZW50MSk7IHN0cm9rZTp1cmwoI2dyYWRpZW50MSk7IgogICAgPjxyZWN0IHg9IjYwIiB5PSI0MCIgd2lkdGg9IjQwMCIgc3R5bGU9InN0cm9rZTpub25lOyIgaGVpZ2h0PSIxMCIKICAgICAgLz48bGluZSB4MT0iODUiIHgyPSI0MzUiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNTAiCiAgICAgIC8+PGxpbmUgeDE9Ijg1IiB4Mj0iODUiIHkxPSI0MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iODIiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+MDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjExMCIgeDI9IjExMCIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIxMDQiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+NTA8L3RleHQKICAgICAgPjxsaW5lIHgxPSIxMzUiIHgyPSIxMzUiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iMTI2IiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjEwMDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjE2MCIgeDI9IjE2MCIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIxNTEiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+MTUwPC90ZXh0CiAgICAgID48bGluZSB4MT0iMTg1IiB4Mj0iMTg1IiB5MT0iNTAiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTpncmF5OyBzdHJva2Utd2lkdGg6MC41OyIgeTI9IjYwIgogICAgICAvPjx0ZXh0IHg9IjE3NiIgeT0iNjgiIHN0eWxlPSJmaWxsOmJsYWNrOyBzdHJva2U6bm9uZTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgID4yMDA8L3RleHQKICAgICAgPjxsaW5lIHgxPSIyMTAiIHgyPSIyMTAiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iMjAxIiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjI1MDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjIzNSIgeDI9IjIzNSIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIyMjYiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+MzAwPC90ZXh0CiAgICAgID48bGluZSB4MT0iMjYwIiB4Mj0iMjYwIiB5MT0iNTAiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTpncmF5OyBzdHJva2Utd2lkdGg6MC41OyIgeTI9IjYwIgogICAgICAvPjx0ZXh0IHg9IjI1MSIgeT0iNjgiIHN0eWxlPSJmaWxsOmJsYWNrOyBzdHJva2U6bm9uZTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgID4zNTA8L3RleHQKICAgICAgPjxsaW5lIHgxPSIyODUiIHgyPSIyODUiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iMjc2IiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjQwMDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjMxMCIgeDI9IjMxMCIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIzMDEiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+NDUwPC90ZXh0CiAgICAgID48bGluZSB4MT0iMzM1IiB4Mj0iMzM1IiB5MT0iNTAiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTpncmF5OyBzdHJva2Utd2lkdGg6MC41OyIgeTI9IjYwIgogICAgICAvPjx0ZXh0IHg9IjMyNiIgeT0iNjgiIHN0eWxlPSJmaWxsOmJsYWNrOyBzdHJva2U6bm9uZTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgID41MDA8L3RleHQKICAgICAgPjxsaW5lIHgxPSIzNjAiIHgyPSIzNjAiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iMzUxIiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjU1MDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjM4NSIgeDI9IjM4NSIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIzNzYiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+NjAwPC90ZXh0CiAgICAgID48bGluZSB4MT0iNDEwIiB4Mj0iNDEwIiB5MT0iNTAiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTpncmF5OyBzdHJva2Utd2lkdGg6MC41OyIgeTI9IjYwIgogICAgICAvPjx0ZXh0IHg9IjQwMSIgeT0iNjgiIHN0eWxlPSJmaWxsOmJsYWNrOyBzdHJva2U6bm9uZTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgID42NTA8L3RleHQKICAgICAgPjxsaW5lIHgxPSI0MzUiIHgyPSI0MzUiIHkxPSI0MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iNDI2IiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjcwMDwvdGV4dAogICAgICA+PHBvbHlnb24gc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZS13aWR0aDowLjU7IHN0cm9rZTpub25lOyIgcG9pbnRzPSIgNDA2IDMwIDQxNiA0MCA0MjYgMzAiCiAgICAgIC8+PHRleHQgeD0iNDA1IiB5PSIyNSIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjY2MzwvdGV4dAogICAgPjwvZwogID48L2cKPjwvc3ZnCj4K</Inhoud>
+                                            <Extensie>svg</Extensie>
+                                        </Balk>
+                                    </ScoreKleur>
+                                </Scores>
+                                <Ligging>
+                                    <Adres arId="1">
+                                        <Straat>
+                                            <Naam>teststraat</Naam>
+                                        </Straat>
+                                        <HuisNummer>1</HuisNummer>
+                                        <Gemeente>
+                                            <PostCode>3000</PostCode>
+                                            <Naam>Leuven</Naam>
+                                        </Gemeente>
+                                    </Adres>
+                                    <Kavel>
+                                        <Lotnummer>12</Lotnummer>
+                                    </Kavel>
+                                    <Kadasters>
+                                        <Kadaster>
+                                            <Sectie>A</Sectie>
+                                            <Afdeling>1</Afdeling>
+                                            <Nummers>01234K1, 01234Y 1</Nummers>
+                                        </Kadaster>
+                                    </Kadasters>
+                                </Ligging>
+                                <EpcEenheidType>EPC bestaand</EpcEenheidType>
+                                <Personen>
+                                    <Persoon>
+                                        <NatuurlijkPersoon>
+                                            <Voornaam>test voornaam</Voornaam>
+                                            <Naam>test achternaam</Naam>
+                                        </NatuurlijkPersoon>
+                                        <Registratie>
+                                            <EpCode>EP00000</EpCode>
+                                            <Organisatie>
+                                                <Firmanaam>test firma</Firmanaam>
+                                                <Rechtsvorm>Besloten vennootschap met beperkte aansprakelijkheid</Rechtsvorm>
+                                                <KboNummer>000000001</KboNummer>
+                                            </Organisatie>
+                                            <Rol>
+                                                <TypeRol>Verslaggever</TypeRol>
+                                            </Rol>
+                                        </Registratie>
+                                    </Persoon>
+                                </Personen>
+                                <Details>
+                                    <AardVanDeWerken>Nieuwbouw (of gelijkgesteld)</AardVanDeWerken>
+                                    <VerduidelijkingAardVanDeWerken>Nieuwbouw</VerduidelijkingAardVanDeWerken>
+                                    <Omschrijving>test omschrijving</Omschrijving>
+                                    <BeschermdVolume meeteenheid="m³">100.00</BeschermdVolume>
+                                    <Bestemming>Wonen</Bestemming>
+                                    <Bouwvorm>Gesloten bebouwing</Bouwvorm>
+                                    <BrutoVloerOppervlakte meeteenheid="m²">50.00</BrutoVloerOppervlakte>
+                                    <GebouwType>Eéngezinswoning</GebouwType>
+                                    <Luchtdichtheid meeteenheid="m³/h.m²">2.40</Luchtdichtheid>
+                                    <VerliesOppervlakteEnergieEenheid meeteenheid="m²">160.32</VerliesOppervlakteEnergieEenheid>
+                                    <EpbEenheid>
+                                        <EpbEenheidType>EPW eenheid</EpbEenheidType>
+                                        <NieuwbouwNaSloop>false</NieuwbouwNaSloop>
+                                        <SocialeHuisvesting>false</SocialeHuisvesting>
+                                    </EpbEenheid>
+                                    <Ruimtes>
+                                        <Ruimte>
+                                            <Naam>inkom/overloop</Naam>
+                                            <Soort>Gang, trapzaal, hall (of analoge ruimte)</Soort>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>WC 1</Naam>
+                                            <Soort>WC</Soort>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>keuken</Naam>
+                                            <Soort>Open keuken</Soort>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>leefruimte</Naam>
+                                            <Soort>Woonkamer (of analoge ruimte)</Soort>
+                                            <Gebruiksoppervlakte meeteenheid="m²">12.89</Gebruiksoppervlakte>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>wasplaats</Naam>
+                                            <Soort>Badkamer, was-, droogplaats (of analoge ruimte)</Soort>
+                                            <Gebruiksoppervlakte meeteenheid="m²">1.21</Gebruiksoppervlakte>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>WC 2</Naam>
+                                            <Soort>WC</Soort>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>technische ruimte</Naam>
+                                            <Soort>Speciale ruimte</Soort>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>badkamer</Naam>
+                                            <Soort>Badkamer, was-, droogplaats (of analoge ruimte)</Soort>
+                                            <Gebruiksoppervlakte meeteenheid="m²">6.32</Gebruiksoppervlakte>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>slaapkamer 1</Naam>
+                                            <Soort>Slaap-, studeer-, speelkamer (of analoge ruimte)</Soort>
+                                            <Gebruiksoppervlakte meeteenheid="m²">12.53</Gebruiksoppervlakte>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>slaapkamer 2</Naam>
+                                            <Soort>Slaap-, studeer-, speelkamer (of analoge ruimte)</Soort>
+                                            <Gebruiksoppervlakte meeteenheid="m²">13.22</Gebruiksoppervlakte>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                    </Ruimtes>
+                                    <Schildelen>
+                                        <Schildeel>
+                                            <Naam>vloer op volle grond</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Vloer</Categorie>
+                                                    <Soort>Vloer in contact met grond</Soort>
+                                                    <Naam>vloer op volle grond</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">50.00</NettoOppervlakte>
+                                                    <Begrenzing>Grond</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.160</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">0.300</UMaxWaarde>
+                                                    <RWaarde meeteenheid="m²K/W">3.710</RWaarde>
+                                                    <RMinWaarde meeteenheid="m²K/W">1.750</RMinWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">50.00</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>slaapkamer 1</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Soort>Venster</Soort>
+                                                    <Naam>R slaapkamer 3 AG</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.30</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <Beglazing>
+                                                        <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">1.310</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">1.100</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">1.30</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>plat dak</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Dak</Categorie>
+                                                    <Soort>Dak</Soort>
+                                                    <Naam>plat dak</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">50.00</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.200</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">0.240</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">50.00</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>deur 1</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Deur of poort</Categorie>
+                                                    <Soort>Deur</Soort>
+                                                    <Naam>deur inkom</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">2.30</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">1.360</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">2.000</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">2.30</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>muur met paneel</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Soort>Buitenmuur</Soort>
+                                                    <Naam>muur met paneel</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.70</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.210</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">0.240</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">0.70</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>spouwmuur</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Soort>Buitenmuur</Soort>
+                                                    <Naam>spouwmuur</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">43.17</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.230</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">0.240</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">43.17</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>keuken</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Soort>Venster zonder ventilatierooster</Soort>
+                                                    <Naam>R keuken VG</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">2.30</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <Beglazing>
+                                                        <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">1.310</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">1.100</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">2.30</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>slaapkamer 2</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Soort>Venster zonder ventilatierooster</Soort>
+                                                    <Naam>R slaapkamer 1 VG</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">2.00</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <Beglazing>
+                                                        <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">1.310</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">1.100</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">2.00</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>leefruimte</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Soort>Venster zonder ventilatierooster</Soort>
+                                                    <Naam>SR leefruimte AG</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">7.13</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <Beglazing>
+                                                        <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">1.580</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">1.100</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">7.13</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>slaapkamer 3</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Soort>Venster</Soort>
+                                                    <Naam>R slaapkamer 2 AG</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.30</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <Beglazing>
+                                                        <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">1.310</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">1.100</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">1.30</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>deelmuur</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Soort>Binnenmuur</Soort>
+                                                    <Naam>deelmuur</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">60.20</NettoOppervlakte>
+                                                    <Begrenzing>Aangrenzende verwarmde ruimte</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.600</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">0.600</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">60.20</Oppervlakte>
+                                        </Schildeel>
+                                    </Schildelen>
+                                    <Installaties>
+                                        <InstallatiesVoorRuimteverwarming>
+                                            <InstallatieVoorRuimteVerwarming>
+                                                <Opwekkingstoestellen>
+                                                    <Opwekkingstoestel>
+                                                        <SoortOpwekkingstoestel>centraal</SoortOpwekkingstoestel>
+                                                        <TypeOpwekkingstoestel>condenserende waterketel</TypeOpwekkingstoestel>
+                                                        <NaamToestel>test naam toestel</NaamToestel>
+                                                        <ToestelBinnenHetBeschermdVolume>true</ToestelBinnenHetBeschermdVolume>
+                                                        <Energiedrager>Aardgas</Energiedrager>
+                                                        <OpwekkingsrendementRV>0.92</OpwekkingsrendementRV>
+                                                    </Opwekkingstoestel>
+                                                </Opwekkingstoestellen>
+                                                <Afgiftesystemen>
+                                                    <SoortAfgifteSysteem>radiatoren</SoortAfgifteSysteem>
+                                                </Afgiftesystemen>
+                                                <BuffervatAanwezig>false</BuffervatAanwezig>
+                                            </InstallatieVoorRuimteVerwarming>
+                                        </InstallatiesVoorRuimteverwarming>
+                                        <InstallatiesVoorSanitairWarmWater>
+                                            <InstallatieVoorSanitairWarmWater>
+                                                <Opwekkingstoestellen>
+                                                    <Opwekkingstoestel>
+                                                        <SoortOpwekkingstoestel>Individueel opwekkingssysteem</SoortOpwekkingstoestel>
+                                                        <TypeOpwekkingstoestel>Geen warmteopslag</TypeOpwekkingstoestel>
+                                                        <NaamToestel>test naam sww</NaamToestel>
+                                                        <Energiedrager>Aardgas</Energiedrager>
+                                                        <OpwekkingsrendementSWW>0.50</OpwekkingsrendementSWW>
+                                                    </Opwekkingstoestel>
+                                                </Opwekkingstoestellen>
+                                            </InstallatieVoorSanitairWarmWater>
+                                        </InstallatiesVoorSanitairWarmWater>
+                                        <Koelingen>
+                                            <Koeling>
+                                                <ActieveKoeling>true</ActieveKoeling>
+                                            </Koeling>
+                                        </Koelingen>
+                                        <FotovoltaischePanelen>
+                                            <FotovoltaischePaneel>
+                                                <TypeZonnepanelen>zonnepaneel1</TypeZonnepanelen>
+                                                <Hellingsgraad meeteenheid="°">15</Hellingsgraad>
+                                                <Orientatie meeteenheid="°">-47</Orientatie>
+                                                <Elektriciteitsopwekking meeteenheid="kW">1102.00</Elektriciteitsopwekking>
+                                            </FotovoltaischePaneel>
+                                        </FotovoltaischePanelen>
+                                        <VentilatieSystemen>
+                                            <VentilatieSysteem>
+                                                <NaamVentilatiesysteem>Test naam vs</NaamVentilatiesysteem>
+                                                <TypeVentilatiesysteem>Mechanische toevoer, mechanische afvoer (D)</TypeVentilatiesysteem>
+                                                <AanwezigheidBypass>true</AanwezigheidBypass>
+                                                <RendementWtw>55</RendementWtw>
+                                            </VentilatieSysteem>
+                                        </VentilatieSystemen>
+                                    </Installaties>
+                                    <HESystemen>
+                                        <Systeem>
+                                            <Naam>Fotovoltaïsch zonne-energiesysteem</Naam>
+                                            <KwaliteitseisenVoldaan>true</KwaliteitseisenVoldaan>
+                                            <KwantiteitseisenVoldaan>true</KwantiteitseisenVoldaan>
+                                        </Systeem>
+                                    </HESystemen>
+                                    <EPvolume>
+                                        <Oververhittingsindicatoren>
+                                            <Oververhittingsindicator>
+                                                <EPWVolume>lot 56</EPWVolume>
+                                                <Indicator meeteenheid="Kh">3525.00</Indicator>
+                                                <MaxIndicator meeteenheid="Kh">5600.00</MaxIndicator>
+                                                <Voldaan>true</Voldaan>
+                                            </Oververhittingsindicator>
+                                        </Oververhittingsindicatoren>
+                                    </EPvolume>
+                                </Details>
+                            </Epc>
+                        </EnergieEenheid>
+                        <EnergieEenheid>
+                            <Epc id="486208">
+                                <Identificatie>
+                                    <Attestnummer>attest2</Attestnummer>
+                                </Identificatie>
+                                <DatumModificatie>2017-11-03T16:34:51+02:00</DatumModificatie>
+                                <Actief>true</Actief>
+                                <Status>Actief</Status>
+                                <DatumIngediend>2017-11-03</DatumIngediend>
+                                <DatumGeldigheid>2020-11-03</DatumGeldigheid>
+                                <Scores>
+                                    <Score type="epeil">
+                                        <Eis>90.00</Eis>
+                                        <Waarde>25.00</Waarde>
+                                        <Voldaan>true</Voldaan>
+                                        <GemiddeldeWaardeGemeente>68.00</GemiddeldeWaardeGemeente>
+                                        <GemiddeldeWaardeProvincie>70.00</GemiddeldeWaardeProvincie>
+                                        <GemiddeldeWaardeVlaanderen>71.00</GemiddeldeWaardeVlaanderen>
+                                    </Score>
+                                    <Score type="co2Emissie">
+                                        <Waarde meeteenheid="Kg">350.12</Waarde>
+                                    </Score>
+                                    <Score type="primaireEnergieVerbruikPerVierkanteMeter">
+                                        <Waarde meeteenheid="kWh/m²">22.32</Waarde>
+                                        <GemiddeldeWaardeGemeente meeteenheid="kWh/m²">114.11</GemiddeldeWaardeGemeente>
+                                        <GemiddeldeWaardeProvincie meeteenheid="kWh/m²">429.03</GemiddeldeWaardeProvincie>
+                                        <GemiddeldeWaardeVlaanderen meeteenheid="kWh/m²">118.74</GemiddeldeWaardeVlaanderen>
+                                    </Score>
+                                    <Score type="gemiddeldeUwaardeSchil">
+                                        <Waarde meeteenheid="W/m²K">0.42</Waarde>
+                                        <GemiddeldeWaardeGemeente meeteenheid="W/m²K">0.44</GemiddeldeWaardeGemeente>
+                                        <GemiddeldeWaardeProvincie meeteenheid="W/m²K">0.44</GemiddeldeWaardeProvincie>
+                                        <GemiddeldeWaardeVlaanderen meeteenheid="W/m²K">0.44</GemiddeldeWaardeVlaanderen>
+                                    </Score>
+                                    <Score type="uEnRWaarden">
+                                        <Voldaan>true</Voldaan>
+                                    </Score>
+                                    <Score type="kpeil">
+                                        <Eis>45.00</Eis>
+                                        <Waarde>35.00</Waarde>
+                                        <Voldaan>true</Voldaan>
+                                        <GemiddeldeWaardeGemeente>35.00</GemiddeldeWaardeGemeente>
+                                        <GemiddeldeWaardeProvincie>35.00</GemiddeldeWaardeProvincie>
+                                        <GemiddeldeWaardeVlaanderen>35.00</GemiddeldeWaardeVlaanderen>
+                                    </Score>
+                                    <Score type="aandeelHernieuwbareEnergie">
+                                        <Eis meeteenheid="kWh/m²">10.00</Eis>
+                                        <Waarde meeteenheid="kWh/m²">23.81</Waarde>
+                                        <Voldaan>true</Voldaan>
+                                    </Score>
+                                    <Score type="totaalPrimaireEnergieverbruik">
+                                        <Waarde meeteenheid="kWh/jaar">2232.25</Waarde>
+                                    </Score>
+                                    <Score type="nettoEnergiebehoefte">
+                                        <Eis meeteenheid="kWh/m².jaar">90.00</Eis>
+                                        <Waarde meeteenheid="kWh/m².jaar">27.32</Waarde>
+                                        <Voldaan>true</Voldaan>
+                                    </Score>
+                                    <Score type="risicoOpOververhitting">
+                                        <Voldaan>true</Voldaan>
+                                    </Score>
+                                    <Score type="ventilatie">
+                                        <Voldaan>false</Voldaan>
+                                    </Score>
+                                    <ScoreKleur>
+                                        <Code>#008500</Code>
+                                        <Balk>
+                                            <Inhoud>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgJy0vL1czQy8vRFREIFNWRyAxLjAvL0VOJwogICAgICAgICAgJ2h0dHA6Ly93d3cudzMub3JnL1RSLzIwMDEvUkVDLVNWRy0yMDAxMDkwNC9EVEQvc3ZnMTAuZHRkJz4KPHN2ZyBzdHlsZT0ic3Ryb2tlLWRhc2hhcnJheTpub25lOyBzaGFwZS1yZW5kZXJpbmc6YXV0bzsgZm9udC1mYW1pbHk6J0RpYWxvZyc7IHRleHQtcmVuZGVyaW5nOmF1dG87IGZpbGwtb3BhY2l0eToxOyBjb2xvci1pbnRlcnBvbGF0aW9uOmF1dG87IGNvbG9yLXJlbmRlcmluZzphdXRvOyBmb250LXNpemU6MTJweDsgZmlsbDpibGFjazsgc3Ryb2tlOmJsYWNrOyBpbWFnZS1yZW5kZXJpbmc6YXV0bzsgc3Ryb2tlLW1pdGVybGltaXQ6MTA7IHN0cm9rZS1saW5lY2FwOnNxdWFyZTsgc3Ryb2tlLWxpbmVqb2luOm1pdGVyOyBmb250LXN0eWxlOm5vcm1hbDsgc3Ryb2tlLXdpZHRoOjE7IHN0cm9rZS1kYXNob2Zmc2V0OjA7IGZvbnQtd2VpZ2h0Om5vcm1hbDsgc3Ryb2tlLW9wYWNpdHk6MTsiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjUwMCIgY29udGVudFNjcmlwdFR5cGU9InRleHQvZWNtYXNjcmlwdCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHpvb21BbmRQYW49Im1hZ25pZnkiIHZlcnNpb249IjEuMCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjAwIgo+PCEtLUdlbmVyYXRlZCBieSB0aGUgQmF0aWsgR3JhcGhpY3MyRCBTVkcgR2VuZXJhdG9yLS0+PGRlZnMgaWQ9ImdlbmVyaWNEZWZzIgogIC8+PGcKICA+PGRlZnMgaWQ9ImRlZnMxIgogICAgPjxsaW5lYXJHcmFkaWVudCB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgaWQ9ImdyYWRpZW50MSIgc3R5bGU9ImNvbG9yLWludGVycG9sYXRpb246c1JHQjsiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBzcHJlYWRNZXRob2Q9InBhZCIgeGxpbms6c2hvdz0icmVwbGFjZSIgeGxpbms6dHlwZT0ic2ltcGxlIiB4MT0iMC4wIiB5MT0iMC4wIiB4Mj0iNDAwLjAiIHkyPSIwLjAiIHhsaW5rOmFjdHVhdGU9Im9uUmVxdWVzdCIKICAgICAgPjxzdG9wIHN0eWxlPSJzdG9wLWNvbG9yOnJnYigzOSwxNDMsNjgpOyIgb2Zmc2V0PSIwJSIKICAgICAgICAvPjxzdG9wIHN0eWxlPSJzdG9wLWNvbG9yOnJnYigzOSwxNDMsNjgpOyIgb2Zmc2V0PSIzMCUiCiAgICAgICAgLz48c3RvcCBzdHlsZT0ic3RvcC1jb2xvcjp5ZWxsb3c7IiBvZmZzZXQ9IjY1JSIKICAgICAgICAvPjxzdG9wIHN0eWxlPSJzdG9wLWNvbG9yOnJnYigyNTUsMTcsMTYpOyIgb2Zmc2V0PSIxMDAlIgogICAgICAvPjwvbGluZWFyR3JhZGllbnQKICAgID48L2RlZnMKICAgID48ZyBzdHlsZT0iZmlsbDp1cmwoI2dyYWRpZW50MSk7IHN0cm9rZTp1cmwoI2dyYWRpZW50MSk7IgogICAgPjxyZWN0IHg9IjYwIiB5PSI0MCIgd2lkdGg9IjQwMCIgc3R5bGU9InN0cm9rZTpub25lOyIgaGVpZ2h0PSIxMCIKICAgICAgLz48bGluZSB4MT0iODUiIHgyPSI0MzUiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNTAiCiAgICAgIC8+PGxpbmUgeDE9Ijg1IiB4Mj0iODUiIHkxPSI0MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iODIiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+MDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjExMCIgeDI9IjExMCIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIxMDQiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+NTA8L3RleHQKICAgICAgPjxsaW5lIHgxPSIxMzUiIHgyPSIxMzUiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iMTI2IiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjEwMDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjE2MCIgeDI9IjE2MCIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIxNTEiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+MTUwPC90ZXh0CiAgICAgID48bGluZSB4MT0iMTg1IiB4Mj0iMTg1IiB5MT0iNTAiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTpncmF5OyBzdHJva2Utd2lkdGg6MC41OyIgeTI9IjYwIgogICAgICAvPjx0ZXh0IHg9IjE3NiIgeT0iNjgiIHN0eWxlPSJmaWxsOmJsYWNrOyBzdHJva2U6bm9uZTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgID4yMDA8L3RleHQKICAgICAgPjxsaW5lIHgxPSIyMTAiIHgyPSIyMTAiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iMjAxIiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjI1MDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjIzNSIgeDI9IjIzNSIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIyMjYiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+MzAwPC90ZXh0CiAgICAgID48bGluZSB4MT0iMjYwIiB4Mj0iMjYwIiB5MT0iNTAiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTpncmF5OyBzdHJva2Utd2lkdGg6MC41OyIgeTI9IjYwIgogICAgICAvPjx0ZXh0IHg9IjI1MSIgeT0iNjgiIHN0eWxlPSJmaWxsOmJsYWNrOyBzdHJva2U6bm9uZTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgID4zNTA8L3RleHQKICAgICAgPjxsaW5lIHgxPSIyODUiIHgyPSIyODUiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iMjc2IiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjQwMDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjMxMCIgeDI9IjMxMCIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIzMDEiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+NDUwPC90ZXh0CiAgICAgID48bGluZSB4MT0iMzM1IiB4Mj0iMzM1IiB5MT0iNTAiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTpncmF5OyBzdHJva2Utd2lkdGg6MC41OyIgeTI9IjYwIgogICAgICAvPjx0ZXh0IHg9IjMyNiIgeT0iNjgiIHN0eWxlPSJmaWxsOmJsYWNrOyBzdHJva2U6bm9uZTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgID41MDA8L3RleHQKICAgICAgPjxsaW5lIHgxPSIzNjAiIHgyPSIzNjAiIHkxPSI1MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iMzUxIiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjU1MDwvdGV4dAogICAgICA+PGxpbmUgeDE9IjM4NSIgeDI9IjM4NSIgeTE9IjUwIiBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6Z3JheTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHkyPSI2MCIKICAgICAgLz48dGV4dCB4PSIzNzYiIHk9IjY4IiBzdHlsZT0iZmlsbDpibGFjazsgc3Ryb2tlOm5vbmU7IHN0cm9rZS13aWR0aDowLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIgogICAgICA+NjAwPC90ZXh0CiAgICAgID48bGluZSB4MT0iNDEwIiB4Mj0iNDEwIiB5MT0iNTAiIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTpncmF5OyBzdHJva2Utd2lkdGg6MC41OyIgeTI9IjYwIgogICAgICAvPjx0ZXh0IHg9IjQwMSIgeT0iNjgiIHN0eWxlPSJmaWxsOmJsYWNrOyBzdHJva2U6bm9uZTsgc3Ryb2tlLXdpZHRoOjAuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgICAgID42NTA8L3RleHQKICAgICAgPjxsaW5lIHgxPSI0MzUiIHgyPSI0MzUiIHkxPSI0MCIgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOmdyYXk7IHN0cm9rZS13aWR0aDowLjU7IiB5Mj0iNjAiCiAgICAgIC8+PHRleHQgeD0iNDI2IiB5PSI2OCIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjcwMDwvdGV4dAogICAgICA+PHBvbHlnb24gc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZS13aWR0aDowLjU7IHN0cm9rZTpub25lOyIgcG9pbnRzPSIgNDA2IDMwIDQxNiA0MCA0MjYgMzAiCiAgICAgIC8+PHRleHQgeD0iNDA1IiB5PSIyNSIgc3R5bGU9ImZpbGw6YmxhY2s7IHN0cm9rZTpub25lOyBzdHJva2Utd2lkdGg6MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgICAgPjY2MzwvdGV4dAogICAgPjwvZwogID48L2cKPjwvc3ZnCj4K</Inhoud>
+                                            <Extensie>svg</Extensie>
+                                        </Balk>
+                                    </ScoreKleur>
+                                </Scores>
+                                <Ligging>
+                                    <Adres arId="1">
+                                        <Straat>
+                                            <Naam>teststraat</Naam>
+                                        </Straat>
+                                        <HuisNummer>1</HuisNummer>
+                                        <Gemeente>
+                                            <PostCode>3000</PostCode>
+                                            <Naam>Leuven</Naam>
+                                        </Gemeente>
+                                    </Adres>
+                                    <Kavel>
+                                        <Lotnummer>12</Lotnummer>
+                                    </Kavel>
+                                    <Kadasters>
+                                        <Kadaster>
+                                            <Sectie>A</Sectie>
+                                            <Afdeling>1</Afdeling>
+                                            <Nummers>01234K1, 01234Y 1</Nummers>
+                                        </Kadaster>
+                                    </Kadasters>
+                                </Ligging>
+                                <EpcEenheidType>EPC renovatie</EpcEenheidType>
+                                <Personen>
+                                    <Persoon>
+                                        <NatuurlijkPersoon>
+                                            <Voornaam>test voornaam</Voornaam>
+                                            <Naam>test achternaam</Naam>
+                                        </NatuurlijkPersoon>
+                                        <Registratie>
+                                            <EpCode>EP00000</EpCode>
+                                            <Organisatie>
+                                                <Firmanaam>test firma</Firmanaam>
+                                                <Rechtsvorm>Besloten vennootschap met beperkte aansprakelijkheid</Rechtsvorm>
+                                                <KboNummer>000000001</KboNummer>
+                                            </Organisatie>
+                                            <Rol>
+                                                <TypeRol>Verslaggever</TypeRol>
+                                            </Rol>
+                                        </Registratie>
+                                    </Persoon>
+                                </Personen>
+                                <Details>
+                                    <AardVanDeWerken>Nieuwbouw (of gelijkgesteld)</AardVanDeWerken>
+                                    <VerduidelijkingAardVanDeWerken>Nieuwbouw</VerduidelijkingAardVanDeWerken>
+                                    <Omschrijving>test omschrijving</Omschrijving>
+                                    <BeschermdVolume meeteenheid="m³">100.00</BeschermdVolume>
+                                    <Bestemming>Wonen</Bestemming>
+                                    <Bouwvorm>Gesloten bebouwing</Bouwvorm>
+                                    <BrutoVloerOppervlakte meeteenheid="m²">50.00</BrutoVloerOppervlakte>
+                                    <GebouwType>Eéngezinswoning</GebouwType>
+                                    <Luchtdichtheid meeteenheid="m³/h.m²">2.40</Luchtdichtheid>
+                                    <VerliesOppervlakteEnergieEenheid meeteenheid="m²">160.32</VerliesOppervlakteEnergieEenheid>
+                                    <EpbEenheid>
+                                        <EpbEenheidType>EPW eenheid</EpbEenheidType>
+                                        <NieuwbouwNaSloop>false</NieuwbouwNaSloop>
+                                        <SocialeHuisvesting>false</SocialeHuisvesting>
+                                    </EpbEenheid>
+                                    <Ruimtes>
+                                        <Ruimte>
+                                            <Naam>inkom/overloop</Naam>
+                                            <Soort>Gang, trapzaal, hall (of analoge ruimte)</Soort>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>WC 1</Naam>
+                                            <Soort>WC</Soort>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>keuken</Naam>
+                                            <Soort>Open keuken</Soort>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>leefruimte</Naam>
+                                            <Soort>Woonkamer (of analoge ruimte)</Soort>
+                                            <Gebruiksoppervlakte meeteenheid="m²">12.89</Gebruiksoppervlakte>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>wasplaats</Naam>
+                                            <Soort>Badkamer, was-, droogplaats (of analoge ruimte)</Soort>
+                                            <Gebruiksoppervlakte meeteenheid="m²">1.21</Gebruiksoppervlakte>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>WC 2</Naam>
+                                            <Soort>WC</Soort>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>technische ruimte</Naam>
+                                            <Soort>Speciale ruimte</Soort>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>badkamer</Naam>
+                                            <Soort>Badkamer, was-, droogplaats (of analoge ruimte)</Soort>
+                                            <Gebruiksoppervlakte meeteenheid="m²">6.32</Gebruiksoppervlakte>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>slaapkamer 1</Naam>
+                                            <Soort>Slaap-, studeer-, speelkamer (of analoge ruimte)</Soort>
+                                            <Gebruiksoppervlakte meeteenheid="m²">12.53</Gebruiksoppervlakte>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                        <Ruimte>
+                                            <Naam>slaapkamer 2</Naam>
+                                            <Soort>Slaap-, studeer-, speelkamer (of analoge ruimte)</Soort>
+                                            <Gebruiksoppervlakte meeteenheid="m²">13.22</Gebruiksoppervlakte>
+                                            <TypeRuimte>Nieuw</TypeRuimte>
+                                        </Ruimte>
+                                    </Ruimtes>
+                                    <Schildelen>
+                                        <Schildeel>
+                                            <Naam>vloer op volle grond</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Vloer</Categorie>
+                                                    <Soort>Vloer in contact met grond</Soort>
+                                                    <Naam>vloer op volle grond</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">50.00</NettoOppervlakte>
+                                                    <Begrenzing>Grond</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.160</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">0.300</UMaxWaarde>
+                                                    <RWaarde meeteenheid="m²K/W">3.710</RWaarde>
+                                                    <RMinWaarde meeteenheid="m²K/W">1.750</RMinWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">50.00</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>slaapkamer 1</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Soort>Venster</Soort>
+                                                    <Naam>R slaapkamer 3 AG</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.30</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <Beglazing>
+                                                        <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">1.310</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">1.100</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">1.30</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>plat dak</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Dak</Categorie>
+                                                    <Soort>Dak</Soort>
+                                                    <Naam>plat dak</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">50.00</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.200</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">0.240</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">50.00</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>deur 1</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Deur of poort</Categorie>
+                                                    <Soort>Deur</Soort>
+                                                    <Naam>deur inkom</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">2.30</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">1.360</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">2.000</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">2.30</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>muur met paneel</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Soort>Buitenmuur</Soort>
+                                                    <Naam>muur met paneel</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">0.70</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.210</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">0.240</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">0.70</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>spouwmuur</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Soort>Buitenmuur</Soort>
+                                                    <Naam>spouwmuur</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">43.17</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.230</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">0.240</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">43.17</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>keuken</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Soort>Venster zonder ventilatierooster</Soort>
+                                                    <Naam>R keuken VG</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">2.30</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <Beglazing>
+                                                        <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">1.310</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">1.100</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">2.30</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>slaapkamer 2</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Soort>Venster zonder ventilatierooster</Soort>
+                                                    <Naam>R slaapkamer 1 VG</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">2.00</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <Beglazing>
+                                                        <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">1.310</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">1.100</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">2.00</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>leefruimte</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Soort>Venster zonder ventilatierooster</Soort>
+                                                    <Naam>SR leefruimte AG</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">7.13</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <Beglazing>
+                                                        <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">1.580</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">1.100</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">7.13</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>slaapkamer 3</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Venster</Categorie>
+                                                    <Soort>Venster</Soort>
+                                                    <Naam>R slaapkamer 2 AG</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">1.30</NettoOppervlakte>
+                                                    <Begrenzing>Buitenomgeving</Begrenzing>
+                                                    <Beglazing>
+                                                        <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                                    </Beglazing>
+                                                    <UWaarde meeteenheid="W/m²K">1.310</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">1.100</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">1.30</Oppervlakte>
+                                        </Schildeel>
+                                        <Schildeel>
+                                            <Naam>deelmuur</Naam>
+                                            <Constructiedelen>
+                                                <Constructiedeel>
+                                                    <Categorie>Muur</Categorie>
+                                                    <Soort>Binnenmuur</Soort>
+                                                    <Naam>deelmuur</Naam>
+                                                    <NettoOppervlakte meeteenheid="m²">60.20</NettoOppervlakte>
+                                                    <Begrenzing>Aangrenzende verwarmde ruimte</Begrenzing>
+                                                    <UWaarde meeteenheid="W/m²K">0.600</UWaarde>
+                                                    <UMaxWaarde meeteenheid="W/m²K">0.600</UMaxWaarde>
+                                                    <ConstructiedeelVoldaan>true</ConstructiedeelVoldaan>
+                                                    <BestaandeConstructie>false</BestaandeConstructie>
+                                                </Constructiedeel>
+                                            </Constructiedelen>
+                                            <Oppervlakte meeteenheid="m²">60.20</Oppervlakte>
+                                        </Schildeel>
+                                    </Schildelen>
+                                    <Installaties>
+                                        <InstallatiesVoorRuimteverwarming>
+                                            <InstallatieVoorRuimteVerwarming>
+                                                <Opwekkingstoestellen>
+                                                    <Opwekkingstoestel>
+                                                        <SoortOpwekkingstoestel>centraal</SoortOpwekkingstoestel>
+                                                        <TypeOpwekkingstoestel>condenserende waterketel</TypeOpwekkingstoestel>
+                                                        <NaamToestel>test naam toestel</NaamToestel>
+                                                        <ToestelBinnenHetBeschermdVolume>true</ToestelBinnenHetBeschermdVolume>
+                                                        <Energiedrager>Aardgas</Energiedrager>
+                                                        <OpwekkingsrendementRV>0.92</OpwekkingsrendementRV>
+                                                    </Opwekkingstoestel>
+                                                </Opwekkingstoestellen>
+                                                <Afgiftesystemen>
+                                                    <SoortAfgifteSysteem>radiatoren</SoortAfgifteSysteem>
+                                                </Afgiftesystemen>
+                                                <BuffervatAanwezig>false</BuffervatAanwezig>
+                                            </InstallatieVoorRuimteVerwarming>
+                                        </InstallatiesVoorRuimteverwarming>
+                                        <InstallatiesVoorSanitairWarmWater>
+                                            <InstallatieVoorSanitairWarmWater>
+                                                <Opwekkingstoestellen>
+                                                    <Opwekkingstoestel>
+                                                        <SoortOpwekkingstoestel>Individueel opwekkingssysteem</SoortOpwekkingstoestel>
+                                                        <TypeOpwekkingstoestel>Geen warmteopslag</TypeOpwekkingstoestel>
+                                                        <NaamToestel>test naam sww</NaamToestel>
+                                                        <Energiedrager>Aardgas</Energiedrager>
+                                                        <OpwekkingsrendementSWW>0.50</OpwekkingsrendementSWW>
+                                                    </Opwekkingstoestel>
+                                                </Opwekkingstoestellen>
+                                            </InstallatieVoorSanitairWarmWater>
+                                        </InstallatiesVoorSanitairWarmWater>
+                                        <Koelingen>
+                                            <Koeling>
+                                                <ActieveKoeling>true</ActieveKoeling>
+                                            </Koeling>
+                                        </Koelingen>
+                                        <FotovoltaischePanelen>
+                                            <FotovoltaischePaneel>
+                                                <TypeZonnepanelen>zonnepaneel1</TypeZonnepanelen>
+                                                <Hellingsgraad meeteenheid="°">15</Hellingsgraad>
+                                                <Orientatie meeteenheid="°">-47</Orientatie>
+                                                <Elektriciteitsopwekking meeteenheid="kW">1102.00</Elektriciteitsopwekking>
+                                            </FotovoltaischePaneel>
+                                        </FotovoltaischePanelen>
+                                        <VentilatieSystemen>
+                                            <VentilatieSysteem>
+                                                <NaamVentilatiesysteem>Test naam vs</NaamVentilatiesysteem>
+                                                <TypeVentilatiesysteem>Mechanische toevoer, mechanische afvoer (D)</TypeVentilatiesysteem>
+                                                <AanwezigheidBypass>true</AanwezigheidBypass>
+                                                <RendementWtw>55</RendementWtw>
+                                            </VentilatieSysteem>
+                                        </VentilatieSystemen>
+                                    </Installaties>
+                                    <HESystemen>
+                                        <Systeem>
+                                            <Naam>Fotovoltaïsch zonne-energiesysteem</Naam>
+                                            <KwaliteitseisenVoldaan>true</KwaliteitseisenVoldaan>
+                                            <KwantiteitseisenVoldaan>true</KwantiteitseisenVoldaan>
+                                        </Systeem>
+                                    </HESystemen>
+                                    <EPvolume>
+                                        <Oververhittingsindicatoren>
+                                            <Oververhittingsindicator>
+                                                <EPWVolume>lot 56</EPWVolume>
+                                                <Indicator meeteenheid="Kh">3525.00</Indicator>
+                                                <MaxIndicator meeteenheid="Kh">5600.00</MaxIndicator>
+                                                <Voldaan>true</Voldaan>
+                                            </Oververhittingsindicator>
+                                        </Oververhittingsindicatoren>
+                                    </EPvolume>
+                                </Details>
+                            </Epc>
+                        </EnergieEenheid>
+                    </MijnEnergieDetails>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</ns3:GeefEpcResponse>
+

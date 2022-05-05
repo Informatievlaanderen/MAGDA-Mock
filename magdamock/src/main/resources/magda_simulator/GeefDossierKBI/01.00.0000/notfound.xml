@@ -1,0 +1,38 @@
+<web:GeefDossierKBIResponse xmlns:web="http://webservice.GeefDossierKBI-01.00.kbi-01.00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefDossierKBI</Naam>
+            <Versie>01.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-03-30</Datum>
+                    <Tijd>12:12</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>5285d56c-5e38-4d93-91bc-438da82285e9</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>rwo.vlaanderen.be/vmsw/kbi-dossiers-p-aip-bo</Identificatie>
+                    <Referte>XE:1044:24661:8102</Referte>
+                    <Hoedanigheid>3003</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Uitzonderingen>
+            <Uitzondering>
+                <Identificatie>30001</Identificatie>
+                <Oorsprong>MAGDA</Oorsprong>
+                <Type>FOUT</Type>
+                <Tijdstip>
+                    <Datum>2017-03-08</Datum>
+                    <Tijd>10:05:00.00</Tijd>
+                </Tijdstip>
+                <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+            </Uitzondering>
+        </Uitzonderingen>
+    </Repliek>
+</web:GeefDossierKBIResponse>
+

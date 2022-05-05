@@ -1,0 +1,38 @@
+package be.vlaanderen.vip.magda.legallogging.model;
+
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import lombok.Getter;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+/**
+ * MAGDA heeft een respons gestuurd, maar deze bevat {@link Uitzondering}.
+ * Voegt de volgende velden toe aan {@link GelogdeAanvraag}:
+ * <ul>
+ * <li>duratie tijd voor respons, met nanoseconden precisie</li>
+ * <li>Lijst van {@link Uitzondering} die MAGDA antwoordde</li>
+ * </ul>
+ */
+@Getter
+public class GefaaldeAanvraag extends GelogdeAanvraag {
+    private List<Uitzondering> uitzonderingen;
+    private Duration duratie;
+
+    public GefaaldeAanvraag(String insz,
+                            UUID transactieID,
+                            UUID localTransactieID,
+                            Duration duratie,
+                            List<Uitzondering> uitzonderingen,
+                            String dienst,
+                            String dienstVersie,
+                            MagdaHoedanigheid registratie) {
+        super(insz, new ArrayList<>(), transactieID, localTransactieID, dienst, dienstVersie, registratie);
+        this.uitzonderingen = uitzonderingen;
+        this.duratie = duratie;
+    }
+
+
+}

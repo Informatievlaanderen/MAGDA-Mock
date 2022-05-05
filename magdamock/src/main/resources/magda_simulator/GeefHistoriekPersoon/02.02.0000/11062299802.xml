@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<web:GeefHistoriekPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefhistoriekpersoon/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefHistoriekPersoon</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-07-17</Datum>
+                    <Tijd>15:51:30.748</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>54b5c49f-1faa-4286-9521-bc02e94e7242</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>ov.vlaanderen.be/studietoelagen/daf-aip-jg</Identificatie>
+                    <Referte>XE:1083:25735:8368</Referte>
+                    <Hoedanigheid>103</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>8368</Referte>
+                <Inhoud>
+                    <HistoriekPersoon>
+                        <INSZ>11062299802</INSZ>
+                        <HistoriekNaam>
+                            <Naam DatumBegin="2011-06-22">
+                                <Achternamen>
+                                    <Achternaam>Janssens</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Erika</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                        </HistoriekNaam>
+                        <HistoriekGeslacht>
+                            <Geslacht>
+                                <Code>2</Code>
+                                <Omschrijving>Vrouwelijk</Omschrijving>
+                            </Geslacht>
+
+                            <Geslacht DatumBegin="2006-08-08">
+                                <Code>2</Code>
+                                <Omschrijving>Vrouwelijk</Omschrijving>
+                            </Geslacht>
+                        </HistoriekGeslacht>
+                        <HistoriekStatus>
+                            <Status DatumBegin="2014-01-28" DatumEinde="2014-03-05">
+                                <Code>99997</Code>
+                                <Omschrijving >Afgevoerd-verlies van verblijfsrecht</Omschrijving>
+                            </Status>
+                            <Status DatumBegin="2011-12-06" DatumEinde="2013-09-02">
+                                <Code>99997</Code>
+                                <Omschrijving >Afgevoerd-verlies van verblijfsrecht</Omschrijving>
+                            </Status>
+                        </HistoriekStatus>
+                        <HistoriekBeheerder>
+                            <Beheerder DatumBegin="2017-04-03">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>24055</NISCode>
+                                        <Naam>Kortenberg</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="2014-03-05" DatumEinde="2017-04-03">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>73066</NISCode>
+                                        <Naam>Riemst</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="2013-09-02" DatumEinde="2014-01-28">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>73066</NISCode>
+                                        <Naam>Riemst</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="2011-06-22" DatumEinde="2011-12-06">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>73066</NISCode>
+                                        <Naam>Riemst</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                        </HistoriekBeheerder>
+                        <HistoriekRegister>
+                            <Register DatumBegin="2014-03-18">
+                                <Code>1</Code>
+                                <Omschrijving >vreemdelingenregister</Omschrijving>
+                            </Register>
+                            <Register DatumBegin="2014-03-05">
+                                <Code>6</Code>
+                                <Omschrijving >wachtregister - EU-burger</Omschrijving>
+                            </Register>
+                            <Register DatumBegin="2013-10-24">
+                                <Code>1</Code>
+                                <Omschrijving >vreemdelingenregister</Omschrijving>
+                            </Register>
+                            <Register DatumBegin="2013-09-02">
+                                <Code>6</Code>
+                                <Omschrijving >wachtregister - EU-burger</Omschrijving>
+                            </Register>
+                            <Register DatumBegin="2011-06-22">
+                                <Code>1</Code>
+                                <Omschrijving >vreemdelingenregister</Omschrijving>
+                            </Register>
+                        </HistoriekRegister>
+                        <HistoriekNationaliteit>
+                            <Nationaliteit DatumBegin="2011-06-22">
+                                <Code>141</Code>
+                                <Omschrijving >Slowakije</Omschrijving>
+                            </Nationaliteit>
+                        </HistoriekNationaliteit>
+                        <HistoriekGeboorte>
+                            <Geboorte>
+                                <Datum>2011-06-22</Datum>
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>73066</NISCode>
+                                        <Naam>Riemst</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Geboorte>
+                        </HistoriekGeboorte>
+                        <HistoriekBurgerlijkeStaat>
+                            <BurgerlijkeStaat DatumBegin="2011-06-22">
+                                <Code>10</Code>
+                                <Omschrijving >Ongehuwd</Omschrijving>
+                            </BurgerlijkeStaat>
+                        </HistoriekBurgerlijkeStaat>
+                        <HistoriekAdressen>
+                            <HistoriekHoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="2016-05-26">
+                                    <Straatnaam>
+                                        <String>Dorpsstraat</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>1</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Kortenberg</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>1082</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="2016-05-23">
+                                    <Straatnaam>
+                                        <String>Antwerpsesteenweg</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>13</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Kortenberg</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>1082</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="2013-12-19">
+                                    <Straatnaam>
+                                        <String>Kerkplein</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>4</Huisnummer>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>1082</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="2009-05-24">
+                                    <Straatnaam>
+                                        <String>Antwerpsesteenweg</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>524</Huisnummer>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>1082</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="2009-02-02">
+                                    <Straatnaam>
+                                        <String>Koning Albert II laan</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>1</Huisnummer>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>1082</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="2005-07-25">
+                                    <Straatnaam>
+                                        <String>rue de l'église</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>10</Huisnummer>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>1082</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="2001-01-01">
+                                    <Straatnaam>
+                                        <String>Antwerpsesteenweg</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>13</Huisnummer>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>1082</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="2000-12-19">
+                                    <Straatnaam>
+                                        <String>Dorpsstraat</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>1</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Riemst</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>1082</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                            </HistoriekHoofdverblijfplaats>
+                        </HistoriekAdressen>
+                        <HistoriekAfstamming>
+                            <Afstamming DatumBegin="2000-07-10">
+                                <Type>
+                                    <Code>20</Code>
+                                    <Omschrijving>Afstamming van vaderszijde door erkenning</Omschrijving>
+                                </Type>
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>23025</NISCode>
+                                        <Naam>Grimbergen</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>BELGIE</Naam>
+                                    </Land>
+                                </Plaats>
+                                <Aktenummer>00098</Aktenummer>
+                                <Tekst>Erkend 19 mei 2000 - REA Grimbergen - Homologatie op 07.06.2000</Tekst>
+                                <Ouders>
+                                    <Ouder>
+                                        <INSZ>65090299900</INSZ>
+                                        <Naam>
+                                            <Achternamen>
+                                                <Achternaam>Dubois</Achternaam>
+                                            </Achternamen>
+                                            <Voornamen>
+                                                <Voornaam>Christiaan</Voornaam>
+                                            </Voornamen>
+                                        </Naam>
+                                        <Geslacht>
+                                            <Code>1</Code>
+                                            <Omschrijving>Mannelijk</Omschrijving>
+                                        </Geslacht>
+                                        <Geboortedatum>1965-09-02</Geboortedatum>
+                                    </Ouder>
+                                </Ouders>
+                            </Afstamming>
+                        </HistoriekAfstamming>
+                    </HistoriekPersoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefHistoriekPersoonResponse>
+

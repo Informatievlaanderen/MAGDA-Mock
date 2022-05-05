@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<web:GeefGezinssamenstellingResponse xmlns:web="http://webservice.geefgezinssamenstellingdienst-02_00.persoon-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefGezinssamenstelling</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-07-17</Datum>
+                    <Tijd>15:15:12.895</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie/>
+                    <Naam>VIP</Naam>
+                    <Referte>6ee0a8bb-7f63-4e4c-bf21-c804baacb192</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+                    <Referte>XE:1096:25727:8366</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>8366</Referte>
+                <Inhoud>
+                    <Gezinsleden>
+                        <Gezinslid>
+                            <Bron>
+                                <Code Beschrijving="Rijksregister">RR</Code>
+                            </Bron>
+                            <Positie>
+                                <Code>01</Code>
+                                <Omschrijving Oorsprong="KSZ" TaalCode="nl">gezinshoofd</Omschrijving>
+                            </Positie>
+                            <Persoon>
+                                <INSZ>57011399711</INSZ>
+                                <Naam DatumBegin="1957-01-13">
+                                    <Achternamen>
+                                        <Achternaam>Dubois</Achternaam>
+                                    </Achternamen>
+                                    <Voornamen>
+                                        <Voornaam>Ludo</Voornaam>
+                                        <Voornaam>René</Voornaam>
+                                        <Voornaam>Gabriel</Voornaam>
+                                    </Voornamen>
+                                </Naam>
+                                <Geslacht>
+                                    <Code Beschrijving="Mannelijk">1</Code>
+                                </Geslacht>
+                                <Beheerder DatumBegin="1987-10-09">
+                                    <Plaats>
+                                        <Land>
+                                            <NISCode>129</NISCode>
+                                            <ISOCode>NLD</ISOCode>
+                                            <Naam>Nederland</Naam>
+                                        </Land>
+                                    </Plaats>
+                                </Beheerder>
+                                <Nationaliteiten>
+                                    <Nationaliteit DatumBegin="1957-01-13">
+                                        <Code>150</Code>
+                                        <Omschrijving Oorsprong="KSZ" TaalCode="nl">België</Omschrijving>
+                                    </Nationaliteit>
+                                </Nationaliteiten>
+                                <Geboorte>
+                                    <Datum>1957-01-13</Datum>
+                                    <Plaats>
+                                        <Gemeente>
+                                            <NISCode>24055</NISCode>
+                                            <Naam>Kortenberg</Naam>
+                                        </Gemeente>
+                                        <Land>
+                                            <NISCode>150</NISCode>
+                                            <ISOCode>BEL</ISOCode>
+                                            <Naam>België</Naam>
+                                        </Land>
+                                    </Plaats>
+                                </Geboorte>
+                                <BurgerlijkeStaten>
+                                    <BurgerlijkeStaat DatumBegin="1983-04-06">
+                                        <Code>20</Code>
+                                        <Omschrijving Oorsprong="KSZ" TaalCode="nl">Gehuwd</Omschrijving>
+                                        <Partner>
+                                            <INSZ>62080599618</INSZ>
+                                            <Naam>
+                                                <Achternamen>
+                                                    <Achternaam>Dubois</Achternaam>
+                                                </Achternamen>
+                                                <Voornamen>
+                                                    <Voornaam>Anna</Voornaam>
+                                                    <Voornaam>Maria</Voornaam>
+                                                    <Voornaam>Magdalena</Voornaam>
+                                                </Voornamen>
+                                            </Naam>
+                                        </Partner>
+                                        <Plaats>
+                                            <Gemeente>
+                                                <NISCode>73066</NISCode>
+                                                <Naam>Kortenberg-Heist</Naam>
+                                            </Gemeente>
+                                            <Land>
+                                                <NISCode>150</NISCode>
+                                                <ISOCode>BEL</ISOCode>
+                                                <Naam>België</Naam>
+                                            </Land>
+                                        </Plaats>
+                                    </BurgerlijkeStaat>
+                                </BurgerlijkeStaten>
+                                <Adressen>
+                                    <VerblijfplaatsBuitenland DatumBegin="1992-12-07">
+                                        <DiplomatiekePost>
+                                            <Code>1402</Code>
+                                            <Omschrijving Oorsprong="KSZ" TaalCode="nl">Den Haag</Omschrijving>
+                                            <Land>
+                                                <NISCode>129</NISCode>
+                                                <ISOCode>NLD</ISOCode>
+                                                <Naam>Nederland</Naam>
+                                            </Land>
+                                        </DiplomatiekePost>
+                                        <Land>
+                                            <NISCode>129</NISCode>
+                                            <ISOCode>NLD</ISOCode>
+                                            <Naam>Nederland</Naam>
+                                        </Land>
+                                        <Teksten>
+                                            <Tekst>Dorpsstraat 47 4525 AG RETRANCHEMENT</Tekst>
+                                        </Teksten>
+                                    </VerblijfplaatsBuitenland>
+                                </Adressen>
+                            </Persoon>
+                        </Gezinslid>
+                        <Gezinslid DatumCreatie="1983-04-06">
+                            <Bron>
+                                <Code Beschrijving="Rijksregister">RR</Code>
+                            </Bron>
+                            <Positie>
+                                <Code>02</Code>
+                                <Omschrijving Oorsprong="KSZ" TaalCode="nl">echtgenoot/echtgenote</Omschrijving>
+                            </Positie>
+                            <Persoon>
+                                <INSZ>62080599618</INSZ>
+                                <Naam DatumBegin="1962-08-05">
+                                    <Achternamen>
+                                        <Achternaam>Dubois</Achternaam>
+                                    </Achternamen>
+                                    <Voornamen>
+                                        <Voornaam>Anna</Voornaam>
+                                        <Voornaam>Maria</Voornaam>
+                                        <Voornaam>Magdalena</Voornaam>
+                                    </Voornamen>
+                                </Naam>
+                                <Geslacht>
+                                    <Code Beschrijving="Vrouwelijk">2</Code>
+                                </Geslacht>
+                                <Beheerder DatumBegin="1987-10-09">
+                                    <Plaats>
+                                        <Land>
+                                            <NISCode>129</NISCode>
+                                            <ISOCode>NLD</ISOCode>
+                                            <Naam>Nederland</Naam>
+                                        </Land>
+                                    </Plaats>
+                                </Beheerder>
+                                <Nationaliteiten>
+                                    <Nationaliteit DatumBegin="1962-08-05">
+                                        <Code>150</Code>
+                                        <Omschrijving Oorsprong="KSZ" TaalCode="nl">België</Omschrijving>
+                                    </Nationaliteit>
+                                </Nationaliteiten>
+                                <Geboorte>
+                                    <Datum>1962-08-05</Datum>
+                                    <Plaats>
+                                        <Gemeente>
+                                            <NISCode>24055</NISCode>
+                                            <Naam>Kortenberg</Naam>
+                                        </Gemeente>
+                                        <Land>
+                                            <NISCode>150</NISCode>
+                                            <ISOCode>BEL</ISOCode>
+                                            <Naam>België</Naam>
+                                        </Land>
+                                    </Plaats>
+                                </Geboorte>
+                                <BurgerlijkeStaten>
+                                    <BurgerlijkeStaat DatumBegin="1983-04-06">
+                                        <Code>20</Code>
+                                        <Omschrijving Oorsprong="KSZ" TaalCode="nl">Gehuwd</Omschrijving>
+                                        <Partner>
+                                            <INSZ>57011399711</INSZ>
+                                            <Naam>
+                                                <Achternamen>
+                                                    <Achternaam>Janssens</Achternaam>
+                                                </Achternamen>
+                                                <Voornamen>
+                                                    <Voornaam>Ludo</Voornaam>
+                                                    <Voornaam>René</Voornaam>
+                                                    <Voornaam>Gabriel</Voornaam>
+                                                </Voornamen>
+                                            </Naam>
+                                        </Partner>
+                                        <Plaats>
+                                            <Gemeente>
+                                                <NISCode>73066</NISCode>
+                                                <Naam>Kortenberg-Heist</Naam>
+                                            </Gemeente>
+                                            <Land>
+                                                <NISCode>150</NISCode>
+                                                <ISOCode>BEL</ISOCode>
+                                                <Naam>België</Naam>
+                                            </Land>
+                                        </Plaats>
+                                    </BurgerlijkeStaat>
+                                </BurgerlijkeStaten>
+                                <Adressen>
+                                    <VerblijfplaatsBuitenland DatumBegin="1992-12-23">
+                                        <DiplomatiekePost>
+                                            <Code>1402</Code>
+                                            <Omschrijving Oorsprong="KSZ" TaalCode="nl">Den Haag</Omschrijving>
+                                            <Land>
+                                                <NISCode>129</NISCode>
+                                                <ISOCode>NLD</ISOCode>
+                                                <Naam>Nederland</Naam>
+                                            </Land>
+                                        </DiplomatiekePost>
+                                        <Land>
+                                            <NISCode>129</NISCode>
+                                            <ISOCode>NLD</ISOCode>
+                                            <Naam>Nederland</Naam>
+                                        </Land>
+                                        <Teksten>
+                                            <Tekst>Dorpsstraat 47 4525 AG RETRANCHEMENT NETHERLANDS</Tekst>
+                                        </Teksten>
+                                    </VerblijfplaatsBuitenland>
+                                </Adressen>
+                            </Persoon>
+                        </Gezinslid>
+                    </Gezinsleden>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefGezinssamenstellingResponse>
+   

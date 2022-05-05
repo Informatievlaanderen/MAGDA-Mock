@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<web:ZoekEigendomstoestandenResponse
+        xmlns:web="http://webservice.zoekeigendomstoestandendienst-02_00.kadaster-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>ZoekEigendomstoestanden</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-03-21</Datum>
+                    <Tijd>11:26:47.649</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>25dbaca4-5ff5-419d-8cb1-9ec9884bc770</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>ov.vlaanderen.be/studietoelagen/daf-aip-jg</Identificatie>
+                    <Referte>XE:1047:24558:5811</Referte>
+                    <Hoedanigheid>102</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>5811</Referte>
+                <Inhoud>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:ZoekEigendomstoestandenResponse>
+   
