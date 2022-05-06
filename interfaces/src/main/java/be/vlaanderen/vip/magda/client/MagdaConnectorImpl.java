@@ -7,8 +7,13 @@ import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
 import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
 import be.vlaanderen.vip.magda.legallogging.model.Annotatie;
+import be.vlaanderen.vip.magda.legallogging.model.GefaaldeAanvraag;
+import be.vlaanderen.vip.magda.legallogging.model.GeslaagdeAanvraag;
+import be.vlaanderen.vip.magda.legallogging.model.MagdaAanvraag;
+import be.vlaanderen.vip.magda.legallogging.model.OnbeantwoordeAanvraag;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.magda.legallogging.model.Uitzondering;
+import be.vlaanderen.vip.magda.legallogging.service.AfnemerLogService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.CollectionUtils;
@@ -37,8 +42,9 @@ import static java.util.stream.Collectors.joining;
 
 @Slf4j
 @RequiredArgsConstructor
-public class MagdaConnectorImpl implements MagdaConnector {
+public abstract class MagdaConnectorImpl implements MagdaConnector {
     private final MagdaConnection connection;
+    private final AfnemerLogService afnemerLogService;
     private final MagdaEndpoints magdaEndpoints;
     private final MagdaHoedanigheidService magdaHoedanigheidService;
 
@@ -50,7 +56,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         logAanvraag(aanvraag);
         fillInStandardParameters(aanvraag, request);
 
-        log.contextDetail(aanvraag.getRequestId().toString()).info(">> Oproep naar {}", endpoint);
+        log.info(">> Oproep naar {}", endpoint);
 
         if (log.isDebugEnabled()) {
             log.debug("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
@@ -67,7 +73,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             final List<Uitzondering> antwoordUitzonderingen = antwoord.getAntwoordUitzonderingen();
             String uitzonderingenMessage1 = uitzonderingenMessage(uitzonderingen, antwoordUitzonderingen);
-            log.contextDetail(aanvraag.getRequestId().toString()).info("<< Antwoord van {} ({} ms) {}", endpoint, duration.toMillis(), uitzonderingenMessage1);
+            log.info("<< Antwoord van {} ({} ms) {}", endpoint, duration.toMillis(), uitzonderingenMessage1);
 
             if (Boolean.FALSE.equals(antwoord.isHeeftInhoud()) && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
                 throw new BackendUitzonderingenException(aanvraag.getInsz(), getNiveau1Uitzondering(response));
@@ -81,7 +87,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         }
 
         logGeenAntwoord(aanvraag);
-        log.contextDetail(aanvraag.getRequestId().toString()).warn("<< Antwoord van {} ({} ms) TIMEOUT", endpoint, duration.toMillis());
+        log.warn("<< Antwoord van {} ({} ms) TIMEOUT", endpoint, duration.toMillis());
         throw new GeenAntwoordException(aanvraag, "Geen antwoord");
     }
 
@@ -109,8 +115,6 @@ public class MagdaConnectorImpl implements MagdaConnector {
         }
     }
 
-    /*
-    TODO: injecteren van afnemerlogservice
 
     private void logGeenAntwoord(Aanvraag aanvraag) {
         afnemerLogService.logOnbeantwoordeAanvraag(new OnbeantwoordeAanvraag(aanvraag.getInsz(),
@@ -155,7 +159,6 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie())));
     }
 
-     */
 
     private void fillInStandardParameters(Aanvraag aanvraag, MagdaDocument request) {
         request.setValue("//Referte", aanvraag.getRequestId().toString());
@@ -248,7 +251,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
             }
         } catch (Exception e) {
             final String endpoint = magdaEndpoints.magdaUrl(aanvraag.magdaService());
-            log.contextDetail(aanvraag.getRequestId().toString()).error("Fout in communicatie met {}", endpoint, e);
+            log.error("Fout in communicatie met {}", endpoint, e);
         }
         return null;
     }
