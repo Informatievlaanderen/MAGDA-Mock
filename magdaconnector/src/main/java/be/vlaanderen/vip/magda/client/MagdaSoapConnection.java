@@ -1,9 +1,10 @@
-package be.vlaanderen.vip.magda.client.connection;
+package be.vlaanderen.vip.magda.client;
 
 
 
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
@@ -92,7 +93,7 @@ public class MagdaSoapConnection implements MagdaConnection {
                 answer = parseStream(responseEntity.getContent());
             } else {
                 String errorBody = IOUtils.toString(response.getEntity().getContent(), Charset.defaultCharset());
-                log.contextDetail(aanvraag.getRequestId().toString()).error("POST {} failed with HTTP error {} {} and body {}", url, statusLine.getStatusCode(), statusLine.getReasonPhrase(), errorBody);
+                log.error("POST {} failed with HTTP error {} {} and body {}", url, statusLine.getStatusCode(), statusLine.getReasonPhrase(), errorBody);
 
                 String exceptionMessage = String.format("POST %s faalt met HTTP error %d %s", url, statusLine.getStatusCode(), statusLine.getReasonPhrase());
                 throw new MagdaSendFailed(exceptionMessage, statusLine.getStatusCode());

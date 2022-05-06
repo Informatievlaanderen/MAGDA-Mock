@@ -1,8 +1,8 @@
 package be.vlaanderen.vip.mock.magda.client;
 
 
+import be.vlaanderen.vip.magda.client.MagdaConnector;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
-import be.vlaanderen.vip.magda.client.connection.MagdaMockConnection;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceMock;

@@ -1,6 +1,8 @@
-package be.vlaanderen.vip.magda.client.connection;
+package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.Aanvraag;
+import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
+import be.vlaanderen.vip.magda.client.connection.Signer;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import org.apache.commons.lang3.StringUtils;
