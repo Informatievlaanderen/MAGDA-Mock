@@ -1,22 +1,16 @@
 package be.vlaanderen.vip.magda.client;
 
-import be.vlaanderen.burgerprofiel.wwoom.common.util.Tasks;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
-import be.vlaanderen.burgerprofiel.wwoom.magda.exception.BackendUitzonderingenException;
-import be.vlaanderen.burgerprofiel.wwoom.magda.exception.GeenAntwoordException;
-import be.vlaanderen.burgerprofiel.wwoom.magda.legallogging.model.*;
-import be.vlaanderen.burgerprofiel.wwoom.magda.legallogging.service.AfnemerLogService;
+import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
+import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
 import be.vlaanderen.vip.magda.legallogging.model.Annotatie;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.magda.legallogging.model.Uitzondering;
-import lombok.CustomLog;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -33,8 +27,11 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.util.*;
-import java.util.concurrent.CompletableFuture;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static java.util.stream.Collectors.joining;
 
@@ -55,8 +52,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
         log.contextDetail(aanvraag.getRequestId().toString()).info(">> Oproep naar {}", endpoint);
 
-        if (slf4jLogger.isDebugEnabled()) {
-            slf4jLogger.debug("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
+        if (log.isDebugEnabled()) {
+            log.debug("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
         }
 
         MagdaDocument response = callMagda(aanvraag, request);
@@ -76,8 +73,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 throw new BackendUitzonderingenException(aanvraag.getInsz(), getNiveau1Uitzondering(response));
             }
 
-            if (slf4jLogger.isDebugEnabled()) {
-                slf4jLogger.debug("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(antwoord.getBody()));
+            if (log.isDebugEnabled()) {
+                log.debug("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(antwoord.getBody()));
             }
 
             return antwoord;

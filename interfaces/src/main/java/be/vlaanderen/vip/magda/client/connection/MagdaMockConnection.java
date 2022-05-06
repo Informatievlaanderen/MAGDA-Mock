@@ -4,6 +4,7 @@ import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import lombok.CustomLog;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -29,7 +30,7 @@ import java.util.*;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
-@CustomLog(topic = "MAGDA:Mock")
+@Slf4j
 public class MagdaMockConnection implements MagdaConnection {
     @Getter
     private List<Document> verzondenDocumenten = new ArrayList<>();

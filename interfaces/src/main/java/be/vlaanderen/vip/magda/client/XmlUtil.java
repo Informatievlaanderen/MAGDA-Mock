@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.magda.client;
 
-import lombok.CustomLog;
+import lombok.extern.slf4j.Slf4j;
+
 import org.dom4j.dom.DOMNodeHelper;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -14,7 +15,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.xpath.*;
 import java.io.StringWriter;
 
-@CustomLog(topic = "MAGDA")
+@Slf4j
 public class XmlUtil {
     private static final ThreadLocal<XPathFactory> xPathfactory = ThreadLocal.withInitial(XPathFactory::newInstance);
     private static final ThreadLocal<XPath> xpath = ThreadLocal.withInitial(() -> xPathfactory.get().newXPath());

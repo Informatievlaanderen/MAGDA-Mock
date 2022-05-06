@@ -1,12 +1,13 @@
 package be.vlaanderen.vip.magda.client.connection;
 
-import be.vlaanderen.burgerprofiel.wwoom.common.security.TwoWaySslUtil;
+
+
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
-import lombok.CustomLog;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Consts;
@@ -41,7 +42,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 
-@CustomLog
+@Slf4j
 public class MagdaSoapConnection implements MagdaConnection {
     private final MagdaEndpoints magdaEndpoints;
     private final SSLConnectionSocketFactory sslConnectionSocketFactory;
@@ -59,7 +60,7 @@ public class MagdaSoapConnection implements MagdaConnection {
     }
 
     @Override
-    public Document sendDocument(Aanvraag aanvraag, Document xml) throws MagdaSendFailed {
+    public Document sendDocument(Aanvraag aanvraag, Document xml)  throws MagdaSendFailed {
         final String url = magdaEndpoints.magdaUrl(aanvraag.magdaService());
 
         final HttpPost request = new HttpPost(url);
@@ -120,4 +121,6 @@ public class MagdaSoapConnection implements MagdaConnection {
     private Document parseStream(InputStream resource) {
         return MagdaDocument.fromStream(resource).getXml();
     }
+
+
 }

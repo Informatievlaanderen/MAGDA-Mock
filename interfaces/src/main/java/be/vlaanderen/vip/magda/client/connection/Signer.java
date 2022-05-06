@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client.connection;
 
+
 import org.apache.wss4j.dom.message.WSSecHeader;
 import org.apache.wss4j.dom.message.WSSecSignature;
 

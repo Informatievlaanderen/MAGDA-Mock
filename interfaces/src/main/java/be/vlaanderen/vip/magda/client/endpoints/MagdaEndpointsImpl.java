@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.magda.client.endpoints;
 
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
-import be.vlaanderen.burgerprofiel.wwoom.magda.config.MagdaConfigDto;
+import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 
 import java.net.MalformedURLException;
 import java.net.URL;
