@@ -8,8 +8,7 @@ import java.util.UUID;
 
 @Getter
 public abstract class Aanvraag {
-    //private final UUID correlationId = CorrelationId.get();
-    private final UUID correlationId = UUID.randomUUID();
+    private final UUID correlationId = CorrelationId.get();
     private final UUID requestId = UUID.randomUUID();
     @NotNull
     private final String insz;

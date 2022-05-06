@@ -57,6 +57,7 @@ public abstract class MagdaConnectorImpl implements MagdaConnector {
         fillInStandardParameters(aanvraag, request);
 
         log.info(">> Oproep naar {}", endpoint);
+        log.info("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
 
         if (log.isDebugEnabled()) {
             log.debug("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
