@@ -2,8 +2,8 @@ package be.vlaanderen.vip.magda.client.domeinservice;
 
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.config.MagdaRegistrationConfigDto;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.util.StringUtils;
 
 public class MagdaHoedanigheidServiceImpl implements MagdaHoedanigheidService {
     private final MagdaConfigDto magdaConfigDto;

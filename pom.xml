@@ -19,6 +19,7 @@
 		<mapstruct-lombok.version>0.2.0</mapstruct-lombok.version>
 		<lombok.version>1.18.22</lombok.version>
 		<commons-lang3.version>3.12.0</commons-lang3.version>
+		<logstash.logback.version>7.0.1</logstash.logback.version>
 	</properties>
 
 	<!-- infrastructure -->

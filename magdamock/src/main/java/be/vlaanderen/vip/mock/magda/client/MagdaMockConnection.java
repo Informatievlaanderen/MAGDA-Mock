@@ -106,10 +106,10 @@ public class MagdaMockConnection implements MagdaConnection {
             String time = timeFormat.format(new Date());
             setValue(response, "//Context/Bericht/Tijdstip/Tijd", time);
 
-            // Identificeert antwoord als komend van Burgerloket Magda Mock
+            // Identificeert antwoord als komend van Magda Mock
             setValue(response, "//Afzender/Referte", UUID.randomUUID().toString());
-            setValue(response, "//Afzender/Identificatie", "kb.vlaanderen.be/aiv/burgerloket-wwoom-mock-server-unittest");
-            setValue(response, "//Afzender/Naam", "Burgerloket Magda Mock Unittest");
+            setValue(response, "//Afzender/Identificatie", "kb.vlaanderen.be/aiv/magda-mock-server");
+            setValue(response, "//Afzender/Naam", "Magda Mock Server");
 
             String soap = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" >\n" +
                     "  <soapenv:Header/>\n" +

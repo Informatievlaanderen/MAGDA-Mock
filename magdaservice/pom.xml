@@ -56,7 +56,7 @@
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
-            <version>7.0.1</version>
+            <version>${logstash.logback.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -67,6 +67,23 @@
     </dependencies>
 
     <build>
+        <!-- replace "@...@" at compilation with values from maven information -->
+        <!-- this is used in the logging configuration file (logback.xml) for application logging information such as name and version -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/docker</directory>
+                <filtering>true</filtering>
+                <targetPath>${project.build.directory}</targetPath>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -106,5 +123,109 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+
+        <profile>
+            <id>docker</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>0.31.0</version>
+                        <configuration>
+                            <registry>vlaamseoverheid-magda-docker-snapshots.jfrog.io:443</registry>
+                            <sourceDirectory>src/main/docker</sourceDirectory>
+                            <verbose>all</verbose>
+                            <imagePullPolicy>IfNotPresent</imagePullPolicy>
+                            <images>
+                                <image>
+                                    <name>vlaamseoverheid-magda-docker-snapshots.jfrog.io/magda/${docker.image}:latest
+                                    </name>
+                                    <build>
+                                        <contextDir>${project.basedir}</contextDir>
+                                        <dockerFile>src/main/docker/Dockerfile</dockerFile>
+                                        <tags>
+                                            <tag>${project.version}</tag>
+                                        </tags>
+                                    </build>
+                                </image>
+                                <image>
+                                    <name>vlaamseoverheid-magda-docker-snapshots.jfrog.io/%g/${docker.image}:%l</name>
+                                </image>
+                            </images>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>build-docker-image</id>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                                <phase>package</phase>
+                            </execution>
+                            <execution>
+                                <id>push-docker-image</id>
+                                <goals>
+                                    <goal>push</goal>
+                                </goals>
+                                <phase>deploy</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>docker-release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>0.31.0</version>
+                        <configuration>
+                            <registry>vlaamseoverheid-magda-docker-releases.jfrog.io:443</registry>
+                            <sourceDirectory>src/main/docker</sourceDirectory>
+                            <verbose>all</verbose>
+                            <imagePullPolicy>IfNotPresent</imagePullPolicy>
+                            <images>
+                                <image>
+                                    <name>vlaamseoverheid-magda-docker-releases.jfrog.io/magda/${docker.image}:latest
+                                    </name>
+                                    <build>
+                                        <contextDir>${project.basedir}</contextDir>
+                                        <dockerFile>src/main/docker/Dockerfile</dockerFile>
+                                        <tags>
+                                            <tag>${project.version}</tag>
+                                        </tags>
+                                    </build>
+                                </image>
+                                <image>
+                                    <name>vlaamseoverheid-magda-docker-releases.jfrog.io/%g/${docker.image}:%l</name>
+                                </image>
+                            </images>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>build-docker-image</id>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                                <phase>package</phase>
+                            </execution>
+                            <execution>
+                                <id>push-docker-image</id>
+                                <goals>
+                                    <goal>push</goal>
+                                </goals>
+                                <phase>deploy</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

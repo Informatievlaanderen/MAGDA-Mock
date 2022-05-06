@@ -30,3 +30,7 @@ No database or queueing or other infrastructure necessary.
 * Architecture (TODO)
 * [Code repo](https://bitbucket.org/vlaamseoverheid/magdamock.service/src/main/)
 * Infrastructure repo (TODO)
+
+### Acknowledgements ###
+
+Connector and mock extracted from [Mijn Burgerprofiel](https://www.burgerprofiel.be/)
