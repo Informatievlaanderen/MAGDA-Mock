@@ -38,6 +38,11 @@ public class MagdaConnectorMockTest {
         assertThat(antwoord.isHeeftInhoud()).isTrue();
         assertThat(antwoord.getUitzonderingen()).isEmpty();
         assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+
+        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1) ;
+        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1) ;
+        assertThat(afnemerLogService.getGefaald()).isEqualTo(0) ;
+
         log.info("{}",getSoap(antwoord.getBody()));
 
     }

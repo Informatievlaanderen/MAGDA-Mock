@@ -191,13 +191,11 @@ public abstract class MagdaConnectorImpl implements MagdaConnector {
     }
 
     private void legalLogging(Aanvraag aanvraag, Duration duration, List<Uitzondering> uitzonderingen, Set<String> alleInsz) {
-        /*
-        TODO: legal logging
         if (uitzonderingen.isEmpty()) {
             logAlleInszGeslaagd(aanvraag, duration, alleInsz);
         } else {
             logAlleUitzonderingen(aanvraag, duration, uitzonderingen);
-        }*/
+        }
     }
 
     private MagdaAntwoord maakAntwoord(Aanvraag aanvraag, MagdaDocument response) {

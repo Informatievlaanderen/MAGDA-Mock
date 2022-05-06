@@ -7,6 +7,7 @@ import be.vlaanderen.vip.mock.magdaservice.exception.AttestNotFoundException;
 import be.vlaanderen.vip.mock.magdaservice.magda.MagdaDocument;
 import be.vlaanderen.vip.mock.magdaservice.magda.MagdaRequest;
 import be.vlaanderen.vip.mock.magdaservice.magda.MagdaService;
+import be.vlaanderen.vip.mock.magdaservice.util.INSZ;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.wss4j.common.crypto.Crypto;
@@ -533,7 +534,7 @@ public class MagdaMockController {
         String geboorteDatum = insz.substring(0, 6);
         int dateOfBirth = Integer.parseInt(geboorteDatum);
 
-        if (true /*INSZ.isMannelijk(insz)*/) {
+        if (INSZ.isMannelijk(insz)) {
             path = path.replace("{replace}", "mannen") + (dateOfBirth % 6) + ".xml";
         } else {
             path = path.replace("{replace}", "vrouwen") + (dateOfBirth % 4) + ".xml";

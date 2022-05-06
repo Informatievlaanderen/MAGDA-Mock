@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.config;
 
+import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +16,6 @@ import java.util.Map;
 public class MagdaConfigDto {
     private String environment; // PROD | TEST | <base link to mock server>
     private String legalloggingUrl;
-    /* TODO: private TwoWaySslProperties keystore;*/
+    private TwoWaySslProperties keystore;
     private Map<String, MagdaRegistrationConfigDto> registration = new HashMap<>();
 }
