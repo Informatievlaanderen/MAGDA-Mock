@@ -21,10 +21,6 @@ public class GeefPersoonAanvraag extends Aanvraag {
         setRegistratie(StringUtils.defaultString(registratie, "default"));
     }
 
-    public static GeefPersoonAanvraag mezelf(String insz) {
-        return new GeefPersoonAanvraag(insz);
-    }
-
     @Override
     public MagdaServiceIdentificatie magdaService() {
         return new MagdaServiceIdentificatie("GeefPersoon", "02.02.0000");

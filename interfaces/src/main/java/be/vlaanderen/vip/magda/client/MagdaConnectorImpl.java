@@ -206,6 +206,7 @@ public abstract class MagdaConnectorImpl implements MagdaConnector {
                 .uitzonderingen(level1Uitzonderingen(response))
                 .antwoordUitzonderingen(level2Uitzonderingen(response))
                 .body(getBody(response))
+                .document(response)
                 .heeftInhoud(responseHeeftInhoud(response))
                 .insz(vindAlleINSZIn(aanvraag, response))
                 .build();
