@@ -9,8 +9,12 @@ import be.vlaanderen.burgerprofiel.wwoom.magda.exception.BackendUitzonderingenEx
 import be.vlaanderen.burgerprofiel.wwoom.magda.exception.GeenAntwoordException;
 import be.vlaanderen.burgerprofiel.wwoom.magda.legallogging.model.*;
 import be.vlaanderen.burgerprofiel.wwoom.magda.legallogging.service.AfnemerLogService;
+import be.vlaanderen.vip.magda.legallogging.model.Annotatie;
+import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
+import be.vlaanderen.vip.magda.legallogging.model.Uitzondering;
 import lombok.CustomLog;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
@@ -34,19 +38,12 @@ import java.util.concurrent.CompletableFuture;
 
 import static java.util.stream.Collectors.joining;
 
-@CustomLog(topic = "MAGDA")
+@Slf4j
 @RequiredArgsConstructor
 public class MagdaConnectorImpl implements MagdaConnector {
-    private final Logger slf4jLogger = LoggerFactory.getLogger("MAGDA.SOAP");
     private final MagdaConnection connection;
-    private final AfnemerLogService afnemerLogService;
     private final MagdaEndpoints magdaEndpoints;
     private final MagdaHoedanigheidService magdaHoedanigheidService;
-
-    @Override
-    public CompletableFuture<MagdaAntwoord> sendAsync(Aanvraag aanvraag, MagdaDocument request) {
-        return Tasks.completableFuture(() -> send(aanvraag, request));
-    }
 
     @Override
     public MagdaAntwoord send(Aanvraag aanvraag, MagdaDocument request) {
@@ -115,6 +112,9 @@ public class MagdaConnectorImpl implements MagdaConnector {
         }
     }
 
+    /*
+    TODO: injecteren van afnemerlogservice
+
     private void logGeenAntwoord(Aanvraag aanvraag) {
         afnemerLogService.logOnbeantwoordeAanvraag(new OnbeantwoordeAanvraag(aanvraag.getInsz(),
                 aanvraag.getOverWie(),
@@ -158,6 +158,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie())));
     }
 
+     */
+
     private void fillInStandardParameters(Aanvraag aanvraag, MagdaDocument request) {
         request.setValue("//Referte", aanvraag.getRequestId().toString());
         request.setValue("//INSZ", aanvraag.getOverWie());
@@ -189,11 +191,13 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
     private void legalLogging(Aanvraag aanvraag, Duration duration, List<Uitzondering> uitzonderingen, Set<String> alleInsz) {
+        /*
+        TODO: legal logging
         if (uitzonderingen.isEmpty()) {
             logAlleInszGeslaagd(aanvraag, duration, alleInsz);
         } else {
             logAlleUitzonderingen(aanvraag, duration, uitzonderingen);
-        }
+        }*/
     }
 
     private MagdaAntwoord maakAntwoord(Aanvraag aanvraag, MagdaDocument response) {
