@@ -1,0 +1,241 @@
+image:
+  name: vlaamseoverheid-magda-docker-public.jfrog.io/magda/magda-base-pipeline:4.6.3
+  username: $ARTIFACTORY_USER
+  password: $ARTIFACTORY_PASSWORD
+
+definitions:
+  steps:
+    - step: &deploy
+        name: Deploy to ...
+        deployment: PLACEHOLDER
+        trigger: manual
+        caches:
+          - maven
+        script:
+          - export INFRA_REPO='solid.services-infra'
+          - export IFS=' '
+          - export APPS='magda-mock-service'
+          - chmod +x deploy-with-argocd.sh
+          - ./deploy-with-argocd.sh
+    - step: &build
+        name: Building
+        caches:
+          - maven
+        script:
+          - export TESTCONTAINERS_RYUK_DISABLED=true
+          - export MAVEN_OPTS="-Xmx1024m"
+          - mvn -B -U clean verify -s .m2/settings.xml -Pcucumber-tests
+        artifacts:
+          - "**/*.jar"
+          - "**/cucumber-html-reports/**"
+    - step: &release
+        name: Release
+        caches:
+          - maven
+        script:
+          - export TESTCONTAINERS_RYUK_DISABLED=true
+          - chmod +x release-application.sh
+          - ./release-application.sh
+    - step: &dockerRebuildFromTag
+        name: Rebuild Docker from tag
+        caches:
+          - maven
+          - docker
+        script:
+          - export VERSION=$rebuild_git_tag
+          # Checkout
+          - source "commons.sh"
+          - prepare_git
+          - git checkout $VERSION
+          - mvn -B package io.fabric8:docker-maven-plugin:0.31.0:push -s .m2/settings.xml -Pdocker-release
+
+clone:
+  depth: full
+
+pipelines:
+  default:
+    - step:
+        <<: *build
+  branches:
+    master:
+      - step:
+          name: Check
+          caches:
+            - maven
+          script:
+            # Only run for released version
+            - mvn -B -s .m2/settings.xml org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3:enforce -Drules=requireReleaseVersion
+            - mkdir -p target
+            - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
+          artifacts:
+            - target/pom_version
+      - step:
+          <<: *deploy
+          name: Deploy release to TST
+          deployment: TST
+      - step:
+          <<: *deploy
+          name: Deploy release to TNI
+          deployment: TNI
+      - step:
+          <<: *deploy
+          name: Deploy release to PRD
+          deployment: PRD
+    develop:
+      - step:
+          name: Maven
+          caches:
+            - maven
+            - docker
+          script:
+            - export TESTCONTAINERS_RYUK_DISABLED=true
+            - export MAVEN_OPTS="-Xmx1024m"
+            - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket -Pcucumber-tests -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD}
+            - mkdir -p target
+            - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
+          artifacts:
+            - "**/*.jar"
+            - "**/cucumber-html-reports/**"
+            - target/pom_version
+      - step:
+          <<: *deploy
+          name: Deploy to DEV
+          deployment: DEV
+      - step:
+          <<: *deploy
+          name: Deploy to TST
+          deployment: TST
+      - step:
+          name: Maven
+          caches:
+            - maven
+          script:
+            - export TESTCONTAINERS_RYUK_DISABLED=true
+            - export MAVEN_OPTS="-Xmx1024m"
+            - mvn -B -U clean verify sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket -Pcucumber-tests -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.name="$BITBUCKET_BRANCH"
+          artifacts:
+            - "**/*.jar"
+            - "**/cucumber-html-reports/**"
+    hotfix/*:
+      - step:
+          name: Maven
+          caches:
+            - maven
+            - docker
+          script:
+            - export TESTCONTAINERS_RYUK_DISABLED=true
+            - export MAVEN_OPTS="-Xmx1024m"
+            - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket -Pcucumber-tests -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.target=master -Dsonar.branch.name="$BITBUCKET_BRANCH"
+            - mkdir -p target
+            - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
+          artifacts:
+            - "**/*.jar"
+            - "**/cucumber-html-reports/**"
+            - target/pom_version
+      - step:
+          <<: *deploy
+          name: Deploy to DEV
+          deployment: DEV
+      - step:
+          <<: *deploy
+          name: Deploy to TST
+          deployment: TST
+  custom:
+    update-dependencies:
+      - step:
+          name: Dependencies
+          caches:
+            - maven
+          script:
+            - apt-get update
+            - apt-get install git -y
+            - git --version
+            - export TESTCONTAINERS_RYUK_DISABLED=true
+            - export MAVEN_OPTS="-Xmx1024m"
+            # Disabled update-parent till they implement includes parameter like the other update plugins.
+            # - mvn versions:update-parent "-DparentVersion=(,2.0)" -B -s .m2/settings.xml
+            - mvn versions:update-properties -DallowMajorUpdates=false -Dincludes=be.vlaanderen*:* -B -s .m2/settings.xml
+            - mvn versions:use-releases -Dincludes=be.vlaanderen*:* -B -s .m2/settings.xml
+            - mvn versions:use-latest-versions -DallowMajorUpdates=false -Dincludes=be.vlaanderen*:* -B -s .m2/settings.xml
+            - mvn versions:commit
+            - mvn -B -U clean deploy -s .m2/settings.xml -Dbuild=bitbucket -Pcucumber-tests -Pdocker
+            - git diff-index --quiet HEAD || git commit -a -m'Bitbucket automated update of released dependencies'
+            - git push
+          after-script:
+            - chmod +x scheduler-slack-publisher.sh
+            - ./scheduler-slack-publisher.sh 'update-dependencies'
+    create-hotfix:
+      - variables:
+          - name: starting_branch_of_hotfix
+      - step:
+          name: Creating hotfix branch
+          caches:
+            - maven
+          script:
+            - export TESTCONTAINERS_RYUK_DISABLED=true
+            - chmod +x create-hotfix.sh
+            - ./create-hotfix.sh
+    finish-hotfix:
+      - variables:
+          - name: skipMergeDev
+      - step:
+          name: Finishing hotfix
+          caches:
+            - maven
+          script:
+            - export TESTCONTAINERS_RYUK_DISABLED=true
+            - chmod +x finish-hotfix.sh
+            - ./finish-hotfix.sh
+    maven-release:
+      - step: *release
+    deploy-released-version:
+      - step:
+          name: Check
+          caches:
+            - maven
+          script:
+            # Only run for released version
+            - mvn -B -s .m2/settings.xml org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3:enforce -Drules=requireReleaseVersion
+            - mkdir -p target
+            - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
+          artifacts:
+            - target/pom_version
+      - step:
+          <<: *deploy
+          name: Deploy release to TST
+          deployment: TST
+      - step:
+          <<: *deploy
+          name: Deploy release to TNI
+          deployment: TNI
+      - step:
+          <<: *deploy
+          name: Deploy release to PRD
+          deployment: PRD
+    owasp-dependencies-check:
+      - step:
+          name: Owasp Dependencies Check
+          caches:
+            - maven
+          script:
+            - export MAVEN_OPTS="-Xmx1024m"
+            - mvn -B org.owasp:dependency-check-maven:5.3.2:aggregate -DskipSystemScope=true "-DsuppressionFile=.owasp/owasp-suppression.xml" "-DhintsFile=.owasp/owasp-hints.xml" -DfailBuildOnCVSS=7 -s .m2/settings.xml
+          artifacts:
+            - target/dependency-check-report.html
+          after-script:
+            - chmod +x scheduler-slack-publisher.sh
+            - ./scheduler-slack-publisher.sh 'owasp-dependency-check'
+            - curl -X PUT -u $ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD -T target/dependency-check-report.html "https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magda-owasp/${BITBUCKET_REPO_SLUG}/${BITBUCKET_REPO_SLUG}-${BITBUCKET_BUILD_NUMBER}-$(date +%Y%m%d).html"
+    stable-develop-check:
+      - step:
+          <<: *build
+          after-script:
+            - chmod +x scheduler-slack-publisher.sh
+            - ./scheduler-slack-publisher.sh 'stable-develop-check'
+    rebuild-docker-from-tag:
+      - variables:
+        - name: rebuild_git_tag
+      - step: *dockerRebuildFromTag
+options:
+  docker: true
+  size: 2x
