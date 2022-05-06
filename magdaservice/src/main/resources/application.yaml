@@ -1,3 +1,14 @@
 spring:
   application:
     name: magda-mock-service
+
+magdamock:
+  defaultresponsetime: 0
+
+registratie:
+  hoedanigheid:  ${MAGDA_HOEDANIGHEID:1300}
+  identificatie: ${MAGDA_IDENTIFICATIE:kb.vlaanderen.be/aiv/burgerloket-wwoom-mock}
+  service: ${spring.application.name}.${CURRENT_ENVIRONMENT:local}
+  cert-path: ${MAGDA_KEYSTORE}
+  key-alias: ${MAGDA_KEY_ALIAS}
+  keystore-password : ${MAGDA_KEYSTORE_PASSWORD}

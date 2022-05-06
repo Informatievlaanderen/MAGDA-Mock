@@ -33,17 +33,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>magdamock</groupId>
-            <artifactId>be.vlaanderen.vip.mock</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>interfaces</groupId>
-            <artifactId>be.vlaanderen.vip.mock</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
@@ -59,9 +48,24 @@
             <version>${logstash.logback.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.antkorwin</groupId>
+            <artifactId>ioutils</artifactId>
+            <version>0.8</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.wss4j</groupId>
+            <artifactId>wss4j-ws-security-dom</artifactId>
+            <version>2.4.1</version>
         </dependency>
 
     </dependencies>

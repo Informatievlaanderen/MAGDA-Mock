@@ -6,7 +6,6 @@ import be.vlaanderen.vip.magda.legallogging.model.GeslaagdeAanvraag;
 import be.vlaanderen.vip.magda.legallogging.model.MagdaAanvraag;
 import be.vlaanderen.vip.magda.legallogging.model.OnbeantwoordeAanvraag;
 import be.vlaanderen.vip.magda.legallogging.service.AfnemerLogService;
-import lombok.CustomLog;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
