@@ -72,7 +72,7 @@ pipelines:
       - step:
           <<: *deploy
           name: Deploy release to TST
-          deployment: TST
+          deployment: TST_SOLID
       - step:
           <<: *deploy
           name: Deploy release to TNI
@@ -80,7 +80,7 @@ pipelines:
       - step:
           <<: *deploy
           name: Deploy release to PRD
-          deployment: PRD
+          deployment: PRD_SOLID
     develop:
       - step:
           name: Maven
@@ -100,11 +100,11 @@ pipelines:
       - step:
           <<: *deploy
           name: Deploy to DEV
-          deployment: DEV
+          deployment: DEV_SOLID
       - step:
           <<: *deploy
           name: Deploy to TST
-          deployment: TST
+          deployment: TST_SOLID
       - step:
           name: Maven
           caches:
@@ -135,11 +135,11 @@ pipelines:
       - step:
           <<: *deploy
           name: Deploy to DEV
-          deployment: DEV
+          deployment: DEV_SOLID
       - step:
           <<: *deploy
           name: Deploy to TST
-          deployment: TST
+          deployment: TST_SOLID
   custom:
     update-dependencies:
       - step:
@@ -203,7 +203,7 @@ pipelines:
       - step:
           <<: *deploy
           name: Deploy release to TST
-          deployment: TST
+          deployment: TST_SOLID
       - step:
           <<: *deploy
           name: Deploy release to TNI
@@ -211,7 +211,7 @@ pipelines:
       - step:
           <<: *deploy
           name: Deploy release to PRD
-          deployment: PRD
+          deployment: PRD_SOLID
     owasp-dependencies-check:
       - step:
           name: Owasp Dependencies Check
