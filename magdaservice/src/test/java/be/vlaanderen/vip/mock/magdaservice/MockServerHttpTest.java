@@ -2,6 +2,7 @@ package be.vlaanderen.vip.mock.magdaservice;
 
 import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.MagdaSignedConnection;
 import be.vlaanderen.vip.magda.client.MagdaSoapConnection;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceImpl;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
@@ -41,7 +42,8 @@ public class MockServerHttpTest {
         var afnemerLog = new AfnemerLogServiceMock();
         var hoedanigheid = new MagdaHoedanigheidServiceImpl(config,"magdamock.service.integrationtest") ;
         var soapConnection = new MagdaSoapConnection(magdaEndpoints,config) ;
-        var connector = new MagdaConnectorImpl(soapConnection,afnemerLog,magdaEndpoints,hoedanigheid) ;
+        var signatureConnection = new MagdaSignedConnection(soapConnection,config) ;
+        var connector = new MagdaConnectorImpl(signatureConnection,afnemerLog,magdaEndpoints,hoedanigheid) ;
 
         final String requestInsz = "67021546719";
         var aanvraag = new GeefBewijsAanvraag(requestInsz);
@@ -51,7 +53,7 @@ public class MockServerHttpTest {
     }
 
     private static boolean checked = false;
-    private static boolean pgRunning = false;
+    private static boolean mockServerRunning = false;
 
     public static boolean somebodyListeningOn(String host, int port) {
         boolean ret = false;
@@ -68,14 +70,14 @@ public class MockServerHttpTest {
     public static boolean mockServerIsRunning() {
         if (!checked) {
             System.out.println("Checking if MagdaMock Server is running on this machine");
-            pgRunning = somebodyListeningOn("localhost", 8080);
-            if (pgRunning) {
+            mockServerRunning = somebodyListeningOn("localhost", 8080);
+            if (mockServerRunning) {
                 System.out.println("MagdaMock available. All server tests enabled");
             } else {
                 System.err.println("MagdaMock unavailable. All server tests disabled");
             }
             checked = true;
         }
-        return pgRunning;
+        return mockServerRunning;
     }
 }
