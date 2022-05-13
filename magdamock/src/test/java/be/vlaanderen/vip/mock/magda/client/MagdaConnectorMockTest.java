@@ -2,13 +2,14 @@ package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaAntwoord;
+import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.XmlUtil;
 import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
-import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpointsMock;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magda.client.aanvraag.GeefPersoonAanvraag;
+import be.vlaanderen.vip.mock.magda.client.endpoints.MagdaEndpointsMock;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -129,7 +130,7 @@ public class MagdaConnectorMockTest {
         MagdaEndpointsMock magdaEndpoints = new MagdaEndpointsMock();
         MagdaHoedanigheid mockedMagdaHoedanigheid = new MagdaHoedanigheid("Magda Mock", "magdamock.service", "123");
         MagdaHoedanigheidServiceMock magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
-        var connector = new MagdaConnectorMock(connection, afnemerLogService, magdaEndpoints, magdaHoedanigheidService);
+        var connector = new MagdaConnectorImpl(connection, afnemerLogService, magdaEndpoints, magdaHoedanigheidService);
 
         MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
 
