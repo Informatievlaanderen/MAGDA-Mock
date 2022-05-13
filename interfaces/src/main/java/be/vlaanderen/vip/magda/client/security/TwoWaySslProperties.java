@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.magda.client.security;
 
 import lombok.Data;
-import org.springframework.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 @Data
 public class TwoWaySslProperties {
