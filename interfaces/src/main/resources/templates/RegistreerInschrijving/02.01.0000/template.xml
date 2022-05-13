@@ -1,0 +1,50 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.registreerinschrijvingdienst-02_01.repertorium-02_01.vip.vlaanderen.be">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <web:RegistreerInschrijving>
+            <Verzoek>
+                <Context>
+                    <Naam>RegistreerInschrijving</Naam>
+                    <Versie>02.01.0000</Versie>
+                    <Bericht>
+                        <Type>VRAAG</Type>
+                        <Tijdstip>
+                            <Datum>2017-09-12</Datum>
+                            <Tijd>08:59:34.773</Tijd>
+                        </Tijdstip>
+                        <Afzender>
+                            <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-mock</Identificatie>
+                            <Referte>833dd928-ffc2-42fe-83d7-12e71d191f8d</Referte>
+                            <Hoedanigheid>1300</Hoedanigheid>
+                            <Gebruiker>77050526771</Gebruiker>
+                        </Afzender>
+                    </Bericht>
+                </Context>
+                <Vragen>
+                    <Vraag>
+                        <Referte>Vraagreferte van de afnemer</Referte>
+                        <Inhoud>
+                            <Inschrijving>
+                                <Identificatie>URI van de afnemer</Identificatie>
+                                <Hoedanigheid>Hoedanigheidcode van de afnemer</Hoedanigheid>
+                                <BetrokkenSubject>
+                                    <Type>PERS</Type>
+                                    <Subjecten>
+                                        <Subject>
+                                            <Type>PERS</Type>
+                                            <Sleutel>12345678901</Sleutel>
+                                        </Subject>
+                                    </Subjecten>
+                                </BetrokkenSubject>
+                                <Periode>
+                                    <Begin>2016-07-01</Begin>
+                                    <Einde>2018-08-01</Einde>
+                                </Periode>
+                            </Inschrijving>
+                        </Inhoud>
+                    </Vraag>
+                </Vragen>
+            </Verzoek>
+        </web:RegistreerInschrijving>
+    </soapenv:Body>
+</soapenv:Envelope>

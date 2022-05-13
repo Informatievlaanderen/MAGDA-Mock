@@ -1,6 +1,7 @@
-package be.vlaanderen.vip.magda.client.endpoints;
+package be.vlaanderen.vip.mock.magda.client.endpoints;
 
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
+import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 
 public class MagdaEndpointsMock implements MagdaEndpoints {
     public String magdaUrl(MagdaServiceIdentificatie aanvraag) {
