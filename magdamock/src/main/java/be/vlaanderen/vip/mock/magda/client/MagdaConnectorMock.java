@@ -6,6 +6,10 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.legallogging.service.AfnemerLogService;
 
+/**
+ * @Deprecated Gebruik MagdaConnectorImpl met een Mock MagdaConnection
+ */
+@Deprecated(since = "2022-05-13", forRemoval = true)
 public class MagdaConnectorMock extends MagdaConnectorImpl {
     public MagdaConnectorMock(MagdaConnection magdaConnection,
                               AfnemerLogService afnemerLogService,
