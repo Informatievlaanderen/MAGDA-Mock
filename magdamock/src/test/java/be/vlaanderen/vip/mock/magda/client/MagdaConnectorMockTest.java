@@ -4,10 +4,10 @@ import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaAntwoord;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.XmlUtil;
+import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpointsMock;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
-import be.vlaanderen.vip.mock.magda.client.aanvraag.GeefBewijsAanvraag;
 import be.vlaanderen.vip.mock.magda.client.aanvraag.GeefPersoonAanvraag;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
@@ -38,7 +38,7 @@ public class MagdaConnectorMockTest {
 
         log.info("{}", XmlUtil.toString(antwoord.getBody()));
 
-        var doc = antwoord.getDocument() ;
+        var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
         assertThat(referte).isEqualTo(aanvraag.getRequestId().toString());
@@ -72,7 +72,7 @@ public class MagdaConnectorMockTest {
 
         log.info("{}", XmlUtil.toString(antwoord.getBody()));
 
-         var doc = antwoord.getDocument() ;
+        var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
         assertThat(referte).isEqualTo(aanvraag.getRequestId().toString());
@@ -111,16 +111,16 @@ public class MagdaConnectorMockTest {
 
         log.info("{}", XmlUtil.toString(antwoord.getBody()));
 
-        var doc = antwoord.getDocument() ;
+        var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
         assertThat(referte).isEqualTo(aanvraag.getRequestId().toString());
 
-        var uitzondering = antwoord.getAntwoordUitzonderingen().get(0) ;
-        assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT) ;
-        assertThat(uitzondering.getIdentificatie()).isEqualTo("40000") ;
-        assertThat(uitzondering.getOorsprong()).isEqualTo("LED") ;
-        assertThat(uitzondering.getDiagnose()).isEqualTo("Geen gegevens gevonden.") ;
+        var uitzondering = antwoord.getAntwoordUitzonderingen().get(0);
+        assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT);
+        assertThat(uitzondering.getIdentificatie()).isEqualTo("40000");
+        assertThat(uitzondering.getOorsprong()).isEqualTo("LED");
+        assertThat(uitzondering.getDiagnose()).isEqualTo("Geen gegevens gevonden.");
     }
 
 
