@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.mock.magdaservice.controller;
 
 
+import be.vlaanderen.vip.mock.magda.client.MagdaMockConnection;
 import be.vlaanderen.vip.mock.magdaservice.config.MagdaMockConfig;
 import be.vlaanderen.vip.mock.magdaservice.config.RegistratieConfig;
 import be.vlaanderen.vip.mock.magdaservice.exception.AttestNotFoundException;
@@ -111,6 +112,7 @@ public class MagdaMockController {
     private static final String MAGDA_MOCK_CONTEXT = "MagdaMock";
 
     private final MagdaMockConfig config;
+    private final MagdaMockConnection mockConnection;
     private KeyStore keyStore;
     private Crypto crypto;
 
@@ -119,6 +121,7 @@ public class MagdaMockController {
     @Autowired
     public MagdaMockController(MagdaMockConfig magdaMockConfig, RegistratieConfig config) {
         this.config = magdaMockConfig;
+        mockConnection = new MagdaMockConnection();
 
         interestingSecurityAttributes.add("canonicalization-method");
         interestingSecurityAttributes.add("signature-method");

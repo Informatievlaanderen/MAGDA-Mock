@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.mock.magda.client.aanvraag;
+package be.vlaanderen.vip.mock.magdaservice.aanvraag;
 
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;

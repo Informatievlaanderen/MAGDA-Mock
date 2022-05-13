@@ -52,6 +52,10 @@ public class MagdaDocument {
         }
     }
 
+    public static MagdaDocument fromTemplate(Aanvraag aanvraag) {
+        return fromResource(MagdaDocument.class, "/templates/" + aanvraag.magdaService().getNaam() + "/" + aanvraag.magdaService().getVersie() + "/template.xml");
+    }
+
     private static Document parseStream(InputStream resource) {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

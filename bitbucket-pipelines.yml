@@ -1,5 +1,5 @@
 image:
-  name: vlaamseoverheid-magda-docker-public.jfrog.io/magda/magda-base-pipeline:4.6.3
+  name: vlaamseoverheid-magda-docker-public.jfrog.io/magda/magda-base-pipeline:jdk17-4.6.5
   username: $ARTIFACTORY_USER
   password: $ARTIFACTORY_PASSWORD
 
@@ -12,9 +12,9 @@ definitions:
         caches:
           - maven
         script:
-          - export INFRA_REPO='solid.services-infra'
+          - export INFRA_REPO='magdamock.service-infra'
           - export IFS=' '
-          - export APPS='magda-mock-service'
+          - export APPS='magdamock-service'
           - chmod +x deploy-with-argocd.sh
           - ./deploy-with-argocd.sh
     - step: &build
@@ -24,10 +24,10 @@ definitions:
         script:
           - export TESTCONTAINERS_RYUK_DISABLED=true
           - export MAVEN_OPTS="-Xmx1024m"
-          - mvn -B -U clean verify -s .m2/settings.xml -Pcucumber-tests
+          - mvn -B -U clean verify -s .m2/settings.xml 
         artifacts:
           - "**/*.jar"
-          - "**/cucumber-html-reports/**"
+          
     - step: &release
         name: Release
         caches:
@@ -72,15 +72,15 @@ pipelines:
       - step:
           <<: *deploy
           name: Deploy release to TST
-          deployment: TST
+          deployment: TST_SOLID
       - step:
           <<: *deploy
           name: Deploy release to TNI
-          deployment: TNI
+          deployment: TNI_SOLID
       - step:
           <<: *deploy
           name: Deploy release to PRD
-          deployment: PRD
+          deployment: PRD_SOLID
     develop:
       - step:
           name: Maven
@@ -90,21 +90,22 @@ pipelines:
           script:
             - export TESTCONTAINERS_RYUK_DISABLED=true
             - export MAVEN_OPTS="-Xmx1024m"
-            - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket -Pcucumber-tests -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD}
+            - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD}
             - mkdir -p target
             - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
           artifacts:
             - "**/*.jar"
-            - "**/cucumber-html-reports/**"
+            
             - target/pom_version
       - step:
           <<: *deploy
           name: Deploy to DEV
-          deployment: DEV
+          deployment: DEV_SOLID
       - step:
           <<: *deploy
           name: Deploy to TST
-          deployment: TST
+          deployment: TST_SOLID
+    '{feature/**,features/**}':
       - step:
           name: Maven
           caches:
@@ -112,10 +113,10 @@ pipelines:
           script:
             - export TESTCONTAINERS_RYUK_DISABLED=true
             - export MAVEN_OPTS="-Xmx1024m"
-            - mvn -B -U clean verify sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket -Pcucumber-tests -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.name="$BITBUCKET_BRANCH"
+            - mvn -B -U clean verify sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.name="$BITBUCKET_BRANCH"
           artifacts:
             - "**/*.jar"
-            - "**/cucumber-html-reports/**"
+            
     hotfix/*:
       - step:
           name: Maven
@@ -125,21 +126,21 @@ pipelines:
           script:
             - export TESTCONTAINERS_RYUK_DISABLED=true
             - export MAVEN_OPTS="-Xmx1024m"
-            - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket -Pcucumber-tests -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.target=master -Dsonar.branch.name="$BITBUCKET_BRANCH"
+            - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.target=master -Dsonar.branch.name="$BITBUCKET_BRANCH"
             - mkdir -p target
             - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
           artifacts:
             - "**/*.jar"
-            - "**/cucumber-html-reports/**"
+            
             - target/pom_version
       - step:
           <<: *deploy
           name: Deploy to DEV
-          deployment: DEV
+          deployment: DEV_SOLID
       - step:
           <<: *deploy
           name: Deploy to TST
-          deployment: TST
+          deployment: TST_SOLID
   custom:
     update-dependencies:
       - step:
@@ -158,7 +159,7 @@ pipelines:
             - mvn versions:use-releases -Dincludes=be.vlaanderen*:* -B -s .m2/settings.xml
             - mvn versions:use-latest-versions -DallowMajorUpdates=false -Dincludes=be.vlaanderen*:* -B -s .m2/settings.xml
             - mvn versions:commit
-            - mvn -B -U clean deploy -s .m2/settings.xml -Dbuild=bitbucket -Pcucumber-tests -Pdocker
+            - mvn -B -U clean deploy -s .m2/settings.xml -Dbuild=bitbucket  -Pdocker
             - git diff-index --quiet HEAD || git commit -a -m'Bitbucket automated update of released dependencies'
             - git push
           after-script:
@@ -186,6 +187,17 @@ pipelines:
             - export TESTCONTAINERS_RYUK_DISABLED=true
             - chmod +x finish-hotfix.sh
             - ./finish-hotfix.sh
+    create-support:
+      - variables:
+          - name: starting_tag
+      - step:
+          name: Creating support branch
+          caches:
+            - maven
+          script:
+            - export TESTCONTAINERS_RYUK_DISABLED=true
+            - chmod +x create-support.sh
+            - ./create-support.sh
     maven-release:
       - step: *release
     deploy-released-version:
@@ -203,15 +215,15 @@ pipelines:
       - step:
           <<: *deploy
           name: Deploy release to TST
-          deployment: TST
+          deployment: TST_SOLID
       - step:
           <<: *deploy
           name: Deploy release to TNI
-          deployment: TNI
+          deployment: TNI_SOLID
       - step:
           <<: *deploy
           name: Deploy release to PRD
-          deployment: PRD
+          deployment: PRD_SOLID
     owasp-dependencies-check:
       - step:
           name: Owasp Dependencies Check

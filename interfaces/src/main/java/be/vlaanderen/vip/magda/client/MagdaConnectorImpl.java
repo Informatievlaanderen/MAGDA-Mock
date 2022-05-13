@@ -42,7 +42,7 @@ import static java.util.stream.Collectors.joining;
 
 @Slf4j
 @RequiredArgsConstructor
-public abstract class MagdaConnectorImpl implements MagdaConnector {
+public class MagdaConnectorImpl implements MagdaConnector {
     private final MagdaConnection connection;
     private final AfnemerLogService afnemerLogService;
     private final MagdaEndpoints magdaEndpoints;
@@ -56,12 +56,8 @@ public abstract class MagdaConnectorImpl implements MagdaConnector {
         logAanvraag(aanvraag);
         fillInStandardParameters(aanvraag, request);
 
-        log.info(">> Oproep naar {}", endpoint);
-        log.info("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
-
-        if (log.isDebugEnabled()) {
-            log.debug("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
-        }
+        // TODO: request enkel loggen in debug mode
+        log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
 
         MagdaDocument response = callMagda(aanvraag, request);
         Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
@@ -206,6 +202,7 @@ public abstract class MagdaConnectorImpl implements MagdaConnector {
                 .uitzonderingen(level1Uitzonderingen(response))
                 .antwoordUitzonderingen(level2Uitzonderingen(response))
                 .body(getBody(response))
+                .document(response)
                 .heeftInhoud(responseHeeftInhoud(response))
                 .insz(vindAlleINSZIn(aanvraag, response))
                 .build();

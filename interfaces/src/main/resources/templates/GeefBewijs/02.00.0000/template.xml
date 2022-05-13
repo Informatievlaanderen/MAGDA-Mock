@@ -1,0 +1,37 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <GeefBewijs xmlns="http://service.geefbewijsdienst-02_00.led-02_00.vip.vlaanderen.be">
+            <Verzoek xmlns="">
+                <Context>
+                    <Naam>GeefBewijs</Naam>
+                    <Versie>02.00.0000</Versie>
+                    <Bericht>
+                        <Type>VRAAG</Type>
+                        <Tijdstip>
+                            <Datum>DATUM</Datum>
+                            <Tijd>TIJD</Tijd>
+                        </Tijdstip>
+                        <Afzender>
+                            <Identificatie>akb.vlaanderen.be/aiv/burgerloket-wwoom-mock</Identificatie>
+                            <Referte>833dd928-ffc2-42fe-83d7-12e71d191f8d</Referte>
+                            <Hoedanigheid>a1300</Hoedanigheid>
+                        </Afzender>
+                    </Bericht>
+                </Context>
+                <Vragen>
+                    <Vraag>
+                        <Referte>vraagreferte</Referte>
+                        <Inhoud>
+                            <Criteria>
+                                <INSZ>INSZ</INSZ>
+                            </Criteria>
+                            <Bron>RR</Bron>
+                            <Taal>nl</Taal>
+                        </Inhoud>
+                    </Vraag>
+                </Vragen>
+            </Verzoek>
+        </GeefBewijs>
+    </soapenv:Body>
+</soapenv:Envelope>

@@ -21,6 +21,7 @@ public class MagdaAntwoord {
     private List<Uitzondering> uitzonderingen;
     private List<Uitzondering> antwoordUitzonderingen;
     private final Node body;
+    private final MagdaDocument document;
     private final boolean heeftInhoud;
     private final Set<String> insz;
 
