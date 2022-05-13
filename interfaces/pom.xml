@@ -51,6 +51,11 @@
             <artifactId>wss4j-ws-security-dom</artifactId>
             <version>2.4.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.70</version>
+        </dependency>
         <!-- commons lang -->
         <dependency>
             <groupId>org.apache.commons</groupId>
