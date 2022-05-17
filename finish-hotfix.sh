@@ -27,6 +27,7 @@ if [ "$skipMergeDev" == "true" ]; then
     -DpreHotfixGoals="" \
     -DpostHotfixGoals="clean verify deploy -Pcucumber-tests -Pdocker,docker-release" \
     -DhotfixVersion="${VERSION}" \
+    -DhotfixBranch="${BITBUCKET_BRANCH}" \
     -DversionsForceUpdate="true" \
     -DskipMergeDevBranch="true" \
     -DargLine="-B -s .m2/settings.xml"
@@ -38,6 +39,7 @@ else
     -DpreHotfixGoals="" \
     -DpostHotfixGoals="clean verify deploy -Pcucumber-tests -Pdocker,docker-release" \
     -DhotfixVersion="${VERSION}" \
+    -DhotfixBranch="${BITBUCKET_BRANCH}" \
     -DversionsForceUpdate="true" \
     -DargLine="-B -s .m2/settings.xml"
 fi
