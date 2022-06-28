@@ -1,6 +1,6 @@
 spring:
   application:
-    name: magda-mock-service
+    name: magdamock-service
 
 magdamock:
   defaultresponsetime: 0
