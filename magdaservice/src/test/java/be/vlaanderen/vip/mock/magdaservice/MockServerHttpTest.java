@@ -13,6 +13,7 @@ import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpointsImpl;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.config.MagdaRegistrationConfigDto;
+import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magdaservice.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -34,6 +35,7 @@ public class MockServerHttpTest {
 
 
     public static final String CORRECT_INSZ = "67021546719";
+    public static final String INSZ_MAGDA_OVERBELAST = "91010100144";
 
     @Test
     @SneakyThrows
@@ -51,6 +53,22 @@ public class MockServerHttpTest {
         var request = MagdaDocument.fromTemplate(aanvraag);
         var antwoord = connector.send(aanvraag, request);
         log.info("Antwoord : {}", antwoord.getDocument());
+
+        assertThat(antwoord.isBodyIngevuld()).isTrue();
+        assertThat(antwoord.isHeeftInhoud()).isTrue();
+        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.getUitzonderingen()).isEmpty();
+
+        var doc = antwoord.getDocument();
+
+        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
+        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
+        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Bewijzen/Bewijs/BewijsrefertesLed/Bewijsreferte");
+        assertThat(resultaat).isEqualTo("66567d75-a223-4c12-959e-6560e3d0f0e5");
     }
 
     @Test
@@ -78,12 +96,43 @@ public class MockServerHttpTest {
 
         var doc = antwoord.getDocument();
 
-        var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(aanvraag.getRequestId().toString());
+        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
+        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
+        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
 
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
         assertThat(resultaat).isEqualTo("1");
+    }
 
+    @Test
+    @SneakyThrows
+    void callRegistreerInschrijvingFaaltMagdaOverbelast() {
+        MagdaConfigDto config = configureMagdaParameters();
+
+        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
+
+        var afnemerLog = new AfnemerLogServiceMock();
+        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
+        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
+        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
+        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
+
+        var aanvraag = new RegistreerInschrijvingAanvraag(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = MagdaDocument.fromTemplate(aanvraag);
+        var antwoord = connector.send(aanvraag, request);
+        log.info("Antwoord : {}", antwoord.getDocument());
+
+        assertThat(antwoord.isBodyIngevuld()).isFalse();
+        assertThat(antwoord.isHeeftInhoud()).isFalse();
+        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.getUitzonderingen()).hasSize(1);
+
+        var uitzondering = antwoord.getUitzonderingen().get(0) ;
+        assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT) ;
+        assertThat(uitzondering.getIdentificatie()).isEqualTo("99996") ;
+        assertThat(uitzondering.getDiagnose()).isEqualTo("Te veel gelijktijdige bevragingen") ;
     }
 
     @Test
@@ -103,6 +152,51 @@ public class MockServerHttpTest {
         var request = MagdaDocument.fromTemplate(aanvraag);
         var antwoord = connector.send(aanvraag, request);
         log.info("Antwoord : {}", antwoord.getDocument());
+
+        assertThat(antwoord.isBodyIngevuld()).isTrue();
+        assertThat(antwoord.isHeeftInhoud()).isTrue();
+        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.getUitzonderingen()).isEmpty();
+
+        var doc = antwoord.getDocument();
+
+        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
+        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
+        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
+        assertThat(resultaat).isEqualTo("1");
+    }
+
+    @Test
+    @SneakyThrows
+    void callRegistreerUitschrijvingFaaltMagdaOverbelast() {
+        MagdaConfigDto config = configureMagdaParameters();
+
+        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
+
+        var afnemerLog = new AfnemerLogServiceMock();
+        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
+        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
+        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
+        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
+
+        var aanvraag = new RegistreerUitschrijvingAanvraag(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = MagdaDocument.fromTemplate(aanvraag);
+        var antwoord = connector.send(aanvraag, request);
+        log.info("Antwoord : {}", antwoord.getDocument());
+
+        assertThat(antwoord.isBodyIngevuld()).isFalse();
+        assertThat(antwoord.isHeeftInhoud()).isFalse();
+        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.getUitzonderingen()).hasSize(1);
+
+        var uitzondering = antwoord.getUitzonderingen().get(0) ;
+        assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT) ;
+        assertThat(uitzondering.getIdentificatie()).isEqualTo("99996") ;
+        assertThat(uitzondering.getDiagnose()).isEqualTo("Te veel gelijktijdige bevragingen") ;
     }
 
     private MagdaEndpoints configureMagdaEndpoints(MagdaConfigDto config) {

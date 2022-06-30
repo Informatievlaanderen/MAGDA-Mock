@@ -526,6 +526,8 @@ public class MagdaMockController {
         xml.setValue("//Afzender/Identificatie", "kb.vlaanderen.be/aiv/burgerloket-wwoom-mock-server");
         xml.setValue("//Afzender/Naam", "Burgerloket Magda Mock");
 
+        xml.setValue("//Antwoorden/Antwoord/Referte", context.getVraagReferte());
+
         String xmlString = xml.toString();
         return "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" >\n" +
                 "  <soapenv:Header/>\n" +
