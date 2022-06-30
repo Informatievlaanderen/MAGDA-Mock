@@ -12,12 +12,12 @@ import java.time.format.DateTimeFormatter;
 
 @Getter
 @ToString
-public class RegistreerInschrijvingAanvraag extends Aanvraag {
+public class RegistreerUitschrijvingAanvraag extends Aanvraag {
 
     private final LocalDate start;
     private final LocalDate einde;
 
-    public RegistreerInschrijvingAanvraag(String insz, LocalDate start, LocalDate einde) {
+    public RegistreerUitschrijvingAanvraag(String insz, LocalDate start, LocalDate einde) {
         super(insz);
         this.start = start;
         this.einde = einde;
@@ -25,15 +25,15 @@ public class RegistreerInschrijvingAanvraag extends Aanvraag {
 
     @Override
     public MagdaServiceIdentificatie magdaService() {
-        return new MagdaServiceIdentificatie("RegistreerInschrijving", "02.00.0000");
+        return new MagdaServiceIdentificatie("RegistreerUitschrijving", "02.00.0000");
     }
 
     @Override
     public void fillIn(MagdaDocument request) {
         super.fillIn(request);
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Start", getStart().format(dateFormatter));
-        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEinde().format(dateFormatter));
+        request.setValue("//Vraag/Inhoud/Uitschrijving/Periode/Start", getStart().format(dateFormatter));
+        request.setValue("//Vraag/Inhoud/Uitschrijving/Periode/Einde", getEinde().format(dateFormatter));
     }
 
 }

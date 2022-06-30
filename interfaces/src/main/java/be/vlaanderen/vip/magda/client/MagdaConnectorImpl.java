@@ -56,7 +56,6 @@ public class MagdaConnectorImpl implements MagdaConnector {
         logAanvraag(aanvraag);
         fillInStandardParameters(aanvraag, request);
 
-        // TODO: request enkel loggen in debug mode
         log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
 
         MagdaDocument response = callMagda(aanvraag, request);
@@ -70,14 +69,14 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             final List<Uitzondering> antwoordUitzonderingen = antwoord.getAntwoordUitzonderingen();
             String uitzonderingenMessage1 = uitzonderingenMessage(uitzonderingen, antwoordUitzonderingen);
-            log.info("<< Antwoord van {} ({} ms) {}", endpoint, duration.toMillis(), uitzonderingenMessage1);
+            log.debug("<< Antwoord van {} ({} ms) {}", endpoint, duration.toMillis(), uitzonderingenMessage1);
 
             if (Boolean.FALSE.equals(antwoord.isHeeftInhoud()) && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
                 throw new BackendUitzonderingenException(aanvraag.getInsz(), getNiveau1Uitzondering(response));
             }
 
             if (log.isDebugEnabled()) {
-                log.debug("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(antwoord.getBody()));
+                log.info("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(antwoord.getBody()));
             }
 
             return antwoord;
@@ -158,19 +157,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
 
     private void fillInStandardParameters(Aanvraag aanvraag, MagdaDocument request) {
-        request.setValue("//Referte", aanvraag.getRequestId().toString());
-        request.setValue("//INSZ", aanvraag.getOverWie());
-
-        final Instant now = Instant.now();
-        LocalDateTime ldt = LocalDateTime.ofInstant(now, ZoneId.of("Europe/Brussels"));
-
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String today = ldt.format(dateFormatter);
-        request.setValue("//Context/Bericht/Tijdstip/Datum", today);
-
-        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
-        String time = ldt.format(timeFormat) + ".000";
-        request.setValue("//Context/Bericht/Tijdstip/Tijd", time);
+        aanvraag.fillIn(request);
 
         MagdaHoedanigheid magdaHoedanigheid = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
         if (magdaHoedanigheid != null) {

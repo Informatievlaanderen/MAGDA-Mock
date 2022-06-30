@@ -69,6 +69,7 @@ public class MagdaMockController {
 
     // REPERTORIUM
     private static final String REGISTREER_INSCHRIJVING_SOAP_WEB_SERVICE = "RegistreerInschrijvingDienst-02.00/soap/WebService";
+    private static final String REGISTREER_UITSCHRIJVING_SOAP_WEB_SERVICE = "RegistreerUitschrijvingDienst-02.00/soap/WebService";
     private static final String REGISTREER_INSCHRIJVING_21_SOAP_WEB_SERVICE = "RegistreerInschrijvingDienst-02.01/soap/WebService";
 
     // ONDERNEMING
@@ -183,6 +184,11 @@ public class MagdaMockController {
 
     @PostMapping(value = REGISTREER_INSCHRIJVING_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> registreerInschrijvingv20(@RequestBody(required = true) String request) throws IOException, ParserConfigurationException, SAXException {
+        return processMagdaMockRequest(request, KEY_IS_INSZ);
+    }
+
+    @PostMapping(value = REGISTREER_UITSCHRIJVING_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
+    public ResponseEntity<String> registreerUitschrijvingv20(@RequestBody(required = true) String request) throws IOException, ParserConfigurationException, SAXException {
         return processMagdaMockRequest(request, KEY_IS_INSZ);
     }
 
