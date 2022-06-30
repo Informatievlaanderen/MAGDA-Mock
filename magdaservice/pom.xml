@@ -5,7 +5,7 @@
     <parent>
         <artifactId>magda</artifactId>
         <groupId>be.vlaanderen.vip.mock</groupId>
-        <version>0.4.0</version>
+        <version>0.5.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -35,6 +35,30 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- Monitoring -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+            <version>${cloud.starter.sleuth.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+            <version>${cloud.starter.zipkin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -70,13 +94,13 @@
         <dependency>
             <groupId>be.vlaanderen.vip.mock</groupId>
             <artifactId>magdaconnector</artifactId>
-            <version>0.4.0</version>
+            <version>0.5.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>be.vlaanderen.vip.mock</groupId>
             <artifactId>magdamock</artifactId>
-            <version>0.4.0</version>
+            <version>0.5.0</version>
             <scope>compile</scope>
         </dependency>
 
@@ -135,6 +159,18 @@
                             <version>${mapstruct-lombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>

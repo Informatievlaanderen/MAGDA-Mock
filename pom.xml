@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>be.vlaanderen.vip.mock</groupId>
 	<artifactId>magda</artifactId>
-	<version>0.4.0</version>
+	<version>0.5.0</version>
 	<name>magdaservice</name>
 	<description>MAGDA diensten Mock voor afnemers</description>
 	<properties>
@@ -25,6 +25,8 @@
 		<commons-lang3.version>3.12.0</commons-lang3.version>
 		<logstash.logback.version>7.0.1</logstash.logback.version>
 		<assertj-core.version>3.22.0</assertj-core.version>
+		<cloud.starter.sleuth.version>3.1.1</cloud.starter.sleuth.version>
+		<cloud.starter.zipkin.version>2.2.8.RELEASE</cloud.starter.zipkin.version>
 	</properties>
 
 	<!-- infrastructure -->
