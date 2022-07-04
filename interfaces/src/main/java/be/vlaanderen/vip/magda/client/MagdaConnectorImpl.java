@@ -27,10 +27,6 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.StringWriter;
 import java.time.Duration;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,9 +50,10 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
         final String endpoint = magdaEndpoints.magdaUrl(aanvraag.magdaService());
         logAanvraag(aanvraag);
-        fillInStandardParameters(aanvraag, request);
 
-        // TODO: request enkel loggen in debug mode
+        MagdaHoedanigheid magdaHoedanigheid = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
+        aanvraag.fillIn(request,magdaHoedanigheid);
+
         log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
 
         MagdaDocument response = callMagda(aanvraag, request);
@@ -70,14 +67,14 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             final List<Uitzondering> antwoordUitzonderingen = antwoord.getAntwoordUitzonderingen();
             String uitzonderingenMessage1 = uitzonderingenMessage(uitzonderingen, antwoordUitzonderingen);
-            log.info("<< Antwoord van {} ({} ms) {}", endpoint, duration.toMillis(), uitzonderingenMessage1);
+            log.debug("<< Antwoord van {} ({} ms) {}", endpoint, duration.toMillis(), uitzonderingenMessage1);
 
             if (Boolean.FALSE.equals(antwoord.isHeeftInhoud()) && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
                 throw new BackendUitzonderingenException(aanvraag.getInsz(), getNiveau1Uitzondering(response));
             }
 
             if (log.isDebugEnabled()) {
-                log.debug("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(antwoord.getBody()));
+                log.info("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(antwoord.getBody()));
             }
 
             return antwoord;
@@ -87,6 +84,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         log.warn("<< Antwoord van {} ({} ms) TIMEOUT", endpoint, duration.toMillis());
         throw new GeenAntwoordException(aanvraag, "Geen antwoord");
     }
+
 
     private List<Uitzondering> getNiveau1Uitzondering(MagdaDocument response) {
         Uitzondering niveau1 = Uitzondering.builder()
@@ -157,27 +155,6 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
 
-    private void fillInStandardParameters(Aanvraag aanvraag, MagdaDocument request) {
-        request.setValue("//Referte", aanvraag.getRequestId().toString());
-        request.setValue("//INSZ", aanvraag.getOverWie());
-
-        final Instant now = Instant.now();
-        LocalDateTime ldt = LocalDateTime.ofInstant(now, ZoneId.of("Europe/Brussels"));
-
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String today = ldt.format(dateFormatter);
-        request.setValue("//Context/Bericht/Tijdstip/Datum", today);
-
-        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
-        String time = ldt.format(timeFormat) + ".000";
-        request.setValue("//Context/Bericht/Tijdstip/Tijd", time);
-
-        MagdaHoedanigheid magdaHoedanigheid = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
-        if (magdaHoedanigheid != null) {
-            request.setValue("//Context/Bericht/Afzender/Identificatie", magdaHoedanigheid.getUri());
-            request.setValue("//Context/Bericht/Afzender/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
-        }
-    }
 
     private String uitzonderingenMessage(List<Uitzondering> uitzonderingen, List<Uitzondering> antwoordUitzonderingen) {
         String uitzonderingenMessage1 = "Ok";

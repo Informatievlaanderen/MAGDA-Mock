@@ -21,7 +21,7 @@ import java.time.temporal.ChronoUnit;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-public class MagdaConnectorMockTest {
+public class MagdaConnectorMockTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefPersoonGeeftAntwoord() {
@@ -34,6 +34,8 @@ public class MagdaConnectorMockTest {
         MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
 
         var antwoord = connector.send(aanvraag, request);
+        log.info("{}", request.toString());
+        log.info("{}", XmlUtil.toString(antwoord.getBody()));
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
         assertThat(antwoord.isHeeftInhoud()).isTrue();
@@ -43,8 +45,6 @@ public class MagdaConnectorMockTest {
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
         assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
-
-        log.info("{}", XmlUtil.toString(antwoord.getBody()));
 
         var doc = antwoord.getDocument();
 
@@ -72,6 +72,8 @@ public class MagdaConnectorMockTest {
         MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
 
         var antwoord = connector.send(aanvraag, request);
+        log.info("{}", request.toString());
+        log.info("{}", XmlUtil.toString(antwoord.getBody()));
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
         assertThat(antwoord.isHeeftInhoud()).isTrue();
@@ -81,8 +83,6 @@ public class MagdaConnectorMockTest {
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
         assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
-
-        log.info("{}", XmlUtil.toString(antwoord.getBody()));
 
         var doc = antwoord.getDocument();
 
@@ -115,6 +115,8 @@ public class MagdaConnectorMockTest {
         MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
 
         var antwoord = connector.send(aanvraag, request);
+        log.info("{}", request.toString());
+        log.info("{}", XmlUtil.toString(antwoord.getBody()));
 
         assertThat(antwoord.isBodyIngevuld()).isFalse();
         assertThat(antwoord.isHeeftInhoud()).isFalse();
@@ -125,7 +127,6 @@ public class MagdaConnectorMockTest {
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
         assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
 
-        log.info("{}", XmlUtil.toString(antwoord.getBody()));
 
         var doc = antwoord.getDocument();
 
@@ -137,55 +138,6 @@ public class MagdaConnectorMockTest {
         assertThat(uitzondering.getIdentificatie()).isEqualTo("40000");
         assertThat(uitzondering.getOorsprong()).isEqualTo("LED");
         assertThat(uitzondering.getDiagnose()).isEqualTo("Geen gegevens gevonden.");
-    }
-
-    @Test
-    @SneakyThrows
-    void registreerInschrijvingLuktAltijd() {
-        final String requestInsz = "57021546719";
-        var aanvraag = new RegistreerInschrijvingAanvraag(requestInsz, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
-
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
-
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
-
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        // Voorbeeld van hoe de aanvraag gecustomizeerd wordt met specifieke parameters
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Start", aanvraag.getStart().format(dateFormatter));
-        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", aanvraag.getEinde().format(dateFormatter));
-
-        var antwoord = connector.send(aanvraag, request);
-
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
-
-        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
-
-        log.info("{}", XmlUtil.toString(antwoord.getBody()));
-
-        var doc = antwoord.getDocument();
-
-        var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(aanvraag.getRequestId().toString());
-
-        var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
-        assertThat(resultaat).isEqualTo("1");
-
-    }
-
-    private MagdaConnectorImpl makeMagdaConnector(AfnemerLogServiceMock afnemerLogService) {
-        var connection = new MagdaMockConnection();
-        MagdaEndpointsMock magdaEndpoints = new MagdaEndpointsMock();
-        MagdaHoedanigheid mockedMagdaHoedanigheid = new MagdaHoedanigheid("Magda Mock", "magdamock.service", "123");
-        MagdaHoedanigheidServiceMock magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
-        var connector = new MagdaConnectorImpl(connection, afnemerLogService, magdaEndpoints, magdaHoedanigheidService);
-        return connector;
     }
 
 

@@ -1,9 +1,14 @@
 package be.vlaanderen.vip.magda.client;
 
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 @Getter
@@ -28,4 +33,25 @@ public abstract class Aanvraag {
     }
 
     public abstract MagdaServiceIdentificatie magdaService();
+
+    public void fillIn(MagdaDocument request, MagdaHoedanigheid magdaHoedanigheid) {
+        request.setValue("//Referte", getRequestId().toString());
+        request.setValue("//INSZ", getOverWie());
+
+        final Instant now = Instant.now();
+        LocalDateTime ldt = LocalDateTime.ofInstant(now, ZoneId.of("Europe/Brussels"));
+
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
+        String today = ldt.format(dateFormatter);
+        request.setValue("//Context/Bericht/Tijdstip/Datum", today);
+
+        // Hardcoded 000 milliseconden wordt door alle Magda services aanvaard
+        // Afwezigheid van milliseconden of milliseconden <> 000 wordt door sommige services geweigerd
+        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String time = ldt.format(timeFormat) + ".000";
+        request.setValue("//Context/Bericht/Tijdstip/Tijd", time);
+
+        request.setValue("//Context/Bericht/Afzender/Identificatie", magdaHoedanigheid.getUri());
+        request.setValue("//Context/Bericht/Afzender/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
+    }
 }
