@@ -13,12 +13,12 @@ import java.time.format.DateTimeFormatter;
 
 @Getter
 @ToString
-public class RegistreerInschrijvingAanvraag extends Aanvraag {
+public class RegistreerUitschrijvingAanvraag extends Aanvraag {
 
     private final LocalDate start;
     private final LocalDate einde;
 
-    public RegistreerInschrijvingAanvraag(String insz, LocalDate start, LocalDate einde) {
+    public RegistreerUitschrijvingAanvraag(String insz, LocalDate start, LocalDate einde) {
         super(insz);
         this.start = start;
         this.einde = einde;
@@ -26,7 +26,7 @@ public class RegistreerInschrijvingAanvraag extends Aanvraag {
 
     @Override
     public MagdaServiceIdentificatie magdaService() {
-        return new MagdaServiceIdentificatie("RegistreerInschrijving", "02.00.0000");
+        return new MagdaServiceIdentificatie("RegistreerUitschrijving", "02.00.0000");
     }
 
     @Override
@@ -34,11 +34,10 @@ public class RegistreerInschrijvingAanvraag extends Aanvraag {
         super.fillIn(request, magdaHoedanigheid);
 
         DateTimeFormatter dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Start", getStart().format(dateFormatter));
-        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEinde().format(dateFormatter));
-        request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", magdaHoedanigheid.getUri());
-        request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
-
+        request.setValue("//Vraag/Inhoud/Uitschrijving/Periode/Start", getStart().format(dateFormatter));
+        request.setValue("//Vraag/Inhoud/Uitschrijving/Periode/Einde", getEinde().format(dateFormatter));
+        request.setValue("//Vraag/Inhoud/Uitschrijving/Identificatie", magdaHoedanigheid.getUri());
+        request.setValue("//Vraag/Inhoud/Uitschrijving/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
     }
 
 }
