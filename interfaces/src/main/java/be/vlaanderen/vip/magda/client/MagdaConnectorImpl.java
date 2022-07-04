@@ -27,10 +27,6 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.StringWriter;
 import java.time.Duration;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,7 +50,9 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
         final String endpoint = magdaEndpoints.magdaUrl(aanvraag.magdaService());
         logAanvraag(aanvraag);
-        fillInStandardParameters(aanvraag, request);
+
+        MagdaHoedanigheid magdaHoedanigheid = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
+        aanvraag.fillIn(request,magdaHoedanigheid);
 
         log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
 
@@ -86,6 +84,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         log.warn("<< Antwoord van {} ({} ms) TIMEOUT", endpoint, duration.toMillis());
         throw new GeenAntwoordException(aanvraag, "Geen antwoord");
     }
+
 
     private List<Uitzondering> getNiveau1Uitzondering(MagdaDocument response) {
         Uitzondering niveau1 = Uitzondering.builder()
@@ -156,15 +155,6 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
 
-    private void fillInStandardParameters(Aanvraag aanvraag, MagdaDocument request) {
-        aanvraag.fillIn(request);
-
-        MagdaHoedanigheid magdaHoedanigheid = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
-        if (magdaHoedanigheid != null) {
-            request.setValue("//Context/Bericht/Afzender/Identificatie", magdaHoedanigheid.getUri());
-            request.setValue("//Context/Bericht/Afzender/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
-        }
-    }
 
     private String uitzonderingenMessage(List<Uitzondering> uitzonderingen, List<Uitzondering> antwoordUitzonderingen) {
         String uitzonderingenMessage1 = "Ok";

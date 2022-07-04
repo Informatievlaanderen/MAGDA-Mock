@@ -3,6 +3,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -29,11 +30,15 @@ public class RegistreerInschrijvingAanvraag extends Aanvraag {
     }
 
     @Override
-    public void fillIn(MagdaDocument request) {
-        super.fillIn(request);
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public void fillIn(MagdaDocument request, MagdaHoedanigheid magdaHoedanigheid) {
+        super.fillIn(request, magdaHoedanigheid);
+
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Start", getStart().format(dateFormatter));
         request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEinde().format(dateFormatter));
+        request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", magdaHoedanigheid.getUri());
+        request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
+
     }
 
 }
