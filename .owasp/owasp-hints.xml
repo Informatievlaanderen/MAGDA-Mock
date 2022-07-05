@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- for resolving False Negatives, please visit https://jeremylong.github.io/DependencyCheck/general/hints.html for more documentation -->
+
+<!-- sample hints file -->
+<hints xmlns="https://jeremylong.github.io/DependencyCheck/dependency-hint.1.1.xsd">
+    <hint>
+        <given>
+            <evidence type="product" source="Manifest" name="Implementation-Title" value="Spring Framework" confidence="HIGH"/>
+            <evidence type="product" source="Manifest" name="Implementation-Title" value="org.springframework.core" confidence="HIGH"/>
+            <evidence type="product" source="Manifest" name="Implementation-Title" value="spring-core" confidence="HIGH"/>
+        </given>
+        <add>
+            <evidence type="product" source="hint analyzer" name="product" value="springsource_spring_framework" confidence="HIGH"/>
+            <evidence type="vendor" source="hint analyzer" name="vendor" value="SpringSource" confidence="HIGH"/>
+            <evidence type="vendor" source="hint analyzer" name="vendor" value="vmware" confidence="HIGH"/>
+            <evidence type="vendor" source="hint analyzer" name="vendor" value="pivotal" confidence="HIGH"/>
+        </add>
+    </hint>
+</hints>
