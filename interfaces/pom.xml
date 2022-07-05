@@ -36,11 +36,13 @@
             <artifactId>dom4j</artifactId>
             <version>${dom4j.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
-            <groupId>com.antkorwin</groupId>
-            <artifactId>ioutils</artifactId>
-            <version>0.8</version>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.wss4j</groupId>
             <artifactId>wss4j-ws-security-dom</artifactId>

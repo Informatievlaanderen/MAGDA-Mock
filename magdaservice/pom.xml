@@ -77,9 +77,9 @@
             <version>${commons-lang3.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.antkorwin</groupId>
-            <artifactId>ioutils</artifactId>
-            <version>0.8</version>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
