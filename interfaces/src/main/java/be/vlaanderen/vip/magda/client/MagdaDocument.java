@@ -72,11 +72,8 @@ public class MagdaDocument {
     }
 
     private static Document parseString(String input) {
-        try {
-            return parseStream(IOUtils.toInputStream(input, "UTF-8"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        return parseStream(IOUtils.toInputStream(input, "UTF-8"));
+
     }
 
     public Document getXml() {
