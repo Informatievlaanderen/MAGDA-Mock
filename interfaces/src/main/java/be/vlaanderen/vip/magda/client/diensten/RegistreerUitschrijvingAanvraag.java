@@ -33,11 +33,26 @@ public class RegistreerUitschrijvingAanvraag extends Aanvraag {
     public void fillIn(MagdaDocument request, MagdaHoedanigheid magdaHoedanigheid) {
         super.fillIn(request, magdaHoedanigheid);
 
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        request.setValue("//Vraag/Inhoud/Uitschrijving/Periode/Start", getStart().format(dateFormatter));
-        request.setValue("//Vraag/Inhoud/Uitschrijving/Periode/Einde", getEinde().format(dateFormatter));
+        setDateFields(request);
         request.setValue("//Vraag/Inhoud/Uitschrijving/Identificatie", magdaHoedanigheid.getUri());
         request.setValue("//Vraag/Inhoud/Uitschrijving/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
+    }
+    
+    private void setDateFields(MagdaDocument request) {
+        if(getStart() != null || getEinde() != null) {
+            request.createNode("//Vragen/Vraag/Inhoud/Uitschrijving", "Periode");
+
+            var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
+
+            if(getStart() != null) {
+                request.createTextNode("//Vraag/Inhoud/Uitschrijving/Periode", "Begin", getStart().format(dateFormatter));
+            }
+
+            if(getEinde() != null) {
+                request.createTextNode("//Vraag/Inhoud/Uitschrijving/Periode", "Einde", getEinde().format(dateFormatter));
+            }
+            
+        }
     }
 
 }
