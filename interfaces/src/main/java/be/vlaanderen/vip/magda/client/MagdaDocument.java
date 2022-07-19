@@ -118,7 +118,6 @@ public class MagdaDocument {
     }
     
     public Node createTextNode(String expression, String nodeName, String value) {
-        System.out.println(toString());
         var node = xml.createElement(nodeName);
         var textNode = xml.createTextNode(value);
         node.appendChild(textNode);
