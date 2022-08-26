@@ -1,11 +1,11 @@
 package be.vlaanderen.vip.mock.magdaservice.controller;
 
 
+import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.mock.magda.client.MagdaMockConnection;
 import be.vlaanderen.vip.mock.magdaservice.config.MagdaMockConfig;
 import be.vlaanderen.vip.mock.magdaservice.config.RegistratieConfig;
 import be.vlaanderen.vip.mock.magdaservice.exception.AttestNotFoundException;
-import be.vlaanderen.vip.mock.magdaservice.magda.MagdaDocument;
 import be.vlaanderen.vip.mock.magdaservice.magda.MagdaRequest;
 import be.vlaanderen.vip.mock.magdaservice.magda.MagdaService;
 import be.vlaanderen.vip.mock.magdaservice.util.INSZ;
@@ -169,19 +169,6 @@ public class MagdaMockController {
         log.info(String.format("Loaded keystore from %s", config.getCertPath()));
     }
 
-    private static String resourcePath(MagdaService service, String insz) {
-        return "/magda_simulator/" + service.getUrl() + "/" + insz + ".xml";
-    }
-
-    private static String resourcePath(MagdaService service, List<String> insz) {
-
-        StringBuilder s = new StringBuilder("/magda_simulator/" + service.getUrl());
-        for (String str : insz) {
-            s.append("/").append(str);
-        }
-        return s.append(".xml").toString();
-    }
-
     @PostMapping(value = REGISTREER_INSCHRIJVING_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> registreerInschrijvingv20(@RequestBody(required = true) String request) throws IOException, ParserConfigurationException, SAXException {
         return processMagdaMockRequest(request, KEY_IS_INSZ);
@@ -308,27 +295,27 @@ public class MagdaMockController {
     }
 
     private ResponseEntity<String> processMagdaMockRequest(String request, String... expression) throws ParserConfigurationException, SAXException, IOException {
-        MagdaDocument aanvraag = parseRequest(request);
+        //TODO: handle request parsing errors and return Magda Uitzondering error
+        //TODO: verify signature
+        MagdaDocument aanvraag = MagdaDocument.fromString(request);
 
         return handleMagdaRequest(aanvraag, expression);
     }
 
     private ResponseEntity<String> processMagdaMockPasfotoRequest(String request, String expression) throws IOException, SAXException, ParserConfigurationException {
-        MagdaDocument aanvraag = parseRequest(request);
+        //TODO: handle request parsing errors and return Magda Uitzondering error
+        //TODO: verify signature
+        MagdaDocument aanvraag = MagdaDocument.fromString(request);
 
         return handleMagdaPasfotoRequest(aanvraag, expression);
     }
 
     private ResponseEntity<String> processMagdaMockAttestRequest(String request, String expression) throws IOException, SAXException, ParserConfigurationException {
-        MagdaDocument aanvraag = parseRequest(request);
-
-        return handleMagdaAttestRequest(aanvraag, expression);
-    }
-
-    private MagdaDocument parseRequest(String request) throws ParserConfigurationException, SAXException, IOException {
         //TODO: handle request parsing errors and return Magda Uitzondering error
         //TODO: verify signature
-        return MagdaDocument.fromString(request);
+        MagdaDocument aanvraag = MagdaDocument.fromString(request);
+
+        return handleMagdaAttestRequest(aanvraag, expression);
     }
 
     private ResponseEntity<String> handleMagdaRequest(MagdaDocument aanvraag, String... expression) throws IOException, ParserConfigurationException, SAXException {
@@ -360,38 +347,24 @@ public class MagdaMockController {
             }
         }
 
-        // TODO: verify that identificatie and hoedanigheid are those of WWOOOM Mock, else Uitzondering "not authorized"
-
-
-        // TODO: reserve a few INSZ numbers for server errors, e.g. no response or veeeeeeeeery slow response
         MagdaService magdaService = makeMagdaService(aanvraagParameters);
 
-        String responsePath = resourcePath(magdaService, aanvraagParameters.getKeys());
-        InputStream inputStream = getClass().getResourceAsStream(responsePath);
-        if (inputStream == null) {
-            responsePath = resourcePath(magdaService, "success");
-            inputStream = getClass().getResourceAsStream(responsePath);
+        var antwoord = mockConnection.send(aanvraag.getXml(), magdaService.getServiceNaam());
+        if (antwoord != null) {
+            var doc = MagdaDocument.fromDocument(antwoord);
+            final ResponseEntity<String> response = parseInputstream(aanvraagParameters, magdaService, doc, new HashMap<String, String>());
+
+            Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
+            log.info(String.format("<<< Vraag voor mock dienst %s voor %s in %d ms", aanvraagParameters.getServiceNaam(), aanvraagParameters.getKeys(), duration.toMillis()));
+
+            return response;
+
+        } else {
+            return ResponseEntity.notFound().build();
         }
-        if (inputStream == null) {
-            log.info(String.format("Magda resource %s niet gevonden", responsePath));
-            responsePath = resourcePath(magdaService, "notfound");
-            inputStream = getClass().getResourceAsStream(responsePath);
-            if (inputStream == null) {
-                log.info(String.format("Magda resource %s niet gevonden", responsePath));
-            }
-        }
-
-        final String reponseUrl = responsePath.replace("/magda_simulator", "/api/v1/testdata/xml");
-
-        final ResponseEntity<String> response = parseInputstream(aanvraagParameters, magdaService, inputStream, new HashMap<String, String>());
-
-        Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
-        log.info(String.format("<<< Vraag voor mock dienst %s voor %s in %d ms => %s", aanvraagParameters.getServiceNaam(), aanvraagParameters.getKeys(), duration.toMillis(), reponseUrl));
-
-        return response;
     }
 
-    private ResponseEntity<String> parseInputstream(MagdaRequest aanvraagParameters, MagdaService magdaService, InputStream inputStream, HashMap<String, String> mappings) throws IOException, ParserConfigurationException, SAXException {
+    private ResponseEntity<String> parseInputstream(MagdaRequest aanvraagParameters, MagdaService magdaService, MagdaDocument inputStream, HashMap<String, String> mappings) {
         if (inputStream != null) {
             String response = readySoapResponse(inputStream, aanvraagParameters, mappings);
 
@@ -420,12 +393,6 @@ public class MagdaMockController {
         final String rijksRegisterNummer = aanvraagParameters.getKeys().get(0);
         log.info(String.format(">>> Vraag voor mock dienst %s voor %s", aanvraagParameters.getServiceNaam(), rijksRegisterNummer));
 
-        // TODO: verify that identificatie and hoedanigheid are those of WWOOOM Mock, else Uitzondering "not authorized"
-
-
-        // TODO: reserve a few INSZ numbers for server errors, e.g. no response or veeeeeeeeery slow response
-
-
         // Burgers met RRN dat niet uit RR komt, maar uit KSZ hebben geen pasfoto
         MagdaService magdaService = makeMagdaService(aanvraagParameters);
         InputStream inputStream = getClass().getResourceAsStream(pasFotoresourcePath(magdaService, rijksRegisterNummer));
@@ -433,7 +400,7 @@ public class MagdaMockController {
 
         HashMap<String, String> mappings = new HashMap<>();
         mappings.put("//Inhoud/Pasfoto/INSZ", rijksRegisterNummer);
-        final ResponseEntity<String> response = parseInputstream(aanvraagParameters, magdaService, inputStream, mappings);
+        final ResponseEntity<String> response = parseInputstream(aanvraagParameters, magdaService, MagdaDocument.fromStream(inputStream), mappings);
 
         Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
         log.info(String.format("<<< Vraag voor mock dienst %s voor %s in %d ms", aanvraagParameters.getServiceNaam(), rijksRegisterNummer, duration.toMillis()));
@@ -442,7 +409,7 @@ public class MagdaMockController {
 
     }
 
-    private ResponseEntity<String> handleMagdaAttestRequest(MagdaDocument aanvraag, String expression) throws IOException, ParserConfigurationException, SAXException {
+    private ResponseEntity<String> handleMagdaAttestRequest(MagdaDocument aanvraag, String expression) {
 
         long start = System.nanoTime();
 
@@ -467,7 +434,7 @@ public class MagdaMockController {
         MagdaService magdaService = makeMagdaService(aanvraagParameters);
         String responsePath = resourcePath(magdaService, insz);
         InputStream inputStream = getClass().getResourceAsStream(responsePath);
-        final ResponseEntity<String> response = parseInputstream(aanvraagParameters, magdaService, inputStream, new HashMap<String, String>());
+        final ResponseEntity<String> response = parseInputstream(aanvraagParameters, magdaService, MagdaDocument.fromStream(inputStream), new HashMap<String, String>());
 
         Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
         log.info(String.format("<<< Vraag voor mock dienst %s voor %s in %d ms", aanvraagParameters.getServiceNaam(), insz, duration.toMillis()));
@@ -476,10 +443,22 @@ public class MagdaMockController {
 
     }
 
+    private static String resourcePath(MagdaService service, String insz) {
+        return "/magda_simulator/" + service.getUrl() + "/" + insz + ".xml";
+    }
+
+    private static String resourcePath(MagdaService service, List<String> insz) {
+
+        StringBuilder s = new StringBuilder("/magda_simulator/" + service.getUrl());
+        for (String str : insz) {
+            s.append("/").append(str);
+        }
+        return s.append(".xml").toString();
+    }
+
     private MagdaService makeMagdaService(MagdaRequest aanvraagParameters) {
         return new MagdaService(aanvraagParameters.getServiceNaam(), aanvraagParameters.getServiceVersie());
     }
-
 
     private void simuleerMagdaResponsTijdVoor(String serviceNaam) {
         Integer timeout = null;
@@ -500,10 +479,8 @@ public class MagdaMockController {
         }
     }
 
-    private String readySoapResponse(InputStream inputStream,
-                                     MagdaRequest context, HashMap<String, String> mappings) throws IOException, ParserConfigurationException, SAXException {
-        MagdaDocument xml = MagdaDocument.fromStream(inputStream);
-
+    private String readySoapResponse(MagdaDocument xml, MagdaRequest context, HashMap<String, String> mappings) {
+/*
         xml.setValue("//Ontvanger/Referte", context.getReferte());
         xml.setValue("//Ontvanger/Identificatie", context.getIdentificatie());
         xml.setValue("//Ontvanger/Hoedanigheid", context.getHoedanigheid());
@@ -527,7 +504,7 @@ public class MagdaMockController {
         xml.setValue("//Afzender/Naam", "Burgerloket Magda Mock");
 
         xml.setValue("//Antwoorden/Antwoord/Referte", context.getVraagReferte());
-
+*/
         String xmlString = xml.toString();
         return "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" >\n" +
                 "  <soapenv:Header/>\n" +

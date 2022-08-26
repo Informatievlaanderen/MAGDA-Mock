@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.mock.magdaservice.magda;
 
+import be.vlaanderen.vip.magda.client.MagdaDocument;
 import lombok.Getter;
 
 import java.util.ArrayList;

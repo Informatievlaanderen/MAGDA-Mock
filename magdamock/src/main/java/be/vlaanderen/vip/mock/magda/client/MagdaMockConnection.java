@@ -33,7 +33,7 @@ import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 @Slf4j
 public class MagdaMockConnection implements MagdaConnection {
     @Getter
-    private List<Document> verzondenDocumenten = new ArrayList<>();
+    private final List<Document> verzondenDocumenten = new ArrayList<>();
     private Document defaultResponse = null;
     private final XPathFactory xPathfactory = XPathFactory.newInstance();
     private final XPath xpath = xPathfactory.newXPath();
@@ -41,6 +41,8 @@ public class MagdaMockConnection implements MagdaConnection {
     @Override
     public Document sendDocument(Aanvraag aanvraag, Document xml) throws MagdaSendFailed {
         log.info("Answering using MAGDA Mock");
+        String serviceNaam = aanvraag.magdaService().getNaam();
+
         verzondenDocumenten.add(xml);
         if (defaultResponse != null) {
             Document answer = defaultResponse;
@@ -48,6 +50,10 @@ public class MagdaMockConnection implements MagdaConnection {
             return answer;
         }
 
+        return send(xml, serviceNaam);
+    }
+
+    public Document send(Document xml, String serviceNaam) {
         String key1 = getValue(xml, "//INSZ");
         String key0 = null;
         if (isEmpty(key1)) {
@@ -119,10 +125,9 @@ public class MagdaMockConnection implements MagdaConnection {
                     "</soapenv:Envelope>";
             return parseXml(soap);
         } else {
-            log.warn(String.format("Geen mock data gevonden voor request naar %s", aanvraag.magdaService().getNaam()));
+            log.warn(String.format("Geen mock data gevonden voor request naar %s", serviceNaam));
+            return null;
         }
-
-        return null;
     }
 
     private Document parseXml(String xmlDocument) {
