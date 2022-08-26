@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.dom4j.dom.DOMNodeHelper;
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -43,7 +44,7 @@ public class MagdaDocument {
         return new MagdaDocument(parseStream(document));
     }
 
-    public static MagdaDocument fromResource(Class clazz, String name) {
+    public static MagdaDocument fromResource(Class<?> clazz, String name) {
         InputStream resource = clazz.getResourceAsStream(name);
         if (resource != null) {
             return new MagdaDocument(parseStream(resource));
@@ -112,6 +113,20 @@ public class MagdaDocument {
         }
 
         return new DOMNodeHelper.EmptyNodeList();
+    }
+    
+    public Node createNode(String expression, String nodeName) {
+        var node = xml.createElement(nodeName);
+        xpath(expression).item(0).appendChild(node);
+        return node;
+    }
+    
+    public Node createTextNode(String expression, String nodeName, String value) {
+        var node = xml.createElement(nodeName);
+        var textNode = xml.createTextNode(value);
+        node.appendChild(textNode);
+        xpath(expression).item(0).appendChild(node);
+        return node;
     }
 
     public String toString() {
