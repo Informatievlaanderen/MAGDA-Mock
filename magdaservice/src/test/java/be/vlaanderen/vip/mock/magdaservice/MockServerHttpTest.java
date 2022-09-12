@@ -4,6 +4,7 @@ import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaSignedConnection;
 import be.vlaanderen.vip.magda.client.MagdaSoapConnection;
+import be.vlaanderen.vip.magda.client.diensten.GeefAanslagbiljetPersonenbelastingAanvraag;
 import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijvingAanvraag;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerUitschrijvingAanvraag;
@@ -197,6 +198,40 @@ public class MockServerHttpTest {
         assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT) ;
         assertThat(uitzondering.getIdentificatie()).isEqualTo("99996") ;
         assertThat(uitzondering.getDiagnose()).isEqualTo("Te veel gelijktijdige bevragingen") ;
+    }
+
+    @Test
+    @SneakyThrows
+    void callGeefAanslagbiljetPersonenbelasting() {
+        MagdaConfigDto config = configureMagdaParameters();
+        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
+
+        var afnemerLog = new AfnemerLogServiceMock();
+        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
+        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
+        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
+        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
+
+        var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(CORRECT_INSZ);
+        var request = MagdaDocument.fromTemplate(aanvraag);
+        var antwoord = connector.send(aanvraag, request);
+        log.info("Antwoord : {}", antwoord.getDocument());
+
+        assertThat(antwoord.isBodyIngevuld()).isTrue();
+        assertThat(antwoord.isHeeftInhoud()).isTrue();
+        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.getUitzonderingen()).isEmpty();
+
+        var doc = antwoord.getDocument();
+
+        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
+        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
+        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar");
+        assertThat(resultaat).isEqualTo("2022");
     }
 
     private MagdaEndpoints configureMagdaEndpoints(MagdaConfigDto config) {
