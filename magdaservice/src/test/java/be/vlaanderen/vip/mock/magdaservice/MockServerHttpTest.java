@@ -212,7 +212,7 @@ public class MockServerHttpTest {
         var signatureConnection = new MagdaSignedConnection(soapConnection, config);
         var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
 
-        var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(CORRECT_INSZ);
+        var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag("82102108114");
         var request = MagdaDocument.fromTemplate(aanvraag);
         var antwoord = connector.send(aanvraag, request);
         log.info("Antwoord : {}", antwoord.getDocument());
@@ -230,15 +230,27 @@ public class MockServerHttpTest {
         var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
         assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
 
-        var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar");
-        assertThat(resultaat).isEqualTo("2022");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
+
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2011");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
     }
+
+    protected void assertThatXmlFieldIsEqualTo(MagdaDocument doc, String xmlPath, String expected) {
+        String value = doc.getValue(xmlPath);
+        assertThat(value).isNotNull();
+        assertThat(value).isEqualTo(expected);
+    }
+
 
     private MagdaEndpoints configureMagdaEndpoints(MagdaConfigDto config) {
         MagdaEndpoints magdaEndpoints = new MagdaEndpointsImpl(config);
         magdaEndpoints.addMapping("RegistreerInschrijving", "02.00.0000", "http://localhost:8080/RegistreerInschrijvingDienst-02.00/soap/WebService");
         magdaEndpoints.addMapping("RegistreerUitschrijving", "02.00.0000", "http://localhost:8080/RegistreerUitschrijvingDienst-02.00/soap/WebService");
         magdaEndpoints.addMapping("GeefBewijs", "02.00.0000", "http://localhost:8080/GeefBewijsDienst-02.00/soap/WebService");
+        magdaEndpoints.addMapping("GeefAanslagbiljetPersonenbelasting", "02.00.0000", "http://localhost:8080/GeefBewijsDienst-02.00/soap/WebService");
 
         return magdaEndpoints;
     }

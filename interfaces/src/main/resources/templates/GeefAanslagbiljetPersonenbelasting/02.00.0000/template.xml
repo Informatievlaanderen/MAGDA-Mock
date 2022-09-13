@@ -2,7 +2,7 @@
     <soapenv:Header/>
     <soapenv:Body>
         <GeefAanslagbiljetPersonenbelasting xmlns="http://webservice.geefaanslagbiljetpersonenbelastingdienst-02_00.inkomen-02_00.vip.vlaanderen.be">
-            <Verzoek>
+            <Verzoek xmlns="">
                 <Context>
                     <Naam>GeefAanslagBiljetPersonenBelasting</Naam>
                     <Versie>02.00.0000</Versie>
