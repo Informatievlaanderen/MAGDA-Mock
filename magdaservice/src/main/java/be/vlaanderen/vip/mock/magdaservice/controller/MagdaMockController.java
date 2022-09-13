@@ -109,6 +109,8 @@ public class MagdaMockController {
 
     private static final String GEEF_VOLLEDIG_DOSSIER_HANDICAP_SERVICE = "GeefVolledigDossierHandicapDienst-03.00/soap/WebService";
 
+    private static final String GEEF_AANSLAGBILJET_PERSONENBELASTING = "GeefAanslagBiljetPersonenbelastingDienst-02.00/soap/WebService";
+
     private static final String KEY_IS_INSZ = "//INSZ";
     private static final String MAGDA_MOCK_CONTEXT = "MagdaMock";
 
@@ -305,6 +307,11 @@ public class MagdaMockController {
     @PostMapping(value = GEEF_VOLLEDIG_DOSSIER_HANDICAP_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefVolledigDossierHandicap(@RequestBody String request) throws IOException, ParserConfigurationException, SAXException {
         return processMagdaMockRequest(request, "//rrnr");
+    }
+
+    @PostMapping(value = GEEF_AANSLAGBILJET_PERSONENBELASTING, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
+    public ResponseEntity<String> geefAanslagbiljetPersonenBelasting(@RequestBody String request) throws IOException, ParserConfigurationException, SAXException {
+        return processMagdaMockRequest(request, KEY_IS_INSZ);
     }
 
     private ResponseEntity<String> processMagdaMockRequest(String request, String... expression) throws ParserConfigurationException, SAXException, IOException {
