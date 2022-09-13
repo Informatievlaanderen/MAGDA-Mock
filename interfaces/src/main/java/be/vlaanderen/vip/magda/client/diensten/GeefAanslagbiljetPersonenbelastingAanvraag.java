@@ -27,10 +27,4 @@ public class GeefAanslagbiljetPersonenbelastingAanvraag extends Aanvraag {
     public MagdaServiceIdentificatie magdaService() {
         return new MagdaServiceIdentificatie("GeefAanslagbiljetPersonenbelasting", "02.00.0000");
     }
-
-/*    @Override
-    public void fillIn(MagdaDocument request, MagdaHoedanigheid magdaHoedanigheid) {
-        super.fillIn(request, magdaHoedanigheid);
-    }*/
-
 }

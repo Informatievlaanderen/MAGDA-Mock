@@ -128,7 +128,7 @@ public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
 
     @Test
     @SneakyThrows
-    void registreerInschrijvingv0200LuktNietOmdatMagdaOverbelastIs() {
+    void geefAanslagbiljetPersonenBelasting0200LuktNietOmdatMagdaOverbelastIs() {
         var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(INSZ_MAGDA_OVERBELAST);
 
         AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
