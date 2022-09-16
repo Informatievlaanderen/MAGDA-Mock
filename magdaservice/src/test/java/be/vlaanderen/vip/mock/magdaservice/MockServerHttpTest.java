@@ -6,6 +6,7 @@ import be.vlaanderen.vip.magda.client.MagdaSignedConnection;
 import be.vlaanderen.vip.magda.client.MagdaSoapConnection;
 import be.vlaanderen.vip.magda.client.diensten.GeefAanslagbiljetPersonenbelastingAanvraag;
 import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
+import be.vlaanderen.vip.magda.client.diensten.GeefPersoonAanvraag;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijvingAanvraag;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerUitschrijvingAanvraag;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceImpl;
@@ -238,6 +239,80 @@ public class MockServerHttpTest {
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
     }
 
+    @Test
+    @SneakyThrows
+    void callGeefPersoonMetCustomRequest() {
+        MagdaConfigDto config = configureMagdaParameters();
+        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
+
+        var afnemerLog = new AfnemerLogServiceMock();
+        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
+        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
+        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
+        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
+
+        var request = MagdaDocument.fromResource(MockServerHttpTest.class,"/requests/GeefPersoonRequest.xml");
+
+        var aanvraag = new GeefPersoonAanvraag("00000099504");
+        var antwoord = connector.send(aanvraag, request);
+        log.info("Antwoord : {}", antwoord.getDocument());
+
+        assertThat(antwoord.isBodyIngevuld()).isTrue();
+        assertThat(antwoord.isHeeftInhoud()).isTrue();
+        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.getUitzonderingen()).isEmpty();
+
+        var doc = antwoord.getDocument();
+
+        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
+        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
+        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/Persoon/INSZ", "00000099504");
+    }
+
+    @Test
+    @SneakyThrows
+    void callGeefAanslagbiljetPersonenbelastingMetCustomRequest() {
+        MagdaConfigDto config = configureMagdaParameters();
+        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
+
+        var afnemerLog = new AfnemerLogServiceMock();
+        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
+        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
+        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
+        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
+
+        var request = MagdaDocument.fromResource(MockServerHttpTest.class,"/requests/GeefAanslagbiljetPersonenbelastingRequest.xml");
+
+        var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag("82102108114");
+        var antwoord = connector.send(aanvraag, request);
+        log.info("Antwoord : {}", antwoord.getDocument());
+
+        assertThat(antwoord.isBodyIngevuld()).isTrue();
+        assertThat(antwoord.isHeeftInhoud()).isTrue();
+        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.getUitzonderingen()).isEmpty();
+
+        var doc = antwoord.getDocument();
+
+        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
+        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
+        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
+
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2011");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
+    }
+
+
     protected void assertThatXmlFieldIsEqualTo(MagdaDocument doc, String xmlPath, String expected) {
         String value = doc.getValue(xmlPath);
         assertThat(value).isNotNull();
@@ -250,7 +325,8 @@ public class MockServerHttpTest {
         magdaEndpoints.addMapping("RegistreerInschrijving", "02.00.0000", "http://localhost:8080/RegistreerInschrijvingDienst-02.00/soap/WebService");
         magdaEndpoints.addMapping("RegistreerUitschrijving", "02.00.0000", "http://localhost:8080/RegistreerUitschrijvingDienst-02.00/soap/WebService");
         magdaEndpoints.addMapping("GeefBewijs", "02.00.0000", "http://localhost:8080/GeefBewijsDienst-02.00/soap/WebService");
-        magdaEndpoints.addMapping("GeefAanslagbiljetPersonenbelasting", "02.00.0000", "http://localhost:8080/GeefBewijsDienst-02.00/soap/WebService");
+        magdaEndpoints.addMapping("GeefAanslagbiljetPersonenbelasting", "02.00.0000", "http://localhost:8080/GeefAanslagbiljetPersonenbelastingDienst-02.00/soap/WebService");
+        magdaEndpoints.addMapping("GeefPersoon", "02.02.0000", "http://localhost:8080/GeefPersoonDienst-02.02/soap/WebService");
 
         return magdaEndpoints;
     }
