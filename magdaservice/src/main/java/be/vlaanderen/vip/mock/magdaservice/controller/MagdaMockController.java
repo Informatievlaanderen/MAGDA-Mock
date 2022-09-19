@@ -67,6 +67,8 @@ public class MagdaMockController {
 
     private static final String GEEF_EPC_SOAP_WEB_SERVICE = "GeefEpcDienst-02.00/soap/WebService"; // TODO: bevestig naam endpoint
 
+    private static final String GEEF_EPC_0201_SOAP_WEB_SERVICE = "GeefEpcDienst-02.01/soap/WebService"; // TODO: bevestig naam endpoint
+
     // REPERTORIUM
     private static final String REGISTREER_INSCHRIJVING_SOAP_WEB_SERVICE = "RegistreerInschrijvingDienst-02.00/soap/WebService";
     private static final String REGISTREER_UITSCHRIJVING_SOAP_WEB_SERVICE = "RegistreerUitschrijvingDienst-02.00/soap/WebService";
@@ -110,6 +112,8 @@ public class MagdaMockController {
     private static final String GEEF_VOLLEDIG_DOSSIER_HANDICAP_SERVICE = "GeefVolledigDossierHandicapDienst-03.00/soap/WebService";
 
     private static final String GEEF_AANSLAGBILJET_PERSONENBELASTING = "GeefAanslagbiljetPersonenbelastingDienst-02.00/soap/WebService";
+
+    private static final String ZOEK_PERSOON_OP_ADRES_0202 = "ZoekPersoonOpAdresDienst-02.02/soap/WebService";
 
     private static final String KEY_IS_INSZ = "//INSZ";
     private static final String MAGDA_MOCK_CONTEXT = "MagdaMock";
@@ -229,6 +233,11 @@ public class MagdaMockController {
         return processMagdaMockRequest(request, "//Criteria/Attesten", "//Criteria/GebouweenheidId");
     }
 
+    @PostMapping(value = GEEF_EPC_0201_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
+    public ResponseEntity<String> geefEpc0201(@RequestBody(required = true) String request) throws IOException, ParserConfigurationException, SAXException {
+        return processMagdaMockRequest(request, "//Criteria/Attesten", "//Criteria/GebouweenheidId", "//Criteria/Adres/Postcode", "//Criteria/Adres/Straat", "//Criteria/Adres/Huisnummer");
+    }
+
     @PostMapping(value = GEEF_PERSOON_0202_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefPersoon0202(@RequestBody(required = true) String request) throws IOException, ParserConfigurationException, SAXException {
         return processMagdaMockRequest(request, KEY_IS_INSZ);
@@ -314,6 +323,11 @@ public class MagdaMockController {
         return processMagdaMockRequest(request, KEY_IS_INSZ);
     }
 
+    @PostMapping(value = ZOEK_PERSOON_OP_ADRES_0202, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
+    public ResponseEntity<String> zoekPersoonOpAdres0202(@RequestBody String request) throws IOException, ParserConfigurationException, SAXException {
+        return processMagdaMockRequest(request, "//Inhoud/Bron","//Criteria/Adres/PostCode", "//Criteria/Adres/Straatcode", "//Criteria/Adres/Huisnummer", "//Criteria/EnkelReferentiepersoon");
+    }
+
     private ResponseEntity<String> processMagdaMockRequest(String request, String... expression) throws ParserConfigurationException, SAXException, IOException {
         MagdaDocument aanvraag = parseRequest(request);
 
@@ -374,6 +388,7 @@ public class MagdaMockController {
         MagdaService magdaService = makeMagdaService(aanvraagParameters);
 
         String responsePath = resourcePath(magdaService, aanvraagParameters.getKeys());
+        log.info(String.format("Looking for Magda resource %s", responsePath));
         InputStream inputStream = getClass().getResourceAsStream(responsePath);
         if (inputStream == null) {
             responsePath = resourcePath(magdaService, "success");
