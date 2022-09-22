@@ -109,7 +109,7 @@ public class MagdaMockController {
 
     private static final String GEEF_VOLLEDIG_DOSSIER_HANDICAP_SERVICE = "GeefVolledigDossierHandicapDienst-03.00/soap/WebService";
 
-    private static final String GEEF_AANSLAGBILJET_PERSONENBELASTING = "GeefAanslagBiljetPersonenbelastingDienst-02.00/soap/WebService";
+    private static final String GEEF_AANSLAGBILJET_PERSONENBELASTING = "GeefAanslagbiljetPersonenbelastingDienst-02.00/soap/WebService";
 
     private static final String KEY_IS_INSZ = "//INSZ";
     private static final String MAGDA_MOCK_CONTEXT = "MagdaMock";
