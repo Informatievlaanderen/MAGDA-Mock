@@ -183,7 +183,9 @@ public class MagdaMockController {
 
         StringBuilder s = new StringBuilder("/magda_simulator/" + service.getUrl());
         for (String str : insz) {
-            s.append("/").append(str);
+            if (!"".equals(str)) {
+                s.append("/").append(str);
+            }
         }
         return s.append(".xml").toString();
     }
