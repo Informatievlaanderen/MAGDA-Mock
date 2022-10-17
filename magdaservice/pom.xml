@@ -5,7 +5,7 @@
     <parent>
         <artifactId>magda</artifactId>
         <groupId>be.vlaanderen.vip.mock</groupId>
-        <version>0.10.0</version>
+        <version>0.11.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -31,6 +31,18 @@
         </snapshotRepository>
     </distributionManagement>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -44,7 +56,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
-            <version>${cloud.starter.sleuth.version}</version>
+            <!--<version>${cloud.starter.sleuth.version}</version>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -94,13 +106,13 @@
         <dependency>
             <groupId>be.vlaanderen.vip.mock</groupId>
             <artifactId>magdaconnector</artifactId>
-            <version>0.10.0</version>
+            <version>0.11.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>be.vlaanderen.vip.mock</groupId>
             <artifactId>magdamock</artifactId>
-            <version>0.10.0</version>
+            <version>0.11.0</version>
             <scope>compile</scope>
         </dependency>
 
