@@ -12,27 +12,23 @@ import org.apache.wss4j.dom.WSConstants;
 import org.apache.wss4j.dom.engine.WSSConfig;
 import org.apache.wss4j.dom.message.WSSecHeader;
 import org.apache.wss4j.dom.util.WSSecurityUtil;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.Properties;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 // Zie https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/1161134185/Gebruik+certificaat+in+SoapUI
 
@@ -43,42 +39,135 @@ public class SigningTest {
     private static final String STORE_PASSWORD = "mijnpaswoord";
     private static final String CERTIFICATE_NAME = "mock x509 certificaat";
     private static final String SUBJECTDN = "EMAILADDRESS=pascal@nayima.be, CN=be.nayima.mock.client, OU=Dev, O=Nayima, L=Zaventem, ST=Vlaams Brabant, C=BE";
+    private static final String TYPESTORE_PKCS_12 = "PKCS12";
+    private static final String TYPESTORE_JKS = "JKS";
+
+    @BeforeAll
+    static void initWSS() {
+        WSSConfig.init();
+    }
 
     @SneakyThrows
     @Test
-    void test2() {
-        WSSConfig.init();
-
+    void signingMetX509Certificaat() {
         try (InputStream resource = this.getClass().getResourceAsStream("/certificates/mock_x509_certificaat.pfx")) {
-            signWithKeystore("PKCS12", resource, STORE_PASSWORD, CERTIFICATE_NAME, SUBJECTDN);
+            var signedDocument = signWithKeystore(TYPESTORE_PKCS_12, resource, STORE_PASSWORD, CERTIFICATE_NAME, SUBJECTDN);
+            assertDocumentIsSigned(signedDocument);
         }
     }
-
 
     @SneakyThrows
     @Test
-    void test3() {
-        WSSConfig.init();
-
+    void signingMetJKSStore() {
         try (InputStream resource = this.getClass().getResourceAsStream("/certificates/mock keystore.jks")) {
-            signWithKeystore("JKS", resource, STORE_PASSWORD, CERTIFICATE_NAME, SUBJECTDN);
+            var signedDocument = signWithKeystore(TYPESTORE_JKS, resource, STORE_PASSWORD, CERTIFICATE_NAME, SUBJECTDN);
+            assertDocumentIsSigned(signedDocument);
+        }
+    }
+
+    private void assertDocumentIsSigned(MagdaDocument signedDocument) {
+        System.out.println(signedDocument.toString());
+        var header = signedDocument.xpath("//soapenv:Header");
+        assertThat(header.getLength()).isEqualTo(1);
+        var bst = signedDocument.xpath("//soapenv:Header/wsse:Security/wsse:BinarySecurityToken");
+        assertThat(bst.getLength()).isEqualTo(1);
+        var signature = signedDocument.xpath("//soapenv:Header/wsse:Security/ds:Signature");
+        assertThat(signature.getLength()).isEqualTo(1);
+    }
+
+    @SneakyThrows
+    @Test
+    void loadAanvraagZoekPersoonOpAdres() {
+        try (InputStream request = this.getClass().getResourceAsStream("/requests/ZoekOpAdres.xml")) {
+            var doc = MagdaDocument.fromStream(request);
+            var ns = defaultNamespace(doc);
+            System.out.println(ns);
+            var naam = doc.getValue("//Verzoek/Context/Naam", ns);
+            assertThat(naam).isEqualTo("ZoekPersoonOpAdres");
+            var versie = doc.getValue("//Verzoek/Context/Versie", ns);
+            assertThat(versie).isEqualTo("02.02.0000");
+        }
+    }
+
+    @SneakyThrows
+    @Test
+    void loadAanvraagGeefPersoon() {
+        try (InputStream request = this.getClass().getResourceAsStream("/requests/GeefPersoon.xml")) {
+            var doc = MagdaDocument.fromStream(request);
+            var ns = defaultNamespace(doc);
+            System.out.println(ns);
+            var naam = doc.getValue("//Verzoek/Context/Naam", ns);
+            assertThat(naam).isEqualTo("GeefPersoon");
+            var versie = doc.getValue("//Verzoek/Context/Versie", ns);
+            assertThat(versie).isEqualTo("02.00.0000");
         }
     }
 
 
-    private void signWithKeystore(String typeStore, InputStream resource, String storePaswoord, String certificaatNaam, String subjectDN) throws KeyStoreException, IOException, NoSuchAlgorithmException, CertificateException, WSSecurityException, ParserConfigurationException, SAXException {
+    private MagdaDocument signWithKeystore(String typeStore, InputStream resource, String storePaswoord, String certificaatNaam, String subjectDN) throws KeyStoreException, IOException, NoSuchAlgorithmException, CertificateException, WSSecurityException, ParserConfigurationException, SAXException {
         Merlin crypto = loadKeystore(typeStore, resource, storePaswoord);
 
         CryptoType cryptoType = cryptoTypeSubjectDN(subjectDN);
 
         try (InputStream request = this.getClass().getResourceAsStream("/requests/GeefPersoon.xml")) {
             var output = signDocument(request, crypto, cryptoType, certificaatNaam, storePaswoord);
-            System.out.println(xmlToString(output));
+            var signedDocument = MagdaDocument.fromDocument(output);
+            return signedDocument;
         }
     }
 
+    String defaultNamespace(MagdaDocument xml) {
+        var nodes = xml.xpath("//soapenv:Body");
+        for (var i = 0; i < nodes.getLength(); i++) {
+            var n = nodes.item(i);
+            if (n.getLocalName().equals("Body")) {
+                var children = n.getChildNodes();
+                for (var j = 0; j < children.getLength(); j++) {
+                    var child = children.item(j);
+                    if (child.getNamespaceURI() != null) {
+                        return child.getNamespaceURI();
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    private void traverse(Element element) {
+        show(element);
+        var elements = element.getChildNodes();
+
+        for (var i = 0; i < elements.getLength(); i++) {
+            var subElement = elements.item(i);
+            traverse(subElement);
+        }
+    }
+
+    private static void show(Element element) {
+        System.out.println(element.getPrefix());
+        System.out.println(element.getNamespaceURI());
+        System.out.println(element.getTagName());
+        System.out.println(element.getLocalName());
+    }
+
+    private void traverse(Node element) {
+        show(element);
+        var elements = element.getChildNodes();
+
+        for (var i = 0; i < elements.getLength(); i++) {
+            var subElement = elements.item(i);
+            traverse(subElement);
+        }
+    }
+
+    private static void show(Node element) {
+        System.out.println(element.getPrefix() + " - " + element.getNamespaceURI() + " - " + element.getLocalName());
+    }
+
+
     private Document signDocument(InputStream request, Crypto crypto, CryptoType cryptoType, String certificaatNaam, String storePaswoord) throws ParserConfigurationException, IOException, SAXException, WSSecurityException {
-        var xml = parse(request);
+        var requestXML = MagdaDocument.fromStream(request);
+        var xml = requestXML.getXml();
         WSSecHeader secHeader = new WSSecHeader(xml);
 
         secHeader.insertSecurityHeader();
@@ -131,33 +220,4 @@ public class SigningTest {
         crypto.setKeyStore(store);
         return crypto;
     }
-
-    private static String xmlToString(Document xml) {
-        TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer transformer = null;
-        try {
-            transformer = tf.newTransformer();
-            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-            transformer.setOutputProperty(OutputKeys.INDENT, "no");
-            StringWriter writer = new StringWriter();
-            transformer.transform(new DOMSource(xml), new StreamResult(writer));
-            return writer.toString();
-        } catch (TransformerException e) {
-            System.err.println("Fout bij omzetten van XML naar string: " + e);
-        }
-        return "";
-    }
-
-    Document parse(InputStream resource) throws ParserConfigurationException, IOException, SAXException {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        dbf.setExpandEntityReferences(false);
-        dbf.setIgnoringElementContentWhitespace(true);
-        dbf.setValidating(false);
-        dbf.setNamespaceAware(true);
-        DocumentBuilder db = dbf.newDocumentBuilder();
-        Document document = db.parse(resource);
-
-        return document;
-    }
-
 }
