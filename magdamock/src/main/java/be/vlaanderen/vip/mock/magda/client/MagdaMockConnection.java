@@ -4,6 +4,7 @@ import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.mock.magda.client.simulators.RandomPasfotoSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.StaticResponseSimulator;
 import lombok.Getter;
@@ -59,7 +60,7 @@ public class MagdaMockConnection implements MagdaConnection {
 
         // PERSOON Custom
         simulators.put("GeefAttest/02.00.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("GeefPasfoto/02.00.0000", new StaticResponseSimulator("//INSZ"));
+        simulators.put("GeefPasfoto/02.00.0000", new RandomPasfotoSimulator("//INSZ"));
 
         // ONDERNEMING
         simulators.put("GeefOnderneming/02.00.0000", new StaticResponseSimulator("//Ondernemingsnummer"));
