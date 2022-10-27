@@ -10,13 +10,13 @@ import org.apache.wss4j.common.ext.WSSecurityException;
 import org.apache.wss4j.common.token.PKIPathSecurity;
 import org.apache.wss4j.dom.WSConstants;
 import org.apache.wss4j.dom.engine.WSSConfig;
+import org.apache.wss4j.dom.engine.WSSecurityEngine;
+import org.apache.wss4j.dom.handler.WSHandlerResult;
 import org.apache.wss4j.dom.message.WSSecHeader;
 import org.apache.wss4j.dom.util.WSSecurityUtil;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -52,7 +52,9 @@ public class SigningTest {
     void signingMetX509Certificaat() {
         try (InputStream resource = this.getClass().getResourceAsStream("/certificates/mock_x509_certificaat.pfx")) {
             var signedDocument = signWithKeystore(TYPESTORE_PKCS_12, resource, STORE_PASSWORD, CERTIFICATE_NAME, SUBJECTDN);
-            assertDocumentIsSigned(signedDocument);
+            try (InputStream resource2 = this.getClass().getResourceAsStream("/certificates/mock_x509_certificaat.pfx")) {
+                assertDocumentIsSigned(signedDocument, TYPESTORE_PKCS_12, resource2, STORE_PASSWORD);
+            }
         }
     }
 
@@ -61,11 +63,14 @@ public class SigningTest {
     void signingMetJKSStore() {
         try (InputStream resource = this.getClass().getResourceAsStream("/certificates/mock keystore.jks")) {
             var signedDocument = signWithKeystore(TYPESTORE_JKS, resource, STORE_PASSWORD, CERTIFICATE_NAME, SUBJECTDN);
-            assertDocumentIsSigned(signedDocument);
+            try (InputStream resource2 = this.getClass().getResourceAsStream("/certificates/mock_x509_certificaat.pfx")) {
+                assertDocumentIsSigned(signedDocument, TYPESTORE_JKS, resource2, STORE_PASSWORD);
+            }
         }
     }
 
-    private void assertDocumentIsSigned(MagdaDocument signedDocument) {
+    @SneakyThrows
+    private void assertDocumentIsSigned(MagdaDocument signedDocument, String typeStore, InputStream resource, String storePassword) {
         System.out.println(signedDocument.toString());
         var header = signedDocument.xpath("//soapenv:Header");
         assertThat(header.getLength()).isEqualTo(1);
@@ -73,6 +78,13 @@ public class SigningTest {
         assertThat(bst.getLength()).isEqualTo(1);
         var signature = signedDocument.xpath("//soapenv:Header/wsse:Security/ds:Signature");
         assertThat(signature.getLength()).isEqualTo(1);
+
+        Merlin crypto = loadKeystore(typeStore, resource, storePassword);
+        var result = verify(crypto,signedDocument.getXml()) ;
+
+        // Signature ok als er een result is en geen WSSecurityException gegooid
+        assertThat(result).isNotNull();
+
     }
 
     @SneakyThrows
@@ -116,22 +128,6 @@ public class SigningTest {
         }
     }
 
-    String defaultNamespace(MagdaDocument xml) {
-        var nodes = xml.xpath("//soapenv:Body");
-        for (var i = 0; i < nodes.getLength(); i++) {
-            var n = nodes.item(i);
-            if (n.getLocalName().equals("Body")) {
-                var children = n.getChildNodes();
-                for (var j = 0; j < children.getLength(); j++) {
-                    var child = children.item(j);
-                    if (child.getNamespaceURI() != null) {
-                        return child.getNamespaceURI();
-                    }
-                }
-            }
-        }
-        return null;
-    }
 
     private Document signDocument(InputStream request, Crypto crypto, CryptoType cryptoType, String certificaatNaam, String storePaswoord) throws ParserConfigurationException, IOException, SAXException, WSSecurityException {
         var requestXML = MagdaDocument.fromStream(request);
@@ -187,5 +183,29 @@ public class SigningTest {
         Merlin crypto = (Merlin) CryptoFactory.getInstance(properties);
         crypto.setKeyStore(store);
         return crypto;
+    }
+
+    private WSHandlerResult verify(Crypto crypto, Document doc) throws WSSecurityException {
+        WSSecurityEngine secEngine = new WSSecurityEngine();
+        doc.normalizeDocument();
+        return secEngine.processSecurityHeader(doc, null, null, crypto);
+    }
+
+
+    String defaultNamespace(MagdaDocument xml) {
+        var nodes = xml.xpath("//soapenv:Body");
+        for (var i = 0; i < nodes.getLength(); i++) {
+            var n = nodes.item(i);
+            if (n.getLocalName().equals("Body")) {
+                var children = n.getChildNodes();
+                for (var j = 0; j < children.getLength(); j++) {
+                    var child = children.item(j);
+                    if (child.getNamespaceURI() != null) {
+                        return child.getNamespaceURI();
+                    }
+                }
+            }
+        }
+        return null;
     }
 }
