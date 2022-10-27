@@ -53,7 +53,7 @@ public class MagdaSoapConnection implements MagdaConnection {
             KeyStore keystore = TwoWaySslUtil.getKeystore(config.getKeystore().getKeyStoreType(), config.getKeystore().getKeyStoreLocation(), config.getKeystore().getKeyStorePassword().toCharArray());
             SSLContext sslContext = TwoWaySslUtil.sslContext(keystore, config.getKeystore().getKeyAlias(), config.getKeystore().getKeyPassword().toCharArray());
             sslConnectionSocketFactory = TwoWaySslUtil.sslConnectionSocketFactory(sslContext);
-            
+
         } else {
             sslConnectionSocketFactory = SSLConnectionSocketFactory.getSystemSocketFactory();
         }
@@ -61,7 +61,17 @@ public class MagdaSoapConnection implements MagdaConnection {
 
     @Override
     public Document sendDocument(Aanvraag aanvraag, Document xml) throws MagdaSendFailed {
-        final String url = magdaEndpoints.magdaUrl(aanvraag.magdaService());
+        return sendDocument(xml);
+    }
+
+    @Override
+    public Document sendDocument(Document xml) throws MagdaSendFailed {
+        var doc = MagdaDocument.fromDocument(xml) ;
+        var service = doc.getValue("//Verzoek/Context/Naam");
+        var versie = doc.getValue("//Verzoek/Context/Versie");
+
+        var aanvraag = new MagdaServiceIdentificatie(service,versie) ;
+        final String url = magdaEndpoints.magdaUrl(aanvraag);
 
         final HttpPost request = new HttpPost(url);
         request.setHeader("Content-type", "text/xml;charset=UTF-8");

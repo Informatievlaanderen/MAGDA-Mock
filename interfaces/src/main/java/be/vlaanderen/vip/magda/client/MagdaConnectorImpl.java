@@ -52,7 +52,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         logAanvraag(aanvraag);
 
         MagdaHoedanigheid magdaHoedanigheid = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
-        aanvraag.fillIn(request,magdaHoedanigheid);
+        aanvraag.fillIn(request, magdaHoedanigheid);
 
         log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
 
@@ -155,7 +155,6 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
 
-
     private String uitzonderingenMessage(List<Uitzondering> uitzonderingen, List<Uitzondering> antwoordUitzonderingen) {
         String uitzonderingenMessage1 = "Ok";
         if (!antwoordUitzonderingen.isEmpty() || !uitzonderingen.isEmpty()) {
@@ -218,7 +217,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
     private MagdaDocument callMagda(Aanvraag aanvraag, MagdaDocument request) {
         try {
             final Document xml = request.getXml();
-            Document response = connection.sendDocument(aanvraag, xml);
+            Document response = connection.sendDocument(xml);
             if (response != null) {
                 return new MagdaDocument(response);
             }
