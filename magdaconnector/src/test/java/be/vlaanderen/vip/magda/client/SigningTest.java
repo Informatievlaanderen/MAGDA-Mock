@@ -133,38 +133,6 @@ public class SigningTest {
         return null;
     }
 
-    private void traverse(Element element) {
-        show(element);
-        var elements = element.getChildNodes();
-
-        for (var i = 0; i < elements.getLength(); i++) {
-            var subElement = elements.item(i);
-            traverse(subElement);
-        }
-    }
-
-    private static void show(Element element) {
-        System.out.println(element.getPrefix());
-        System.out.println(element.getNamespaceURI());
-        System.out.println(element.getTagName());
-        System.out.println(element.getLocalName());
-    }
-
-    private void traverse(Node element) {
-        show(element);
-        var elements = element.getChildNodes();
-
-        for (var i = 0; i < elements.getLength(); i++) {
-            var subElement = elements.item(i);
-            traverse(subElement);
-        }
-    }
-
-    private static void show(Node element) {
-        System.out.println(element.getPrefix() + " - " + element.getNamespaceURI() + " - " + element.getLocalName());
-    }
-
-
     private Document signDocument(InputStream request, Crypto crypto, CryptoType cryptoType, String certificaatNaam, String storePaswoord) throws ParserConfigurationException, IOException, SAXException, WSSecurityException {
         var requestXML = MagdaDocument.fromStream(request);
         var xml = requestXML.getXml();
