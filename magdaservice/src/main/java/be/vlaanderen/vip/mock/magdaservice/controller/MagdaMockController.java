@@ -170,62 +170,62 @@ public class MagdaMockController {
 
     @PostMapping(value = REGISTREER_INSCHRIJVING_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> registreerInschrijvingv20(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = REGISTREER_UITSCHRIJVING_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> registreerUitschrijvingv20(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_AUDITLOGGING_SOAP_WEB_SERVICE_INCORRECT, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefAuditLoggingIncorrect(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, "//Criteria/Sleutel/Waarde");
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_AUDITLOGGING_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefAuditLogging(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, "//Criteria/Sleutel/Waarde");
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = REGISTREER_INSCHRIJVING_21_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> registreerInschrijvingv21(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, "//Subject/Sleutel");
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_ONDERNEMING_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefOnderneming(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, "//Ondernemingsnummer");
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_ONDERNEMINGVKBO_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefOndernemingvkbo(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, "//Ondernemingsnummer");
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = ZOEK_EIGENDOMSTOESTANDEN_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> zoekEigendomsToestanden(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_EPC_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefEpc(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, "//Criteria/Attesten", "//Criteria/GebouweenheidId");
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_PERSOON_0202_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefPersoon0202(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_HISTORIEK_PERSOON_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefHistoriekPersoon(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_GEZINSSAMENSTELLING_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefGezinssamenstelling(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_PASFOTO_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
@@ -235,75 +235,75 @@ public class MagdaMockController {
 
     @PostMapping(value = GEEF_BEWIJS_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefBewijs(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_DOSSIER_KBI_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefDossierKbi(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_HISTORIEK_INSCHRIJVING_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefHistoriekInschrijving(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_HISTORIEK_INSCHRIJVING_21_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefHistoriekInschrijvingv21(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_LOOPBAAN_ONDERBREKINGEN_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefLoopbaanOnderbrekingen(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_STATUS_RECHT_ONDERSTEUNINGEN_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefStatusRechtOndersteuningen(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_FUNCTIES_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefFuncties(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_DOSSIER_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefDossier(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_ATTEST_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefAttest(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockAttestRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_KINDVOORDELEN_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefKindVoordelen(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = RAADPLEEG_LEERKREDIETENSALDO_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> raadpleegLeerkredietensaldov10(@RequestBody String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_VOLLEDIG_DOSSIER_HANDICAP_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefVolledigDossierHandicap(@RequestBody String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, "//rrnr");
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_AANSLAGBILJET_PERSONENBELASTING, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefAanslagbiljetPersonenBelasting(@RequestBody String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
-    private ResponseEntity<String> processMagdaMockRequest(String request, String... expression) throws MagdaSendFailed {
+    private ResponseEntity<String> processMagdaMockRequest(String request) throws MagdaSendFailed {
         //TODO: handle request parsing errors and return Magda Uitzondering error
         //TODO: verify signature
         MagdaDocument aanvraag = MagdaDocument.fromString(request);
 
-        return handleMagdaRequest(aanvraag, expression);
+        return handleMagdaRequest(aanvraag);
     }
 
     private ResponseEntity<String> processMagdaMockPasfotoRequest(String request, String expression) throws MagdaSendFailed {
@@ -322,14 +322,7 @@ public class MagdaMockController {
         return handleMagdaAttestRequest(aanvraag, expression);
     }
 
-    private ResponseEntity<String> handleMagdaRequest(MagdaDocument aanvraag, String... expression) throws MagdaSendFailed {
-        long start = System.nanoTime();
-
-        MagdaRequest aanvraagParameters = new MagdaRequest(aanvraag, expression);
-
-        log.info(String.format(">>> Vraag voor mock dienst %s v%s voor %s", aanvraagParameters.getServiceNaam(), aanvraagParameters.getServiceVersie(), aanvraagParameters.getKeys()));
-        log.info(aanvraag.toString());
-
+    private ResponseEntity<String> handleMagdaRequest(MagdaDocument aanvraag) throws MagdaSendFailed {
         if (crypto != null && keyStore != null) {
             try {
                 log.info("Verifying signature...");
@@ -351,15 +344,10 @@ public class MagdaMockController {
             }
         }
 
-        MagdaService magdaService = makeMagdaService(aanvraagParameters);
-
         var antwoord = mockConnection.sendDocument(aanvraag.getXml());
         if (antwoord != null) {
             var doc = MagdaDocument.fromDocument(antwoord);
-            final ResponseEntity<String> response = parseInputstream(aanvraagParameters, magdaService, doc, new HashMap<String, String>());
-
-            Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
-            log.info(String.format("<<< Vraag voor mock dienst %s voor %s in %d ms", aanvraagParameters.getServiceNaam(), aanvraagParameters.getKeys(), duration.toMillis()));
+            final ResponseEntity<String> response = parseInputstream(doc);
 
             return response;
 
@@ -368,20 +356,10 @@ public class MagdaMockController {
         }
     }
 
-    private ResponseEntity<String> parseInputstream(MagdaRequest aanvraagParameters, MagdaService magdaService, MagdaDocument magdaDocument, HashMap<String, String> mappings) {
+    private ResponseEntity<String> parseInputstream(MagdaDocument magdaDocument) {
         if (magdaDocument != null) {
-            // Voeg een key toe in config onder magdatamock.responsetimes met als naam de naam van de Magda dienst en als value
-            //  de gewenste respons tijd in milliseconden
-            simuleerMagdaResponsTijdVoor(magdaService.getServiceNaam());
-            return ResponseEntity.ok().contentType(APPLICATION_XML).body(magdaDocument.toString());
+              return ResponseEntity.ok().contentType(APPLICATION_XML).body(magdaDocument.toString());
         } else {
-            log.error(
-                    String.format("Could not find test XML for: [service: %s] [serviceVersion: %s] [%s: %s]",
-                            magdaService.getServiceNaam(),
-                            magdaService.getServiceVersie(),
-                            aanvraagParameters.getExpressions(),
-                            aanvraagParameters.getKeys()));
-
             // TODO: maak en return MAGDA Uitzondering antwoord
             return ResponseEntity.notFound().build();
         }
@@ -402,7 +380,7 @@ public class MagdaMockController {
 
         HashMap<String, String> mappings = new HashMap<>();
         mappings.put("//Inhoud/Pasfoto/INSZ", rijksRegisterNummer);
-        final ResponseEntity<String> response = parseInputstream(aanvraagParameters, magdaService, MagdaDocument.fromStream(inputStream), mappings);
+        final ResponseEntity<String> response = parseInputstream(MagdaDocument.fromStream(inputStream));
 
         Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
         log.info(String.format("<<< Vraag voor mock dienst %s voor %s in %d ms", aanvraagParameters.getServiceNaam(), rijksRegisterNummer, duration.toMillis()));
@@ -436,7 +414,7 @@ public class MagdaMockController {
         MagdaService magdaService = makeMagdaService(aanvraagParameters);
         String responsePath = resourcePath(magdaService, insz);
         InputStream inputStream = getClass().getResourceAsStream(responsePath);
-        final ResponseEntity<String> response = parseInputstream(aanvraagParameters, magdaService, MagdaDocument.fromStream(inputStream), new HashMap<String, String>());
+        final ResponseEntity<String> response = parseInputstream(MagdaDocument.fromStream(inputStream));
 
         Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
         log.info(String.format("<<< Vraag voor mock dienst %s voor %s in %d ms", aanvraagParameters.getServiceNaam(), insz, duration.toMillis()));
