@@ -108,27 +108,10 @@ public class MagdaMockConnection implements MagdaConnection {
                     response +
                     "  </soapenv:Body>\n" +
                     "</soapenv:Envelope>";
-            return parseXml(soap);
+            return MagdaDocument.fromString(soap).getXml();
         }
         log.error("Er is geen magda simulator geregistreerd voor {}/{}", dienst, versie);
         return null;
-    }
-
-    private Document parseXml(String xmlDocument) {
-        Document document = null;
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        dbf.setExpandEntityReferences(false);
-        dbf.setIgnoringElementContentWhitespace(true);
-        dbf.setValidating(false);
-        dbf.setNamespaceAware(true);
-        DocumentBuilder db = null;
-        try {
-            db = dbf.newDocumentBuilder();
-            document = db.parse(IOUtils.toInputStream(xmlDocument, "UTF-8"));
-        } catch (Exception e) {
-            log.error("Fout bij het parsen van de soap XML: ", e);
-        }
-        return document;
     }
 
     public void setDefaultResponse(Document xml) {
