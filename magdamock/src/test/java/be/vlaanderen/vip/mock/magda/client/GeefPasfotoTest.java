@@ -2,7 +2,6 @@ package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.XmlUtil;
 import be.vlaanderen.vip.magda.client.diensten.GeefPasfotoAanvraag;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
@@ -58,7 +57,7 @@ public class GeefPasfotoTest extends MockTestBase {
 
         var antwoord = connector.send(aanvraag, request);
         log.info("{}", request.toString());
-        log.info("{}", XmlUtil.toString(antwoord.getBody()));
+        log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
         assertThat(antwoord.isHeeftInhoud()).isTrue();

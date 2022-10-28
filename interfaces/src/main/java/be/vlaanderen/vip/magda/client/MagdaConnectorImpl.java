@@ -54,7 +54,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         MagdaHoedanigheid magdaHoedanigheid = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
         aanvraag.fillIn(request, magdaHoedanigheid);
 
-        log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
+        log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), request);
 
         MagdaDocument response = callMagda(aanvraag, request);
         Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
@@ -74,7 +74,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
             }
 
             if (log.isDebugEnabled()) {
-                log.info("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(antwoord.getBody()));
+                log.info("[{}] {}", aanvraag.getRequestId(), antwoord.getDocument());
             }
 
             return antwoord;

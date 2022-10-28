@@ -2,10 +2,7 @@ package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.XmlUtil;
-import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
 import be.vlaanderen.vip.magda.client.diensten.GeefPersoonAanvraag;
-import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +25,7 @@ public class GeefPersoonTest extends MockTestBase {
 
         var antwoord = connector.send(aanvraag, request);
         log.info("{}", request.toString());
-        log.info("{}", XmlUtil.toString(antwoord.getBody()));
+        log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
         assertThat(antwoord.isHeeftInhoud()).isTrue();
