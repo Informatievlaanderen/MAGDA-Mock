@@ -4,24 +4,21 @@ import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.mock.magda.client.util.INSZ;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
 
 @Slf4j
 public class RandomPasfotoSimulator extends SOAPSimulator {
+    private final String type;
     private final List<String> keys;
 
-    public RandomPasfotoSimulator(List<String> keys) {
+    public RandomPasfotoSimulator(String type, List<String> keys) {
+        this.type = type;
         this.keys = keys;
     }
 
-    public RandomPasfotoSimulator(String... keys) {
+    public RandomPasfotoSimulator(String type, String... keys) {
+        this.type = type;
         this.keys = Arrays.asList(keys);
     }
 
@@ -32,15 +29,15 @@ public class RandomPasfotoSimulator extends SOAPSimulator {
         var dienst = params.getServiceNaam();
         var versie = params.getServiceVersie();
 
-        var response = loadSimulatorResource(exactPasFotoresourcePath(dienst, versie, params.getKeys().get(0)));
+        var response = loadSimulatorResource(type,exactPasFotoresourcePath(dienst, versie, params.getKeys().get(0)));
         if (response == null) {
-            response = loadSimulatorResource(randomPasFotoresourcePath(dienst, versie, params.getKeys().get(0)));
+            response = loadSimulatorResource(type,randomPasFotoresourcePath(dienst, versie, params.getKeys().get(0)));
         }
         if (response == null) {
-            response = loadSimulatorResource(exactPasFotoresourcePath(dienst, versie, "notfound"));
+            response = loadSimulatorResource(type,exactPasFotoresourcePath(dienst, versie, "notfound"));
         }
         if (response == null) {
-            response = loadSimulatorResource(exactPasFotoresourcePath(dienst, versie, "succes"));
+            response = loadSimulatorResource(type,exactPasFotoresourcePath(dienst, versie, "succes"));
         }
 
         if (response != null) {

@@ -33,8 +33,8 @@ public abstract class SOAPSimulator {
         response.setValue("//Afzender/Naam", "Magda Mock Server");
     }
 
-    protected MagdaDocument loadSimulatorResource(String testResource) {
-        try (InputStream resource = this.getClass().getResourceAsStream("/magda_simulator/" + testResource)) {
+    protected MagdaDocument loadSimulatorResource(String type, String testResource) {
+        try (InputStream resource = this.getClass().getResourceAsStream("/magda_simulator/" + type + "/" + testResource)) {
             if (Objects.nonNull(resource)) {
                 return MagdaDocument.fromStream(resource);
             }

@@ -81,7 +81,6 @@ public class GeefBewijsTest extends MockTestBase {
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
         assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
 
-
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");

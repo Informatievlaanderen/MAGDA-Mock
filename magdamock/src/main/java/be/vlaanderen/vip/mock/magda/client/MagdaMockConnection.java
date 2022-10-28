@@ -26,48 +26,52 @@ public class MagdaMockConnection implements MagdaConnection {
 
     private static HashMap<String, SOAPSimulator> simulators;
 
+    // Subcategories for MAGDA services
+    private static final String PERSOON = "Persoon";
+    private static final String ONDERNEMING = "Onderneming";
+    private static final String VASTGOED = "Vastgoed";
+
     static {
         simulators = new HashMap<>();
 
         // PERSOON Standaard
-        simulators.put("RegistreerInschrijving/02.00.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("RegistreerInschrijving/02.01.0000", new StaticResponseSimulator("//Subject/Type", "//Subject/Sleutel"));
-        simulators.put("RegistreerUitschrijving/02.00.0000", new StaticResponseSimulator("//INSZ"));
+        simulators.put("RegistreerInschrijving/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("RegistreerInschrijving/02.01.0000", new StaticResponseSimulator(PERSOON, "//Subject/Type", "//Subject/Sleutel"));
+        simulators.put("RegistreerUitschrijving/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
 
-        simulators.put("GeefBewijs/02.00.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("GeefHistoriekInschrijving/02.01.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("RaadpleegLeerkredietsaldo/01.00.0000", new StaticResponseSimulator("//INSZ"));
+        simulators.put("GeefBewijs/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("GeefHistoriekInschrijving/02.01.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("RaadpleegLeerkredietsaldo/01.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
 
-        simulators.put("GeefLoopbaanOnderbrekingen/02.00.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("GeefStatusRechtOndersteuningen/02.00.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("GeefFuncties/02.00.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("GeefDossiers/02.00.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("GeefKindVoordelen/02.00.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("GeefVolledigDossierHandicap/03.00.0000", new StaticResponseSimulator("//rrnr"));
+        simulators.put("GeefLoopbaanOnderbrekingen/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("GeefStatusRechtOndersteuningen/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("GeefFuncties/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("GeefDossiers/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("GeefKindVoordelen/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("GeefVolledigDossierHandicap/03.00.0000", new StaticResponseSimulator(PERSOON, "//rrnr"));
 
+        simulators.put("GeefPersoon/02.02.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("GeefHistoriekPersoon/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("GeefHistoriekPersoon/02.02.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("GeefGezinssamenstelling/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("GeefGezinssamenstelling/02.02.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
 
-        simulators.put("GeefPersoon/02.02.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("GeefHistoriekPersoon/02.00.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("GeefHistoriekPersoon/02.02.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("GeefGezinssamenstelling/02.00.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("GeefGezinssamenstelling/02.02.0000", new StaticResponseSimulator("//INSZ"));
+        simulators.put("GeefDossierKBI/01.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
 
-        simulators.put("GeefDossierKBI/01.00.0000", new StaticResponseSimulator("//INSZ"));
+        simulators.put("GeefAanslagbiljetPersonenbelasting/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
 
-        simulators.put("GeefAanslagbiljetPersonenbelasting/02.00.0000", new StaticResponseSimulator("//INSZ"));
-
-        simulators.put("ZoekEigendomstoestanden/02.00.0000", new StaticResponseSimulator("//INSZ"));
+        simulators.put("ZoekEigendomstoestanden/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
 
         // PERSOON Custom
-        simulators.put("GeefAttest/02.00.0000", new StaticResponseSimulator("//INSZ"));
-        simulators.put("GeefPasfoto/02.00.0000", new RandomPasfotoSimulator("//INSZ"));
+        simulators.put("GeefAttest/02.00.0000", new StaticResponseSimulator(PERSOON, "//INSZ"));
+        simulators.put("GeefPasfoto/02.00.0000", new RandomPasfotoSimulator(PERSOON, "//INSZ"));
 
         // ONDERNEMING
-        simulators.put("GeefOnderneming/02.00.0000", new StaticResponseSimulator("//Ondernemingsnummer"));
-        simulators.put("GeefOndernemingVKBO/02.00.0000", new StaticResponseSimulator("//Ondernemingsnummer"));
+        simulators.put("GeefOnderneming/02.00.0000", new StaticResponseSimulator(ONDERNEMING, "//Ondernemingsnummer"));
+        simulators.put("GeefOndernemingVKBO/02.00.0000", new StaticResponseSimulator(ONDERNEMING, "//Ondernemingsnummer"));
 
         // GEBOUW
-        simulators.put("GeefEpc/02.00.0000", new StaticResponseSimulator("//Criteria/Attesten", "//Criteria/GebouweenheidId"));
+        simulators.put("GeefEpc/02.00.0000", new StaticResponseSimulator(VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId"));
 
     }
 

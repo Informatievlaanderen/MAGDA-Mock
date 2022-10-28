@@ -9,13 +9,16 @@ import java.util.List;
 
 @Slf4j
 public class StaticResponseSimulator extends SOAPSimulator {
+    private final String type;
     private final List<String> keys;
 
-    public StaticResponseSimulator(List<String> keys) {
+    public StaticResponseSimulator(String type, List<String> keys) {
+        this.type = type;
         this.keys = keys;
     }
 
-    public StaticResponseSimulator(String... keys) {
+    public StaticResponseSimulator(String type, String... keys) {
+        this.type = type;
         this.keys = Arrays.asList(keys);
     }
 
@@ -59,14 +62,14 @@ public class StaticResponseSimulator extends SOAPSimulator {
     // 2. Kijk of A/C.xml bestaat
     // 3. Kijk of C.xml bestaat
     private MagdaDocument loadResource(String dienst, String versie, List<String> keys) {
-        String testResource =  dienst + "/" + versie + "/";
+        String testResource = dienst + "/" + versie + "/";
         if (keys.size() > 1) {
             for (var i = 0; i < keys.size() - 1; i++) {
                 testResource += keys.get(i) + "/";
             }
         }
         testResource += keys.get(keys.size() - 1) + ".xml";
-        return loadSimulatorResource(testResource);
+        return loadSimulatorResource(type, testResource);
     }
 
 
