@@ -44,6 +44,8 @@ public class MagdaMockController {
     private static final String MAGDA_SOAP_02_00 = "Magda-02.00/soap/WebService";
 
     // Alle onderstaande individuele endpoints voor MAGDA SOAP Services zijn deprecated en vervangen door magdaSoap0200WebService
+    // START DEPRECATED
+
     // KADASTER
     private static final String ZOEK_EIGENDOMSTOESTANDEN_SOAP_WEB_SERVICE = "ZoekEigendomstoestandenDienst-02.00/soap/WebService";
 
@@ -92,6 +94,7 @@ public class MagdaMockController {
     private static final String GEEF_VOLLEDIG_DOSSIER_HANDICAP_SERVICE = "GeefVolledigDossierHandicapDienst-03.00/soap/WebService";
 
     private static final String GEEF_AANSLAGBILJET_PERSONENBELASTING = "GeefAanslagbiljetPersonenbelastingDienst-02.00/soap/WebService";
+    // END DEPRECATED
 
     private final MagdaMockConfig config;
     private final MagdaMockConnection mockConnection;
@@ -156,6 +159,7 @@ public class MagdaMockController {
     }
 
     // Alle onderstaande individuele endpoints voor MAGDA SOAP Services zijn deprecated en vervangen door magdaSoap0200WebService
+    // START DEPRECATED
 
     @Deprecated(since = "20221028",forRemoval = true)
     @PostMapping(value = REGISTREER_INSCHRIJVING_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
@@ -312,6 +316,7 @@ public class MagdaMockController {
     public ResponseEntity<String> geefAanslagbiljetPersonenBelasting(@RequestBody String request) throws MagdaSendFailed {
         return processMagdaMockRequest(request);
     }
+    // END DEPRECATED
 
     private ResponseEntity<String> processMagdaMockRequest(String request) throws MagdaSendFailed {
         //TODO: handle request parsing errors and return Magda Uitzondering error
