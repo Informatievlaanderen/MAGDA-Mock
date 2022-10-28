@@ -3,16 +3,16 @@ package be.vlaanderen.vip.mock.magdaservice;
 import be.vlaanderen.vip.magda.client.*;
 import be.vlaanderen.vip.magda.client.diensten.*;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceImpl;
-import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
-import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpointsImpl;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.config.MagdaRegistrationConfigDto;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
+import be.vlaanderen.vip.mock.magdaservice.config.MockMagdaEndpoints;
 import be.vlaanderen.vip.mock.magdaservice.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIf;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -36,42 +37,45 @@ public class MockServerHttpTest {
     public static final String CORRECT_INSZ = "67021546719";
     public static final String INSZ_MAGDA_OVERBELAST = "91010100144";
     private static final String INSZ_ECHTE_PASFOTO = "67021546719";
-    private static final String INSZ_RANDOM_MAN = "67021400130" ;
-    private static final String INSZ_RANDOM_VROUW = "67021400229" ;
+    private static final String INSZ_RANDOM_MAN = "67021400130";
+    private static final String INSZ_RANDOM_VROUW = "67021400229";
+
+
     // Zet deze constante op true om de base64 geëncodeerde foto te bewaren in een temp jpeg bestand
     // De test print uit op welk pad de foto bewaard is.
     // Zet dit af voor continuous build
     public static final boolean STORE_FOTO_IN_TEMP_FILE = false;
 
-    @Test
-    @SneakyThrows
-    void callGeefBewijs() {
-        MagdaConfigDto config = configureMagdaParameters();
-        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
 
-        var afnemerLog = new AfnemerLogServiceMock();
+    private AfnemerLogServiceMock afnemerLog;
+    private MagdaConnectorImpl connector;
+
+    @BeforeEach
+    @SneakyThrows
+    void setup() {
+        afnemerLog = new AfnemerLogServiceMock();
+        var config = configureMagdaParameters();
+        var magdaEndpoints = new MockMagdaEndpoints(config.getEnvironment());
         var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
         var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
         var signatureConnection = new MagdaSignedConnection(soapConnection, config);
-        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
+        connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
+    }
 
+    @Test
+    @SneakyThrows
+    void callGeefBewijs() {
         var aanvraag = new GeefBewijsAanvraag(CORRECT_INSZ);
+
         var request = MagdaDocument.fromTemplate(aanvraag);
         var antwoord = connector.send(aanvraag, request);
         log.info("Antwoord : {}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
+        assertResponsBevatAntwoord(antwoord);
 
         var doc = antwoord.getDocument();
 
-        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
-        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
-
-        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
 
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Bewijzen/Bewijs/BewijsrefertesLed/Bewijsreferte");
         assertThat(resultaat).isEqualTo("66567d75-a223-4c12-959e-6560e3d0f0e5");
@@ -80,33 +84,16 @@ public class MockServerHttpTest {
     @Test
     @SneakyThrows
     void callRegistreerInschrijving() {
-        MagdaConfigDto config = configureMagdaParameters();
-
-        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
-
-        var afnemerLog = new AfnemerLogServiceMock();
-        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
-        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
-        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
-        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
-
         var aanvraag = new RegistreerInschrijvingAanvraag(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
         var request = MagdaDocument.fromTemplate(aanvraag);
         var antwoord = connector.send(aanvraag, request);
         log.info("Antwoord : {}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
+        assertResponsBevatAntwoord(antwoord);
 
         var doc = antwoord.getDocument();
 
-        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
-        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
-
-        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
 
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
         assertThat(resultaat).isEqualTo("1");
@@ -115,62 +102,27 @@ public class MockServerHttpTest {
     @Test
     @SneakyThrows
     void callRegistreerInschrijvingFaaltMagdaOverbelast() {
-        MagdaConfigDto config = configureMagdaParameters();
-
-        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
-
-        var afnemerLog = new AfnemerLogServiceMock();
-        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
-        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
-        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
-        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
-
         var aanvraag = new RegistreerInschrijvingAanvraag(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
         var request = MagdaDocument.fromTemplate(aanvraag);
         var antwoord = connector.send(aanvraag, request);
         log.info("Antwoord : {}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isFalse();
-        assertThat(antwoord.isHeeftInhoud()).isFalse();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).hasSize(1);
-
-        var uitzondering = antwoord.getUitzonderingen().get(0) ;
-        assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT) ;
-        assertThat(uitzondering.getIdentificatie()).isEqualTo("99996") ;
-        assertThat(uitzondering.getDiagnose()).isEqualTo("Te veel gelijktijdige bevragingen") ;
+        assertResponsBevatUitzondering(antwoord, TypeUitzondering.FOUT, "99996", "Te veel gelijktijdige bevragingen");
     }
 
     @Test
     @SneakyThrows
     void callRegistreerUitschrijving() {
-        MagdaConfigDto config = configureMagdaParameters();
-
-        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
-
-        var afnemerLog = new AfnemerLogServiceMock();
-        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
-        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
-        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
-        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
-
         var aanvraag = new RegistreerUitschrijvingAanvraag(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
         var request = MagdaDocument.fromTemplate(aanvraag);
         var antwoord = connector.send(aanvraag, request);
         log.info("Antwoord : {}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
+        assertResponsBevatAntwoord(antwoord);
 
         var doc = antwoord.getDocument();
 
-        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
-        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
-
-        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
 
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
         assertThat(resultaat).isEqualTo("1");
@@ -179,61 +131,27 @@ public class MockServerHttpTest {
     @Test
     @SneakyThrows
     void callRegistreerUitschrijvingFaaltMagdaOverbelast() {
-        MagdaConfigDto config = configureMagdaParameters();
-
-        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
-
-        var afnemerLog = new AfnemerLogServiceMock();
-        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
-        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
-        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
-        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
-
         var aanvraag = new RegistreerUitschrijvingAanvraag(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
         var request = MagdaDocument.fromTemplate(aanvraag);
         var antwoord = connector.send(aanvraag, request);
         log.info("Antwoord : {}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isFalse();
-        assertThat(antwoord.isHeeftInhoud()).isFalse();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).hasSize(1);
-
-        var uitzondering = antwoord.getUitzonderingen().get(0) ;
-        assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT) ;
-        assertThat(uitzondering.getIdentificatie()).isEqualTo("99996") ;
-        assertThat(uitzondering.getDiagnose()).isEqualTo("Te veel gelijktijdige bevragingen") ;
+        assertResponsBevatUitzondering(antwoord, TypeUitzondering.FOUT, "99996", "Te veel gelijktijdige bevragingen");
     }
 
     @Test
     @SneakyThrows
     void callGeefAanslagbiljetPersonenbelasting() {
-        MagdaConfigDto config = configureMagdaParameters();
-        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
-
-        var afnemerLog = new AfnemerLogServiceMock();
-        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
-        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
-        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
-        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
-
         var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag("82102108114");
         var request = MagdaDocument.fromTemplate(aanvraag);
         var antwoord = connector.send(aanvraag, request);
         log.info("Antwoord : {}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
+        assertResponsBevatAntwoord(antwoord);
 
         var doc = antwoord.getDocument();
 
-        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
-        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
-
-        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
 
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
@@ -246,33 +164,17 @@ public class MockServerHttpTest {
     @Test
     @SneakyThrows
     void callGeefPersoonMetCustomRequest() {
-        MagdaConfigDto config = configureMagdaParameters();
-        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
-
-        var afnemerLog = new AfnemerLogServiceMock();
-        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
-        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
-        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
-        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
-
-        var request = MagdaDocument.fromResource(MockServerHttpTest.class,"/requests/GeefPersoonRequest.xml");
+        var request = MagdaDocument.fromResource(MockServerHttpTest.class, "/requests/GeefPersoonRequest.xml");
 
         var aanvraag = new GeefPersoonAanvraag("00000099504");
         var antwoord = connector.send(aanvraag, request);
         log.info("Antwoord : {}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
+        assertResponsBevatAntwoord(antwoord);
 
         var doc = antwoord.getDocument();
 
-        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
-        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
-
-        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
 
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/Persoon/INSZ", "00000099504");
     }
@@ -280,33 +182,17 @@ public class MockServerHttpTest {
     @Test
     @SneakyThrows
     void callGeefAanslagbiljetPersonenbelastingMetCustomRequest() {
-        MagdaConfigDto config = configureMagdaParameters();
-        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
-
-        var afnemerLog = new AfnemerLogServiceMock();
-        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
-        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
-        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
-        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
-
-        var request = MagdaDocument.fromResource(MockServerHttpTest.class,"/requests/GeefAanslagbiljetPersonenbelastingRequest.xml");
+        var request = MagdaDocument.fromResource(MockServerHttpTest.class, "/requests/GeefAanslagbiljetPersonenbelastingRequest.xml");
 
         var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag("82102108114");
         var antwoord = connector.send(aanvraag, request);
         log.info("Antwoord : {}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
+        assertResponsBevatAntwoord(antwoord);
 
         var doc = antwoord.getDocument();
 
-        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
-        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
-
-        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
 
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
@@ -338,42 +224,57 @@ public class MockServerHttpTest {
     private void assertPasfotoCorrect(String inszRandomMan, int expected) throws IOException {
         final String requestInsz = inszRandomMan;
         var aanvraag = new GeefPasfotoAanvraag(requestInsz);
-        MagdaConfigDto config = configureMagdaParameters();
-        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
-
-        var afnemerLog = new AfnemerLogServiceMock();
-        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
-        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
-        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
-        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
 
         var request = MagdaDocument.fromTemplate(aanvraag);
 
         var antwoord = connector.send(aanvraag, request);
         log.info("Antwoord : {}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
+        assertResponsBevatAntwoord(antwoord);
 
         var doc = antwoord.getDocument();
 
-        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
-        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
-
-        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
 
         var insz = doc.getValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ");
         assertThat(insz).isEqualTo(requestInsz);
 
         var base64Foto = doc.getValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/Foto");
         var decoded = Base64.decodeBase64(base64Foto.getBytes());
-        assertThat(decoded.length).isEqualTo(expected) ;
+        assertThat(decoded.length).isEqualTo(expected);
 
         storeImage(decoded);
     }
+
+    private void assertResponsBevatAntwoord(MagdaAntwoord antwoord) {
+        assertThat(antwoord.isBodyIngevuld()).isTrue();
+        assertThat(antwoord.isHeeftInhoud()).isTrue();
+        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.getUitzonderingen()).isEmpty();
+    }
+
+
+    private void assertResponsBevatUitzondering(MagdaAntwoord antwoord, TypeUitzondering exptectedType, String expectedFoutCode, String expectedDiagnose) {
+        assertThat(antwoord.isBodyIngevuld()).isFalse();
+        assertThat(antwoord.isHeeftInhoud()).isFalse();
+        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.getUitzonderingen()).hasSize(1);
+
+        var uitzondering = antwoord.getUitzonderingen().get(0);
+        assertThat(uitzondering.getUitzonderingType()).isEqualTo(exptectedType);
+        assertThat(uitzondering.getIdentificatie()).isEqualTo(expectedFoutCode);
+        assertThat(uitzondering.getDiagnose()).isEqualTo(expectedDiagnose);
+    }
+
+
+    private void assertResponsKomtOvereenMetRequest(MagdaDocument doc, UUID requestId) {
+        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
+        assertThat(afzenderReferte).isEqualTo(requestId.toString());
+
+        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
+        assertThat(antwoordReferte).isEqualTo(requestId.toString());
+    }
+
 
     private static void storeImage(byte[] decoded) throws IOException {
         if (STORE_FOTO_IN_TEMP_FILE) {
@@ -393,22 +294,10 @@ public class MockServerHttpTest {
     }
 
 
-    private MagdaEndpoints configureMagdaEndpoints(MagdaConfigDto config) {
-        MagdaEndpoints magdaEndpoints = new MagdaEndpointsImpl(config);
-        magdaEndpoints.addMapping("RegistreerInschrijving", "02.00.0000", "http://localhost:8080/RegistreerInschrijvingDienst-02.00/soap/WebService");
-        magdaEndpoints.addMapping("RegistreerUitschrijving", "02.00.0000", "http://localhost:8080/RegistreerUitschrijvingDienst-02.00/soap/WebService");
-        magdaEndpoints.addMapping("GeefBewijs", "02.00.0000", "http://localhost:8080/GeefBewijsDienst-02.00/soap/WebService");
-        magdaEndpoints.addMapping("GeefAanslagbiljetPersonenbelasting", "02.00.0000", "http://localhost:8080/GeefAanslagbiljetPersonenbelastingDienst-02.00/soap/WebService");
-        magdaEndpoints.addMapping("GeefPersoon", "02.02.0000", "http://localhost:8080/GeefPersoonDienst-02.02/soap/WebService");
-        magdaEndpoints.addMapping("GeefPasfoto", "02.00.0000", "http://localhost:8080/GeefPasfotoDienst-02.00/soap/WebService");
-
-        return magdaEndpoints;
-    }
-
     private MagdaConfigDto configureMagdaParameters() {
         MagdaConfigDto config = new MagdaConfigDto();
         config.setKeystore(new TwoWaySslProperties());
-        config.setEnvironment("http://localhost:8080");
+        config.setEnvironment("http://localhost:8080/Magda-02.00/soap/WebService");
         config.getRegistration().put("default", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-mock").capacity("1234").build());
         config.getRegistration().put("custom", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-custom-mock").capacity("5678").build());
         return config;
