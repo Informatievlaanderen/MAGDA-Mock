@@ -7,9 +7,6 @@ import be.vlaanderen.vip.mock.magda.client.MagdaMockConnection;
 import be.vlaanderen.vip.mock.magdaservice.config.MagdaMockConfig;
 import be.vlaanderen.vip.mock.magdaservice.config.RegistratieConfig;
 import be.vlaanderen.vip.mock.magdaservice.exception.AttestNotFoundException;
-import be.vlaanderen.vip.mock.magdaservice.magda.MagdaRequest;
-import be.vlaanderen.vip.mock.magdaservice.magda.MagdaService;
-import be.vlaanderen.vip.mock.magdaservice.util.INSZ;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.wss4j.common.crypto.Crypto;
@@ -21,32 +18,18 @@ import org.apache.wss4j.dom.engine.WSSecurityEngineResult;
 import org.apache.wss4j.dom.handler.WSHandlerResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.w3c.dom.Document;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringWriter;
+import java.io.*;
 import java.net.URISyntaxException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.UUID;
+import java.util.*;
 
 import static java.security.KeyStore.getInstance;
 import static org.springframework.http.MediaType.APPLICATION_XML;
@@ -54,7 +37,6 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_XML_VALUE;
 import static org.springframework.util.MimeTypeUtils.TEXT_XML_VALUE;
 
 @RestController
-@CrossOrigin
 @Slf4j
 public class MagdaMockController {
 
@@ -230,7 +212,7 @@ public class MagdaMockController {
 
     @PostMapping(value = GEEF_PASFOTO_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> geefPasfoto(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockPasfotoRequest(request, KEY_IS_INSZ);
+        return processMagdaMockRequest(request);
     }
 
     @PostMapping(value = GEEF_BEWIJS_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
@@ -306,22 +288,6 @@ public class MagdaMockController {
         return handleMagdaRequest(aanvraag);
     }
 
-    private ResponseEntity<String> processMagdaMockPasfotoRequest(String request, String expression) throws MagdaSendFailed {
-        //TODO: handle request parsing errors and return Magda Uitzondering error
-        //TODO: verify signature
-        MagdaDocument aanvraag = MagdaDocument.fromString(request);
-
-        return handleMagdaPasfotoRequest(aanvraag, expression);
-    }
-
-    private ResponseEntity<String> processMagdaMockAttestRequest(String request, String expression) {
-        //TODO: handle request parsing errors and return Magda Uitzondering error
-        //TODO: verify signature
-        MagdaDocument aanvraag = MagdaDocument.fromString(request);
-
-        return handleMagdaAttestRequest(aanvraag, expression);
-    }
-
     private ResponseEntity<String> handleMagdaRequest(MagdaDocument aanvraag) throws MagdaSendFailed {
         if (crypto != null && keyStore != null) {
             try {
@@ -365,123 +331,6 @@ public class MagdaMockController {
         }
     }
 
-    private ResponseEntity<String> handleMagdaPasfotoRequest(MagdaDocument aanvraag, String expression) throws MagdaSendFailed {
-        long start = System.nanoTime();
-
-        MagdaRequest aanvraagParameters = new MagdaRequest(aanvraag, expression);
-
-        final String rijksRegisterNummer = aanvraagParameters.getKeys().get(0);
-        log.info(String.format(">>> Vraag voor mock dienst %s voor %s", aanvraagParameters.getServiceNaam(), rijksRegisterNummer));
-
-        // Burgers met RRN dat niet uit RR komt, maar uit KSZ hebben geen pasfoto
-        MagdaService magdaService = makeMagdaService(aanvraagParameters);
-        InputStream inputStream = getClass().getResourceAsStream(pasFotoresourcePath(magdaService, rijksRegisterNummer));
-
-
-        HashMap<String, String> mappings = new HashMap<>();
-        mappings.put("//Inhoud/Pasfoto/INSZ", rijksRegisterNummer);
-        final ResponseEntity<String> response = parseInputstream(MagdaDocument.fromStream(inputStream));
-
-        Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
-        log.info(String.format("<<< Vraag voor mock dienst %s voor %s in %d ms", aanvraagParameters.getServiceNaam(), rijksRegisterNummer, duration.toMillis()));
-
-        return response;
-
-    }
-
-    private ResponseEntity<String> handleMagdaAttestRequest(MagdaDocument aanvraag, String expression) {
-
-        long start = System.nanoTime();
-
-        MagdaRequest aanvraagParameters = new MagdaRequest(aanvraag, expression);
-
-        if (crypto != null && keyStore != null) {
-            try {
-                final WSHandlerResult verify = verify(aanvraag.getXml());
-                System.out.println(verify);
-            } catch (WSSecurityException e) {
-                log.error("Signature verification gefaald", e);
-            }
-        }
-
-        String attestNaam = aanvraag.getValue("//Vraag/Inhoud/Criteria/Attest/Naam");
-        attestNaam = attestNaam.replace("/", "");
-        String attestTaal = aanvraag.getValue("//Vraag/Inhoud/Criteria/Attest/Taal");
-
-        String insz = aanvraagParameters.getKeys().get(0);
-        log.info(String.format(">>> Vraag voor mock dienst %s voor %s", aanvraagParameters.getServiceNaam(), insz));
-
-        MagdaService magdaService = makeMagdaService(aanvraagParameters);
-        String responsePath = resourcePath(magdaService, insz);
-        InputStream inputStream = getClass().getResourceAsStream(responsePath);
-        final ResponseEntity<String> response = parseInputstream(MagdaDocument.fromStream(inputStream));
-
-        Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
-        log.info(String.format("<<< Vraag voor mock dienst %s voor %s in %d ms", aanvraagParameters.getServiceNaam(), insz, duration.toMillis()));
-
-        return response;
-
-    }
-
-    private static String resourcePath(MagdaService service, String insz) {
-        return "/magda_simulator/" + service.getUrl() + "/" + insz + ".xml";
-    }
-
-    private static String resourcePath(MagdaService service, List<String> insz) {
-
-        StringBuilder s = new StringBuilder("/magda_simulator/" + service.getUrl());
-        for (String str : insz) {
-            s.append("/").append(str);
-        }
-        return s.append(".xml").toString();
-    }
-
-    private MagdaService makeMagdaService(MagdaRequest aanvraagParameters) {
-        return new MagdaService(aanvraagParameters.getServiceNaam(), aanvraagParameters.getServiceVersie());
-    }
-
-    private void simuleerMagdaResponsTijdVoor(String serviceNaam) {
-        Integer timeout = null;
-        final HashMap<String, Integer> responsetimes = config.getResponsetimes();
-        if (responsetimes != null) {
-            timeout = responsetimes.get(serviceNaam);
-        }
-        if (timeout == null) {
-            timeout = config.getDefaultresponsetime();
-        }
-        int timeoutLength = timeout.intValue();
-        if (timeoutLength > 0) {
-            try {
-                Thread.sleep(timeoutLength);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-    }
-
-    private String pasFotoresourcePath(MagdaService service, String insz) {
-
-        String path = "/magda_simulator/" + service.getUrl() + "/{replace}/";
-
-        String geboorteDatum = insz.substring(0, 6);
-        int dateOfBirth = Integer.parseInt(geboorteDatum);
-
-        if (INSZ.isMannelijk(insz)) {
-            path = path.replace("{replace}", "mannen") + (dateOfBirth % 6) + ".xml";
-        } else {
-            path = path.replace("{replace}", "vrouwen") + (dateOfBirth % 4) + ".xml";
-
-        }
-
-        return path;
-    }
-
-
-    private String attestResourcePath(MagdaService service, String naam) {
-        String path = "/magda_simulator/" + service.getUrl() + "/" + naam;
-
-        return path;
-    }
 
     private String loadPDF(UUID transactieId, String resourceName) throws AttestNotFoundException {
         try (InputStream stream = getClass().getResourceAsStream(resourceName)) {

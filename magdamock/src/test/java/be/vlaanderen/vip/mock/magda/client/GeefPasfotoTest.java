@@ -4,9 +4,6 @@ import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.XmlUtil;
 import be.vlaanderen.vip.magda.client.diensten.GeefPasfotoAanvraag;
-import be.vlaanderen.vip.magda.client.diensten.GeefPersoonAanvraag;
-import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijving0201Aanvraag;
-import be.vlaanderen.vip.magda.client.diensten.TypeInschrijving;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
@@ -17,16 +14,13 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 public class GeefPasfotoTest extends MockTestBase {
     private static final String INSZ_MAGDA_OVERBELAST = "91010100144";
-    private static final String INSZ_REPERTORIUM_FOUT = "91010100243";
-    private static final String INSZ_REPERTORIUM_OK = "67021546719";
+    private static final String INSZ_ECHTE_PASFOTO = "67021546719";
     private static final String INSZ_RANDOM_MAN = "67021400130" ;
     private static final String INSZ_RANDOM_VROUW = "67021400229" ;
 
@@ -38,7 +32,7 @@ public class GeefPasfotoTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefPasfotoVoorBestaandInszNummer() {
-        assertPasfotoCorrect(INSZ_REPERTORIUM_OK, 80065);
+        assertPasfotoCorrect(INSZ_ECHTE_PASFOTO, 80065);
     }
 
     @Test

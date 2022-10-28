@@ -1,14 +1,7 @@
 package be.vlaanderen.vip.mock.magdaservice;
 
-import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.MagdaSignedConnection;
-import be.vlaanderen.vip.magda.client.MagdaSoapConnection;
-import be.vlaanderen.vip.magda.client.diensten.GeefAanslagbiljetPersonenbelastingAanvraag;
-import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
-import be.vlaanderen.vip.magda.client.diensten.GeefPersoonAanvraag;
-import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijvingAanvraag;
-import be.vlaanderen.vip.magda.client.diensten.RegistreerUitschrijvingAanvraag;
+import be.vlaanderen.vip.magda.client.*;
+import be.vlaanderen.vip.magda.client.diensten.*;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceImpl;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpointsImpl;
@@ -19,10 +12,14 @@ import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magdaservice.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.binary.Base64;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIf;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -38,6 +35,13 @@ public class MockServerHttpTest {
 
     public static final String CORRECT_INSZ = "67021546719";
     public static final String INSZ_MAGDA_OVERBELAST = "91010100144";
+    private static final String INSZ_ECHTE_PASFOTO = "67021546719";
+    private static final String INSZ_RANDOM_MAN = "67021400130" ;
+    private static final String INSZ_RANDOM_VROUW = "67021400229" ;
+    // Zet deze constante op true om de base64 geëncodeerde foto te bewaren in een temp jpeg bestand
+    // De test print uit op welk pad de foto bewaard is.
+    // Zet dit af voor continuous build
+    public static final boolean STORE_FOTO_IN_TEMP_FILE = false;
 
     @Test
     @SneakyThrows
@@ -312,6 +316,75 @@ public class MockServerHttpTest {
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
     }
 
+    @Test
+    @SneakyThrows
+    void geefPasfotoVoorBestaandInszNummer() {
+        assertPasfotoCorrect(INSZ_ECHTE_PASFOTO, 80065);
+    }
+
+    @Test
+    @SneakyThrows
+    void geefPasfotoVoorRandomMan() {
+        assertPasfotoCorrect(INSZ_RANDOM_MAN, 28722);
+    }
+
+    @Test
+    @SneakyThrows
+    void geefPasfotoVoorRandomVrouw() {
+        assertPasfotoCorrect(INSZ_RANDOM_VROUW, 32659);
+    }
+
+    @SneakyThrows
+    private void assertPasfotoCorrect(String inszRandomMan, int expected) throws IOException {
+        final String requestInsz = inszRandomMan;
+        var aanvraag = new GeefPasfotoAanvraag(requestInsz);
+        MagdaConfigDto config = configureMagdaParameters();
+        MagdaEndpoints magdaEndpoints = configureMagdaEndpoints(config);
+
+        var afnemerLog = new AfnemerLogServiceMock();
+        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
+        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
+        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
+        var connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
+
+        var request = MagdaDocument.fromTemplate(aanvraag);
+
+        var antwoord = connector.send(aanvraag, request);
+        log.info("Antwoord : {}", antwoord.getDocument());
+
+        assertThat(antwoord.isBodyIngevuld()).isTrue();
+        assertThat(antwoord.isHeeftInhoud()).isTrue();
+        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.getUitzonderingen()).isEmpty();
+
+        var doc = antwoord.getDocument();
+
+        var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
+        assertThat(afzenderReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        var antwoordReferte = doc.getValue("//Antwoorden/Antwoord/Referte");
+        assertThat(antwoordReferte).isEqualTo(aanvraag.getRequestId().toString());
+
+        var insz = doc.getValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ");
+        assertThat(insz).isEqualTo(requestInsz);
+
+        var base64Foto = doc.getValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/Foto");
+        var decoded = Base64.decodeBase64(base64Foto.getBytes());
+        assertThat(decoded.length).isEqualTo(expected) ;
+
+        storeImage(decoded);
+    }
+
+    private static void storeImage(byte[] decoded) throws IOException {
+        if (STORE_FOTO_IN_TEMP_FILE) {
+            File tempFile = File.createTempFile("mugshot", ".jpg", null);
+            try (FileOutputStream fos = new FileOutputStream(tempFile)) {
+                fos.write(decoded);
+            }
+            System.out.println("Wrote file to " + tempFile.getAbsolutePath());
+        }
+    }
+
 
     protected void assertThatXmlFieldIsEqualTo(MagdaDocument doc, String xmlPath, String expected) {
         String value = doc.getValue(xmlPath);
@@ -327,6 +400,7 @@ public class MockServerHttpTest {
         magdaEndpoints.addMapping("GeefBewijs", "02.00.0000", "http://localhost:8080/GeefBewijsDienst-02.00/soap/WebService");
         magdaEndpoints.addMapping("GeefAanslagbiljetPersonenbelasting", "02.00.0000", "http://localhost:8080/GeefAanslagbiljetPersonenbelastingDienst-02.00/soap/WebService");
         magdaEndpoints.addMapping("GeefPersoon", "02.02.0000", "http://localhost:8080/GeefPersoonDienst-02.02/soap/WebService");
+        magdaEndpoints.addMapping("GeefPasfoto", "02.00.0000", "http://localhost:8080/GeefPasfotoDienst-02.00/soap/WebService");
 
         return magdaEndpoints;
     }
