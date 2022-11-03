@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.InputStream;
@@ -11,6 +12,12 @@ import java.util.UUID;
 
 @Slf4j
 public abstract class SOAPSimulator {
+    private final ResourceFinder finder;
+
+    protected SOAPSimulator() {
+        finder = new ResourceFinder(SOAPSimulator.class);
+    }
+
     public abstract MagdaDocument send(MagdaDocument xml);
 
     protected static void PatchResponse(MagdaRequest params, MagdaDocument response) {
@@ -34,7 +41,7 @@ public abstract class SOAPSimulator {
     }
 
     protected MagdaDocument loadSimulatorResource(String type, String testResource) {
-        try (InputStream resource = this.getClass().getResourceAsStream("/magda_simulator/" + type + "/" + testResource)) {
+        try (InputStream resource = finder.loadSimulatorResource(type, testResource)) {
             if (Objects.nonNull(resource)) {
                 return MagdaDocument.fromStream(resource);
             }

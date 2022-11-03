@@ -31,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @EnabledIf("mockServerIsRunning")
 @SpringBootTest
 // These tests only run if there is a (mock) server running on port 8080
-public class MockServerHttpTest {
+public class MockServerHttpTest extends MockServerTest {
 
 
     public static final String CORRECT_INSZ = "67021546719";
@@ -303,32 +303,4 @@ public class MockServerHttpTest {
         return config;
     }
 
-    private static boolean checked = false;
-    private static boolean mockServerRunning = false;
-
-    public static boolean somebodyListeningOn(String host, int port) {
-        boolean ret = false;
-        try {
-            Socket s = new Socket(host, port);
-            ret = true;
-            s.close();
-        } catch (Exception e) {
-            //
-        }
-        return ret;
-    }
-
-    public static boolean mockServerIsRunning() {
-        if (!checked) {
-            System.out.println("Checking if MagdaMock Server is running on this machine");
-            mockServerRunning = somebodyListeningOn("localhost", 8080);
-            if (mockServerRunning) {
-                System.out.println("MagdaMock available. All server tests enabled");
-            } else {
-                System.err.println("MagdaMock unavailable. All server tests disabled");
-            }
-            checked = true;
-        }
-        return mockServerRunning;
-    }
 }
