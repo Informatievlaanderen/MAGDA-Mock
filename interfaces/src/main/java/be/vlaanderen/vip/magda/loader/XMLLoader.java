@@ -1,25 +1,23 @@
 package be.vlaanderen.vip.magda.loader;
 
-import lombok.extern.slf4j.Slf4j;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Slf4j
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
+
 public class XMLLoader<T> {
-    private static final Map<Class, JAXBContext> contexts = new ConcurrentHashMap<>();
+    private static final Map<Class<?>, JAXBContext> contexts = new ConcurrentHashMap<>();
     private final Class<T> tClass;
     private JAXBContext jaxbContext;
 
@@ -42,8 +40,7 @@ public class XMLLoader<T> {
         T antwoord = null;
         final JAXBContext context = getJaxbContext();
         if (context != null) {
-            Unmarshaller jaxbUnmarshaller = context.createUnmarshaller();
-            antwoord = (T) jaxbUnmarshaller.unmarshal(item);
+            antwoord = unmarshal(context, item);
         }
         return antwoord;
     }
@@ -62,11 +59,17 @@ public class XMLLoader<T> {
                     DocumentBuilder db = dbf.newDocumentBuilder();
                     Document document = db.parse(resource);
 
-                    Unmarshaller jaxbUnmarshaller = context.createUnmarshaller();
-                    xmlInhoud = (T) jaxbUnmarshaller.unmarshal(document);
+                    xmlInhoud = unmarshal(context, document);
                 }
             }
         }
         return xmlInhoud;
     }
+    
+    @SuppressWarnings("unchecked")
+    private T unmarshal(JAXBContext context, Node item) throws JAXBException {
+        var jaxbUnmarshaller = context.createUnmarshaller();
+        return (T) jaxbUnmarshaller.unmarshal(item);
+	}
 }
+
