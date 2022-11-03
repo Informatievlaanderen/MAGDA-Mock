@@ -102,7 +102,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
             TransformerFactory.newInstance().newTransformer().transform(new DOMSource(response.getXml()), new StreamResult(writer));
             String rawReturn = writer.toString();
             return rawReturn
-                    .replaceAll("\r\n", "")
+                    .replace("\r\n", "")
                     .replaceAll("\\s{2,}", " ")
                     .trim();
         } catch (TransformerException e) {
