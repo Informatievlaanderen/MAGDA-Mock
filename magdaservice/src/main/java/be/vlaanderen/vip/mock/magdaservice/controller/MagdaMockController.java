@@ -83,9 +83,6 @@ public class MagdaMockController {
     private static final String GEEF_STATUS_RECHT_ONDERSTEUNINGEN_SOAP_WEB_SERVICE = "GeefStatusRechtOndersteuningenDienst-02.00/soap/WebService";
     // TODO: endpoint niet gedocumenteerd
     private static final String GEEF_ATTEST_SOAP_WEB_SERVICE = "GeefAttestDienst-02.00/soap/WebService";
-    // TODO
-    private static final String GEEF_AUDITLOGGING_SOAP_WEB_SERVICE_INCORRECT = "GeefAuditLogging-02.00/soap/WebService";
-    private static final String GEEF_AUDITLOGGING_SOAP_WEB_SERVICE = "GeefAuditLoggingDienst-02.00/soap/WebService";
 
     private static final String GEEF_KINDVOORDELEN_SOAP_WEB_SERVICE = "GeefKindVoordelenDienst-02.00/soap/WebService";
 
@@ -170,18 +167,6 @@ public class MagdaMockController {
     @Deprecated(since = "20221028",forRemoval = true)
     @PostMapping(value = REGISTREER_UITSCHRIJVING_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> registreerUitschrijvingv20(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request);
-    }
-
-    @Deprecated(since = "20221028",forRemoval = true)
-    @PostMapping(value = GEEF_AUDITLOGGING_SOAP_WEB_SERVICE_INCORRECT, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
-    public ResponseEntity<String> geefAuditLoggingIncorrect(@RequestBody(required = true) String request) throws MagdaSendFailed {
-        return processMagdaMockRequest(request);
-    }
-
-    @Deprecated(since = "20221028",forRemoval = true)
-    @PostMapping(value = GEEF_AUDITLOGGING_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
-    public ResponseEntity<String> geefAuditLogging(@RequestBody(required = true) String request) throws MagdaSendFailed {
         return processMagdaMockRequest(request);
     }
 
