@@ -97,7 +97,6 @@ public class MagdaMockController {
     private static final String ZOEK_PERSOON_OP_ADRES_0202 = "ZoekPersoonOpAdresDienst-02.02/soap/WebService";
     // END DEPRECATED
 
-
     private final MagdaMockConfig config;
     private final MagdaMockConnection mockConnection;
     private KeyStore keyStore;
@@ -213,7 +212,7 @@ public class MagdaMockController {
 
     @Deprecated(since = "20221028",forRemoval = true)
     @PostMapping(value = GEEF_EPC_0201_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
-    public ResponseEntity<String> geefEpc0201(@RequestBody(required = true) String request) throws IOException, ParserConfigurationException, SAXException {
+    public ResponseEntity<String> geefEpc0201(@RequestBody(required = true) String request) throws MagdaSendFailed {
         return processMagdaMockRequest(request);
     }
 
@@ -315,7 +314,7 @@ public class MagdaMockController {
 
     @Deprecated(since = "20221028",forRemoval = true)
     @PostMapping(value = ZOEK_PERSOON_OP_ADRES_0202, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
-    public ResponseEntity<String> zoekPersoonOpAdres0202(@RequestBody String request) throws IOException, ParserConfigurationException, SAXException {
+    public ResponseEntity<String> zoekPersoonOpAdres0202(@RequestBody String request) throws MagdaSendFailed {
         return processMagdaMockRequest(request);
     }
     // END DEPRECATED
@@ -366,11 +365,7 @@ public class MagdaMockController {
               return ResponseEntity.ok().contentType(APPLICATION_XML).body(magdaDocument.toString());
         } else {
             log.error(
-                    String.format("Could not find test XML for: [service: %s] [serviceVersion: %s] [%s: %s]",
-                            magdaService.getServiceNaam(),
-                            magdaService.getServiceVersie(),
-                            aanvraagParameters.getExpressions(),
-                            aanvraagParameters.getKeys()));
+                    String.format("Could not find XML"));
 
             // TODO: maak en return MAGDA Uitzondering antwoord
             return ResponseEntity.notFound().build();
