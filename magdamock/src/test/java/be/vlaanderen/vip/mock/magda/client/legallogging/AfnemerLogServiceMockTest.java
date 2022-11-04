@@ -51,6 +51,62 @@ class AfnemerLogServiceMockTest {
 
 			assertThrows(IllegalStateException.class, service::assertConsistent);
 		}
+		
+		@Test
+		void consistentWhenRequestHasSingleResponse() {
+			var request = generateRequest();
+			service.logAanvraag(request);
+			service.logGeslaagdeAanvraag(successRequest(request));
+
+			// No exceptions expected
+			service.assertConsistent();
+		}
+		
+		@Test
+		void failsWhenDuplicateAnswers() {
+			var request = generateRequest();
+			service.logAanvraag(request);
+			service.logGeslaagdeAanvraag(successRequest(request));
+			service.logGeslaagdeAanvraag(successRequest(request));
+
+			assertThrows(IllegalStateException.class, service::assertConsistent);
+		}
+		
+		@Test
+		void failsWhenDuplicateUnanswered() {
+			var request = generateRequest();
+			service.logAanvraag(request);
+			service.logOnbeantwoordeAanvraag(unansweredRequest(request));
+			service.logOnbeantwoordeAanvraag(unansweredRequest(request));
+
+			assertThrows(IllegalStateException.class, service::assertConsistent);
+		}
+		
+		@Test
+		void failsWhenRequestHasSameLocalAsTransactionId() {
+			var uuid = UUID.randomUUID();
+			var invalidRequest = new MagdaAanvraag("test-insz", null, uuid, uuid, null, null, null);
+			
+			service.logAanvraag(invalidRequest);
+			service.logGeslaagdeAanvraag(successRequest(invalidRequest));
+
+			assertThrows(IllegalStateException.class, service::assertConsistent);
+		}
+	}
+	
+	@Nested
+	class AssertAllRequestsFor {
+
+		@Test
+		void successWhenAllForSameInsz() {
+			var request = generateRequest();
+			var insz = request.getInsz();
+			
+			service.logAanvraag(request);
+			service.logGeslaagdeAanvraag(successRequest(request));
+
+			service.assertAlleVragenEnAntwoordenVoor(insz);
+		}
 	}
 	
 	private MagdaAanvraag generateRequest() {

@@ -9,8 +9,10 @@ import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
+/**
+ * No references found to this anywhere, so maybe it can be removed?
+ */
 @Slf4j
-
 public class XMLLoaderForMocks<T> extends XMLLoader<T> {
     public XMLLoaderForMocks(Class<T> tClass) {
         super(tClass);
