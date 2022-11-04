@@ -1,9 +1,7 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.Aanvraag;
-import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;

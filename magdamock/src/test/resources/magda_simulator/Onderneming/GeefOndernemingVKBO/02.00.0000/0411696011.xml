@@ -1,0 +1,70 @@
+<web:GeefOndernemingVKBOResponse
+        xmlns:web="http://webservice.geefondernemingvkbodienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefOndernemingVKBO</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-04-20</Datum>
+                    <Tijd>07:32:54.218</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>0fdebd06-8b91-419e-8380-0fb4dde2cb33</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/vkbo-aip-bo</Identificatie>
+                    <Referte>XE:840:24976:8145</Referte>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>8145</Referte>
+                <Inhoud>
+                    <Onderneming DatumModificatie="2009-11-27">
+                        <Ondernemingsnummer>0411696011</Ondernemingsnummer>
+                        <AuthentiekBron>
+                            <Code Beschrijving="KBO">03</Code>
+                        </AuthentiekBron>
+                        <OndernemingOfVestiging DatumModificatie="2009-11-27">
+                            <Code Beschrijving="Onderneming">1</Code>
+                        </OndernemingOfVestiging>
+                        <StatusKBO>
+                            <Code>AC</Code>
+                            <Omschrijving>Actief</Omschrijving>
+                        </StatusKBO>
+                        <SoortOnderneming>
+                            <Code Beschrijving="Rechtspersoon">2</Code>
+                        </SoortOnderneming>
+                        <Namen>
+                            <MaatschappelijkeNaam DatumModificatie="2009-11-27" TaalCode="nl">Partena Onafhankelijk Ziekenfonds Vlaanderen</MaatschappelijkeNaam>
+                        </Namen>
+                        <Adres DatumModificatie="2009-11-27">
+                            <Straat>
+                                <Naam>Sluisweg</Naam>
+                            </Straat>
+                            <Huisnummer>2</Huisnummer>
+                            <Gemeente>
+                                <Naam>Gent</Naam>
+                                <NISCode>44021</NISCode>
+                                <PostCode>9000</PostCode>
+                            </Gemeente>
+                            <Land>
+                                <NISCode>150</NISCode>
+                                <ISOCode>BE</ISOCode>
+                                <Naam>BELGIE</Naam>
+                            </Land>
+                        </Adres>
+                        <DatumStart>1992-02-17</DatumStart>
+                        <DatumInschrijving>1995-02-17</DatumInschrijving>
+                        <DatumAfsluiting>9999-02-17</DatumAfsluiting>
+                    </Onderneming>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefOndernemingVKBOResponse>

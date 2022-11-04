@@ -32,6 +32,11 @@
 		<org.apache.wss4j.version>2.4.1</org.apache.wss4j.version>
 		<log4j2.version>2.18.0</log4j2.version>
 		<commons-io.version>2.11.0</commons-io.version>
+		<jackson-databind-nullable.version>0.2.1</jackson-databind-nullable.version>
+		<jackson-dataformat-yaml.version>2.13.2</jackson-dataformat-yaml.version>
+		<springfox-swagger2.version>3.0.0</springfox-swagger2.version>
+		<javax.json.version>1.1.4</javax.json.version>
+		<springdoc.api>1.6.6</springdoc.api>
 	</properties>
 
 	<!-- infrastructure -->
