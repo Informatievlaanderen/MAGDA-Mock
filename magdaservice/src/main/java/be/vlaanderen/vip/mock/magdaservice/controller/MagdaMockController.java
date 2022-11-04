@@ -67,7 +67,6 @@ public class MagdaMockController {
     private static final String GEEF_HISTORIEK_PERSOON_SOAP_WEB_SERVICE = "GeefHistoriekPersoonDienst-02.00/soap/WebService";
     private static final String GEEF_GEZINSSAMENSTELLING_SOAP_WEB_SERVICE = "GeefGezinssamenstellingDienst-02.00/soap/WebService";
     private static final String GEEF_PASFOTO_SOAP_WEB_SERVICE = "GeefPasfotoDienst-02.00/soap/WebService";
-
     // LED
     private static final String GEEF_BEWIJS_SOAP_WEB_SERVICE = "GeefBewijsDienst-02.00/soap/WebService";
     // INBURGERING
@@ -95,6 +94,7 @@ public class MagdaMockController {
     private static final String GEEF_AANSLAGBILJET_PERSONENBELASTING = "GeefAanslagbiljetPersonenbelastingDienst-02.00/soap/WebService";
 
     private static final String ZOEK_PERSOON_OP_ADRES_0202 = "ZoekPersoonOpAdresDienst-02.02/soap/WebService";
+
     // END DEPRECATED
 
     private final MagdaMockConfig config;
@@ -205,14 +205,14 @@ public class MagdaMockController {
     }
 
     @Deprecated(since = "20221028",forRemoval = true)
-    @PostMapping(value = GEEF_PERSOON_0202_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
-    public ResponseEntity<String> geefPersoon0202(@RequestBody(required = true) String request) throws MagdaSendFailed {
+    @PostMapping(value = GEEF_EPC_0201_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
+    public ResponseEntity<String> geefEpc0201(@RequestBody(required = true) String request) throws MagdaSendFailed {
         return processMagdaMockRequest(request);
     }
 
     @Deprecated(since = "20221028",forRemoval = true)
-    @PostMapping(value = GEEF_EPC_0201_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
-    public ResponseEntity<String> geefEpc0201(@RequestBody(required = true) String request) throws MagdaSendFailed {
+    @PostMapping(value = GEEF_PERSOON_0202_SOAP_WEB_SERVICE, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
+    public ResponseEntity<String> geefPersoon0202(@RequestBody(required = true) String request) throws MagdaSendFailed {
         return processMagdaMockRequest(request);
     }
 
