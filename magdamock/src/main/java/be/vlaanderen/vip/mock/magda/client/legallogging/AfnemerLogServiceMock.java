@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import be.vlaanderen.vip.magda.legallogging.model.GefaaldeAanvraag;
 import be.vlaanderen.vip.magda.legallogging.model.GelogdeAanvraag;
@@ -197,19 +198,19 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
     public List<GefaaldeAanvraag> matchVoorGefaald(MagdaAanvraag aanvraag) {
         return this.gefaaldeAanvragenLijst.stream()
                 .filter(antwoord -> match(aanvraag, antwoord))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public List<GeslaagdeAanvraag> matchVoorAntwoord(MagdaAanvraag vraag) {
         return geslaagdeAanvragenLijst.stream()
                 .filter(antwoord -> match(vraag, antwoord))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public List<OnbeantwoordeAanvraag> matchVoorOnbeantwoord(MagdaAanvraag vraag) {
         return onbeantwoordeAanvragenLijst.stream()
                 .filter(antwoord -> match(vraag, antwoord))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     private boolean match(GelogdeAanvraag vraag, GelogdeAanvraag antwoord) {
