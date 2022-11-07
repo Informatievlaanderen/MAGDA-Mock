@@ -23,11 +23,11 @@ public abstract class Aanvraag {
     @NotNull
     private String registratie = "default";
 
-    public Aanvraag(String insz) {
+    protected Aanvraag(String insz) {
         this(insz, insz);
     }
 
-    public Aanvraag(String insz, String overWie) {
+    protected Aanvraag(String insz, String overWie) {
         this.insz = insz;
         this.overWie = overWie;
     }

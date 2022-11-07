@@ -18,10 +18,10 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
     private int nietgeautoriseerd = 0;
     private int validatiefout = 0;
 
-    private List<MagdaAanvraag> aanvragenLijst = new ArrayList<>();
-    private List<GeslaagdeAanvraag> geslaagdeAanvragenLijst = new ArrayList<>();
-    private List<OnbeantwoordeAanvraag> onbeantwoordeAanvragenLijst = new ArrayList<>();
-    private List<GefaaldeAanvraag> gefaaldeAanvragenLijst = new ArrayList<>();
+    private final List<MagdaAanvraag> aanvragenLijst = new ArrayList<>();
+    private final List<GeslaagdeAanvraag> geslaagdeAanvragenLijst = new ArrayList<>();
+    private final List<OnbeantwoordeAanvraag> onbeantwoordeAanvragenLijst = new ArrayList<>();
+    private final List<GefaaldeAanvraag> gefaaldeAanvragenLijst = new ArrayList<>();
 
     @Override
     public synchronized void logAanvraag(MagdaAanvraag aanvraag) {

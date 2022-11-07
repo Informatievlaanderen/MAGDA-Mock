@@ -83,9 +83,14 @@ public class MagdaSignedConnection implements MagdaConnection {
 
     @Override
     public Document sendDocument(Aanvraag aanvraag, Document xml) throws MagdaSendFailed {
+        return sendDocument(xml);
+    }
+
+    @Override
+    public Document sendDocument(Document xml) throws MagdaSendFailed {
         if (!cryptoActive) {
             // if crypto is not active, we just need to send it without signing and verifying
-            return magdaConnection.sendDocument(aanvraag, xml);
+            return magdaConnection.sendDocument(xml);
         }
 
         try {
@@ -94,7 +99,7 @@ public class MagdaSignedConnection implements MagdaConnection {
             throw new MagdaSendFailed("Kan MAGDA aanvraag niet signen", securityException);
         }
 
-        Document response = magdaConnection.sendDocument(aanvraag, xml);
+        Document response = magdaConnection.sendDocument(xml);
 
         try {
             verify(response);

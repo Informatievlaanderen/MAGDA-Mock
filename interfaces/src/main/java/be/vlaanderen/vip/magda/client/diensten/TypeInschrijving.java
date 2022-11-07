@@ -4,7 +4,7 @@ public enum TypeInschrijving {
     PERSOON("PERS"),
     ONDERNEMING("OND");
 
-    private String typeString;
+    private final String typeString;
 
     TypeInschrijving(String typeString) {
         this.typeString = typeString;
