@@ -51,7 +51,7 @@
                            <Score type="kpeil">
                               <Waarde meeteenheid="Kg/jaar">45.11</Waarde>
                            </Score>
-                           <Score type="nettoEnergieBehoefte">
+                           <Score type="nettoEnergiebehoefte">
                               <Waarde meeteenheid="Kg/jaar">67.89</Waarde>
                            </Score>
                            <Score type="co2Emissie">
