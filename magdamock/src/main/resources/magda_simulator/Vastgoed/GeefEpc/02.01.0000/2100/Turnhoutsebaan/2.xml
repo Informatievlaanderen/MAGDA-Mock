@@ -46,10 +46,10 @@
                               <GemiddeldeWaardeVlaanderen meeteenheid="kWh/m²">420.02</GemiddeldeWaardeVlaanderen>
                            </Score>
                            <Score type="epeil">
-                              <Waarde meeteenheid="Kg/jaar">123</Waarde>
+                              <Waarde meeteenheid="Kg/jaar">123.00</Waarde>
                            </Score>
                            <Score type="kpeil">
-                              <Waarde meeteenheid="Kg/jaar">45</Waarde>
+                              <Waarde meeteenheid="Kg/jaar">45.11</Waarde>
                            </Score>
                            <Score type="nettoEnergieBehoefte">
                               <Waarde meeteenheid="Kg/jaar">67.89</Waarde>
@@ -642,16 +642,16 @@
                                     <TypeZonnepanelen>Solar M500</TypeZonnepanelen>
                                     <Hellingsgraad meeteenheid="°">10</Hellingsgraad>
                                     <Oppervlakte meeteenheid="m²">10.25</Oppervlakte>
-                                    <Orientatie meeteenheid="westen">W</Orientatie>
-                                    <Elektriciteitsopwekking meeteenheid="WPiek">395</Elektriciteitsopwekking>
+                                    <Orientatie meeteenheid="westen">10</Orientatie>
+                                    <Elektriciteitsopwekking meeteenheid="WPiek">395.00</Elektriciteitsopwekking>
                                  </FotovoltaischePaneel>
                                  <FotovoltaischePaneel>
                                     <Naam>dak tuinhuis</Naam>
                                     <TypeZonnepanelen>Solar M450</TypeZonnepanelen>
                                     <Hellingsgraad meeteenheid="°">15</Hellingsgraad>
                                     <Oppervlakte meeteenheid="m²">20.95</Oppervlakte>
-                                    <Orientatie meeteenheid="zuiden">Z</Orientatie>
-                                    <Elektriciteitsopwekking meeteenheid="WPiek">375</Elektriciteitsopwekking>
+                                    <Orientatie meeteenheid="zuiden">20</Orientatie>
+                                    <Elektriciteitsopwekking meeteenheid="WPiek">375.01</Elektriciteitsopwekking>
                                  </FotovoltaischePaneel>
                               </FotovoltaischePanelen>
                               <VentilatieSystemen>
