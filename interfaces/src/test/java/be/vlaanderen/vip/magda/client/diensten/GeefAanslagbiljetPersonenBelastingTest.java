@@ -1,14 +1,13 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
-import lombok.extern.slf4j.Slf4j;
+import static org.junit.jupiter.api.Assertions.assertAll;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
-
-import static org.junit.jupiter.api.Assertions.assertAll;
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class GeefAanslagbiljetPersonenBelastingTest extends TestBase {
