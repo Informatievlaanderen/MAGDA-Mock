@@ -32,6 +32,7 @@
 		<org.apache.wss4j.version>2.4.1</org.apache.wss4j.version>
 		<log4j2.version>2.18.0</log4j2.version>
 		<commons-io.version>2.11.0</commons-io.version>
+		<mockito.version>4.8.1</mockito.version>
 		<sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco-aggregated/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 		<sonar.language>java</sonar.language>
 	</properties>
