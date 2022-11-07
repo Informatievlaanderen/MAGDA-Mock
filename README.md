@@ -12,6 +12,7 @@ Your unit tests ==> magdamock ==> interfaces
 
 magdaservice (called via magdaconnector or your own connector) ==> magdamock ==> interfaces
 
+See [Architecture](https://vlaamseoverheid.atlassian.net/wiki/spaces/MARCHT/pages/6170676392/MAGDA+Afnemer+Mock+-+Architectuur)
 
 ### How do I get set up? ###
 
@@ -26,10 +27,11 @@ No database or queueing or other infrastructure necessary.
 
 ### Documentation ###
 
-* [Requirements and high level architecture](https://vlaamseoverheid.atlassian.net/wiki/spaces/MARCHT/pages/6083871398/MAGDA+afnemer+Mock+vs+MAGDA+developer+Mock)
-* Architecture (TODO)
-* [Code repo](https://bitbucket.org/vlaamseoverheid/magdamock.service/src/main/)
-* Infrastructure repo (TODO)
+* [Functional analysis](https://vlaamseoverheid.atlassian.net/wiki/spaces/MARCHT/pages/6083871398/MAGDA+afnemer+Mock+vs+MAGDA+developer+Mock)
+* [Architecture + HOWTO nieuwe testcases toevoegen](https://vlaamseoverheid.atlassian.net/wiki/spaces/MARCHT/pages/6170676392/MAGDA+Afnemer+Mock+-+Architectuur)
+* [Code repository](https://bitbucket.org/vlaamseoverheid/magdamock.service/src/main/)
+* [Infra repository](https://bitbucket.org/vlaamseoverheid/magdamock.service-infra/src/master/)
+
 
 ### Acknowledgements ###
 

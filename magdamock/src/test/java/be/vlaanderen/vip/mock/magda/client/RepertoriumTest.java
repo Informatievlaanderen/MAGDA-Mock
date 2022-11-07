@@ -143,6 +143,39 @@ public class RepertoriumTest extends MockTestBase {
 
     @Test
     @SneakyThrows
+    void registreerInschrijvingv0201OndernemingLukt() {
+        var aanvraag = new RegistreerInschrijving0201Aanvraag(TypeInschrijving.ONDERNEMING, "123456789012", LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+
+        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+
+        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+
+        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
+
+        var antwoord = connector.send(aanvraag, request);
+        assertThatTechnicalFieldsAreFilledInCorrectly(request, antwoord, aanvraag);
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), RepertoriumTest.ANTWOORD_REFERTE, aanvraag.getRequestId().toString());
+
+        assertThatResponseContainsAnswerNoError(antwoord);
+
+        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
+        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
+        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+
+
+        var doc = antwoord.getDocument();
+
+        assertThatTechnicalFieldsInResponseMatchRequest(antwoord, aanvraag);
+
+        assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", TEST_SERVICE_URI);
+        assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", TEST_SERVICE_HOEDANIGHEID);
+        var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
+        assertThat(resultaat).isEqualTo("1");
+
+    }
+
+    @Test
+    @SneakyThrows
     void registreerInschrijvingv0201LuktNietWegensInhoudelijkProbleem() {
         var aanvraag = new RegistreerInschrijving0201Aanvraag(TypeInschrijving.PERSOON, INSZ_REPERTORIUM_FOUT, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
 

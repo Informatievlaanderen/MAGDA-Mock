@@ -52,9 +52,9 @@ public class MagdaConnectorImpl implements MagdaConnector {
         logAanvraag(aanvraag);
 
         MagdaHoedanigheid magdaHoedanigheid = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
-        aanvraag.fillIn(request,magdaHoedanigheid);
+        aanvraag.fillIn(request, magdaHoedanigheid);
 
-        log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), XmlUtil.toString(request.getXml()));
+        log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), request);
 
         MagdaDocument response = callMagda(aanvraag, request);
         Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
@@ -74,7 +74,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
             }
 
             if (log.isDebugEnabled()) {
-                log.info("[{}] {}", aanvraag.getRequestId(), XmlUtil.toString(antwoord.getBody()));
+                log.info("[{}] {}", aanvraag.getRequestId(), antwoord.getDocument());
             }
 
             return antwoord;
@@ -102,7 +102,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
             TransformerFactory.newInstance().newTransformer().transform(new DOMSource(response.getXml()), new StreamResult(writer));
             String rawReturn = writer.toString();
             return rawReturn
-                    .replaceAll("\r\n", "")
+                    .replace("\r\n", "")
                     .replaceAll("\\s{2,}", " ")
                     .trim();
         } catch (TransformerException e) {
@@ -153,7 +153,6 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 aanvraag.magdaService().getVersie(),
                 magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie())));
     }
-
 
 
     private String uitzonderingenMessage(List<Uitzondering> uitzonderingen, List<Uitzondering> antwoordUitzonderingen) {
@@ -218,7 +217,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
     private MagdaDocument callMagda(Aanvraag aanvraag, MagdaDocument request) {
         try {
             final Document xml = request.getXml();
-            Document response = connection.sendDocument(aanvraag, xml);
+            Document response = connection.sendDocument(xml);
             if (response != null) {
                 return new MagdaDocument(response);
             }
