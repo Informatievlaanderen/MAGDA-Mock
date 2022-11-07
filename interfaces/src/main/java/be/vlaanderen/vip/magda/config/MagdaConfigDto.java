@@ -17,5 +17,6 @@ public class MagdaConfigDto {
     private String environment; // PROD | TEST | <base link to mock server>
     private String legalloggingUrl;
     private TwoWaySslProperties keystore;
+    @Builder.Default
     private Map<String, MagdaRegistrationConfigDto> registration = new HashMap<>();
 }
