@@ -15,8 +15,9 @@
 	<name>magdaservice</name>
 	<description>MAGDA diensten Mock voor afnemers</description>
 	<properties>
-		<java.version>11</java.version>
-		<maven.compiler.source>11</maven.compiler.source>
+		<java.version>17</java.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<!-- For compatibility reasons, we need to target Java 11 -->
 		<maven.compiler.target>11</maven.compiler.target>
 		<magda-openjdk.version>11.0.15</magda-openjdk.version>
 		<docker.image>magdamock.service</docker.image>
