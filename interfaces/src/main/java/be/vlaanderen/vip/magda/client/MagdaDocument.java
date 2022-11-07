@@ -124,7 +124,7 @@ public class MagdaDocument {
                         : defaultNamespace;
             }
 
-            public Iterator getPrefixes(String val) {
+            public Iterator<String> getPrefixes(String val) {
                 return null;
             }
 
