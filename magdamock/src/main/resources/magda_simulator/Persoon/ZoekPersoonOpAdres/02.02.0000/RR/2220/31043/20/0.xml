@@ -27,18 +27,93 @@
             <Inhoud>
                <Personen>
                   <Persoon Bron="RR">
-                     <INSZ>66082300172</INSZ>
+                     <INSZ>70021500163</INSZ>
                      <Naam>
                         <Achternamen>
                            <Achternaam>Jansens</Achternaam>
                         </Achternamen>
                         <Voornamen>
-                           <Voornaam>Leo</Voornaam>
+                           <Voornaam>Papa</Voornaam>
                         </Voornamen>
                      </Naam>
                      <Geslacht>
                         <Code>1</Code>
                         <Omschrijving Taal="nl">Mannelijk</Omschrijving>
+                     </Geslacht>
+                     <Geboortedatum>1980-01-31</Geboortedatum>
+                     <Adressen>
+                        <Hoofdverblijfplaats DatumBegin="2019-07-01">
+                           <Huisnummer>2</Huisnummer>
+                           <Postcode>2100</Postcode>
+                           <NietGestandaardiseerdeStraatnaam>
+                              <String>1234</String>
+                           </NietGestandaardiseerdeStraatnaam>
+                        </Hoofdverblijfplaats>
+                     </Adressen>
+                  </Persoon>
+                  <Persoon Bron="RR">
+                     <INSZ>71042500288</INSZ>
+                     <Naam>
+                        <Achternamen>
+                           <Achternaam>Jansens</Achternaam>
+                        </Achternamen>
+                        <Voornamen>
+                           <Voornaam>Mama</Voornaam>
+                        </Voornamen>
+                     </Naam>
+                     <Geslacht>
+                        <Code>1</Code>
+                        <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+                     </Geslacht>
+                     <Geboortedatum>1980-01-31</Geboortedatum>
+                     <Adressen>
+                        <Hoofdverblijfplaats DatumBegin="2019-07-01">
+                           <Huisnummer>2</Huisnummer>
+                           <Postcode>2100</Postcode>
+                           <NietGestandaardiseerdeStraatnaam>
+                              <String>1234</String>
+                           </NietGestandaardiseerdeStraatnaam>
+                        </Hoofdverblijfplaats>
+                     </Adressen>
+                  </Persoon>
+                  <Persoon Bron="RR">
+                     <INSZ>90083100145</INSZ>
+                     <Naam>
+                        <Achternamen>
+                           <Achternaam>Jansens</Achternaam>
+                        </Achternamen>
+                        <Voornamen>
+                           <Voornaam>Kind1</Voornaam>
+                        </Voornamen>
+                     </Naam>
+                     <Geslacht>
+                        <Code>1</Code>
+                        <Omschrijving Taal="nl">Mannelijk</Omschrijving>
+                     </Geslacht>
+                     <Geboortedatum>1980-01-31</Geboortedatum>
+                     <Adressen>
+                        <Hoofdverblijfplaats DatumBegin="2019-07-01">
+                           <Huisnummer>2</Huisnummer>
+                           <Postcode>2100</Postcode>
+                           <NietGestandaardiseerdeStraatnaam>
+                              <String>1234</String>
+                           </NietGestandaardiseerdeStraatnaam>
+                        </Hoofdverblijfplaats>
+                     </Adressen>
+                  </Persoon>
+                  <Persoon Bron="RR">
+                     <INSZ>91041500232</INSZ>
+                     <Naam>
+                        <Achternamen>
+                           <Achternaam>Jansens</Achternaam>
+                        </Achternamen>
+                        <Voornamen>
+                           <Voornaam>Kind2</Voornaam>
+                        </Voornamen>
+                     </Naam>
+                     <Geslacht>
+                        <Code>1</Code>
+                        <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
                      </Geslacht>
                      <Geboortedatum>1980-01-31</Geboortedatum>
                      <Adressen>
