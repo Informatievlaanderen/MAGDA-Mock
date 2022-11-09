@@ -1,4 +1,4 @@
-      <web:GeefEpcResponse>
+      <web:GeefEpcResponse xmlns:web="http://webservice.geefepcdienst-02_01.energie-02_01.epb.vea.lne.vlaanderen.be">
          <Repliek>
             <Context>
                <Naam>GeefEpc</Naam>
