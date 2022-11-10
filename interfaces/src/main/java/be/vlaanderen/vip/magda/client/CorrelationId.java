@@ -7,6 +7,8 @@ import java.util.UUID;
 public class CorrelationId {
     private static final String CORRELATION_ID = "labels.correlationId";
     private static final ThreadLocal<UUID> correlationId = new ThreadLocal<>();
+    
+    private CorrelationId() {}
 
     public static synchronized UUID get() {
         UUID value = correlationId.get();
@@ -17,7 +19,7 @@ public class CorrelationId {
         return value;
     }
 
-    public static void set(UUID value) {
+    private static void set(UUID value) {
         correlationId.set(value);
         MDC.put(CORRELATION_ID, value.toString());
     }
@@ -29,10 +31,5 @@ public class CorrelationId {
 
     public static boolean isPresent() {
         return correlationId.get() != null;
-    }
-
-    @Override
-    public String toString() {
-        return correlationId.get().toString();
     }
 }
