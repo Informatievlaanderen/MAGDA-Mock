@@ -198,19 +198,19 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
     public List<GefaaldeAanvraag> matchVoorGefaald(MagdaAanvraag aanvraag) {
         return this.gefaaldeAanvragenLijst.stream()
                 .filter(antwoord -> match(aanvraag, antwoord))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public List<GeslaagdeAanvraag> matchVoorAntwoord(MagdaAanvraag vraag) {
         return geslaagdeAanvragenLijst.stream()
                 .filter(antwoord -> match(vraag, antwoord))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public List<OnbeantwoordeAanvraag> matchVoorOnbeantwoord(MagdaAanvraag vraag) {
         return onbeantwoordeAanvragenLijst.stream()
                 .filter(antwoord -> match(vraag, antwoord))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private boolean match(GelogdeAanvraag vraag, GelogdeAanvraag antwoord) {
