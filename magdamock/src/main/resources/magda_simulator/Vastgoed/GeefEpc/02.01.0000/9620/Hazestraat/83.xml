@@ -21,17 +21,22 @@
 				</Ontvanger>
 			</Bericht>
 		</Context>
-		<Uitzonderingen>
-			<Uitzondering>
-				<Identificatie>30001</Identificatie>
-				<Oorsprong>MAGDA</Oorsprong>
-				<Type>FOUT</Type>
-				<Tijdstip>
-					<Datum>2019-03-30</Datum>
-					<Tijd>10:36:38</Tijd>
-				</Tijdstip>
-				<Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
-			</Uitzondering>
-		</Uitzonderingen>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>02caeca8-2999-48f7-99a2-bb4fb5c13e19</Referte>
+				<Uitzonderingen>
+					<Uitzondering>
+						<Identificatie>30001</Identificatie>
+						<Oorsprong>MAGDA</Oorsprong>
+						<Type>FOUT</Type>
+						<Tijdstip>
+							<Datum>2019-03-30</Datum>
+							<Tijd>10:36:38</Tijd>
+						</Tijdstip>
+						<Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+					</Uitzondering>
+				</Uitzonderingen>
+			</Antwoord>
+		</Antwoorden>
 	</Repliek>
 </web:GeefEpcResponse>
