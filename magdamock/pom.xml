@@ -41,12 +41,12 @@
     <repository>
       <id>central</id>
       <name>magda-public-release</name>
-      <url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magda-public-release</url>
+      <url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magda-releases</url>
     </repository>
     <snapshotRepository>
       <id>snapshots</id>
       <name>magda-public-snapshot</name>
-      <url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magda-public-snapshot</url>
+      <url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magda-snapshots</url>
     </snapshotRepository>
   </distributionManagement>
 
