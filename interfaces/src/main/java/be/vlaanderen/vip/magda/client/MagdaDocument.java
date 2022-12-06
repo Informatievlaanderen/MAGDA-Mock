@@ -8,6 +8,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import javax.xml.namespace.NamespaceContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -25,12 +26,12 @@ import javax.xml.xpath.XPathFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
+import java.util.Iterator;
 
 @Slf4j
 public class MagdaDocument {
     private final Document xml;
     private final XPathFactory xPathfactory = XPathFactory.newInstance();
-    private final XPath xpath = xPathfactory.newXPath();
 
     public MagdaDocument(Document xml) {
         this.xml = xml;
@@ -57,6 +58,10 @@ public class MagdaDocument {
         return fromResource(MagdaDocument.class, "/templates/" + aanvraag.magdaService().getNaam() + "/" + aanvraag.magdaService().getVersie() + "/template.xml");
     }
 
+    public static MagdaDocument fromDocument(Document doc) {
+        return new MagdaDocument(doc);
+    }
+
     private static Document parseStream(InputStream resource) {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -74,7 +79,6 @@ public class MagdaDocument {
 
     private static Document parseString(String input) {
         return parseStream(IOUtils.toInputStream(input, "UTF-8"));
-
     }
 
     public Document getXml() {
@@ -82,16 +86,58 @@ public class MagdaDocument {
     }
 
     public String getValue(String expression) {
+        return getValue(expression, null);
+    }
+
+    public String getValue(String expression, String defaultNamespace) {
+        var nodes = xpath(expression, defaultNamespace);
+        if (nodes == null || nodes.getLength() == 0) {
+            return null;
+        }
+        return nodes.item(0).getTextContent();
+    }
+
+    public NodeList xpath(String expression, String defaultNamespace) {
+        final XPath xpath = makeXpath(defaultNamespace);
         XPathExpression expr = null;
         try {
             expr = xpath.compile(expression);
             NodeList nodes = (NodeList) expr.evaluate(xml, XPathConstants.NODESET);
-            return nodes.item(0).getTextContent();
+            return nodes;
         } catch (XPathExpressionException e) {
             log.warn("Fout bij het ophalen van waarde '{}' : ", expression, e);
         }
-        return "";
+        return new DOMNodeHelper.EmptyNodeList();
     }
+
+    public NodeList xpath(String expression) {
+        return xpath(expression, null);
+    }
+
+    private XPath makeXpath(String defaultNamespace) {
+        NamespaceContext ctx = new NamespaceContext() {
+            public String getNamespaceURI(String prefix) {
+                return prefix.equals("soapenv") ? "http://schemas.xmlsoap.org/soap/envelope/"
+                        : prefix.equals("wsu") ? "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                        : prefix.equals("wsse") ? "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+                        : prefix.equals("ds") ? "http://www.w3.org/2000/09/xmldsig#"
+                        : defaultNamespace;
+            }
+
+            public Iterator<String> getPrefixes(String val) {
+                return null;
+            }
+
+            public String getPrefix(String uri) {
+                return null;
+            }
+        };
+
+        final XPath xpath = xPathfactory.newXPath();
+        xpath.setNamespaceContext(ctx);
+        return xpath;
+    }
+
 
     public void setValue(String expression, String value) {
         NodeList nodes = xpath(expression);
@@ -100,23 +146,20 @@ public class MagdaDocument {
         }
     }
 
-    public NodeList xpath(String expression) {
-        try {
-            XPathExpression expr = xpath.compile(expression);
-            return (NodeList) expr.evaluate(xml, XPathConstants.NODESET);
-        } catch (XPathExpressionException e) {
-            log.warn("Fout bij het uitvoeren van xpath '{}' : ", expression, e);
+    public void setValue(String expression, String value, String defaultNamespace) {
+        NodeList nodes = xpath(expression, defaultNamespace);
+        for (int pos = 0; pos < nodes.getLength(); pos++) {
+            nodes.item(pos).setTextContent(value);
         }
-
-        return new DOMNodeHelper.EmptyNodeList();
     }
-    
+
+
     public Node createNode(String expression, String nodeName) {
         var node = xml.createElement(nodeName);
         xpath(expression).item(0).appendChild(node);
         return node;
     }
-    
+
     public Node createTextNode(String expression, String nodeName, String value) {
         var node = xml.createElement(nodeName);
         var textNode = xml.createTextNode(value);

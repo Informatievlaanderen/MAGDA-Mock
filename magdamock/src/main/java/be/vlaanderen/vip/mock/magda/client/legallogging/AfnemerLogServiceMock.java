@@ -1,5 +1,10 @@
 package be.vlaanderen.vip.mock.magda.client.legallogging;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import be.vlaanderen.vip.magda.legallogging.model.GefaaldeAanvraag;
 import be.vlaanderen.vip.magda.legallogging.model.GelogdeAanvraag;
 import be.vlaanderen.vip.magda.legallogging.model.GeslaagdeAanvraag;
@@ -8,22 +13,15 @@ import be.vlaanderen.vip.magda.legallogging.model.OnbeantwoordeAanvraag;
 import be.vlaanderen.vip.magda.legallogging.service.AfnemerLogService;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import static java.util.stream.Collectors.toList;
-
 @Slf4j
 public class AfnemerLogServiceMock implements AfnemerLogService {
     private int nietgeautoriseerd = 0;
     private int validatiefout = 0;
 
-    private List<MagdaAanvraag> aanvragenLijst = new ArrayList<>();
-    private List<GeslaagdeAanvraag> geslaagdeAanvragenLijst = new ArrayList<>();
-    private List<OnbeantwoordeAanvraag> onbeantwoordeAanvragenLijst = new ArrayList<>();
-    private List<GefaaldeAanvraag> gefaaldeAanvragenLijst = new ArrayList<>();
+    private final List<MagdaAanvraag> aanvragenLijst = new ArrayList<>();
+    private final List<GeslaagdeAanvraag> geslaagdeAanvragenLijst = new ArrayList<>();
+    private final List<OnbeantwoordeAanvraag> onbeantwoordeAanvragenLijst = new ArrayList<>();
+    private final List<GefaaldeAanvraag> gefaaldeAanvragenLijst = new ArrayList<>();
 
     @Override
     public synchronized void logAanvraag(MagdaAanvraag aanvraag) {
@@ -199,19 +197,19 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
     public List<GefaaldeAanvraag> matchVoorGefaald(MagdaAanvraag aanvraag) {
         return this.gefaaldeAanvragenLijst.stream()
                 .filter(antwoord -> match(aanvraag, antwoord))
-                .collect(toList());
+                .toList();
     }
 
     public List<GeslaagdeAanvraag> matchVoorAntwoord(MagdaAanvraag vraag) {
         return geslaagdeAanvragenLijst.stream()
                 .filter(antwoord -> match(vraag, antwoord))
-                .collect(toList());
+                .toList();
     }
 
     public List<OnbeantwoordeAanvraag> matchVoorOnbeantwoord(MagdaAanvraag vraag) {
         return onbeantwoordeAanvragenLijst.stream()
                 .filter(antwoord -> match(vraag, antwoord))
-                .collect(toList());
+                .toList();
     }
 
     private boolean match(GelogdeAanvraag vraag, GelogdeAanvraag antwoord) {
