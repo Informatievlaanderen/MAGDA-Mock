@@ -1,5 +1,9 @@
 package be.vlaanderen.vip.mock.magda.client;
 
+import java.util.HashMap;
+
+import org.w3c.dom.Document;
+
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
@@ -7,20 +11,12 @@ import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import be.vlaanderen.vip.mock.magda.client.simulators.RandomPasfotoSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.StaticResponseSimulator;
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.w3c.dom.Document;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 @Slf4j
 public class MagdaMockConnection implements MagdaConnection {
-    @Getter
-    private final List<Document> verzondenDocumenten = new ArrayList<>();
     private Document defaultResponse = null;
-
+    
     private static HashMap<String, SOAPSimulator> simulators;
 
     // Subcategories for MAGDA services
@@ -87,7 +83,6 @@ public class MagdaMockConnection implements MagdaConnection {
     public Document sendDocument(Document xml) throws MagdaSendFailed {
         log.info("Answering using MAGDA Mock");
 
-        verzondenDocumenten.add(xml);
         if (defaultResponse != null) {
             Document answer = defaultResponse;
             defaultResponse = null;

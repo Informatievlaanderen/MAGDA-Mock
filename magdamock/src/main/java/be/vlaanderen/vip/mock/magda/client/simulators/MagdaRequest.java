@@ -1,11 +1,10 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import lombok.Getter;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 @Getter
 public class MagdaRequest {
