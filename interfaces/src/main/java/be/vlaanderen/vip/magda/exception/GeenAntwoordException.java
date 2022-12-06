@@ -10,6 +10,8 @@ import java.util.UUID;
  */
 @Getter
 public class GeenAntwoordException extends BronException {
+    private static final long serialVersionUID = 4914331924177455934L;
+    
     private final UUID transactieID;
     private final UUID localTransactieID;
     private String dienst;

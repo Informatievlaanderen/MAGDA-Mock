@@ -1,26 +1,22 @@
 package be.vlaanderen.vip.mock.magdaservice.controller;
 
-import be.vlaanderen.vip.mock.magda.inventory.TestcaseInventory;
-import be.vlaanderen.vip.mock.magdaservice.config.InventoryConfig;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.io.IOException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
+import be.vlaanderen.vip.mock.magda.inventory.TestcaseInventory;
+import be.vlaanderen.vip.mock.magdaservice.config.InventoryConfig;
+import lombok.RequiredArgsConstructor;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/v1/testcases")
 @RequiredArgsConstructor
 public class TestcaseController {
     private final InventoryConfig inventoryConfig;
-
-    private final ObjectMapper objectMapper;
 
     @RequestMapping(
             method = RequestMethod.GET,
