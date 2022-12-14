@@ -1,11 +1,12 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
+import org.apache.commons.lang3.StringUtils;
+
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
-import org.apache.commons.lang3.StringUtils;
 
 @Getter
 @ToString

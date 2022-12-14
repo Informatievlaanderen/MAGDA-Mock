@@ -1,14 +1,16 @@
 package be.vlaanderen.vip.mock.magda.client;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+
 import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.diensten.GeefAanslagbiljetPersonenbelastingAanvraag;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
-import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
 
@@ -70,6 +72,7 @@ public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
         assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
 
         var doc = antwoord.getDocument();
+        assertNotNull(doc);
 
         assertThatTechnicalFieldsInResponseMatchRequest(antwoord, aanvraag);
 
@@ -108,6 +111,7 @@ public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
         assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
 
         var doc = antwoord.getDocument();
+        assertNotNull(doc);
 
         assertThatTechnicalFieldsInResponseMatchRequest(antwoord, aanvraag);
 

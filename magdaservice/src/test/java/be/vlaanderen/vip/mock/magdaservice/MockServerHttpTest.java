@@ -1,7 +1,31 @@
 package be.vlaanderen.vip.mock.magdaservice;
 
-import be.vlaanderen.vip.magda.client.*;
-import be.vlaanderen.vip.magda.client.diensten.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.UUID;
+
+import org.apache.commons.codec.binary.Base64;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIf;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import be.vlaanderen.vip.magda.client.MagdaAntwoord;
+import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.MagdaSignedConnection;
+import be.vlaanderen.vip.magda.client.MagdaSoapConnection;
+import be.vlaanderen.vip.magda.client.diensten.GeefAanslagbiljetPersonenbelastingAanvraag;
+import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
+import be.vlaanderen.vip.magda.client.diensten.GeefPasfotoAanvraag;
+import be.vlaanderen.vip.magda.client.diensten.GeefPersoonAanvraag;
+import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijvingAanvraag;
+import be.vlaanderen.vip.magda.client.diensten.RegistreerUitschrijvingAanvraag;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceImpl;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
@@ -11,21 +35,6 @@ import be.vlaanderen.vip.mock.magdaservice.config.MockMagdaEndpoints;
 import be.vlaanderen.vip.mock.magdaservice.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.codec.binary.Base64;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.condition.EnabledIf;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.Socket;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.UUID;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 @EnabledIf("mockServerIsRunning")

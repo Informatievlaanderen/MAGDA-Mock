@@ -10,7 +10,9 @@ import java.util.List;
 @Data
 @Builder
 public class Uitzondering implements Serializable {
-    private String identificatie;
+    private static final long serialVersionUID = 4094334673582897131L;
+    
+	private String identificatie;
     private String oorsprong;
     private String diagnose;
     private TypeUitzondering uitzonderingType;
