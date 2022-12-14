@@ -151,6 +151,9 @@ public class MagdaMockController {
         if (magdaDocument != null) {
               return ResponseEntity.ok().contentType(APPLICATION_XML).body(magdaDocument.toString());
         } else {
+            log.error(
+                    String.format("Could not find XML"));
+
             // TODO: maak en return MAGDA Uitzondering antwoord
             return ResponseEntity.notFound().build();
         }

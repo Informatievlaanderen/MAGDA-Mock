@@ -65,7 +65,9 @@ public class StaticResponseSimulator extends SOAPSimulator {
         String testResource = dienst + "/" + versie + "/";
         if (keys.size() > 1) {
             for (var i = 0; i < keys.size() - 1; i++) {
-                testResource += keys.get(i) + "/";
+                if (keys.get(i) != null) {
+                    testResource += keys.get(i) + "/";
+                }
             }
         }
         testResource += keys.get(keys.size() - 1) + ".xml";

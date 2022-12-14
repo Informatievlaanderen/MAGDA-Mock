@@ -61,6 +61,8 @@ public class MagdaMockConnection implements MagdaConnection {
 
         simulators.put("ZoekEigendomstoestanden/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
 
+        simulators.put("ZoekPersoonOpAdres/02.02.0000", new StaticResponseSimulator(PERSOON, "//Inhoud/Bron","//Criteria/Adres/PostCode", "//Criteria/Adres/Straatcode", "//Criteria/Adres/Huisnummer", "//Criteria/EnkelReferentiepersoon"));
+
         // PERSOON Custom
         simulators.put("GeefAttest/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
         simulators.put("GeefPasfoto/02.00.0000", new RandomPasfotoSimulator(PERSOON, KEY_INSZ));
@@ -71,6 +73,7 @@ public class MagdaMockConnection implements MagdaConnection {
 
         // GEBOUW
         simulators.put("GeefEpc/02.00.0000", new StaticResponseSimulator(VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId"));
+        simulators.put("GeefEpc/02.01.0000", new StaticResponseSimulator(VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId", "//Criteria/Adres/Postcode", "//Criteria/Adres/Straat", "//Criteria/Adres/Huisnummer"));
 
     }
 

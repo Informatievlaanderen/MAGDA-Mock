@@ -6,6 +6,7 @@ import org.dom4j.dom.DOMNodeHelper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import javax.xml.namespace.NamespaceContext;
@@ -25,6 +26,7 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.util.Iterator;
 
@@ -70,7 +72,11 @@ public class MagdaDocument {
             dbf.setValidating(false);
             dbf.setNamespaceAware(true);
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document xmlInhoud = db.parse(resource);
+            InputStreamReader reader = new InputStreamReader(resource, "UTF-8");
+            InputSource is = new InputSource(reader);
+            is.setEncoding("UTF-8");
+
+            Document xmlInhoud = db.parse(is);
             return xmlInhoud;
         } catch (ParserConfigurationException | IOException | SAXException e) {
             throw new RuntimeException(e);

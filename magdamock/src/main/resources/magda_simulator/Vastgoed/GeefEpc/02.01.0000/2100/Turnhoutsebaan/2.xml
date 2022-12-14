@@ -1,0 +1,715 @@
+<web:GeefEpcResponse xmlns:web="http://webservice.geefepcdienst-02_01.energie-02_01.epb.vea.lne.vlaanderen.be">
+   <Repliek>
+      <Context>
+         <Naam>GeefEpc</Naam>
+         <Versie>02.01.0000</Versie>
+         <Bericht>
+            <Type>ANTWOORD</Type>
+            <Tijdstip>
+               <Datum>2000-00-00</Datum>
+               <Tijd>00:00</Tijd>
+            </Tijdstip>
+            <Afzender>
+               <Identificatie>vip.vlaanderen.be</Identificatie>
+               <Naam>MagdaGateway</Naam>
+               <Referte>02caeca8-2999-48f7-99a2-bb4fb5c13e19</Referte>
+            </Afzender>
+            <Ontvanger>
+               <Identificatie>Afzender-A</Identificatie>
+               <Referte>XE:1191:34140:2793</Referte>
+               <Hoedanigheid>188</Hoedanigheid>
+            </Ontvanger>
+         </Bericht>
+      </Context>
+      <Antwoorden>
+         <Antwoord>
+            <Referte>a</Referte>
+            <Inhoud>
+               <MijnEnergieDetails>
+                  <EnergieEenheid>
+                     <Epc id="1100387">
+                        <Identificatie>
+                           <Attestnummer>20170401-0001948124-1</Attestnummer>
+                        </Identificatie>
+                        <BouwjaarVolgensEPC>1966</BouwjaarVolgensEPC>
+                        <BouwjaarGekend>true</BouwjaarGekend>
+                        <DatumModificatie>2018-09-12T10:01:52+02:00</DatumModificatie>
+                        <Actief>true</Actief>
+                        <Status>Geldig</Status>
+                        <DatumIngediend>2017-04-01</DatumIngediend>
+                        <DatumGeldigheid>2027-04-01</DatumGeldigheid>
+                        <Scores>
+                           <Score type="primaireEnergieVerbruikPerVierkanteMeter">
+                              <Waarde meeteenheid="kWh/m²">309.00</Waarde>
+                              <GemiddeldeWaardeGemeente meeteenheid="kWh/m²">465.70</GemiddeldeWaardeGemeente>
+                              <GemiddeldeWaardeProvincie meeteenheid="kWh/m²">416.04</GemiddeldeWaardeProvincie>
+                              <GemiddeldeWaardeVlaanderen meeteenheid="kWh/m²">420.02</GemiddeldeWaardeVlaanderen>
+                           </Score>
+                           <Score type="epeil">
+                              <Waarde meeteenheid="Kg/jaar">123.00</Waarde>
+                           </Score>
+                           <Score type="kpeil">
+                              <Waarde meeteenheid="Kg/jaar">45.11</Waarde>
+                           </Score>
+                           <Score type="nettoEnergiebehoefte">
+                              <Waarde meeteenheid="Kg/jaar">67.89</Waarde>
+                           </Score>
+                           <Score type="co2Emissie">
+                              <Waarde meeteenheid="Kg/jaar">14639.97</Waarde>
+                           </Score>
+                           <Score type="gemiddeldeUwaardeSchil">
+                              <Waarde meeteenheid="W/m²K">1.57</Waarde>
+                              <GemiddeldeWaardeGemeente meeteenheid="W/m²K">1.80</GemiddeldeWaardeGemeente>
+                              <GemiddeldeWaardeProvincie meeteenheid="W/m²K">1.50</GemiddeldeWaardeProvincie>
+                              <GemiddeldeWaardeVlaanderen meeteenheid="W/m²K">1.47</GemiddeldeWaardeVlaanderen>
+                           </Score>
+                           <Score type="totaalPrimaireEnergieverbruik">
+                              <Waarde meeteenheid="kWh/jaar">72830.70</Waarde>
+                           </Score>
+                           <Score type="gemiddeldInstallatierendementVoorRuimteverwarming">
+                              <Waarde>0.67</Waarde>
+                           </Score>
+                           <ScoreKleur>
+                              <Code>#7cbf00</Code>
+                           </ScoreKleur>
+                        </Scores>
+                        <Ligging>
+                           <Adres arId="1567828">
+                              <Straat>
+                                 <Naam>Cederstraat</Naam>
+                              </Straat>
+                              <HuisNummer>26</HuisNummer>
+                              <Gemeente>
+                                 <PostCode>2800</PostCode>
+                                 <Naam>Mechelen</Naam>
+                              </Gemeente>
+                              <Gebouweenheden>
+                                 <Gebouweenheid id="6747170">
+                                    <Gebouwen>
+                                       <Gebouw id="6746154"/>
+                                    </Gebouwen>
+                                 </Gebouweenheid>
+                              </Gebouweenheden>
+                           </Adres>
+                        </Ligging>
+                        <EpcEenheidType>EPC bestaand</EpcEenheidType>
+                        <Personen>
+                           <Persoon>
+                              <NatuurlijkPersoon>
+                                 <Voornaam>RAPHAEL</Voornaam>
+                                 <Naam>BLEECKX</Naam>
+                              </NatuurlijkPersoon>
+                              <Registratie>
+                                 <EpCode>EP09950</EpCode>
+                                 <Organisatie>
+                                    <Firmanaam>BLECON</Firmanaam>
+                                    <Rechtsvorm>Vennootschap onder firma</Rechtsvorm>
+                                    <KboNummer>0816591530</KboNummer>
+                                 </Organisatie>
+                                 <Rol>
+                                    <TypeRol>Energiedeskundige</TypeRol>
+                                 </Rol>
+                              </Registratie>
+                           </Persoon>
+                        </Personen>
+                        <Details>
+                           <BeschermdVolume meeteenheid="m³">713.45</BeschermdVolume>
+                           <Bestemming>Wonen</Bestemming>
+                           <Bouwvorm>halfopen bebouwing</Bouwvorm>
+                           <BrutoVloerOppervlakte meeteenheid="m²">235.44</BrutoVloerOppervlakte>
+                           <GebouwType>ééngezinswoning</GebouwType>
+                           <Schildelen>
+                              <Schildeel>
+                                 <Type>Voorgevel</Type>
+                                 <Constructiedelen>
+                                    <Constructiedeel>
+                                       <Categorie>Muur</Categorie>
+                                       <Naam>VG1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">29.26</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <UWaarde meeteenheid="W/m²K">2.000</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Deur of poort</Categorie>
+                                       <Naam>VG1-DE1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">5.12</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Metaal, niet thermisch onderbroken</Type>
+                                       </Profiel>
+                                       <UWaarde meeteenheid="W/m²K">2.584</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>VG1-GL1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">4.54</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>VG1-GL2</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">2.64</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>VG1-GL3</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">8.24</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                 </Constructiedelen>
+                                 <Oppervlakte meeteenheid="m²">49.80</Oppervlakte>
+                              </Schildeel>
+                              <Schildeel>
+                                 <Type>Achtergevel</Type>
+                                 <Constructiedelen>
+                                    <Constructiedeel>
+                                       <Categorie>Muur</Categorie>
+                                       <Naam>AG1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">37.72</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <UWaarde meeteenheid="W/m²K">2.000</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>AG1-GL1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">3.10</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>AG1-GL2</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">3.99</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>AG1-GL3</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">4.32</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Glasbouwsteenwand</Categorie>
+                                       <Naam>AG1-GL4</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">1.30</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Geen profiel</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <Type>Glasbouwstenen</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">3.500</UWaarde>
+                                    </Constructiedeel>
+                                 </Constructiedelen>
+                                 <Oppervlakte meeteenheid="m²">50.43</Oppervlakte>
+                              </Schildeel>
+                              <Schildeel>
+                                 <Type>Linkergevel</Type>
+                                 <Constructiedelen>
+                                    <Constructiedeel>
+                                       <Categorie>Muur</Categorie>
+                                       <Naam>LG1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">62.20</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <UWaarde meeteenheid="W/m²K">2.000</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>LG1-GL1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">3.24</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>LG1-GL2</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">1.58</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>LG1-GL3</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">1.99</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>LG1-GL4</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">2.14</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>LG1-GL5</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">1.02</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>LG1-GL6</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">2.12</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>LG1-GL7</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">3.45</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <UWaardeGlas meeteenheid="W/m²K">1.100</UWaardeGlas>
+                                          <Type>Hoogrendementsglas bouwjaar =>2000</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">1.760</UWaarde>
+                                    </Constructiedeel>
+                                 </Constructiedelen>
+                                 <Oppervlakte meeteenheid="m²">77.74</Oppervlakte>
+                              </Schildeel>
+                              <Schildeel>
+                                 <Type>Rechtergevel</Type>
+                                 <Constructiedelen>
+                                    <Constructiedeel>
+                                       <Categorie>Muur</Categorie>
+                                       <Naam>RG1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">10.10</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Isolatielagen>
+                                          <Isolatielaag>
+                                             <NaamMateriaal>MW</NaamMateriaal>
+                                          </Isolatielaag>
+                                       </Isolatielagen>
+                                       <UWaarde meeteenheid="W/m²K">1.111</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Muur</Categorie>
+                                       <Naam>RG2</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">2.49</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <UWaarde meeteenheid="W/m²K">2.000</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Deur of poort</Categorie>
+                                       <Naam>RG2-DE1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">2.00</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Kunststof, 2 of meer kamers</Type>
+                                       </Profiel>
+                                       <UWaarde meeteenheid="W/m²K">3.640</UWaarde>
+                                    </Constructiedeel>
+                                 </Constructiedelen>
+                                 <Oppervlakte meeteenheid="m²">14.59</Oppervlakte>
+                              </Schildeel>
+                              <Schildeel>
+                                 <Type>Hellend dak voor</Type>
+                                 <Constructiedelen>
+                                    <Constructiedeel>
+                                       <Categorie>Dak</Categorie>
+                                       <Naam>DV1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">23.69</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Isolatielagen>
+                                          <Isolatielaag>
+                                             <NaamMateriaal>MW</NaamMateriaal>
+                                             <DikteIsolatieMateriaal meeteenheid="mm">60</DikteIsolatieMateriaal>
+                                          </Isolatielaag>
+                                       </Isolatielagen>
+                                       <UWaarde meeteenheid="W/m²K">0.654</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>DV1-GL1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">1.17</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Hout</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <Type>Gewone dubbele beglazing</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                    </Constructiedeel>
+                                 </Constructiedelen>
+                                 <Oppervlakte meeteenheid="m²">26.03</Oppervlakte>
+                              </Schildeel>
+                              <Schildeel>
+                                 <Type>Hellend dak achter</Type>
+                                 <Constructiedelen>
+                                    <Constructiedeel>
+                                       <Categorie>Dak</Categorie>
+                                       <Naam>DA1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">24.86</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Isolatielagen>
+                                          <Isolatielaag>
+                                             <NaamMateriaal>MW</NaamMateriaal>
+                                             <DikteIsolatieMateriaal meeteenheid="mm">60</DikteIsolatieMateriaal>
+                                          </Isolatielaag>
+                                       </Isolatielagen>
+                                       <UWaarde meeteenheid="W/m²K">0.654</UWaarde>
+                                    </Constructiedeel>
+                                    <Constructiedeel>
+                                       <Categorie>Venster</Categorie>
+                                       <Naam>DA1-GL1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">1.17</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Profiel>
+                                          <Type>Hout</Type>
+                                       </Profiel>
+                                       <Beglazing>
+                                          <Type>Gewone dubbele beglazing</Type>
+                                       </Beglazing>
+                                       <UWaarde meeteenheid="W/m²K">2.860</UWaarde>
+                                    </Constructiedeel>
+                                 </Constructiedelen>
+                                 <Oppervlakte meeteenheid="m²">26.03</Oppervlakte>
+                              </Schildeel>
+                              <Schildeel>
+                                 <Type>Plat dak</Type>
+                                 <Constructiedelen>
+                                    <Constructiedeel>
+                                       <Categorie>Dak</Categorie>
+                                       <Naam>PD1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">56.89</NettoOppervlakte>
+                                       <Begrenzing>Buiten</Begrenzing>
+                                       <Isolatielagen>
+                                          <Isolatielaag>
+                                             <NaamMateriaal>PUR/PIR</NaamMateriaal>
+                                          </Isolatielaag>
+                                       </Isolatielagen>
+                                       <UWaarde meeteenheid="W/m²K">0.444</UWaarde>
+                                    </Constructiedeel>
+                                 </Constructiedelen>
+                                 <Oppervlakte meeteenheid="m²">56.89</Oppervlakte>
+                              </Schildeel>
+                              <Schildeel>
+                                 <Type>Plafond</Type>
+                                 <Constructiedelen>
+                                    <Constructiedeel>
+                                       <Categorie>Plafond</Categorie>
+                                       <Naam>PF1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">28.42</NettoOppervlakte>
+                                       <Isolatielagen>
+                                          <Isolatielaag>
+                                             <NaamMateriaal>MW</NaamMateriaal>
+                                             <DikteIsolatieMateriaal meeteenheid="mm">60</DikteIsolatieMateriaal>
+                                          </Isolatielaag>
+                                       </Isolatielagen>
+                                       <UWaarde meeteenheid="W/m²K">0.645</UWaarde>
+                                    </Constructiedeel>
+                                 </Constructiedelen>
+                                 <Oppervlakte meeteenheid="m²">28.42</Oppervlakte>
+                              </Schildeel>
+                              <Schildeel>
+                                 <Type>Vloer</Type>
+                                 <Constructiedelen>
+                                    <Constructiedeel>
+                                       <Categorie>Vloer</Categorie>
+                                       <Naam>VL1</Naam>
+                                       <NettoOppervlakte meeteenheid="m²">123.39</NettoOppervlakte>
+                                       <Begrenzing>Kelder</Begrenzing>
+                                       <UWaarde meeteenheid="W/m²K">1.361</UWaarde>
+                                    </Constructiedeel>
+                                 </Constructiedelen>
+                                 <Oppervlakte meeteenheid="m²">123.39</Oppervlakte>
+                              </Schildeel>
+                           </Schildelen>
+                           <Installaties>
+                              <InstallatiesVoorRuimteverwarming>
+                                 <InstallatieVoorRuimteVerwarming>
+                                    <Opwekkingstoestellen>
+                                       <Opwekkingstoestel>
+                                          <SoortOpwekkingstoestel>Individueel</SoortOpwekkingstoestel>
+                                          <TypeOpwekkingstoestel>Niet condenserend open - Gasketel</TypeOpwekkingstoestel>
+                                          <ToestelBinnenHetBeschermdVolume>true</ToestelBinnenHetBeschermdVolume>
+                                          <LabelToestel>CE-keurmerk</LabelToestel>
+                                          <FabricagejaarKetel>1998</FabricagejaarKetel>
+                                          <Energiedrager>energiedrager</Energiedrager>
+                                          <OpwekkingsrendementRV>74.10</OpwekkingsrendementRV>
+                                          <Vermogen meeteenheid="kW">58.63</Vermogen>
+                                          <SpfWarmtepomp>4.75</SpfWarmtepomp>
+                                          <TypeWarmtepomp>geen warmtepomp</TypeWarmtepomp>
+                                          <TechnologieWKK>WKK</TechnologieWKK>
+                                          <ElektrischVermogenWKK>ElektrischWKK</ElektrischVermogenWKK>
+                                          <ElektrischVermogenWKKGetal meeteenheid="Kw">69.65</ElektrischVermogenWKKGetal>
+                                       </Opwekkingstoestel>
+                                    </Opwekkingstoestellen>
+                                    <TypeVerwarming>TypeVerwarming1</TypeVerwarming>
+                                    <Afgiftesystemen>
+                                       <SoortAfgifteSysteem>Radiatoren/convectoren</SoortAfgifteSysteem>
+                                    </Afgiftesystemen>
+                                    <Aandeel meeteenheid="procent">50.55</Aandeel>
+                                 </InstallatieVoorRuimteVerwarming>
+                                 <InstallatieVoorRuimteVerwarming>
+                                    <Opwekkingstoestellen>
+                                       <Opwekkingstoestel>
+                                          <SoortOpwekkingstoestel>Ingroep</SoortOpwekkingstoestel>
+                                          <TypeOpwekkingstoestel>condenserend Gasketel</TypeOpwekkingstoestel>
+                                          <ToestelBinnenHetBeschermdVolume>true</ToestelBinnenHetBeschermdVolume>
+                                          <LabelToestel>CE-keurmerk</LabelToestel>
+                                          <FabricagejaarKetel>1989</FabricagejaarKetel>
+                                       </Opwekkingstoestel>
+                                       <Opwekkingstoestel>
+                                          <SoortOpwekkingstoestel>Ingroepen</SoortOpwekkingstoestel>
+                                          <TypeOpwekkingstoestel>Gasketel</TypeOpwekkingstoestel>
+                                          <ToestelBinnenHetBeschermdVolume>true</ToestelBinnenHetBeschermdVolume>
+                                          <LabelToestel>CE-keurmerk</LabelToestel>
+                                          <FabricagejaarKetel>1999</FabricagejaarKetel>
+                                       </Opwekkingstoestel>
+                                    </Opwekkingstoestellen>
+                                    <TypeVerwarming>TypeVerwarming2</TypeVerwarming>
+                                    <Afgiftesystemen>
+                                       <SoortAfgifteSysteem>Radiatoren</SoortAfgifteSysteem>
+                                    </Afgiftesystemen>
+                                    <Aandeel meeteenheid="procent">49.45</Aandeel>
+                                 </InstallatieVoorRuimteVerwarming>
+                              </InstallatiesVoorRuimteverwarming>
+                              <InstallatiesVoorSanitairWarmWater>
+                                 <InstallatieVoorSanitairWarmWater>
+                                    <Opwekkingstoestellen>
+                                       <Opwekkingstoestel>
+                                          <SoortOpwekkingstoestel>Individueel</SoortOpwekkingstoestel>
+                                          <TypeOpwekkingstoestel>Niet condenserend open - Gasketel</TypeOpwekkingstoestel>
+                                          <ToestelBinnenHetBeschermdVolume>true</ToestelBinnenHetBeschermdVolume>
+                                          <LabelToestel>CE-keurmerk</LabelToestel>
+                                          <FabricagejaarKetel>1998</FabricagejaarKetel>
+                                          <Energiedrager>Energiedrager1</Energiedrager>
+                                          <OpwekkingsrendementSWW>7.23</OpwekkingsrendementSWW>
+                                          <Vermogen meeteenheid="Watt">1400.50</Vermogen>
+                                          <SpfWarmtepomp>3.75</SpfWarmtepomp>
+                                          <TypeWarmtepomp>TypeWarmtepomp1</TypeWarmtepomp>
+                                          <TechnologieWKK>WKK1</TechnologieWKK>
+                                          <ElektrischVermogenWKK>1250</ElektrischVermogenWKK>
+                                          <ElektrischVermogenWKKGetal meeteenheid="Mw">1254.99</ElektrischVermogenWKKGetal>
+                                       </Opwekkingstoestel>
+                                       <Opwekkingstoestel>
+                                          <SoortOpwekkingstoestel>Individueel</SoortOpwekkingstoestel>
+                                          <TypeOpwekkingstoestel>condenserend open - Gasketel</TypeOpwekkingstoestel>
+                                          <ToestelBinnenHetBeschermdVolume>true</ToestelBinnenHetBeschermdVolume>
+                                          <LabelToestel>CE-keurmerk</LabelToestel>
+                                          <FabricagejaarKetel>2000</FabricagejaarKetel>
+                                          <Energiedrager>Energiedrager3</Energiedrager>
+                                          <OpwekkingsrendementSWW>8.23</OpwekkingsrendementSWW>
+                                          <Vermogen meeteenheid="Watt">1300.50</Vermogen>
+                                          <SpfWarmtepomp>3.75</SpfWarmtepomp>
+                                          <TypeWarmtepomp>TypeWarmtepomp3</TypeWarmtepomp>
+                                          <TechnologieWKK>WKK1</TechnologieWKK>
+                                          <ElektrischVermogenWKK>1350</ElektrischVermogenWKK>
+                                          <ElektrischVermogenWKKGetal meeteenheid="Mw">1354.99</ElektrischVermogenWKKGetal>
+                                       </Opwekkingstoestel>
+                                    </Opwekkingstoestellen>
+                                    <TypeWarmwaterproductie>TypeWarmwaterproductie1</TypeWarmwaterproductie>
+                                    <OpslagvatAanwezig>false</OpslagvatAanwezig>
+                                    <IsolatieOpslagvat>true</IsolatieOpslagvat>
+                                 </InstallatieVoorSanitairWarmWater>
+                                 <InstallatieVoorSanitairWarmWater>
+                                    <Opwekkingstoestellen>
+                                       <Opwekkingstoestel>
+                                          <SoortOpwekkingstoestel>Individueel</SoortOpwekkingstoestel>
+                                          <TypeOpwekkingstoestel>Niet condenserend - Gasketel</TypeOpwekkingstoestel>
+                                          <ToestelBinnenHetBeschermdVolume>true</ToestelBinnenHetBeschermdVolume>
+                                          <LabelToestel>CE-keurmerk</LabelToestel>
+                                          <FabricagejaarKetel>1968</FabricagejaarKetel>
+                                          <Energiedrager>Energiedrager1</Energiedrager>
+                                          <OpwekkingsrendementSWW>7.33</OpwekkingsrendementSWW>
+                                          <Vermogen meeteenheid="Watt">100.50</Vermogen>
+                                          <SpfWarmtepomp>3.50</SpfWarmtepomp>
+                                          <TypeWarmtepomp>TypeWarmtepomp2</TypeWarmtepomp>
+                                          <TechnologieWKK>WKK1</TechnologieWKK>
+                                          <ElektrischVermogenWKK>120</ElektrischVermogenWKK>
+                                          <ElektrischVermogenWKKGetal meeteenheid="Mw">124.99</ElektrischVermogenWKKGetal>
+                                       </Opwekkingstoestel>
+                                    </Opwekkingstoestellen>
+                                    <TypeWarmwaterproductie>TypeWarmwaterproductie1</TypeWarmwaterproductie>
+                                    <OpslagvatAanwezig>true</OpslagvatAanwezig>
+                                    <VolumesOpslagvat>
+                                       <VolumeOpslagvat>
+                                          <Volume meeteenheid="l">1000</Volume>
+                                       </VolumeOpslagvat>
+                                       <VolumeOpslagvat>
+                                          <Volume meeteenheid="hl">2</Volume>
+                                       </VolumeOpslagvat>
+                                    </VolumesOpslagvat>
+                                    <IsolatieOpslagvat>true</IsolatieOpslagvat>
+                                 </InstallatieVoorSanitairWarmWater>
+                              </InstallatiesVoorSanitairWarmWater>
+                              <Koelingen>
+                                 <Koeling>
+                                    <ActieveKoeling>false</ActieveKoeling>
+                                 </Koeling>
+                              </Koelingen>
+                              <FotovoltaischePanelen>
+                                 <FotovoltaischePaneel>
+                                    <Naam>dak huis</Naam>
+                                    <TypeZonnepanelen>Solar M500</TypeZonnepanelen>
+                                    <Hellingsgraad meeteenheid="°">10</Hellingsgraad>
+                                    <Oppervlakte meeteenheid="m²">10.25</Oppervlakte>
+                                    <Orientatie meeteenheid="westen">10</Orientatie>
+                                    <Elektriciteitsopwekking meeteenheid="WPiek">395.00</Elektriciteitsopwekking>
+                                 </FotovoltaischePaneel>
+                                 <FotovoltaischePaneel>
+                                    <Naam>dak tuinhuis</Naam>
+                                    <TypeZonnepanelen>Solar M450</TypeZonnepanelen>
+                                    <Hellingsgraad meeteenheid="°">15</Hellingsgraad>
+                                    <Oppervlakte meeteenheid="m²">20.95</Oppervlakte>
+                                    <Orientatie meeteenheid="zuiden">20</Orientatie>
+                                    <Elektriciteitsopwekking meeteenheid="WPiek">375.01</Elektriciteitsopwekking>
+                                 </FotovoltaischePaneel>
+                              </FotovoltaischePanelen>
+                              <VentilatieSystemen>
+                                 <VentilatieSysteem>
+                                    <TypeVentilatiesysteem>Geen mechanische af- of toevoer</TypeVentilatiesysteem>
+                                 </VentilatieSysteem>
+                              </VentilatieSystemen>
+                           </Installaties>
+                        </Details>
+                        <Aanbevelingen>
+                           <Aanbeveling>
+                              <Categorie>Standaardaanbeveling</Categorie>
+                              <Type>Plafond</Type>
+                              <Subtype>Isolatie hellend dak boven plafond</Subtype>
+                              <Voorwerp>28,4 m² plafond is onvoldoende geïsoleerd.</Voorwerp>
+                           </Aanbeveling>
+                           <Aanbeveling>
+                              <Categorie>Standaardaanbeveling</Categorie>
+                              <Type>Plafond</Type>
+                              <Subtype>Isolatie hellend dak boven plafond</Subtype>
+                              <Voorwerp>28,4 m² plafond is onvoldoende geïsoleerd.</Voorwerp>
+                           </Aanbeveling>
+                           <Aanbeveling>
+                              <Categorie>Standaardaanbeveling</Categorie>
+                              <Type>Gevel</Type>
+                              <Subtype>Isolatie buitenmuren</Subtype>
+                              <Voorwerp>131,7 m² buitenmuur is niet geïsoleerd. 10,1 m² buitenmuur is onvoldoende geïsoleerd.</Voorwerp>
+                           </Aanbeveling>
+                           <Aanbeveling>
+                              <Categorie>Standaardaanbeveling</Categorie>
+                              <Type>Hellend dak</Type>
+                              <Subtype>Isolatie hellend dak</Subtype>
+                              <Voorwerp>48,6 m² hellend dak is onvoldoende geïsoleerd.</Voorwerp>
+                           </Aanbeveling>
+                           <Aanbeveling>
+                              <Categorie>Standaardaanbeveling</Categorie>
+                              <Type>Vloeren grenzend kelder of AOR</Type>
+                              <Subtype>Isolatie vloer grenzend aan kelder of AOR</Subtype>
+                              <Voorwerp>123,4 m² vloer is niet geïsoleerd.</Voorwerp>
+                           </Aanbeveling>
+                           <Aanbeveling>
+                              <Categorie>Standaardaanbeveling</Categorie>
+                              <Type>Glas</Type>
+                              <Subtype>Verbetering beglazing</Subtype>
+                              <Voorwerp>De woning bevat 3,5 m² dubbele beglazing. Het energieverbruik zal verminderen door gewone dubbele beglazing te vervangen door hoogrendementsbeglazing.</Voorwerp>
+                           </Aanbeveling>
+                           <Aanbeveling>
+                              <Categorie>Standaardaanbeveling</Categorie>
+                              <Type>Verwarming</Type>
+                              <Subtype>Verbetering verwarmingsinstallatie</Subtype>
+                              <Voorwerp>100,0 % van de woning wordt verwarmd door een weinig energiezuinige verwarmingsketel.</Voorwerp>
+                           </Aanbeveling>
+                        </Aanbevelingen>
+                     </Epc>
+                  </EnergieEenheid>
+               </MijnEnergieDetails>
+            </Inhoud>
+         </Antwoord>
+      </Antwoorden>
+   </Repliek>
+</web:GeefEpcResponse>
