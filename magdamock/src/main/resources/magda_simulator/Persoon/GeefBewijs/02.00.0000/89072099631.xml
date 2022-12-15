@@ -215,6 +215,10 @@
 								<Graad>
 									<Naam>Academische bachelor</Naam>
 								</Graad>
+								<Onderwerp>
+									<Code>313002</Code>
+									<Naam>Politieke wetenschappen</Naam>
+								</Onderwerp>
 								<Onderwijsvorm>
 									<Naam>Niet van toepassing</Naam>
 								</Onderwijsvorm>
@@ -272,6 +276,10 @@
 								<Onderwijsvorm>
 									<Naam>Niet van toepassing</Naam>
 								</Onderwijsvorm>
+								<Onderwerp>
+									<Code>313001</Code>
+									<Naam>Internationale relaties</Naam>
+								</Onderwerp>
 								<Bewijstype>
 									<Naam>Diploma</Naam>
 								</Bewijstype>
