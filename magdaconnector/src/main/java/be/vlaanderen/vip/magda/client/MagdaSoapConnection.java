@@ -93,13 +93,12 @@ public class MagdaSoapConnection implements MagdaConnection {
                 .setDefaultRequestConfig(config)
                 .build();
 
-        Document answer;
         try {
             HttpResponse response = httpClient.execute(request);
             final StatusLine statusLine = response.getStatusLine();
             if (statusLine.getStatusCode() == 200) {
                 HttpEntity responseEntity = response.getEntity();
-                answer = parseStream(responseEntity.getContent());
+                return parseStream(responseEntity.getContent());
             } else {
                 String errorBody = IOUtils.toString(response.getEntity().getContent(), Charset.defaultCharset());
                 log.error("POST {} failed with HTTP error {} {} and body {}", url, statusLine.getStatusCode(), statusLine.getReasonPhrase(), errorBody);
@@ -107,7 +106,7 @@ public class MagdaSoapConnection implements MagdaConnection {
                 String exceptionMessage = String.format("POST %s faalt met HTTP error %d %s", url, statusLine.getStatusCode(), statusLine.getReasonPhrase());
                 throw new MagdaSendFailed(exceptionMessage, statusLine.getStatusCode());
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw new MagdaSendFailed(String.format("POST %s gefaald", url), e);
         } finally {
             try {
@@ -115,8 +114,6 @@ public class MagdaSoapConnection implements MagdaConnection {
             } catch (IOException e) {
             }
         }
-
-        return answer;
     }
 
     private InputStreamEntity makeEntityWithXmlDocument(Document xml) throws TransformerException {

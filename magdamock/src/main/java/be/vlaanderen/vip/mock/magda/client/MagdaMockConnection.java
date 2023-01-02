@@ -1,9 +1,5 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import java.util.HashMap;
-
-import org.w3c.dom.Document;
-
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
@@ -12,6 +8,9 @@ import be.vlaanderen.vip.mock.magda.client.simulators.RandomPasfotoSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.StaticResponseSimulator;
 import lombok.extern.slf4j.Slf4j;
+import org.w3c.dom.Document;
+
+import java.util.HashMap;
 
 @Slf4j
 public class MagdaMockConnection implements MagdaConnection {
@@ -95,7 +94,7 @@ public class MagdaMockConnection implements MagdaConnection {
         return send(xml);
     }
 
-    private Document send(Document xml) {
+    private Document send(Document xml) throws MagdaSendFailed {
         var request = MagdaDocument.fromDocument(xml);
         var dienst = request.getValue("//Verzoek/Context/Naam");
         var versie = request.getValue("//Verzoek/Context/Versie");
@@ -110,9 +109,12 @@ public class MagdaMockConnection implements MagdaConnection {
                     "  </soapenv:Body>\n" +
                     "</soapenv:Envelope>";
             return MagdaDocument.fromString(soap).getXml();
+        } else {
+            String errorMessage = "Er is geen magda simulator geregistreerd voor " + dienst + "/" + versie + "";
+            log.error(errorMessage);
+
+            throw new MagdaSendFailed(errorMessage);
         }
-        log.error("Er is geen magda simulator geregistreerd voor {}/{}", dienst, versie);
-        return null;
     }
 
     public void setDefaultResponse(Document xml) {
