@@ -58,7 +58,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), request);
 
         try {
-            MagdaDocument response = callMagda(aanvraag, request);
+            MagdaDocument response = callMagda(request);
             Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
 
             MagdaAntwoord antwoord = maakAntwoord(aanvraag, response);
@@ -215,20 +215,13 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return inhoud.getLength() == 1;
     }
 
-    private MagdaDocument callMagda(Aanvraag aanvraag, MagdaDocument request) throws MagdaSendFailed {
-        try {
-            final Document xml = request.getXml();
-            Document response = connection.sendDocument(xml);
-            if (response != null) {
-                return new MagdaDocument(response);
-            } else {
-                throw new IllegalStateException("BUG: sendDocument returned null");
-            }
-        } catch (MagdaSendFailed e) {
-            final String endpoint = magdaEndpoints.magdaUrl(aanvraag.magdaService());
-            log.error("Fout in communicatie met {}", endpoint, e);
-
-            throw e;
+    private MagdaDocument callMagda(MagdaDocument request) throws MagdaSendFailed {
+        final Document xml = request.getXml();
+        Document response = connection.sendDocument(xml);
+        if (response != null) {
+            return new MagdaDocument(response);
+        } else {
+            throw new IllegalStateException("BUG: sendDocument returned null");
         }
     }
 

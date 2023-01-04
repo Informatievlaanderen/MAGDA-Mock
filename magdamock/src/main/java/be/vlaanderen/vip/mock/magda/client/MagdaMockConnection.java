@@ -110,10 +110,7 @@ public class MagdaMockConnection implements MagdaConnection {
                     "</soapenv:Envelope>";
             return MagdaDocument.fromString(soap).getXml();
         } else {
-            String errorMessage = "Er is geen magda simulator geregistreerd voor " + dienst + "/" + versie + "";
-            log.error(errorMessage);
-
-            throw new MagdaSendFailed(errorMessage);
+            throw new MagdaSendFailed("Er is geen magda simulator geregistreerd voor " + dienst + "/" + versie + "");
         }
     }
 
