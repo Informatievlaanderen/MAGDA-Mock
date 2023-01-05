@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  VIPInterfaces-generiek
+  %%
+  Copyright (C) 2016 - 2018 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+
+<xs:schema targetNamespace="http://werk-02_00.vip.vlaanderen.be"
+		   xmlns="http://werk-02_00.vip.vlaanderen.be"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   elementFormDefault="unqualified"
+		   attributeFormDefault="unqualified"
+		   version="2.00">
+
+    <xs:simpleType name="GeslachtEnumType">
+        <xs:annotation>
+            <xs:documentation>| 1 (Mannelijk) | 2 (Vrouwelijk) | 0 (Onbekend) |</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:length value="1"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="BronEnumType">
+        <xs:annotation>
+            <xs:documentation> | RSZ (RSZ) | DIBISS (RSZPPO + DOSZ) | </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="RSZ"/>
+            <xs:enumeration value="DIBISS"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="SchrappingsIndicatieEnumType">
+        <xs:annotation>
+            <xs:documentation>Indicator schrappingscontracten</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:length value="1"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+        </xs:restriction>
+    </xs:simpleType>   
+    
+    <xs:simpleType name="InterimIndicatieEnumType">
+        <xs:annotation>
+            <xs:documentation>Indicator interimcontracten</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:length value="1"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+	<xs:simpleType name="LoopbaanBronEnumType">
+		<xs:annotation>
+			<xs:documentation>KSZ | WSE</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RVA"/>
+			<xs:enumeration value="Vlaanderen"/>
+			<xs:enumeration value="Wallonie"/>
+			<xs:enumeration value="Brussel"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Bert Van Kets (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/generiek-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sawsdl="http://www.w3.org/ns/sawsdl" xmlns:oslo="http://magda.vlaanderen.be/generiek/oslo-v3" targetNamespace="http://magda.vlaanderen.be/generiek-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://magda.vlaanderen.be/generiek/oslo-v3" schemaLocation="oslo/OSLODomein-v3.xsd"/>
+	<xs:include schemaLocation="Tekst-v3.xsd"/>
+	<xs:include schemaLocation="Code-v3.xsd"/>
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<xs:simpleType name="NISCodeGemeenteType">
+		<xs:annotation>
+			<xs:documentation>NISCode Gemeente</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PostCodeType">
+		<xs:annotation>
+			<xs:documentation>PostCodeType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LandNaamType">
+		<xs:restriction base="TekstType"/>
+	</xs:simpleType>
+	<xs:simpleType name="GemeenteNaamType">
+		<xs:restriction base="TekstType"/>
+	</xs:simpleType>
+	<xs:simpleType name="NISCodeLandType">
+		<xs:annotation>
+			<xs:documentation>NISCode Land</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISOCodeLand3KaraktersType">
+		<xs:restriction base="xs:string">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISOCodeLand2KaraktersType">
+		<xs:restriction base="xs:string">
+			<xs:length value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HuisnummerType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BusnummerType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StraatRRCodeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StraatCrabCodeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--=> SAMENGESTELDE TYPE DEFINITES-->
+	<xs:complexType name="StraatType">
+		<xs:sequence>
+			<xs:element name="Code" type="StraatRRCodeType" minOccurs="0"/>
+			<xs:element name="Naam" type="TekstType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StraatCrabType">
+		<xs:sequence>
+			<xs:element name="Code" type="StraatCrabCodeType" minOccurs="0"/>
+			<xs:element name="Naam" type="TekstType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PlaatsType">
+		<xs:sequence>
+			<xs:element name="Gemeente" type="GemeenteType" minOccurs="0"/>
+			<xs:element name="Land" type="LandType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GemeenteType">
+		<xs:sequence>
+			<xs:element name="NISCode" type="NISCodeGemeenteType" minOccurs="0"/>
+			<xs:element name="Naam" type="GemeenteNaamType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdresseerbareGemeenteType">
+		<xs:complexContent>
+			<xs:extension base="GemeenteType">
+				<xs:sequence>
+					<xs:element name="PostCode" type="PostCodeType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LandType">
+		<xs:sequence>
+			<xs:element name="NISCode" type="NISCodeLandType"/>
+			<xs:element name="ISOCode" type="ISOCodeLand3KaraktersType" minOccurs="0"/>
+			<xs:element name="Naam" type="LandNaamType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LandISO2Type">
+		<xs:sequence>
+			<xs:element name="NISCode" type="NISCodeLandType"/>
+			<xs:element name="ISOCode" type="ISOCodeLand2KaraktersType" minOccurs="0"/>
+			<xs:element name="Naam" type="LandNaamType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GestructureerdeBeStAddIdentificatorType">
+		<xs:annotation>
+			<xs:documentation>Copy van de OSLO gestructureerde identificatortype.
+			Expliciete copy om geen afhangkelijkheid van het OSLO model te creëren in de MAGDA namespace.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LocaleIdentificator" type="TekstType"/>
+			<xs:element name="Naamruimte" type="TekstType" minOccurs="0"/>
+			<xs:element name="VersieIdentificator" type="TekstType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdresKernType">
+		<xs:sequence>
+			<xs:element name="Straat" type="StraatType" minOccurs="0"/>
+			<xs:element name="Huisnummer" type="HuisnummerType" minOccurs="0"/>
+			<xs:element name="Busnummer" type="BusnummerType" minOccurs="0"/>
+			<xs:element name="Gemeente" type="AdresseerbareGemeenteType" minOccurs="0"/>
+			<xs:element name="Land" type="LandType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdresCrabType">
+		<xs:sequence>
+			<xs:element name="Straat" type="StraatCrabType" minOccurs="0"/>
+			<xs:element name="Huisnummer" type="HuisnummerType" minOccurs="0"/>
+			<xs:element name="Busnummer" type="BusnummerType" minOccurs="0"/>
+			<xs:element name="Gemeente" type="AdresseerbareGemeenteType" minOccurs="0"/>
+			<xs:element name="Land" type="LandISO2Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaalstringOptioneelType">
+		<xs:sequence>
+			<xs:element name="String" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Taal" type="TaalCodeType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--********************************************************************************-->
+	<!--***************          MAGDA - OSLO Uitbreiding types          ***************-->
+	<!--********************************************************************************-->
+	<xs:complexType name="AdresVoorstellingUitbreidingType" sawsdl:modelReference="">
+		<xs:complexContent>
+			<xs:extension base="oslo:AdresvoorstellingType">
+				<xs:sequence>
+					<xs:element name="NISCodeLand" type="NISCodeLandType" minOccurs="0"/>
+					<xs:element name="ISOCodeLand" type="ISOCodeLand3KaraktersType" minOccurs="0"/>
+					<xs:element name="NISCodeGemeente" type="NISCodeGemeenteType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Alleen voor Belgische adressen</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="GemeenteBeStAddId" type="oslo:GestructureerdeIdentificatorType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>BeST ID voor gemeente. Alleen voor Belgische adressen </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="StraatCode" type="StraatRRCodeType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Rijksregister Code voor de straat</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="StraatBeStAddId" type="oslo:GestructureerdeIdentificatorType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>BeStAdd ID voor straat. Alleen voor Belgische adressen </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="NietGestandaardiseerdeStraatnaam" type="TaalstringOptioneelType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Een straatnaam in een bepaalde schrijfwijze waarbij niet zeker is of deze gelijk is aan de OSLO schrijfwijze. Dit element moet gebruikt worden voor straatnamen die niet uit het adresregister opgehaald zijn.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="NietGestandaardiseerdeGemeentenaam" type="TaalstringOptioneelType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Een gemeentenaam in een bepaalde schrijfwijze waarbij niet zeker is of deze gelijk is aan de OSLO schrijfwijze. Dit element moet gebruikt worden voor gemeentenamen die niet uit het adresregister opgehaald zijn.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

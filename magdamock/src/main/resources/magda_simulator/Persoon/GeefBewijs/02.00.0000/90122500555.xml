@@ -28,7 +28,7 @@
                 <Type>FOUT</Type>
                 <Tijdstip>
                     <Datum>2017-03-08</Datum>
-                    <Tijd>10:05:00.00</Tijd>
+                    <Tijd>10:05:00.000</Tijd>
                 </Tijdstip>
                 <Diagnose>Geen gegevens in antwoord wegens filtering</Diagnose>
             </Uitzondering>

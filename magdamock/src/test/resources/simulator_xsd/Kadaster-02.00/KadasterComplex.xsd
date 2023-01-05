@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  VIPInterfaces-generiek
+  %%
+  Copyright (C) 2016 - 2018 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+<xs:schema xmlns="http://kadaster-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:generiekv3="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://kadaster-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00">
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xs:include schemaLocation="KadasterEnum.xsd"/>
+	<xs:include schemaLocation="KadasterSimple.xsd"/>
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:complexType name="CriteriaZoekEigendomstoestandendienstType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="INSZ" type="sleutel:INSZType"/>
+				<xs:element name="Ondernemingsnummer" type="sleutel:OndernemingsnummerType"/>
+			</xs:choice>
+			<xs:element name="MedeEigenaars" type="generiek:VlagEnumType"/>
+			<xs:element name="TypeZoekopdracht" type="TypeZoekOpdrachtType" minOccurs="0"/>
+			<xs:choice minOccurs="0">
+				<xs:element name="Referentie" type="ReferentieType"/>
+				<xs:element name="Periode" type="generiek:PeriodeVerplichtType"/>
+			</xs:choice>
+			<xs:element name="KadastraleAfdeling" type="KadastraleAfdelingType" minOccurs="0"/>
+			<xs:element name="GemeenteNISCode" type="generiek:GemeenteNISCodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CriteriaGeefEigendomstoestandendienstType">
+		<xs:sequence>
+			<xs:element name="KadastraleAfdeling" type="KadastraleAfdelingType"/>
+			<xs:element name="Sectie" type="SectieType"/>
+			<xs:element name="Grondnummer" type="GrondnummerType"/>
+			<xs:element name="Bisnummer" type="BisnummerType" minOccurs="0"/>
+			<xs:element name="Cijferexponent" type="CijferexponentType" minOccurs="0"/>
+			<xs:element name="Letterexponent" type="LetterexponentType" minOccurs="0"/>
+			<xs:element name="Partitie" type="PartitieType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ZoekPerceelIdentificatieType">
+		<xs:sequence>
+			<xs:element name="KadastraleAfdeling" type="KadastraleAfdelingType"/>
+			<xs:element name="Sectie" type="SectieType"/>
+			<xs:element name="Grondnummer" type="GrondnummerType" minOccurs="0"/>
+			<xs:element name="Bisnummer" type="ZoekPerceelBisnummerType" minOccurs="0"/>
+			<xs:element name="Cijferexponent" type="ZoekPerceelCijferexponentType" minOccurs="0"/>
+			<xs:element name="Letterexponent" type="LetterexponentType" minOccurs="0"/>
+			<xs:element name="Partitie" type="PartitieType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ZoekPerceelPerceelType">
+		<xs:sequence>
+			<xs:element name="Code" type="ZoekPerceelPerceelCodeType" minOccurs="0"/>
+			<xs:element name="Identificatie" type="ZoekPerceelRepliekIdentificatieType"/>
+			<xs:element name="CADNET" type="CodeCadnetDetailType" minOccurs="0"/>
+			<xs:element name="Aard" type="AardKadastraalPerceelType" minOccurs="0"/>
+			<xs:element name="Periode" type="PeriodeStatusType" minOccurs="0"/>
+			<xs:element name="Adres" type="ZoekPerceelPerceelAdresType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ZoekPerceelRepliekIdentificatieType">
+		<xs:sequence>
+			<xs:element name="KadastraleAfdeling" type="PerceelKadastraleAfdelingType" minOccurs="0"/>
+			<xs:element name="Sectie" type="SectieType"/>
+			<xs:element name="Grondnummer" type="GrondnummerType" minOccurs="0"/>
+			<xs:element name="Bisnummer" type="BisnummerType" minOccurs="0"/>
+			<xs:element name="Cijferexponent" type="CijferexponentType" minOccurs="0"/>
+			<xs:element name="Letterexponent" type="LetterexponentType" minOccurs="0"/>
+			<xs:element name="Partitie" type="PartitieType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ZoekPerceelPerceelAdresType">
+		<xs:sequence>
+			<xs:element name="Straat" type="PerceelStraatType" minOccurs="0"/>
+			<xs:element name="Huisnummer" type="HuisnummerType" minOccurs="0"/>
+			<xs:element name="Busnummer" type="NummerBusType" minOccurs="0"/>
+			<xs:element name="Gemeente" type="Gemeente2_0Type" minOccurs="0"/>
+			<xs:element name="Land" type="PerceelLand2_0Type"/>
+			<xs:element name="HuisnummerSortering" type="HuisnummerSorteringType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferentieType">
+		<xs:choice>
+			<xs:element name="Jaar" type="generiek:JaarType"/>
+			<xs:element name="Datum" type="generiek:Datum2_0Type"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="EigendomType">
+		<xs:sequence>
+			<xs:element name="Partijen" type="EigendomPartijenType" minOccurs="0"/>
+			<xs:element name="Eigendomstoestanden" type="EigendomstoestandenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EigendomPartijenType">
+		<xs:sequence>
+			<xs:element name="Personen" type="PersonenType" minOccurs="0"/>
+			<xs:element name="Ondernemingen" type="OndernemingenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersoonType">
+		<xs:sequence>
+			<xs:element name="PartijId" type="PartijIdType"/>
+			<xs:element name="INSZ" type="PersoonINSZType" minOccurs="0"/>
+			<xs:element name="Naam" type="PersoonNaamType" minOccurs="0"/>
+			<xs:element name="Geboortedatum" type="generiek:Datum2_0Type" minOccurs="0"/>
+			<xs:element name="Gemeente" type="Gemeente2_0Type" minOccurs="0"/>
+			<xs:element name="Land" type="Land2_0Type" minOccurs="0"/>
+			<xs:element name="Adres" type="generiekv3:AdresVoorstellingUitbreidingType" minOccurs="0"/>				
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersoonNaamType">
+		<xs:sequence>
+			<xs:element name="Achternamen" type="AchternaamLijstType" minOccurs="0"/>
+			<xs:element name="Voornamen" type="VoornaamLijstType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:Datum2_0Type"/>
+		<xs:attribute name="DatumEinde" type="generiek:Datum2_0Type"/>
+	</xs:complexType>
+	<xs:complexType name="Gemeente2_0Type">
+		<xs:sequence>
+			<xs:element name="NISCode" type="CodeNISGemeenteType" minOccurs="0"/>
+			<xs:element name="PostCode" type="CodePostType" minOccurs="0"/>
+			<xs:element name="Naam" type="generiek:Tekst2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Land2_0Type">
+		<xs:sequence>
+			<xs:element name="NISCode" type="CodeNISLandType" minOccurs="0"/>
+			<xs:element name="ISOCode" type="CodeISOLandType" minOccurs="0"/>
+			<xs:element name="Naam" type="generiek:TekstKort2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PerceelLand2_0Type">
+		<xs:sequence>
+			<xs:element name="NISCode" type="CodeNISLandType"/>
+			<xs:element name="ISOCode" type="CodeISOLandType" minOccurs="0"/>
+			<xs:element name="Naam" type="generiek:TekstKort2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OndernemingType">
+		<xs:sequence>
+			<xs:element name="PartijId" type="PartijIdType" minOccurs="0"/>
+			<xs:element name="Ondernemingsnummer" type="OndernemingsnummerType" minOccurs="0"/>
+			<xs:element name="Naam" type="generiek:TekstKort2_0Type" minOccurs="0"/>
+			<xs:element name="Adres" type="generiekv3:AdresVoorstellingUitbreidingType" minOccurs="0"/>	
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EigendomstoestandType">
+		<xs:sequence>
+			<xs:element name="StatusInformatie" type="StatusInformatieType"/>
+			<xs:element name="Perceel" type="PerceelType"/>
+			<xs:element name="EigenaarsRechten" type="EigenaarsRechtenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StatusInformatieType">
+		<xs:sequence>
+			<xs:element name="ArtikelInschrijving" type="ArtikelInschrijvingType"/>
+			<xs:element name="Versie" type="InformatieVersieType" minOccurs="0"/>
+			<xs:element name="StatusEigendom" type="StatusEigendomType" minOccurs="0"/>
+			<xs:element name="PeriodeStatus" type="PeriodeStatusType" minOccurs="0"/>
+			<xs:element name="PeriodeJuridisch" type="PeriodeType" minOccurs="0"/>
+			<xs:element name="Dubieus" type="DubieusType" minOccurs="0"/>
+			<xs:element name="EigendomId" type="EigendomIdType"/>
+			<xs:element name="MartkWaarde" type="MarktwaardeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArtikelInschrijvingType">
+		<xs:sequence>
+			<xs:element name="Huidig" type="InschrijvingType"/>
+			<xs:element name="Voorgaand" type="InschrijvingType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InformatieVersieType">
+		<xs:sequence>
+			<xs:element name="Begin" type="DatumTijdType" minOccurs="0"/>
+			<xs:element name="Einde" type="DatumTijdType" minOccurs="0"/>
+			<xs:element name="Annulatie" type="DatumTijdType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PeriodeStatusType">
+		<xs:sequence>
+			<xs:element name="Begin" type="generiek:Datum2_0Type" minOccurs="0"/>
+			<xs:element name="JaarBegin" type="generiek:JaarType" minOccurs="0"/>
+			<xs:element name="Einde" type="generiek:Datum2_0Type" minOccurs="0"/>
+			<xs:element name="JaarEinde" type="generiek:JaarType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PeriodeType">
+		<xs:sequence>
+			<xs:element name="Begin" type="generiek:Datum2_0Type" minOccurs="0"/>
+			<xs:element name="Einde" type="generiek:Datum2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MarktwaardeType">
+		<xs:sequence>
+			<xs:element name="Berekende" type="WaardeType" minOccurs="0"/>
+			<xs:element name="DatumBerekening" type="generiek:Datum2_0Type" minOccurs="0"/>
+			<xs:element name="MinimaleWaarde" type="WaardeType" minOccurs="0"/>
+			<xs:element name="MaximaleWaarde" type="WaardeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PerceelType">
+		<xs:sequence>
+			<xs:element name="Identificatie" type="PerceelIdentificatieType"/>
+			<xs:element name="AlgemeneInformaties" type="AlgemeneInformatiesType" minOccurs="0"/>
+			<xs:element name="AantalLiften" type="AantalLiftenType" minOccurs="0"/>
+			<xs:element name="BeschrijvingPrivatiefGedeelte" type="BeschrijvingPrivatiefGedeelteType" minOccurs="0"/>
+			<xs:element name="BeschrijvingTweedeAardBassin" type="BeschrijvingTweedeAardBassinType" minOccurs="0"/>
+			<xs:element name="DatumValidatieDossier" type="DatumTijdType" minOccurs="0"/>
+			<xs:element name="PeriodeVersie" type="PeriodeVersieType" minOccurs="0"/>
+			<xs:element name="Gebouwen" type="GebouwenType" minOccurs="0"/>
+			<xs:element name="RedenPerimeter" type="RedenPerimeterType" minOccurs="0"/>
+			<xs:element name="EPC" type="EPCType" minOccurs="0"/>
+			<xs:element name="AardKadastraalPerceel" type="AardKadastraalPerceelType" minOccurs="0"/>
+			<xs:element name="StatusPatrimoniaalPerceel" type="StatusPatrimoniaalPerceelType" minOccurs="0"/>
+			<xs:element name="Gebruik" type="GebruikType" minOccurs="0"/>
+			<xs:element name="PeriodeGeldigheidPerceel" type="PeriodeStatusType" minOccurs="0"/>
+			<xs:element name="CodeCadnetDetail" type="CodeCadnetDetailType" minOccurs="0"/>
+			<xs:element name="Energieverbruik" type="EnergieverbruikType" minOccurs="0"/>
+			<xs:element name="DrempelBelastbaar" type="DrempelBelastbaarType" minOccurs="0"/>
+			<xs:element name="Isolatiewaarde" type="IsolatiewaardeType" minOccurs="0"/>
+			<xs:element name="BeschrijvingKlaarpan" type="BeschrijvingKlaarpanType" minOccurs="0"/>
+			<xs:element name="MaximaleThermischeGeleidbaarheid" type="MaximaleThermischeGeleidbaarheidType" minOccurs="0"/>
+			<xs:element name="LijstOnbebouwd" type="LijstOnbebouwdType" minOccurs="0"/>
+			<xs:element name="MaterieelEnOutillage" type="MaterieelEnOutillageType" minOccurs="0"/>
+			<xs:element name="LiggingIdPerceel" type="LiggingIdPerceelType"/>
+			<xs:element name="Breedte" type="BreedteType" minOccurs="0"/>
+			<xs:element name="EnergieZuinigeWoning" type="generiek:VlagEnumType" minOccurs="0"/>
+			<xs:element name="Rootput" type="RootputType" minOccurs="0"/>
+			<xs:element name="Schetsnummer" type="SchetsnummerType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PerceelIdentificatieType">
+		<xs:sequence>
+			<xs:element name="KadastraleAfdeling" type="PerceelKadastraleAfdelingType"/>
+			<xs:element name="Sectie" type="SectieType"/>
+			<xs:element name="Grondnummer" type="GrondnummerType"/>
+			<xs:element name="Bisnummer" type="BisnummerType" minOccurs="0"/>
+			<xs:element name="Cijferexponent" type="CijferexponentType" minOccurs="0"/>
+			<xs:element name="Letterexponent" type="LetterexponentType" minOccurs="0"/>
+			<xs:element name="Partitie" type="PartitieType"/>
+			<xs:element name="NoemerGemeneDelen" type="NoemerGemeneDelenType" minOccurs="0"/>
+			<xs:element name="Precad" type="PrecadType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AlgemeneInformatieType">
+		<xs:sequence>
+			<xs:element name="KadastraalInkomen" type="KadastraalInkomenType" minOccurs="0"/>
+			<xs:element name="KadastraalInkomenPerOppervlakte" type="KadastraalInkomenPerOppervlakteType" minOccurs="0"/>
+			<xs:element name="Gemeente" type="Gemeente2_0Type" minOccurs="0"/>
+			<xs:element name="IdentificatiePolderOfWatering" type="IdentificatiePolderOfWateringType" minOccurs="0"/>
+			<xs:element name="IndicieGrond" type="IndicieGrondType" minOccurs="0"/>
+			<xs:element name="HuurwaardeGrond" type="HuurwaardeGrondType" minOccurs="0"/>
+			<xs:element name="ValidatieOppervlakte" type="ValidatieOppervlakteType" minOccurs="0"/>
+			<xs:element name="AandeelNietAangeduid" type="AandeelNietAangeduidType" minOccurs="0"/>
+			<xs:element name="Nummer" type="AlgemeneInformatieNummerType" minOccurs="0"/>
+			<xs:element name="VolgordeOnderdelen" type="VolgordeOnderdelenType" minOccurs="0"/>
+			<xs:element name="Oppervlakte" type="AlgemeneInformatieOppervlakteType" minOccurs="0"/>
+			<xs:element name="SleutelToestandPUR" type="SleutelToestandPURType" minOccurs="0"/>
+			<xs:element name="Coordinaat" type="CoordinaatType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KadastraalInkomenType">
+		<xs:sequence>
+			<xs:element name="Bedrag" type="KadastraalInkomenBedragType"/>
+			<xs:element name="Decreten" type="DecretenType" minOccurs="0"/>
+			<xs:element name="Motivatie" type="MotivatieType" minOccurs="0"/>
+			<xs:element name="Motiveringen" type="MotiveringenType" minOccurs="0"/>
+			<xs:element name="Lettercode" type="LettercodeType" minOccurs="0"/>
+			<xs:element name="CijferCode" type="CijferCode" minOccurs="0"/>
+			<xs:element name="DatumEindeVrijstelling" type="generiek:Datum2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AlgemeneInformatieOppervlakteType">
+		<xs:sequence>
+			<xs:element name="Belast" type="BelastOppervlakteType" minOccurs="0"/>
+			<xs:element name="NietBelast" type="BelastOppervlakteType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CoordinaatType">
+		<xs:sequence>
+			<xs:element name="x" type="XYCoordinaatType" minOccurs="0"/>
+			<xs:element name="y" type="XYCoordinaatType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PeriodeVersieType">
+		<xs:sequence>
+			<xs:element name="Begin" type="DatumTijdType" minOccurs="0"/>
+			<xs:element name="Einde" type="DatumTijdType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MaterieelEnOutillageType">
+		<xs:sequence>
+			<xs:element name="Beschrijving" type="MaterieelBeschrijvingType" minOccurs="0"/>
+			<xs:element name="NietBelast" type="NietBelastType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BreedteType">
+		<xs:sequence>
+			<xs:element name="Hoofdgebouw" type="HoofdgebouwType" minOccurs="0"/>
+			<xs:element name="PerceelStraatkant" type="PerceelStraatkantType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdresseerbaarObjectType">
+		<xs:sequence>
+			<xs:element name="ObjectType" type="AdresseerbaarObjectTypeType"/>
+			<xs:element name="ObjectId" type="AdresseerbaarObjectIdType"/>
+			<xs:element name="Detail" type="AdresseerbaarObjectDetailType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GebouwType">
+		<xs:sequence>
+			<xs:element name="Adres" type="AdresType" minOccurs="0"/>
+			<xs:element name="AdresId" type="AdresIdType" minOccurs="0"/>
+			<xs:element name="AdresseerbareObjecten" type="AdresseerbareObjectenType" minOccurs="0"/>
+			<xs:element name="Beschrijving" type="BeschrijvingType" minOccurs="0"/>
+			<xs:element name="AantalKelderverdiepingen" type="AantalKamersType" minOccurs="0"/>
+			<xs:element name="AantalBadkamers" type="AantalKamersType" minOccurs="0"/>
+			<xs:element name="AantalSlaapkamers" type="AantalKamersType" minOccurs="0"/>
+			<xs:element name="NummerBlok" type="NummerBlokType" minOccurs="0"/>
+			<xs:element name="BebouwdeOppervlakte" type="OppervlakteType" minOccurs="0"/>
+			<xs:element name="CentraleVerwarming" type="generiek:VlagEnumType" minOccurs="0"/>
+			<xs:element name="Airco" type="AircoType" minOccurs="0"/>
+			<xs:element name="Constructie" type="ConstructieType" minOccurs="0"/>
+			<xs:element name="BeschrijvingPrivatiefDeel" type="BeschrijvingPrivatiefDeelType" minOccurs="0"/>
+			<xs:element name="TypeDomotica" type="TypeDomoticaType" minOccurs="0"/>
+			<xs:element name="LiggingPrivatiefDeel" type="LiggingPrivatiefDeelType" minOccurs="0"/>
+			<xs:element name="Zwembad" type="ZwembadType" minOccurs="0"/>
+			<xs:element name="PUR" type="PURType" minOccurs="0"/>
+			<xs:element name="Renovatie" type="RenovatieType" minOccurs="0"/>
+			<xs:element name="AantalOverdekteParkeerplaatsen" type="AantalKamersType" minOccurs="0"/>
+			<xs:element name="DetailOverschrijding" type="DetailOverschrijdingType" minOccurs="0"/>
+			<xs:element name="Denom" type="DenomType" minOccurs="0"/>
+			<xs:element name="Beschrijving2" type="AdresBeschrijvingType" minOccurs="0"/>
+			<xs:element name="CADNET" type="CADNETType" minOccurs="0"/>
+			<xs:element name="Verdieping" type="VerdiepingType" minOccurs="0"/>
+			<xs:element name="SpecificatieEigendomZonderAkte" type="SpecificatieEigendomZonderAkteType" minOccurs="0"/>
+			<xs:element name="AantalVerdiepingen" type="AantalVerdiepingenType" minOccurs="0"/>
+			<xs:element name="TotaleOppervlakteVloer" type="TotaleOppervlakteVloerType" minOccurs="0"/>
+			<xs:element name="AantalGarages" type="AantalKamersType" minOccurs="0"/>
+			<xs:element name="Dakverdieping" type="generiek:VlagEnumType" minOccurs="0"/>
+			<xs:element name="TotaalAantalLiften" type="AantalKamersType" minOccurs="0"/>
+			<xs:element name="AantalWoongelegenheden" type="AantalKamersType" minOccurs="0"/>
+			<xs:element name="Gemeenschappelijk" type="GemeenschappelijkType" minOccurs="0"/>
+			<xs:element name="AnderNummer" type="AnderNummerType" minOccurs="0"/>
+			<xs:element name="PercentageVerwarmdeOppervlakte" type="generiek:TekstKort2_0Type" minOccurs="0"/>
+			<xs:element name="JaarFysiekeModificatie" type="CodeJaarKernType" minOccurs="0"/>
+			<xs:element name="AantalRuimtes" type="AantalKamersType" minOccurs="0"/>
+			<xs:element name="Zonnepanelen" type="ZonnepanelenType" minOccurs="0"/>
+			<xs:element name="AantalTerrassen" type="AantalKamersType" minOccurs="0"/>
+			<xs:element name="Tekst" type="generiek:TekstLang2_0Type" minOccurs="0"/>
+			<xs:element name="Oppervlakte" type="AdresOppervlakteType" minOccurs="0"/>
+			<xs:element name="Jaar" type="AdresJaarType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdresType">
+		<xs:sequence>
+			<xs:element name="Straat" type="StraatType"/>
+			<xs:element name="Huisnummer" type="HuisnummerType" minOccurs="0"/>
+			<xs:element name="Busnummer" type="NummerBusType" minOccurs="0"/>
+			<xs:element name="Gemeente" type="Gemeente2_0Type"/>
+			<xs:element name="Land" type="Land2_0Type" minOccurs="0"/>
+			<xs:element name="Sortering" type="SorteringType" minOccurs="0"/>
+			<xs:element name="PeriodeVersie" type="PeriodeType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:Datum2_0Type"/>
+		<xs:attribute name="DatumEinde" type="generiek:Datum2_0Type"/>
+	</xs:complexType>
+	<xs:complexType name="StraatType">
+		<xs:sequence>
+			<xs:element name="Code" type="StraatCodeType"/>
+			<xs:element name="Naam" type="StraatNaamType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PerceelStraatType">
+		<xs:sequence>
+			<xs:element name="Code" type="StraatCodeType" minOccurs="0"/>
+			<xs:element name="Naam" type="StraatNaamType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SorteringType">
+		<xs:sequence>
+			<xs:element name="StraatNaam" type="StraatNaamType" minOccurs="0"/>
+			<xs:element name="Huisnummer" type="HuisnummerType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConstructieType">
+		<xs:sequence>
+			<xs:element name="Indicatie" type="ConstructieIndicatieType" minOccurs="0"/>
+			<xs:element name="Kwaliteit" type="ConstructieKwaliteitType" minOccurs="0"/>
+			<xs:element name="Type" type="ConstructieTypeType" minOccurs="0"/>
+			<xs:element name="Jaar" type="JaarType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PURType">
+		<xs:sequence>
+			<xs:element name="Id" type="PURIdType" minOccurs="0"/>
+			<xs:element name="Aard" type="PURAardType" minOccurs="0"/>
+			<xs:element name="Type" type="PURTypeType" minOccurs="0"/>
+			<xs:element name="Gemeenschappelijk" type="PURGemeenschappelijkType" minOccurs="0"/>
+			<xs:element name="Hoofd" type="PURHoofdType" minOccurs="0"/>
+			<xs:element name="Nummer" type="PURNummerType" minOccurs="0"/>
+			<xs:element name="Locatie" type="PURLocatieType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RenovatieType">
+		<xs:sequence>
+			<xs:element name="TypeRenovatie" type="TypeRenovatieType" minOccurs="0"/>
+			<xs:element name="Oppervlakte" type="RenovatieOppervlakteType" minOccurs="0"/>
+			<xs:element name="Jaar" type="CodeJaarKernType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SpecificatieEigendomZonderAkteType">
+		<xs:sequence>
+			<xs:element name="Van" type="SpecificatieEigendomZonderAkteVanTotType" minOccurs="0"/>
+			<xs:element name="Tot" type="SpecificatieEigendomZonderAkteVanTotType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AantalVerdiepingenType">
+		<xs:sequence>
+			<xs:element name="Bovengronds" type="AantalKamersType" minOccurs="0"/>
+			<xs:element name="Ondergronds" type="AantalKamersType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdresOppervlakteType">
+		<xs:sequence>
+			<xs:element name="Totaal" type="OppervlakteType" minOccurs="0"/>
+			<xs:element name="Gebruikte" type="OppervlakteType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdresJaarType">
+		<xs:sequence>
+			<xs:element name="Van" type="CodeJaarKernType" minOccurs="0"/>
+			<xs:element name="Tot" type="CodeJaarKernType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OnbebouwdType">
+		<xs:sequence>
+			<xs:element name="PUR" type="PURType"/>
+			<xs:element name="Hoofd" type="OnbebouwdHoofdType" minOccurs="0"/>
+			<xs:element name="Locatie" type="OnbebouwdLocatieType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EigenaarRechtType">
+		<xs:sequence>
+			<xs:element name="LijstId" type="PartijIdLijstType" minOccurs="0"/>
+			<xs:element name="Anoniem" type="AnoniemType" minOccurs="0"/>
+			<xs:element name="Type" type="EigenaarRechtTypeType" minOccurs="0"/>
+			<xs:element name="MedeEigenaars" type="MedeEigenaarsType" minOccurs="0"/>
+			<xs:element name="Beheerder" type="BeheerderType" minOccurs="0"/>
+			<xs:element name="ZakelijkRecht" type="ZakelijkRechtType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ZakelijkRechtType">
+		<xs:sequence>
+			<xs:element name="Ongestructureerd" type="OngestructureerdType" minOccurs="0"/>
+			<xs:element name="Gestructureerd" type="GestructureerdType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OngestructureerdType">
+		<xs:sequence>
+			<xs:element name="Rechten" type="OngestructureerdRechtenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OngestructureerdRechtType">
+		<xs:sequence>
+			<xs:element name="Omschrijving" type="generiek:Tekst2_0Type" minOccurs="0"/>
+			<xs:element name="Type" type="OngestructureerdRechtTypeType" minOccurs="0"/>
+			<xs:element name="Verval" type="VervalType" minOccurs="0"/>
+			<xs:element name="Aandeel" type="AandeelType" minOccurs="0"/>
+			<xs:element name="NietBepaald" type="generiek:VlagEnumType" minOccurs="0"/>
+			<xs:element name="Afpaling" type="generiek:VlagEnumType" minOccurs="0"/>
+			<xs:element name="CANietAfgepaald" type="CANietAfgepaaldType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VervalType">
+		<xs:sequence>
+			<xs:element name="Jaar" type="generiek:JaarType" minOccurs="0"/>
+			<xs:element name="Datum" type="generiek:Datum2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AandeelType">
+		<xs:sequence>
+			<xs:element name="Noemer" type="AandeelNummerType"/>
+			<xs:element name="Teller" type="AandeelTellerType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GestructureerdType">
+		<xs:sequence>
+			<xs:element name="Rechten" type="GestructureerdRechtenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GestructureerdRechtType">
+		<xs:sequence>
+			<xs:element name="PartijId" type="PartijIdType"/>
+			<xs:element name="Omschrijving" type="generiek:Tekst2_0Type" minOccurs="0"/>
+			<xs:element name="Percentage_VG" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Percentage_VE" type="xs:decimal" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RechtPeriodeType">
+		<xs:sequence>
+			<xs:element name="Geldigheid" type="generiek:PeriodeVerplichtType"/>
+			<xs:element name="Opname" type="generiek:PeriodeVerplichtType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="PersonenType">
+		<xs:sequence>
+			<xs:element name="Persoon" type="PersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AchternaamLijstType">
+		<xs:sequence>
+			<xs:element name="Achternaam" type="generiek:TekstKort2_0Type" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VoornaamLijstType">
+		<xs:sequence>
+			<xs:element name="Voornaam" type="VoornaamType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OndernemingenType">
+		<xs:sequence>
+			<xs:element name="Onderneming" type="OndernemingType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EigendomstoestandenType">
+		<xs:sequence>
+			<xs:element name="Eigendomstoestand" type="EigendomstoestandType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AlgemeneInformatiesType">
+		<xs:sequence>
+			<xs:element name="AlgemeneInformatie" type="AlgemeneInformatieType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DecretenType">
+		<xs:sequence>
+			<xs:element name="Decreet" type="DecreetType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MotiveringenType">
+		<xs:sequence>
+			<xs:element name="Motivering" type="MotiveringType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GebouwenType">
+		<xs:sequence>
+			<xs:element name="Gebouw" type="GebouwType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdresseerbareObjectenType">
+		<xs:sequence>
+			<xs:element name="AdresseerbaarObject" type="AdresseerbaarObjectType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LijstOnbebouwdType">
+		<xs:sequence>
+			<xs:element name="Onbebouwd" type="OnbebouwdType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EigenaarsRechtenType">
+		<xs:sequence>
+			<xs:element name="EigenaarRecht" type="EigenaarRechtType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PartijIdLijstType">
+		<xs:sequence>
+			<xs:element name="PartijId" type="PartijPartijIdType" minOccurs="1" maxOccurs="2"/>
+		</xs:sequence>
+		<xs:attribute name="Type" type="PartijIdLijstTypeType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="OngestructureerdRechtenType">
+		<xs:sequence>
+			<xs:element name="Recht" type="OngestructureerdRechtType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GestructureerdRechtenType">
+		<xs:sequence>
+			<xs:element name="Recht" type="GestructureerdRechtType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ZoekPercelenType">
+		<xs:sequence>
+			<xs:element name="Perceel" type="ZoekPerceelPerceelType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="PersoonINSZType">
+		<xs:simpleContent>
+			<xs:extension base="sleutel:INSZType">
+				<xs:attribute name="Bron" type="generiek:TekstKort2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="VoornaamType">
+		<xs:simpleContent>
+			<xs:extension base="generiek:TekstKort2_0Type">
+				<xs:attribute name="GebruikelijkeVoornaam" type="generiek:VlagEnumType"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PartijPartijIdType">
+		<xs:simpleContent>
+			<xs:extension base="PartijIdType">
+				<xs:attribute name="WoontOpEigendom" type="generiek:VlagEnumType"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OndernemingsnummerType">
+		<xs:simpleContent>
+			<xs:extension base="sleutel:OndernemingsnummerType">
+				<xs:attribute name="Bron" type="generiek:TekstKort2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="StatusEigendomType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeStatusEigendomType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeStatusEigendomType">
+		<xs:simpleContent>
+			<xs:extension base="CodeStatusEigendomKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="PerceelKadastraleAfdelingType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodePerceelKadastraleAfdelingType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodePerceelKadastraleAfdelingType">
+		<xs:simpleContent>
+			<xs:extension base="CodePerceelKadastraleAfdelingKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="IdentificatiePolderOfWateringType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeIdentificatiePolderOfWateringType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeIdentificatiePolderOfWateringType">
+		<xs:simpleContent>
+			<xs:extension base="CodeIdentificatiePolderOfWateringKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="IndicieGrondType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeIndicieGrondType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeIndicieGrondType">
+		<xs:simpleContent>
+			<xs:extension base="CodeIndicieGrondKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="HuurwaardeGrondType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeHuurwaardeGrondType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeHuurwaardeGrondType">
+		<xs:simpleContent>
+			<xs:extension base="CodeHuurwaardeGrondKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="ValidatieOppervlakteType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeValidatieOppervlakteType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeValidatieOppervlakteType">
+		<xs:simpleContent>
+			<xs:extension base="CodeValidatieOppervlakteKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="DecreetType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeDecreetType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeDecreetType">
+		<xs:simpleContent>
+			<xs:extension base="CodeDecreetKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="MotiveringType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeMotiveringType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeMotiveringType">
+		<xs:simpleContent>
+			<xs:extension base="CodeMotiveringKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="LettercodeType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeLettercodeType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeLettercodeType">
+		<xs:simpleContent>
+			<xs:extension base="CodeLettercodeKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="CijferCode">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeCijferCode"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeCijferCode">
+		<xs:simpleContent>
+			<xs:extension base="CodeCijferKernCode">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="RedenPerimeterType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeRedenPerimeterType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeRedenPerimeterType">
+		<xs:simpleContent>
+			<xs:extension base="CodeRedenPerimeterKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="EPCType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeEPCType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+			<xs:element name="DatumUitgifte" type="generiek:Datum2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeEPCType">
+		<xs:simpleContent>
+			<xs:extension base="CodeEPCKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="AardKadastraalPerceelType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeAardKadastraalPerceelType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeAardKadastraalPerceelType">
+		<xs:simpleContent>
+			<xs:extension base="CodeAardKadastraalPerceelKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="StatusPatrimoniaalPerceelType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeStatusPatrimoniaalPerceelType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeStatusPatrimoniaalPerceelType">
+		<xs:simpleContent>
+			<xs:extension base="CodeStatusPatrimoniaalPerceelKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="GebruikType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeGebruikType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeGebruikType">
+		<xs:simpleContent>
+			<xs:extension base="CodeGebruikKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="AircoType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeAircoType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeAircoType">
+		<xs:simpleContent>
+			<xs:extension base="CodeAircoKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="ConstructieIndicatieType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeConstructieIndicatieType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeConstructieIndicatieType">
+		<xs:simpleContent>
+			<xs:extension base="CodeConstructieIndicatieKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="ConstructieKwaliteitType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeConstructieKwaliteitType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeConstructieKwaliteitType">
+		<xs:simpleContent>
+			<xs:extension base="CodeConstructieKwaliteitKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="ConstructieTypeType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeConstructieTypeType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeConstructieTypeType">
+		<xs:simpleContent>
+			<xs:extension base="CodeConstructieTypeKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="JaarType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeJaarType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeJaarType">
+		<xs:simpleContent>
+			<xs:extension base="CodeJaarKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="BeschrijvingPrivatiefDeelType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeBeschrijvingPrivatiefDeelType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeBeschrijvingPrivatiefDeelType">
+		<xs:simpleContent>
+			<xs:extension base="CodeBeschrijvingPrivatiefDeelKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="TypeDomoticaType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeTypeDomoticaType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeTypeDomoticaType">
+		<xs:simpleContent>
+			<xs:extension base="CodeTypeDomoticaKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="LiggingPrivatiefDeelType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeLiggingPrivatiefDeelType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeLiggingPrivatiefDeelType">
+		<xs:simpleContent>
+			<xs:extension base="CodeLiggingPrivatiefDeelKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="ZwembadType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeZwembadType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeZwembadType">
+		<xs:simpleContent>
+			<xs:extension base="CodeZwembadKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="PURAardType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodePURAardType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodePURAardType">
+		<xs:simpleContent>
+			<xs:extension base="CodePURAardKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="PURTypeType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodePURTypeType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodePURTypeType">
+		<xs:simpleContent>
+			<xs:extension base="CodePURTypeKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="TypeRenovatieType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeTypeRenovatieType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeTypeRenovatieType">
+		<xs:simpleContent>
+			<xs:extension base="CodeTypeRenovatieKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="EigenaarRechtTypeType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeEigenaarRechtTypeType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeEigenaarRechtTypeType">
+		<xs:simpleContent>
+			<xs:extension base="CodeEigenaarRechtTypeKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--========================================-->
+	<xs:complexType name="OngestructureerdRechtTypeType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeOngestructureerdRechtTypeType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeOngestructureerdRechtTypeType">
+		<xs:simpleContent>
+			<xs:extension base="CodeOngestructureerdRechtTypeKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

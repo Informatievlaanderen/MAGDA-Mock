@@ -59,8 +59,7 @@
                                     <Begin>2017-03-03</Begin>
                                 </Periode>
                                 <Reden KorteNaam="Bijstand ziek familielid"
-                                       Naam="Bijstand aan ziek gezinslid of familielid">BIJSTAND_ZIEK_FAMILIELID
-                                </Reden>
+                                       Naam="Bijstand aan ziek gezinslid of familielid">BIJSTAND_ZIEK_FAMILIELID</Reden>
                             </UitstelVanOndertekening>
                         </UitstellenVanOndertekening>
                         <Aanmelding>
@@ -71,12 +70,6 @@
                             </AanmeldingsPlaats>
                             <Reden KorteNaam="Eigen werving onthaalbure" Naam="Eigen werving onthaalbure">13</Reden>
                         </Aanmelding>
-                        <Adviezen>
-                            <HvN KorteNaam="Advies lestype (kort)" Naam="Advies lestype (lange omschrijving)">
-                                hvn content
-                            </HvN>
-                            <Arbeidsmarkt>AR</Arbeidsmarkt>
-                        </Adviezen>
                         <Trajecten>
                             <Traject>
                                 <Type>TT_NT2</Type>
@@ -172,14 +165,18 @@
                                         </Status>
                                         <Besluit>
                                             <Code>VO</Code>
-                                            <DatumToekenning>2017-03-03</DatumToekenning>
                                             <Reden KorteNaam="Reden besluit (kort)"
                                                    Naam="Reden besluit (lange omschrijving)"/>
+                                            <DatumToekenning>2017-03-03</DatumToekenning>
                                         </Besluit>
                                     </TrajectOnderdeel>
                                 </TrajectOnderdelen>
                             </Traject>
                         </Trajecten>
+                        <Adviezen>
+                            <HvN KorteNaam="Advies lestype (kort)" Naam="Advies lestype (lange omschrijving)">hvn content</HvN>
+                            <Arbeidsmarkt>AR</Arbeidsmarkt>
+                        </Adviezen>
                         <Talenkennis>
                             <Talen>
                                 <Taal>

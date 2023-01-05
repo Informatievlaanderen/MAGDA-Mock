@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Dagmar (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema 
+	xmlns="http://magda.vlaanderen.be/generiek/oslo-v3" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:sawsdl="http://www.w3.org/ns/sawsdl" targetNamespace="http://magda.vlaanderen.be/generiek/oslo-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="Generiek-v3.xsd"/>
+	<xs:include schemaLocation="Adres-v3.xsd"/>
+</xs:schema>

@@ -171,14 +171,12 @@
                                         <Communicatie>
                                             <DatumAanmaak>2017-03-06</DatumAanmaak>
                                             <TypeDocument KorteNaam="Ingebrekestelling INB10"
-                                                          Naam="Ingebrekestelling INB10">BRI106
-                                            </TypeDocument>
+                                                          Naam="Ingebrekestelling INB10">BRI106</TypeDocument>
                                         </Communicatie>
                                         <Communicatie>
                                             <DatumAanmaak>2017-03-06</DatumAanmaak>
                                             <TypeDocument KorteNaam="Vaststellingsformulier"
-                                                          Naam="Vaststellingsformulier">BRI109
-                                            </TypeDocument>
+                                                          Naam="Vaststellingsformulier">BRI109</TypeDocument>
                                         </Communicatie>
                                     </Communicaties>
                                 </FeitenRelaas>

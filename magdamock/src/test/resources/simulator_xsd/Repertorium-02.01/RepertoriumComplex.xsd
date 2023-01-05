@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  VIPInterfaces-generiek
+  %%
+  Copyright (C) 2016 - 2018 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+
+<xsd:schema xmlns="http://repertorium-02_01.vip.vlaanderen.be" 
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" 
+			xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" 
+			targetNamespace="http://repertorium-02_01.vip.vlaanderen.be" 
+			elementFormDefault="unqualified" 
+			attributeFormDefault="unqualified" 
+			version="2.01">
+
+	<xsd:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xsd:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xsd:include schemaLocation="RepertoriumEnum.xsd"/>
+	<xsd:include schemaLocation="RepertoriumSimple.xsd"/>
+
+	<!--****************************************-->
+	<!--* Segmenten - Niveau 1 (Hoofd)         *-->
+	<!--****************************************-->
+	<xsd:complexType name="InschrijvingType">
+		<xsd:sequence>
+			<xsd:element name="Identificatie" type="generiek:ApplicatieIdentificatieType"/>
+			<xsd:element name="Hoedanigheid" type="generiek:NaamKortType"/>
+			<xsd:element name="BetrokkenSubject" type="BetrokkenSubjectType"/>
+			<xsd:element name="Periode" type="generiek:PeriodeVerplichtBeginType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UitschrijvingType">
+		<xsd:sequence>
+			<xsd:element name="Identificatie" type="generiek:ApplicatieIdentificatieType"/>
+			<xsd:element name="Hoedanigheid" type="generiek:NaamKortType"/>
+			<xsd:element name="BetrokkenSubject" type="BetrokkenSubjectType"/>
+			<xsd:element name="Periode" type="generiek:PeriodeOptioneelType" nillable="false" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--****************************************-->
+	<!--* Segmenten - Niveau 2 (Sub)           *-->
+	<!--****************************************-->
+	<xsd:complexType name="BetrokkenSubjectType">
+		<xsd:sequence>
+			<xsd:element name="Type" type="generiek:ApplicatieIdentificatieType"/>
+			<xsd:element name="Subjecten" type="SubjectLijstType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--****************************************-->
+	<!--* Segmenten - Niveau 3 (Samengesteld)  *-->
+	<!--****************************************-->
+	<xsd:complexType name="SubjectLijstType">
+		<xsd:sequence>
+			<xsd:element name="Subject" type="SubjectType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubjectType">
+		<xsd:sequence>
+			<xsd:element name="Rol" type="generiek:Tekst2_0Type" minOccurs="0"/>
+			<xsd:element name="Type" type="generiek:Tekst2_0Type"/>
+			<xsd:element name="Sleutel" type="generiek:Tekst2_0Type"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--========================================-->
+	<!--****************************************-->
+	<!--* Segmenten - Niveau 4 (Enkelvoudig)   *-->
+	<!--****************************************-->
+	<!--========================================-->
+	<!--****************************************-->
+	<!--* Segmenten - Niveau 5 (Simple Extend) *-->
+	<!--****************************************-->
+	<!--========================================-->
+	<!--========================================-->
+</xsd:schema>

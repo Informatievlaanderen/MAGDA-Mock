@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  VIPInterfaces-generiek
+  %%
+  Copyright (C) 2016 - 2018 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+
+<xs:schema xmlns="http://kadaster-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kadaster-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00">
+	    
+	<xs:simpleType name="TypeZoekOpdrachtType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[JjFf]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="KadastraleAfdelingType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ResultatenType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="3"/>
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="999"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ZoekPerceelResultatenType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="3"/>
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="999"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PartijIdType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeNISGemeenteType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodePostType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="CodeNISLandType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeISOLandType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="2"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="InschrijvingType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="22"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeStatusEigendomKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DubieusType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DatumTijdType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}-[0-1,9][0-9]-[0-3,9][0-9] [0-2][0-9]:[0-5][0-9](:[0-5][0-9](\.[0-9]{3})?)?"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="EigendomIdType">
+		<xs:restriction base="xs:integer" />
+	</xs:simpleType>
+
+	<xs:simpleType name="WaardeType">
+		<xs:restriction base="xs:decimal" />
+	</xs:simpleType>
+	
+	<xs:simpleType name="CodePerceelKadastraleAfdelingKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SectieType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="GrondnummerType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="BisnummerType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ZoekPerceelBisnummerType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="2"/>
+			<xs:minInclusive value="2"/>
+      		<xs:maxInclusive value="99"/>			
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CijferexponentType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ZoekPerceelCijferexponentType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="3"/>
+			<xs:minInclusive value="2"/>
+      		<xs:maxInclusive value="999"/>			
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="LetterexponentType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PartitieType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:pattern value="P[0-9][0-9][0-9][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="NoemerGemeneDelenType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="KadastraalInkomenPerOppervlakteType">
+		<xs:restriction base="xs:decimal" />
+	</xs:simpleType>	
+
+	<xs:simpleType name="CodeIdentificatiePolderOfWateringKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeIndicieGrondKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="CodeHuurwaardeGrondKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="CodeValidatieOppervlakteKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AandeelNietAangeduidType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="AlgemeneInformatieNummerType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="VolgordeOnderdelenType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="BelastOppervlakteType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SleutelToestandPURType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="19"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="XYCoordinaatType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="KadastraalInkomenBedragType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeDecreetKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="MotivatieType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AantalLiftenType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="BeschrijvingPrivatiefGedeelteType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="BeschrijvingTweedeAardBassinType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="CodeRedenPerimeterKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeEPCKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeAardKadastraalPerceelKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="CodeStatusPatrimoniaalPerceelKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="CodeGebruikKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeCadnetDetailType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="EnergieverbruikType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DrempelBelastbaarType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="IsolatiewaardeType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	
+	<xs:simpleType name="BeschrijvingKlaarpanType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="MaximaleThermischeGeleidbaarheidType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="MaterieelBeschrijvingType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="NietBelastType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="LiggingIdPerceelType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="19"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="HoofdgebouwType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PerceelStraatkantType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="12"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="RootputType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="SchetsnummerType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="StraatCodeType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="HuisnummerType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="NummerBusType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="BeschrijvingType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	
+	<xs:simpleType name="AantalKamersType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="NummerBlokType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="OppervlakteType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>		
+
+	<xs:simpleType name="CodeAircoKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeConstructieIndicatieKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeConstructieKwaliteitKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeConstructieTypeKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeBeschrijvingPrivatiefDeelKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeTypeDomoticaKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeLiggingPrivatiefDeelKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeZwembadKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodePURAardKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="CodePURTypeKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="PURGemeenschappelijkType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PURHoofdType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PURNummerType">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="PURLocatieType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeTypeRenovatieKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="RenovatieOppervlakteType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DetailOverschrijdingType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DenomType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AdresBeschrijvingType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CADNETType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="VerdiepingType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="SpecificatieEigendomZonderAkteVanTotType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TotaleOppervlakteVloerType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="GemeenschappelijkType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="AnderNummerType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ZonnepanelenType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PURIdType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="OnbebouwdHoofdType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="OnbebouwdLocatieType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AnoniemType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeEigenaarRechtTypeKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="MedeEigenaarsType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeOngestructureerdRechtTypeKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AandeelNummerType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AandeelTellerType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CANietAfgepaaldType">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="19"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PrecadType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[srSR]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeMotiveringKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeLettercodeKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="CodeCijferKernCode">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="StraatNaamType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CodeJaarKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="GestructureerdRechtBronType">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="ZoekPerceelPerceelCodeType">
+		<xs:restriction base="xs:integer" />
+	</xs:simpleType>
+
+	<xs:simpleType name="HuisnummerSorteringType">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+	<xs:simpleType name="BeheerderType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AdresIdType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AdresseerbaarObjectTypeType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AdresseerbaarObjectIdType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="25"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AdresseerbaarObjectDetailType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

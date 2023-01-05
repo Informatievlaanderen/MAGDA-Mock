@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  VIPInterfaces-generiek
+  %%
+  Copyright (C) 2016 - 2018 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+
+<xsd:schema targetNamespace="http://dossier-02_00.vip.vlaanderen.be"
+		xmlns="http://dossier-02_00.vip.vlaanderen.be"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be"
+		xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be"
+		xmlns:repertorium="http://repertorium-02_01.vip.vlaanderen.be"
+		elementFormDefault="unqualified"
+		attributeFormDefault="unqualified"
+		version="2.00">
+
+	<xsd:include schemaLocation="DossierSimple.xsd"/>
+	<xsd:include schemaLocation="DossierEnum.xsd"/>
+	<xsd:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xsd:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xsd:import namespace="http://repertorium-02_01.vip.vlaanderen.be" schemaLocation="../Repertorium-02.01/Repertorium.xsd"/>
+
+	<xsd:complexType name="GeefResultaatRegistratieIdentificatieType">
+		<xsd:sequence>
+			<xsd:element name="Bron" type="BronUriType" />
+			<xsd:element name="Dossiernummer" type="generiek:Tekst2_0Type" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GeefUitzonderingenRegistratiesIdentificatieType">
+		<xsd:sequence>
+			<xsd:element name="Bron" type="BronUriType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ResultaatRegistratieType">
+		<xsd:sequence>
+			<xsd:element name="Resultaat" type="generiek:ResultaatCodeType"/>
+			<xsd:element name="Identificatie" type="GeefResultaatRegistratieIdentificatieType" minOccurs="0"/>
+			<xsd:element name="Bestand" type="generiek:TekstKort2_0Type" minOccurs="0"/>
+			<xsd:element name="TijdstipVerwerking" type="generiek:DatumTijdType" minOccurs="0"/>
+			<xsd:element name="Fouten" type="generiek:FoutenType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UitzonderingenRegistratiesType">
+		<xsd:sequence>
+			<xsd:element name="UitzonderingenRegistratie" type="ResultaatRegistratieType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DossierLijstType">
+		<xsd:sequence>
+			<xsd:element name="Dossier" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="DossierMutaties" type="DossierMutatieLijstType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DossierMutatieLijstType">
+		<xsd:sequence>
+			<xsd:element name="DossierMutatie"  type="DossierMutatieType" maxOccurs="unbounded"/>
+		</xsd:sequence>	
+	</xsd:complexType>
+	<xsd:complexType name="DossierMutatieType">
+		<xsd:complexContent>
+			<xsd:extension base="DossierType">
+				<xsd:sequence>
+					<xsd:element name="Periode" type="generiek:PeriodeDatumTijdVerplichtBeginType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>	
+	<xsd:complexType name="DossierType">
+		<xsd:sequence>
+			<xsd:element name="Identificatie" type="GeefResultaatRegistratieIdentificatieType"/>
+			<xsd:element name="Naam" type="generiek:Tekst2_0Type"/>
+			<xsd:element name="DatumModificatie" type="generiek:DatumTijdType" minOccurs="0"/>
+			<xsd:element name="StreefDatum" type="generiek:DatumTijdType" minOccurs="0"/>
+			<xsd:element name="Status" type="DossierStatusType" minOccurs="0"/>
+			<xsd:element name="Type" type="generiek:Tekst2_0Type"/>
+			<xsd:element name="Producten" type="ProductenType" minOccurs="0"/>
+			<xsd:element name="Beheerder" type="DossierBeheerderType" minOccurs="0"/>
+			<xsd:element name="ExtraInformatie" type="generiek:Tekst2_0Type" minOccurs="0"/>
+			<xsd:element name="Doorverwijzing" type="DoorverwijzingType" minOccurs="0"/>
+			<xsd:element name="Subjecten" type="repertorium:SubjectLijstType"/>
+			<xsd:element name="Eigenschappen" type="EigenschappenType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DossierStatusType">
+		<xsd:sequence>
+			<xsd:element name="Code" type="generiek:Tekst2_0Type" minOccurs="0"/>
+			<xsd:element name="Fase" type="generiek:Tekst2_0Type" minOccurs="0"/>
+			<xsd:element name="EDRL" type="generiek:Tekst2_0Type" minOccurs="0"/>
+			<xsd:element name="Details" type="DetailsType" minOccurs="0"/>
+			<xsd:element name="DatumModificatie" type="generiek:DatumTijdType" minOccurs="0"/>
+			<xsd:element name="Actie" type="generiek:ActieType" minOccurs="0"/>
+			<xsd:element name="StreefDatum" type="generiek:DatumTijdType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DetailsType">
+		<xsd:sequence>
+			<xsd:element name="Detail" type="generiek:Tekst2_0Type" maxOccurs="2"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProductenType">
+		<xsd:sequence>
+			<xsd:element name="Product" type="ProductNummerType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DossierBeheerderType">
+		<xsd:sequence>
+			<xsd:element name="Contact" type="generiek:ContactType" minOccurs="0"/>
+			<xsd:element name="Adres" type="generiek:GeneriekAdresType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EigenschappenType">
+		<xsd:sequence>
+			<xsd:element name="Vertrouwelijk" type="generiek:VlagEnumType"/>
+			<xsd:element name="Publiek" type="generiek:VlagEnumType"/>
+			<xsd:element name="IsNietRaadpleegbaar" type="generiek:VlagEnumType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CriteriaGeefDossiers2_0Type">
+		<xsd:sequence>
+			<xsd:element name="INSZ" type="sleutel:INSZType"/>
+			<xsd:element name="Bronnen" type="generiek:BronLijstType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

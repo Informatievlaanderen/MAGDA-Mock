@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Bert Van Kets (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/generiek-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://magda.vlaanderen.be/generiek-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<!--ENKELVOUDIGE TYPE DEFINITES-->
+	<xs:simpleType name="NaamLangType">
+		<xs:annotation>
+			<xs:documentation>NaamLangType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="128"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VoornaamKortType">
+		<xs:annotation>
+			<xs:documentation>Voornaam van een persoon type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="48"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NaamKortType">
+		<xs:annotation>
+			<xs:documentation>NaamKortType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="24"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--SAMENGESTELDE TYPE DEFINITES-->
+</xs:schema>

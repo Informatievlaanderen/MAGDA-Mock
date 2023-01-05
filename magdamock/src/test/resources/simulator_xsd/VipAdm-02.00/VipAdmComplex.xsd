@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  VIPInterfaces-generiek
+  %%
+  Copyright (C) 2016 - 2018 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+
+<xs:schema targetNamespace="http://vipadm-02_00.vip.vlaanderen.be"
+           xmlns="http://vipadm-02_00.vip.vlaanderen.be"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified"
+           version="2.00">
+
+    <xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+    <xs:include schemaLocation="VipAdmSimple.xsd"/>
+    <xs:include schemaLocation="VipAdmEnum.xsd"/>
+
+    <xs:complexType name="GeefGuiNamenVoorUriHoedanigheidType">
+        <xs:sequence>
+            <xs:element name="UriHoedanigheiden" type="UriHoedanigheidenType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="UriHoedanigheidenType">
+        <xs:sequence>
+            <xs:element name="UriHoedanigheid" type="UriHoedanigheidType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="UriHoedanigheidType">
+        <xs:sequence>
+            <xs:element name="Uri" type="xs:string"/>
+            <xs:element name="Hoedanigheid" type="xs:string" minOccurs="0" />
+            <xs:element name="Bronnen" type="generiek:VlagEnumType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="UriType">
+        <xs:sequence>
+            <xs:element name="Uri" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DienstenVoorUriHoedanigheidType">
+        <xs:sequence>
+            <xs:element name="Diensten" type="DienstLijstType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DienstLijstType">
+        <xs:sequence>
+            <xs:element name="Dienst" type="DienstType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DienstType">
+        <xs:sequence>
+            <xs:element name="Id" type="generiek:NumeriekLangType"/>
+            <xs:element name="Naam" type="generiek:TekstType"/>
+            <xs:element name="Versie" type="VipAdmVersieType"/>
+            <xs:element name="Bronnen" type="BronType" minOccurs="0"/>
+            <xs:element name="Parameters" type="ParametersType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ParametersType">
+        <xs:sequence>
+            <xs:element name="Parameter" type="ParameterType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ParameterType">
+        <xs:sequence>
+            <xs:element name="Naam" type="generiek:TekstKort2_0Type"/>
+            <xs:element name="Waarde" type="generiek:TekstLang2_0Type"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GuiNamenType">
+        <xs:sequence>
+            <xs:element name="GuiNaamUriHoedanigheid" type="GuiNaamUriHoedanigheidType" minOccurs="1"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GuiNaamUriHoedanigheidType">
+        <xs:sequence>
+            <xs:element name="GuiNaam" type="xs:string"/>
+            <xs:element name="Uri" type="xs:string"/>
+            <xs:element name="Hoedanigheid" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="WachtwoordVoorUriType">
+        <xs:sequence>
+            <xs:element name="Wachtwoord" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BronType">
+        <xs:sequence>
+            <xs:element name="Primair" type="xs:string" minOccurs="0"/>
+            <xs:element name="Secundair" type="xs:string" minOccurs="0"/>
+            <xs:element name="Tertiair" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  epb2-ws-epc
+  %%
+  Copyright (C) 2016 - 2017 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+
+<xs:schema targetNamespace="http://energie-02_00.epb.vea.lne.vlaanderen.be"
+		   xmlns="http://energie-02_00.epb.vea.lne.vlaanderen.be"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="unqualified" 
+           attributeFormDefault="unqualified" 
+           version="2.00.201703311222">
+
+    <!--<xs:simpleType name="EpcEenheidType">-->
+        <!--<xs:restriction base="xs:string">-->
+            <!--<xs:enumeration value="EPC Bouw"/>-->
+            <!--<xs:enumeration value="EPC Bestaand"/>-->
+            <!--<xs:enumeration value="EPC Niet Residentieel"/>-->
+        <!--</xs:restriction>-->
+    <!--</xs:simpleType>-->
+
+    <!--<xs:simpleType name="AardVanDeWerkenType">-->
+        <!--<xs:restriction base="xs:string">-->
+            <!--<xs:enumeration value="Nieuwbouw (of gelijkgesteld)"/>-->
+            <!--<xs:enumeration value="Renovatie"/>-->
+            <!--<xs:enumeration value="Functiewijziging"/>-->
+            <!--<xs:enumeration value="Ingrijpende energetische renovatie"/>-->
+        <!--</xs:restriction>-->
+    <!--</xs:simpleType>-->
+
+    <!--<xs:simpleType name="VerduidelijkingAardVanDeWerkenType">-->
+        <!--<xs:restriction base="xs:string">-->
+            <!--<xs:enumeration value="Nieuwbouw"/>-->
+            <!--<xs:enumeration value="Herbouw"/>-->
+            <!--<xs:enumeration value="Ontmanteling"/>-->
+            <!--<xs:enumeration value="Gedeeltelijke herbouw met een BV groter dan 800 m³"/>-->
+            <!--<xs:enumeration value="Gedeeltelijke herbouw met minstens één wooneenheid"/>-->
+            <!--<xs:enumeration value="Uitbreiding met een BV groter dan 800 m³"/>-->
+            <!--<xs:enumeration value="Uitbreiding met minstens één wooneenheid"/>-->
+            <!--<xs:enumeration value="Gedeeltelijke herbouw met een BV kleiner dan of gelijk aan 800 m³ en zonder wooneenheden"/>-->
+            <!--<xs:enumeration value="Uitbreiding met een BV kleiner dan of gelijk aan 800 m³ en zonder wooneenheden"/>-->
+            <!--<xs:enumeration value="Verbouwing"/>-->
+            <!--<xs:enumeration value="Functiewijziging"/>-->
+        <!--</xs:restriction>-->
+    <!--</xs:simpleType>-->
+
+    <!--<xs:simpleType name="BestandTypeType">-->
+        <!--<xs:restriction base="xs:string">-->
+            <!--<xs:enumeration value="certificaat"/>-->
+            <!--<xs:enumeration value="hoofdformulier"/>-->
+        <!--</xs:restriction>-->
+    <!--</xs:simpleType>-->
+
+    <!--<xs:simpleType name="BestemmingType">-->
+        <!--<xs:restriction base="xs:string">-->
+            <!--<xs:enumeration value="Wonen"/>-->
+            <!--<xs:enumeration value="Kantoor"/>-->
+            <!--<xs:enumeration value="School"/>-->
+            <!--<xs:enumeration value="Andere specifieke bestemming"/>-->
+            <!--<xs:enumeration value="Industrie"/>-->
+            <!--<xs:enumeration value="Landbouw"/>-->
+            <!--<xs:enumeration value="Gemeenschappelijk deel"/>-->
+            <!--<xs:enumeration value="Niet Residentieel"/>-->
+            <!--<xs:enumeration value="Aangrenzende onverwarmde ruimte"/>-->
+        <!--</xs:restriction>-->
+    <!--</xs:simpleType>-->
+
+    <!--<xs:simpleType name="GebouwType">-->
+        <!--<xs:restriction base="xs:string">-->
+            <!--<xs:enumeration value="Administratief gebouw"/>-->
+            <!--<xs:enumeration value="Andere bestemming of overige welzijnsvoorziening"/>-->
+            <!--<xs:enumeration value="Andere woonvorm"/>-->
+            <!--<xs:enumeration value="Appartement"/>-->
+            <!--<xs:enumeration value="Bibliotheek"/>-->
+            <!--<xs:enumeration value="Bioscoop"/>-->
+            <!--<xs:enumeration value="Collectieve huisvesting"/>-->
+            <!--<xs:enumeration value="Concertzaal, theather, cultureel centrum, cultuur of bijeenkomstgebouw"/>-->
+            <!--<xs:enumeration value="Dagopvang en kinderkribbe of kinderdagverblijf en/of buitenschoolse opvang"/>-->
+            <!--<xs:enumeration value="Eéngezinswoning"/>-->
+            <!--<xs:enumeration value="Gerechtshof"/>-->
+            <!--<xs:enumeration value="Handel"/>-->
+            <!--<xs:enumeration value="Hoger onderwijs en universiteiten"/>-->
+            <!--<xs:enumeration value="Hotel"/>-->
+            <!--<xs:enumeration value="Kantoor"/>-->
+            <!--<xs:enumeration value="Laboratorium"/>-->
+            <!--<xs:enumeration value="Loft"/>-->
+            <!--<xs:enumeration value="Luchthavengebouw"/>-->
+            <!--<xs:enumeration value="Politiekantoor"/>-->
+            <!--<xs:enumeration value="Postkantoor"/>-->
+            <!--<xs:enumeration value="Museum"/>-->
+            <!--<xs:enumeration value="Restaurant en café"/>-->
+            <!--<xs:enumeration value="Rusthuis"/>-->
+            <!--<xs:enumeration value="School of andere onderwijsinfrastructuur"/>-->
+            <!--<xs:enumeration value="School voor kleuteronderwijs"/>-->
+            <!--<xs:enumeration value="School voor lager onderwijs"/>-->
+            <!--<xs:enumeration value="School voor secundair onderwijs"/>-->
+            <!--<xs:enumeration value="Sportvoorziening"/>-->
+            <!--<xs:enumeration value="Sporthal"/>-->
+            <!--<xs:enumeration value="Sporthal met zwembad"/>-->
+            <!--<xs:enumeration value="Stationsgebouw"/>-->
+            <!--<xs:enumeration value="Studio"/>-->
+            <!--<xs:enumeration value="Vakantiehuis in recreatiedomein"/>-->
+            <!--<xs:enumeration value="Verenigingslokaal en jeugdhuis"/>-->
+            <!--<xs:enumeration value="Ziekenhuis"/>-->
+            <!--<xs:enumeration value="Zwembad"/>-->
+        <!--</xs:restriction>-->
+    <!--</xs:simpleType>-->
+
+    <!--<xs:simpleType name="EpbEenheidTypeType">-->
+        <!--<xs:restriction base="xs:string">-->
+            <!--<xs:enumeration value="EPN_EENHEID"/>-->
+            <!--<xs:enumeration value="EPW_EENHEID"/>-->
+        <!--</xs:restriction>-->
+    <!--</xs:simpleType>	-->
+</xs:schema>

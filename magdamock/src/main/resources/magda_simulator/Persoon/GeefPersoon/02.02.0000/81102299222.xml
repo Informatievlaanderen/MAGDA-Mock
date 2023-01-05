@@ -242,6 +242,17 @@
 								</Geslacht>
 								<Geboortedatum>1980-11-15</Geboortedatum>
 							</Partner>
+							<Plaats>
+								<Gemeente>
+									<NISCode>24055</NISCode>
+									<Naam>Kortenberg</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
 						</WettelijkeSamenwoning>
 						<Identiteitsbewijzen>
 							<Identiteitsbewijs DatumBegin="2010-01-01">
