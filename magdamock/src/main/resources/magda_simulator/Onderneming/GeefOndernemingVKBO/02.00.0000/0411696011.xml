@@ -27,9 +27,9 @@
                 <Inhoud>
                     <Onderneming DatumModificatie="2009-11-27">
                         <Ondernemingsnummer>0411696011</Ondernemingsnummer>
-                        <AuthentiekBron>
+                        <AuthentiekeBron>
                             <Code Beschrijving="KBO">03</Code>
-                        </AuthentiekBron>
+                        </AuthentiekeBron>
                         <OndernemingOfVestiging DatumModificatie="2009-11-27">
                             <Code Beschrijving="Onderneming">1</Code>
                         </OndernemingOfVestiging>
@@ -49,9 +49,9 @@
                             </Straat>
                             <Huisnummer>2</Huisnummer>
                             <Gemeente>
-                                <Naam>Gent</Naam>
                                 <NISCode>44021</NISCode>
                                 <PostCode>9000</PostCode>
+                                <Naam>Gent</Naam>
                             </Gemeente>
                             <Land>
                                 <NISCode>150</NISCode>

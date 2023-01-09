@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 rel. 2 sp1 (http://www.altova.com) by Stefan Vleugels (AGENTSCHAP FACILITAIR BEDRIJF) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/persoon-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:bericht="http://generiek-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/persoon-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:include schemaLocation="PersoonGemeenschappelijk-v3.xsd"/>
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<!--=> SAMENGESTELDE TYPE DEFINITES-->
+	<xs:complexType name="CriteriaGeefPersoonType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="OpvragingenKSZ" type="OpvragingenKSZType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OpvragingenKSZType">
+		<xs:sequence>
+			<xs:element name="BasisPersoonsgegevens" type="generiek:VlagCodeType" minOccurs="0"/>
+			<xs:element name="Afstamming" type="generiek:VlagCodeType" minOccurs="0"/>
+			<xs:element name="AfstammingDalendeLijn" type="generiek:VlagCodeType" minOccurs="0"/>
+			<xs:element name="Identiteitsbewijs" type="generiek:VlagCodeType" minOccurs="0"/>
+			<xs:element name="Beroepskaart" type="generiek:VlagCodeType" minOccurs="0"/>
+			<xs:element name="Arbeidskaart" type="generiek:VlagCodeType" minOccurs="0"/>
+			<xs:element name="WettigVerblijf" type="generiek:VlagCodeType" minOccurs="0"/>
+			<xs:element name="AdministratieveToestand" type="generiek:VlagCodeType" minOccurs="0"/>
+			<xs:element name="PlaatsInschrijving" type="generiek:VlagCodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ======================== RESPONSE TYPES ======================= -->
+	<xs:complexType name="PersoonType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Naam" type="NaamPersoonType" minOccurs="0"/>
+			<xs:element name="Pseudoniemen" type="PseudoniemLijstType" minOccurs="0"/>
+			<xs:element name="AdellijkeTitel" type="AdellijkeTitelPersoonType" minOccurs="0"/>
+			<xs:element name="Naamswijziging" type="NaamswijzigingPersoonType" minOccurs="0"/>
+			<xs:element name="Geslacht" type="GeslachtPersoonType" minOccurs="0"/>
+			<xs:element name="Geslachtsverandering" type="GeslachtsveranderingPersoonType" minOccurs="0"/>
+			<xs:element name="VerklaringInschrijving" type="VerklaringInschrijvingPersoonType" minOccurs="0"/>
+			<xs:element name="Statussen" type="StatusPersoonLijstType" minOccurs="0"/>
+			<xs:element name="Beheerder" type="BeheerderType" minOccurs="0"/>
+			<xs:element name="Referentiedossier" type="ReferentiedossierPersoonType" minOccurs="0"/>
+			<xs:element name="Register" type="RegisterPersoonType" minOccurs="0"/>
+			<xs:element name="VoorlopigeInschrijving" type="VoorlopigeInschrijvingPersoonType" minOccurs="0"/>
+			<xs:element name="Nationaliteiten" type="NationaliteitLijstType" minOccurs="0"/>
+			<xs:element name="Geboorte" type="GeboorteType" minOccurs="0"/>
+			<xs:element name="Overlijden" type="OverlijdenType" minOccurs="0"/>
+			<xs:element name="BurgerlijkeStaten" type="BurgerlijkeStaatLijstType" minOccurs="0"/>
+			<xs:element name="Adressen" type="AdressenPersoonType" minOccurs="0"/>
+			<xs:element name="Afstammingen" type="AfstammingLijstType" minOccurs="0"/>
+			<xs:element name="AfstammingenDalendeLijn" type="AfstammingDalendeLijnLijstType" minOccurs="0"/>
+			<xs:element name="Referentiepersoon" type="ReferentiepersoonType" minOccurs="0"/>
+			<xs:element name="Gezinsleden" type="GezinslidLijstType" minOccurs="0"/>
+			<xs:element name="WettelijkeSamenwoning" type="WettelijkeSamenwoningType" minOccurs="0"/>
+			<xs:element name="Afwezigheid" type="AfwezigheidPersoonType" minOccurs="0"/>
+			<xs:element name="Identiteitsbewijzen" type="IdentiteitsbewijsLijstType" minOccurs="0"/>
+			<xs:element name="Beroepskaarten" type="BeroepskaartLijstType" minOccurs="0"/>
+			<xs:element name="Arbeidskaarten" type="ArbeidskaartLijstType" minOccurs="0"/>
+			<xs:element name="BepalingenHoofdverblijfplaats" type="BepalingHoofdverblijfplaatsLijstType" minOccurs="0"/>
+			<xs:element name="Bewindvoerders" type="BewindvoerderLijstType" minOccurs="0"/>
+			<xs:element name="JuridischeStatuten" type="JuridischStatuutLijstType" minOccurs="0"/>
+			<xs:element name="WettigeVerblijven" type="WettigVerblijfLijstType" minOccurs="0"/>
+			<xs:element name="GedeeldeVerblijven" type="GedeeldVerblijfLijstType" minOccurs="0"/>
+			<xs:element name="TypeVluchteling" type="TypeVluchtelingType" minOccurs="0"/>
+			<xs:element name="EIDCertificaten" type="EIDCertificatenType" minOccurs="0"/>
+			<xs:element name="NummersDienstVreemdelingenzaken" type="NummerDienstVreemdelingenzakenLijstType" minOccurs="0"/>
+			<xs:element name="VoorlopigInschrijvingsnummer" type="VoorlopigInschrijvingsnummerPersoonType" minOccurs="0"/>
+			<xs:element name="AdministratieveToestanden" type="AdministratieveToestandLijstType" minOccurs="0"/>
+			<xs:element name="Identiteitsdocument" type="IdentiteitsdocumentPersoonType" minOccurs="0"/>
+			<xs:element name="GekozenWoonplaats" type="GekozenWoonplaatsPersoonType" minOccurs="0"/>
+			<xs:element name="Aliassen" type="AliasLijstType" minOccurs="0"/>
+			<xs:element name="PlaatsenInschrijving" type="PlaatsInschrijvingLijstType" minOccurs="0"/>
+			<xs:element name="Contactgegevens" type="ContactgegevensType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="DatumCreatie" type="generiek:DatumType"/>
+		<xs:attribute name="DatumModificatie" type="generiek:DatumType"/>
+		<xs:attribute name="Bron" type="generiek:BronType"/>
+	</xs:complexType>
+	<xs:complexType name="AdressenPersoonType">
+		<xs:sequence>
+			<xs:element name="Hoofdverblijfplaats" type="HoofdverblijfplaatsType" minOccurs="0"/>
+			<xs:element name="VerblijfplaatsBuitenland" type="VerblijfplaatsBuitenlandType" minOccurs="0"/>
+			<xs:element name="PostadresBuitenland" type="PostadresBuitenlandType" minOccurs="0"/>
+			<xs:element name="OpgegevenAdres" type="OpgegevenAdresType" minOccurs="0"/>
+			<xs:element name="AangifteAdreswijziging" type="AangifteAdreswijzigingType" minOccurs="0"/>
+			<xs:element name="AangifteAdresBuitenland" type="AangifteAdresBuitenlandType" minOccurs="0"/>
+			<xs:element name="TijdelijkeAfwezigheid" type="TijdelijkeAfwezigheidType" minOccurs="0"/>
+			<xs:element name="PlaatsHerkomst" type="PlaatsHerkomstType" minOccurs="0"/>
+			<xs:element name="NietMededeelbaarAdres" type="NietMededeelbaarAdresType" minOccurs="0"/>
+			<xs:element name="WettelijkeWoonplaats" type="WettelijkeWoonplaatsAdresType" minOccurs="0"/>
+			<xs:element name="ContactAdres" type="ContactAdresType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MutatiePersoonType">
+		<xs:sequence>
+			<xs:element name="MutatieInformatie" type="bericht:MutatieInformatieType"/>
+			<xs:element name="Persoon" type="PersoonType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InwonersPerAdresType">
+		<xs:sequence>
+			<xs:element name="Adres" type="CrabAdresType"/>
+			<xs:element name="AantalInwoners" type="xs:integer" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CrabAdresType">
+		<xs:complexContent>
+			<xs:extension base="generiek:AdresCrabType">
+				<xs:sequence>
+					<xs:element name="AdresId" type="xs:string" minOccurs="0"/>
+					<xs:element name="HuisnummerLabel" type="xs:string" minOccurs="0"/>
+					<xs:element name="Herkomst" type="xs:string" minOccurs="0"/>
+					<xs:element name="X-Coordinaat" type="xs:string" minOccurs="0"/>
+					<xs:element name="Y-Coordinaat" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

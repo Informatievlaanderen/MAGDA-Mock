@@ -536,7 +536,7 @@
                                     <Afgiftesystemen>
                                        <SoortAfgifteSysteem>Radiatoren/convectoren</SoortAfgifteSysteem>
                                     </Afgiftesystemen>
-                                    <Aandeel meeteenheid="procent">100</Aandeel>
+                                    <Aandeel meeteenheid="procent">100.00</Aandeel>
                                  </InstallatieVoorRuimteVerwarming>
                               </InstallatiesVoorRuimteverwarming>
                               <InstallatiesVoorSanitairWarmWater>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://generiek-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://generiek-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00">
+	<xs:include schemaLocation="GeneriekComplex.xsd"/>
+	<xs:complexType name="UitzonderingenType">
+		<xs:annotation>
+			<xs:documentation>Verzamelnaam van de Uitzonderingen die zijn ontdekt tijdens
+- Het ontleden van het oorspronkelijke verzoek (request)  (Niveau 1)
+- Het valideren van het bericht en zijn context (Niveau 2)
+- Het valideren en transformeren van elk van de gestelde vragen of  tijdens het ontleden, valideren en transformeren van het antwoord zoals door de brom geleverd (Niveau 3)
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Uitzondering" type="UitzonderingType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UitzonderingType">
+		<xs:annotation>
+			<xs:documentation>Segment waarin alle details omtrent het optreden van een enekel uitzondering zijn beschreven</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Identificatie" type="UitzonderingIdentificatieType">
+				<xs:annotation>
+					<xs:documentation>Code die een uitzondering op unieke wijze identificeert.	Deze code is toegekend door MAGDA.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Oorsprong" type="UitzonderingOorsprongType">
+				<xs:annotation>
+					<xs:documentation>Geeft aan wat of wie de oorsprong van de fout is ... Een fout identificeert zich dus als Identificatie.Oorsprong</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Type" type="UitzonderingTypeType">
+				<xs:annotation>
+					<xs:documentation>Code die aangeeft hoe ernstig de uitzondering is.   Deze graad van ernst is door MAGDA toegekend aan de uitzondering.
+FOUT betekent dat het verzoek of een deel ervan niet is kunnen ingewilligd worden
+WAARSCHUWING betekent dat de respons op het verzoek is kunnen samengesteld worden maar dat de inhoud ervan door de doeltpoepassing wellicht anders moet worden geïnterpreteerd.
+INFO  betekent dat de uitzondering puur informatief is en dat de doeltoepassing geen alternatief gedrag moet aanwenden.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Tijdstip" type="TijdstipType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tijdstip dat aangeeft waneer de uitzondering heeft opgetreden</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Diagnose" type="UitzonderingDiagnoseType">
+				<xs:annotation>
+					<xs:documentation>Bevat de textuele beschrijving, zoals door MAGDA gedefinieerd,  van de uitzondering die is opgetreden.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Omstandigheid" type="UitzonderingOmstandigheidType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Beschrijving van het deel van het verzoek waar de uitzondering is opgetreden.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Annotaties" type="AnnotatiesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Annotaties</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ElementReferenties" type="ElementReferentiesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Referenties naar elementen in het Antwoord</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ElementReferentiesType">
+		<xs:annotation>
+			<xs:documentation>Verzamelnaam van de ElementReferenties waarnaar door een Uitzondering verwezen kan worden.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ElementReferentie" type="ElementReferentieType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ElementReferentieType">
+		<xs:annotation>
+			<xs:documentation>Een ElementReferentie is een (gedeeltelijk) xpath verwijzend naar een element in het Antwoord.
+			Op die manier kunnen Uitzonderingen gelinkt worden aan een set van elementen (niet naar een specifiek element!)
+			Deze functionaliteit is ingebouwd in het kader van de KSZ anomaliën, die in hun description persoonlijke data kunnen bevatten.
+			Als een afnemer op die persoonlijke data geen machtiging heeft, moeten deze Uitzonderingen uitgefilterd kunnen worden.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="UitzonderingIdentificatieType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+			<xs:pattern value="[\p{N}]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UitzonderingTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FOUT"/>
+			<xs:enumeration value="WAARSCHUWING"/>
+			<xs:enumeration value="INFORMATIE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UitzonderingDiagnoseType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="UitzonderingOmstandigheidType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="UitzonderingOorsprongType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+			<xs:pattern value="[0-9a-zA-Z_]{1,5}"/>
+			<!-- \w @#$  -->
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

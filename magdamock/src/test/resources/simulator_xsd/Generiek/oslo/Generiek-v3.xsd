@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Dagmar (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/generiek/oslo-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sawsdl="http://www.w3.org/ns/sawsdl" targetNamespace="http://magda.vlaanderen.be/generiek/oslo-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<!--*************** OSLO compliant named elements ***************-->
+	<!--*************** OSLO compliant types ***************-->
+	<xs:complexType name="GestructureerdeIdentificatorType" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#gestructureerdedentificator">
+		<xs:sequence>
+			<xs:element name="LokaleIdentificator" type="xs:string" minOccurs="1" maxOccurs="1" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#lokaleIdentificator"/>
+			<xs:element name="Naamruimte" type="xs:string" minOccurs="1" maxOccurs="1" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#naamruimte"/>
+			<xs:element name="VersieIdentificator" type="xs:string" minOccurs="0" maxOccurs="1" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#versieIdentificator"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeOmschrijvingType" sawsdl:modelReference="">
+		<xs:sequence>
+			<xs:element name="Code" type="xs:string" minOccurs="1" maxOccurs="1" sawsdl:modelReference=""/>
+			<xs:element name="Omschrijving" type="TaalstringType" minOccurs="0" maxOccurs="1" sawsdl:modelReference=""/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaalstringType" sawsdl:modelReference="https://www.w3.org/1999/02/22-rdf-syntax-ns#langString">
+		<xs:sequence>
+			<xs:element name="String" type="xs:string" minOccurs="1" maxOccurs="1" sawsdl:modelReference=""/>
+			<xs:element name="Taal" type="NAL_languageType" minOccurs="1" maxOccurs="1" sawsdl:modelReference=""/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetypeerdeStringType" sawsdl:modelReference="https://www.w3.org/2000/01/rdf-schema#Literal">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:simpleType name="NAL_languageType" sawsdl:modelReference="">
+		<xs:annotation>
+			<xs:documentation>Zie http://publications.europa.eu/mdr/authority/language/.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" sawsdl:modelReference=""/>
+	</xs:simpleType>
+	<!--*************** OSLO enumeratie types ******-->
+</xs:schema>

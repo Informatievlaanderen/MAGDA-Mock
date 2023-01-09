@@ -72,7 +72,15 @@
                                 </StatusInformatie>
                                 <Perceel>
                                     <Identificatie>
-                                        <Cijferexponent>1</Cijferexponent>
+                                        <KadastraleAfdeling>
+                                            <Code>24013</Code>
+                                            <Omschrijving>Kortenberg 3 AFD/BLANDEN/</Omschrijving>
+                                        </KadastraleAfdeling>
+                                        <Sectie>A</Sectie>
+                                        <Grondnummer>155</Grondnummer>
+                                        <Cijferexponent>2</Cijferexponent>
+                                        <Letterexponent>N</Letterexponent>
+                                        <Partitie>P0005</Partitie>
                                     </Identificatie>
                                     <AlgemeneInformaties>
                                         <AlgemeneInformatie>

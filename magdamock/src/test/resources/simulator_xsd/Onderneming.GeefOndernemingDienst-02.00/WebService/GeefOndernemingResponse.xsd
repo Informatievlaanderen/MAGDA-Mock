@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  VIPInterfaces-generiek
+  %%
+  Copyright (C) 2016 - 2018 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+
+<xsd:schema targetNamespace="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be"
+            xmlns="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be" 
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be"
+            xmlns:onderneming="http://onderneming-02_00.vip.vlaanderen.be"
+            elementFormDefault="unqualified" 
+            attributeFormDefault="unqualified"
+            version="2.00">
+            
+	<xsd:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../../Generiek-02.00/Generiek.xsd"/>
+	<xsd:import namespace="http://onderneming-02_00.vip.vlaanderen.be" schemaLocation="../../Onderneming-02.00/Onderneming.xsd"/>
+	
+	<xsd:element name="GeefOndernemingResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Repliek" type="RepliekType" minOccurs="1"/>
+				
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="RepliekType">
+		<xsd:sequence>
+			<xsd:element name="Context" type="generiek:ContextType"/>
+			<xsd:element name="Antwoorden" type="AntwoordenType" minOccurs="0"/>
+			<xsd:element name="Uitzonderingen" type="generiek:UitzonderingenType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fouten die voorkomen na de verwerking van de Context maar voor de verwerking van Vraag of Antwoord bv: XSD Validatie fouten</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordenType">
+		<xsd:sequence>
+			<xsd:element name="Antwoord" type="AntwoordType" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordType">
+		<xsd:sequence>
+			<xsd:element name="Referte" type="generiek:ReferteType"/>
+			<xsd:element name="Inhoud" type="AntwoordInhoudType" minOccurs="0"/>
+			<xsd:element name="Uitzonderingen" type="generiek:UitzonderingenType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fouten die voorkomen na de verwerking van Vraag of Antwoord bv: warnings rond ontbrekende data en fouten gelinked aan 1 antwoord</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordInhoudType">
+		<xsd:sequence>
+			<xsd:element name="Onderneming" type="onderneming:Onderneming2_0Type"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

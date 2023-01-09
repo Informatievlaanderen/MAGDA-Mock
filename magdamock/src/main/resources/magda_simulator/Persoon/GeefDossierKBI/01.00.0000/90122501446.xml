@@ -57,7 +57,7 @@
                             <Document>
                                 <Soort>ATTEST</Soort>
                                 <Type>AEVC05</Type>
-                                <Id>attestID-1234567890</Id>
+                                <Id>17abef64-3dc5-43da-abd2-eaf8912f76c4</Id>
                                 <DatumAanmaak>2016-03-26</DatumAanmaak>
                                 <DatumOndertekening>2016-03-27</DatumOndertekening>
                                 <AangemaaktDoor>
@@ -66,8 +66,8 @@
                             </Document>
                             <Document>
                                 <Soort>ATTEST</Soort>
-                                <Type>ICO13G</Type>
-                                <Id>attestID-1234567890</Id>
+                                <Type>AI023</Type>
+                                <Id>ee700683-c65c-4c4a-a56e-2433b1fa6e77</Id>
                                 <DatumAanmaak>2016-03-26</DatumAanmaak>
                                 <DatumOndertekening>2016-03-27</DatumOndertekening>
                                 <AangemaaktDoor>
@@ -125,8 +125,8 @@
                                 </Status>
                                 <Besluit>
                                     <Code>JA_IB</Code>
-                                    <DatumToekenning>2017-03-03</DatumToekenning>
                                     <Reden KorteNaam="Alle stappen ok" Naam="Heeft alle stappen doorlopen"/>
+                                    <DatumToekenning>2017-03-03</DatumToekenning>
                                 </Besluit>
                                 <TrajectOnderdelen>
                                     <TrajectOnderdeel>

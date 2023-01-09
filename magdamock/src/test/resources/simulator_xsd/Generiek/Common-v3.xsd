@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Bart Olaerts (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xsd:schema xmlns="http://magda.vlaanderen.be/generiek-v3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://magda.vlaanderen.be/generiek-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<!--ENKELVOUDIGE TYPE DEFINITES-->
+	<xsd:simpleType name="ReferteType">
+		<xsd:annotation>
+			<xsd:documentation>Definitie van een referte, bij voorkeur een GUID, maar elke string met maximum 36 karakters wordt aanvaard op het Magda platform</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="36"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

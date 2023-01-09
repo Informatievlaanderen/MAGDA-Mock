@@ -36,7 +36,8 @@
                                 <Code>VOP</Code>
                                 <Omschrijving>Vlaamse Ondersteuningspremie</Omschrijving>
                             </Maatregel>
-                            <Status>
+                            <INSZ xmlns:ns2="http://webservice.geefstatusrechtondersteuningen-02_00.socecon-02_00.vip.vlaanderen.be">67021546719</INSZ>
+                           <Status>
                                 <Code>TG</Code>
                                 <Omschrijving>Toegekend</Omschrijving>
                             </Status>

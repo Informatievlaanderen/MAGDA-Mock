@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  VIPInterfaces-generiek
+  %%
+  Copyright (C) 2016 - 2018 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+
+<xs:schema xmlns="http://inkomen-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" targetNamespace="http://inkomen-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00">
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xs:include schemaLocation="InkomenEnum.xsd"/>
+	<xs:include schemaLocation="InkomenSimple.xsd"/>
+
+	<xs:complexType name="CriteriaGeefAanslagbiljetPersonenbelastingType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Inkomensjaar" type="generiek:JaarType"/>
+			<xs:element name="Inschrijvingsperiode" type="generiek:PeriodeVerplichtBeginType" minOccurs="0"/>
+			<xs:element name="IPCALCodes" type="IPCALCodeLijstType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanslagbiljetPersonenbelastingType">
+		<xs:sequence>
+			<xs:element name="GevraagdePersoon" type="AanslagbiljetPersoonType"/>
+			<xs:element name="GerelateerdePersoon" type="AanslagbiljetPersoonType" minOccurs="0"/>
+			<xs:element name="Inkomensjaar" type="generiek:JaarType"/>
+			<xs:element name="Artikelnummer" type="ArtikelNummerType"/>
+			<xs:element name="Items" type="ItemLijstType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="IPCALCodeLijstType">
+		<xs:sequence>
+			<xs:element name="IPCALCode" type="IPCALCodeType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanslagbiljetPersoonType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="FiscaleStatus" type="FiscaleStatusType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FiscaleStatusType">
+		<xs:sequence>
+			<xs:element name="Code" type="FiscaleStatusCodeType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ItemLijstType">
+		<xs:sequence>
+			<xs:element name="Item" type="ItemType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ItemType">
+		<xs:sequence>
+			<xs:element name="Code" type="ItemCodeType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+			<xs:element name="Waarde" type="WaardeType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CodeFiscaleStatusType">
+		<xs:sequence>
+			<xs:element name="Code" type="FiscaleStatusCodeType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FiscaleStatusCodeType">
+		<xs:simpleContent>
+			<xs:extension base="CodeFiscaleStatusKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ItemCodeType">
+		<xs:simpleContent>
+			<xs:extension base="ItemKernType">
+				<xs:attribute name="Beschrijving" type="generiek:Tekst2_0Type"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

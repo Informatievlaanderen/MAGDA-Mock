@@ -1,0 +1,131 @@
+<!--
+  #%L
+  epb2-ws-epc
+  %%
+  Copyright (C) 2016 - 2017 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+<!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by Eddy Beurms (Realdolmen) -->
+<xsd:schema xmlns="http://webservice.geefepcdienst-02_01.energie-02_01.epb.vea.lne.vlaanderen.be" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:energie="http://energie-02_01.epb.vea.lne.vlaanderen.be" targetNamespace="http://webservice.geefepcdienst-02_01.energie-02_01.epb.vea.lne.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01">
+	<xsd:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../../Generiek-02.00/Generiek.xsd"/>
+	<xsd:import namespace="http://energie-02_01.epb.vea.lne.vlaanderen.be" schemaLocation="../../Energie-02.01/Energie.xsd"/>
+	<xsd:element name="GeefEpcResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+                <xsd:element name="Repliek" type="RepliekMijnEnergieDetailType" minOccurs="1"/>
+                
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="RepliekMijnEpcType">
+		<xsd:sequence>
+			<xsd:element name="Context" type="generiek:ContextType"/>
+			<xsd:element name="Antwoorden" type="AntwoordenMijnEpcType" minOccurs="0"/>
+			<xsd:element name="Uitzonderingen" type="generiek:UitzonderingenType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fouten die voorkomen na de verwerking van de Context maar voor de verwerking van Vraag of Antwoord bv: XSD Validatie fouten</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordenMijnEpcType">
+		<xsd:sequence>
+			<xsd:element name="Antwoord" type="AntwoordMijnEpcType" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordMijnEpcType">
+		<xsd:sequence>
+			<xsd:element name="Referte" type="generiek:ReferteType"/>
+			<xsd:element name="Inhoud" type="AntwoordInhoudMijnEpcType" minOccurs="0"/>
+			<xsd:element name="Uitzonderingen" type="generiek:UitzonderingenType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fouten die voorkomen na de verwerking van Vraag of Antwoord bv: warnings rond ontbrekende data en fouten gelinked aan 1 antwoord</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordInhoudMijnEpcType">
+		<xsd:sequence>
+			<xsd:element name="MijnEpcs" type="energie:MijnEpcType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RepliekMijnEnergieResultatenType">
+		<xsd:sequence>
+			<xsd:element name="Context" type="generiek:ContextType"/>
+			<xsd:element name="Antwoorden" type="AntwoordenMijnEnergieResultatenType" minOccurs="0"/>
+			<xsd:element name="Uitzonderingen" type="generiek:UitzonderingenType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fouten die voorkomen na de verwerking van de Context maar voor de verwerking van Vraag of Antwoord bv: XSD Validatie fouten</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordenMijnEnergieResultatenType">
+		<xsd:sequence>
+			<xsd:element name="Antwoord" type="AntwoordMijnEnergieResultatenType" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordMijnEnergieResultatenType">
+		<xsd:sequence>
+			<xsd:element name="Referte" type="generiek:ReferteType"/>
+			<xsd:element name="Inhoud" type="AntwoordInhoudMijnEnergieResultatenType" minOccurs="0"/>
+			<xsd:element name="Uitzonderingen" type="generiek:UitzonderingenType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fouten die voorkomen na de verwerking van Vraag of Antwoord bv: warnings rond ontbrekende data en fouten gelinked aan 1 antwoord</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordInhoudMijnEnergieResultatenType">
+		<xsd:sequence>
+			<xsd:element name="MijnEnergieResultaten" type="energie:MijnEnergieResultatenType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RepliekMijnEnergieDetailType">
+		<xsd:sequence>
+			<xsd:element name="Context" type="generiek:ContextType"/>
+			<xsd:element name="Antwoorden" type="AntwoordenMijnEnergieDetailType" minOccurs="0"/>
+			<xsd:element name="Uitzonderingen" type="generiek:UitzonderingenType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fouten die voorkomen na de verwerking van de Context maar voor de verwerking van Vraag of Antwoord bv: XSD Validatie fouten</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordenMijnEnergieDetailType">
+		<xsd:sequence>
+			<xsd:element name="Antwoord" type="AntwoordMijnEnergieDetailType" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordMijnEnergieDetailType">
+		<xsd:sequence>
+			<xsd:element name="Referte" type="generiek:ReferteType"/>
+			<xsd:element name="Inhoud" type="AntwoordInhoudMijnEnergieDetailType" minOccurs="0"/>
+			<xsd:element name="Uitzonderingen" type="generiek:UitzonderingenType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fouten die voorkomen na de verwerking van Vraag of Antwoord bv: warnings rond ontbrekende data en fouten gelinked aan 1 antwoord</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordInhoudMijnEnergieDetailType">
+		<xsd:sequence>
+			<xsd:element name="MijnEnergieDetails" type="energie:MijnEnergieDetailsType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
