@@ -6,6 +6,7 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
 import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
+import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import be.vlaanderen.vip.magda.legallogging.model.Annotatie;
 import be.vlaanderen.vip.magda.legallogging.model.GefaaldeAanvraag;
 import be.vlaanderen.vip.magda.legallogging.model.GeslaagdeAanvraag;
@@ -56,10 +57,10 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
         log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), request);
 
-        MagdaDocument response = callMagda(aanvraag, request);
-        Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
+        try {
+            MagdaDocument response = callMagda(request);
+            Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
 
-        if (response != null) {
             MagdaAntwoord antwoord = maakAntwoord(aanvraag, response);
 
             final List<Uitzondering> uitzonderingen = antwoord.getUitzonderingen();
@@ -78,11 +79,11 @@ public class MagdaConnectorImpl implements MagdaConnector {
             }
 
             return antwoord;
-        }
+        } catch (MagdaSendFailed e) {
+            logGeenAntwoord(aanvraag);
 
-        logGeenAntwoord(aanvraag);
-        log.warn("<< Antwoord van {} ({} ms) TIMEOUT", endpoint, duration.toMillis());
-        throw new GeenAntwoordException(aanvraag, "Geen antwoord");
+            throw new GeenAntwoordException(aanvraag, "Geen antwoord", e);
+        }
     }
 
 
@@ -214,18 +215,14 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return inhoud.getLength() == 1;
     }
 
-    private MagdaDocument callMagda(Aanvraag aanvraag, MagdaDocument request) {
-        try {
-            final Document xml = request.getXml();
-            Document response = connection.sendDocument(xml);
-            if (response != null) {
-                return new MagdaDocument(response);
-            }
-        } catch (Exception e) {
-            final String endpoint = magdaEndpoints.magdaUrl(aanvraag.magdaService());
-            log.error("Fout in communicatie met {}", endpoint, e);
+    private MagdaDocument callMagda(MagdaDocument request) throws MagdaSendFailed {
+        final Document xml = request.getXml();
+        Document response = connection.sendDocument(xml);
+        if (response != null) {
+            return new MagdaDocument(response);
+        } else {
+            throw new IllegalStateException("BUG: sendDocument returned null");
         }
-        return null;
     }
 
 

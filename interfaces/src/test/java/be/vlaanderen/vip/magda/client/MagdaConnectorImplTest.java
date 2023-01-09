@@ -1,12 +1,15 @@
 package be.vlaanderen.vip.magda.client;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.verify;
-
+import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
+import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
+import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
+import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
+import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
+import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.magda.legallogging.service.AfnemerLogService;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -16,15 +19,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.w3c.dom.Document;
 
-import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
-import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
-import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
-import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
-import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
-import be.vlaanderen.vip.magda.legallogging.service.AfnemerLogService;
-import lombok.SneakyThrows;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class MagdaConnectorImplTest {
@@ -50,9 +47,20 @@ class MagdaConnectorImplTest {
 	
 	@Nested
 	class NoReply {
-		
+
 		@Test
-		void requestFails() {
+		void sendDocumentReturnsNull() throws MagdaSendFailed {
+			var req = new GeefBewijsAanvraag("test-insz");
+			var reqDoc = MagdaDocument.fromTemplate(req);
+
+			// if this occurs, we ought to treat it as a bug in the code
+			assertThrows(IllegalStateException.class, () -> connector.send(req, reqDoc));
+		}
+
+		@Test
+		void requestFails() throws MagdaSendFailed {
+			when(connection.sendDocument(any())).thenThrow(new MagdaSendFailed("something went wrong"));
+
 			var req = new GeefBewijsAanvraag("test-insz");
 			var reqDoc = MagdaDocument.fromTemplate(req);
 			
@@ -60,7 +68,9 @@ class MagdaConnectorImplTest {
 		}
 		
 		@Test
-		void logsRequest() {
+		void logsRequest() throws MagdaSendFailed {
+			when(connection.sendDocument(any())).thenThrow(new MagdaSendFailed("something went wrong"));
+
 			var req = new GeefBewijsAanvraag("test-insz");
 			var reqDoc = MagdaDocument.fromTemplate(req);
 			
@@ -69,7 +79,9 @@ class MagdaConnectorImplTest {
 		}
 
 		@Test
-		void logsNoReply() {
+		void logsNoReply() throws MagdaSendFailed {
+			when(connection.sendDocument(any())).thenThrow(new MagdaSendFailed("something went wrong"));
+
 			var req = new GeefBewijsAanvraag("test-insz");
 			var reqDoc = MagdaDocument.fromTemplate(req);
 			
