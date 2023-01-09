@@ -1,13 +1,12 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import be.vlaanderen.vip.magda.client.Aanvraag;
-import be.vlaanderen.vip.magda.client.MagdaAntwoord;
-import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
-import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.*;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.mock.magda.client.endpoints.MagdaEndpointsMock;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.wss4j.common.ext.WSSecurityException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -30,11 +29,30 @@ public abstract class MockTestBase {
 
     protected MagdaConnectorImpl makeMagdaConnector(AfnemerLogServiceMock afnemerLogService) {
         var connection = new MagdaMockConnection();
-        MagdaEndpointsMock magdaEndpoints = new MagdaEndpointsMock();
-        MagdaHoedanigheid mockedMagdaHoedanigheid = new MagdaHoedanigheid(TEST_SERVICE_NAAM, TEST_SERVICE_URI, TEST_SERVICE_HOEDANIGHEID);
-        MagdaHoedanigheidServiceMock magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
-        var connector = new MagdaConnectorImpl(connection, afnemerLogService, magdaEndpoints, magdaHoedanigheidService);
-        return connector;
+
+        var magdaEndpoints = new MagdaEndpointsMock();
+        var mockedMagdaHoedanigheid = new MagdaHoedanigheid(TEST_SERVICE_NAAM, TEST_SERVICE_URI, TEST_SERVICE_HOEDANIGHEID);
+        var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
+
+        return new MagdaConnectorImpl(connection, afnemerLogService, magdaEndpoints, magdaHoedanigheidService);
+    }
+
+    protected MagdaConnectorImpl makeSignedMagdaConnector(
+            AfnemerLogServiceMock afnemerLogService,
+            TwoWaySslProperties signedConnectionRequestSignerKeystore,
+            TwoWaySslProperties signedConnectionResponseVerifierKeystore,
+            TwoWaySslProperties mockConnectionRequestVerifierKeystore,
+            TwoWaySslProperties mockConnectionResponseSignerKeystore)
+            throws WSSecurityException {
+        var mockConnection = new MagdaMockConnection(mockConnectionRequestVerifierKeystore, mockConnectionResponseSignerKeystore);
+
+        var signedConnection = new MagdaSignedConnection(mockConnection, signedConnectionRequestSignerKeystore, signedConnectionResponseVerifierKeystore);
+
+        var magdaEndpoints = new MagdaEndpointsMock();
+        var mockedMagdaHoedanigheid = new MagdaHoedanigheid(TEST_SERVICE_NAAM, TEST_SERVICE_URI, TEST_SERVICE_HOEDANIGHEID);
+        var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
+
+        return new MagdaConnectorImpl(signedConnection, afnemerLogService, magdaEndpoints, magdaHoedanigheidService);
     }
 
     protected void assertThatTechnicalFieldsInRequestMatchAanvraag(MagdaDocument doc, Aanvraag aanvraag) {

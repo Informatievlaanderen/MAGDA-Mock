@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client;
 
+import be.vlaanderen.vip.magda.client.security.Signer;
 import lombok.SneakyThrows;
 import org.apache.wss4j.common.WSEncryptionPart;
 import org.apache.wss4j.common.crypto.Crypto;
@@ -36,6 +37,7 @@ public class SigningTest {
 
     // Self-signed test certificaat + private key in PKCS12 file aangemaakt enkel voor de testen met https://hohnstaedt.de/xca/
     // JKS file aangemaakt vanaf PKCS12 file met behulp van https://keystore-explorer.org/downloads.html
+    // Het bijgeleverd script in <project root>/scripts/make_mock_jks.sh kan ook worden gebruikt als alternatief.
     private static final String STORE_PASSWORD = "mijnpaswoord";
     private static final String CERTIFICATE_NAME = "mock x509 certificaat";
     private static final String SUBJECTDN = "EMAILADDRESS=pascal@nayima.be, CN=be.nayima.mock.client, OU=Dev, O=Nayima, L=Zaventem, ST=Vlaams Brabant, C=BE";

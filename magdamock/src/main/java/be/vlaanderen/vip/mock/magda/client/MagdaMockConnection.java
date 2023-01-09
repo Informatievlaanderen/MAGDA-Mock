@@ -3,20 +3,24 @@ package be.vlaanderen.vip.mock.magda.client;
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
+import be.vlaanderen.vip.magda.client.security.DocumentSignatureVerifier;
+import be.vlaanderen.vip.magda.client.security.DocumentSigner;
+import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
-import be.vlaanderen.vip.mock.magda.client.simulators.RandomPasfotoSimulator;
-import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
-import be.vlaanderen.vip.mock.magda.client.simulators.StaticResponseSimulator;
+import be.vlaanderen.vip.mock.magda.client.simulators.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.wss4j.common.ext.WSSecurityException;
 import org.w3c.dom.Document;
 
-import java.util.HashMap;
+import java.util.Optional;
 
 @Slf4j
 public class MagdaMockConnection implements MagdaConnection {
+
     private Document defaultResponse = null;
     
-    private static HashMap<String, SOAPSimulator> simulators;
+    private static ISOAPSimulator simulator;
 
     // Subcategories for MAGDA services
     private static final String PERSOON = "Persoon";
@@ -29,51 +33,85 @@ public class MagdaMockConnection implements MagdaConnection {
 
     private static final String KEY_RRNR = "//rrnr";
 
-    static {
-        simulators = new HashMap<>();
+    public MagdaMockConnection() {
+        this.simulator = constructBuiltInSimulator(Optional.empty(), Optional.empty());
+    }
+
+    public MagdaMockConnection(TwoWaySslProperties requestVerifierConfig, TwoWaySslProperties responseSignerConfig) throws WSSecurityException {
+        Optional<DocumentSignatureVerifier> requestVerifier;
+        Optional<DocumentSigner> responseSigner;
+
+        if(requestVerifierConfig != null && StringUtils.isNotEmpty(requestVerifierConfig.getKeyStoreLocation())) {
+            requestVerifier = Optional.of(DocumentSignatureVerifier.fromJksStore(requestVerifierConfig));
+        } else {
+            requestVerifier = Optional.empty();
+        }
+
+        if(responseSignerConfig != null && StringUtils.isNotEmpty(responseSignerConfig.getKeyStoreLocation())) {
+            responseSigner = Optional.of(DocumentSigner.fromJksStore(responseSignerConfig));
+        } else {
+            responseSigner = Optional.empty();
+        }
+
+        this.simulator = constructBuiltInSimulator(requestVerifier, responseSigner);
+    }
+
+    private static ISOAPSimulator constructBuiltInSimulator(Optional<DocumentSignatureVerifier> requestVerifier, Optional<DocumentSigner> responseSigner) {
+        var combinedSimulator = new CombinedSimulator();
 
         // PERSOON Standaard
-        simulators.put("RegistreerInschrijving/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("RegistreerInschrijving/02.01.0000", new StaticResponseSimulator(PERSOON, "//Subject/Type", "//Subject/Sleutel"));
-        simulators.put("RegistreerUitschrijving/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("RegistreerInschrijving", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("RegistreerInschrijving", "02.01.0000", new StaticResponseSimulator(PERSOON, "//Subject/Type", "//Subject/Sleutel"));
+        combinedSimulator.register("RegistreerUitschrijving", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
 
-        simulators.put("GeefBewijs/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("GeefHistoriekInschrijving/02.01.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("RaadpleegLeerkredietsaldo/01.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefBewijs", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefHistoriekInschrijving", "02.01.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("RaadpleegLeerkredietsaldo", "01.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
 
-        simulators.put("GeefLoopbaanOnderbrekingen/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("GeefStatusRechtOndersteuningen/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("GeefFuncties/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("GeefDossiers/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("GeefKindVoordelen/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("GeefVolledigDossierHandicap/03.00.0000", new StaticResponseSimulator(PERSOON, KEY_RRNR));
+        combinedSimulator.register("GeefLoopbaanOnderbrekingen", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefStatusRechtOndersteuningen", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefFuncties", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefDossiers", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefKindVoordelen", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefVolledigDossierHandicap", "03.00.0000", new StaticResponseSimulator(PERSOON, KEY_RRNR));
 
-        simulators.put("GeefPersoon/02.02.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("GeefHistoriekPersoon/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("GeefHistoriekPersoon/02.02.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("GeefGezinssamenstelling/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("GeefGezinssamenstelling/02.02.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefPersoon", "02.02.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefHistoriekPersoon", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefHistoriekPersoon", "02.02.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefGezinssamenstelling", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefGezinssamenstelling", "02.02.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
 
-        simulators.put("GeefDossierKBI/01.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefDossierKBI", "01.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
 
-        simulators.put("GeefAanslagbiljetPersonenbelasting/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefAanslagbiljetPersonenbelasting", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
 
-        simulators.put("ZoekEigendomstoestanden/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("ZoekEigendomstoestanden", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
 
-        simulators.put("ZoekPersoonOpAdres/02.02.0000", new StaticResponseSimulator(PERSOON, "//Inhoud/Bron","//Criteria/Adres/PostCode", "//Criteria/Adres/Straatcode", "//Criteria/Adres/Huisnummer", "//Criteria/EnkelReferentiepersoon"));
+        combinedSimulator.register("ZoekPersoonOpAdres", "02.02.0000", new StaticResponseSimulator(PERSOON, "//Inhoud/Bron","//Criteria/Adres/PostCode", "//Criteria/Adres/Straatcode", "//Criteria/Adres/Huisnummer", "//Criteria/EnkelReferentiepersoon"));
 
         // PERSOON Custom
-        simulators.put("GeefAttest/02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
-        simulators.put("GeefPasfoto/02.00.0000", new RandomPasfotoSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefAttest", "02.00.0000", new StaticResponseSimulator(PERSOON, KEY_INSZ));
+        combinedSimulator.register("GeefPasfoto", "02.00.0000", new RandomPasfotoSimulator(PERSOON, KEY_INSZ));
 
         // ONDERNEMING
-        simulators.put("GeefOnderneming/02.00.0000", new StaticResponseSimulator(ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
-        simulators.put("GeefOndernemingVKBO/02.00.0000", new StaticResponseSimulator(ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
+        combinedSimulator.register("GeefOnderneming", "02.00.0000", new StaticResponseSimulator(ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
+        combinedSimulator.register("GeefOndernemingVKBO", "02.00.0000", new StaticResponseSimulator(ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
 
         // GEBOUW
-        simulators.put("GeefEpc/02.00.0000", new StaticResponseSimulator(VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId"));
-        simulators.put("GeefEpc/02.01.0000", new StaticResponseSimulator(VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId", "//Criteria/Adres/Postcode", "//Criteria/Adres/Straat", "//Criteria/Adres/Huisnummer"));
+        combinedSimulator.register("GeefEpc", "02.00.0000", new StaticResponseSimulator(VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId"));
+        combinedSimulator.register("GeefEpc", "02.01.0000", new StaticResponseSimulator(VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId", "//Criteria/Adres/Postcode", "//Criteria/Adres/Straat", "//Criteria/Adres/Huisnummer"));
 
+        ISOAPSimulator simulator = combinedSimulator;
+
+        if(requestVerifier.isPresent()) {
+            simulator = new SignatureVerifyingSimulator(simulator, requestVerifier.get());
+        }
+
+        if(responseSigner.isPresent()) {
+            simulator = new SigningSimulator(simulator, responseSigner.get());
+        }
+
+        return simulator;
     }
 
     @Override
@@ -95,23 +133,7 @@ public class MagdaMockConnection implements MagdaConnection {
     }
 
     private Document send(Document xml) throws MagdaSendFailed {
-        var request = MagdaDocument.fromDocument(xml);
-        var dienst = request.getValue("//Verzoek/Context/Naam");
-        var versie = request.getValue("//Verzoek/Context/Versie");
-
-        var simulator = simulators.get(dienst + "/" + versie);
-        if (simulator != null) {
-            var response = simulator.send(request);
-            String soap = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" >\n" +
-                    "  <soapenv:Header/>\n" +
-                    "  <soapenv:Body>\n" +
-                    response +
-                    "  </soapenv:Body>\n" +
-                    "</soapenv:Envelope>";
-            return MagdaDocument.fromString(soap).getXml();
-        } else {
-            throw new MagdaSendFailed("Er is geen magda simulator geregistreerd voor " + dienst + "/" + versie + "");
-        }
+        return simulator.send(MagdaDocument.fromDocument(xml)).getXml();
     }
 
     public void setDefaultResponse(Document xml) {

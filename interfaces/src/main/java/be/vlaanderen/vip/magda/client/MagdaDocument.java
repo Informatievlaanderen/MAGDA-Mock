@@ -174,6 +174,14 @@ public class MagdaDocument {
         return node;
     }
 
+    public String getTargetService() {
+        return getValue("//Verzoek/Context/Naam");
+    }
+
+    public String getTargetVersion() {
+        return getValue("//Verzoek/Context/Versie");
+    }
+
     public String toString() {
         TransformerFactory tf = TransformerFactory.newInstance();
         Transformer transformer = null;

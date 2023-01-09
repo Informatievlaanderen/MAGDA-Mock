@@ -29,18 +29,18 @@ public class StaticResponseSimulator extends SOAPSimulator {
         var dienst = params.getServiceNaam();
         var versie = params.getServiceVersie();
 
-        var response = loadResource(dienst, versie, params.getKeys());
-        if (response == null) {
-            response = loadResource(dienst, versie, replaceLastKey(params.getKeys(), "notfound"));
+        var responseBody = loadResource(dienst, versie, params.getKeys());
+        if (responseBody == null) {
+            responseBody = loadResource(dienst, versie, replaceLastKey(params.getKeys(), "notfound"));
         }
-        if (response == null) {
-            response = loadResource(dienst, versie, replaceLastKey(params.getKeys(), "success"));
+        if (responseBody == null) {
+            responseBody = loadResource(dienst, versie, replaceLastKey(params.getKeys(), "success"));
         }
 
-        if (response != null) {
-            PatchResponse(params, response);
+        if (responseBody != null) {
+            PatchResponse(params, responseBody);
 
-            return response;
+            return wrapInEnvelope(responseBody);
         } else {
             log.warn("Geen mock data gevonden voor request naar {} {}", dienst, versie);
             return null;

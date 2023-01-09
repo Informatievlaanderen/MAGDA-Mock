@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.magda.client;
+package be.vlaanderen.vip.magda.client.security;
 
 
 import org.apache.wss4j.dom.message.WSSecHeader;

@@ -126,13 +126,13 @@
     <dependency>
       <groupId>be.vlaanderen.vip.mock</groupId>
       <artifactId>magdaconnector</artifactId>
-      <version>0.13.0-SNAPSHOT</version>
+      <version>${project.parent.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>be.vlaanderen.vip.mock</groupId>
       <artifactId>magdamock</artifactId>
-      <version>0.13.0-SNAPSHOT</version>
+      <version>${project.parent.version}</version>
       <scope>compile</scope>
     </dependency>
 

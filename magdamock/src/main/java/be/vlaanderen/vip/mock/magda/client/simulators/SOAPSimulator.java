@@ -11,14 +11,12 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Slf4j
-public abstract class SOAPSimulator {
+public abstract class SOAPSimulator implements ISOAPSimulator {
     private final ResourceFinder finder;
 
     protected SOAPSimulator() {
         finder = new ResourceFinder(SOAPSimulator.class);
     }
-
-    public abstract MagdaDocument send(MagdaDocument xml);
 
     protected static void PatchResponse(MagdaRequest params, MagdaDocument response) {
         response.setValue("//Referte", params.getReferte());
@@ -49,5 +47,24 @@ public abstract class SOAPSimulator {
             log.error("Fout bij het laden van resource {}: ", testResource, e);
         }
         return null;
+    }
+
+    protected MagdaDocument wrapInEnvelope(MagdaDocument bodyDocument) {
+        String soap = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" >\n" +
+                "  <soapenv:Header/>\n" +
+                "  <soapenv:Body>\n" +
+                bodyDocument +
+                "  </soapenv:Body>\n" +
+                "</soapenv:Envelope>";
+
+        return MagdaDocument.fromString(soap);
+    }
+
+    protected MagdaDocument makeFaultDocument(String faultCode, String faultString) {
+        var faultDocument = MagdaDocument.fromResource(getClass(), "/magda_simulator/generic_fault.xml");
+        faultDocument.setValue("//soapenv:Fault/faultcode", faultCode);
+        faultDocument.setValue("//soapenv:Fault/faultstring", faultString);
+
+        return wrapInEnvelope(faultDocument);
     }
 }
