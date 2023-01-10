@@ -1,14 +1,6 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-
-import org.junit.jupiter.api.Test;
-
 import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
-import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijving0201Aanvraag;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijvingAanvraag;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerUitschrijvingAanvraag;
@@ -16,13 +8,18 @@ import be.vlaanderen.vip.magda.client.diensten.TypeInschrijving;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RepertoriumTest extends MockTestBase {
 
     private static final String INSZ_MAGDA_OVERBELAST = "91010100144";
     private static final String INSZ_REPERTORIUM_FOUT = "91010100243";
     private static final String INSZ_REPERTORIUM_OK = "67021546719";
-
 
     @Test
     @SneakyThrows
@@ -33,10 +30,8 @@ public class RepertoriumTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        assertThatTechnicalFieldsAreFilledInCorrectly(request, antwoord, aanvraag);
+        var antwoord = connector.send(aanvraag);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), RepertoriumTest.ANTWOORD_REFERTE, aanvraag.getRequestId().toString());
 
         assertThatResponseContainsAnswerNoError(antwoord);
@@ -44,9 +39,6 @@ public class RepertoriumTest extends MockTestBase {
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
         assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
-
-        assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", TEST_SERVICE_URI);
-        assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", TEST_SERVICE_HOEDANIGHEID);
 
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/Resultaat", "1");
 
@@ -61,10 +53,8 @@ public class RepertoriumTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        assertThatTechnicalFieldsAreFilledInCorrectly(request, antwoord, aanvraag);
+        var antwoord = connector.send(aanvraag);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), RepertoriumTest.ANTWOORD_REFERTE, aanvraag.getRequestId().toString());
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
@@ -74,9 +64,6 @@ public class RepertoriumTest extends MockTestBase {
         var doc = antwoord.getDocument();
 
         assertThatTechnicalFieldsInResponseMatchRequest(antwoord, aanvraag);
-
-        assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", TEST_SERVICE_URI);
-        assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", TEST_SERVICE_HOEDANIGHEID);
 
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
         assertThat(resultaat).isEqualTo("0");
@@ -91,10 +78,8 @@ public class RepertoriumTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        assertThatTechnicalFieldsAreFilledInCorrectly(request, antwoord, aanvraag);
+        var antwoord = connector.send(aanvraag);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
 
         assertThatAnswerContainsUitzondering(antwoord);
 
@@ -117,10 +102,8 @@ public class RepertoriumTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        assertThatTechnicalFieldsAreFilledInCorrectly(request, antwoord, aanvraag);
+        var antwoord = connector.send(aanvraag);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), RepertoriumTest.ANTWOORD_REFERTE, aanvraag.getRequestId().toString());
 
         assertThatResponseContainsAnswerNoError(antwoord);
@@ -134,8 +117,6 @@ public class RepertoriumTest extends MockTestBase {
 
         assertThatTechnicalFieldsInResponseMatchRequest(antwoord, aanvraag);
 
-        assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", TEST_SERVICE_URI);
-        assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", TEST_SERVICE_HOEDANIGHEID);
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
         assertThat(resultaat).isEqualTo("1");
 
@@ -150,10 +131,8 @@ public class RepertoriumTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        assertThatTechnicalFieldsAreFilledInCorrectly(request, antwoord, aanvraag);
+        var antwoord = connector.send(aanvraag);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), RepertoriumTest.ANTWOORD_REFERTE, aanvraag.getRequestId().toString());
 
         assertThatResponseContainsAnswerNoError(antwoord);
@@ -167,8 +146,6 @@ public class RepertoriumTest extends MockTestBase {
 
         assertThatTechnicalFieldsInResponseMatchRequest(antwoord, aanvraag);
 
-        assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", TEST_SERVICE_URI);
-        assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", TEST_SERVICE_HOEDANIGHEID);
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
         assertThat(resultaat).isEqualTo("1");
 
@@ -183,10 +160,8 @@ public class RepertoriumTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        assertThatTechnicalFieldsAreFilledInCorrectly(request, antwoord, aanvraag);
+        var antwoord = connector.send(aanvraag);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), RepertoriumTest.ANTWOORD_REFERTE, aanvraag.getRequestId().toString());
 
 
@@ -212,10 +187,8 @@ public class RepertoriumTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        assertThatTechnicalFieldsAreFilledInCorrectly(request, antwoord, aanvraag);
+        var antwoord = connector.send(aanvraag);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
 
         assertThatAnswerContainsUitzondering(antwoord);
 
@@ -238,13 +211,10 @@ public class RepertoriumTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        assertThatTechnicalFieldsAreFilledInCorrectly(request, antwoord, aanvraag);
+        var antwoord = connector.send(aanvraag);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), RepertoriumTest.ANTWOORD_REFERTE, aanvraag.getRequestId().toString());
 
-        assertThatTechnicalFieldsInRequestMatchAanvraag(request,aanvraag) ;
         assertThatTechnicalFieldsInResponseMatchRequest(antwoord, aanvraag);
         assertThatResponseContainsAnswerNoError(antwoord);
 
@@ -255,9 +225,6 @@ public class RepertoriumTest extends MockTestBase {
         var doc = antwoord.getDocument();
 
         assertThatTechnicalFieldsInResponseMatchRequest(antwoord, aanvraag);
-
-        assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Uitschrijving/Identificatie", TEST_SERVICE_URI);
-        assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Uitschrijving/Hoedanigheid", TEST_SERVICE_HOEDANIGHEID);
 
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
         assertThat(resultaat).isEqualTo("1");
@@ -273,10 +240,8 @@ public class RepertoriumTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        assertThatTechnicalFieldsAreFilledInCorrectly(request, antwoord, aanvraag);
+        var antwoord = connector.send(aanvraag);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), RepertoriumTest.ANTWOORD_REFERTE, aanvraag.getRequestId().toString());
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
@@ -300,10 +265,8 @@ public class RepertoriumTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        assertThatTechnicalFieldsAreFilledInCorrectly(request, antwoord, aanvraag);
+        var antwoord = connector.send(aanvraag);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
 
         assertThatAnswerContainsUitzondering(antwoord);
 

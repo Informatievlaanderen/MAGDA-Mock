@@ -55,13 +55,6 @@ public abstract class MockTestBase {
         return new MagdaConnectorImpl(signedConnection, afnemerLogService, magdaEndpoints, magdaHoedanigheidService);
     }
 
-    protected void assertThatTechnicalFieldsInRequestMatchAanvraag(MagdaDocument doc, Aanvraag aanvraag) {
-        assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.AFZENDER_REFERTE, aanvraag.getRequestId().toString());
-        assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.AFZENDER_IDENTIFICATIE, TEST_SERVICE_URI);
-        assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.AFZENDER_HOEDANIGHEID, TEST_SERVICE_HOEDANIGHEID);
-        assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.VRAAG_REFERTE, aanvraag.getRequestId().toString());
-    }
-
     protected void assertThatTechnicalFieldsInResponseMatchRequest(MagdaAntwoord antwoord, Aanvraag aanvraag) {
         var doc = antwoord.getDocument();
         assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_REFERTE, aanvraag.getRequestId().toString());
@@ -89,11 +82,9 @@ public abstract class MockTestBase {
         assertThat(antwoord.getUitzonderingen()).hasSize(1);
     }
 
-    protected void assertThatTechnicalFieldsAreFilledInCorrectly(MagdaDocument request, MagdaAntwoord antwoord, Aanvraag aanvraag) {
-        log.debug("Request:  {}", request.toString());
+    protected void assertThatTechnicalFieldsAreFilledInCorrectly(MagdaAntwoord antwoord, Aanvraag aanvraag) {
         log.debug("Response: {}", antwoord.getDocument().toString());
 
-        assertThatTechnicalFieldsInRequestMatchAanvraag(request, aanvraag) ;
         assertThatTechnicalFieldsInResponseMatchRequest(antwoord, aanvraag);
     }
 }

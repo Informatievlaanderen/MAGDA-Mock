@@ -56,6 +56,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         aanvraag.fillIn(request, magdaHoedanigheid);
 
         log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), request);
+        log.debug("Request:  {}", request);
 
         try {
             MagdaDocument response = callMagda(request);
@@ -86,6 +87,10 @@ public class MagdaConnectorImpl implements MagdaConnector {
         }
     }
 
+    @Override
+    public MagdaAntwoord send(Aanvraag aanvraag) {
+        return send(aanvraag, MagdaDocument.fromTemplate(aanvraag));
+    }
 
     private List<Uitzondering> getNiveau1Uitzondering(MagdaDocument response) {
         Uitzondering niveau1 = Uitzondering.builder()

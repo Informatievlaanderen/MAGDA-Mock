@@ -1,16 +1,14 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.jupiter.api.Test;
-
 import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
-import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 public class GeefBewijsTest extends MockTestBase {
@@ -24,10 +22,7 @@ public class GeefBewijsTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        log.info("{}", request.toString());
+        var antwoord = connector.send(aanvraag);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
@@ -67,10 +62,7 @@ public class GeefBewijsTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        log.info("{}", request.toString());
+        var antwoord = connector.send(aanvraag);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isFalse();
@@ -93,6 +85,4 @@ public class GeefBewijsTest extends MockTestBase {
         assertThat(uitzondering.getOorsprong()).isEqualTo("LED");
         assertThat(uitzondering.getDiagnose()).isEqualTo("Geen gegevens gevonden.");
     }
-
-
 }

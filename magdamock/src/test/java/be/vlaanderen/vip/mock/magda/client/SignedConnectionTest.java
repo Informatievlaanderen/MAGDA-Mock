@@ -31,10 +31,7 @@ public class SignedConnectionTest extends MockTestBase {
                 TestKeyStores.mockKeystoreProperties,  // simulator request verifier
                 TestKeyStores.mockKeystoreProperties); // simulator response signer
 
-        var request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        log.info("{}", request.toString());
+        var antwoord = connector.send(aanvraag);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
@@ -63,10 +60,7 @@ public class SignedConnectionTest extends MockTestBase {
                 null,  // simulator request verifier
                 null); // simulator response signer
 
-        var request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        log.info("{}", request.toString());
+        var antwoord = connector.send(aanvraag);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
@@ -95,10 +89,8 @@ public class SignedConnectionTest extends MockTestBase {
                 TestKeyStores.mockKeystoreProperties,      // simulator request verifier
                 TestKeyStores.mockKeystoreProperties);     // simulator response signer
 
-        var request = MagdaDocument.fromTemplate(aanvraag);
-
         try {
-            connector.send(aanvraag, request);
+            connector.send(aanvraag);
             fail("No exception was thrown");
         } catch(BackendUitzonderingenException e) {
             assertEquals(REQUEST_INSZ, e.getInsz());
@@ -130,10 +122,8 @@ public class SignedConnectionTest extends MockTestBase {
                 TestKeyStores.mockKeystoreProperties,  // simulator request verifier
                 TestKeyStores.mockKeystoreProperties); // simulator response signer
 
-        var request = MagdaDocument.fromTemplate(aanvraag);
-
         try {
-            connector.send(aanvraag, request);
+            connector.send(aanvraag);
             fail("No exception was thrown");
         } catch(BackendUitzonderingenException e) {
             assertEquals(REQUEST_INSZ, e.getInsz());
@@ -165,10 +155,8 @@ public class SignedConnectionTest extends MockTestBase {
                 TestKeyStores.mockKeystoreProperties,      // simulator request verifier
                 TestKeyStores.mockKeystorePropertiesAlt); // simulator response signer
 
-        var request = MagdaDocument.fromTemplate(aanvraag);
-
         try {
-            connector.send(aanvraag, request);
+            connector.send(aanvraag);
             fail("No exception was thrown");
         } catch(GeenAntwoordException e) {
             assertInstanceOf(MagdaSendFailed.class, e.getCause());
@@ -189,10 +177,8 @@ public class SignedConnectionTest extends MockTestBase {
                 TestKeyStores.mockKeystoreProperties, // simulator request verifier
                 null);                    // simulator response signer
 
-        var request = MagdaDocument.fromTemplate(aanvraag);
-
         try {
-            connector.send(aanvraag, request);
+            connector.send(aanvraag);
             fail("No exception was thrown");
         } catch(GeenAntwoordException e) {
             assertInstanceOf(MagdaSendFailed.class, e.getCause());
