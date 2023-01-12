@@ -31,43 +31,43 @@ public class SimulatorXmlValidation {
     
     // some xml files we don't want to validate
     private final List<String> EXCLUSIONS = Arrays.asList(
-            "Vastgoed\\GeefEpc\\02.01.0000\\9470\\Leeuwbrugstraat\\21.xml",                 // contains SOAP-ENV:Fault, which is not covered by the xsd
-            "Persoon\\GeefAanslagbiljetPersonenbelasting\\02.00.0000\\70021500155.xml"      // contains SOAP-ENV:Fault, which is not covered by the xsd
-            );
+            "Vastgoed/GeefEpc/02.01.0000/9470/Leeuwbrugstraat/21.xml",                 // contains SOAP-ENV:Fault, which is not covered by the xsd
+            "Persoon/GeefAanslagbiljetPersonenbelasting/02.00.0000/70021500155.xml"    // contains SOAP-ENV:Fault, which is not covered by the xsd
+            ).stream().map(exclusion -> exclusion.replaceAll("/", File.separator)).toList();
 
-    private String baseXsd = "simulator_xsd\\";
-    private String baseXml = "magda_simulator\\";
+    private String baseXsd = "simulator_xsd/";
+    private String baseXml = "magda_simulator/";
 
     private Map<String, String> XML_FOLDERS_AND_XSDS = data(
-            // folder inside of magdasimulator                          path to xsd file inside of simuator xsd
-            // that will be validated against                           the format inside that folder is expected to be the same as
-            // xsds on the right                                        in https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/487620609/Overzicht+testdata+endpoints+en+XSD+s#Diensten-alle-versies-samen
-            "GeefVipAdmGegevens\\02.00.0000",                           "VipAdm.GeefVipAdmGegevensDienst-02.00\\WebService\\GeefVipAdmGegevensResponse.xsd",
-            "Onderneming\\GeefOnderneming\\02.00.0000",                 "Onderneming.GeefOndernemingDienst-02.00\\WebService\\GeefOndernemingResponse.xsd",
-            "Persoon\\GeefAanslagbiljetPersonenbelasting\\02.00.0000",  "Inkomen.GeefAanslagbiljetPersonenbelastingDienst-02.00\\WebService\\GeefAanslagbiljetPersonenbelastingResponse.xsd",
-            "Persoon\\GeefAttest\\02.00.0000",                          "Persoon.GeefAttestDienst-02.00\\WebService\\GeefAttestResponse.xsd",
-            "Persoon\\GeefBewijs\\02.00.0000",                          "LED.GeefBewijsDienst-02.00\\WebService\\GeefBewijsResponse.xsd",
-            "Persoon\\GeefDossierKBI\\01.00.0000",                      "Inburgering.GeefDossierKBIDienst-01.00\\WebService\\GeefDossierKBIResponse.xsd",
-            "Persoon\\GeefDossiers\\02.00.0000",                        "Dossier.GeefDossiersDienst-02.00\\WebService\\GeefDossiersResponse.xsd",
-            "Persoon\\GeefFuncties\\02.00.0000",                        "Onderneming.GeefFunctiesDienst-02.00\\WebService\\GeefFunctiesResponse.xsd",
-            "Persoon\\GeefGezinssamenstelling\\02.00.0000",             "Persoon.GeefGezinssamenstellingDienst-02.00\\WebService\\GeefGezinssamenstellingResponse.xsd",
-            "Persoon\\GeefGezinssamenstelling\\02.02.0000",             "Persoon.GeefGezinssamenstellingDienst-02.02\\WebService\\GeefGezinssamenstellingResponse.xsd",
-            "Persoon\\GeefHistoriekInschrijving\\02.01.0000",           "Onderwijs.GeefHistoriekInschrijvingDienst-02.01\\WebService\\GeefHistoriekInschrijvingResponse.xsd",
-            "Persoon\\GeefHistoriekPersoon\\02.00.0000",                "Persoon.GeefHistoriekPersoonDienst-02.00\\WebService\\GeefHistoriekPersoonResponse.xsd",
-            "Persoon\\GeefHistoriekPersoon\\02.02.0000",                "Persoon.GeefHistoriekPersoonDienst-02.02\\WebService\\GeefHistoriekPersoonResponse.xsd",
-            "Persoon\\GeefKindVoordelen\\02.00.0000",                   "Gezin.GeefKindVoordelenDienst-02.00\\WebService\\GeefKindVoordelenResponse.xsd",
-            "Persoon\\GeefLoopbaanonderbrekingen\\02.00.0000",          "Werk.GeefLoopbaanonderbrekingenDienst-02.00\\WebService\\GeefLoopbaanonderbrekingenResponse.xsd",
-            "Persoon\\GeefPasfoto\\02.00.0000",                         "Persoon.GeefPasfotoDienst-02.00\\WebService\\GeefPasfotoResponse.xsd",
-            "Persoon\\GeefPersoon\\02.02.0000",                         "Persoon.GeefPersoonDienst-02.02\\WebService\\GeefPersoonResponse.xsd",
-            "Persoon\\GeefVolledigDossierHandicap\\03.00.0000",         "SocZek.GeefVolledigDossierHandicapDienst-03.00\\WebService\\GeefVolledigDossierHandicapResponse.xsd",
-            "Persoon\\RegistreerInschrijving\\02.00.0000",              "Repertorium.RegistreerInschrijvingDienst-02.00\\WebService\\RegistreerInschrijvingResponse.xsd",
-            "Persoon\\RegistreerInschrijving\\02.01.0000",              "Repertorium.RegistreerInschrijvingDienst-02.01\\WebService\\RegistreerInschrijvingResponse.xsd",
-            "Persoon\\RegistreerUitschrijving\\02.00.0000",             "Repertorium.RegistreerUitschrijvingDienst-02.00\\WebService\\RegistreerUitschrijvingResponse.xsd",
-            "Persoon\\ZoekEigendomstoestanden\\02.00.0000",             "Kadaster.ZoekEigendomstoestandenDienst-02.00\\WebService\\ZoekEigendomstoestandenResponse.xsd",
-            "Persoon\\ZoekPersoonOpAdres\\02.02.0000",                  "Persoon.ZoekPersoonOpAdresDienst-02.02\\WebService\\ZoekPersoonOpAdresResponse.xsd",
-            "Vastgoed\\GeefEpc\\02.01.0000",                            "Energie.GeefEpcDienst-02.01\\WebService\\GeefEpcResponse.xsd",
-            "Onderneming\\GeefOndernemingVKBO\\02.00.0000",             "Onderneming.GeefOndernemingVKBODienst-02.00\\WebService\\GeefOndernemingVKBOResponse.xsd",
-            "Persoon\\GeefStatusRechtOndersteuningen\\02.00.0000",      "SocEcon.GeefStatusRechtOndersteuningenDienst-02.00\\WebService\\GeefStatusRechtOndersteuningenResponse.xsd");
+            // folder inside of magdasimulator                        path to xsd file inside of simulator xsd
+            // that will be validated against                         the format inside that folder is expected to be the same as
+            // xsds on the right                                      in https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/487620609/Overzicht+testdata+endpoints+en+XSD+s#Diensten-alle-versies-samen
+            "GeefVipAdmGegevens/02.00.0000",                          "VipAdm.GeefVipAdmGegevensDienst-02.00/WebService/GeefVipAdmGegevensResponse.xsd",
+            "Onderneming/GeefOnderneming/02.00.0000",                 "Onderneming.GeefOndernemingDienst-02.00/WebService/GeefOndernemingResponse.xsd",
+            "Persoon/GeefAanslagbiljetPersonenbelasting/02.00.0000",  "Inkomen.GeefAanslagbiljetPersonenbelastingDienst-02.00/WebService/GeefAanslagbiljetPersonenbelastingResponse.xsd",
+            "Persoon/GeefAttest/02.00.0000",                          "Persoon.GeefAttestDienst-02.00/WebService/GeefAttestResponse.xsd",
+            "Persoon/GeefBewijs/02.00.0000",                          "LED.GeefBewijsDienst-02.00/WebService/GeefBewijsResponse.xsd",
+            "Persoon/GeefDossierKBI/01.00.0000",                      "Inburgering.GeefDossierKBIDienst-01.00/WebService/GeefDossierKBIResponse.xsd",
+            "Persoon/GeefDossiers/02.00.0000",                        "Dossier.GeefDossiersDienst-02.00/WebService/GeefDossiersResponse.xsd",
+            "Persoon/GeefFuncties/02.00.0000",                        "Onderneming.GeefFunctiesDienst-02.00/WebService/GeefFunctiesResponse.xsd",
+            "Persoon/GeefGezinssamenstelling/02.00.0000",             "Persoon.GeefGezinssamenstellingDienst-02.00/WebService/GeefGezinssamenstellingResponse.xsd",
+            "Persoon/GeefGezinssamenstelling/02.02.0000",             "Persoon.GeefGezinssamenstellingDienst-02.02/WebService/GeefGezinssamenstellingResponse.xsd",
+            "Persoon/GeefHistoriekInschrijving/02.01.0000",           "Onderwijs.GeefHistoriekInschrijvingDienst-02.01/WebService/GeefHistoriekInschrijvingResponse.xsd",
+            "Persoon/GeefHistoriekPersoon/02.00.0000",                "Persoon.GeefHistoriekPersoonDienst-02.00/WebService/GeefHistoriekPersoonResponse.xsd",
+            "Persoon/GeefHistoriekPersoon/02.02.0000",                "Persoon.GeefHistoriekPersoonDienst-02.02/WebService/GeefHistoriekPersoonResponse.xsd",
+            "Persoon/GeefKindVoordelen/02.00.0000",                   "Gezin.GeefKindVoordelenDienst-02.00/WebService/GeefKindVoordelenResponse.xsd",
+            "Persoon/GeefLoopbaanonderbrekingen/02.00.0000",          "Werk.GeefLoopbaanonderbrekingenDienst-02.00/WebService/GeefLoopbaanonderbrekingenResponse.xsd",
+            "Persoon/GeefPasfoto/02.00.0000",                         "Persoon.GeefPasfotoDienst-02.00/WebService/GeefPasfotoResponse.xsd",
+            "Persoon/GeefPersoon/02.02.0000",                         "Persoon.GeefPersoonDienst-02.02/WebService/GeefPersoonResponse.xsd",
+            "Persoon/GeefVolledigDossierHandicap/03.00.0000",         "SocZek.GeefVolledigDossierHandicapDienst-03.00/WebService/GeefVolledigDossierHandicapResponse.xsd",
+            "Persoon/RegistreerInschrijving/02.00.0000",              "Repertorium.RegistreerInschrijvingDienst-02.00/WebService/RegistreerInschrijvingResponse.xsd",
+            "Persoon/RegistreerInschrijving/02.01.0000",              "Repertorium.RegistreerInschrijvingDienst-02.01/WebService/RegistreerInschrijvingResponse.xsd",
+            "Persoon/RegistreerUitschrijving/02.00.0000",             "Repertorium.RegistreerUitschrijvingDienst-02.00/WebService/RegistreerUitschrijvingResponse.xsd",
+            "Persoon/ZoekEigendomstoestanden/02.00.0000",             "Kadaster.ZoekEigendomstoestandenDienst-02.00/WebService/ZoekEigendomstoestandenResponse.xsd",
+            "Persoon/ZoekPersoonOpAdres/02.02.0000",                  "Persoon.ZoekPersoonOpAdresDienst-02.02/WebService/ZoekPersoonOpAdresResponse.xsd",
+            "Vastgoed/GeefEpc/02.01.0000",                            "Energie.GeefEpcDienst-02.01/WebService/GeefEpcResponse.xsd",
+            "Onderneming/GeefOndernemingVKBO/02.00.0000",             "Onderneming.GeefOndernemingVKBODienst-02.00/WebService/GeefOndernemingVKBOResponse.xsd",
+            "Persoon/GeefStatusRechtOndersteuningen/02.00.0000",      "SocEcon.GeefStatusRechtOndersteuningenDienst-02.00/WebService/GeefStatusRechtOndersteuningenResponse.xsd");
 
     
     @TestFactory
