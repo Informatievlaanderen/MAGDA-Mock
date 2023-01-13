@@ -20,6 +20,7 @@ public class ResourceFinder {
 
     public InputStream loadSimulatorResource(String type, String testResource) {
         String path = "/" + MAGDA_SIMULATOR + type + "/" + testResource;
+
         return base.getResourceAsStream(path);
     }
 

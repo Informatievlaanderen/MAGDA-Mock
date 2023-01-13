@@ -2,6 +2,8 @@ package be.vlaanderen.vip.mock.magda.client.simulators;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import lombok.AccessLevel;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.InputStream;
@@ -12,7 +14,8 @@ import java.util.UUID;
 
 @Slf4j
 public abstract class SOAPSimulator implements ISOAPSimulator {
-    private final ResourceFinder finder;
+    @Setter(AccessLevel.PACKAGE)
+    private ResourceFinder finder;
 
     protected SOAPSimulator() {
         finder = new ResourceFinder(SOAPSimulator.class);

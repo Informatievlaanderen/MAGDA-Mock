@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import be.vlaanderen.vip.mock.magda.client.util.INSZ;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +24,7 @@ public class RandomPasfotoSimulator extends SOAPSimulator {
     }
 
     @Override
-    public MagdaDocument send(MagdaDocument request) {
+    public MagdaDocument send(MagdaDocument request) throws MagdaSendFailed {
         var params = new MagdaRequest(request, keys);
 
         var dienst = params.getServiceNaam();
@@ -48,8 +49,7 @@ public class RandomPasfotoSimulator extends SOAPSimulator {
 
             return wrapInEnvelope(responseBody);
         } else {
-            log.warn("Geen mock data gevonden voor request naar {} {}", dienst, versie);
-            return null;
+            throw new MagdaSendFailed("Geen mock data gevonden voor request naar " + dienst + " " + versie);
         }
     }
 

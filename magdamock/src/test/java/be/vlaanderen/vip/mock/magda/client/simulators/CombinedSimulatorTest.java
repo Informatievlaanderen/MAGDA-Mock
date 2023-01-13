@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
@@ -13,8 +14,7 @@ class CombinedSimulatorTest {
 
     private MagdaDocument mockRequestOf(String service, String version) {
         var request = mock(MagdaDocument.class);
-        when(request.getTargetService()).thenReturn(service);
-        when(request.getTargetVersion()).thenReturn(version);
+        when(request.getServiceIdentification()).thenReturn(new MagdaServiceIdentificatie(service, version));
 
         return request;
     }

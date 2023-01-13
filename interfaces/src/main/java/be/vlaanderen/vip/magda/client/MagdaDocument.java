@@ -174,12 +174,10 @@ public class MagdaDocument {
         return node;
     }
 
-    public String getTargetService() {
-        return getValue("//Verzoek/Context/Naam");
-    }
-
-    public String getTargetVersion() {
-        return getValue("//Verzoek/Context/Versie");
+    public MagdaServiceIdentificatie getServiceIdentification() {
+        return new MagdaServiceIdentificatie(
+                getValue("//Verzoek/Context/Naam"),
+                getValue("//Verzoek/Context/Versie"));
     }
 
     public String toString() {
