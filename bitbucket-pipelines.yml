@@ -8,7 +8,6 @@ definitions:
     - step: &deploy
         name: Deploy to ...
         deployment: PLACEHOLDER
-        trigger: manual
         caches:
           - maven
         script:
@@ -72,14 +71,17 @@ pipelines:
       - step:
           <<: *deploy
           name: Deploy release to TST
+          trigger: manual
           deployment: TST_SOLID
       - step:
           <<: *deploy
           name: Deploy release to TNI
+          trigger: manual
           deployment: TNI_SOLID
       - step:
           <<: *deploy
           name: Deploy release to PRD
+          trigger: manual
           deployment: PRD_SOLID
     develop:
       - step:
@@ -95,16 +97,11 @@ pipelines:
             - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
           artifacts:
             - "**/*.jar"
-            
             - target/pom_version
       - step:
           <<: *deploy
-          name: Deploy to DEV
+          name: Deploy to BETA
           deployment: DEV_SOLID
-      - step:
-          <<: *deploy
-          name: Deploy to TST
-          deployment: TST_SOLID
     '{feature/**,features/**}':
       - step:
           name: Maven
@@ -231,7 +228,7 @@ pipelines:
             - maven
           script:
             - export MAVEN_OPTS="-Xmx1024m"
-            - mvn -B org.owasp:dependency-check-maven:5.3.2:aggregate -DskipSystemScope=true "-DsuppressionFile=.owasp/owasp-suppression.xml" "-DhintsFile=.owasp/owasp-hints.xml" -DfailBuildOnCVSS=7 -s .m2/settings.xml
+            - mvn -B org.owasp:dependency-check-maven:7.4.4:aggregate -DskipSystemScope=true "-DsuppressionFile=.owasp/owasp-suppression.xml" "-DhintsFile=.owasp/owasp-hints.xml" -DfailBuildOnCVSS=7 -s .m2/settings.xml
           artifacts:
             - target/dependency-check-report.html
           after-script:
