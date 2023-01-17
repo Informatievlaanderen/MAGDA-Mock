@@ -1,12 +1,5 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
-    <soapenv:Header>
-        <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="1">
-            <wsse:UsernameToken wsu:Id="UsernameToken-1" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
-                <wsse:Username>MockUser</wsse:Username>
-                <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">MockUser</wsse:Password>
-            </wsse:UsernameToken>
-        </wsse:Security>
-    </soapenv:Header>
+    <soapenv:Header/>
     <soapenv:Body>
         <v02:GeefPersoon>
             <Verzoek>

@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.mock.magdaservice.config;
+package be.vlaanderen.vip.magda.tester.config;
 
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;

@@ -1,6 +1,23 @@
-package be.vlaanderen.vip.mock.magdaservice;
+package be.vlaanderen.vip.magda.tester.tests;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import be.vlaanderen.vip.magda.client.*;
+import be.vlaanderen.vip.magda.client.diensten.*;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceImpl;
+import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
+import be.vlaanderen.vip.magda.config.MagdaConfigDto;
+import be.vlaanderen.vip.magda.config.MagdaRegistrationConfigDto;
+import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
+import be.vlaanderen.vip.magda.tester.config.MockMagdaEndpoints;
+import be.vlaanderen.vip.magda.tester.config.WssConfig;
+import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.binary.Base64;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,65 +26,44 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
-import org.apache.commons.codec.binary.Base64;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.condition.EnabledIf;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import be.vlaanderen.vip.magda.client.MagdaAntwoord;
-import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.MagdaSignedConnection;
-import be.vlaanderen.vip.magda.client.MagdaSoapConnection;
-import be.vlaanderen.vip.magda.client.diensten.GeefAanslagbiljetPersonenbelastingAanvraag;
-import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
-import be.vlaanderen.vip.magda.client.diensten.GeefPasfotoAanvraag;
-import be.vlaanderen.vip.magda.client.diensten.GeefPersoonAanvraag;
-import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijvingAanvraag;
-import be.vlaanderen.vip.magda.client.diensten.RegistreerUitschrijvingAanvraag;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceImpl;
-import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
-import be.vlaanderen.vip.magda.config.MagdaConfigDto;
-import be.vlaanderen.vip.magda.config.MagdaRegistrationConfigDto;
-import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
-import be.vlaanderen.vip.mock.magdaservice.config.MockMagdaEndpoints;
-import be.vlaanderen.vip.mock.magdaservice.legallogging.AfnemerLogServiceMock;
-import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-@EnabledIf("mockServerIsRunning")
 @SpringBootTest
-// These tests only run if there is a (mock) server running on port 8080
 public class MockServerHttpTest extends MockServerTest {
 
-
-    public static final String CORRECT_INSZ = "67021546719";
-    public static final String INSZ_MAGDA_OVERBELAST = "91010100144";
+    private static final String CORRECT_INSZ = "67021546719";
+    private static final String INSZ_MAGDA_OVERBELAST = "91010100144";
     private static final String INSZ_ECHTE_PASFOTO = "67021546719";
     private static final String INSZ_RANDOM_MAN = "67021400130";
     private static final String INSZ_RANDOM_VROUW = "67021400229";
-
 
     // Zet deze constante op true om de base64 geëncodeerde foto te bewaren in een temp jpeg bestand
     // De test print uit op welk pad de foto bewaard is.
     // Zet dit af voor continuous build
     public static final boolean STORE_FOTO_IN_TEMP_FILE = false;
 
+    @Autowired
+    private WssConfig wssConfig;
 
     private AfnemerLogServiceMock afnemerLog;
     private MagdaConnectorImpl connector;
+
+    @BeforeAll
+    @SneakyThrows
+    void beforeAll() {
+        assertServiceAvailable();
+    }
 
     @BeforeEach
     @SneakyThrows
     void setup() {
         afnemerLog = new AfnemerLogServiceMock();
-        var config = configureMagdaParameters();
-        var magdaEndpoints = new MockMagdaEndpoints(config.getEnvironment());
-        var hoedanigheid = new MagdaHoedanigheidServiceImpl(config, "magdamock.service.integrationtest");
-        var soapConnection = new MagdaSoapConnection(magdaEndpoints, config);
-        var signatureConnection = new MagdaSignedConnection(soapConnection, config);
+        var magdaConfigDto = configureMagdaParameters();
+        var magdaEndpoints = new MockMagdaEndpoints(magdaConfigDto.getEnvironment());
+        var hoedanigheid = new MagdaHoedanigheidServiceImpl(magdaConfigDto, "magdamock.service.integrationtest");
+        var soapConnection = new MagdaSoapConnection(magdaEndpoints, magdaConfigDto);
+        var signatureConnection = new MagdaSignedConnection(soapConnection, magdaConfigDto);
         connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
     }
 
@@ -76,9 +72,8 @@ public class MockServerHttpTest extends MockServerTest {
     void callGeefBewijs() {
         var aanvraag = new GeefBewijsAanvraag(CORRECT_INSZ);
 
-        var request = MagdaDocument.fromTemplate(aanvraag);
-        var antwoord = connector.send(aanvraag, request);
-        log.info("Antwoord : {}", antwoord.getDocument());
+        var antwoord = connector.send(aanvraag);
+        log.debug("Antwoord : {}", antwoord.getDocument());
 
         assertResponsBevatAntwoord(antwoord);
 
@@ -94,9 +89,8 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void callRegistreerInschrijving() {
         var aanvraag = new RegistreerInschrijvingAanvraag(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
-        var request = MagdaDocument.fromTemplate(aanvraag);
-        var antwoord = connector.send(aanvraag, request);
-        log.info("Antwoord : {}", antwoord.getDocument());
+        var antwoord = connector.send(aanvraag);
+        log.debug("Antwoord : {}", antwoord.getDocument());
 
         assertResponsBevatAntwoord(antwoord);
 
@@ -112,9 +106,8 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void callRegistreerInschrijvingFaaltMagdaOverbelast() {
         var aanvraag = new RegistreerInschrijvingAanvraag(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
-        var request = MagdaDocument.fromTemplate(aanvraag);
-        var antwoord = connector.send(aanvraag, request);
-        log.info("Antwoord : {}", antwoord.getDocument());
+        var antwoord = connector.send(aanvraag);
+        log.debug("Antwoord : {}", antwoord.getDocument());
 
         assertResponsBevatUitzondering(antwoord, TypeUitzondering.FOUT, "99996", "Te veel gelijktijdige bevragingen");
     }
@@ -123,9 +116,8 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void callRegistreerUitschrijving() {
         var aanvraag = new RegistreerUitschrijvingAanvraag(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
-        var request = MagdaDocument.fromTemplate(aanvraag);
-        var antwoord = connector.send(aanvraag, request);
-        log.info("Antwoord : {}", antwoord.getDocument());
+        var antwoord = connector.send(aanvraag);
+        log.debug("Antwoord : {}", antwoord.getDocument());
 
         assertResponsBevatAntwoord(antwoord);
 
@@ -141,9 +133,8 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void callRegistreerUitschrijvingFaaltMagdaOverbelast() {
         var aanvraag = new RegistreerUitschrijvingAanvraag(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
-        var request = MagdaDocument.fromTemplate(aanvraag);
-        var antwoord = connector.send(aanvraag, request);
-        log.info("Antwoord : {}", antwoord.getDocument());
+        var antwoord = connector.send(aanvraag);
+        log.debug("Antwoord : {}", antwoord.getDocument());
 
         assertResponsBevatUitzondering(antwoord, TypeUitzondering.FOUT, "99996", "Te veel gelijktijdige bevragingen");
     }
@@ -152,9 +143,8 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void callGeefAanslagbiljetPersonenbelasting() {
         var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag("82102108114");
-        var request = MagdaDocument.fromTemplate(aanvraag);
-        var antwoord = connector.send(aanvraag, request);
-        log.info("Antwoord : {}", antwoord.getDocument());
+        var antwoord = connector.send(aanvraag);
+        log.debug("Antwoord : {}", antwoord.getDocument());
 
         assertResponsBevatAntwoord(antwoord);
 
@@ -177,7 +167,7 @@ public class MockServerHttpTest extends MockServerTest {
 
         var aanvraag = new GeefPersoonAanvraag("00000099504");
         var antwoord = connector.send(aanvraag, request);
-        log.info("Antwoord : {}", antwoord.getDocument());
+        log.debug("Antwoord : {}", antwoord.getDocument());
 
         assertResponsBevatAntwoord(antwoord);
 
@@ -195,7 +185,7 @@ public class MockServerHttpTest extends MockServerTest {
 
         var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag("82102108114");
         var antwoord = connector.send(aanvraag, request);
-        log.info("Antwoord : {}", antwoord.getDocument());
+        log.debug("Antwoord : {}", antwoord.getDocument());
 
         assertResponsBevatAntwoord(antwoord);
 
@@ -234,10 +224,8 @@ public class MockServerHttpTest extends MockServerTest {
         final String requestInsz = inszRandomMan;
         var aanvraag = new GeefPasfotoAanvraag(requestInsz);
 
-        var request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        log.info("Antwoord : {}", antwoord.getDocument());
+        var antwoord = connector.send(aanvraag);
+        log.debug("Antwoord : {}", antwoord.getDocument());
 
         assertResponsBevatAntwoord(antwoord);
 
@@ -262,7 +250,6 @@ public class MockServerHttpTest extends MockServerTest {
         assertThat(antwoord.getUitzonderingen()).isEmpty();
     }
 
-
     private void assertResponsBevatUitzondering(MagdaAntwoord antwoord, TypeUitzondering exptectedType, String expectedFoutCode, String expectedDiagnose) {
         assertThat(antwoord.isBodyIngevuld()).isFalse();
         assertThat(antwoord.isHeeftInhoud()).isFalse();
@@ -275,7 +262,6 @@ public class MockServerHttpTest extends MockServerTest {
         assertThat(uitzondering.getDiagnose()).isEqualTo(expectedDiagnose);
     }
 
-
     private void assertResponsKomtOvereenMetRequest(MagdaDocument doc, UUID requestId) {
         var afzenderReferte = doc.getValue("//Repliek/Context/Bericht/Ontvanger/Referte");
         assertThat(afzenderReferte).isEqualTo(requestId.toString());
@@ -284,17 +270,15 @@ public class MockServerHttpTest extends MockServerTest {
         assertThat(antwoordReferte).isEqualTo(requestId.toString());
     }
 
-
     private static void storeImage(byte[] decoded) throws IOException {
         if (STORE_FOTO_IN_TEMP_FILE) {
             File tempFile = File.createTempFile("mugshot", ".jpg", null);
             try (FileOutputStream fos = new FileOutputStream(tempFile)) {
                 fos.write(decoded);
             }
-            System.out.println("Wrote file to " + tempFile.getAbsolutePath());
+            log.debug("Wrote file to " + tempFile.getAbsolutePath());
         }
     }
-
 
     protected void assertThatXmlFieldIsEqualTo(MagdaDocument doc, String xmlPath, String expected) {
         String value = doc.getValue(xmlPath);
@@ -302,14 +286,17 @@ public class MockServerHttpTest extends MockServerTest {
         assertThat(value).isEqualTo(expected);
     }
 
-
     private MagdaConfigDto configureMagdaParameters() {
-        MagdaConfigDto config = new MagdaConfigDto();
-        config.setKeystore(new TwoWaySslProperties());
-        config.setEnvironment("http://localhost:8080/Magda-02.00/soap/WebService");
-        config.getRegistration().put("default", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-mock").capacity("1234").build());
-        config.getRegistration().put("custom", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-custom-mock").capacity("5678").build());
-        return config;
-    }
+        var magdaConfigDto = new MagdaConfigDto();
+        if(wssConfig.isWssEnabled()) {
+            magdaConfigDto.setKeystore(wssConfig.getKeystoreProperties());
+        } else {
+            magdaConfigDto.setKeystore(new TwoWaySslProperties());
+        }
+        magdaConfigDto.setEnvironment(testerConfig.getServiceUrl() + "/Magda-02.00/soap/WebService");
+        magdaConfigDto.getRegistration().put("default", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-mock").capacity("1234").build());
+        magdaConfigDto.getRegistration().put("custom", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-custom-mock").capacity("5678").build());
 
+        return magdaConfigDto;
+    }
 }

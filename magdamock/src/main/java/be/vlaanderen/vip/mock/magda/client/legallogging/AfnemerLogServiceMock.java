@@ -1,17 +1,13 @@
 package be.vlaanderen.vip.mock.magda.client.legallogging;
 
+import be.vlaanderen.vip.magda.legallogging.model.*;
+import be.vlaanderen.vip.magda.legallogging.service.AfnemerLogService;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import be.vlaanderen.vip.magda.legallogging.model.GefaaldeAanvraag;
-import be.vlaanderen.vip.magda.legallogging.model.GelogdeAanvraag;
-import be.vlaanderen.vip.magda.legallogging.model.GeslaagdeAanvraag;
-import be.vlaanderen.vip.magda.legallogging.model.MagdaAanvraag;
-import be.vlaanderen.vip.magda.legallogging.model.OnbeantwoordeAanvraag;
-import be.vlaanderen.vip.magda.legallogging.service.AfnemerLogService;
-import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class AfnemerLogServiceMock implements AfnemerLogService {
