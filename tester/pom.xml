@@ -94,7 +94,7 @@
                             <imagePullPolicy>IfNotPresent</imagePullPolicy>
                             <images>
                                 <image>
-                                    <name>vlaamseoverheid-magda-docker-snapshots.jfrog.io/magda/${docker.image}-${artifactId}:latest
+                                    <name>vlaamseoverheid-magda-docker-snapshots.jfrog.io/magda/${docker.image}-${project.artifactId}:latest
                                     </name>
                                     <build>
                                         <contextDir>${project.basedir}</contextDir>
@@ -105,7 +105,7 @@
                                     </build>
                                 </image>
                                 <image>
-                                    <name>vlaamseoverheid-magda-docker-snapshots.jfrog.io/%g/${docker.image}-${artifactId}:%l</name>
+                                    <name>vlaamseoverheid-magda-docker-snapshots.jfrog.io/%g/${docker.image}-${project.artifactId}:%l</name>
                                 </image>
                             </images>
                         </configuration>
@@ -144,7 +144,7 @@
                             <imagePullPolicy>IfNotPresent</imagePullPolicy>
                             <images>
                                 <image>
-                                    <name>vlaamseoverheid-magda-docker-releases.jfrog.io/magda/${docker.image}-${artifactId}:latest
+                                    <name>vlaamseoverheid-magda-docker-releases.jfrog.io/magda/${docker.image}-${project.artifactId}:latest
                                     </name>
                                     <build>
                                         <contextDir>${project.basedir}</contextDir>
@@ -155,7 +155,7 @@
                                     </build>
                                 </image>
                                 <image>
-                                    <name>vlaamseoverheid-magda-docker-releases.jfrog.io/%g/${docker.image}-${artifactId}:%l</name>
+                                    <name>vlaamseoverheid-magda-docker-releases.jfrog.io/%g/${docker.image}-${project.artifactId}:%l</name>
                                 </image>
                             </images>
                         </configuration>

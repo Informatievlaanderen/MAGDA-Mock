@@ -33,18 +33,12 @@
       <version>${assertj-core.version}</version>
       <scope>test</scope>
     </dependency>
-      <dependency>
-          <groupId>be.vlaanderen.vip.mock</groupId>
-          <artifactId>magdaconnector</artifactId>
-          <version>${project.parent.version}</version>
-          <scope>test</scope>
-      </dependency>
-      <dependency>
-          <groupId>be.vlaanderen.vip.mock</groupId>
-          <artifactId>magdaconnector</artifactId>
-          <version>${project.parent.version}</version>
-          <scope>test</scope>
-      </dependency>
+    <dependency>
+        <groupId>be.vlaanderen.vip.mock</groupId>
+        <artifactId>magdaconnector</artifactId>
+        <version>${project.parent.version}</version>
+        <scope>test</scope>
+    </dependency>
   </dependencies>
   <artifactId>magdamock</artifactId>
 
