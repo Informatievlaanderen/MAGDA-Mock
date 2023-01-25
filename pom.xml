@@ -39,6 +39,7 @@
 		<spring-cloud.version>2021.0.4</spring-cloud.version>
 		<springdoc.api>1.6.6</springdoc.api>
 		<springfox-swagger2.version>3.0.0</springfox-swagger2.version>
+		<testrunner.version>0.1.0-SNAPSHOT</testrunner.version>
 		<sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco-aggregated/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 		<sonar.language>java</sonar.language>
 	</properties>

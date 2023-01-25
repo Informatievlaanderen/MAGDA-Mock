@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.tester;
 
+import be.vlaanderen.vip.bluegreen.TestRunner;
 import be.vlaanderen.vip.magda.tester.tests.MockServerHttpTest;
 import be.vlaanderen.vip.magda.tester.tests.TestcasesTest;
 import org.junit.platform.engine.discovery.ClassSelector;

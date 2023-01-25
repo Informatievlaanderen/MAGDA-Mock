@@ -72,9 +72,10 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-inline</artifactId>
-            <scope>test</scope>
+            <groupId>be.vlaanderen.vip.bluegreen</groupId>
+            <artifactId>generiek.junit-bluegreen-test-runner</artifactId>
+            <version>${testrunner.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
