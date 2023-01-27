@@ -39,6 +39,7 @@
                                     <INSZ>69462199351</INSZ>
                                     <Bonussen>
                                         <Bonus>
+                                            <Betalingsdatum>2019-01-01</Betalingsdatum>
                                             <Categorie>
                                                 <Code>VOORAFBETALING_GEBOORTE</Code>
                                             </Categorie>
@@ -106,8 +107,6 @@
                         </KindVoordeel>
                     </KindVoordelen>
                 </Inhoud>
-                <Uitzonderingen>
-                </Uitzonderingen>
             </Antwoord>
         </Antwoorden>
     </Repliek>

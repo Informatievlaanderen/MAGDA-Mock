@@ -2,6 +2,10 @@ package be.vlaanderen.vip.magda.client.security;
 
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.wss4j.common.crypto.Crypto;
+import org.apache.wss4j.common.crypto.CryptoFactory;
+import org.apache.wss4j.common.ext.WSSecurityException;
+import org.apache.wss4j.dom.engine.WSSConfig;
 
 @Data
 public class TwoWaySslProperties {
@@ -19,5 +23,18 @@ public class TwoWaySslProperties {
             return keyStorePassword;
         }
         return keyPassword;
+    }
+
+    public Crypto toCrypto() throws WSSecurityException {
+        WSSConfig.init();
+
+        var props = new java.util.Properties();
+        props.setProperty("org.apache.wss4j.crypto.provider", "org.apache.wss4j.common.crypto.Merlin");
+        props.setProperty("org.apache.wss4j.crypto.merlin.keystore.type", getKeyStoreType());
+        props.setProperty("org.apache.wss4j.crypto.merlin.keystore.password", getKeyStorePassword());
+        props.setProperty("org.apache.wss4j.crypto.merlin.keystore.alias", getKeyAlias());
+        props.setProperty("org.apache.wss4j.crypto.merlin.keystore.file", getKeyStoreLocation());
+
+        return CryptoFactory.getInstance(props);
     }
 }

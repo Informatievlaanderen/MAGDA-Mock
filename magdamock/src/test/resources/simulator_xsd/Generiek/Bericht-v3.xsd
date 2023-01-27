@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Bart Olaerts (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xsd:schema xmlns="http://magda.vlaanderen.be/generiek-v3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/generiek-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="DatumTijd-v3.xsd"/>
+	<xsd:include schemaLocation="Common-v3.xsd"/>
+	<xsd:include schemaLocation="Sleutel-v3.xsd"/>
+	<!--Magda Context types-->
+	<xsd:simpleType name="BerichtTypeType">
+		<xsd:annotation>
+			<xsd:documentation>Beschrijving van het type van boodschap die als drager geldt voor de VIPService.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+			<xsd:enumeration value="VRAAG"/>
+			<xsd:enumeration value="ANTWOORD"/>
+			<xsd:enumeration value="VOORLOPIG_ANTWOORD"/>
+			<xsd:enumeration value="DATAGRAM"/>
+			<xsd:enumeration value="BEVESTIGING"/>
+			<xsd:enumeration value="UITZONDERING"/>
+			<xsd:enumeration value="PUBLICATIE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DatumStringType">
+		<xsd:annotation>
+			<xsd:documentation>DatumType</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="10"/>
+			<xsd:pattern value="[0-2,9][0-9]{3}-[0-1][0-9]-[0-3][0-9]"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TijdStringType">
+		<xsd:annotation>
+			<xsd:documentation>TijdType</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="12"/>
+			<xsd:minLength value="5"/>
+			<xsd:pattern value="[0-2][0-9]:[0-5][0-9](:[0-5][0-9](\.[0-9]{3})?)?"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="GestructureerdTijdstipStringType">
+		<xsd:annotation>
+			<xsd:documentation>Definite van een tijdstip in een sequentie van 2 elementen Datum en optionele Tijd</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Datum" type="DatumStringType"/>
+			<xsd:element name="Tijd" type="TijdStringType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContextType">
+		<xsd:annotation>
+			<xsd:documentation>ContextType</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Naam" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Naam</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Versie" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Versie</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Bericht" type="BerichtType">
+				<xsd:annotation>
+					<xsd:documentation>Bericht</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Annotaties" type="generiek:AnnotatieLijstType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Annotaties</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BerichtType">
+		<xsd:annotation>
+			<xsd:documentation>BerichtType</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Type" type="BerichtTypeType">
+				<xsd:annotation>
+					<xsd:documentation>Type</xsd:documentation>
+				</xsd:annotation>
+				<!-- Is een enum in de oude versie. Mogelijks een probleem -->
+			</xsd:element>
+			<xsd:element name="Tijdstip" type="GestructureerdTijdstipStringType">
+				<xsd:annotation>
+					<xsd:documentation>Tijdstip</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Afzender" type="AfzenderAdresType">
+				<xsd:annotation>
+					<xsd:documentation>Afzender</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Ontvanger" type="OntvangerAdresType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Ontvanger</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AfzenderAdresType">
+		<xsd:annotation>
+			<xsd:documentation>AfzenderAdresType</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Identificatie" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificatie</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Naam" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Naam</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Referte" type="ReferteType">
+				<xsd:annotation>
+					<xsd:documentation>Referte</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OrganisatieEenheid" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>OrganisatieEenheid</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Hoedanigheid" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Hoedanigheid</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Gebruiker" type="INSZType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Gebruiker</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OntvangerAdresType">
+		<xsd:annotation>
+			<xsd:documentation>OntvangerAdresType</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Identificatie" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Identificatie</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Naam" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Naam</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Referte" type="ReferteType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Referte</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OrganisatieEenheid" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>OrganisatieEenheid</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Hoedanigheid" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Hoedanigheid</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Gebruiker" type="INSZType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Gebruiker</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--Magda Uitzonderingen types-->
+	<xsd:complexType name="UitzonderingLijstType">
+		<xsd:annotation>
+			<xsd:documentation>Verzamelnaam van de Uitzonderingen die zijn ontdekt tijdens
+- Het ontleden van het oorspronkelijke verzoek (request)  (Niveau 1)
+- Het valideren van het bericht en zijn context (Niveau 2)
+- Het valideren en transformeren van elk van de gestelde vragen of  tijdens het ontleden, valideren en transformeren van het antwoord zoals door de brom geleverd (Niveau 3)
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Uitzondering" type="UitzonderingType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UitzonderingType">
+		<xsd:annotation>
+			<xsd:documentation>Segment waarin alle details omtrent het optreden van een enekel uitzondering zijn beschreven</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Identificatie" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Code die een uitzondering op unieke wijze identificeert.	Deze code is toegekend door MAGDA.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Oorsprong" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Geeft aan wat of wie de oorsprong van de fout is ... Een fout identificeert zich dus als Identificatie.Oorsprong</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Type" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Code die aangeeft hoe ernstig de uitzondering is.   Deze graad van ernst is door MAGDA toegekend aan de uitzondering.
+FOUT betekent dat het verzoek of een deel ervan niet is kunnen ingewilligd worden
+WAARSCHUWING betekent dat de respons op het verzoek is kunnen samengesteld worden maar dat de inhoud ervan door de doeltpoepassing wellicht anders moet worden geïnterpreteerd.
+INFO  betekent dat de uitzondering puur informatief is en dat de doeltoepassing geen alternatief gedrag moet aanwenden.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Tijdstip" type="GestructureerdTijdstipStringType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Tijdstip dat aangeeft waneer de uitzondering heeft opgetreden</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Diagnose" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Bevat de textuele beschrijving, zoals door MAGDA gedefinieerd,  van de uitzondering die is opgetreden.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Omstandigheid" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Beschrijving van het deel van het verzoek waar de uitzondering is opgetreden.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Annotaties" type="AnnotatieLijstType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Annotaties</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ElementReferenties" type="ElementReferentieLijstType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Referenties naar elementen in het Antwoord</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--Element referentie lijst type definitie-->
+	<xsd:complexType name="ElementReferentieLijstType">
+		<xsd:annotation>
+			<xsd:documentation>Verzamelnaam van de ElementReferenties waarnaar door een Uitzondering verwezen kan worden.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ElementReferentie" type="ElementReferentieType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="ElementReferentieType">
+		<xsd:annotation>
+			<xsd:documentation>Een ElementReferentie is een (gedeeltelijk) xpath verwijzend naar een element in het Antwoord.
+			Op die manier kunnen Uitzonderingen gelinkt worden aan een set van elementen (niet naar een specifiek element!)
+			Deze functionaliteit is ingebouwd in het kader van de KSZ anomaliën, die in hun description persoonlijke data kunnen bevatten.
+			Als een afnemer op die persoonlijke data geen machtiging heeft, moeten deze Uitzonderingen uitgefilterd kunnen worden.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!--Annotatie lijst type definitie-->
+	<xsd:complexType name="AnnotatieLijstType">
+		<xsd:annotation>
+			<xsd:documentation>AnnotatieLijstType</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Annotatie" type="AnnotatieType" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Annotatie</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnnotatieType">
+		<xsd:annotation>
+			<xsd:documentation>AnnotatieType</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Naam" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Naam</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Waarde" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Waarde</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--Magda Metadata types-->
+	<xsd:simpleType name="MetadataTypeKernType">
+		<xsd:annotation>
+			<xsd:documentation> | 00 (Onbekend)) | 01 (Nieuw) | 02 (Wijziging) | 03 (Annulatie) | 04 (Verwijdering) | 09 (Andere) | </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{2}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="MetadataTypeCodeType">
+		<xsd:annotation>
+			<xsd:documentation>is een extension van simpel Type 'MetadataTypeKernType' + beschrijving</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="MetadataTypeKernType">
+				<xsd:attribute name="Beschrijving" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="MetadataType">
+		<xsd:sequence>
+			<xsd:element name="Referte" type="ReferteType"/>
+			<xsd:element name="Type" type="MetadataTypeCodeType"/>
+			<xsd:element name="Datum" type="xsd:dateTime"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

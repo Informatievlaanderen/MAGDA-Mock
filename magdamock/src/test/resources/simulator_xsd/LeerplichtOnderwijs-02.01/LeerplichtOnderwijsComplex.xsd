@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2017 sp2 (x64) (http://www.altova.com) by Bart Colle (Ministerie Vlaamse Overheid) -->
+<xs:schema xmlns="http://leerplichtonderwijs-02_01.onderwijs.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:onderwijs="http://onderwijs-02_01.onderwijs.vlaanderen.be" targetNamespace="http://leerplichtonderwijs-02_01.onderwijs.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01">
+	<xs:include schemaLocation="LeerplichtOnderwijsSimple.xsd"/>
+	<xs:include schemaLocation="LeerplichtOnderwijsEnum.xsd"/>
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xs:import namespace="http://onderwijs-02_01.onderwijs.vlaanderen.be" schemaLocation="../Onderwijs-02.01/Onderwijs.xsd"/>
+	<!-- Leerplicht -->
+	<xs:complexType name="LeerplichtOnderwijsType">
+		<xs:annotation>
+			<xs:documentation>Vertegenwoordigt de specifieke onderdelen van een inschrijving uit het leerplichtonderwijs
+            </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SoortProgramma" type="SoortProgrammaType"/>
+			<xs:element name="DatumInschrijving" type="generiek:VolledigDatumType" minOccurs="0"/>
+			<xs:element name="DatumEersteLes" type="generiek:VolledigDatumType" minOccurs="0"/>
+			<xs:element name="Schooljaar" type="generiek:JaarType"/>
+			<xs:element name="InschrijvingAdministratieveGroep" type="InschrijvingAdmgrType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SoortProgrammaType">
+		<xs:annotation>
+			<xs:documentation>Soort Programma 1 = voltijds onderwijs 2 = Deeltijdsberoeps onderwijs 5 = Leertijd
+            </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="SoortProgrammaCodeType"/>
+			<xs:element name="Omschrijving" type="generiek:Tekst2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdmgrType">
+		<xs:annotation>
+			<xs:documentation>Vertegenwoordigt een administratieve groep uit Discimus</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Nummer" type="AdmgrNummerType" minOccurs="1"/>
+			<xs:element name="Naam" type="generiek:TekstLang2_0Type" minOccurs="0"/>
+			<xs:element name="Niveau" type="AdmgrNiveauType" minOccurs="1"/>
+			<xs:element name="SoortOnderwijs" type="AdmgrSoortOnderwijsType" minOccurs="1"/>
+			<xs:element name="DuaalLeren" type="DuaalLerenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdmgrSoortOnderwijsType">
+		<xs:annotation>
+			<xs:documentation>Soort Onderwijs 1 = gewoon 2 = buitengewoon</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="AdmgrSoortOnderwijsCodeType"/>
+			<xs:element name="Omschrijving" type="generiek:TekstLang2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdmgrNiveauType">
+		<xs:annotation>
+			<xs:documentation>Onderwijsniveau 1=kleuter 2=lager 3=secundair</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="AdmgrNiveauCodeType"/>
+			<xs:element name="Omschrijving" type="generiek:TekstLang2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TypeBuitengewoonType">
+		<xs:sequence>
+			<xs:element name="Code" type="TypeBuitengewoonCodeType"/>
+			<xs:element name="Omschrijving" type="generiek:TekstLang2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InschrijvingAdmgrType">
+		<xs:annotation>
+			<xs:documentation>Vertegenwoordigt een Inschrijving in administratieve groep uit Discimus
+            </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Referte" type="DiscimusReferteType" minOccurs="0"/>
+			<xs:element name="Periode" type="onderwijs:PeriodeType"/>
+			<xs:element name="AdministratieveGroep" type="AdmgrType"/>
+			<xs:element name="TypeBuitengewoon" type="TypeBuitengewoonType" minOccurs="0"/>
+			<xs:element name="Uitschrijving" type="UitschrijvingType" minOccurs="0"/>
+			<xs:element name="AnderstaligeNieuwkomer" type="generiek:VlagEnumType" minOccurs="0"/>
+			<xs:element name="GewezenAnderstaligeNieuwkomer" type="generiek:VlagEnumType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UitschrijvingType">
+		<xs:sequence>
+			<xs:element name="Aanleiding" type="AanleidingUitschrijvingType"/>
+			<xs:element name="SituatieNa" type="SituatieNaUitschrijvingType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanleidingUitschrijvingType">
+		<xs:sequence>
+			<xs:element name="Code" type="AanleidingUitschrijvingCodeType"/>
+			<xs:element name="Omschrijving" type="generiek:TekstLang2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SituatieNaUitschrijvingType">
+		<xs:sequence>
+			<xs:element name="Code" type="SituatieNaUitschrijvingCodeType"/>
+			<xs:element name="Omschrijving" type="generiek:TekstLang2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DuaalLerenType">
+		<xs:sequence>
+			<xs:element name="Leerweg" type="LeerwegType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LeerwegType">
+		<xs:sequence>
+			<xs:element name="Code" type="LeerwegCodeType"/>
+			<xs:element name="Omschrijving" type="generiek:TekstLang2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

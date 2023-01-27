@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://energie-02_01.epb.vea.lne.vlaanderen.be" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:kadaster="http://kadaster-02_00.vip.vlaanderen.be" targetNamespace="http://energie-02_01.epb.vea.lne.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01">
+	<xsd:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xsd:import namespace="http://kadaster-02_00.vip.vlaanderen.be" schemaLocation="../Kadaster-02.00/KadasterSimple.xsd"/>
+	<xsd:include schemaLocation="EnergieEnum.xsd"/>
+	<xsd:include schemaLocation="EnergieSimple.xsd"/>
+	<xsd:complexType name="CriteriaGeefEpc2_1Type">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element name="GebouwId" type="IdType"/>
+				<xsd:element name="GebouweenheidId" type="IdType"/>
+				<xsd:element name="Adres" type="ZoekAdresType"/>
+				<xsd:element name="Attestnummer" type="LongStringType"/>
+			</xsd:choice>
+			<xsd:element name="Attesten" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="AttestenGeanonimiseerd" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="Foto" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ZoekAdresType">
+		<xsd:sequence>
+			<xsd:element name="Straat" type="ZoekStraatType"/>
+			<xsd:element name="Huisnummer" type="ZoekHuisnummerType"/>
+			<xsd:element name="Busnummer" type="ZoekBusnummerType" minOccurs="0"/>
+			<xsd:element name="Postcode" type="ZoekPostcodeType" minOccurs="0"/>
+			<xsd:element name="Gemeente" type="ZoekGemeenteType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MijnEpcType">
+		<xsd:sequence>
+			<xsd:element name="EnergieEenheid" type="EnergieEenheidType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MijnEnergieResultatenType">
+		<xsd:sequence>
+			<xsd:element name="EnergieEenheid" type="EnergieEenheidResultaatType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MijnEnergieDetailsType">
+		<xsd:sequence>
+			<xsd:element name="EnergieEenheid" type="EnergieEenheidDetailType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EnergieEenheidDetailType">
+		<xsd:sequence>
+			<xsd:element name="Epc" type="MijnEnergieDetailType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EnergieEenheidResultaatType">
+		<xsd:sequence>
+			<xsd:element name="Epc" type="MijnEnergieResultaatType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EnergieEenheidType">
+		<xsd:sequence>
+			<xsd:element name="Epc" type="EpcType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EpcType">
+		<xsd:sequence>
+			<xsd:element name="Identificatie" type="IdentificatieType"/>
+			<xsd:element name="BouwjaarVolgensEPC" type="BouwjaarType" minOccurs="0"/>
+			<xsd:element name="BouwjaarGekend" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="DatumModificatie" type="generiek:DatumTijdType"/>
+			<xsd:element name="Actief" type="xsd:boolean"/>
+			<xsd:element name="Status" type="ShortStringType"/>
+			<xsd:element name="DatumIngediend" type="generiek:DatumType" minOccurs="0"/>
+			<xsd:element name="DatumGeldigheid" type="generiek:DatumType" minOccurs="0"/>
+			<xsd:element name="Scores" type="ScoresType" minOccurs="0"/>
+			<xsd:element name="TypeAangifte" type="ShortStringType" minOccurs="0"/>
+			<xsd:element name="Ligging" type="LiggingType"/>
+			<xsd:element name="Documenten" type="DocumentenType" minOccurs="0"/>
+			<xsd:element name="EpcEenheidType" type="ShortStringType"/>
+			<xsd:element name="Personen" type="PersonenType"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="IdType" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="MijnEnergieResultaatType">
+		<xsd:complexContent>
+			<xsd:extension base="EpcType">
+				<xsd:sequence>
+					<xsd:element name="Details" type="EpcResultaatType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="MijnEnergieDetailType">
+		<xsd:complexContent>
+			<xsd:extension base="EpcType">
+				<xsd:sequence>
+					<xsd:element name="Details" type="EpcDetailsType" minOccurs="0"/>
+					<xsd:element name="Aanbevelingen" type="AanbevelingenType" minOccurs="0"/>
+					<xsd:element name="NieuweAanbevelingen" type="AanbevelingenNieuwType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="EpcResultaatType">
+		<xsd:sequence>
+			<xsd:element name="AardVanDeWerken" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="VerduidelijkingAardVanDeWerken" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Omschrijving" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BeschermdVolume" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="Bestemming" type="ShortStringType"/>
+			<xsd:element name="Bouwvorm" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="BrutoVloerOppervlakte" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="GebouwType" type="LongStringType" maxOccurs="unbounded"/>
+			<xsd:element name="Luchtdichtheid" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="VerliesOppervlakteEnergieEenheid" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="EpbEenheid" type="EpbEenheidType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EpcDetailsType">
+		<xsd:complexContent>
+			<xsd:extension base="EpcResultaatType">
+				<xsd:sequence>
+					<xsd:element name="IsDeelVan" type="IsDeelVanType" minOccurs="0"/>
+					<xsd:element name="Ruimtes" type="RuimtesType" minOccurs="0"/>
+					<xsd:element name="Schildelen" type="SchildelenType" minOccurs="0"/>
+					<xsd:element name="Installaties" type="InstallatiesType" minOccurs="0"/>
+					<xsd:element name="HESystemen" type="HESystemenType" minOccurs="0"/>
+					<xsd:element name="EPvolume" type="EPvolumeType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="IsDeelVanType">
+		<xsd:sequence>
+			<xsd:element name="DeelVan" type="EpcType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EPvolumeType">
+		<xsd:sequence>
+			<xsd:element name="Oververhittingsindicatoren" type="OververhittingsindicatorenType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OververhittingsindicatorenType">
+		<xsd:sequence>
+			<xsd:element name="Oververhittingsindicator" type="OververhittingsindicatorType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OververhittingsindicatorType">
+		<xsd:sequence>
+			<xsd:element name="EnergieSector" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="EPWVolume" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Indicator" type="TweeDecimalenMetMeeteenheidType"/>
+			<xsd:element name="MaxIndicator" type="TweeDecimalenMetMeeteenheidType"/>
+			<xsd:element name="Voldaan" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HESystemenType">
+		<xsd:sequence>
+			<xsd:element name="Systeem" type="HESysteemType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HESysteemType">
+		<xsd:sequence>
+			<xsd:element name="Naam" type="LongStringType"/>
+			<xsd:element name="KwaliteitseisenVoldaan" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="KwantiteitseisenVoldaan" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RuimtesType">
+		<xsd:sequence>
+			<xsd:element name="Ruimte" type="RuimteType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InstallatiesType">
+		<xsd:sequence>
+			<xsd:element name="InstallatiesVoorRuimteverwarming" type="InstallatiesVoorRuimteverwarmingType" minOccurs="0"/>
+			<xsd:element name="InstallatiesVoorSanitairWarmWater" type="InstallatiesVoorSanitairWarmWaterType" minOccurs="0"/>
+			<xsd:element name="Bevochtigingsinstallaties" type="BevochtigingsinstallatiesType" minOccurs="0"/>
+			<xsd:element name="Koelingen" type="KoelingenType" minOccurs="0"/>
+			<xsd:element name="FotovoltaischePanelen" type="FotovoltaischePanelenType" minOccurs="0"/>
+			<xsd:element name="ZonneThermischeInstallaties" type="ZonneThermischeInstallatiesType" minOccurs="0"/>
+			<xsd:element name="VentilatieSystemen" type="VentilatieSystemenType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InstallatieBaseType">
+		<xsd:sequence>
+			<xsd:element name="Opwekkingstoestellen" type="OpwekkingstoestellenType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InstallatiesVoorRuimteverwarmingType">
+		<xsd:sequence>
+			<xsd:element name="InstallatieVoorRuimteVerwarming" type="InstallatieVoorRuimteverwarmingType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InstallatieVoorRuimteverwarmingType">
+		<xsd:sequence>
+			<xsd:element name="Opwekkingstoestellen" type="OpwekkingstoestellenType" minOccurs="0"/>
+			<xsd:element name="TypeVerwarming" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Afgiftesystemen" type="AfgifteSysteemType" minOccurs="0"/>
+			<xsd:element name="BuffervatAanwezig" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="Aandeel" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AfgifteSysteemType">
+		<xsd:sequence>
+			<xsd:element name="SoortAfgifteSysteem" type="LongStringType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InstallatiesVoorSanitairWarmWaterType">
+		<xsd:sequence>
+			<xsd:element name="InstallatieVoorSanitairWarmWater" type="InstallatieVoorSanitairWarmWaterType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InstallatieVoorSanitairWarmWaterType">
+		<xsd:sequence>
+			<xsd:element name="Opwekkingstoestellen" type="OpwekkingstoestellenType" minOccurs="0"/>
+			<xsd:element name="TypeWarmwaterproductie" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="OpwekkingsrendementSanitairWarmWater" type="TweeDecimalenType" minOccurs="0"/>
+			<xsd:element name="OpslagvatAanwezig" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="VolumesOpslagvat" type="VolumesOpslagvatType" minOccurs="0"/>
+			<xsd:element name="IsolatieOpslagvat" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VolumesOpslagvatType">
+		<xsd:sequence>
+			<xsd:element name="VolumeOpslagvat" type="VolumeOpslagvatType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VolumeOpslagvatType">
+		<xsd:sequence>
+			<xsd:element name="Volume" type="IntegerMetMeeteenheidType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OpwekkingstoestellenType">
+		<xsd:sequence>
+			<xsd:element name="Opwekkingstoestel" type="OpwekkingstoestelType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BevochtigingsinstallatiesType">
+		<xsd:sequence>
+			<xsd:element name="Bevochtigingsinstallatie" type="InstallatieBaseType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="KoelingenType">
+		<xsd:sequence>
+			<xsd:element name="Koeling" type="KoelingType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="KoelingType">
+		<xsd:complexContent>
+			<xsd:extension base="InstallatieBaseType">
+				<xsd:sequence>
+					<xsd:element name="ActieveKoeling" type="xsd:boolean" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="FotovoltaischePanelenType">
+		<xsd:sequence>
+			<xsd:element name="FotovoltaischePaneel" type="FotovoltaischePaneelType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FotovoltaischePaneelType">
+		<xsd:sequence>
+			<xsd:element name="Naam" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="TypeZonnepanelen" type="ShortStringType" minOccurs="0"/>
+			<xsd:element name="Hellingsgraad" type="IntegerMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="Oppervlakte" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="Orientatie" type="IntegerMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="Elektriciteitsopwekking" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ZonneThermischeInstallatiesType">
+		<xsd:sequence>
+			<xsd:element name="ZonneThermischeInstallatie" type="ZonneThermischeInstallatieType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ZonneThermischeInstallatieType">
+		<xsd:sequence>
+			<xsd:element name="NaamCollectoren" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Oppervlakte" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="Hellingsgraad" type="IntegerMetMeeteenheidType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VentilatieSystemenType">
+		<xsd:sequence>
+			<xsd:element name="VentilatieSysteem" type="VentilatieSysteemType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VentilatieSysteemType">
+		<xsd:sequence>
+			<xsd:element name="NaamVentilatiesysteem" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="TypeVentilatiesysteem" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="AanwezigheidBypass" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="RendementWtw" type="xsd:integer" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OpwekkingstoestelType">
+		<xsd:sequence>
+			<xsd:element name="SoortOpwekkingstoestel" type="ShortStringType" minOccurs="0"/>
+			<xsd:element name="TypeOpwekkingstoestel" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="NaamToestel" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="ToestelBinnenHetBeschermdVolume" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="Preferentie" type="ShortStringType" minOccurs="0"/>
+			<xsd:element name="LabelToestel" type="ShortStringType" minOccurs="0"/>
+			<xsd:element name="FabricagejaarKetel" type="generiek:JaarType" minOccurs="0"/>
+			<xsd:element name="Energiedrager" type="ShortStringType" minOccurs="0"/>
+			<xsd:element name="OpwekkingsrendementRV" type="TweeDecimalenType" minOccurs="0"/>
+			<xsd:element name="OpwekkingsrendementSWW" type="TweeDecimalenType" minOccurs="0"/>
+			<xsd:element name="Vermogen" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="NaamWarmtepomp" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="SpfWarmtepomp" type="TweeDecimalenType" minOccurs="0"/>
+			<xsd:element name="TypeWarmtepomp" type="ShortStringType" minOccurs="0"/>
+			<xsd:element name="TechnologieWKK" type="ShortStringType" minOccurs="0"/>
+			<xsd:element name="ElektrischVermogenWKK" type="ShortStringType" minOccurs="0"/>
+			<xsd:element name="ElektrischVermogenWKKGetal" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SchildelenType">
+		<xsd:sequence>
+			<xsd:element name="Schildeel" type="SchildeelType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SchildeelType">
+		<xsd:sequence>
+			<xsd:element name="Naam" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Type" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Constructiedelen" type="ConstructiedelenType" minOccurs="0"/>
+			<xsd:element name="Oppervlakte" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConstructiedelenType">
+		<xsd:sequence>
+			<xsd:element name="Constructiedeel" type="ConstructiedeelType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConstructiedeelType">
+		<xsd:sequence>
+			<xsd:element name="Categorie" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Soort" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Naam" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="NettoOppervlakte" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="Begrenzing" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Isolatielagen" type="IsolatielagenType" minOccurs="0"/>
+			<xsd:element name="Profiel" type="ProfielType" minOccurs="0"/>
+			<xsd:element name="Beglazing" type="BeglazingType" minOccurs="0"/>
+			<xsd:element name="UWaarde" type="DrieDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="UMaxWaarde" type="DrieDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="RWaarde" type="DrieDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="RMinWaarde" type="DrieDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="ConstructiedeelVoldaan" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="BestaandeConstructie" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="NaGeisoleerdeConstructie" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IsolatielagenType">
+		<xsd:sequence>
+			<xsd:element name="Isolatielaag" type="IsolatielaagType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IsolatielaagType">
+		<xsd:sequence>
+			<xsd:element name="TypeIsolatieMateriaal" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="NaamMateriaal" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="DikteIsolatieMateriaal" type="IntegerMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="LambdaWaardeIsolatieMateriaal" type="DrieDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="PlaatsIsolatie" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="RWaarde" type="DrieDecimalenMetMeeteenheidType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProfielType">
+		<xsd:sequence>
+			<xsd:element name="UWaarde" type="DrieDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="Type" type="LongStringType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BeglazingType">
+		<xsd:sequence>
+			<xsd:element name="UWaardeGlas" type="DrieDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="Type" type="LongStringType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RuimteType">
+		<xsd:sequence>
+			<xsd:element name="Naam" type="LongStringType"/>
+			<xsd:element name="Soort" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Gebruiksoppervlakte" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="TypeRuimte" type="ShortStringType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EpbEenheidType">
+		<xsd:sequence>
+			<xsd:element name="EpbEenheidType" type="ShortStringType"/>
+			<xsd:element name="NieuwbouwNaSloop" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="SocialeHuisvesting" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="PubliekeOrganisatie" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IdentificatieType">
+		<xsd:sequence>
+			<xsd:element name="Attestnummer" type="LongStringType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ScoresType">
+		<xsd:sequence>
+			<xsd:element name="Score" type="ScoreType" maxOccurs="unbounded"/>
+			<xsd:element name="ScoreKleur" type="ScoreKleurType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ScoreType">
+		<xsd:sequence>
+			<xsd:element name="Eis" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="Label" type="MiniStringType" minOccurs="0"/>
+			<xsd:element name="Streefdoel" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="Kleurcode" type="CodeKleurType" minOccurs="0"/>
+			<xsd:element name="EnergiescoreNaAanbevelingen" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="LabelNaAanbevelingen" type="MiniStringType" minOccurs="0"/>
+			<xsd:element name="Waarde" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="TekstWaarde" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Voldaan" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="Volgorde" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="GemiddeldeWaardeGemeente" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="GemiddeldeWaardeProvincie" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+			<xsd:element name="GemiddeldeWaardeVlaanderen" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="type" type="LongStringType" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ScoreKleurType">
+		<xsd:sequence>
+			<xsd:element name="Code" type="CodeKleurType" minOccurs="0"/>
+			<xsd:element name="Balk" type="BestandType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DocumentenType">
+		<xsd:sequence>
+			<xsd:element name="Attesten" type="AttestenType" minOccurs="0"/>
+			<xsd:element name="Foto" type="BestandType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AttestenType">
+		<xsd:sequence>
+			<xsd:element name="Attest" type="BestandType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BestandType">
+		<xsd:sequence>
+			<xsd:element name="Inhoud" type="xsd:base64Binary"/>
+			<xsd:element name="Extensie" type="ShortStringType"/>
+		</xsd:sequence>
+		<xsd:attribute name="type" type="ShortStringType"/>
+		<xsd:attribute name="anoniem" type="xsd:boolean"/>
+	</xsd:complexType>
+	<xsd:complexType name="AanbevelingenType">
+		<xsd:sequence>
+			<xsd:element name="Aanbeveling" type="AanbevelingType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AanbevelingType">
+		<xsd:sequence>
+			<xsd:element name="Categorie" type="ShortStringType"/>
+			<xsd:element name="Type" type="LongStringType"/>
+			<xsd:element name="Subtype" type="LongStringType"/>
+			<xsd:element name="Voorwerp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Omschrijving" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AanbevelingenNieuwType">
+		<xsd:sequence>
+			<xsd:element name="Aanbeveling" type="AanbevelingNieuwType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AanbevelingNieuwType">
+		<xsd:sequence>
+			<xsd:element name="Categorie" type="ShortStringType"/>
+			<xsd:element name="Type" type="LongStringType"/>
+			<xsd:element name="Subtype" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="HuidigeSituatie" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Uitvoeringsmethodes" type="UitvoeringsmethodesType" minOccurs="0"/>
+			<xsd:element name="Opmerking" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Prioriteit" type="PrioriteitType"/>
+			<xsd:element name="VolgordeEnergieschaal" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="Energiescore" type="TweeDecimalenMetMeeteenheidType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UitvoeringsmethodesType">
+		<xsd:sequence>
+			<xsd:element name="Uitvoeringsmethode" type="UitvoeringsmethodeType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UitvoeringsmethodeType">
+		<xsd:sequence>
+			<xsd:element name="Omschrijving" type="xsd:string"/>
+			<xsd:element name="Volgorde" type="xsd:integer"/>
+			<xsd:element name="PrijsEen" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="PrijsTwee" type="xsd:integer" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PrioriteitType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:integer">
+				<xsd:attribute name="kleur" type="CodeKleurType"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="LiggingType">
+		<xsd:sequence>
+			<xsd:element name="Adres" type="AdresGebouweenheidType"/>
+			<xsd:element name="Kavel" type="KavelType" minOccurs="0"/>
+			<xsd:element name="Kadasters" type="KadastersType" minOccurs="0"/>
+			<xsd:element name="Geometrie" type="GeometrieType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AdresGebouweenheidType">
+		<xsd:complexContent>
+			<xsd:extension base="generiek:AdresType">
+				<xsd:sequence>
+					<xsd:element name="Gebouweenheden" type="GebouweenhedenType" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:attribute name="arId" type="IdType"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="GebouweenhedenType">
+		<xsd:sequence>
+			<xsd:element name="Gebouweenheid" type="GebouweenheidType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GebouweenheidType">
+		<xsd:sequence>
+			<xsd:element name="Gebouwen" type="GebouwenType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="IdType" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="GebouwenType">
+		<xsd:sequence>
+			<xsd:element name="Gebouw" type="GebouwType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GebouwType">
+		<xsd:attribute name="id" type="IdType" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="KavelType">
+		<xsd:sequence>
+			<xsd:element name="Naam" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Lotnummer" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="Nummer" type="LongStringType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="KadastersType">
+		<xsd:sequence>
+			<xsd:element name="Kadaster" type="KadasterType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="KadasterType">
+		<xsd:sequence>
+			<xsd:element name="GemeenteNummer" type="kadaster:CodeNISGemeenteType" minOccurs="0"/>
+			<xsd:element name="Sectie" type="kadaster:SectieType"/>
+			<xsd:element name="Afdeling" type="kadaster:KadastraleAfdelingType"/>
+			<xsd:element name="Nummers" type="LongStringType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GeometrieType">
+		<xsd:sequence>
+			<xsd:element name="CoordinatenStelsel" type="EPSGCodeType"/>
+			<xsd:element name="Ondergrond" type="OndergrondType"/>
+			<xsd:element name="WKT" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OndergrondType">
+		<xsd:sequence>
+			<xsd:element name="type" type="LongStringType"/>
+			<xsd:element name="datum" type="generiek:DatumType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EenDecimaalMetMeeteenheidType">
+		<xsd:simpleContent>
+			<xsd:extension base="EenDecimaalType">
+				<xsd:attribute name="meeteenheid" type="ShortStringType"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="TweeDecimalenMetMeeteenheidType">
+		<xsd:simpleContent>
+			<xsd:extension base="TweeDecimalenType">
+				<xsd:attribute name="meeteenheid" type="ShortStringType"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="DrieDecimalenMetMeeteenheidType">
+		<xsd:simpleContent>
+			<xsd:extension base="DrieDecimalenType">
+				<xsd:attribute name="meeteenheid" type="ShortStringType"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="IntegerMetMeeteenheidType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:integer">
+				<xsd:attribute name="meeteenheid" type="ShortStringType"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="PersonenType">
+		<xsd:sequence>
+			<xsd:element name="Persoon" type="PersoonType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PersoonType">
+		<xsd:sequence>
+			<xsd:element name="NatuurlijkPersoon" type="NatuurlijkPersoonType"/>
+			<xsd:element name="Registratie" type="RegistratieType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NatuurlijkPersoonType">
+		<xsd:sequence>
+			<xsd:element name="Voornaam" type="LongStringType"/>
+			<xsd:element name="Naam" type="LongStringType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OrganisatieType">
+		<xsd:sequence>
+			<xsd:element name="Firmanaam" type="LongStringType"/>
+			<xsd:element name="Rechtsvorm" type="LongStringType" minOccurs="0"/>
+			<xsd:element name="KboNummer" type="LongStringType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RegistratieType">
+		<xsd:sequence>
+			<xsd:element name="EpCode" type="LongStringType"/>
+			<xsd:element name="Organisatie" type="OrganisatieType" minOccurs="0"/>
+			<xsd:element name="Rol" type="RolType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RolType">
+		<xsd:sequence>
+			<xsd:element name="TypeRol" type="LongStringType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

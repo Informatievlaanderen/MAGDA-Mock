@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Bert Van Kets (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<!--
+  #%L
+  VIPInterfaces-generiek
+  %%
+  Copyright (C) 2016 - 2018 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+<xsd:schema xmlns="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bericht="http://generiek-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" xmlns:persoon="http://magda.vlaanderen.be/persoon-v3" targetNamespace="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../../Generiek-02.00/Generiek.xsd"/>
+	<xsd:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../../Generiek/GeneriekDomein-v3.xsd"/>
+	<xsd:import namespace="http://magda.vlaanderen.be/persoon-v3" schemaLocation="../../Persoon/PersoonDomein-v3.xsd"/>
+	<xsd:element name="GeefPersoonResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Repliek" type="RepliekType" minOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="RepliekType">
+		<xsd:sequence>
+			<xsd:element name="Context" type="bericht:ContextType"/>
+			<xsd:element name="Antwoorden" type="AntwoordenType" minOccurs="0"/>
+			<xsd:element name="Uitzonderingen" type="bericht:UitzonderingenType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fouten die voorkomen na de verwerking van de Context maar voor de verwerking van Vraag of Antwoord bv: XSD Validatie fouten</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordenType">
+		<xsd:sequence>
+			<xsd:element name="Antwoord" type="AntwoordType" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordType">
+		<xsd:sequence>
+			<xsd:element name="Referte" type="bericht:ReferteType"/>
+			<xsd:element name="Inhoud" type="AntwoordInhoudType" minOccurs="0"/>
+			<xsd:element name="Uitzonderingen" type="bericht:UitzonderingenType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Fouten die voorkomen na de verwerking van Vraag of Antwoord bv: warnings rond ontbrekende data en fouten gelinked aan 1 antwoord</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AntwoordInhoudType">
+		<xsd:sequence>
+			<xsd:element name="Persoon" type="persoon:PersoonType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

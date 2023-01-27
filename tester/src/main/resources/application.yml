@@ -1,0 +1,11 @@
+tester:
+  service-scheme: http
+  service-host: localhost
+  service-port: 8080
+  probe-retry-mils: 1000
+  probe-retry-max: 3
+  wss:
+    #key-store: ${MAGDA_KEYSTORE} # uncomment to enable SOAP cryptographic features
+    key-alias: ${MAGDA_KEY_ALIAS}
+    key-password: ${MAGDA_KEY_PASSWORD}
+    keystore-password: ${MAGDA_KEYSTORE_PASSWORD}

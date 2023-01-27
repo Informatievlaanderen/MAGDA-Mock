@@ -25,11 +25,11 @@
                     <Antwoord>
                         <Referte>8145</Referte>
                         <Inhoud>
-                            <Onderneming>
-                                <Ondernemingsnummer DatumModificatie="2009-11-27">0820947127</Ondernemingsnummer>
-                                <AuthentiekBron>
+                            <Onderneming DatumModificatie="2009-11-27">
+                                <Ondernemingsnummer>0820947127</Ondernemingsnummer>
+                                <AuthentiekeBron>
                                     <Code Beschrijving="KBO">03</Code>
-                                </AuthentiekBron>
+                                </AuthentiekeBron>
                                 <OndernemingOfVestiging DatumModificatie="2009-11-27">
                                     <Code Beschrijving="Onderneming">1</Code>
                                 </OndernemingOfVestiging>
@@ -49,9 +49,9 @@
                                         </Straat>
                                         <Huisnummer>3</Huisnummer>
                                         <Gemeente>
-                                            <Naam>Hasselt</Naam>
                                             <NISCode>71022</NISCode>
                                             <PostCode>3500</PostCode>
+                                            <Naam>Hasselt</Naam>
                                         </Gemeente>
                                         <Land>
                                             <NISCode>150</NISCode>

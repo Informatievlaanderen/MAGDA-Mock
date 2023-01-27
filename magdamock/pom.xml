@@ -5,7 +5,7 @@
   <parent>
     <artifactId>magda</artifactId>
     <groupId>be.vlaanderen.vip.mock</groupId>
-    <version>0.12.0</version>
+    <version>0.13.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -19,7 +19,7 @@
     <dependency>
       <groupId>be.vlaanderen.vip.mock</groupId>
       <artifactId>interfaces</artifactId>
-      <version>0.12.0</version>
+      <version>${project.parent.version}</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -32,6 +32,12 @@
       <artifactId>assertj-core</artifactId>
       <version>${assertj-core.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>be.vlaanderen.vip.mock</groupId>
+        <artifactId>magdaconnector</artifactId>
+        <version>${project.parent.version}</version>
+        <scope>test</scope>
     </dependency>
   </dependencies>
   <artifactId>magdamock</artifactId>

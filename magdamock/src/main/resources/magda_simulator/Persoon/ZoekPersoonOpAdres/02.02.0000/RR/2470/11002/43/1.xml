@@ -1,0 +1,37 @@
+<v02:ZoekPersoonOpAdresResponse xmlns:v02="http://magda.vlaanderen.be/persoon/soap/zoekpersoonopadres/v02_02">
+   <Repliek>
+      <Context>
+         <Naam>ZoekPersoonOpAdres</Naam>
+         <Versie>02.02.0000</Versie>
+         <Bericht>
+            <Type>ANTWOORD</Type>
+            <Tijdstip>
+               <Datum>2021-08-10</Datum>
+               <Tijd>11:05:13.942</Tijd>
+            </Tijdstip>
+            <Afzender>
+               <Identificatie>vip.vlaanderen.be</Identificatie>
+               <Naam>VIP</Naam>
+               <Referte>822130d5-28de-42ce-b7f2-b115892b86e6</Referte>
+            </Afzender>
+            <Ontvanger>
+               <Identificatie>Afzender-A</Identificatie>
+               <Referte>XE:1191:34140:2793</Referte>
+               <Hoedanigheid>188</Hoedanigheid>
+            </Ontvanger>
+         </Bericht>
+      </Context>
+      <Uitzonderingen>
+         <Uitzondering>
+            <Identificatie>30001</Identificatie>
+            <Oorsprong>MAGDA</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+               <Datum>2019-03-30</Datum>
+               <Tijd>10:36:38</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+         </Uitzondering>
+      </Uitzonderingen>
+   </Repliek>
+</v02:ZoekPersoonOpAdresResponse>

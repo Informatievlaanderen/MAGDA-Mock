@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://magda.vlaanderen.be/soczek/soap/geefvolledigdossierhandicap/v03_00" xmlns:bericht="http://generiek-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://magda.vlaanderen.be/soczek/soap/geefvolledigdossierhandicap/v03_00">
+  <xsd:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../../Generiek-02.00/Generiek.xsd"/>
+  <xsd:element name="GeefVolledigDossierHandicapResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="1" name="Repliek" type="RepliekType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="RepliekType">
+    <xsd:sequence>
+      <xsd:element name="Context" type="bericht:ContextType"/>
+      <xsd:element minOccurs="0" name="Antwoorden" type="AntwoordenType"/>
+      <xsd:element minOccurs="0" name="Uitzonderingen" type="bericht:UitzonderingenType">
+        <xsd:annotation>
+          <xsd:documentation>Fouten die voorkomen na de verwerking van de Context maar voor de verwerking van Vraag of Antwoord bv: XSD Validatie fouten</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AntwoordenType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Antwoord" type="AntwoordType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AntwoordType">
+    <xsd:sequence>
+      <xsd:element name="Referte" type="bericht:ReferteType"/>
+      <xsd:element minOccurs="0" name="Inhoud" type="AntwoordInhoudType"/>
+      <xsd:element minOccurs="0" name="Uitzonderingen" type="bericht:UitzonderingenType">
+        <xsd:annotation>
+          <xsd:documentation>Fouten die voorkomen na de verwerking van Vraag of Antwoord bv: warnings rond ontbrekende data en fouten gelinked aan 1 antwoord</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AntwoordInhoudType">
+    <xsd:sequence>
+      <xsd:element name="GeefVolledigDossierHandicap">
+        <xsd:complexType>
+          <xsd:all minOccurs="0">
+            <xsd:element minOccurs="0" name="diagnose">
+              <xsd:complexType>
+                <xsd:all minOccurs="0">
+                  <xsd:element minOccurs="0" name="beperkingen">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="beperkingenItem">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="1" name="code" type="xsd:string"/>
+                              <xsd:element minOccurs="1" name="omschrijving" type="xsd:string"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" name="handicaps">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="handicapsItem">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" name="iqTest">
+                    <xsd:complexType>
+                      <xsd:all minOccurs="0">
+                        <xsd:element minOccurs="0" name="datum" type="xsd:date"/>
+                        <xsd:element minOccurs="0" name="p" type="xsd:decimal"/>
+                        <xsd:element minOccurs="0" name="t" type="xsd:decimal"/>
+                        <xsd:element minOccurs="0" name="type" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="v" type="xsd:decimal"/>
+                        <xsd:element minOccurs="0" name="verslag">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="mdtVerslagNemer">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="adres">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="busnummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="gemeente">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="postcode" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="huisnummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="land">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="isoCode" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="straat">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                                    <xsd:element minOccurs="0" name="erkenningsnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="ondernemingsnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="rijksregisternummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="verzendingsdatum" type="xsd:date"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:all>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" name="laatsteVerslag">
+                    <xsd:complexType>
+                      <xsd:all minOccurs="0">
+                        <xsd:element minOccurs="0" name="mdtVerslagNemer">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="adres">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="busnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="gemeente">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="postcode" type="xsd:string"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="huisnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="land">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="isoCode" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="straat">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                              <xsd:element minOccurs="0" name="erkenningsnummer" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="ondernemingsnummer" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="rijksregisternummer" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="verzendingsdatum" type="xsd:date"/>
+                      </xsd:all>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" name="motorischeBeperkingen">
+                    <xsd:complexType>
+                      <xsd:all minOccurs="0">
+                        <xsd:element minOccurs="0" name="bovensteLedematenLinks" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="bovensteLedematenRechts" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="ondersteLedematenLinks" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="ondersteLedematenRechts" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="stappen300m" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="verslag">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="mdtVerslagNemer">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="adres">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="busnummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="gemeente">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="postcode" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="huisnummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="land">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="isoCode" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="straat">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                                    <xsd:element minOccurs="0" name="erkenningsnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="ondernemingsnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="rijksregisternummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="verzendingsdatum" type="xsd:date"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="wervelkolom" type="xsd:string"/>
+                      </xsd:all>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" name="stoornissen">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="stoornissenItem">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="verslag">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="mdtVerslagNemer">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="adres">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="busnummer" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="gemeente">
+                                                  <xsd:complexType>
+                                                    <xsd:all minOccurs="0">
+                                                      <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                      <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                                      <xsd:element minOccurs="0" name="postcode" type="xsd:string"/>
+                                                    </xsd:all>
+                                                  </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element minOccurs="0" name="huisnummer" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="land">
+                                                  <xsd:complexType>
+                                                    <xsd:all minOccurs="0">
+                                                      <xsd:element minOccurs="0" name="isoCode" type="xsd:string"/>
+                                                      <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                      <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                                    </xsd:all>
+                                                  </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element minOccurs="0" name="straat">
+                                                  <xsd:complexType>
+                                                    <xsd:all minOccurs="0">
+                                                      <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                                                      <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                    </xsd:all>
+                                                  </xsd:complexType>
+                                                </xsd:element>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                                          <xsd:element minOccurs="0" name="erkenningsnummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="ondernemingsnummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="rijksregisternummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="verzendingsdatum" type="xsd:date"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" name="zelfredzaamheid">
+                    <xsd:complexType>
+                      <xsd:all minOccurs="0">
+                        <xsd:element minOccurs="0" name="barthel" type="xsd:decimal"/>
+                        <xsd:element minOccurs="0" name="elida" type="xsd:decimal"/>
+                        <xsd:element minOccurs="0" name="verslag">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="mdtVerslagNemer">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="adres">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="busnummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="gemeente">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="postcode" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="huisnummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="land">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="isoCode" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="straat">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                                    <xsd:element minOccurs="0" name="erkenningsnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="ondernemingsnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="rijksregisternummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="verzendingsdatum" type="xsd:date"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:all>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" name="zorgZwaarte">
+                    <xsd:complexType>
+                      <xsd:all minOccurs="0">
+                        <xsd:element minOccurs="0" name="bWaarde" type="xsd:decimal"/>
+                        <xsd:element minOccurs="0" name="pWaarde" type="xsd:decimal"/>
+                        <xsd:element minOccurs="0" name="verslag">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="mdtVerslagNemer">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="adres">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="busnummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="gemeente">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="postcode" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="huisnummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="land">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="isoCode" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="straat">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                                    <xsd:element minOccurs="0" name="erkenningsnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="ondernemingsnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="rijksregisternummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="verzendingsdatum" type="xsd:date"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:all>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:all>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="imb">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="imbItem">
+                    <xsd:complexType>
+                      <xsd:all minOccurs="0">
+                        <xsd:element minOccurs="0" name="aanvraagdatum" type="xsd:date"/>
+                        <xsd:element minOccurs="0" name="bewijzen">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element maxOccurs="unbounded" minOccurs="0" name="bewijzenItem">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="bedrag">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                          <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="betaalbaar" type="xsd:boolean"/>
+                                    <xsd:element minOccurs="0" name="factuurReferentie" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="factuurdatum" type="xsd:date"/>
+                                    <xsd:element minOccurs="0" name="leverancier" type="xsd:string"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="facturenBetaalbaarVanaf" type="xsd:date"/>
+                        <xsd:element minOccurs="0" name="imbHulpmiddel">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="omschrijvingHulpmiddel" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="toegewezenBedrag">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                              <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:all>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="nietPvbGebondenZorg">
+              <xsd:complexType>
+                <xsd:all minOccurs="0">
+                  <xsd:element minOccurs="0" name="overeenkomsten">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="overeenkomstenItem">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="bedrag">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                    <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                              <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                              <xsd:element minOccurs="0" name="type">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="1" name="code" type="xsd:string"/>
+                                    <xsd:element minOccurs="1" name="omschrijving" type="xsd:string"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="zorgaanbieder">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="adres">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="busnummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="gemeente">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="postcode" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="huisnummer" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="land">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="isoCode" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="straat">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="erkenningsnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="ondernemingsnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="rijksregisternummer" type="xsd:string"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="zorgpunten">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                    <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" name="rth">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="rthItem">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="adres">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="busnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="gemeente">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="postcode" type="xsd:string"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="huisnummer" type="xsd:string"/>
+                                    <xsd:element minOccurs="0" name="land">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="isoCode" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="straat">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                                          <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="erkenningsnummer" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="ondernemingsnummer" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="registratiesPerJaar">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="registratiesPerJaarItem">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="aantalRegistraties" type="xsd:long"/>
+                                          <xsd:element minOccurs="0" name="jaar" type="xsd:int"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="rijksregisternummer" type="xsd:string"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:all>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="persoonsgegevens">
+              <xsd:complexType>
+                <xsd:all minOccurs="0">
+                  <xsd:element minOccurs="0" name="adres">
+                    <xsd:complexType>
+                      <xsd:all minOccurs="0">
+                        <xsd:element minOccurs="0" name="busnummer" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="gemeente">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="postcode" type="xsd:string"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="huisnummer" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="land">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="isoCode" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="straat">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:all>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" name="dossiernummer" type="xsd:string"/>
+                  <xsd:element minOccurs="0" name="emailadres" type="xsd:string"/>
+                  <xsd:element minOccurs="0" name="erkenningHandicap">
+                    <xsd:complexType>
+                      <xsd:all minOccurs="0">
+                        <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                        <xsd:element minOccurs="0" name="heeftHandicap" type="xsd:boolean"/>
+                        <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                      </xsd:all>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" name="ondernemingsnummer" type="xsd:string"/>
+                  <xsd:element minOccurs="0" name="rijksregisternummer" type="xsd:string"/>
+                  <xsd:element minOccurs="0" name="telefoonnummer" type="xsd:string"/>
+                </xsd:all>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="persoonsvolgendBudget">
+              <xsd:complexType>
+                <xsd:all minOccurs="0">
+                  <xsd:element minOccurs="0" name="budget">
+                    <xsd:complexType>
+                      <xsd:all minOccurs="0">
+                        <xsd:element minOccurs="0" name="pab">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="budgetcategorie">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="1" name="code" type="xsd:string"/>
+                                    <xsd:element minOccurs="1" name="omschrijving" type="xsd:string"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="dagbesteding">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="activiteiten">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element maxOccurs="unbounded" minOccurs="0" name="activiteitenItem">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="regime">
+                                                  <xsd:simpleType>
+                                                    <xsd:restriction base="xsd:string">
+                                                      <xsd:enumeration value="DEELTIJDS"/>
+                                                      <xsd:enumeration value="VOLTIJDS"/>
+                                                    </xsd:restriction>
+                                                  </xsd:simpleType>
+                                                </xsd:element>
+                                                <xsd:element minOccurs="0" name="toelichting" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="type">
+                                                  <xsd:complexType>
+                                                    <xsd:all minOccurs="0">
+                                                      <xsd:element minOccurs="1" name="code" type="xsd:string"/>
+                                                      <xsd:element minOccurs="1" name="omschrijving" type="xsd:string"/>
+                                                    </xsd:all>
+                                                  </xsd:complexType>
+                                                </xsd:element>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                              <xsd:element minOccurs="0" name="jaarbudgetten">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="jaarbudgettenItem">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="budgethoogte">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                                <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                                          <xsd:element minOccurs="0" name="jaar" type="xsd:int"/>
+                                          <xsd:element minOccurs="0" name="saldoBudget">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                                <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="noodAanToezicht" type="xsd:boolean"/>
+                              <xsd:element minOccurs="0" name="overeenkomsten">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="overeenkomstenItem">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="bedrag">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                                <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                                          <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                                          <xsd:element minOccurs="0" name="type">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="1" name="code" type="xsd:string"/>
+                                                <xsd:element minOccurs="1" name="omschrijving" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="zorgaanbieder">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="adres">
+                                                  <xsd:complexType>
+                                                    <xsd:all minOccurs="0">
+                                                      <xsd:element minOccurs="0" name="busnummer" type="xsd:string"/>
+                                                      <xsd:element minOccurs="0" name="gemeente">
+                                                        <xsd:complexType>
+                                                          <xsd:all minOccurs="0">
+                                                            <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                            <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                                            <xsd:element minOccurs="0" name="postcode" type="xsd:string"/>
+                                                          </xsd:all>
+                                                        </xsd:complexType>
+                                                      </xsd:element>
+                                                      <xsd:element minOccurs="0" name="huisnummer" type="xsd:string"/>
+                                                      <xsd:element minOccurs="0" name="land">
+                                                        <xsd:complexType>
+                                                          <xsd:all minOccurs="0">
+                                                            <xsd:element minOccurs="0" name="isoCode" type="xsd:string"/>
+                                                            <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                            <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                                          </xsd:all>
+                                                        </xsd:complexType>
+                                                      </xsd:element>
+                                                      <xsd:element minOccurs="0" name="straat">
+                                                        <xsd:complexType>
+                                                          <xsd:all minOccurs="0">
+                                                            <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                                                            <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                          </xsd:all>
+                                                        </xsd:complexType>
+                                                      </xsd:element>
+                                                    </xsd:all>
+                                                  </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element minOccurs="0" name="erkenningsnummer" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="ondernemingsnummer" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="rijksregisternummer" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="zorgpunten">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                                <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                              <xsd:element minOccurs="0" name="tekortenHuidigeOndersteuning" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="vraagMotiveringMeerwaarde" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="vraagOndersteuningsplan" type="xsd:string"/>
+                              <xsd:element minOccurs="0" name="werkkapitaal">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                    <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="pvb">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="budgetcategorie">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="1" name="code" type="xsd:string"/>
+                                    <xsd:element minOccurs="1" name="omschrijving" type="xsd:string"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="jaarbudgetten">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="jaarbudgettenItem">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="budgethoogte">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                                <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                                          <xsd:element minOccurs="0" name="jaar" type="xsd:int"/>
+                                          <xsd:element minOccurs="0" name="saldoBudget">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                                <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="overeenkomsten">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="overeenkomstenItem">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="0" name="bedrag">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                                <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="einddatum" type="xsd:date"/>
+                                          <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                                          <xsd:element minOccurs="0" name="type">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="1" name="code" type="xsd:string"/>
+                                                <xsd:element minOccurs="1" name="omschrijving" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="zorgaanbieder">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="adres">
+                                                  <xsd:complexType>
+                                                    <xsd:all minOccurs="0">
+                                                      <xsd:element minOccurs="0" name="busnummer" type="xsd:string"/>
+                                                      <xsd:element minOccurs="0" name="gemeente">
+                                                        <xsd:complexType>
+                                                          <xsd:all minOccurs="0">
+                                                            <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                            <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                                            <xsd:element minOccurs="0" name="postcode" type="xsd:string"/>
+                                                          </xsd:all>
+                                                        </xsd:complexType>
+                                                      </xsd:element>
+                                                      <xsd:element minOccurs="0" name="huisnummer" type="xsd:string"/>
+                                                      <xsd:element minOccurs="0" name="land">
+                                                        <xsd:complexType>
+                                                          <xsd:all minOccurs="0">
+                                                            <xsd:element minOccurs="0" name="isoCode" type="xsd:string"/>
+                                                            <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                            <xsd:element minOccurs="0" name="nisCode" type="xsd:string"/>
+                                                          </xsd:all>
+                                                        </xsd:complexType>
+                                                      </xsd:element>
+                                                      <xsd:element minOccurs="0" name="straat">
+                                                        <xsd:complexType>
+                                                          <xsd:all minOccurs="0">
+                                                            <xsd:element minOccurs="0" name="code" type="xsd:string"/>
+                                                            <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                          </xsd:all>
+                                                        </xsd:complexType>
+                                                      </xsd:element>
+                                                    </xsd:all>
+                                                  </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element minOccurs="0" name="erkenningsnummer" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="naam" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="ondernemingsnummer" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="rijksregisternummer" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element minOccurs="0" name="zorgpunten">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                                <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="startdatum" type="xsd:date"/>
+                              <xsd:element minOccurs="0" name="terugvorderbaarVoorschot">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                    <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="toegewezenZorgpunten">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="euro" type="xsd:decimal"/>
+                                    <xsd:element minOccurs="0" name="punten" type="xsd:decimal"/>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:all>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" name="inAfwachtingVanBudgetOfExtraBudget" type="xsd:boolean"/>
+                  <xsd:element minOccurs="0" name="ondersteuningsplannen">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="ondersteuningsplannenItem">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="0" name="dringendeVraag">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="gevraagdeBudgetcategorie">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="1" name="code" type="xsd:string"/>
+                                          <xsd:element minOccurs="1" name="omschrijving" type="xsd:string"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="ondersteuningsfuncties">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element maxOccurs="unbounded" minOccurs="0" name="ondersteuningsfunctiesItem">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="eenheid" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="frequentie" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="functie" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="gewoneVraag">
+                                <xsd:complexType>
+                                  <xsd:all minOccurs="0">
+                                    <xsd:element minOccurs="0" name="gevraagdeBudgetcategorie">
+                                      <xsd:complexType>
+                                        <xsd:all minOccurs="0">
+                                          <xsd:element minOccurs="1" name="code" type="xsd:string"/>
+                                          <xsd:element minOccurs="1" name="omschrijving" type="xsd:string"/>
+                                        </xsd:all>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="ondersteuningsfuncties">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element maxOccurs="unbounded" minOccurs="0" name="ondersteuningsfunctiesItem">
+                                            <xsd:complexType>
+                                              <xsd:all minOccurs="0">
+                                                <xsd:element minOccurs="0" name="eenheid" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="frequentie" type="xsd:string"/>
+                                                <xsd:element minOccurs="0" name="functie" type="xsd:string"/>
+                                              </xsd:all>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:all>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element minOccurs="0" name="verzendingsdatum" type="xsd:dateTime"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:all>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="wettelijkeVertegenwoordigers">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="wettelijkeVertegenwoordigersItem">
+                    <xsd:complexType>
+                      <xsd:all minOccurs="0">
+                        <xsd:element minOccurs="0" name="rijksregisternummer" type="xsd:string"/>
+                        <xsd:element minOccurs="0" name="wettelijkeVertegenwoordigerType">
+                          <xsd:complexType>
+                            <xsd:all minOccurs="0">
+                              <xsd:element minOccurs="1" name="code" type="xsd:string"/>
+                              <xsd:element minOccurs="1" name="omschrijving" type="xsd:string"/>
+                            </xsd:all>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:all>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

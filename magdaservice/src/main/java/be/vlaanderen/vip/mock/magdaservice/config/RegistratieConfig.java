@@ -22,6 +22,7 @@ public class RegistratieConfig {
     private String service;
     private String certPath;
     private String keyAlias;
+    private String keyPassword;
     private String keystorePassword;
 
     @PostConstruct
@@ -35,9 +36,14 @@ public class RegistratieConfig {
         if (StringUtils.isEmpty(service)) {
             System.err.println("Vul registratie.service configuratie in!");
         }
-        if (StringUtils.isEmpty(certPath)) {
-            System.err.println("Vul registratie.certPath configuratie in!");
+        if (!StringUtils.isEmpty(certPath) && StringUtils.isEmpty(keyAlias)) {
+            System.err.println("Vul registratie.keyAlias configuratie in!");
+        }
+        if (!StringUtils.isEmpty(certPath) && StringUtils.isEmpty(keyPassword)) {
+            System.err.println("Vul registratie.keyPassword configuratie in!");
+        }
+        if (!StringUtils.isEmpty(certPath) && StringUtils.isEmpty(keystorePassword)) {
+            System.err.println("Vul registratie.keystorePassword configuratie in!");
         }
     }
-
 }

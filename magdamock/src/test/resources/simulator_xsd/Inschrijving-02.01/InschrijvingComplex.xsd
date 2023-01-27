@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  #%L
+  VIPInterfaces-generiek
+  %%
+  Copyright (C) 2016 - 2018 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+
+<xs:schema xmlns="http://inschrijving-02_01.onderwijs.vlaanderen.be"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be"
+		   xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be"
+		   xmlns:onderwijs="http://onderwijs-02_01.onderwijs.vlaanderen.be"
+		   xmlns:leerplichtonderwijs="http://leerplichtonderwijs-02_01.onderwijs.vlaanderen.be"
+		   xmlns:vwo="http://volwassenenonderwijs-02_01.onderwijs.vlaanderen.be"
+		   xmlns:hogeronderwijs="http://hogeronderwijs-02_01.onderwijs.vlaanderen.be"
+		   xmlns:internaat="http://internaat-02_01.onderwijs.vlaanderen.be"
+		   targetNamespace="http://inschrijving-02_01.onderwijs.vlaanderen.be"
+		   elementFormDefault="unqualified"
+		   attributeFormDefault="unqualified"
+		   version="2.01">
+
+	<xs:include schemaLocation="InschrijvingSimple.xsd"/>
+	<xs:include schemaLocation="InschrijvingEnum.xsd"/>
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xs:import namespace="http://onderwijs-02_01.onderwijs.vlaanderen.be" schemaLocation="../Onderwijs-02.01/Onderwijs.xsd"/>
+	<xs:import namespace="http://leerplichtonderwijs-02_01.onderwijs.vlaanderen.be" schemaLocation="../LeerplichtOnderwijs-02.01/LeerplichtOnderwijs.xsd"/>
+	<xs:import namespace="http://volwassenenonderwijs-02_01.onderwijs.vlaanderen.be" schemaLocation="../Volwassenenonderwijs-02.01/Volwassenenonderwijs.xsd"/>
+	<xs:import namespace="http://hogeronderwijs-02_01.onderwijs.vlaanderen.be" schemaLocation="../HogerOnderwijs-02.01/HogerOnderwijs.xsd"/>
+	<xs:import namespace="http://internaat-02_01.onderwijs.vlaanderen.be" schemaLocation="../Internaat-02.01/Internaat.xsd"/>
+	<!-- Zoekcriteria definitie -->
+	<xs:complexType name="CriteriaGeefHistoriekInschrijvingType">
+		<xs:annotation>
+			<xs:documentation>
+                Bevat de input elementen/data die nodig zijn om de operatie uit te kunnen voeren.
+            </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Periode" type="onderwijs:PeriodeType"/>
+			<xs:element name="Bronnen" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Bron" type="BronEnumType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Inschrijvingstypes -->
+	<xs:complexType name="InschrijvingenType">
+		<xs:sequence>
+			<xs:element name="Inschrijving" type="InschrijvingType" minOccurs="1" maxOccurs="99"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InschrijvingType">
+		<xs:annotation>
+			<xs:documentation>Vertegenwoordigt het antwoord met inschrijvingen van het leerplichtonderwijs of volwassenenonderwijs of hoger onderwijs
+				</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- Gemeenschappelijke Inschrijvingselementen -->
+			<xs:element name="Bron" type="BronEnumType"/>
+			<xs:element name="Referte" type="generiek:Tekst2_0Type"/>
+			<xs:element name="Instelling" type="onderwijs:InstellingType"/>
+			<xs:element name="OnderwijsLocatie" type="onderwijs:OnderwijsLocatieType" minOccurs="0"/>
+			<!-- Domeinspecifieke Inschrijvingselementen -->
+			<xs:choice minOccurs="0">
+				<xs:element name="LeerplichtOnderwijs" type="leerplichtonderwijs:LeerplichtOnderwijsType"/>
+				<xs:element name="HogerOnderwijs" type="hogeronderwijs:HogerOnderwijsType"/>
+				<xs:element name="Volwassenenonderwijs" type="vwo:VolwassenenonderwijsInschrijvingType"/>
+				<xs:element name="Internaat" type="internaat:InternaatType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

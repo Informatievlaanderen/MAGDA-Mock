@@ -1,0 +1,37 @@
+<web:GeefEpcResponse xmlns:web="http://webservice.geefepcdienst-02_01.energie-02_01.epb.vea.lne.vlaanderen.be">
+	<Repliek>
+		<Context>
+			<Naam>GeefEpc</Naam>
+			<Versie>02.01.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2000-00-00</Datum>
+					<Tijd>00:00</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>MagdaGateway</Naam>
+					<Referte>02caeca8-2999-48f7-99a2-bb4fb5c13e19</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>Afzender-A</Identificatie>
+					<Referte>XE:1191:34140:2793</Referte>
+					<Hoedanigheid>188</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Uitzonderingen>
+			<Uitzondering>
+				<Identificatie>60009</Identificatie>
+				<Oorsprong>MAGDA</Oorsprong>
+				<Type>FOUT</Type>
+				<Tijdstip>
+					<Datum>2019-03-30</Datum>
+					<Tijd>10:36:38</Tijd>
+				</Tijdstip>
+				<Diagnose>Er heeft zich een interne fout voorgedaan</Diagnose>
+			</Uitzondering>
+		</Uitzonderingen>
+	</Repliek>
+</web:GeefEpcResponse>

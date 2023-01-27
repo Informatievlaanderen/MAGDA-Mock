@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -23,27 +24,26 @@ public class StaticResponseSimulator extends SOAPSimulator {
     }
 
     @Override
-    public MagdaDocument send(MagdaDocument request) {
+    public MagdaDocument send(MagdaDocument request) throws MagdaSendFailed {
         var params = new MagdaRequest(request, keys);
 
         var dienst = params.getServiceNaam();
         var versie = params.getServiceVersie();
 
-        var response = loadResource(dienst, versie, params.getKeys());
-        if (response == null) {
-            response = loadResource(dienst, versie, replaceLastKey(params.getKeys(), "notfound"));
+        var responseBody = loadResource(dienst, versie, params.getKeys());
+        if (responseBody == null) {
+            responseBody = loadResource(dienst, versie, replaceLastKey(params.getKeys(), "notfound"));
         }
-        if (response == null) {
-            response = loadResource(dienst, versie, replaceLastKey(params.getKeys(), "success"));
+        if (responseBody == null) {
+            responseBody = loadResource(dienst, versie, replaceLastKey(params.getKeys(), "success"));
         }
 
-        if (response != null) {
-            PatchResponse(params, response);
+        if (responseBody != null) {
+            PatchResponse(params, responseBody);
 
-            return response;
+            return wrapInEnvelope(responseBody);
         } else {
-            log.warn("Geen mock data gevonden voor request naar {} {}", dienst, versie);
-            return null;
+            throw new MagdaSendFailed("Geen mock data gevonden voor request naar " + dienst + " " + versie);
         }
     }
 
@@ -56,21 +56,35 @@ public class StaticResponseSimulator extends SOAPSimulator {
         return result;
     }
 
-    // TODO: gemeenschappelijke responses
-    // Als er bvb 3 keys zijn A, B, C
-    // 1. Kijk of A/B/C.xml bestaat
-    // 2. Kijk of A/C.xml bestaat
-    // 3. Kijk of C.xml bestaat
     private MagdaDocument loadResource(String dienst, String versie, List<String> keys) {
-        String testResource = dienst + "/" + versie + "/";
+        var dirs = new ArrayList<String>();
+        dirs.add(dienst);
+        dirs.add(versie);
         if (keys.size() > 1) {
             for (var i = 0; i < keys.size() - 1; i++) {
-                testResource += keys.get(i) + "/";
+                if (keys.get(i) != null) {
+                    dirs.add(keys.get(i));
+                }
             }
         }
-        testResource += keys.get(keys.size() - 1) + ".xml";
-        return loadSimulatorResource(type, testResource);
+
+        var fileName = keys.get(keys.size() - 1) + ".xml";
+
+        return loadSimulatorResourceFromHierarchy(type, dirs, fileName);
     }
 
+    private MagdaDocument loadSimulatorResourceFromHierarchy(String type, List<String> dirs, String fileName) {
+        while(!dirs.isEmpty()) {
+            var testResource = String.join("/", dirs) + "/" + fileName;
+            var simulatorResource = loadSimulatorResource(type, testResource);
 
+            if(simulatorResource == null) {
+                dirs.remove(dirs.size() - 1);
+            } else {
+                return simulatorResource;
+            }
+        }
+
+        return loadSimulatorResource(type, fileName);
+    }
 }

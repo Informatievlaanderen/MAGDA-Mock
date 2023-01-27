@@ -114,6 +114,10 @@
                                     <Gebouwen>
                                         <Gebouw>
                                             <Adres>
+                                                <Straat>
+                                                    <Code>00500</Code>
+                                                    <Naam>Dorpsstraat</Naam>
+                                                </Straat>
                                                 <Huisnummer>30</Huisnummer>
                                                 <Gemeente>
                                                     <NISCode>24055</NISCode>

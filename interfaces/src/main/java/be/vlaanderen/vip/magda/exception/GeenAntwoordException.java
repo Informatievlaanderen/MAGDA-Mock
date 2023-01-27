@@ -23,6 +23,13 @@ public class GeenAntwoordException extends BronException {
         this.dienst = aanvraag.magdaService().getNaam();
     }
 
+    public GeenAntwoordException(Aanvraag aanvraag, String bericht, Throwable oorzaak) {
+        super(bericht, oorzaak);
+        this.transactieID = aanvraag.getCorrelationId();
+        this.localTransactieID = aanvraag.getRequestId();
+        this.dienst = aanvraag.magdaService().getNaam();
+    }
+
     public GeenAntwoordException(String dienst, UUID transactieID, UUID localTransactieID, String bericht) {
         super(bericht);
         this.transactieID = transactieID;

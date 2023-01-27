@@ -25,11 +25,11 @@
             <Antwoord>
                 <Referte>8145</Referte>
                 <Inhoud>
-                    <Onderneming>
-                        <Ondernemingsnummer DatumModificatie="2009-11-27">0860915976</Ondernemingsnummer>
-                        <AuthentiekBron>
+                    <Onderneming DatumModificatie="2009-11-27">
+                        <Ondernemingsnummer>0860915976</Ondernemingsnummer>
+                        <AuthentiekeBron>
                             <Code Beschrijving="KBO">03</Code>
-                        </AuthentiekBron>
+                        </AuthentiekeBron>
                         <OndernemingOfVestiging DatumModificatie="2009-11-27">
                             <Code Beschrijving="Onderneming">1</Code>
                         </OndernemingOfVestiging>
@@ -49,9 +49,9 @@
                                 </Straat>
                                 <Huisnummer>3</Huisnummer>
                                 <Gemeente>
-                                    <Naam>Antwerpen</Naam>
                                     <NISCode>11002</NISCode>
                                     <PostCode>2000</PostCode>
+                                    <Naam>Antwerpen</Naam>
                                 </Gemeente>
                                 <Land>
                                     <NISCode>150</NISCode>

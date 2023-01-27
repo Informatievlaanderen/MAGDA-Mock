@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Bert Van Kets (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/persoon-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/persoon-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:include schemaLocation="PersoonGemeenschappelijk-v3.xsd"/>
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<xs:simpleType name="PostCodeInputType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HuisnummerInputType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BusnummerInputType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodeStraatType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VolgendeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GeslachtInputType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TolerantieType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--=> SAMENGESTELDE TYPE DEFINITES-->
+	<!-- ======================== RESPONSE TYPES ======================= -->
+	<xs:complexType name="CriteriaZoekPersoonOpAdresType">
+		<xs:sequence>
+			<xs:element name="Adres" type="PersoonAdresInputType"/>
+			<xs:element name="EnkelReferentiepersoon" type="generiek:VlagCodeType"/>
+			<xs:element name="Volgende" type="VolgendeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersoonAdresInputType">
+		<xs:sequence>
+			<xs:element name="PostCode" type="PostCodeInputType"/>
+			<xs:element name="Straatcode" type="CodeStraatType"/>
+			<xs:element name="Huisnummer" type="HuisnummerInputType"/>
+			<xs:element name="Busnummer" type="BusnummerInputType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CriteriaZoekPersoonOpNaamType">
+		<xs:sequence>
+			<xs:element name="Naam" type="NaamPersoonInputType"/>
+			<xs:element name="Geboorte" type="GeboorteInputType"/>
+			<xs:element name="Geslacht" type="GeslachtInputType" minOccurs="0"/>
+			<xs:element name="Adres" type="AdresInputType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AdresInputType">
+		<xs:sequence>
+			<xs:element name="LandNISCode" type="generiek:NISCodeLandType" minOccurs="0"/>
+			<xs:element name="GemeenteNISCode" type="generiek:NISCodeGemeenteType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NaamPersoonInputType">
+		<xs:sequence>
+			<xs:element name="Achternaam" type="generiek:NaamLangType"/>
+			<xs:element name="Voornamen" type="VoornaamLijstInputType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VoornaamLijstInputType">
+		<xs:sequence>
+			<xs:element name="Voornaam" type="generiek:VoornaamKortType" minOccurs="1" maxOccurs="3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GeboorteInputType">
+		<xs:sequence>
+			<xs:element name="Datum" type="generiek:OnvolledigeDatumType"/>
+			<xs:element name="Tolerantie" type="TolerantieType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

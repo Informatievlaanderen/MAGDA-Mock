@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://generiek-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://generiek-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00">
+	<xs:simpleType name="JaarMaandType">
+		<xs:restriction base="xs:gYearMonth"/>
+	</xs:simpleType>
+	<xs:simpleType name="JaarType">
+		<xs:annotation>
+			<xs:documentation>JaarType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="4"/>
+			<xs:pattern value="[0-2,9][0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DatumType">
+		<xs:annotation>
+			<xs:documentation>DatumType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="10"/>
+			<xs:pattern value="[0-2,9][0-9]{3}-[0-1][0-9]-[0-3][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GregoriaansDatumType">
+		<xs:annotation>
+			<xs:documentation>Voorstelling van een datum volgens de Gregoriaanse kalender, formaat JJJJ-MM-DD, optioneel gevolgd door een tijdzone expressie</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="VolledigDatumType">
+		<xs:annotation>
+			<xs:documentation>VolledigDatumType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="10"/>
+			<xs:pattern value="((((19|20)(([02468][048])|([13579][26]))-02-29))|((20[0-9][0-9])|(19[0-9][0-9]))-((((0[1-9])|(1[0-2]))-((0[1-9])|(1\d)|(2[0-8])))|((((0[13578])|(1[02]))-31)|(((0[1,3-9])|(1[0-2]))-(29|30)))))"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TijdType">
+		<xs:annotation>
+			<xs:documentation>TijdType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12"/>
+			<xs:minLength value="5"/>
+			<xs:pattern value="[0-2][0-9]:[0-5][0-9](:[0-5][0-9](\.[0-9]{3})?)?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NaamKortType">
+		<xs:annotation>
+			<xs:documentation>NaamKortType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="24"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NaamLangType">
+		<xs:annotation>
+			<xs:documentation>NaamLangType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="48"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="INSZType">
+		<xs:annotation>
+			<xs:documentation>INSZType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="11"/>
+			<xs:pattern value="\p{N}{11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LandISOCodeType">
+		<xs:annotation>
+			<xs:documentation>LandISOCodeType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GemeenteNISCodeType">
+		<xs:annotation>
+			<xs:documentation>GemeenteNISCodeType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:pattern value="[0-9]{0,5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodeNISGemeenteType">
+		<xs:annotation>
+			<xs:documentation>Verbeterde variant van GemeenteNISCodeType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PostCodeType">
+		<xs:annotation>
+			<xs:documentation>PostCodeType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6"/>
+			<xs:pattern value="[\p{L}\p{N}\s\-]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LandNISCodeType">
+		<xs:annotation>
+			<xs:documentation>LandNISCodeType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LandNISCodeGroepType">
+		<xs:annotation>
+			<xs:documentation>LandNISCodeGroepType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StraatNISCodeType">
+		<xs:annotation>
+			<xs:documentation>StraatNISCodeType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+			<xs:pattern value="[0-9a-zA-Z][0-9]{0,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StraatNaamType">
+		<xs:annotation>
+			<xs:documentation>StraatNaamType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HuisBusNummerType">
+		<xs:annotation>
+			<xs:documentation>HuisNummerType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LandGemeenteNaamType">
+		<xs:annotation>
+			<xs:documentation>GemeenteNaamType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstType">
+		<xs:annotation>
+			<xs:documentation>TekstType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="120"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstLangType">
+		<xs:annotation>
+			<xs:documentation>TekstLangType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value=".*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NumeriekLangType">
+		<xs:annotation>
+			<xs:documentation>NumeriekLangType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReferteType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="36"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MetadataTypeKernType">
+		<xs:annotation>
+			<xs:documentation> | 00 (Onbekend)) | 01 (Nieuw) | 02 (Wijziging) | 03 (Annulatie) | 04 (Verwijdering) | 09 (Andere) | </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DatumTijdType">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<!--======================================-->
+	<!-- Start van nieuwe XSD-Richtlijnen 2.x -->
+	<!--======================================-->
+	<xs:simpleType name="Datum2_0Type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}-[0-1,9][0-9]-[0-3,9][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tijd2_0Type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-2][0-9]:[0-5][0-9](:[0-5][0-9](\.[0-9]{3})?)?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferDubbelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferTripleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferQuadrupleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferQuintupleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferSextupleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{6}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferSeptupleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{7}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferOctupleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferNonupleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferDubbelVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferSeptupleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,7}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferOctupleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferNonupleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstKort2_0Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="120"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst2_0Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstLang2_0Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstExtraLang2_0Type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value=".+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OmschrijvingOorsprongType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9a-zA-Z_]{1,10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OmschrijvingTaalCodeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0a-z]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FotoType">
+		<xs:restriction base="xs:base64Binary"/>
+	</xs:simpleType>
+	<xs:simpleType name="Base64Type">
+		<xs:restriction base="xs:base64Binary"/>
+	</xs:simpleType>
+	<xs:simpleType name="BronType">
+		<xs:annotation>
+			<xs:documentation>
+				Deze zijn bv.: BCSS_KSZ | RN_RR | FODFIN. Deze lijst is niet exhaustief.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="24"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DagType">
+		<xs:restriction base="xs:string">
+			<xs:length value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PercentageType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PercentageDecimaalType">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+			<xs:totalDigits value="5"/>
+			<xs:maxInclusive value="999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PercentageTekstLangType">
+		<xs:restriction base="xs:string">
+			<xs:length value="6"/>
+			<xs:pattern value="[0-9]{3},[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KarakterType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[a-zA-Z]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KwartaalcijferType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-4]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferDubbelDecimaalVariabelType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="99.99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferTripleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferTripleDecimaalVariabelType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="999.99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferQuadrupleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferQuintupleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferSextupleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MaandType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KarakterAllesType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KarakterAllesDubbelType">
+		<xs:restriction base="xs:string">
+			<xs:length value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LandNISCode2_0Type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LandISOCode2_0Type">
+		<xs:restriction base="xs:string">
+			<xs:length value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodeTaalType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BronCodeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EmailType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value=".{1,64}@[^@]{1,253}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodeRRStraatType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LijnnummerType">
+		<xs:restriction base="xs:short"/>
+	</xs:simpleType>
+	<xs:simpleType name="WebsiteType">
+		<xs:restriction base="xs:anyURI"/>
+	</xs:simpleType>
+	<!-- ============================================================	-->
+	<!--			AttestPrefix-Prefix simple types																	-->
+	<!-- ============================================================	-->
+	<xs:simpleType name="AttestPrefixReturncodeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixVersiePrefixType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z]."/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixSectorType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixTypeInstellingType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixReferteType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixUserIdType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixTypeBerichtType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixReturncodeKSZType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixCodeType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixVarianteType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixBerichtGedeelteType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixSlagenStroomType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixHoedanigheidscodeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixFaseType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestPrefixInstellingType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ============================================================	-->
+	<!--			AttestPrefix-Prefix simple types					-->
+	<!-- ============================================================	-->
+	<xs:simpleType name="VoorleggingsPrefixConstanteType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VoorleggingsPrefixTypeBerichtType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VoorleggingsPrefixIdentificatieToepassingType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VoorleggingsPrefixAntwoordtermijnType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VoorleggingsPrefixTimeoutactieType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--===========================================-->
+	<!--04/12/2017: Toevoeging tbv GeefLoopbaanARZA-->
+	<!--===========================================-->
+	<!--======================================-->
+	<!-- Tekst								  -->
+	<!--======================================-->
+	<xs:simpleType name="Tekst1KaraktersType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--===========================================-->
+	<!--===========================================-->
+	<!--12/01/2018: GeefHistoriekPersoon toevoegingen-->
+	<!--===========================================-->
+	<!--======================================-->
+	<!-- Tekst								  -->
+	<!--======================================-->
+	<xs:simpleType name="Tekst3KaraktersType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst10KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst12KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst13KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst3KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst11KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst48KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="48"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst15KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--*************** Toegevoegd voor Buitenlandse nummerplaten ******-->
+	<xs:simpleType name="LangHuisBusNummerType">
+		<xs:annotation>
+			<xs:documentation>LangHuisNummerType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstVanMax80">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="80"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--************************************************-->
+	<xs:simpleType name="NietNegatieveIntegerType">
+		<xs:annotation>
+			<xs:documentation>NietNegatieveIntegerType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger"/>
+	</xs:simpleType>
+	<xs:simpleType name="VlagActiefType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[1]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

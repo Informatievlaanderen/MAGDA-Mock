@@ -1,7 +1,6 @@
 package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
-import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.diensten.GeefPasfotoAanvraag;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
@@ -53,10 +52,7 @@ public class GeefPasfotoTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        log.info("{}", request.toString());
+        var antwoord = connector.send(aanvraag);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
@@ -102,10 +98,8 @@ public class GeefPasfotoTest extends MockTestBase {
 
         MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
-
-        var antwoord = connector.send(aanvraag, request);
-        assertThatTechnicalFieldsAreFilledInCorrectly(request, antwoord, aanvraag);
+        var antwoord = connector.send(aanvraag);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
 
         assertThatAnswerContainsUitzondering(antwoord);
 

@@ -29,6 +29,7 @@ registratie:
   hoedanigheid:  ${MAGDA_HOEDANIGHEID:1300}
   identificatie: ${MAGDA_IDENTIFICATIE:kb.vlaanderen.be/aiv/burgerloket-wwoom-mock}
   service: ${spring.application.name}.${CURRENT_ENVIRONMENT:local}
-  cert-path: ${MAGDA_KEYSTORE}
+  #cert-path: ${MAGDA_KEYSTORE} # uncomment to enable SOAP cryptographic features
   key-alias: ${MAGDA_KEY_ALIAS}
+  key-password : ${MAGDA_KEY_PASSWORD}
   keystore-password : ${MAGDA_KEYSTORE_PASSWORD}

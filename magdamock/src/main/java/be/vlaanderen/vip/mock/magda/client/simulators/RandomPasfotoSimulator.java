@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import be.vlaanderen.vip.mock.magda.client.util.INSZ;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,33 +24,32 @@ public class RandomPasfotoSimulator extends SOAPSimulator {
     }
 
     @Override
-    public MagdaDocument send(MagdaDocument request) {
+    public MagdaDocument send(MagdaDocument request) throws MagdaSendFailed {
         var params = new MagdaRequest(request, keys);
 
         var dienst = params.getServiceNaam();
         var versie = params.getServiceVersie();
 
-        var response = loadSimulatorResource(type,exactPasFotoresourcePath(dienst, versie, params.getKeys().get(0)));
-        if (response == null) {
-            response = loadSimulatorResource(type,randomPasFotoresourcePath(dienst, versie, params.getKeys().get(0)));
+        var responseBody = loadSimulatorResource(type,exactPasFotoresourcePath(dienst, versie, params.getKeys().get(0)));
+        if (responseBody == null) {
+            responseBody = loadSimulatorResource(type,randomPasFotoresourcePath(dienst, versie, params.getKeys().get(0)));
         }
-        if (response == null) {
-            response = loadSimulatorResource(type,exactPasFotoresourcePath(dienst, versie, "notfound"));
+        if (responseBody == null) {
+            responseBody = loadSimulatorResource(type,exactPasFotoresourcePath(dienst, versie, "notfound"));
         }
-        if (response == null) {
-            response = loadSimulatorResource(type,exactPasFotoresourcePath(dienst, versie, "succes"));
+        if (responseBody == null) {
+            responseBody = loadSimulatorResource(type,exactPasFotoresourcePath(dienst, versie, "succes"));
         }
 
-        if (response != null) {
-            PatchResponse(params, response);
+        if (responseBody != null) {
+            PatchResponse(params, responseBody);
 
             // Patch response gebaseerd op request input
-            response.setValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ", params.getKeys().get(0));
+            responseBody.setValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ", params.getKeys().get(0));
 
-            return response;
+            return wrapInEnvelope(responseBody);
         } else {
-            log.warn("Geen mock data gevonden voor request naar {} {}", dienst, versie);
-            return null;
+            throw new MagdaSendFailed("Geen mock data gevonden voor request naar " + dienst + " " + versie);
         }
     }
 
