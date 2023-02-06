@@ -1,15 +1,9 @@
 spring:
   application:
     name: magdamock-service
-  zipkin:
-    enabled: false
-    base-url: "http://localhost:9411"
-    sender:
-      type: web
-  sleuth:
-    enabled: false
-    sampler:
-      probability: 1.0
+
+logging:
+  pattern.level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
 
 management:
   endpoints:
@@ -19,8 +13,13 @@ management:
   endpoint:
     health:
       show-details: always
-
-
+  tracing:
+    enabled: false
+    sampling.probability: 1.0
+    propagation.type: B3
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
 
 magdamock:
   defaultresponsetime: 0

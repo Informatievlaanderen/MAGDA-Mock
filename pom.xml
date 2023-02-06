@@ -22,8 +22,6 @@
 		<magda-openjdk.version>17.0.0</magda-openjdk.version>
 		<docker.image>magdamock.service</docker.image>
 		<assertj-core.version>3.22.0</assertj-core.version>
-		<cloud.starter.sleuth.version>3.1.3</cloud.starter.sleuth.version>
-		<cloud.starter.zipkin.version>2.2.8.RELEASE</cloud.starter.zipkin.version>
 		<commons-io.version>2.11.0</commons-io.version>
 		<commons-lang3.version>3.12.0</commons-lang3.version>
 		<dom4j.version>2.1.3</dom4j.version>
@@ -36,7 +34,7 @@
 		<mapstruct-lombok.version>0.2.0</mapstruct-lombok.version>
 		<mockito.version>4.8.1</mockito.version>
 		<org.apache.wss4j.version>2.4.1</org.apache.wss4j.version>
-		<spring-cloud.version>2021.0.4</spring-cloud.version>
+		<spring-cloud.version>2022.0.0</spring-cloud.version>
 		<springdoc.api>1.6.6</springdoc.api>
 		<springfox-swagger2.version>3.0.0</springfox-swagger2.version>
 		<testrunner.version>0.1.0</testrunner.version>
