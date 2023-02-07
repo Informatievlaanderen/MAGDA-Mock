@@ -1,10 +1,10 @@
 package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotNull;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
