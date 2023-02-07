@@ -1,11 +1,13 @@
 package be.vlaanderen.vip.magda.client.security;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.ssl.SSLContextBuilder;
+import org.apache.hc.client5.http.classic.HttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
+import org.apache.hc.client5.http.ssl.DefaultHostnameVerifier;
+import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
+import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactoryBuilder;
+import org.apache.hc.core5.ssl.SSLContextBuilder;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
@@ -48,25 +50,22 @@ public class TwoWaySslUtil {
     }
 
     public static CloseableHttpClient twoWaySslHttpClient(SSLConnectionSocketFactory socketFactory) {
-        return HttpClients.custom()
+        var connectionManager = PoolingHttpClientConnectionManagerBuilder.create()
                 .setMaxConnTotal(1000)
                 .setMaxConnPerRoute(250)
                 .setSSLSocketFactory(socketFactory)
                 .build();
-    }
 
-    public static HttpClientBuilder twoWaySslHttpClientBuilder(SSLConnectionSocketFactory socketFactory) {
         return HttpClients.custom()
-                .setMaxConnTotal(1000)
-                .setMaxConnPerRoute(250)
-                .setSSLSocketFactory(socketFactory);
+                .setConnectionManager(connectionManager)
+                .build();
     }
 
     public static SSLConnectionSocketFactory sslConnectionSocketFactory(SSLContext sslContext) {
-        return new SSLConnectionSocketFactory(
-                sslContext,
-                SSLConnectionSocketFactory.getDefaultHostnameVerifier()
-        );
+        return SSLConnectionSocketFactoryBuilder.create()
+                .setSslContext(sslContext)
+                .setHostnameVerifier(new DefaultHostnameVerifier())
+                .build();
     }
 
     public static SSLContext sslContext(KeyStore keyStore, char[] keyPassword) throws UnrecoverableKeyException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
