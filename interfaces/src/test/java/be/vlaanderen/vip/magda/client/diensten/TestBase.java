@@ -1,10 +1,10 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestBase {
 
@@ -29,6 +29,13 @@ public class TestBase {
     }
 
     protected void assertThatTechnicalFieldsInRequestMatchAanvraag(MagdaDocument doc, Aanvraag aanvraag, MagdaHoedanigheid hoedanigheid) {
+        assertThatXmlFieldIsEqualTo(doc, AFZENDER_REFERTE, aanvraag.getRequestId().toString());
+        assertThatXmlFieldIsEqualTo(doc, AFZENDER_IDENTIFICATIE, hoedanigheid.getUri());
+        assertThatXmlHasNoFieldForPath(doc, AFZENDER_HOEDANIGHEID);
+        assertThatXmlFieldIsEqualTo(doc, VRAAG_REFERTE, aanvraag.getRequestId().toString());
+    }
+
+    protected void assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(MagdaDocument doc, Aanvraag aanvraag, MagdaHoedanigheid hoedanigheid) {
         assertThatXmlFieldIsEqualTo(doc, AFZENDER_REFERTE, aanvraag.getRequestId().toString());
         assertThatXmlFieldIsEqualTo(doc, AFZENDER_IDENTIFICATIE, hoedanigheid.getUri());
         assertThatXmlFieldIsEqualTo(doc, AFZENDER_HOEDANIGHEID, hoedanigheid.getHoedanigheid());

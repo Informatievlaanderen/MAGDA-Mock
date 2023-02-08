@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.dom4j.dom.DOMNodeHelper;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -19,11 +20,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
+import javax.xml.xpath.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -144,7 +141,6 @@ public class MagdaDocument {
         return xpath;
     }
 
-
     public void setValue(String expression, String value) {
         NodeList nodes = xpath(expression);
         for (int pos = 0; pos < nodes.getLength(); pos++) {
@@ -159,7 +155,6 @@ public class MagdaDocument {
         }
     }
 
-
     public Node createNode(String expression, String nodeName) {
         var node = xml.createElement(nodeName);
         xpath(expression).item(0).appendChild(node);
@@ -172,6 +167,14 @@ public class MagdaDocument {
         node.appendChild(textNode);
         xpath(expression).item(0).appendChild(node);
         return node;
+    }
+
+    public void removeNode(String expression) {
+        NodeList nodes = xpath(expression);
+        for(int pos = nodes.getLength() - 1; pos >= 0; pos--) { // traverse the list in reverse, because this is going to be messing with the indices
+            var elm = (Element)nodes.item(pos);
+            elm.getParentNode().removeChild(elm);
+        }
     }
 
     public MagdaServiceIdentificatie getServiceIdentification() {

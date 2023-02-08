@@ -35,7 +35,11 @@ public class RegistreerUitschrijvingAanvraag extends Aanvraag {
 
         setDateFields(request);
         request.setValue("//Vraag/Inhoud/Uitschrijving/Identificatie", magdaHoedanigheid.getUri());
-        request.setValue("//Vraag/Inhoud/Uitschrijving/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
+        if(magdaHoedanigheid.getHoedanigheid() == null) {
+            request.removeNode("//Vraag/Inhoud/Uitschrijving/Hoedanigheid");
+        } else {
+            request.setValue("//Vraag/Inhoud/Uitschrijving/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
+        }
     }
     
     private void setDateFields(MagdaDocument request) {

@@ -31,7 +31,11 @@ public abstract class MockTestBase {
         var connection = new MagdaMockConnection();
 
         var magdaEndpoints = new MagdaEndpointsMock();
-        var mockedMagdaHoedanigheid = new MagdaHoedanigheid(TEST_SERVICE_NAAM, TEST_SERVICE_URI, TEST_SERVICE_HOEDANIGHEID);
+        var mockedMagdaHoedanigheid = MagdaHoedanigheid.builder()
+                .naam(TEST_SERVICE_NAAM)
+                .uri(TEST_SERVICE_URI)
+                .hoedanigheid(TEST_SERVICE_HOEDANIGHEID)
+                .build();
         var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
 
         return new MagdaConnectorImpl(connection, afnemerLogService, magdaEndpoints, magdaHoedanigheidService);
@@ -49,7 +53,11 @@ public abstract class MockTestBase {
         var signedConnection = new MagdaSignedConnection(mockConnection, signedConnectionRequestSignerKeystore, signedConnectionResponseVerifierKeystore);
 
         var magdaEndpoints = new MagdaEndpointsMock();
-        var mockedMagdaHoedanigheid = new MagdaHoedanigheid(TEST_SERVICE_NAAM, TEST_SERVICE_URI, TEST_SERVICE_HOEDANIGHEID);
+        var mockedMagdaHoedanigheid = MagdaHoedanigheid.builder()
+                .naam(TEST_SERVICE_NAAM)
+                .uri(TEST_SERVICE_URI)
+                .hoedanigheid(TEST_SERVICE_HOEDANIGHEID)
+                .build();
         var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
 
         return new MagdaConnectorImpl(signedConnection, afnemerLogService, magdaEndpoints, magdaHoedanigheidService);

@@ -286,7 +286,7 @@ public class MockServerHttpTest extends MockServerTest {
         assertThat(value).isEqualTo(expected);
     }
 
-    private MagdaConfigDto configureMagdaParameters() {
+    private MagdaConfigDto configureMagdaParameters() { // XXX remove hoedanigheid here
         var magdaConfigDto = new MagdaConfigDto();
         if(wssConfig.isWssEnabled()) {
             magdaConfigDto.setKeystore(wssConfig.getKeystoreProperties());
