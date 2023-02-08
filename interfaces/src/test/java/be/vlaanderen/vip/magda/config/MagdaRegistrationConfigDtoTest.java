@@ -10,30 +10,17 @@ public class MagdaRegistrationConfigDtoTest {
     @Test
     public void builder_canBuildInstanceWithoutCapacity() {
         MagdaRegistrationConfigDto dto = MagdaRegistrationConfigDto.builder()
-                .key("foo")
                 .uri("http://foo-uri")
                 .build();
 
-        assertEquals("foo", dto.getKey());
         assertEquals("http://foo-uri", dto.getUri());
         assertNull(dto.getCapacity());
-    }
-
-    @Test
-    public void builder_cannotBuildInstanceWithoutKey() {
-        assertThrows(IllegalArgumentException.class, () ->
-                MagdaRegistrationConfigDto.builder()
-                        .uri("http://foo-uri")
-                        .capacity("1234")
-                        .build());
     }
 
     @Test
     public void builder_cannotBuildInstanceWithoutUri() {
         assertThrows(IllegalArgumentException.class, () ->
                 MagdaRegistrationConfigDto.builder()
-                        .key("foo")
-                        .capacity("1234")
                         .build());
     }
 

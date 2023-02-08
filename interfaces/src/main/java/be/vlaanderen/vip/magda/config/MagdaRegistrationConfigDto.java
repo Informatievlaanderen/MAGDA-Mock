@@ -6,7 +6,7 @@ import org.springframework.util.Assert;
 
 @Getter
 public class MagdaRegistrationConfigDto {
-    private String key; // default
+    @Nullable private String key; // default
     private String uri; // kb.vlaanderen.be/aiv/burgerloket-wwoom-aip
     @Nullable private String capacity; // 1300
 
@@ -17,6 +17,10 @@ public class MagdaRegistrationConfigDto {
             this.inst = new MagdaRegistrationConfigDto();
         }
 
+        /**
+         * @deprecated This field is unused and is going to be removed.
+         */
+        @Deprecated
         public Builder key(String key) {
             inst.key = key;
             return this;
@@ -39,7 +43,6 @@ public class MagdaRegistrationConfigDto {
         }
 
         public MagdaRegistrationConfigDto build() {
-            Assert.notNull(inst.key, "key cannot be null.");
             Assert.notNull(inst.uri, "uri cannot be null.");
 
             return inst;
@@ -62,6 +65,9 @@ public class MagdaRegistrationConfigDto {
         return new Builder();
     }
 
+    /**
+     * @deprecated This field is unused and is going to be removed.
+     */
     @Deprecated
     public void setKey(String key) {
         this.key = key;
@@ -75,6 +81,14 @@ public class MagdaRegistrationConfigDto {
     @Deprecated
     public void setCapacity(String capacity) {
         this.capacity = capacity;
+    }
+
+    /**
+     * @deprecated This field is unused and is going to be removed.
+     */
+    @Deprecated
+    public String getKey() {
+        return key;
     }
 
     /**
