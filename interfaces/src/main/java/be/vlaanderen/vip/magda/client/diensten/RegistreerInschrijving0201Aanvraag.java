@@ -42,8 +42,11 @@ public class RegistreerInschrijving0201Aanvraag extends Aanvraag {
         request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Type", getType().getTypeString());
         request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Sleutel", getInsz());
         request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", magdaHoedanigheid.getUri());
-        request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
-
+        if(magdaHoedanigheid.getHoedanigheid() == null) {
+            request.removeNode("//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid");
+        } else {
+            request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
+        }
     }
 
 }

@@ -294,8 +294,8 @@ public class MockServerHttpTest extends MockServerTest {
             magdaConfigDto.setKeystore(new TwoWaySslProperties());
         }
         magdaConfigDto.setEnvironment(testerConfig.getServiceUrl() + "/Magda-02.00/soap/WebService");
-        magdaConfigDto.getRegistration().put("default", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-mock").capacity("1234").build());
-        magdaConfigDto.getRegistration().put("custom", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-custom-mock").capacity("5678").build());
+        magdaConfigDto.getRegistration().put("default", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-mock").build());
+        magdaConfigDto.getRegistration().put("custom", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-custom-mock").build());
 
         return magdaConfigDto;
     }

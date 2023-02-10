@@ -52,6 +52,10 @@ public abstract class Aanvraag {
         request.setValue("//Context/Bericht/Tijdstip/Tijd", time);
 
         request.setValue("//Context/Bericht/Afzender/Identificatie", magdaHoedanigheid.getUri());
-        request.setValue("//Context/Bericht/Afzender/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
+        if(magdaHoedanigheid.getHoedanigheid() == null) {
+            request.removeNode("//Context/Bericht/Afzender/Hoedanigheid");
+        } else {
+            request.setValue("//Context/Bericht/Afzender/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
+        }
     }
 }

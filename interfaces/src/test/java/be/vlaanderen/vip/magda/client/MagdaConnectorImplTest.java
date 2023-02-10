@@ -42,8 +42,12 @@ class MagdaConnectorImplTest {
 	@BeforeEach
 	void prepare() {
 		doReturn("http://magda-test").when(endpoints).magdaUrl(any(MagdaServiceIdentificatie.class));
-		
-		var identity = new MagdaHoedanigheid("test-identity-name", "http://magda-test", "test-identity");
+
+		var identity = MagdaHoedanigheid.builder()
+				.naam("test-identity-name")
+				.uri("http://magda-test")
+				.hoedanigheid("test-identity")
+				.build();
 		doReturn(identity).when(identityService).getDomeinService("default");
 	}
 
