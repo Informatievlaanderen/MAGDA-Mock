@@ -9,9 +9,6 @@ import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
 import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactoryBuilder;
 import org.apache.hc.core5.ssl.SSLContextBuilder;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 
@@ -19,14 +16,15 @@ import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.X509ExtendedKeyManager;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.*;
 import java.security.cert.CertificateException;
 
 public class TwoWaySslUtil {
-    private static final ResourceLoader resourceLoader = new DefaultResourceLoader();
 
+    @Deprecated(forRemoval = true)
     public static RestTemplateBuilder twoWaySslRestTemplateBuilder(RestTemplateBuilder restTemplateBuilder, TwoWaySslProperties properties) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException, UnrecoverableKeyException, KeyManagementException {
         KeyStore keystore = getKeystore(properties);
         SSLContext sslContext = sslContext(keystore, properties.getKeyPassword().toCharArray());
@@ -39,6 +37,7 @@ public class TwoWaySslUtil {
         return restTemplateBuilder;
     }
 
+    @Deprecated(forRemoval = true)
     public static RestTemplateBuilder twoWaySslRestTemplateBuilder(RestTemplateBuilder restTemplateBuilder, SSLContext sslContext) {
         SSLConnectionSocketFactory socketFactory = sslConnectionSocketFactory(sslContext);
         HttpClient httpClient = twoWaySslHttpClient(socketFactory);
@@ -86,13 +85,13 @@ public class TwoWaySslUtil {
 
     public static KeyStore getKeystore(String keyStoreType, String keyStoreLocation, char[] keyStorePassword) throws KeyStoreException, IOException, CertificateException, NoSuchAlgorithmException {
         final KeyStore keyStore = KeyStore.getInstance(keyStoreType);
-        final Resource resource = resourceLoader.getResource(keyStoreLocation);
-        try (final InputStream in = resource.getInputStream()) {
+        try (final InputStream in = new FileInputStream(keyStoreLocation)) {
             keyStore.load(in, keyStorePassword);
             return keyStore;
         }
     }
 
+    @Deprecated(forRemoval = true)
     public static PrivateKey loadKeyMaterial(
             final KeyStore keystore,
             final char[] keyPassword,
