@@ -27,6 +27,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @Slf4j
 @SpringBootTest
@@ -217,6 +218,15 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void geefPasfotoVoorRandomVrouw() {
         assertPasfotoCorrect(INSZ_RANDOM_VROUW, 32659);
+    }
+
+    @Test
+    @SneakyThrows
+    void multipleCalls() {
+        var aanvraag = new GeefBewijsAanvraag(CORRECT_INSZ);
+
+        assertDoesNotThrow(() -> connector.send(aanvraag));
+        assertDoesNotThrow(() -> connector.send(aanvraag));
     }
 
     @SneakyThrows
