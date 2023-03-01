@@ -97,8 +97,7 @@ public class MagdaSoapConnection implements MagdaConnection {
             throw new MagdaSendFailed(String.format("POST %s kan request XML document niet streamen", url), e);
         }
 
-        try {
-            var response = httpClient.execute(request);
+        try(var response = httpClient.execute(request)) {
             if (response.getCode() == 200) {
                 HttpEntity responseEntity = response.getEntity();
                 return parseStream(responseEntity.getContent());
@@ -111,11 +110,6 @@ public class MagdaSoapConnection implements MagdaConnection {
             }
         } catch (IOException e) {
             throw new MagdaSendFailed(String.format("POST %s gefaald", url), e);
-        } finally {
-            try {
-                httpClient.close();
-            } catch (IOException e) {
-            }
         }
     }
 
