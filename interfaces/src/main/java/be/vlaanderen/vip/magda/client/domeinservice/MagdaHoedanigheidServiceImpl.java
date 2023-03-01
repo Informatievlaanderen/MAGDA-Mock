@@ -29,6 +29,11 @@ public class MagdaHoedanigheidServiceImpl implements MagdaHoedanigheidService {
         }
 
         MagdaRegistrationConfigDto registrationConfig = magdaConfigDto.getRegistration().get(name);
-        return new MagdaHoedanigheid(serviceName, registrationConfig.getUri(), registrationConfig.getCapacity());
+
+        return MagdaHoedanigheid.builder()
+                .naam(serviceName)
+                .uri(registrationConfig.getUri())
+                .hoedanigheid(registrationConfig.getCapacity())
+                .build();
     }
 }

@@ -10,6 +10,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.config.ConnectionConfig;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
 import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
@@ -26,31 +27,52 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.security.*;
 import java.security.cert.CertificateException;
 
 @Slf4j
-public class MagdaSoapConnection implements MagdaConnection {
+public class MagdaSoapConnection implements MagdaConnection, Closeable {
     private final MagdaEndpoints magdaEndpoints;
-    private final SSLConnectionSocketFactory sslConnectionSocketFactory;
+    private final CloseableHttpClient httpClient;
 
     public MagdaSoapConnection(MagdaEndpoints magdaEndpoints, MagdaConfigDto config) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException, UnrecoverableKeyException, KeyManagementException {
         this.magdaEndpoints = magdaEndpoints;
+        this.httpClient = buildHttpClient(buildSslConnectionFactoryFromConfig(config));
+    }
 
+    @Override
+    public void close() throws IOException {
+        httpClient.close();
+    }
+
+    private static SSLConnectionSocketFactory buildSslConnectionFactoryFromConfig(MagdaConfigDto config) throws CertificateException, KeyStoreException, IOException, NoSuchAlgorithmException, UnrecoverableKeyException, KeyManagementException {
         if (StringUtils.isNotEmpty(config.getKeystore().getKeyStoreLocation())) {
 
             KeyStore keystore = TwoWaySslUtil.getKeystore(config.getKeystore().getKeyStoreType(), config.getKeystore().getKeyStoreLocation(), config.getKeystore().getKeyStorePassword().toCharArray());
             SSLContext sslContext = TwoWaySslUtil.sslContext(keystore, config.getKeystore().getKeyAlias(), config.getKeystore().getKeyPassword().toCharArray());
-            sslConnectionSocketFactory = TwoWaySslUtil.sslConnectionSocketFactory(sslContext);
+            return TwoWaySslUtil.sslConnectionSocketFactory(sslContext);
 
         } else {
-            sslConnectionSocketFactory = SSLConnectionSocketFactory.getSystemSocketFactory();
+            return SSLConnectionSocketFactory.getSystemSocketFactory();
         }
+    }
+
+    private static CloseableHttpClient buildHttpClient(SSLConnectionSocketFactory sslConnectionSocketFactory) {
+        var connectionConfig = ConnectionConfig.custom()
+                .setConnectTimeout(Timeout.ofSeconds(15))
+                .setSocketTimeout(Timeout.ofSeconds(30))
+                .build();
+        var connectionManager = PoolingHttpClientConnectionManagerBuilder.create()
+                .setSSLSocketFactory(sslConnectionSocketFactory)
+                .setDefaultConnectionConfig(connectionConfig)
+                .build();
+        var httpClient = HttpClients.custom()
+                .setConnectionManager(connectionManager)
+                .build();
+
+        return httpClient;
     }
 
     @Override
@@ -77,20 +99,7 @@ public class MagdaSoapConnection implements MagdaConnection {
             throw new MagdaSendFailed(String.format("POST %s kan request XML document niet streamen", url), e);
         }
 
-        var connectionConfig = ConnectionConfig.custom()
-                .setConnectTimeout(Timeout.ofSeconds(15))
-                .setSocketTimeout(Timeout.ofSeconds(30))
-                .build();
-        var connectionManager = PoolingHttpClientConnectionManagerBuilder.create()
-                .setSSLSocketFactory(sslConnectionSocketFactory)
-                .setDefaultConnectionConfig(connectionConfig)
-                .build();
-        var httpClient = HttpClients.custom()
-                .setConnectionManager(connectionManager)
-                .build();
-
-        try {
-            var response = httpClient.execute(request);
+        try(var response = httpClient.execute(request)) {
             if (response.getCode() == 200) {
                 HttpEntity responseEntity = response.getEntity();
                 return parseStream(responseEntity.getContent());
@@ -103,11 +112,6 @@ public class MagdaSoapConnection implements MagdaConnection {
             }
         } catch (IOException e) {
             throw new MagdaSendFailed(String.format("POST %s gefaald", url), e);
-        } finally {
-            try {
-                httpClient.close();
-            } catch (IOException e) {
-            }
         }
     }
 
@@ -123,6 +127,4 @@ public class MagdaSoapConnection implements MagdaConnection {
     private Document parseStream(InputStream resource) {
         return MagdaDocument.fromStream(resource).getXml();
     }
-
-
 }
