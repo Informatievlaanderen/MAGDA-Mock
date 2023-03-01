@@ -19,7 +19,7 @@ public class MagdaSignedConnection implements MagdaConnection {
     private final Optional<DocumentSignatureVerifier> responseVerifier;
 
     public MagdaSignedConnection(MagdaConnection magdaConnection, MagdaConfigDto config) throws WSSecurityException {
-        this(magdaConnection, config.getKeystore(), config.getKeystore());
+        this(magdaConnection, config.getKeystore(), config.isVerificationEnabled() ? config.getKeystore() : null); // TODO will need some more work for verification to actually work as prescribed
     }
 
     public MagdaSignedConnection(MagdaConnection magdaConnection, TwoWaySslProperties requestSignerConfig, TwoWaySslProperties responseVerifierConfig) throws WSSecurityException {
