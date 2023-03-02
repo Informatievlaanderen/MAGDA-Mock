@@ -1,8 +1,8 @@
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
     <soapenv:Header/>
     <soapenv:Body>
-        <GeefBewijs xmlns="http://service.geefbewijsdienst-02_00.led-02_00.vip.vlaanderen.be">
-            <Verzoek xmlns="">
+        <geef:GeefBewijs>
+            <Verzoek>
                 <Context>
                     <Naam>GeefBewijs</Naam>
                     <Versie>02.00.0000</Versie>
@@ -23,15 +23,11 @@
                     <Vraag>
                         <Referte>vraagreferte</Referte>
                         <Inhoud>
-                            <Criteria>
-                                <INSZ>INSZ</INSZ>
-                            </Criteria>
-                            <Bron>RR</Bron>
-                            <Taal>nl</Taal>
+                            <INSZ>INSZ</INSZ>
                         </Inhoud>
                     </Vraag>
                 </Vragen>
             </Verzoek>
-        </GeefBewijs>
+        </geef:GeefBewijs>
     </soapenv:Body>
 </soapenv:Envelope>
