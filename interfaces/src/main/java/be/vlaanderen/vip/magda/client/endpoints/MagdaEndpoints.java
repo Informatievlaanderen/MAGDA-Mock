@@ -11,7 +11,7 @@ public interface MagdaEndpoints {
         return new Builder();
     }
 
-    class Builder { // XXX use everywhere
+    class Builder {
 
         private ServiceMappedMagdaEndpoints serviceMappedMagdaEndpoints;
 
@@ -19,7 +19,7 @@ public interface MagdaEndpoints {
             this.serviceMappedMagdaEndpoints = new ServiceMappedMagdaEndpoints();
         }
 
-        public Builder withMapping(String dienstNaam, String versie, MagdaEndpoint magdaEndpoint) {
+        public Builder addMapping(String dienstNaam, String versie, MagdaEndpoint magdaEndpoint) {
             serviceMappedMagdaEndpoints.addMapping(dienstNaam, versie, magdaEndpoint);
             return this;
         }

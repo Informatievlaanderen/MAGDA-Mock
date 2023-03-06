@@ -5,6 +5,7 @@ import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslUtil;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -29,15 +30,14 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 import java.nio.charset.Charset;
-import java.security.*;
-import java.security.cert.CertificateException;
+import java.security.KeyStore;
 
 @Slf4j
 public class MagdaSoapConnection implements MagdaConnection, Closeable {
     private final MagdaEndpoints magdaEndpoints;
     private final CloseableHttpClient httpClient;
 
-    public MagdaSoapConnection(MagdaEndpoints magdaEndpoints, MagdaConfigDto config) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException, UnrecoverableKeyException, KeyManagementException {
+    public MagdaSoapConnection(MagdaEndpoints magdaEndpoints, MagdaConfigDto config) throws TwoWaySslException {
         this.magdaEndpoints = magdaEndpoints;
         this.httpClient = buildHttpClient(buildSslConnectionFactoryFromConfig(config));
     }
@@ -47,7 +47,7 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
         httpClient.close();
     }
 
-    private static SSLConnectionSocketFactory buildSslConnectionFactoryFromConfig(MagdaConfigDto config) throws CertificateException, KeyStoreException, IOException, NoSuchAlgorithmException, UnrecoverableKeyException, KeyManagementException {
+    private static SSLConnectionSocketFactory buildSslConnectionFactoryFromConfig(MagdaConfigDto config) throws TwoWaySslException {
         if (StringUtils.isNotEmpty(config.getKeystore().getKeyStoreLocation())) {
 
             KeyStore keystore = TwoWaySslUtil.getKeystore(config.getKeystore().getKeyStoreType(), config.getKeystore().getKeyStoreLocation(), config.getKeystore().getKeyStorePassword().toCharArray());

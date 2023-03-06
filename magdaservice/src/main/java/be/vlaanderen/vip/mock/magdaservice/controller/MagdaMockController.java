@@ -4,10 +4,10 @@ package be.vlaanderen.vip.mock.magdaservice.controller;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import be.vlaanderen.vip.mock.magda.client.MagdaMockConnection;
 import be.vlaanderen.vip.mock.magdaservice.config.RegistratieConfig;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.wss4j.common.ext.WSSecurityException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,14 +28,14 @@ public class MagdaMockController {
     private MagdaMockConnection mockConnection;
 
     @Autowired
-    public MagdaMockController(RegistratieConfig config) throws WSSecurityException {
+    public MagdaMockController(RegistratieConfig config) throws TwoWaySslException {
         var keystore = readKeystoreProperties(config);
 
         try {
             log.info("Initializing mock connection...");
             mockConnection = new MagdaMockConnection(keystore, keystore);
-        } catch (WSSecurityException e) {
-            log.error("Failed to initialize the crypto engine!");
+        } catch (TwoWaySslException e) {
+            log.error("Failed to initialize two-way ssl!");
             throw e;
         }
     }

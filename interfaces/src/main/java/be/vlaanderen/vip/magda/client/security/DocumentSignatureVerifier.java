@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.magda.client.security;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.wss4j.common.crypto.Crypto;
 import org.apache.wss4j.common.ext.WSSecurityException;
@@ -10,7 +11,7 @@ import org.w3c.dom.Document;
 @Slf4j
 public class DocumentSignatureVerifier {
 
-    public static DocumentSignatureVerifier fromJksStore(TwoWaySslProperties properties) throws WSSecurityException {
+    public static DocumentSignatureVerifier fromJksStore(TwoWaySslProperties properties) throws TwoWaySslException {
         return new DocumentSignatureVerifier(properties.toCrypto());
     }
 

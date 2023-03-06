@@ -6,10 +6,10 @@ import be.vlaanderen.vip.magda.client.security.DocumentSignatureVerifier;
 import be.vlaanderen.vip.magda.client.security.DocumentSigner;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import be.vlaanderen.vip.mock.magda.client.simulators.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.wss4j.common.ext.WSSecurityException;
 import org.w3c.dom.Document;
 
 import java.util.Optional;
@@ -36,7 +36,7 @@ public class MagdaMockConnection implements MagdaConnection {
         this.simulator = constructBuiltInSimulator(Optional.empty(), Optional.empty());
     }
 
-    public MagdaMockConnection(TwoWaySslProperties requestVerifierConfig, TwoWaySslProperties responseSignerConfig) throws WSSecurityException {
+    public MagdaMockConnection(TwoWaySslProperties requestVerifierConfig, TwoWaySslProperties responseSignerConfig) throws TwoWaySslException {
         Optional<DocumentSignatureVerifier> requestVerifier;
         Optional<DocumentSigner> responseSigner;
 

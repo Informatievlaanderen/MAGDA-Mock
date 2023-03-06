@@ -7,6 +7,7 @@ import be.vlaanderen.vip.magda.client.security.InvalidSignatureException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wss4j.common.ext.WSSecurityException;
@@ -20,11 +21,11 @@ public class MagdaSignedConnection implements MagdaConnection {
     private final Optional<DocumentSigner> requestSigner;
     private final Optional<DocumentSignatureVerifier> responseVerifier;
 
-    public MagdaSignedConnection(MagdaConnection magdaConnection, MagdaConfigDto config) throws WSSecurityException {
+    public MagdaSignedConnection(MagdaConnection magdaConnection, MagdaConfigDto config) throws TwoWaySslException {
         this(magdaConnection, config.getKeystore(), config.isVerificationEnabled() ? config.getKeystore() : null); // TODO will need some more work for verification to actually work as prescribed
     }
 
-    public MagdaSignedConnection(MagdaConnection magdaConnection, TwoWaySslProperties requestSignerConfig, TwoWaySslProperties responseVerifierConfig) throws WSSecurityException {
+    public MagdaSignedConnection(MagdaConnection magdaConnection, TwoWaySslProperties requestSignerConfig, TwoWaySslProperties responseVerifierConfig) throws TwoWaySslException {
         this.magdaConnection = magdaConnection;
 
         if(requestSignerConfig != null && StringUtils.isNotEmpty(requestSignerConfig.getKeyStoreLocation())) {
