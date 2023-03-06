@@ -1,34 +1,17 @@
 package be.vlaanderen.vip.magda.client.endpoints;
 
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
-import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MagdaEndpointsImpl implements MagdaEndpoints {
-    private final Map<MagdaServiceIdentificatie, MagdaEndpoint> endpoints;
-    private final MagdaConfigDto config;
+public class MagdaEndpointsImpl implements MagdaEndpoints { // XXX maybe get rid of this class entirely?
 
-    // Voeg een item toe telkens een nieuwe dienst gebruikt wordt
-    public MagdaEndpointsImpl(MagdaConfigDto config) {
-        this.config = config;
-        this.endpoints = new HashMap<>();
-    }
+    private final Map<MagdaServiceIdentificatie, MagdaEndpoint> endpoints = new HashMap<>();;
 
-    public String magdaUrl(MagdaServiceIdentificatie aanvraag) {
-        MagdaEndpoint endpoint = bepaalMagdaPath(aanvraag);
-        final String url = config.getEnvironment();
-
-        if ("TEST".equalsIgnoreCase(url)) {
-            return endpoint.getTni().toString();
-        } else if ("PROD".equalsIgnoreCase(url)) {
-            return endpoint.getProd().toString();
-        } else {
-            return (url + endpoint.getPath());
-        }
+    public URI magdaUri(MagdaServiceIdentificatie aanvraag) {
+        return bepaalMagdaPath(aanvraag).uri();
     }
 
     private MagdaEndpoint bepaalMagdaPath(MagdaServiceIdentificatie dienst) {
@@ -39,17 +22,7 @@ public class MagdaEndpointsImpl implements MagdaEndpoints {
         return magdaEndpoint;
     }
 
-    public void addMapping(String dienstNaam, String versie, String prod) {
-        addMapping(dienstNaam, versie, prod, prod.replace(".vlaanderen.be", "-aip.vlaanderen.be"));
-    }
-
-    public void addMapping(String dienstNaam, String versie, String prod, String tni) {
-        try {
-            URL tniUrl = new URL(tni);
-            URL prodUrl = new URL(prod);
-            endpoints.put(new MagdaServiceIdentificatie(dienstNaam, versie), new MagdaEndpoint(tniUrl, prodUrl));
-        } catch (MalformedURLException e) {
-            throw new IllegalArgumentException("Fout in configuratie Magda URLs", e);
-        }
+    public void addMapping(String dienstNaam, String versie, URI uri) {
+        endpoints.put(new MagdaServiceIdentificatie(dienstNaam, versie), new MagdaEndpoint(uri));
     }
 }

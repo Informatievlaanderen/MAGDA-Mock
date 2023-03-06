@@ -4,7 +4,6 @@ import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
-import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
 import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
@@ -33,16 +32,12 @@ class MagdaConnectorImplTest {
 	@Mock
 	private MagdaConnection connection;
 	@Mock
-	private MagdaEndpoints endpoints;
-	@Mock
 	private MagdaHoedanigheidService identityService;
 	@Mock
 	private AfnemerLogService logService;
 	
 	@BeforeEach
 	void prepare() {
-		doReturn("http://magda-test").when(endpoints).magdaUrl(any(MagdaServiceIdentificatie.class));
-
 		var identity = MagdaHoedanigheid.builder()
 				.naam("test-identity-name")
 				.uri("http://magda-test")
@@ -50,7 +45,6 @@ class MagdaConnectorImplTest {
 				.build();
 		doReturn(identity).when(identityService).getDomeinService("default");
 	}
-
 
 	@Nested
 	class NoReply {

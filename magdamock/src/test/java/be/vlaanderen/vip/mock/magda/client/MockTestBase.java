@@ -3,7 +3,6 @@ package be.vlaanderen.vip.mock.magda.client;
 import be.vlaanderen.vip.magda.client.*;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
-import be.vlaanderen.vip.mock.magda.client.endpoints.MagdaEndpointsMock;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.wss4j.common.ext.WSSecurityException;
@@ -30,7 +29,6 @@ public abstract class MockTestBase {
     protected MagdaConnectorImpl makeMagdaConnector(AfnemerLogServiceMock afnemerLogService) {
         var connection = new MagdaMockConnection();
 
-        var magdaEndpoints = new MagdaEndpointsMock();
         var mockedMagdaHoedanigheid = MagdaHoedanigheid.builder()
                 .naam(TEST_SERVICE_NAAM)
                 .uri(TEST_SERVICE_URI)
@@ -38,7 +36,7 @@ public abstract class MockTestBase {
                 .build();
         var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
 
-        return new MagdaConnectorImpl(connection, afnemerLogService, magdaEndpoints, magdaHoedanigheidService);
+        return new MagdaConnectorImpl(connection, afnemerLogService, magdaHoedanigheidService);
     }
 
     protected MagdaConnectorImpl makeSignedMagdaConnector(
@@ -52,7 +50,6 @@ public abstract class MockTestBase {
 
         var signedConnection = new MagdaSignedConnection(mockConnection, signedConnectionRequestSignerKeystore, signedConnectionResponseVerifierKeystore);
 
-        var magdaEndpoints = new MagdaEndpointsMock();
         var mockedMagdaHoedanigheid = MagdaHoedanigheid.builder()
                 .naam(TEST_SERVICE_NAAM)
                 .uri(TEST_SERVICE_URI)
@@ -60,7 +57,7 @@ public abstract class MockTestBase {
                 .build();
         var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
 
-        return new MagdaConnectorImpl(signedConnection, afnemerLogService, magdaEndpoints, magdaHoedanigheidService);
+        return new MagdaConnectorImpl(signedConnection, afnemerLogService, magdaHoedanigheidService);
     }
 
     protected void assertThatTechnicalFieldsInResponseMatchRequest(MagdaAntwoord antwoord, Aanvraag aanvraag) {

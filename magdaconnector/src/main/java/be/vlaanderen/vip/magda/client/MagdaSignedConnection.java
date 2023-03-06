@@ -7,12 +7,14 @@ import be.vlaanderen.vip.magda.client.security.InvalidSignatureException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wss4j.common.ext.WSSecurityException;
 import org.w3c.dom.Document;
 
 import java.util.Optional;
 
+@Slf4j
 public class MagdaSignedConnection implements MagdaConnection {
     private final MagdaConnection magdaConnection;
     private final Optional<DocumentSigner> requestSigner;
@@ -47,6 +49,7 @@ public class MagdaSignedConnection implements MagdaConnection {
     public Document sendDocument(Document xml) throws MagdaSendFailed {
         try {
             if(requestSigner.isPresent()) {
+                log.info("Signing request document...");
                 requestSigner.get().signDocument(xml);
             }
         } catch(WSSecurityException e) {
@@ -57,6 +60,7 @@ public class MagdaSignedConnection implements MagdaConnection {
 
         try {
             if(responseVerifier.isPresent()) {
+                log.info("Verifying response document...");
                 responseVerifier.get().verifyDocument(response);
             }
         } catch(InvalidSignatureException e) {

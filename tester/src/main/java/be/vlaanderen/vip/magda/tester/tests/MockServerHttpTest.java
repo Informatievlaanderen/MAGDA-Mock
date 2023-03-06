@@ -22,6 +22,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
@@ -47,8 +48,7 @@ public class MockServerHttpTest extends MockServerTest {
     @Autowired
     private WssConfig wssConfig;
 
-    private AfnemerLogServiceMock afnemerLog;
-    private MagdaConnectorImpl connector;
+    private MagdaConnector connector;
 
     @BeforeAll
     @SneakyThrows
@@ -59,13 +59,13 @@ public class MockServerHttpTest extends MockServerTest {
     @BeforeEach
     @SneakyThrows
     void setup() {
-        afnemerLog = new AfnemerLogServiceMock();
+        var afnemerLog = new AfnemerLogServiceMock();
         var magdaConfigDto = configureMagdaParameters();
-        var magdaEndpoints = new MockMagdaEndpoints(magdaConfigDto.getEnvironment());
+        var magdaEndpoints = new MockMagdaEndpoints(URI.create(magdaConfigDto.getEnvironment())); // XXX environment is semantically the wrong thing to pass here
         var hoedanigheid = new MagdaHoedanigheidServiceImpl(magdaConfigDto, "magdamock.service.integrationtest");
         var soapConnection = new MagdaSoapConnection(magdaEndpoints, magdaConfigDto);
         var signatureConnection = new MagdaSignedConnection(soapConnection, magdaConfigDto);
-        connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
+        connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, hoedanigheid);
     }
 
     @Test
@@ -230,8 +230,7 @@ public class MockServerHttpTest extends MockServerTest {
     }
 
     @SneakyThrows
-    private void assertPasfotoCorrect(String inszRandomMan, int expected) throws IOException {
-        final String requestInsz = inszRandomMan;
+    private void assertPasfotoCorrect(String requestInsz, int expected) {
         var aanvraag = new GeefPasfotoAanvraag(requestInsz);
 
         var antwoord = connector.send(aanvraag);

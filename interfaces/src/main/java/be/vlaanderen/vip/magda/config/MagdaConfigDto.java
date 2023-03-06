@@ -14,7 +14,7 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MagdaConfigDto {
-    private String environment; // PROD | TEST | <base link to mock server>
+    private String environment; // PROD | TEST | <base link to mock server> // XXX will probably not be used anymore
     private String legalloggingUrl;
     private TwoWaySslProperties keystore;
     private boolean verificationEnabled;

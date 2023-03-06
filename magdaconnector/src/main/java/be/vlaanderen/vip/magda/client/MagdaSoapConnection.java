@@ -86,32 +86,36 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
         var service = doc.getValue("//Verzoek/Context/Naam");
         var versie = doc.getValue("//Verzoek/Context/Versie");
 
-        var aanvraag = new MagdaServiceIdentificatie(service,versie) ;
-        final String url = magdaEndpoints.magdaUrl(aanvraag);
+        var aanvraag = new MagdaServiceIdentificatie(service, versie);
+        final String urlString = magdaEndpoints.magdaUri(aanvraag).toString();
 
-        final HttpPost request = new HttpPost(url);
+        log.info("Oproep naar SOAP-endpoint {}", urlString);
+        final HttpPost request = new HttpPost(urlString);
         request.setHeader("Content-type", "text/xml;charset=UTF-8");
         request.setHeader("SOAPAction", "\"\"");
 
         try {
             request.setEntity(makeEntityWithXmlDocument(xml));
         } catch (TransformerException e) {
-            throw new MagdaSendFailed(String.format("POST %s kan request XML document niet streamen", url), e);
+            throw new MagdaSendFailed(String.format("POST %s kan request XML document niet streamen", urlString), e);
         }
 
         try(var response = httpClient.execute(request)) {
-            if (response.getCode() == 200) {
+            log.info("Antwoord van SOAP-endpoint {}: {}", urlString, response.getCode());
+
+            if(response.getCode() == 200) {
                 HttpEntity responseEntity = response.getEntity();
+
                 return parseStream(responseEntity.getContent());
             } else {
                 String errorBody = IOUtils.toString(response.getEntity().getContent(), Charset.defaultCharset());
-                log.error("POST {} failed with HTTP error {} {} and body {}", url, response.getCode(), response.getReasonPhrase(), errorBody);
+                log.error("POST {} failed with HTTP error {} {} and body {}", urlString, response.getCode(), response.getReasonPhrase(), errorBody);
 
-                String exceptionMessage = String.format("POST %s faalt met HTTP error %d %s", url, response.getCode(), response.getReasonPhrase());
+                String exceptionMessage = String.format("POST %s faalt met HTTP error %d %s", urlString, response.getCode(), response.getReasonPhrase());
                 throw new MagdaSendFailed(exceptionMessage, response.getCode());
             }
         } catch (IOException e) {
-            throw new MagdaSendFailed(String.format("POST %s gefaald", url), e);
+            throw new MagdaSendFailed(String.format("POST %s gefaald", urlString), e);
         }
     }
 
