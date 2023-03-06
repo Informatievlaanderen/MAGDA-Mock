@@ -76,11 +76,6 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
     }
 
     @Override
-    public Document sendDocument(Aanvraag aanvraag, Document xml) throws MagdaSendFailed {
-        return sendDocument(xml);
-    }
-
-    @Override
     public Document sendDocument(Document xml) throws MagdaSendFailed {
         var doc = MagdaDocument.fromDocument(xml) ;
         var service = doc.getValue("//Verzoek/Context/Naam");

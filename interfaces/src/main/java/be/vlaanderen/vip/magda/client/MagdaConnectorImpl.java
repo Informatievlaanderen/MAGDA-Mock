@@ -44,8 +44,10 @@ public class MagdaConnectorImpl implements MagdaConnector {
     private final MagdaHoedanigheidService magdaHoedanigheidService;
 
     @Override
-    public MagdaAntwoord send(Aanvraag aanvraag, MagdaDocument request) {
+    public MagdaAntwoord send(Aanvraag aanvraag) {
         long start = System.nanoTime();
+
+        var request = MagdaDocument.fromTemplate(aanvraag);
 
         logAanvraag(aanvraag);
 
@@ -80,11 +82,6 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             throw new GeenAntwoordException(aanvraag, "Geen antwoord", e);
         }
-    }
-
-    @Override
-    public MagdaAntwoord send(Aanvraag aanvraag) {
-        return send(aanvraag, MagdaDocument.fromTemplate(aanvraag));
     }
 
     private List<Uitzondering> getNiveau1Uitzondering(MagdaDocument response) {

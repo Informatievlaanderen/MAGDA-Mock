@@ -41,11 +41,6 @@ public class MagdaSignedConnection implements MagdaConnection {
     }
 
     @Override
-    public Document sendDocument(Aanvraag aanvraag, Document xml) throws MagdaSendFailed {
-        return sendDocument(xml);
-    }
-
-    @Override
     public Document sendDocument(Document xml) throws MagdaSendFailed {
         try {
             if(requestSigner.isPresent()) {

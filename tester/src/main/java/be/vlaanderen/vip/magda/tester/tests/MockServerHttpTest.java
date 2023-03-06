@@ -163,47 +163,6 @@ public class MockServerHttpTest extends MockServerTest {
 
     @Test
     @SneakyThrows
-    void callGeefPersoonMetCustomRequest() {
-        var request = MagdaDocument.fromResource(MockServerHttpTest.class, "/requests/GeefPersoonRequest.xml");
-
-        var aanvraag = new GeefPersoonAanvraag("00000099504");
-        var antwoord = connector.send(aanvraag, request);
-        log.debug("Antwoord : {}", antwoord.getDocument());
-
-        assertResponsBevatAntwoord(antwoord);
-
-        var doc = antwoord.getDocument();
-
-        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
-
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/Persoon/INSZ", "00000099504");
-    }
-
-    @Test
-    @SneakyThrows
-    void callGeefAanslagbiljetPersonenbelastingMetCustomRequest() {
-        var request = MagdaDocument.fromResource(MockServerHttpTest.class, "/requests/GeefAanslagbiljetPersonenbelastingRequest.xml");
-
-        var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag("82102108114");
-        var antwoord = connector.send(aanvraag, request);
-        log.debug("Antwoord : {}", antwoord.getDocument());
-
-        assertResponsBevatAntwoord(antwoord);
-
-        var doc = antwoord.getDocument();
-
-        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
-
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
-
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2011");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
-    }
-
-    @Test
-    @SneakyThrows
     void geefPasfotoVoorBestaandInszNummer() {
         assertPasfotoCorrect(INSZ_ECHTE_PASFOTO, 80065);
     }

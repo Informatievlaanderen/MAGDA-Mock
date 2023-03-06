@@ -7,10 +7,10 @@ import org.springframework.util.Assert;
 
 @Getter
 @ToString
-public class MagdaHoedanigheid {
+public class MagdaHoedanigheid { // XXX rename (or maybe even delete)
     private String naam;
     private String uri;
-    @Nullable private String hoedanigheid;
+    @Nullable private String hoedanigheid; // XXX rename to hoedanigheidscode
 
     public static class Builder {
         private final MagdaHoedanigheid inst;
@@ -34,7 +34,6 @@ public class MagdaHoedanigheid {
          * The use of this field is being phased out on the side of MAGDA.
          * It is supported here for compatibility, but it's recommended not to use it if possible.
          */
-        @Deprecated
         public Builder hoedanigheid(String hoedanigheid) {
             inst.hoedanigheid = hoedanigheid;
             return this;
@@ -48,16 +47,6 @@ public class MagdaHoedanigheid {
         }
     }
 
-    /**
-     * @deprecated Please use the builder to construct an instance.
-     */
-    @Deprecated(forRemoval = true)
-    public MagdaHoedanigheid(String naam, String uri, String hoedanigheid) {
-        this.naam = naam;
-        this.uri = uri;
-        this.hoedanigheid = hoedanigheid;
-    }
-
     private MagdaHoedanigheid() {}
 
     public static Builder builder() {
@@ -69,7 +58,6 @@ public class MagdaHoedanigheid {
      * The use of this field is being phased out on the side of MAGDA.
      * It is supported here for compatibility, but it's recommended not to use it if possible.
      */
-    @Deprecated
     public String getHoedanigheid() {
         return hoedanigheid;
     }

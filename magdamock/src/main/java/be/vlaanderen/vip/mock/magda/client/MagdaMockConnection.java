@@ -1,6 +1,5 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.security.DocumentSignatureVerifier;
@@ -112,11 +111,6 @@ public class MagdaMockConnection implements MagdaConnection {
         }
 
         return simulator;
-    }
-
-    @Override
-    public Document sendDocument(Aanvraag aanvraag, Document xml) throws MagdaSendFailed {
-        return sendDocument(xml);
     }
 
     @Override
