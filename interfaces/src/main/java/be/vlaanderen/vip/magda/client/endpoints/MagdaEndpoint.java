@@ -1,10 +1,10 @@
 package be.vlaanderen.vip.magda.client.endpoints;
 
-import lombok.Value;
+import lombok.Getter;
 
 import java.net.URI;
 
-@Value
+@Getter
 public class MagdaEndpoint {
 
     private URI uri;
