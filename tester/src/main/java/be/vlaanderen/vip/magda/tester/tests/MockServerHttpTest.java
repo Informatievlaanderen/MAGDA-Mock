@@ -61,7 +61,7 @@ public class MockServerHttpTest extends MockServerTest {
     void setup() {
         var afnemerLog = new AfnemerLogServiceMock();
         var magdaConfigDto = configureMagdaParameters();
-        var magdaEndpoints = new MockMagdaEndpoints(URI.create(magdaConfigDto.getEnvironment())); // XXX environment is semantically the wrong thing to pass here
+        var magdaEndpoints = makeMockEndpoints();
         var hoedanigheid = new MagdaHoedanigheidServiceImpl(magdaConfigDto, "magdamock.service.integrationtest");
         var soapConnection = new MagdaSoapConnection(magdaEndpoints, magdaConfigDto);
         var signatureConnection = new MagdaSignedConnection(soapConnection, magdaConfigDto);
@@ -295,6 +295,10 @@ public class MockServerHttpTest extends MockServerTest {
         assertThat(value).isEqualTo(expected);
     }
 
+    private MockMagdaEndpoints makeMockEndpoints() {
+        return new MockMagdaEndpoints(URI.create(testerConfig.getServiceUrl() + "/Magda-02.00/soap/WebService"));
+    }
+
     private MagdaConfigDto configureMagdaParameters() {
         var magdaConfigDto = new MagdaConfigDto();
         if(wssConfig.isWssEnabled()) {
@@ -303,7 +307,6 @@ public class MockServerHttpTest extends MockServerTest {
             magdaConfigDto.setKeystore(new TwoWaySslProperties());
         }
         magdaConfigDto.setVerificationEnabled(false); // TODO might enable this again when verification works as prescribed
-        magdaConfigDto.setEnvironment(testerConfig.getServiceUrl() + "/Magda-02.00/soap/WebService");
         magdaConfigDto.getRegistration().put("default", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-mock").build());
         magdaConfigDto.getRegistration().put("custom", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-custom-mock").build());
 
