@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
 import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
@@ -51,8 +51,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
         logAanvraag(aanvraag);
 
-        MagdaHoedanigheid magdaHoedanigheid = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
-        aanvraag.fillIn(request, magdaHoedanigheid);
+        MagdaRegistrationInfo magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
+        aanvraag.fillIn(request, magdaRegistrationInfo);
 
         log.info("Aanvraag met referte [{}]", aanvraag.getRequestId());
         log.debug("Request: {}", request);

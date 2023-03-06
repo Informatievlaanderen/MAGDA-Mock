@@ -266,8 +266,8 @@ public class MockServerHttpTest extends MockServerTest {
             magdaConfigDto.setKeystore(new TwoWaySslProperties());
         }
         magdaConfigDto.setVerificationEnabled(false); // TODO might enable this again when verification works as prescribed
-        magdaConfigDto.getRegistration().put("default", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-mock").build());
-        magdaConfigDto.getRegistration().put("custom", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-custom-mock").build());
+        magdaConfigDto.getRegistration().put("default", MagdaRegistrationConfigDto.builder().identification("kb.vlaanderen.be/aiv/burgerloket-wwoom-mock").build());
+        magdaConfigDto.getRegistration().put("custom", MagdaRegistrationConfigDto.builder().identification("kb.vlaanderen.be/aiv/burgerloket-wwoom-custom-mock").build());
 
         return magdaConfigDto;
     }

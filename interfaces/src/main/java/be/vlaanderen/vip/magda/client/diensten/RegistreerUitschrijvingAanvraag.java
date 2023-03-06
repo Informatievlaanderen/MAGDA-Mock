@@ -3,7 +3,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -30,15 +30,15 @@ public class RegistreerUitschrijvingAanvraag extends Aanvraag {
     }
 
     @Override
-    public void fillIn(MagdaDocument request, MagdaHoedanigheid magdaHoedanigheid) {
-        super.fillIn(request, magdaHoedanigheid);
+    public void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
+        super.fillIn(request, magdaRegistrationInfo);
 
         setDateFields(request);
-        request.setValue("//Vraag/Inhoud/Uitschrijving/Identificatie", magdaHoedanigheid.getUri());
-        if(magdaHoedanigheid.getHoedanigheid() == null) {
+        request.setValue("//Vraag/Inhoud/Uitschrijving/Identificatie", magdaRegistrationInfo.getIdentification());
+        if(magdaRegistrationInfo.getHoedanigheidscode() == null) {
             request.removeNode("//Vraag/Inhoud/Uitschrijving/Hoedanigheid");
         } else {
-            request.setValue("//Vraag/Inhoud/Uitschrijving/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
+            request.setValue("//Vraag/Inhoud/Uitschrijving/Hoedanigheid", magdaRegistrationInfo.getHoedanigheidscode());
         }
     }
     

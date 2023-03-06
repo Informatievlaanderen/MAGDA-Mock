@@ -7,8 +7,8 @@ import org.springframework.util.Assert;
 @Getter
 public class MagdaRegistrationConfigDto {
 
-    private String uri;
-    @Nullable private String capacity; // XXX rename to "hoedanigheidscode"
+    private String identification;
+    @Nullable private String hoedanigheidscode;
 
     public static class Builder {
 
@@ -18,8 +18,8 @@ public class MagdaRegistrationConfigDto {
             this.inst = new MagdaRegistrationConfigDto();
         }
 
-        public Builder uri(String uri) {
-            inst.uri = uri;
+        public Builder identification(String identification) {
+            inst.identification = identification;
             return this;
         }
 
@@ -28,13 +28,14 @@ public class MagdaRegistrationConfigDto {
          * The use of hoedanigheid codes is being phased out on the side of MAGDA.
          * It is supported here for compatibility, but it's recommended not to use it if possible.
          */
-        public Builder capacity(String capacity) {
-            inst.capacity = capacity;
+        public Builder hoedanigheidscode(String hoedanigheidscode) {
+            inst.hoedanigheidscode = hoedanigheidscode;
             return this;
         }
 
         public MagdaRegistrationConfigDto build() {
-            Assert.notNull(inst.uri, "uri cannot be null.");
+            Assert.notNull(inst.identification, "identification cannot be null.");
+            // hoedanigheidscode is optional
 
             return inst;
         }
@@ -51,7 +52,7 @@ public class MagdaRegistrationConfigDto {
      * The use of hoedanigheid codes is being phased out on the side of MAGDA.
      * It is supported here for compatibility, but it's recommended not to use it if possible.
      */
-    public String getCapacity() {
-        return capacity;
+    public String getHoedanigheidscode() {
+        return hoedanigheidscode;
     }
 }

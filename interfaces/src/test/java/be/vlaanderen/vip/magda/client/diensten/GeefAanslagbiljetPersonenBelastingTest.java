@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Nested;
@@ -20,17 +20,17 @@ public class GeefAanslagbiljetPersonenBelastingTest extends TestBase {
 
         MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
 
-        MagdaHoedanigheid mockedMagdaHoedanigheid = MagdaHoedanigheid.builder()
-                .naam(TEST_SERVICE_NAAM)
-                .uri(TEST_SERVICE_URI)
+        MagdaRegistrationInfo mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
+                .name(TEST_SERVICE_NAAM)
+                .identification(TEST_SERVICE_URI)
                 .build();
 
-        aanvraag.fillIn(request, mockedMagdaHoedanigheid);
+        aanvraag.fillIn(request, mockedMagdaRegistrationInfo);
 
         log.debug("Request:  {}", request);
 
         assertAll(
-                () -> assertThatTechnicalFieldsInRequestMatchAanvraag(request, aanvraag, mockedMagdaHoedanigheid),
+                () -> assertThatTechnicalFieldsInRequestMatchAanvraag(request, aanvraag, mockedMagdaRegistrationInfo),
                 () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Criteria/INSZ", insz),
 
                 // TODO: Should these values be passed as inputs in Aanvraag instead of hardcoded in the request template?
@@ -53,18 +53,18 @@ public class GeefAanslagbiljetPersonenBelastingTest extends TestBase {
 
             MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
 
-            MagdaHoedanigheid mockedMagdaHoedanigheid = MagdaHoedanigheid.builder()
-                    .naam(TEST_SERVICE_NAAM)
-                    .uri(TEST_SERVICE_URI)
-                    .hoedanigheid(TEST_SERVICE_HOEDANIGHEID)
+            MagdaRegistrationInfo mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
+                    .name(TEST_SERVICE_NAAM)
+                    .identification(TEST_SERVICE_URI)
+                    .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();
 
-            aanvraag.fillIn(request, mockedMagdaHoedanigheid);
+            aanvraag.fillIn(request, mockedMagdaRegistrationInfo);
 
             log.debug("Request:  {}", request);
 
             assertAll(
-                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(request, aanvraag, mockedMagdaHoedanigheid),
+                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(request, aanvraag, mockedMagdaRegistrationInfo),
                     () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Criteria/INSZ", insz),
 
                     // TODO: Should these values be passed as inputs in Aanvraag instead of hardcoded in the request template?

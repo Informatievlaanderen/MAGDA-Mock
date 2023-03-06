@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.magda.legallogging.model;
 
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 
 import java.util.UUID;
 
@@ -13,11 +13,11 @@ import java.util.UUID;
  * </ul>
  */
 public class NietGeautoriseerdeAanvraag extends GelogdeAanvraag {
-    public NietGeautoriseerdeAanvraag(String insz, UUID transactieID, String dienst, String dienstVersie, MagdaHoedanigheid registratie) {
+    public NietGeautoriseerdeAanvraag(String insz, UUID transactieID, String dienst, String dienstVersie, MagdaRegistrationInfo registratie) {
         super(insz, null, transactieID, null, dienst, dienstVersie, registratie);
     }
 
-    public NietGeautoriseerdeAanvraag(String insz, UUID transactieID, UUID localTransactieID, String dienst, String dienstVersie, MagdaHoedanigheid registratie) {
+    public NietGeautoriseerdeAanvraag(String insz, UUID transactieID, UUID localTransactieID, String dienst, String dienstVersie, MagdaRegistrationInfo registratie) {
         super(insz, null, transactieID, localTransactieID, dienst, dienstVersie, registratie);
     }
 }

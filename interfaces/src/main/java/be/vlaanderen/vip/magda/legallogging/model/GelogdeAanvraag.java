@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.magda.legallogging.model;
 
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -25,5 +25,5 @@ public class GelogdeAanvraag {
     private final UUID localTransactieID;
     private final String dienst;
     private final String dienstVersie;
-    private final MagdaHoedanigheid registratie;
+    private final MagdaRegistrationInfo registratie;
 }

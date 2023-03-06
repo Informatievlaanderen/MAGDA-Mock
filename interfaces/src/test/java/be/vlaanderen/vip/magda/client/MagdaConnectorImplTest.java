@@ -2,7 +2,7 @@ package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
 import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
@@ -38,10 +38,10 @@ class MagdaConnectorImplTest {
 	
 	@BeforeEach
 	void prepare() {
-		var identity = MagdaHoedanigheid.builder()
-				.naam("test-identity-name")
-				.uri("http://magda-test")
-				.hoedanigheid("test-identity")
+		var identity = MagdaRegistrationInfo.builder()
+				.name("test-identity-name")
+				.identification("http://magda-test")
+				.hoedanigheidscode("test-identity")
 				.build();
 		doReturn(identity).when(identityService).getDomeinService("default");
 	}

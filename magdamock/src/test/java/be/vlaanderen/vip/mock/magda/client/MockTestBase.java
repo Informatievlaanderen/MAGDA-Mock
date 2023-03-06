@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.*;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.extern.slf4j.Slf4j;
@@ -29,10 +29,10 @@ public abstract class MockTestBase {
     protected MagdaConnectorImpl makeMagdaConnector(AfnemerLogServiceMock afnemerLogService) {
         var connection = new MagdaMockConnection();
 
-        var mockedMagdaHoedanigheid = MagdaHoedanigheid.builder()
-                .naam(TEST_SERVICE_NAAM)
-                .uri(TEST_SERVICE_URI)
-                .hoedanigheid(TEST_SERVICE_HOEDANIGHEID)
+        var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
+                .name(TEST_SERVICE_NAAM)
+                .identification(TEST_SERVICE_URI)
+                .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                 .build();
         var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
 
@@ -50,10 +50,10 @@ public abstract class MockTestBase {
 
         var signedConnection = new MagdaSignedConnection(mockConnection, signedConnectionRequestSignerKeystore, signedConnectionResponseVerifierKeystore);
 
-        var mockedMagdaHoedanigheid = MagdaHoedanigheid.builder()
-                .naam(TEST_SERVICE_NAAM)
-                .uri(TEST_SERVICE_URI)
-                .hoedanigheid(TEST_SERVICE_HOEDANIGHEID)
+        var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
+                .name(TEST_SERVICE_NAAM)
+                .identification(TEST_SERVICE_URI)
+                .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                 .build();
         var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
 
