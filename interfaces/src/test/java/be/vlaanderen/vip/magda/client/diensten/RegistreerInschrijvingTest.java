@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -26,9 +26,9 @@ public class RegistreerInschrijvingTest extends TestBase {
 
         MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
 
-        var mockedMagdaHoedanigheid = MagdaHoedanigheid.builder()
-                .naam(TEST_SERVICE_NAAM)
-                .uri(TEST_SERVICE_URI)
+        var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
+                .name(TEST_SERVICE_NAAM)
+                .identification(TEST_SERVICE_URI)
                 .build();
 
         aanvraag.fillIn(request, mockedMagdaHoedanigheid);
@@ -37,7 +37,7 @@ public class RegistreerInschrijvingTest extends TestBase {
 
         assertAll(
             () -> assertThatTechnicalFieldsInRequestMatchAanvraag(request, aanvraag, mockedMagdaHoedanigheid),
-            () -> assertThatXmlFieldIsEqualTo(request, VRAAG_INHOUD_INSCHRIJVING_IDENTIFICATIE, mockedMagdaHoedanigheid.getUri()),
+            () -> assertThatXmlFieldIsEqualTo(request, VRAAG_INHOUD_INSCHRIJVING_IDENTIFICATIE, mockedMagdaHoedanigheid.getIdentification()),
             () -> assertThatXmlHasNoFieldForPath(request, VRAAG_INHOUD_INSCHRIJVING_HOEDANIGHEID),
             () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/INSZ", INSZ),
             () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Periode/Begin", "2020-08-15"),
@@ -50,17 +50,17 @@ public class RegistreerInschrijvingTest extends TestBase {
 
         MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
 
-        MagdaHoedanigheid mockedMagdaHoedanigheid = MagdaHoedanigheid.builder()
-                .naam(TEST_SERVICE_NAAM)
-                .uri(TEST_SERVICE_URI)
+        MagdaRegistrationInfo mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
+                .name(TEST_SERVICE_NAAM)
+                .identification(TEST_SERVICE_URI)
                 .build();
 
-        aanvraag.fillIn(request, mockedMagdaHoedanigheid);
+        aanvraag.fillIn(request, mockedMagdaRegistrationInfo);
 
         log.debug("Request:  {}", request.toString());
 
-        assertThatTechnicalFieldsInRequestMatchAanvraag(request, aanvraag, mockedMagdaHoedanigheid);
-        assertThatXmlFieldIsEqualTo(request, VRAAG_INHOUD_INSCHRIJVING_IDENTIFICATIE, mockedMagdaHoedanigheid.getUri());
+        assertThatTechnicalFieldsInRequestMatchAanvraag(request, aanvraag, mockedMagdaRegistrationInfo);
+        assertThatXmlFieldIsEqualTo(request, VRAAG_INHOUD_INSCHRIJVING_IDENTIFICATIE, mockedMagdaRegistrationInfo.getIdentification());
         assertThatXmlHasNoFieldForPath(request, VRAAG_INHOUD_INSCHRIJVING_HOEDANIGHEID);
     }
 
@@ -76,10 +76,10 @@ public class RegistreerInschrijvingTest extends TestBase {
 
             MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
 
-            var mockedMagdaHoedanigheid = MagdaHoedanigheid.builder()
-                    .naam(TEST_SERVICE_NAAM)
-                    .uri(TEST_SERVICE_URI)
-                    .hoedanigheid(TEST_SERVICE_HOEDANIGHEID)
+            var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
+                    .name(TEST_SERVICE_NAAM)
+                    .identification(TEST_SERVICE_URI)
+                    .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();
 
             aanvraag.fillIn(request, mockedMagdaHoedanigheid);
@@ -88,8 +88,8 @@ public class RegistreerInschrijvingTest extends TestBase {
 
             assertAll(
                     () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(request, aanvraag, mockedMagdaHoedanigheid),
-                    () -> assertThatXmlFieldIsEqualTo(request, VRAAG_INHOUD_INSCHRIJVING_IDENTIFICATIE, mockedMagdaHoedanigheid.getUri()),
-                    () -> assertThatXmlFieldIsEqualTo(request, VRAAG_INHOUD_INSCHRIJVING_HOEDANIGHEID, mockedMagdaHoedanigheid.getHoedanigheid()),
+                    () -> assertThatXmlFieldIsEqualTo(request, VRAAG_INHOUD_INSCHRIJVING_IDENTIFICATIE, mockedMagdaHoedanigheid.getIdentification()),
+                    () -> assertThatXmlFieldIsEqualTo(request, VRAAG_INHOUD_INSCHRIJVING_HOEDANIGHEID, mockedMagdaHoedanigheid.getHoedanigheidscode()),
                     () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/INSZ", INSZ),
                     () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Periode/Begin", "2020-08-15"),
                     () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Inschrijving/Periode/Einde", "2021-09-20"));
@@ -101,19 +101,19 @@ public class RegistreerInschrijvingTest extends TestBase {
 
             MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
 
-            MagdaHoedanigheid mockedMagdaHoedanigheid = MagdaHoedanigheid.builder()
-                    .naam(TEST_SERVICE_NAAM)
-                    .uri(TEST_SERVICE_URI)
-                    .hoedanigheid(TEST_SERVICE_HOEDANIGHEID)
+            MagdaRegistrationInfo mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
+                    .name(TEST_SERVICE_NAAM)
+                    .identification(TEST_SERVICE_URI)
+                    .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();
 
-            aanvraag.fillIn(request, mockedMagdaHoedanigheid);
+            aanvraag.fillIn(request, mockedMagdaRegistrationInfo);
 
             log.debug("Request:  {}", request.toString());
 
-            assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(request, aanvraag, mockedMagdaHoedanigheid);
-            assertThatXmlFieldIsEqualTo(request, VRAAG_INHOUD_INSCHRIJVING_IDENTIFICATIE, mockedMagdaHoedanigheid.getUri());
-            assertThatXmlFieldIsEqualTo(request, VRAAG_INHOUD_INSCHRIJVING_HOEDANIGHEID, mockedMagdaHoedanigheid.getHoedanigheid());
+            assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(request, aanvraag, mockedMagdaRegistrationInfo);
+            assertThatXmlFieldIsEqualTo(request, VRAAG_INHOUD_INSCHRIJVING_IDENTIFICATIE, mockedMagdaRegistrationInfo.getIdentification());
+            assertThatXmlFieldIsEqualTo(request, VRAAG_INHOUD_INSCHRIJVING_HOEDANIGHEID, mockedMagdaRegistrationInfo.getHoedanigheidscode());
         }
     }
 }

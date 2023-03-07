@@ -1,21 +1,27 @@
-package be.vlaanderen.vip.magda.config;
+package be.vlaanderen.vip.magda.client.domeinservice;
 
 import jakarta.annotation.Nullable;
 import lombok.Getter;
+import lombok.ToString;
 import org.springframework.util.Assert;
 
 @Getter
-public class MagdaRegistrationConfigDto {
-
+@ToString
+public class MagdaRegistrationInfo {
+    private String name;
     private String identification;
     @Nullable private String hoedanigheidscode;
 
     public static class Builder {
-
-        private final MagdaRegistrationConfigDto inst;
+        private final MagdaRegistrationInfo inst;
 
         public Builder() {
-            this.inst = new MagdaRegistrationConfigDto();
+            this.inst = new MagdaRegistrationInfo();
+        }
+
+        public Builder name(String name) {
+            inst.name = name;
+            return this;
         }
 
         public Builder identification(String identification) {
@@ -24,8 +30,8 @@ public class MagdaRegistrationConfigDto {
         }
 
         /**
-         * This field specifies the 'hoedanigheid' code.
-         * The use of hoedanigheid codes is being phased out on the side of MAGDA.
+         * This is the 'hoedanigheid' code.
+         * The use of this field is being phased out on the side of MAGDA.
          * It is supported here for compatibility, but it's recommended not to use it if possible.
          */
         public Builder hoedanigheidscode(String hoedanigheidscode) {
@@ -33,7 +39,8 @@ public class MagdaRegistrationConfigDto {
             return this;
         }
 
-        public MagdaRegistrationConfigDto build() {
+        public MagdaRegistrationInfo build() {
+            Assert.notNull(inst.name, "name cannot be null.");
             Assert.notNull(inst.identification, "identification cannot be null.");
             // hoedanigheidscode is optional
 
@@ -41,15 +48,15 @@ public class MagdaRegistrationConfigDto {
         }
     }
 
+    private MagdaRegistrationInfo() {}
+
     public static Builder builder() {
         return new Builder();
     }
 
-    private MagdaRegistrationConfigDto() {}
-
     /**
-     * This field specifies the 'hoedanigheid' code.
-     * The use of hoedanigheid codes is being phased out on the side of MAGDA.
+     * This is the 'hoedanigheid' code.
+     * The use of this field is being phased out on the side of MAGDA.
      * It is supported here for compatibility, but it's recommended not to use it if possible.
      */
     public String getHoedanigheidscode() {

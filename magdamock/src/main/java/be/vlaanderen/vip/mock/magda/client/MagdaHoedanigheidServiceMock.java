@@ -1,20 +1,20 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 
 public class MagdaHoedanigheidServiceMock implements MagdaHoedanigheidService {
-    private final MagdaHoedanigheid mockedMagdaHoedanigheid;
+    private final MagdaRegistrationInfo mockedMagdaRegistrationInfo;
 
-    public MagdaHoedanigheidServiceMock(MagdaHoedanigheid mockedMagdaHoedanigheid) {
-        this.mockedMagdaHoedanigheid = mockedMagdaHoedanigheid;
+    public MagdaHoedanigheidServiceMock(MagdaRegistrationInfo mockedMagdaRegistrationInfo) {
+        this.mockedMagdaRegistrationInfo = mockedMagdaRegistrationInfo;
     }
 
-    public MagdaHoedanigheid getDomeinService() {
-        return mockedMagdaHoedanigheid;
+    public MagdaRegistrationInfo getDomeinService() {
+        return mockedMagdaRegistrationInfo;
     }
 
-    public MagdaHoedanigheid getDomeinService(String name) {
-        return mockedMagdaHoedanigheid;
+    public MagdaRegistrationInfo getDomeinService(String name) {
+        return mockedMagdaRegistrationInfo;
     }
 }

@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.magda.client;
 
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,7 +34,7 @@ public abstract class Aanvraag {
 
     public abstract MagdaServiceIdentificatie magdaService();
 
-    public void fillIn(MagdaDocument request, MagdaHoedanigheid magdaHoedanigheid) {
+    public void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         request.setValue("//Referte", getRequestId().toString());
         request.setValue("//INSZ", getOverWie());
 
@@ -51,11 +51,11 @@ public abstract class Aanvraag {
         String time = ldt.format(timeFormat) + ".000";
         request.setValue("//Context/Bericht/Tijdstip/Tijd", time);
 
-        request.setValue("//Context/Bericht/Afzender/Identificatie", magdaHoedanigheid.getUri());
-        if(magdaHoedanigheid.getHoedanigheid() == null) {
+        request.setValue("//Context/Bericht/Afzender/Identificatie", magdaRegistrationInfo.getIdentification());
+        if(magdaRegistrationInfo.getHoedanigheidscode() == null) {
             request.removeNode("//Context/Bericht/Afzender/Hoedanigheid");
         } else {
-            request.setValue("//Context/Bericht/Afzender/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
+            request.setValue("//Context/Bericht/Afzender/Hoedanigheid", magdaRegistrationInfo.getHoedanigheidscode());
         }
     }
 }

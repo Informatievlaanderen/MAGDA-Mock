@@ -22,6 +22,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
@@ -47,8 +48,7 @@ public class MockServerHttpTest extends MockServerTest {
     @Autowired
     private WssConfig wssConfig;
 
-    private AfnemerLogServiceMock afnemerLog;
-    private MagdaConnectorImpl connector;
+    private MagdaConnector connector;
 
     @BeforeAll
     @SneakyThrows
@@ -59,13 +59,13 @@ public class MockServerHttpTest extends MockServerTest {
     @BeforeEach
     @SneakyThrows
     void setup() {
-        afnemerLog = new AfnemerLogServiceMock();
+        var afnemerLog = new AfnemerLogServiceMock();
         var magdaConfigDto = configureMagdaParameters();
-        var magdaEndpoints = new MockMagdaEndpoints(magdaConfigDto.getEnvironment());
+        var magdaEndpoints = makeMockEndpoints();
         var hoedanigheid = new MagdaHoedanigheidServiceImpl(magdaConfigDto, "magdamock.service.integrationtest");
         var soapConnection = new MagdaSoapConnection(magdaEndpoints, magdaConfigDto);
         var signatureConnection = new MagdaSignedConnection(soapConnection, magdaConfigDto);
-        connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, magdaEndpoints, hoedanigheid);
+        connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, hoedanigheid);
     }
 
     @Test
@@ -163,47 +163,6 @@ public class MockServerHttpTest extends MockServerTest {
 
     @Test
     @SneakyThrows
-    void callGeefPersoonMetCustomRequest() {
-        var request = MagdaDocument.fromResource(MockServerHttpTest.class, "/requests/GeefPersoonRequest.xml");
-
-        var aanvraag = new GeefPersoonAanvraag("00000099504");
-        var antwoord = connector.send(aanvraag, request);
-        log.debug("Antwoord : {}", antwoord.getDocument());
-
-        assertResponsBevatAntwoord(antwoord);
-
-        var doc = antwoord.getDocument();
-
-        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
-
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/Persoon/INSZ", "00000099504");
-    }
-
-    @Test
-    @SneakyThrows
-    void callGeefAanslagbiljetPersonenbelastingMetCustomRequest() {
-        var request = MagdaDocument.fromResource(MockServerHttpTest.class, "/requests/GeefAanslagbiljetPersonenbelastingRequest.xml");
-
-        var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag("82102108114");
-        var antwoord = connector.send(aanvraag, request);
-        log.debug("Antwoord : {}", antwoord.getDocument());
-
-        assertResponsBevatAntwoord(antwoord);
-
-        var doc = antwoord.getDocument();
-
-        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
-
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
-
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2011");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
-    }
-
-    @Test
-    @SneakyThrows
     void geefPasfotoVoorBestaandInszNummer() {
         assertPasfotoCorrect(INSZ_ECHTE_PASFOTO, 80065);
     }
@@ -230,8 +189,7 @@ public class MockServerHttpTest extends MockServerTest {
     }
 
     @SneakyThrows
-    private void assertPasfotoCorrect(String inszRandomMan, int expected) throws IOException {
-        final String requestInsz = inszRandomMan;
+    private void assertPasfotoCorrect(String requestInsz, int expected) {
         var aanvraag = new GeefPasfotoAanvraag(requestInsz);
 
         var antwoord = connector.send(aanvraag);
@@ -296,6 +254,10 @@ public class MockServerHttpTest extends MockServerTest {
         assertThat(value).isEqualTo(expected);
     }
 
+    private MockMagdaEndpoints makeMockEndpoints() {
+        return new MockMagdaEndpoints(URI.create(testerConfig.getServiceUrl() + "/Magda-02.00/soap/WebService"));
+    }
+
     private MagdaConfigDto configureMagdaParameters() {
         var magdaConfigDto = new MagdaConfigDto();
         if(wssConfig.isWssEnabled()) {
@@ -304,9 +266,8 @@ public class MockServerHttpTest extends MockServerTest {
             magdaConfigDto.setKeystore(new TwoWaySslProperties());
         }
         magdaConfigDto.setVerificationEnabled(false); // TODO might enable this again when verification works as prescribed
-        magdaConfigDto.setEnvironment(testerConfig.getServiceUrl() + "/Magda-02.00/soap/WebService");
-        magdaConfigDto.getRegistration().put("default", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-mock").build());
-        magdaConfigDto.getRegistration().put("custom", MagdaRegistrationConfigDto.builder().uri("kb.vlaanderen.be/aiv/burgerloket-wwoom-custom-mock").build());
+        magdaConfigDto.getRegistration().put("default", MagdaRegistrationConfigDto.builder().identification("kb.vlaanderen.be/aiv/burgerloket-wwoom-mock").build());
+        magdaConfigDto.getRegistration().put("custom", MagdaRegistrationConfigDto.builder().identification("kb.vlaanderen.be/aiv/burgerloket-wwoom-custom-mock").build());
 
         return magdaConfigDto;
     }
