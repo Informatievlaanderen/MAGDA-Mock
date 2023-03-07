@@ -7,22 +7,25 @@ import be.vlaanderen.vip.magda.client.security.InvalidSignatureException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.magda.exception.TwoWaySslException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wss4j.common.ext.WSSecurityException;
 import org.w3c.dom.Document;
 
 import java.util.Optional;
 
+@Slf4j
 public class MagdaSignedConnection implements MagdaConnection {
     private final MagdaConnection magdaConnection;
     private final Optional<DocumentSigner> requestSigner;
     private final Optional<DocumentSignatureVerifier> responseVerifier;
 
-    public MagdaSignedConnection(MagdaConnection magdaConnection, MagdaConfigDto config) throws WSSecurityException {
+    public MagdaSignedConnection(MagdaConnection magdaConnection, MagdaConfigDto config) throws TwoWaySslException {
         this(magdaConnection, config.getKeystore(), config.isVerificationEnabled() ? config.getKeystore() : null); // TODO will need some more work for verification to actually work as prescribed
     }
 
-    public MagdaSignedConnection(MagdaConnection magdaConnection, TwoWaySslProperties requestSignerConfig, TwoWaySslProperties responseVerifierConfig) throws WSSecurityException {
+    public MagdaSignedConnection(MagdaConnection magdaConnection, TwoWaySslProperties requestSignerConfig, TwoWaySslProperties responseVerifierConfig) throws TwoWaySslException {
         this.magdaConnection = magdaConnection;
 
         if(requestSignerConfig != null && StringUtils.isNotEmpty(requestSignerConfig.getKeyStoreLocation())) {
@@ -39,14 +42,10 @@ public class MagdaSignedConnection implements MagdaConnection {
     }
 
     @Override
-    public Document sendDocument(Aanvraag aanvraag, Document xml) throws MagdaSendFailed {
-        return sendDocument(xml);
-    }
-
-    @Override
     public Document sendDocument(Document xml) throws MagdaSendFailed {
         try {
             if(requestSigner.isPresent()) {
+                log.info("Signing request document...");
                 requestSigner.get().signDocument(xml);
             }
         } catch(WSSecurityException e) {
@@ -57,6 +56,7 @@ public class MagdaSignedConnection implements MagdaConnection {
 
         try {
             if(responseVerifier.isPresent()) {
+                log.info("Verifying response document...");
                 responseVerifier.get().verifyDocument(response);
             }
         } catch(InvalidSignatureException e) {

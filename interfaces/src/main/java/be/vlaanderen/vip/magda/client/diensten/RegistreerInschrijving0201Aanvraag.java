@@ -3,7 +3,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -32,8 +32,8 @@ public class RegistreerInschrijving0201Aanvraag extends Aanvraag {
     }
 
     @Override
-    public void fillIn(MagdaDocument request, MagdaHoedanigheid magdaHoedanigheid) {
-        super.fillIn(request, magdaHoedanigheid);
+    public void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
+        super.fillIn(request, magdaRegistrationInfo);
 
         DateTimeFormatter dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Start", getStart().format(dateFormatter));
@@ -41,11 +41,11 @@ public class RegistreerInschrijving0201Aanvraag extends Aanvraag {
         request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Type", getType().getTypeString());
         request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Type", getType().getTypeString());
         request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Sleutel", getInsz());
-        request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", magdaHoedanigheid.getUri());
-        if(magdaHoedanigheid.getHoedanigheid() == null) {
+        request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", magdaRegistrationInfo.getIdentification());
+        if(magdaRegistrationInfo.getHoedanigheidscode() == null) {
             request.removeNode("//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid");
         } else {
-            request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", magdaHoedanigheid.getHoedanigheid());
+            request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", magdaRegistrationInfo.getHoedanigheidscode());
         }
     }
 

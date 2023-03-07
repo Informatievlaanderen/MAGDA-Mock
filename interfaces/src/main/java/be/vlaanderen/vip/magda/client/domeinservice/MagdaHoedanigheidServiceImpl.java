@@ -15,11 +15,11 @@ public class MagdaHoedanigheidServiceImpl implements MagdaHoedanigheidService {
     }
 
 
-    public MagdaHoedanigheid getDomeinService() {
+    public MagdaRegistrationInfo getDomeinService() {
         return getDomeinService("default");
     }
 
-    public MagdaHoedanigheid getDomeinService(String name) {
+    public MagdaRegistrationInfo getDomeinService(String name) {
         if (StringUtils.isEmpty(name)) {
             return getDomeinService();
         }
@@ -30,10 +30,10 @@ public class MagdaHoedanigheidServiceImpl implements MagdaHoedanigheidService {
 
         MagdaRegistrationConfigDto registrationConfig = magdaConfigDto.getRegistration().get(name);
 
-        return MagdaHoedanigheid.builder()
-                .naam(serviceName)
-                .uri(registrationConfig.getUri())
-                .hoedanigheid(registrationConfig.getCapacity())
+        return MagdaRegistrationInfo.builder()
+                .name(serviceName)
+                .identification(registrationConfig.getIdentification())
+                .hoedanigheidscode(registrationConfig.getHoedanigheidscode())
                 .build();
     }
 }

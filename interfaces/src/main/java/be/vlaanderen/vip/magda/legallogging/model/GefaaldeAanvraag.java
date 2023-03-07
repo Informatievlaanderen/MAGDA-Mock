@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.magda.legallogging.model;
 
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.Getter;
 
 import java.time.Duration;
@@ -28,7 +28,7 @@ public class GefaaldeAanvraag extends GelogdeAanvraag {
                             List<Uitzondering> uitzonderingen,
                             String dienst,
                             String dienstVersie,
-                            MagdaHoedanigheid registratie) {
+                            MagdaRegistrationInfo registratie) {
         super(insz, new ArrayList<>(), transactieID, localTransactieID, dienst, dienstVersie, registratie);
         this.uitzonderingen = uitzonderingen;
         this.duratie = duratie;

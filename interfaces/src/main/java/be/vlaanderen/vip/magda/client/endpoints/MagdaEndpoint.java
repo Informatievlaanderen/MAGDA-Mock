@@ -2,18 +2,26 @@ package be.vlaanderen.vip.magda.client.endpoints;
 
 import lombok.Getter;
 
-import java.net.URL;
+import java.net.URI;
 
 @Getter
 public class MagdaEndpoint {
-    private final String path;
-    private final URL tni;
-    private final URL prod;
 
-    public MagdaEndpoint(URL tni, URL prod) {
-        this.tni = tni;
-        this.prod = prod;
-        path = tni.getPath();
+    private URI uri;
+
+    private MagdaEndpoint(URI uri) {
+        this.uri = uri;
     }
 
+    public static MagdaEndpoint of(URI uri) {
+        if(!uri.isAbsolute()) {
+            throw new IllegalArgumentException("A Magda endpoint must be an absolute URI.");
+        }
+
+        return new MagdaEndpoint(uri);
+    }
+
+    public static MagdaEndpoint of(String uriString) {
+        return of(URI.create(uriString));
+    }
 }

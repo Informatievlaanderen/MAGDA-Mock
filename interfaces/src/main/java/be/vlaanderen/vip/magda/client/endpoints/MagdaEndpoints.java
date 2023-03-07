@@ -2,10 +2,30 @@ package be.vlaanderen.vip.magda.client.endpoints;
 
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
 
+import java.net.URI;
+
 public interface MagdaEndpoints {
-    String magdaUrl(MagdaServiceIdentificatie aanvraag);
+    URI magdaUri(MagdaServiceIdentificatie aanvraag);
 
-    void addMapping(String dienstNaam, String versie, String prod);
+    static Builder builder() {
+        return new Builder();
+    }
 
-    void addMapping(String dienstNaam, String versie, String prod, String tni);
+    class Builder {
+
+        private ServiceMappedMagdaEndpoints serviceMappedMagdaEndpoints;
+
+        public Builder() {
+            this.serviceMappedMagdaEndpoints = new ServiceMappedMagdaEndpoints();
+        }
+
+        public Builder addMapping(String dienstNaam, String versie, MagdaEndpoint magdaEndpoint) {
+            serviceMappedMagdaEndpoints.addMapping(dienstNaam, versie, magdaEndpoint);
+            return this;
+        }
+
+        public MagdaEndpoints build() {
+            return serviceMappedMagdaEndpoints;
+        }
+    }
 }
