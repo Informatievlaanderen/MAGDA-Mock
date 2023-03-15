@@ -14,9 +14,9 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MagdaConfigDto {
-    private String environment; // PROD | TEST | <base link to mock server>
     private String legalloggingUrl;
     private TwoWaySslProperties keystore;
+    private boolean verificationEnabled;
     @Builder.Default
     private Map<String, MagdaRegistrationConfigDto> registration = new HashMap<>();
 }

@@ -5,6 +5,7 @@ import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslUtil;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -27,25 +28,26 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.charset.Charset;
-import java.security.*;
-import java.security.cert.CertificateException;
+import java.security.KeyStore;
 
 @Slf4j
-public class MagdaSoapConnection implements MagdaConnection {
+public class MagdaSoapConnection implements MagdaConnection, Closeable {
     private final MagdaEndpoints magdaEndpoints;
     private final CloseableHttpClient httpClient;
 
-    public MagdaSoapConnection(MagdaEndpoints magdaEndpoints, MagdaConfigDto config) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException, UnrecoverableKeyException, KeyManagementException {
+    public MagdaSoapConnection(MagdaEndpoints magdaEndpoints, MagdaConfigDto config) throws TwoWaySslException {
         this.magdaEndpoints = magdaEndpoints;
         this.httpClient = buildHttpClient(buildSslConnectionFactoryFromConfig(config));
     }
 
-    private static SSLConnectionSocketFactory buildSslConnectionFactoryFromConfig(MagdaConfigDto config) throws CertificateException, KeyStoreException, IOException, NoSuchAlgorithmException, UnrecoverableKeyException, KeyManagementException {
+    @Override
+    public void close() throws IOException {
+        httpClient.close();
+    }
+
+    private static SSLConnectionSocketFactory buildSslConnectionFactoryFromConfig(MagdaConfigDto config) throws TwoWaySslException {
         if (StringUtils.isNotEmpty(config.getKeystore().getKeyStoreLocation())) {
 
             KeyStore keystore = TwoWaySslUtil.getKeystore(config.getKeystore().getKeyStoreType(), config.getKeystore().getKeyStoreLocation(), config.getKeystore().getKeyStorePassword().toCharArray());
@@ -74,48 +76,41 @@ public class MagdaSoapConnection implements MagdaConnection {
     }
 
     @Override
-    public Document sendDocument(Aanvraag aanvraag, Document xml) throws MagdaSendFailed {
-        return sendDocument(xml);
-    }
-
-    @Override
     public Document sendDocument(Document xml) throws MagdaSendFailed {
         var doc = MagdaDocument.fromDocument(xml) ;
         var service = doc.getValue("//Verzoek/Context/Naam");
         var versie = doc.getValue("//Verzoek/Context/Versie");
 
-        var aanvraag = new MagdaServiceIdentificatie(service,versie) ;
-        final String url = magdaEndpoints.magdaUrl(aanvraag);
+        var aanvraag = new MagdaServiceIdentificatie(service, versie);
+        final String urlString = magdaEndpoints.magdaUri(aanvraag).toString();
 
-        final HttpPost request = new HttpPost(url);
+        log.info("Oproep naar SOAP-endpoint {}", urlString);
+        final HttpPost request = new HttpPost(urlString);
         request.setHeader("Content-type", "text/xml;charset=UTF-8");
         request.setHeader("SOAPAction", "\"\"");
 
         try {
             request.setEntity(makeEntityWithXmlDocument(xml));
         } catch (TransformerException e) {
-            throw new MagdaSendFailed(String.format("POST %s kan request XML document niet streamen", url), e);
+            throw new MagdaSendFailed(String.format("POST %s kan request XML document niet streamen", urlString), e);
         }
 
-        try {
-            var response = httpClient.execute(request);
-            if (response.getCode() == 200) {
+        try(var response = httpClient.execute(request)) {
+            log.info("Antwoord van SOAP-endpoint {}: {}", urlString, response.getCode());
+
+            if(response.getCode() == 200) {
                 HttpEntity responseEntity = response.getEntity();
+
                 return parseStream(responseEntity.getContent());
             } else {
                 String errorBody = IOUtils.toString(response.getEntity().getContent(), Charset.defaultCharset());
-                log.error("POST {} failed with HTTP error {} {} and body {}", url, response.getCode(), response.getReasonPhrase(), errorBody);
+                log.error("POST {} failed with HTTP error {} {} and body {}", urlString, response.getCode(), response.getReasonPhrase(), errorBody);
 
-                String exceptionMessage = String.format("POST %s faalt met HTTP error %d %s", url, response.getCode(), response.getReasonPhrase());
+                String exceptionMessage = String.format("POST %s faalt met HTTP error %d %s", urlString, response.getCode(), response.getReasonPhrase());
                 throw new MagdaSendFailed(exceptionMessage, response.getCode());
             }
         } catch (IOException e) {
-            throw new MagdaSendFailed(String.format("POST %s gefaald", url), e);
-        } finally {
-            try {
-                httpClient.close();
-            } catch (IOException e) {
-            }
+            throw new MagdaSendFailed(String.format("POST %s gefaald", urlString), e);
         }
     }
 
@@ -131,6 +126,4 @@ public class MagdaSoapConnection implements MagdaConnection {
     private Document parseStream(InputStream resource) {
         return MagdaDocument.fromStream(resource).getXml();
     }
-
-
 }

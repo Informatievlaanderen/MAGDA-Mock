@@ -2,8 +2,8 @@ package be.vlaanderen.vip.magda.client.security;
 
 import be.vlaanderen.vip.magda.TestKeyStores;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import lombok.SneakyThrows;
-import org.apache.wss4j.common.ext.WSSecurityException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -50,6 +50,6 @@ public class DocumentSignatureVerifierTest {
     @Test
     @SneakyThrows
     void throwsExceptionIfKeystoreIsInaccessible() {
-        assertThrows(WSSecurityException.class, () -> DocumentSignatureVerifier.fromJksStore(TestKeyStores.mockKeystorePropertiesWithWrongPassword));
+        assertThrows(TwoWaySslException.class, () -> DocumentSignatureVerifier.fromJksStore(TestKeyStores.mockKeystorePropertiesWithWrongPassword));
     }
 }

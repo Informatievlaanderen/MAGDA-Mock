@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.magda.client.domeinservice;
 
 public interface MagdaHoedanigheidService {
-    MagdaHoedanigheid getDomeinService();
+    MagdaRegistrationInfo getDomeinService();
 
-    MagdaHoedanigheid getDomeinService(String name);
+    MagdaRegistrationInfo getDomeinService(String name);
 }

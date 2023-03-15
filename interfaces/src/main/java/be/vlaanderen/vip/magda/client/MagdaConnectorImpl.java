@@ -1,9 +1,8 @@
 package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
-import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
 import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
@@ -42,24 +41,26 @@ import static java.util.stream.Collectors.joining;
 public class MagdaConnectorImpl implements MagdaConnector {
     private final MagdaConnection connection;
     private final AfnemerLogService afnemerLogService;
-    private final MagdaEndpoints magdaEndpoints;
     private final MagdaHoedanigheidService magdaHoedanigheidService;
 
     @Override
-    public MagdaAntwoord send(Aanvraag aanvraag, MagdaDocument request) {
+    public MagdaAntwoord send(Aanvraag aanvraag) {
         long start = System.nanoTime();
 
-        final String endpoint = magdaEndpoints.magdaUrl(aanvraag.magdaService());
+        var request = MagdaDocument.fromTemplate(aanvraag);
+
         logAanvraag(aanvraag);
 
-        MagdaHoedanigheid magdaHoedanigheid = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
-        aanvraag.fillIn(request, magdaHoedanigheid);
+        MagdaRegistrationInfo magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
+        aanvraag.fillIn(request, magdaRegistrationInfo);
 
-        log.info(">> Oproep naar {} met referte [{}] en request {}", endpoint, aanvraag.getRequestId(), request);
-        log.debug("Request:  {}", request);
+        log.info("Aanvraag met referte [{}]", aanvraag.getRequestId());
+        log.debug("Request: {}", request);
 
         try {
             MagdaDocument response = callMagda(request);
+            log.debug("Response: {}", response);
+
             Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
 
             MagdaAntwoord antwoord = maakAntwoord(aanvraag, response);
@@ -69,14 +70,10 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             final List<Uitzondering> antwoordUitzonderingen = antwoord.getAntwoordUitzonderingen();
             String uitzonderingenMessage1 = uitzonderingenMessage(uitzonderingen, antwoordUitzonderingen);
-            log.debug("<< Antwoord van {} ({} ms) {}", endpoint, duration.toMillis(), uitzonderingenMessage1);
+            log.info("Resultaat van aanvraag met referte [{}] ({} ms): {}", aanvraag.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
 
-            if (Boolean.FALSE.equals(antwoord.isHeeftInhoud()) && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
+            if(!antwoord.isHeeftInhoud() && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
                 throw new BackendUitzonderingenException(aanvraag.getInsz(), getNiveau1Uitzondering(response));
-            }
-
-            if (log.isDebugEnabled()) {
-                log.info("[{}] {}", aanvraag.getRequestId(), antwoord.getDocument());
             }
 
             return antwoord;
@@ -85,11 +82,6 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             throw new GeenAntwoordException(aanvraag, "Geen antwoord", e);
         }
-    }
-
-    @Override
-    public MagdaAntwoord send(Aanvraag aanvraag) {
-        return send(aanvraag, MagdaDocument.fromTemplate(aanvraag));
     }
 
     private List<Uitzondering> getNiveau1Uitzondering(MagdaDocument response) {

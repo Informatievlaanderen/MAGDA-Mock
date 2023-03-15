@@ -2,9 +2,8 @@ package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheid;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
-import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
 import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
@@ -33,24 +32,19 @@ class MagdaConnectorImplTest {
 	@Mock
 	private MagdaConnection connection;
 	@Mock
-	private MagdaEndpoints endpoints;
-	@Mock
 	private MagdaHoedanigheidService identityService;
 	@Mock
 	private AfnemerLogService logService;
 	
 	@BeforeEach
 	void prepare() {
-		doReturn("http://magda-test").when(endpoints).magdaUrl(any(MagdaServiceIdentificatie.class));
-
-		var identity = MagdaHoedanigheid.builder()
-				.naam("test-identity-name")
-				.uri("http://magda-test")
-				.hoedanigheid("test-identity")
+		var identity = MagdaRegistrationInfo.builder()
+				.name("test-identity-name")
+				.identification("http://magda-test")
+				.hoedanigheidscode("test-identity")
 				.build();
 		doReturn(identity).when(identityService).getDomeinService("default");
 	}
-
 
 	@Nested
 	class NoReply {
@@ -157,128 +151,6 @@ class MagdaConnectorImplTest {
 
 			var reply = connector.send(req);
 			assertEquals(1, reply.getAntwoordUitzonderingen().size());
-		}
-	}
-
-	@Nested
-	class Deprecated {
-
-		@Nested
-		class NoReply {
-
-			@Test
-			void sendDocumentReturnsNull() throws MagdaSendFailed {
-				var req = new GeefBewijsAanvraag("test-insz");
-				var reqDoc = MagdaDocument.fromTemplate(req);
-
-				// if this occurs, we ought to treat it as a bug in the code
-				assertThrows(IllegalStateException.class, () -> connector.send(req, reqDoc));
-			}
-
-			@Test
-			void requestFails() throws MagdaSendFailed {
-				when(connection.sendDocument(any())).thenThrow(new MagdaSendFailed("something went wrong"));
-
-				var req = new GeefBewijsAanvraag("test-insz");
-				var reqDoc = MagdaDocument.fromTemplate(req);
-
-				assertThrows(GeenAntwoordException.class, () -> connector.send(req, reqDoc));
-			}
-
-			@Test
-			void logsRequest() throws MagdaSendFailed {
-				when(connection.sendDocument(any())).thenThrow(new MagdaSendFailed("something went wrong"));
-
-				var req = new GeefBewijsAanvraag("test-insz");
-				var reqDoc = MagdaDocument.fromTemplate(req);
-
-				assertThrows(GeenAntwoordException.class, () -> connector.send(req, reqDoc));
-				verify(logService).logAanvraag(any());
-			}
-
-			@Test
-			void logsNoReply() throws MagdaSendFailed {
-				when(connection.sendDocument(any())).thenThrow(new MagdaSendFailed("something went wrong"));
-
-				var req = new GeefBewijsAanvraag("test-insz");
-				var reqDoc = MagdaDocument.fromTemplate(req);
-
-				assertThrows(GeenAntwoordException.class, () -> connector.send(req, reqDoc));
-				verify(logService).logOnbeantwoordeAanvraag(any());
-			}
-		}
-
-		@Nested
-		class InvalidReply {
-
-			@Mock
-			private Document replyDocument;
-
-			@BeforeEach
-			void prepare() throws Exception {
-				doReturn(replyDocument).when(connection).sendDocument(any());
-			}
-
-			@Test
-			void requestFails() {
-				var req = new GeefBewijsAanvraag("test-insz");
-				var reqDoc = MagdaDocument.fromTemplate(req);
-
-				assertThrows(BackendUitzonderingenException.class, () -> connector.send(req, reqDoc));
-			}
-
-			@Test
-			void logsRequest() {
-				var req = new GeefBewijsAanvraag("test-insz");
-				var reqDoc = MagdaDocument.fromTemplate(req);
-
-				assertThrows(BackendUitzonderingenException.class, () -> connector.send(req, reqDoc));
-				verify(logService).logAanvraag(any());
-			}
-		}
-
-		@Nested
-		class ValidReply {
-
-			@Test
-			void returnsReply() {
-				var req = new GeefBewijsAanvraag("test-insz");
-				var reqDoc = MagdaDocument.fromTemplate(req);
-				mockReply(buildReplyDocument());
-
-				var reply = connector.send(req, reqDoc);
-				assertNotNull(reply);
-			}
-
-			@Test
-			void logsRequest() {
-				var req = new GeefBewijsAanvraag("test-insz");
-				var reqDoc = MagdaDocument.fromTemplate(req);
-				mockReply(buildReplyDocument());
-
-				connector.send(req, reqDoc);
-				verify(logService).logAanvraag(any());
-			}
-
-			@Test
-			void returnsGeneralExceptions() {
-				var req = new GeefBewijsAanvraag("test-insz");
-				var reqDoc = MagdaDocument.fromTemplate(req);
-				mockReply(buildReplyDocument(buildException("test-exception"), ""));
-
-				var reply = connector.send(req, reqDoc);
-				assertEquals(1, reply.getUitzonderingen().size());
-			}
-
-			@Test
-			void returnsReplyExceptions() {
-				var req = new GeefBewijsAanvraag("test-insz");
-				var reqDoc = MagdaDocument.fromTemplate(req);
-				mockReply(buildReplyDocument("", buildException("test-exception")));
-
-				var reply = connector.send(req, reqDoc);
-				assertEquals(1, reply.getAntwoordUitzonderingen().size());
-			}
 		}
 	}
 
