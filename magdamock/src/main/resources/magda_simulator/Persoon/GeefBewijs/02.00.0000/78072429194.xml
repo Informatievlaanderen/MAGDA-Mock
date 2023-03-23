@@ -1,215 +1,204 @@
-<geef:GeefBewijsResponse xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+<web:GeefBewijsResponse xmlns:web="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
     <Repliek>
-        <Context>
+        <Context xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
             <Naam>GeefBewijs</Naam>
             <Versie>02.00.0000</Versie>
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
-                    <Datum>2023-03-02</Datum>
-                    <Tijd>20:37:36.254</Tijd>
+                    <Datum>2023-03-22</Datum>
+                    <Tijd>09:14:44.026</Tijd>
                 </Tijdstip>
                 <Afzender>
-                    <Identificatie>ov.vlaanderen.be/led</Identificatie>
-                    <Referte>c6a95e0b-b76e-4fca-8473-79163adfe292</Referte>
-                </Afzender>
-                <Ontvanger>
                     <Identificatie>vip.vlaanderen.be</Identificatie>
                     <Naam>MagdaGateway</Naam>
-                    <Referte>f2233aef-87b8-405c-9c84-bcc1151be99f</Referte>
+                    <Referte>e3526877-bf62-4d8c-8d08-6f0372e506c4</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kbo0795547478.be/ipdc2892-aip</Identificatie>
+                    <Referte>c22218d2-bfc5-41c0-9e25-5c88aae97372</Referte>
+                    <Hoedanigheid>ipdc2892</Hoedanigheid>
                 </Ontvanger>
             </Bericht>
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>VREF_QT_791103_203736</Referte>
+                <Referte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">c22218d2-bfc5-41c0-9e25-5c88aae97372</Referte>
                 <Inhoud>
                     <Bewijzen>
                         <Bewijs>
                             <BewijsrefertesLed>
-                                <Bewijsreferte>c5be67af-8b55-4e8b-80c5-a291172cbbd3</Bewijsreferte>
-                                <Bewijsmutatiereferte>da699f6e-7888-4d0d-abc1-1c1cc7e6c204</Bewijsmutatiereferte>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">77946d85-a6ac-4652-8bc9-fdc00a1670a9</Bewijsreferte>
+                                <Bewijsmutatiereferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1d5a14ba-924b-4deb-b9ec-cfa6d0250c62</Bewijsmutatiereferte>
                             </BewijsrefertesLed>
                             <BewijsstatusLed>
-                                <Code>1</Code>
+                                <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1</Code>
                                 <DatumModificatie>
-                                    <Datum>13.07.2020</Datum>
-                                    <Tijd>19:08:00.661</Tijd>
+                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">21.03.2023</Datum>
+                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">21:03:39.293</Tijd>
                                 </DatumModificatie>
                             </BewijsstatusLed>
                             <Leverancier>
-                                <Naam>Hoger onderwijs</Naam>
-                                <Bewijsreferte>c5be67af-8b55-4e8b-80c5-a291172cbbd3</Bewijsreferte>
+                                <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Hoger onderwijs</Naam>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">860ddc19-ca15-4c1b-a993-cb4546391a7b</Bewijsreferte>
                             </Leverancier>
                             <PersoonUitgereikt>
-                                <INSZ>78072429194</INSZ>
+                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">78072429194</INSZ>
                             </PersoonUitgereikt>
                             <Basis>
                                 <Authenticiteit>
-                                    <Naam>Authentiek</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Authentiek</Naam>
                                 </Authenticiteit>
                                 <Categorie>
-                                    <Naam>Hoger onderwijs</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Hoger onderwijs</Naam>
                                 </Categorie>
                                 <Graad>
-                                    <Naam>Master</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Academische bachelor</Naam>
                                 </Graad>
                                 <Onderwijsvorm>
-                                    <Naam>Niet van toepassing</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet van toepassing</Naam>
                                 </Onderwijsvorm>
                                 <Bewijstype>
-                                    <Naam>Diploma</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Diploma</Naam>
                                 </Bewijstype>
                                 <Bewijsstaat>
-                                    <Naam>Eindbewijs</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Eindbewijs</Naam>
                                 </Bewijsstaat>
                                 <Instantie>
-                                    <Naam>Universiteit</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Universiteit</Naam>
                                 </Instantie>
                                 <Onderwerp>
-                                    <Code>481001</Code>
-                                    <Naam>Informatica algemeen</Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">481001</Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Informatica algemeen</Naam>
                                 </Onderwerp>
                                 <Uitreikingsdatum>
-                                    <Jaar>2020</Jaar>
-                                    <Maand>07</Maand>
-                                    <Dag>07</Dag>
+                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">2018</Jaar>
+                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">07</Maand>
+                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06</Dag>
                                 </Uitreikingsdatum>
-                                <VolledigeNaam>Master of Science in de informatica </VolledigeNaam>
+                                <VolledigeNaam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Bachelor of Science in de informatica </VolledigeNaam>
                                 <Land>
-                                    <Code>BEL</Code>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">BEL</Code>
                                 </Land>
                                 <Taal>
-                                    <Code>nld</Code>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">nld</Code>
                                 </Taal>
                                 <Instelling>
-                                    <Naam>Universiteit Gent</Naam>
-                                    <Nummer>110114</Nummer>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Universiteit Gent</Naam>
+                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">110114</Nummer>
                                 </Instelling>
                                 <Schooltype>
-                                    <Naam>Niet van toepassing</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet van toepassing</Naam>
                                 </Schooltype>
                                 <Studierichting>
-                                    <Naam>informatica</Naam>
-                                    <Code>10010</Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">informatica</Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1927</Code>
                                 </Studierichting>
-                                <BijkomendeInformaties>
-                                    <BijkomendeInformatie>
-                                        <Naam>Bewijs omschrijving</Naam>
-                                        <Inhoud>Master of Science in de informatica</Inhoud>
-                                    </BijkomendeInformatie>
-                                </BijkomendeInformaties>
                             </Basis>
                             <Afgeleid>
                                 <ISCEDStudiegebied>
-                                    <Code>481</Code>
-                                    <Naam>Computerwetenschappen</Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">481</Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Computerwetenschappen</Naam>
                                 </ISCEDStudiegebied>
                                 <ISCEDNiveau>
-                                    <Code>5A</Code>
-                                    <Naam>Hoger academisch onderwijs</Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">5A</Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Hoger academisch onderwijs</Naam>
                                 </ISCEDNiveau>
                                 <VKSNiveauOnderwijskwalificatie>
-                                    <Code>7</Code>
-                                    <Naam>Niveau 7</Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">6</Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niveau 6</Naam>
                                 </VKSNiveauOnderwijskwalificatie>
                                 <VKSNiveauBeroepskwalificatie>
-                                    <Code>NBS</Code>
-                                    <Naam>Niet beschikbaar</Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">NBS</Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet beschikbaar</Naam>
                                 </VKSNiveauBeroepskwalificatie>
                             </Afgeleid>
                         </Bewijs>
                         <Bewijs>
                             <BewijsrefertesLed>
-                                <Bewijsreferte>860ddc19-ca15-4c1b-a993-cb4546391a7b</Bewijsreferte>
-                                <Bewijsmutatiereferte>ade84395-547a-4bae-8a2b-4308324cad10</Bewijsmutatiereferte>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">4c9c728d-3a75-42cf-b813-c8f73e838e9d</Bewijsreferte>
+                                <Bewijsmutatiereferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">eba74247-48d9-4f9f-b5b0-45635c3956ee</Bewijsmutatiereferte>
                             </BewijsrefertesLed>
                             <BewijsstatusLed>
-                                <Code>1</Code>
+                                <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1</Code>
                                 <DatumModificatie>
-                                    <Datum>12.07.2018</Datum>
-                                    <Tijd>08:15:23.028</Tijd>
+                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">21.03.2023</Datum>
+                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">21:02:31.342</Tijd>
                                 </DatumModificatie>
                             </BewijsstatusLed>
                             <Leverancier>
-                                <Naam>Hoger onderwijs</Naam>
-                                <Bewijsreferte>860ddc19-ca15-4c1b-a993-cb4546391a7b</Bewijsreferte>
+                                <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Hoger onderwijs</Naam>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">c5be67af-8b55-4e8b-80c5-a291172cbbd3</Bewijsreferte>
                             </Leverancier>
                             <PersoonUitgereikt>
-                                <INSZ>98081736575</INSZ>
+                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">78072429194</INSZ>
                             </PersoonUitgereikt>
                             <Basis>
                                 <Authenticiteit>
-                                    <Naam>Authentiek</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Authentiek</Naam>
                                 </Authenticiteit>
                                 <Categorie>
-                                    <Naam>Hoger onderwijs</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Hoger onderwijs</Naam>
                                 </Categorie>
                                 <Graad>
-                                    <Naam>Academische bachelor</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Master</Naam>
                                 </Graad>
                                 <Onderwijsvorm>
-                                    <Naam>Niet van toepassing</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet van toepassing</Naam>
                                 </Onderwijsvorm>
                                 <Bewijstype>
-                                    <Naam>Diploma</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Diploma</Naam>
                                 </Bewijstype>
                                 <Bewijsstaat>
-                                    <Naam>Eindbewijs</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Eindbewijs</Naam>
                                 </Bewijsstaat>
                                 <Instantie>
-                                    <Naam>Universiteit</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Universiteit</Naam>
                                 </Instantie>
                                 <Onderwerp>
-                                    <Code>481001</Code>
-                                    <Naam>Informatica algemeen</Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">481001</Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Informatica algemeen</Naam>
                                 </Onderwerp>
                                 <Uitreikingsdatum>
-                                    <Jaar>2018</Jaar>
-                                    <Maand>07</Maand>
-                                    <Dag>06</Dag>
+                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">2020</Jaar>
+                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">07</Maand>
+                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">07</Dag>
                                 </Uitreikingsdatum>
-                                <VolledigeNaam>Bachelor of Science in de informatica </VolledigeNaam>
+                                <VolledigeNaam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Master of Science in de informatica </VolledigeNaam>
                                 <Land>
-                                    <Code>BEL</Code>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">BEL</Code>
                                 </Land>
                                 <Taal>
-                                    <Code>nld</Code>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">nld</Code>
                                 </Taal>
                                 <Instelling>
-                                    <Naam>Universiteit Gent</Naam>
-                                    <Nummer>110114</Nummer>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Universiteit Gent</Naam>
+                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">110114</Nummer>
                                 </Instelling>
                                 <Schooltype>
-                                    <Naam>Niet van toepassing</Naam>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet van toepassing</Naam>
                                 </Schooltype>
                                 <Studierichting>
-                                    <Naam>informatica</Naam>
-                                    <Code>1927</Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">informatica</Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">10010</Code>
                                 </Studierichting>
-                                <BijkomendeInformaties>
-                                    <BijkomendeInformatie>
-                                        <Naam>Bewijs omschrijving</Naam>
-                                        <Inhoud>Bachelor of Science in de informatica</Inhoud>
-                                    </BijkomendeInformatie>
-                                </BijkomendeInformaties>
                             </Basis>
                             <Afgeleid>
                                 <ISCEDStudiegebied>
-                                    <Code>481</Code>
-                                    <Naam>Computerwetenschappen</Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">481</Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Computerwetenschappen</Naam>
                                 </ISCEDStudiegebied>
                                 <ISCEDNiveau>
-                                    <Code>5A</Code>
-                                    <Naam>Hoger academisch onderwijs</Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">5A</Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Hoger academisch onderwijs</Naam>
                                 </ISCEDNiveau>
                                 <VKSNiveauOnderwijskwalificatie>
-                                    <Code>6</Code>
-                                    <Naam>Niveau 6</Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">7</Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niveau 7</Naam>
                                 </VKSNiveauOnderwijskwalificatie>
                                 <VKSNiveauBeroepskwalificatie>
-                                    <Code>NBS</Code>
-                                    <Naam>Niet beschikbaar</Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">NBS</Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet beschikbaar</Naam>
                                 </VKSNiveauBeroepskwalificatie>
                             </Afgeleid>
                         </Bewijs>
@@ -218,4 +207,4 @@
             </Antwoord>
         </Antwoorden>
     </Repliek>
-</geef:GeefBewijsResponse>
+</web:GeefBewijsResponse>
