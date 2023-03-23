@@ -67,8 +67,8 @@
                                     <Naam>SYNTRA Vlaanderen</Naam>
                                 </Instantie>
                                 <Onderwerp>
-                                    <Code>0</Code>
-                                    <Naam>Opticien-optometrist</Naam>
+                                    <Code>725002</Code>
+                                    <Naam>Optiek</Naam>
                                 </Onderwerp>
                                 <Uitreikingsdatum>
                                     <Jaar>2006</Jaar>
@@ -109,7 +109,7 @@
                                     <Naam>Niet beschikbaar</Naam>
                                 </ISCEDNiveau>
                                 <VKSNiveauOnderwijskwalificatie>
-                                    <Code>0</Code>
+                                    <Code>NBS</Code>
                                     <Naam>Niet beschikbaar</Naam>
                                 </VKSNiveauOnderwijskwalificatie>
                                 <VKSNiveauBeroepskwalificatie>
