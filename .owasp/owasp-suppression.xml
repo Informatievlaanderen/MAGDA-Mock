@@ -3,18 +3,31 @@
 
 <!-- sample suppression file -->
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
-    <suppress>
-        <notes>Vulnerability with Kryo Codec implementations as an alternative for Java (de)serialization</notes>
-        <cve>CVE-2020-5413</cve>
-    </suppress>
-    <suppress>
-        <notes>ehcache 3.10.0 and cache-api 1.1.1 marked as vulnerable with CVE referring to Rust crate</notes>
-        <!-- https://nvd.nist.gov/vuln/detail/CVE-2020-36448 -->
-        <cve>CVE-2020-36448</cve>
-    </suppress>
-    <suppress>
-        <notes>log4j 2.18.0 marked as vulnerable with CVE referring to Amazon hotpatch for log4j</notes>
-        <!-- https://nvd.nist.gov/vuln/detail/CVE-2022-33915 -->
-        <cve>CVE-2022-33915</cve>
-    </suppress>
+  <suppress>
+    <notes>Vulnerability with Kryo Codec implementations as an alternative for Java (de)serialization</notes>
+    <cve>CVE-2020-5413</cve>
+  </suppress>
+  <suppress>
+    <notes>ehcache 3.10.0 and cache-api 1.1.1 marked as vulnerable with CVE referring to Rust crate</notes>
+    <!-- https://nvd.nist.gov/vuln/detail/CVE-2020-36448 -->
+    <cve>CVE-2020-36448</cve>
+  </suppress>
+  <suppress>
+    <notes>log4j 2.18.0 marked as vulnerable with CVE referring to Amazon hotpatch for log4j</notes>
+    <!-- https://nvd.nist.gov/vuln/detail/CVE-2022-33915 -->
+    <cve>CVE-2022-33915</cve>
+  </suppress>
+  <suppress>
+    <notes>This only occurs if you use the Constructor class, instead of SafeConstructor</notes>
+    <packageUrl regex="true">^pkg:maven/org\.yaml/snakeyaml@.*$</packageUrl>
+    <vulnerabilityName>CVE-2022-1471</vulnerabilityName>
+  </suppress>
+  <suppress>
+    <notes>Occurs only in specially crafted SpEL expressions.</notes>
+    <cve>CVE-2023-20863</cve>
+  </suppress>
+  <suppress>
+    <notes>Not using Woodstox.</notes>
+    <cve>CVE-2022-40152</cve>
+  </suppress>
 </suppressions>

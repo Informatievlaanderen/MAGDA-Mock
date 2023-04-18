@@ -228,7 +228,7 @@ pipelines:
             - maven
           script:
             - export MAVEN_OPTS="-Xmx1024m"
-            - mvn -B org.owasp:dependency-check-maven:7.4.4:aggregate -DskipSystemScope=true "-DsuppressionFile=.owasp/owasp-suppression.xml" "-DhintsFile=.owasp/owasp-hints.xml" -DfailBuildOnCVSS=7 -s .m2/settings.xml
+            - mvn -B org.owasp:dependency-check-maven:8.2.1:aggregate -DskipSystemScope=true "-DsuppressionFile=.owasp/owasp-suppression.xml" "-DhintsFile=.owasp/owasp-hints.xml" -DfailBuildOnCVSS=7 -s .m2/settings.xml
           artifacts:
             - target/dependency-check-report.html
           after-script:
