@@ -54,7 +54,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         MagdaRegistrationInfo magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
         aanvraag.fillIn(request, magdaRegistrationInfo);
 
-        log.info("Aanvraag met referte [{}]", aanvraag.getRequestId());
+        log.info("Aanvraag naar MAGDA dienst {}-{} met referte [{}]", aanvraag.magdaService().getNaam(), aanvraag.magdaService().getVersie(), aanvraag.getRequestId());
         log.debug("Request: {}", request);
 
         try {
@@ -70,7 +70,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             final List<Uitzondering> antwoordUitzonderingen = antwoord.getAntwoordUitzonderingen();
             String uitzonderingenMessage1 = uitzonderingenMessage(uitzonderingen, antwoordUitzonderingen);
-            log.info("Resultaat van aanvraag met referte [{}] ({} ms): {}", aanvraag.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
+            log.info("Resultaat van aanvraag naar MAGDA dienst {}-{} met referte [{}] ({} ms): {}", aanvraag.magdaService().getNaam(), aanvraag.magdaService().getVersie(), aanvraag.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
 
             if(!antwoord.isHeeftInhoud() && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
                 throw new BackendUitzonderingenException(aanvraag.getInsz(), getNiveau1Uitzondering(response));
