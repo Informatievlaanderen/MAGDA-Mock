@@ -6,6 +6,10 @@ import org.slf4j.event.Level;
 import org.slf4j.spi.LoggingEventBuilder;
 
 public class LoggingUtils {
+    private LoggingUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static LoggingEventBuilder magdaAanvraagLoggingEventBuilder(Logger logger, Level level, Aanvraag aanvraag){
         return logger.makeLoggingEventBuilder(level)
                 .addKeyValue(LoggingKeys.MAGDA_SERVICE_NAME.getKey(), aanvraag.magdaService().getNaam())

@@ -7,8 +7,7 @@ public enum LoggingKeys {
     MAGDA_SERVICE_NAME("magdaServiceName"),
     MAGDA_SERVICE_VERSION("magdaServiceVersion");
 
-
-    private String key;
+    private final String key;
 
     LoggingKeys(String key) {
         this.key = key;
