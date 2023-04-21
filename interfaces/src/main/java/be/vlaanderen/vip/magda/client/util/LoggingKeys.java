@@ -3,7 +3,7 @@ package be.vlaanderen.vip.magda.client.util;
 import lombok.Getter;
 
 @Getter
-public enum LoggingKeys {
+enum LoggingKeys {
     MAGDA_SERVICE_NAME("magdaServiceName"),
     MAGDA_SERVICE_VERSION("magdaServiceVersion");
 
