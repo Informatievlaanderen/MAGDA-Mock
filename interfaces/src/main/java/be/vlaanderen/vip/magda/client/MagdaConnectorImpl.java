@@ -16,6 +16,7 @@ import be.vlaanderen.vip.magda.legallogging.model.Uitzondering;
 import be.vlaanderen.vip.magda.legallogging.service.AfnemerLogService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.event.Level;
 import org.springframework.util.CollectionUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -34,6 +35,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static be.vlaanderen.vip.magda.client.util.LoggingUtils.magdaAanvraagLoggingEventBuilder;
 import static java.util.stream.Collectors.joining;
 
 @Slf4j
@@ -54,12 +56,16 @@ public class MagdaConnectorImpl implements MagdaConnector {
         MagdaRegistrationInfo magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
         aanvraag.fillIn(request, magdaRegistrationInfo);
 
-        log.info("Aanvraag met referte [{}]", aanvraag.getRequestId());
-        log.debug("Request: {}", request);
+        magdaAanvraagLoggingEventBuilder(log, Level.INFO, aanvraag)
+                .log("Aanvraag naar MAGDA dienst met referte [{}]", aanvraag.getRequestId());
+
+        magdaAanvraagLoggingEventBuilder(log, Level.DEBUG, aanvraag)
+                .log("Request: {}", request);
 
         try {
             MagdaDocument response = callMagda(request);
-            log.debug("Response: {}", response);
+            magdaAanvraagLoggingEventBuilder(log, Level.INFO, aanvraag)
+                    .log("Response: {}", response);
 
             Duration duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
 
@@ -70,7 +76,9 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             final List<Uitzondering> antwoordUitzonderingen = antwoord.getAntwoordUitzonderingen();
             String uitzonderingenMessage1 = uitzonderingenMessage(uitzonderingen, antwoordUitzonderingen);
-            log.info("Resultaat van aanvraag met referte [{}] ({} ms): {}", aanvraag.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
+
+            magdaAanvraagLoggingEventBuilder(log, Level.INFO, aanvraag)
+                    .log("Resultaat van aanvraag naar MAGDA dienst met referte [{}] ({} ms): {}",aanvraag.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
 
             if(!antwoord.isHeeftInhoud() && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
                 throw new BackendUitzonderingenException(aanvraag.getInsz(), getNiveau1Uitzondering(response));
