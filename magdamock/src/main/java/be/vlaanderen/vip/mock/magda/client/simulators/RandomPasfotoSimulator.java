@@ -42,7 +42,7 @@ public class RandomPasfotoSimulator extends SOAPSimulator {
         }
 
         if (responseBody != null) {
-            PatchResponse(params, responseBody);
+            patchResponse(params, responseBody);
 
             // Patch response gebaseerd op request input
             responseBody.setValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ", params.getKeys().get(0));

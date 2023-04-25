@@ -1,14 +1,12 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Slf4j
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+
 public class StaticResponseSimulator extends SOAPSimulator {
     private final String type;
     private final List<String> keys;
@@ -39,7 +37,7 @@ public class StaticResponseSimulator extends SOAPSimulator {
         }
 
         if (responseBody != null) {
-            PatchResponse(params, responseBody);
+            patchResponse(params, responseBody);
 
             return wrapInEnvelope(responseBody);
         } else {

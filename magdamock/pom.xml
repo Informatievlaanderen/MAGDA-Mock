@@ -39,6 +39,11 @@
         <version>${project.parent.version}</version>
         <scope>test</scope>
     </dependency>
+    <dependency>
+    	<groupId>com.fasterxml.jackson.dataformat</groupId>
+    	<artifactId>jackson-dataformat-xml</artifactId>
+        <scope>test</scope>
+    </dependency>
   </dependencies>
   <artifactId>magdamock</artifactId>
 
