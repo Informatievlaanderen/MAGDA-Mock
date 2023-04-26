@@ -1,5 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "timezone": "Europe/Brussels",
-  "schedule": ["at 8:00 am on Monday, Wednesday and Friday"]
+  "schedule": ["every weekday"]
 }
