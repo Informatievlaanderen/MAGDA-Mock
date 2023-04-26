@@ -8,7 +8,7 @@ import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 
-public class StaticResponseSimulator extends SOAPSimulator {
+public class StaticResponseSimulator extends BaseSOAPSimulator {
     private final String type;
     private final List<String> keys;
 

@@ -6,12 +6,12 @@ import be.vlaanderen.vip.magda.client.security.InvalidSignatureException;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 
-public class SignatureVerifyingSimulator extends SOAPSimulator {
+public class SignatureVerifyingSimulator extends BaseSOAPSimulator {
 
-    private final ISOAPSimulator simulator;
+    private final SOAPSimulator simulator;
     private final DocumentSignatureVerifier requestVerifier;
 
-    public SignatureVerifyingSimulator(ResourceFinder finder, ISOAPSimulator simulator, DocumentSignatureVerifier requestVerifier) {
+    public SignatureVerifyingSimulator(ResourceFinder finder, SOAPSimulator simulator, DocumentSignatureVerifier requestVerifier) {
         super(finder);
         this.simulator = simulator;
         this.requestVerifier = requestVerifier;

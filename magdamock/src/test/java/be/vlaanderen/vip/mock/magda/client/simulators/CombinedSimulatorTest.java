@@ -20,8 +20,8 @@ class CombinedSimulatorTest {
     }
 
     @SneakyThrows
-    private ISOAPSimulator mockSimulator(MagdaDocument request, MagdaDocument response) {
-        var childSimulator = mock(ISOAPSimulator.class);
+    private SOAPSimulator mockSimulator(MagdaDocument request, MagdaDocument response) {
+        var childSimulator = mock(SOAPSimulator.class);
         when(childSimulator.send(request)).thenReturn(response);
 
         return childSimulator;

@@ -8,7 +8,7 @@ import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import be.vlaanderen.vip.mock.magda.client.util.INSZ;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 
-public class RandomPasfotoSimulator extends SOAPSimulator {
+public class RandomPasfotoSimulator extends BaseSOAPSimulator {
     private final String type;
     private final List<String> keys;
 

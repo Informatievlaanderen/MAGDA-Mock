@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
-import static be.vlaanderen.vip.mock.magda.client.MagdaMockConnection.KEY_INSZ;
-import static be.vlaanderen.vip.mock.magda.client.MagdaMockConnection.PERSOON;
+import static be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder.KEY_INSZ;
+import static be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder.PERSOON;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;

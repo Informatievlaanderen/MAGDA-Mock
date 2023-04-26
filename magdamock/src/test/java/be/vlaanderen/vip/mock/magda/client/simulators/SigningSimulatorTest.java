@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class SigningSimulatorTest {
     @Mock private ResourceFinder finder;
-    @Mock private ISOAPSimulator childSimulator;
+    @Mock private SOAPSimulator childSimulator;
     @Mock private DocumentSigner signer;
 
     @InjectMocks

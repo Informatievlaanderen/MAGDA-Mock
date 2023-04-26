@@ -18,7 +18,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class SignatureVerifyingSimulatorTest {
     @Mock private ResourceFinder finder;
-    @Mock private ISOAPSimulator childSimulator;
+    @Mock private SOAPSimulator childSimulator;
     @Mock private DocumentSignatureVerifier verifier;
     
     @InjectMocks

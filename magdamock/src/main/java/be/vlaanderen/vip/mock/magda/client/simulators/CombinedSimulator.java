@@ -7,11 +7,10 @@ import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 
-public class CombinedSimulator implements ISOAPSimulator {
+public class CombinedSimulator implements SOAPSimulator {
+    private Map<MagdaServiceIdentificatie, SOAPSimulator> simulators = new HashMap<>();
 
-    private static Map<MagdaServiceIdentificatie, ISOAPSimulator> simulators = new HashMap<>();
-
-    public void register(String service, String version, ISOAPSimulator simulator) {
+    public void register(String service, String version, SOAPSimulator simulator) {
         simulators.put(new MagdaServiceIdentificatie(service, version), simulator);
     }
 
