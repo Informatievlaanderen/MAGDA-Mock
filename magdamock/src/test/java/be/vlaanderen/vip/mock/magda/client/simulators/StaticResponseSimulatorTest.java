@@ -46,7 +46,7 @@ class StaticResponseSimulatorTest {
     @Test
     @SneakyThrows
     void respondsWithStaticResource() {
-        var simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
+        var simulator = new StaticResponseSimulator(new ResourceFinder(), PERSOON, KEY_INSZ);
         var request = makeBewijsAanvraagRequest("00071031644");
 
         var response = simulator.send(request);
@@ -73,8 +73,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/notfound.xml")).thenReturn(mockDocumentB);
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/success.xml")).thenReturn(mockDocumentC);
 
-            var simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
-            simulator.setFinder(finder);
+            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
 
@@ -91,8 +90,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/notfound.xml")).thenReturn(mockDocumentA);
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/success.xml")).thenReturn(mockDocumentB);
 
-            var simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
-            simulator.setFinder(finder);
+            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
 
@@ -108,8 +106,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/notfound.xml")).thenReturn(null);
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/success.xml")).thenReturn(mockDocument);
 
-            var simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
-            simulator.setFinder(finder);
+            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
 
@@ -127,8 +124,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/00071031644.xml")).thenReturn(mockDocumentB);
             when(finder.loadSimulatorResource("Persoon", "00071031644.xml")).thenReturn(mockDocumentC);
 
-            var simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
-            simulator.setFinder(finder);
+            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
 
@@ -145,8 +141,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/00071031644.xml")).thenReturn(mockDocumentA);
             when(finder.loadSimulatorResource("Persoon", "00071031644.xml")).thenReturn(mockDocumentB);
 
-            var simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
-            simulator.setFinder(finder);
+            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
 
@@ -162,8 +157,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/00071031644.xml")).thenReturn(null);
             when(finder.loadSimulatorResource("Persoon", "00071031644.xml")).thenReturn(mockDocument);
 
-            var simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
-            simulator.setFinder(finder);
+            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
 
@@ -181,8 +175,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/deep/00071031644.xml")).thenReturn(mockDocumentB);
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00071031644.xml")).thenReturn(mockDocumentC);
 
-            var simulator = new StaticResponseSimulator("Persoon", "//LV1", "//LV2", "//INSZ");
-            simulator.setFinder(finder);
+            var simulator = new StaticResponseSimulator(finder, "Persoon", "//LV1", "//LV2", "//INSZ");
 
             var request = MagdaDocumentBuilder.request(Map.of("Context", GIVE_PROOF_CONTEXT,
                                                               "Vragen", questionInsz("00071031644"),
@@ -207,8 +200,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/notfound.xml")).thenReturn(mockDocumentB);
             when(finder.loadSimulatorResource("Persoon", "notfound.xml")).thenReturn(mockDocumentC);
 
-            var simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
-            simulator.setFinder(finder);
+            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
 
@@ -228,8 +220,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/notfound.xml")).thenReturn(mockDocumentA);
             when(finder.loadSimulatorResource("Persoon", "notfound.xml")).thenReturn(mockDocumentB);
 
-            var simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
-            simulator.setFinder(finder);
+            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
 
@@ -248,8 +239,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/notfound.xml")).thenReturn(null);
             when(finder.loadSimulatorResource("Persoon", "notfound.xml")).thenReturn(mockDocument);
 
-            var simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
-            simulator.setFinder(finder);
+            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
 
@@ -266,8 +256,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/00071031644.xml")).thenReturn(mockDocumentA);
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/notfound.xml")).thenReturn(mockDocumentB);
 
-            var simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
-            simulator.setFinder(finder);
+            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
 
@@ -288,8 +277,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/success.xml")).thenReturn(null);
             when(finder.loadSimulatorResource("Persoon", "success.xml")).thenReturn(null);
 
-            var simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
-            simulator.setFinder(finder);
+            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             assertThrows(MagdaSendFailed.class, () -> simulator.send(makeBewijsAanvraagRequest("00071031644")));
         }
@@ -303,8 +291,7 @@ class StaticResponseSimulatorTest {
         
         @BeforeEach
         void setup() {
-            simulator = new StaticResponseSimulator(PERSOON, KEY_INSZ);
-            simulator.setFinder(finder);
+            simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
             
             when(finder.loadSimulatorResource(eq(PERSOON), anyString())).thenAnswer(iom -> {
                return new ByteArrayInputStream("""

@@ -9,15 +9,17 @@ import java.io.IOException;
 
 @Configuration
 public class InventoryConfig {
+    
     @Bean
     public TestcaseInventory persoonTestcases() throws IOException {
-        var builder = new TestCaseInventoryBuilder(InventoryConfig.class);
+        var builder = new TestCaseInventoryBuilder();
         return new TestcaseInventory(builder.persoonTestcases());
     }
 
     @Bean
     public TestcaseInventory ondernemingTestcases() throws IOException {
-        var builder = new TestCaseInventoryBuilder(InventoryConfig.class);
+        var builder = new TestCaseInventoryBuilder();
         return new TestcaseInventory(builder.ondernemingTestcases());
     }
+    
 }

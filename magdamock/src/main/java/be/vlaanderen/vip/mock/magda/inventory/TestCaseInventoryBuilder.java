@@ -17,8 +17,8 @@ public class TestCaseInventoryBuilder {
     private static final String ONDERNEMING_TESTCASES = "Onderneming";
     private final ResourceFinder finder;
 
-    public TestCaseInventoryBuilder(Class<?> base) {
-        finder = new ResourceFinder(base);
+    public TestCaseInventoryBuilder() {
+        finder = new ResourceFinder();
     }
 
     public List<Testcase> persoonTestcases() throws IOException {

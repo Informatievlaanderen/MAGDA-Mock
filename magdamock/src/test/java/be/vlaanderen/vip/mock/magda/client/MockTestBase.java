@@ -5,6 +5,7 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import lombok.extern.slf4j.Slf4j;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,7 +47,7 @@ public abstract class MockTestBase {
             TwoWaySslProperties mockConnectionRequestVerifierKeystore,
             TwoWaySslProperties mockConnectionResponseSignerKeystore)
             throws TwoWaySslException {
-        var mockConnection = new MagdaMockConnection(mockConnectionRequestVerifierKeystore, mockConnectionResponseSignerKeystore);
+        var mockConnection = new MagdaMockConnection(new ResourceFinder(), mockConnectionRequestVerifierKeystore, mockConnectionResponseSignerKeystore);
 
         var signedConnection = new MagdaSignedConnection(mockConnection, signedConnectionRequestSignerKeystore, signedConnectionResponseVerifierKeystore);
 

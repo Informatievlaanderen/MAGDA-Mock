@@ -81,6 +81,16 @@
   	  <artifactId>mockito-junit-jupiter</artifactId>
   	  <version>${mockito.version}</version>
 	</dependency>    
+	<dependency>
+	  <groupId>org.xmlunit</groupId>
+	  <artifactId>xmlunit-core</artifactId>
+	  <scope>test</scope>
+	</dependency>
+	<dependency>
+	  <groupId>org.xmlunit</groupId>
+	  <artifactId>xmlunit-matchers</artifactId>
+	  <scope>test</scope>
+	</dependency>
   </dependencies>
 
   <!-- infrastructure -->
