@@ -19,18 +19,18 @@ public class MagdaMockConnection implements MagdaConnection {
 
     private Document defaultResponse = null;
     
-    private static ISOAPSimulator simulator;
+    private ISOAPSimulator simulator;
 
     // Subcategories for MAGDA services
-    private static final String PERSOON = "Persoon";
-    private static final String ONDERNEMING = "Onderneming";
-    private static final String VASTGOED = "Vastgoed";
+    public static final String PERSOON = "Persoon";
+    public static final String ONDERNEMING = "Onderneming";
+    public static final String VASTGOED = "Vastgoed";
 
-    private static final String KEY_INSZ = "//INSZ";
+    public static final String KEY_INSZ = "//INSZ";
 
-    private static final String KEY_ONDERNEMINGSNUMMER = "//Ondernemingsnummer";
+    public static final String KEY_ONDERNEMINGSNUMMER = "//Ondernemingsnummer";
 
-    private static final String KEY_RRNR = "//rrnr";
+    public static final String KEY_RRNR = "//rrnr";
 
     public MagdaMockConnection() {
         this.simulator = constructBuiltInSimulator(Optional.empty(), Optional.empty());

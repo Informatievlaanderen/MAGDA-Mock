@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
@@ -21,11 +22,14 @@ public abstract class SOAPSimulator implements ISOAPSimulator {
         finder = new ResourceFinder(SOAPSimulator.class);
     }
 
-    protected static void PatchResponse(MagdaRequest params, MagdaDocument response) {
+    protected static void patchResponse(MagdaRequest params, MagdaDocument response) {
         response.setValue("//Referte", params.getReferte());
         response.setValue("//Ontvanger/Identificatie", params.getIdentificatie());
         response.setValue("//Ontvanger/Hoedanigheid", params.getHoedanigheid());
-        response.setValue("//Ontvanger/Gebruiker", params.getGebruiker());
+        
+        Optional.ofNullable(params.getGebruiker())
+                .ifPresentOrElse(user -> response.setValue("//Ontvanger/Gebruiker", user), 
+                                 () -> response.removeNode("//Ontvanger/Gebruiker"));
 
         SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy-MM-dd");
         String today = dayFormat.format(new Date());
