@@ -5,9 +5,13 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import lombok.extern.slf4j.Slf4j;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.BeforeEach;
 
 @Slf4j
 public abstract class MockTestBase {
@@ -25,10 +29,16 @@ public abstract class MockTestBase {
     public static final String ONTVANGER_REFERTE = "//Bericht/Ontvanger/Referte";
     public static final String ONTVANGER_IDENTIFICATIE = "//Bericht/Ontvanger/Identificatie";
     public static final String ONTVANGER_HOEDANIGHEID = "//Bericht/Ontvanger/Hoedanigheid";
+    
+    private ResourceFinder finder;
+    
+    @BeforeEach
+    void setup() {
+        finder = new ResourceFinder();
+    }
 
     protected MagdaConnectorImpl makeMagdaConnector(AfnemerLogServiceMock afnemerLogService) {
-        var connection = new MagdaMockConnection();
-
+        var mockConnection = mockConnection();
         var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
                 .name(TEST_SERVICE_NAAM)
                 .identification(TEST_SERVICE_URI)
@@ -36,7 +46,7 @@ public abstract class MockTestBase {
                 .build();
         var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
 
-        return new MagdaConnectorImpl(connection, afnemerLogService, magdaHoedanigheidService);
+        return new MagdaConnectorImpl(mockConnection, afnemerLogService, magdaHoedanigheidService);
     }
 
     protected MagdaConnectorImpl makeSignedMagdaConnector(
@@ -46,8 +56,7 @@ public abstract class MockTestBase {
             TwoWaySslProperties mockConnectionRequestVerifierKeystore,
             TwoWaySslProperties mockConnectionResponseSignerKeystore)
             throws TwoWaySslException {
-        var mockConnection = new MagdaMockConnection(mockConnectionRequestVerifierKeystore, mockConnectionResponseSignerKeystore);
-
+        var mockConnection = mockConnection(mockConnectionRequestVerifierKeystore, mockConnectionResponseSignerKeystore);
         var signedConnection = new MagdaSignedConnection(mockConnection, signedConnectionRequestSignerKeystore, signedConnectionResponseVerifierKeystore);
 
         var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
@@ -58,6 +67,32 @@ public abstract class MockTestBase {
         var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
 
         return new MagdaConnectorImpl(signedConnection, afnemerLogService, magdaHoedanigheidService);
+    }
+    
+    private MagdaMockConnection mockConnection() {
+        return mockConnection(null, null);
+    }
+    
+    private MagdaMockConnection mockConnection(
+            TwoWaySslProperties mockConnectionRequestVerifierKeystore,
+            TwoWaySslProperties mockConnectionResponseSignerKeystore) {
+        var simulatorBuilder = SOAPSimulatorBuilder.builder(finder)
+                .magdaMockSimulator();
+        if(mockConnectionRequestVerifierKeystore != null) {
+            try {
+                simulatorBuilder = simulatorBuilder.requestVerifierProperties(mockConnectionRequestVerifierKeystore);
+            } catch (TwoWaySslException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        if(mockConnectionResponseSignerKeystore != null) {
+            try {
+                simulatorBuilder = simulatorBuilder.responseSignerProperties(mockConnectionResponseSignerKeystore);
+            } catch (TwoWaySslException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return new MagdaMockConnection(simulatorBuilder.build());
     }
 
     protected void assertThatTechnicalFieldsInResponseMatchRequest(MagdaAntwoord antwoord, Aanvraag aanvraag) {

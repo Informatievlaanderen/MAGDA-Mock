@@ -1,7 +1,8 @@
 package be.vlaanderen.vip.magda.client;
 
 import org.junit.jupiter.api.Test;
-
+import static org.xmlunit.matchers.CompareMatcher.isIdenticalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -17,12 +18,11 @@ public class MagdaDocumentTest {
 
         magdaDocument.setValue("//foo/bar", "judd");
 
-        assertEquals("""
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
                 <foo>
                     <bar>judd</bar>
                     <baz>trump</baz>
-                </foo>""",
-                magdaDocument.toString());
+                </foo>""").ignoreWhitespace());
     }
 
     @Test
@@ -36,13 +36,13 @@ public class MagdaDocumentTest {
 
         magdaDocument.setValue("//foo/bar", "judd");
 
-        assertEquals("""
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
                 <foo>
                     <bar>judd</bar>
                     <bar>judd</bar>
                     <baz>trump</baz>
-                </foo>""",
-                magdaDocument.toString());
+                </foo>
+                """).ignoreWhitespace());
     }
 
     @Test
@@ -55,12 +55,12 @@ public class MagdaDocumentTest {
 
         magdaDocument.setValue("//foo/qux", "judd");
 
-        assertEquals("""
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
                 <foo>
                     <bar>donald</bar>
                     <baz>trump</baz>
-                </foo>""",
-                magdaDocument.toString());
+                </foo>
+                """).ignoreWhitespace());
     }
 
     @Test
@@ -107,12 +107,12 @@ public class MagdaDocumentTest {
 
         magdaDocument.createNode("//foo", "qux");
 
-        assertEquals("""
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
                 <foo>
                     <bar>donald</bar>
                     <baz>trump</baz>
-                <qux/></foo>""",
-                magdaDocument.toString());
+                    <qux/>
+                </foo>""").ignoreWhitespace());
     }
 
     @Test
@@ -126,13 +126,13 @@ public class MagdaDocumentTest {
 
         magdaDocument.createNode("//foo", "qux");
 
-        assertEquals("""
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
                 <foo>
                     <bar>donald</bar>
                     <baz>trump</baz>
                     <qux>john</qux>
-                <qux/></foo>""",
-                magdaDocument.toString());
+                    <qux/>
+                </foo>""").ignoreWhitespace());
     }
 
     @Test
@@ -145,12 +145,12 @@ public class MagdaDocumentTest {
 
         magdaDocument.createTextNode("//foo", "qux", "john");
 
-        assertEquals("""
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
                 <foo>
                     <bar>donald</bar>
                     <baz>trump</baz>
-                <qux>john</qux></foo>""",
-                magdaDocument.toString());
+                    <qux>john</qux>
+                </foo>""").ignoreWhitespace());
     }
 
     @Test
@@ -164,13 +164,13 @@ public class MagdaDocumentTest {
 
         magdaDocument.createTextNode("//foo", "qux", "rich");
 
-        assertEquals("""
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
                 <foo>
                     <bar>donald</bar>
                     <baz>trump</baz>
                     <qux>john</qux>
-                <qux>rich</qux></foo>""",
-                magdaDocument.toString());
+                    <qux>rich</qux>
+                </foo>""").ignoreWhitespace());
     }
 
     @Test
@@ -183,12 +183,10 @@ public class MagdaDocumentTest {
 
         magdaDocument.removeNode("//foo/bar");
 
-        assertEquals(
-                "<foo>\n" +
-                "    \n" +
-                "    <baz>trump</baz>\n" +
-                "</foo>",
-                magdaDocument.toString());
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
+                <foo>
+                    <baz>trump</baz>
+                </foo>""").ignoreWhitespace());
     }
 
     @Test
@@ -202,13 +200,10 @@ public class MagdaDocumentTest {
 
         magdaDocument.removeNode("//foo/bar");
 
-        assertEquals(
-                "<foo>\n" +
-                        "    \n" +
-                        "    \n" +
-                        "    <baz>trump</baz>\n" +
-                        "</foo>",
-                magdaDocument.toString());
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
+                <foo>
+                    <baz>trump</baz>
+                </foo>""").ignoreWhitespace());
     }
 
     @Test
@@ -221,11 +216,11 @@ public class MagdaDocumentTest {
 
         magdaDocument.removeNode("//foo/qux");
 
-        assertEquals("""
+
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
                 <foo>
                     <bar>donald</bar>
                     <baz>trump</baz>
-                </foo>""",
-                magdaDocument.toString());
+                </foo>""").ignoreWhitespace());
     }
 }

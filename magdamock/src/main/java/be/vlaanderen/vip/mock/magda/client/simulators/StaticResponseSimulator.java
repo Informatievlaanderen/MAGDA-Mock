@@ -6,19 +6,20 @@ import java.util.List;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 
-public class StaticResponseSimulator extends SOAPSimulator {
+public class StaticResponseSimulator extends BaseSOAPSimulator {
     private final String type;
     private final List<String> keys;
 
-    public StaticResponseSimulator(String type, List<String> keys) {
+    public StaticResponseSimulator(ResourceFinder finder, String type, List<String> keys) {
+        super(finder);
         this.type = type;
         this.keys = keys;
     }
 
-    public StaticResponseSimulator(String type, String... keys) {
-        this.type = type;
-        this.keys = Arrays.asList(keys);
+    public StaticResponseSimulator(ResourceFinder finder, String type, String... keys) {
+        this(finder, type, Arrays.asList(keys));
     }
 
     @Override
