@@ -2,7 +2,7 @@
 name: publish-artifacts
 run-name: Publish artifacts to Github packages
 on:
-  push:
+  #push:
   release:
     types: [created]
 jobs:

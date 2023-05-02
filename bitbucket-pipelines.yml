@@ -122,7 +122,6 @@ pipelines:
             - mvn -B -U clean verify sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.name="$BITBUCKET_BRANCH"
           artifacts:
             - "**/*.jar"
-      - step: *githubMirror
             
     hotfix/*:
       - step:
@@ -207,6 +206,7 @@ pipelines:
             - ./create-support.sh
     maven-release:
       - step: *release
+      - step: *githubMirror
     deploy-released-version:
       - step:
           name: Check
