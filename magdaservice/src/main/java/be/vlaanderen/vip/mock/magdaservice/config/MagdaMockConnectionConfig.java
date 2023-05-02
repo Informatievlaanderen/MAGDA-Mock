@@ -8,6 +8,7 @@ import be.vlaanderen.vip.mock.magda.client.MagdaMockConnection;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import be.vlaanderen.vip.mock.magdaservice.exception.InitializationException;
 
 @Configuration
@@ -15,7 +16,7 @@ public class MagdaMockConnectionConfig {
 
     @Bean
     public ResourceFinder resourceFinder() {
-        return new ResourceFinder();
+        return ResourceFinders.magdaSimulator();
     }
     
     @Bean

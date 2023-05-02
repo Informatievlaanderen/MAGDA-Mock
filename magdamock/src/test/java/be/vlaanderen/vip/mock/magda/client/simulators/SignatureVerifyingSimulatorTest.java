@@ -3,7 +3,7 @@ package be.vlaanderen.vip.mock.magda.client.simulators;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.security.DocumentSignatureVerifier;
 import be.vlaanderen.vip.magda.client.security.InvalidSignatureException;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinderDeprecated;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class SignatureVerifyingSimulatorTest {
-    @Mock private ResourceFinder finder;
+    @Mock private ResourceFinderDeprecated finder;
     @Mock private SOAPSimulator childSimulator;
     @Mock private DocumentSignatureVerifier verifier;
     

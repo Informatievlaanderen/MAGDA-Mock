@@ -21,17 +21,6 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.assertj</groupId>
-			<artifactId>assertj-core</artifactId>
-			<version>${assertj-core.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>be.vlaanderen.vip.mock</groupId>
 			<artifactId>magdaconnector</artifactId>
 			<version>${project.parent.version}</version>

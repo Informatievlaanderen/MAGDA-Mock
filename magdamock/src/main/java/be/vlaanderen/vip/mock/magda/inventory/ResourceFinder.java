@@ -1,70 +1,63 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
-import static java.util.function.Predicate.not;
-
-import java.io.IOException;
+import java.io.File;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.io.IOUtils;
 
-public class ResourceFinder {
-    private static final String MAGDA_SIMULATOR = "magda_simulator/";
-
-    public InputStream loadSimulatorResource(String type, String testResource) {
-        String path = "/" + MAGDA_SIMULATOR + type + "/" + testResource;
-
-        return getClass().getResourceAsStream(path);
-    }
-
-    public List<TestcaseService> listServices(String type) throws IOException {
-        var result = new ArrayList<TestcaseService>();
-        var services = enumerateDirectories(MAGDA_SIMULATOR + type + "/");
-        for (var service : services) {
-            var versions = enumerateDirectories(MAGDA_SIMULATOR + type + "/" + service + "/");
-            for (var version : versions) {
-                result.add(new TestcaseService(service, version));
-            }
+public interface ResourceFinder {
+    static final List<String> CASE_FILE_EXTENSION = Arrays.asList(
+            "xml", "json", "pdf", "jpg");
+    
+    InputStream loadSimulatorResource(String type, String resource);
+    
+    List<ServiceDirectory> listServicesDirectories(String type);
+    
+    public record ServiceDirectory(File dir) { 
+        
+        public String service() {
+            return dir.getName();
         }
-        return result;
-    }
-
-    public List<String> listCases(String type, TestcaseService service) throws IOException {
-        return enumerateFiles(MAGDA_SIMULATOR + type + "/" + service.getService() + "/" + service.getVersion() + "/");
-    }
-
-    private List<String> enumerate(String directory) throws IOException {
-        try (InputStream content = getClass().getClassLoader().getResourceAsStream(directory)) {
-            if (content != null) {
-                return IOUtils.readLines(content, StandardCharsets.UTF_8);
-            } else {
-                return new ArrayList<String>();
-            }
+        
+        public List<VersionDirectory> versions() {
+            return Arrays.asList(dir.listFiles())
+                         .stream()
+                         .filter(File::isDirectory)
+                         .map(VersionDirectory::new)
+                         .toList();
         }
+        
     }
-
-    private List<String> enumerateFiles(String directory) throws IOException {
-        return enumerate(directory).stream()
-                                   .filter(this::isFile)
-                                   .toList();
+    
+    public record VersionDirectory(File file) {
+        
+        public String version() {
+            return file.getName();
+        }
+        
+        public List<CaseFile> cases() {
+            return Arrays.asList(file.listFiles())
+                         .stream()
+                         .filter(File::isFile)
+                         .filter(this::isCaseFile)
+                         .map(CaseFile::new)
+                         .toList();
+        }
+        
+        private boolean isCaseFile(File file) {
+            return CASE_FILE_EXTENSION.contains(FilenameUtils.getExtension(file.getName()));
+        }
+        
     }
-
-    private List<String> enumerateDirectories(String directory) throws IOException {
-        return enumerate(directory).stream()
-                                   .filter(not(this::isFile))
-                                   .toList();
+    
+    public record CaseFile(File file) {
+        
+        public String name() {
+            return FilenameUtils.getBaseName(file.getName());
+        }
+        
     }
-
-    private boolean isFile(String filename) {
-        String extension = FilenameUtils.getExtension(filename);
-        return extension.equals("xml") || 
-               extension.equals("json") || 
-               extension.equals("txt") || 
-               extension.equals("pdf") || 
-               extension.equals("jpg");
-    }
-
+    
 }

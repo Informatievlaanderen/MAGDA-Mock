@@ -1,11 +1,11 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
+import org.apache.wss4j.common.ext.WSSecurityException;
+
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.security.DocumentSigner;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
-
-import org.apache.wss4j.common.ext.WSSecurityException;
 
 public class SigningSimulator extends BaseSOAPSimulator {
 

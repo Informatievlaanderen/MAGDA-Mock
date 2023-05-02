@@ -15,10 +15,10 @@ import java.util.stream.Collectors;
 public class TestCaseInventoryBuilder {
     private static final String PERSOON_TESTCASES = "Persoon";
     private static final String ONDERNEMING_TESTCASES = "Onderneming";
-    private final ResourceFinder finder;
+    private final ResourceFinderDeprecated finder;
 
     public TestCaseInventoryBuilder() {
-        finder = new ResourceFinder();
+        finder = new ResourceFinderDeprecated();
     }
 
     public List<Testcase> persoonTestcases() throws IOException {

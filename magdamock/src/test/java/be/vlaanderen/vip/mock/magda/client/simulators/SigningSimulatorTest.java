@@ -3,7 +3,7 @@ package be.vlaanderen.vip.mock.magda.client.simulators;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.security.DocumentSigner;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinderDeprecated;
 import lombok.SneakyThrows;
 import org.apache.wss4j.common.ext.WSSecurityException;
 import org.junit.jupiter.api.Test;
@@ -19,7 +19,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class SigningSimulatorTest {
-    @Mock private ResourceFinder finder;
+    @Mock private ResourceFinderDeprecated finder;
     @Mock private SOAPSimulator childSimulator;
     @Mock private DocumentSigner signer;
 
