@@ -24,4 +24,7 @@ jobs:
         with:
           java-version: '19'
           distribution: 'temurin'
-      #- name: Upload packages
+      - name: Publish
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
