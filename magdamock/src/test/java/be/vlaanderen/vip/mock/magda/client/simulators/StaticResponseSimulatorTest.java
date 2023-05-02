@@ -26,6 +26,7 @@ import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import be.vlaanderen.vip.mock.magda.MagdaDocumentBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import lombok.SneakyThrows;
 
 @ExtendWith(MockitoExtension.class)
@@ -46,7 +47,7 @@ class StaticResponseSimulatorTest {
     @Test
     @SneakyThrows
     void respondsWithStaticResource() {
-        var simulator = new StaticResponseSimulator(new ResourceFinder(), PERSOON, KEY_INSZ);
+        var simulator = new StaticResponseSimulator(ResourceFinders.magdaSimulator(), PERSOON, KEY_INSZ);
         var request = makeBewijsAanvraagRequest("00071031644");
 
         var response = simulator.send(request);

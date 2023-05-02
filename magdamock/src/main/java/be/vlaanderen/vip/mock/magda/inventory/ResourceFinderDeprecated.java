@@ -11,7 +11,8 @@ import java.util.List;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 
-public class ResourceFinder {
+@Deprecated
+public class ResourceFinderDeprecated {
     private static final String MAGDA_SIMULATOR = "magda_simulator/";
 
     public InputStream loadSimulatorResource(String type, String testResource) {
