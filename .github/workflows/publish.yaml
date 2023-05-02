@@ -44,6 +44,7 @@ jobs:
     #       --context /opt/repo
     #       --dockerfile /opt/repo/src/main/docker/Dockerfile
     #       --destination test-img
+    needs: publish-jar
     steps:
       - uses: actions/checkout@v3
       - name: Restore docker cache
@@ -52,7 +53,7 @@ jobs:
           path: ~/magdaservice/target
           key: docker-cache
       - name: Login to docker registry
-        uses: docker/login-action@v4
+        uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
