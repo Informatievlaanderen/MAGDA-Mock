@@ -1,26 +1,25 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
-import be.vlaanderen.vip.mock.magda.client.util.INSZ;
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.Arrays;
 import java.util.List;
 
-@Slf4j
-public class RandomPasfotoSimulator extends SOAPSimulator {
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.mock.magda.client.util.INSZ;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+
+public class RandomPasfotoSimulator extends BaseSOAPSimulator {
     private final String type;
     private final List<String> keys;
 
-    public RandomPasfotoSimulator(String type, List<String> keys) {
+    public RandomPasfotoSimulator(ResourceFinder finder, String type, List<String> keys) {
+        super(finder);
         this.type = type;
         this.keys = keys;
     }
 
-    public RandomPasfotoSimulator(String type, String... keys) {
-        this.type = type;
-        this.keys = Arrays.asList(keys);
+    public RandomPasfotoSimulator(ResourceFinder finder, String type, String... keys) {
+        this(finder, type, Arrays.asList(keys));
     }
 
     @Override

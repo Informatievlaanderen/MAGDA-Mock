@@ -1,20 +1,18 @@
 package be.vlaanderen.vip.mock.magdaservice.config;
 
-import jakarta.annotation.PostConstruct;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-@Getter
+import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
+import jakarta.annotation.PostConstruct;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Data
 @Configuration
 @ConfigurationProperties(value = "registratie")
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class RegistratieConfig {
     private String hoedanigheid;
     private String identificatie;
@@ -43,6 +41,21 @@ public class RegistratieConfig {
         }
         if (!StringUtils.isEmpty(certPath) && StringUtils.isEmpty(keystorePassword)) {
             System.err.println("Vul registratie.keystorePassword configuratie in!");
+        }
+    }
+    
+    public TwoWaySslProperties getKeystoreProperties() {
+        log.debug("Reading key store from config");
+        if(certPath != null) {
+            var keystore = new TwoWaySslProperties();
+            keystore.setKeyStoreLocation(certPath);
+            keystore.setKeyStorePassword(keystorePassword);
+            keystore.setKeyAlias(keyAlias);
+            keystore.setKeyPassword(keystorePassword);
+            return keystore;
+        } else {
+            log.warn("Key store was not configured");
+            return null;
         }
     }
 }
