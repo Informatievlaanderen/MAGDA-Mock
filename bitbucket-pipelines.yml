@@ -54,7 +54,7 @@ definitions:
           enabled: false
         script:
           - git clone --bare git@bitbucket.org:vlaamseoverheid/magdamock.service.git
-          - cd magdamock.service
+          - cd magdamock.service.git
           - git push --mirror git@github.com:Informatievlaanderen/MAGDA-Mock.git
 
 clone:
