@@ -48,6 +48,15 @@ definitions:
           - git checkout $VERSION
           - mvn -B package io.fabric8:docker-maven-plugin:0.31.0:push -s .m2/settings.xml -Pdocker-release
 
+    - step: &githubMirror
+        name: Sync to Github
+        clone:
+          enabled: false
+        scripts:
+          - git clone --bare git@bitbucket.org:vlaamseoverheid/magdamock.service.git
+          - cd magdamock.service
+          - git push --mirror git@github.com:Informatievlaanderen/MAGDA-Mock.git
+
 clone:
   depth: full
 
@@ -113,6 +122,7 @@ pipelines:
             - mvn -B -U clean verify sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.name="$BITBUCKET_BRANCH"
           artifacts:
             - "**/*.jar"
+      - step: *githubMirror
             
     hotfix/*:
       - step:

@@ -62,6 +62,7 @@
 	  </profile>
 
 	  <profile>
+	    <!-- This profile is enabled when running the Github pipeline -->
 	    <id>github</id>
 	    <distributionManagement>
 	      <repository>
