@@ -44,8 +44,9 @@
 	</properties>
 
 	<profiles>
+	  
 	  <profile>
-	    <!-- infrastructure -->
+	    <id>artifactory</id>
 	    <distributionManagement>
 	      <repository>
 		<id>central</id>
@@ -58,7 +59,17 @@
 		<url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magdamock-snapshots</url>
 	      </snapshotRepository>
 	    </distributionManagement>
-	    <id>artifactory</id>
+	  </profile>
+
+	  <profile>
+	    <id>github</id>
+	    <distributionManagement>
+	      <repository>
+		<id>github</id>
+		<name>GitHub Packages</name>
+		<url>https://maven.pkg.github.com/Informatievlaanderen/MAGDA-Mock</url>
+	      </repository>
+	    </distributionManagement>
 	  </profile>
 	</profiles>
 
