@@ -142,7 +142,6 @@
 							<destFile>${project.build.directory}/jacoco-aggregated.exec</destFile>
 						</configuration>
 					</execution>
-
 					<!-- Generate report of aggregated test results -->
 					<execution>
 						<id>post-merge-report</id>
@@ -163,7 +162,7 @@
 				<plugin>
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>
-					<version>0.8.9</version>
+					<version>0.8.10</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
