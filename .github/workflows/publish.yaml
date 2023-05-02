@@ -62,8 +62,8 @@ jobs:
       - name: Build and push docker image
         uses: docker/build-push-action@v4
         with:
-          context: .
-          file: src/main/docker/Dockerfile
+          context: magdaservice
+          file: magdaservice/src/main/docker/Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           
