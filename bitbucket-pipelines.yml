@@ -52,7 +52,7 @@ definitions:
         name: Sync to Github
         clone:
           enabled: false
-        scripts:
+        script:
           - git clone --bare git@bitbucket.org:vlaamseoverheid/magdamock.service.git
           - cd magdamock.service
           - git push --mirror git@github.com:Informatievlaanderen/MAGDA-Mock.git
