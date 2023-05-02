@@ -61,9 +61,6 @@
 	    <id>artifactory</id>
 	  </profile>
 	</profiles>
-	<activeProfiles>
-	  <activeProfile>artifactory</activeProfile>
-	</activeProfiles>
 
 	<modules>
 		<module>magdaservice</module>
