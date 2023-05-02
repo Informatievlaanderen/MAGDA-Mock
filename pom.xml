@@ -43,19 +43,27 @@
 		<sonar.language>java</sonar.language>
 	</properties>
 
-	<!-- infrastructure -->
-	<distributionManagement>
-		<repository>
-			<id>central</id>
-			<name>magda-public-release</name>
-			<url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magdamock-releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>magda-public-snapshot</name>
-			<url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magdamock-snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
+	<profiles>
+	  <profile>
+	    <!-- infrastructure -->
+	    <distributionManagement>
+	      <repository>
+		<id>central</id>
+		<name>magda-public-release</name>
+		<url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magdamock-releases</url>
+	      </repository>
+	      <snapshotRepository>
+		<id>snapshots</id>
+		<name>magda-public-snapshot</name>
+		<url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magdamock-snapshots</url>
+	      </snapshotRepository>
+	    </distributionManagement>
+	    <id>artifactory</id>
+	  </profile>
+	</profiles>
+	<activeProfiles>
+	  <activeProfile>artifactory</activeProfile>
+	</activeProfiles>
 
 	<modules>
 		<module>magdaservice</module>
