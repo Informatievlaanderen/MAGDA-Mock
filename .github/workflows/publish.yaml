@@ -18,10 +18,6 @@ jobs:
         with:
           path: ~/.m2/repository
           key: mvn-cache
-      - uses: actions/cache/save@v3
-        with:
-          path: ~/magdaservice/target
-          key: docker-cache
       - uses: actions/setup-java@v3
         with:
           java-version: '19'
@@ -32,22 +28,20 @@ jobs:
         run: mvn --batch-mode deploy -pl "!tester" -P "!artifactory,github"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/cache/save@v3
+        with:
+          path: ~/magdaservice/target
+          key: docker-cache
   publish-image:
     runs-on: ubuntu-latest
-    # container:
-    #   image: gcr.io/kaniko-project/executor
-    #   volumes:
-    #     - /home/runner:/opt/repo
-    # steps:
-    #   - name: build docker image
-    #     run: >
-    #       /kaniko/executor
-    #       --context /opt/repo
-    #       --dockerfile /opt/repo/src/main/docker/Dockerfile
-    #       --destination test-img
     needs: publish-jar
     steps:
       - uses: actions/checkout@v3
+      - name: Restore mvn cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: mvn-cache
       - name: Restore docker cache
         uses: actions/cache/restore@v3
         with:
@@ -59,13 +53,15 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Build and push docker image
+      #   uses: docker/build-push-action@v4
+      #   with:
+      #     context: magdaservice
+      #     file: magdaservice/src/main/docker/Dockerfile
+      #     push: true
+      #     tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
       - name: Build and push docker image
-        uses: docker/build-push-action@v4
-        with:
-          context: magdaservice
-          file: magdaservice/src/main/docker/Dockerfile
-          push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+        run: mvn --batch-mode -Pdocker docker:build
           
           
             
