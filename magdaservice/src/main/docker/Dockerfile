@@ -1,5 +1,5 @@
 #FROM vlaamseoverheid-magda-docker-releases.jfrog.io/magda/magda-openjdk-cacerts:${magda-openjdk.version}
-FROM eclipse-temurin:${magda-openjdk.version}
+FROM eclipse-temurin:${magda-openjdk.version}_7-jre
 
 VOLUME /tmp
 
