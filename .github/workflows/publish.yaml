@@ -34,15 +34,15 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Build and push docker image
-      #   uses: docker/build-push-action@v4
-      #   with:
-      #     context: magdaservice
-      #     file: magdaservice/src/main/docker/Dockerfile
-      #     push: true
-      #     tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
       - name: Build and push docker image
-        run: cd magdaservice && mvn --batch-mode -Pdocker docker:build
+        uses: docker/build-push-action@v4
+        with:
+          context: magdaservice
+          file: magdaservice/src/main/docker/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+      # - name: Build and push docker image
+      #   run: cd magdaservice && mvn --batch-mode -Pdocker docker:build
           
           
             
