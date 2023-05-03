@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -33,6 +34,7 @@ public class ClasspathResourceFinder implements ResourceFinder {
     public List<ServiceDirectory> listServicesDirectories(String type) {
         return ClasspathResourceFinder.listDirectories(fromClasspathResource(root + "/" + type))
                                       .<ServiceDirectory>map(path -> new ResourceServiceDirectory(loader, path))
+                                      .sorted(Comparator.comparing(ServiceDirectory::service))
                                       .toList();
     }
 
@@ -53,6 +55,7 @@ public class ClasspathResourceFinder implements ResourceFinder {
         public List<VersionDirectory> versions() {
             return ClasspathResourceFinder.listDirectories(path)
                                           .<VersionDirectory>map(path -> new ResourceVersionDirectory(loader, path))
+                                          .sorted(Comparator.comparing(VersionDirectory::version))
                                           .toList();
         }
         
@@ -68,6 +71,7 @@ public class ClasspathResourceFinder implements ResourceFinder {
             return ClasspathResourceFinder.listFiles(path)
                                           .filter(ClasspathResourceFinder::isCaseFile)
                                           .<CaseFile>map(ResourceCaseFile::new)
+                                          .sorted(Comparator.comparing(CaseFile::name))
                                           .toList();
         }
         

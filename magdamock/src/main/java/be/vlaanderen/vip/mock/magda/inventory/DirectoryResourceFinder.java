@@ -6,9 +6,14 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.apache.commons.io.FilenameUtils;
+
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.CaseFile;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.ServiceDirectory;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.VersionDirectory;
 
 public class DirectoryResourceFinder implements ResourceFinder {
     private File dir;
@@ -42,6 +47,7 @@ public class DirectoryResourceFinder implements ResourceFinder {
         return Arrays.stream(dir.listFiles())
                      .filter(File::isDirectory)
                      .<ServiceDirectory>map(FileServiceDirectory::new)
+                     .sorted(Comparator.comparing(ServiceDirectory::service))
                      .toList();
     }
     
@@ -64,6 +70,7 @@ public class DirectoryResourceFinder implements ResourceFinder {
                          .stream()
                          .filter(File::isDirectory)
                          .<VersionDirectory>map(FileVersionDirectory::new)
+                         .sorted(Comparator.comparing(VersionDirectory::version))
                          .toList();
         }
         
@@ -81,6 +88,7 @@ public class DirectoryResourceFinder implements ResourceFinder {
                          .filter(File::isFile)
                          .filter(this::isCaseFile)
                          .<CaseFile>map(FileCaseFile::new)
+                         .sorted(Comparator.comparing(CaseFile::name))
                          .toList();
         }
         
