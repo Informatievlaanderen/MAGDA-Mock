@@ -5,12 +5,11 @@ import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import java.io.File;
 import java.io.InputStream;
 import java.util.Arrays;
-import java.util.UUID;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -88,7 +87,7 @@ class MultiResourceFinderTest {
         }
         
         private ServiceDirectory serivceDir() {
-            return new ServiceDirectory(new File(UUID.randomUUID().toString()));
+            return mock(ServiceDirectory.class);
         }
     }
 }
