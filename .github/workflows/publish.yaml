@@ -2,7 +2,7 @@
 name: publish-artifacts
 run-name: Publish artifacts to Github packages
 on:
-  push:
+#  push:
   release:
     types: [created]
 env:
@@ -40,4 +40,4 @@ jobs:
           context: magdaservice
           file: magdaservice/src/main/docker/Dockerfile-github
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.GITHUB_REF }}
