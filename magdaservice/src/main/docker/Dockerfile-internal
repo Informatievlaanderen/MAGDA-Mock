@@ -1,0 +1,7 @@
+FROM vlaamseoverheid-magda-docker-releases.jfrog.io/magda/magda-openjdk-cacerts:${magda-openjdk.version}
+
+VOLUME /tmp
+
+EXPOSE 8080:8080
+
+COPY target/${project.build.finalName}.jar app.jar
