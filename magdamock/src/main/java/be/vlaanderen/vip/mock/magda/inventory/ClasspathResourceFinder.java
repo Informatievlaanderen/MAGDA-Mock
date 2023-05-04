@@ -3,6 +3,7 @@ package be.vlaanderen.vip.mock.magda.inventory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -16,6 +17,9 @@ import java.util.stream.Stream;
 
 import org.apache.commons.io.FilenameUtils;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ClasspathResourceFinder implements ResourceFinder {
     private String root;
     private ClassLoader loader;
@@ -100,7 +104,11 @@ public class ClasspathResourceFinder implements ResourceFinder {
             var uri = loader.getResource(resource).toURI();
             return getPath(uri, resource);
         }
-        catch (Exception e) {
+        catch (URISyntaxException e) {
+            log.warn("Resource '%s' does not have a valid uri syntax".formatted(resource), e);
+            return Path.of(resource);
+        } catch (IOException e) {
+            log.warn("Failed to create a new filesystem for '%'".formatted(resource), e);
             return Path.of(resource);
         }
     }
