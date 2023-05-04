@@ -5,18 +5,13 @@ on:
   release:
     types: [created]
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 # Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
   
 jobs:
-  javadoc:
+  generate-javadoc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,12 +19,29 @@ jobs:
         with:
           path: ~/.m2/repository
           key: javadoc-cache
-      - name: Deploy JavaDoc
-        uses: MathieuSoysal/Javadoc-publisher.yml@v2.4.0
+      - uses: actions/setup-java@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          javadoc-branch: javadoc
-          java-version: 19
-          target-folder: javadoc
-          project: maven
-          custom-command: mvn install javadoc:javadoc -pl "!tester"
+          java-version: '19'
+          distribution: 'temurin'
+      - name: Generate JavaDoc
+        run: mvn --batch-mode install javadoc:javadoc -pl "!tester"
+      - name: Upload interface artifact
+        uses: actions/upload-pages-artifact@v1.0.8
+        with:
+          path: interfaces/target/site/apidocs
+          
+  deploy:
+    needs: generate-javadoc
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2.0.1
