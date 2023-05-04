@@ -104,11 +104,8 @@ public class ClasspathResourceFinder implements ResourceFinder {
             var uri = loader.getResource(resource).toURI();
             return getPath(uri, resource);
         }
-        catch (URISyntaxException e) {
-            log.warn("Resource '%s' does not have a valid uri syntax".formatted(resource), e);
-            return Path.of(resource);
-        } catch (IOException e) {
-            log.warn("Failed to create a new filesystem for '%'".formatted(resource), e);
+        catch (Exception e) {
+            log.warn("Failed to get path for '%s'".formatted(resource), e);
             return Path.of(resource);
         }
     }
