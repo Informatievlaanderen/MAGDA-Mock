@@ -20,6 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: javadoc-cache
       - name: Deploy JavaDoc
         uses: MathieuSoysal/Javadoc-publisher.yml@v2.4.0
         with:
@@ -28,4 +32,4 @@ jobs:
           java-version: 19
           target-folder: javadoc
           project: maven
-          custom-command: mvn javadoc:javadoc -pl "!tester"
+          custom-command: mvn install javadoc:javadoc -pl "!tester"
