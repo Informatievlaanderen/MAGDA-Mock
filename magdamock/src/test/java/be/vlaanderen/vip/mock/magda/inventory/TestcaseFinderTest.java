@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
-import static be.vlaanderen.vip.mock.magda.TempDirExtension.TempDirectory.FileDescriptor.file;
+import static be.vlaanderen.vip.mock.magda.TempDirUtils.FileDescriptor.file;
 import static java.util.Map.of;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.empty;
@@ -9,6 +9,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.function.Predicate;
@@ -19,13 +20,14 @@ import org.hamcrest.Matcher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.io.TempDir;
 
-import be.vlaanderen.vip.mock.magda.TempDirExtension;
-import be.vlaanderen.vip.mock.magda.TempDirExtension.TempDirectory;
+import be.vlaanderen.vip.mock.magda.TempDirUtils;
 
-@ExtendWith(TempDirExtension.class)
 class TestcaseFinderTest {
+    @TempDir
+    private File dir;
+    
     private ResourceFinder finder;
 
     private TestcaseFinder caseFinder;
@@ -34,10 +36,10 @@ class TestcaseFinderTest {
     class ListServices {
         
         @BeforeEach
-        void setup(TempDirectory dir) {
-            dir.createFileStructure(fileStructure());
-
-            finder = ResourceFinders.directory(dir.getDir());
+        void setup() {
+            TempDirUtils.createFileStructure(dir, fileStructure());
+            
+            finder = ResourceFinders.directory(dir);
             caseFinder = new TestcaseFinder(finder);
         }
         

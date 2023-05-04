@@ -17,10 +17,9 @@ import org.hamcrest.Matcher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.io.TempDir;
 
-import be.vlaanderen.vip.mock.magda.TempDirExtension;
-import be.vlaanderen.vip.mock.magda.TempDirExtension.TempDirectory;
+import be.vlaanderen.vip.mock.magda.TempDirUtils;
 import be.vlaanderen.vip.mock.magda.inventory.DirectoryResourceFinder.FileCaseFile;
 import be.vlaanderen.vip.mock.magda.inventory.DirectoryResourceFinder.FileServiceDirectory;
 import be.vlaanderen.vip.mock.magda.inventory.DirectoryResourceFinder.FileVersionDirectory;
@@ -28,21 +27,23 @@ import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.CaseFile;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.ServiceDirectory;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.VersionDirectory;
 
-@ExtendWith(TempDirExtension.class)
 class DirectoryResourceFinderTest {
     private DirectoryResourceFinder finder;
     
+    @TempDir
+    private File dir;
+    
     @BeforeEach
-    void setup(TempDirectory dir) {
-        finder = new DirectoryResourceFinder(dir.getDir());
+    void setup() {
+        finder = new DirectoryResourceFinder(dir);
     }
     
     @Nested
     class LoadSimulatorResource {
         
         @Test
-        void returnsFileAsInputStream(TempDirectory dir) throws IOException {
-            dir.createFile("type/path/to/resource.txt", "content");
+        void returnsFileAsInputStream() throws IOException {
+            TempDirUtils.createFile(dir, "type/path/to/resource.txt", "content");
             
             try(var result = finder.loadSimulatorResource("type", "path/to/resource.txt")) {
                 assertEquals("content", new String(result.readAllBytes()));
@@ -62,11 +63,11 @@ class DirectoryResourceFinderTest {
     class ListServicesDirectories {
         
         @Test
-        void returnsServiceDirectory_forType(TempDirectory dir) {
-            var dir1 = dir.createDir("type/dir1");
-            var dir2 = dir.createDir("type/dir2");
-            dir.createDir("other-type/dir3");
-            dir.createFile("file1.txt", "file1");
+        void returnsServiceDirectory_forType() {
+            var dir1 = TempDirUtils.createDir(dir, "type/dir1");
+            var dir2 = TempDirUtils.createDir(dir, "type/dir2");
+            TempDirUtils.createDir(dir, "other-type/dir3");
+            TempDirUtils.createFile(dir, "file1.txt", "file1");
             
             var result = finder.listServicesDirectories("type");
             
@@ -75,9 +76,9 @@ class DirectoryResourceFinderTest {
         }
         
         @Test
-        void isEmptyWhenNoDirForType(TempDirectory dir) {
-            dir.createDir("type/dir1");
-            dir.createDir("type/dir2");
+        void isEmptyWhenNoDirForType() {
+            TempDirUtils.createDir(dir, "type/dir1");
+            TempDirUtils.createDir(dir, "type/dir2");
 
             var result = finder.listServicesDirectories("other-type");
             
@@ -111,8 +112,8 @@ class DirectoryResourceFinderTest {
         class Service {
             
             @Test
-            void isFileName(TempDirectory dir) {
-                var serviceDir = new FileServiceDirectory(dir.createDir("folder-name"));
+            void isFileName() {
+                var serviceDir = new FileServiceDirectory(TempDirUtils.createDir(dir, "folder-name"));
                 
                 assertThat(serviceDir.service(), is(equalTo("folder-name")));
             }
@@ -123,12 +124,12 @@ class DirectoryResourceFinderTest {
         class Versions {
             
             @Test
-            void isAListOfFoldersInDir(TempDirectory dir) {
-                var serviceDir = new FileServiceDirectory(dir.createDir("folder"));
-                var v1 = dir.createDir("folder/version1");
-                var v2 = dir.createDir("folder/version2");
-                dir.createFile("folder/file1", "file1-content");
-                var v3 = dir.createDir("folder/version3");
+            void isAListOfFoldersInDir() {
+                var serviceDir = new FileServiceDirectory(TempDirUtils.createDir(dir, "folder"));
+                var v1 = TempDirUtils.createDir(dir, "folder/version1");
+                var v2 = TempDirUtils.createDir(dir, "folder/version2");
+                TempDirUtils.createFile(dir, "folder/file1", "file1-content");
+                var v3 = TempDirUtils.createDir(dir, "folder/version3");
                 
                 assertThat(serviceDir.versions(), contains(versionDir(v1), 
                                                            versionDir(v2), 
@@ -164,8 +165,8 @@ class DirectoryResourceFinderTest {
         class Version {
             
             @Test
-            void isFileName(TempDirectory dir) {
-                var versionDir = new FileVersionDirectory(dir.createDir("folder-name"));
+            void isFileName() {
+                var versionDir = new FileVersionDirectory(TempDirUtils.createDir(dir, "folder-name"));
                 
                 assertThat(versionDir.version(), is(equalTo("folder-name")));
             }
@@ -176,12 +177,12 @@ class DirectoryResourceFinderTest {
         class Cases {
             
             @Test
-            void isAListOfFilesInDir(TempDirectory dir) {
-                var versionDir = new FileVersionDirectory(dir.createDir("folder"));
-                var c1 = dir.createFile("folder/case1.xml", "");
-                var c2 = dir.createFile("folder/case2.xml", "");
-                dir.createDir("folder/folder");
-                var c3 = dir.createFile("folder/case3.xml", "");
+            void isAListOfFilesInDir() {
+                var versionDir = new FileVersionDirectory(TempDirUtils.createDir(dir, "folder"));
+                var c1 = TempDirUtils.createFile(dir, "folder/case1.xml", "");
+                var c2 = TempDirUtils.createFile(dir, "folder/case2.xml", "");
+                TempDirUtils.createDir(dir, "folder/folder");
+                var c3 = TempDirUtils.createFile(dir, "folder/case3.xml", "");
                 
                 assertThat(versionDir.cases(), contains(caseDir(c1), 
                                                         caseDir(c2), 
@@ -189,14 +190,14 @@ class DirectoryResourceFinderTest {
             }
             
             @Test
-            void filtersOutFilesWithUnsupportedExtensions(TempDirectory dir) {
-                var versionDir = new FileVersionDirectory(dir.createDir("folder"));
-                var c1 = dir.createFile("folder/case1.xml", "");
-                var c2 = dir.createFile("folder/case2.json", "");
-                var c3 = dir.createFile("folder/case3.pdf", "");
-                var c4 = dir.createFile("folder/case4.jpg", "");
-                dir.createFile("folder/case5.txt", "");
-                dir.createFile("folder/case6.other", "");
+            void filtersOutFilesWithUnsupportedExtensions() {
+                var versionDir = new FileVersionDirectory(TempDirUtils.createDir(dir, "folder"));
+                var c1 = TempDirUtils.createFile(dir, "folder/case1.xml", "");
+                var c2 = TempDirUtils.createFile(dir, "folder/case2.json", "");
+                var c3 = TempDirUtils.createFile(dir, "folder/case3.pdf", "");
+                var c4 = TempDirUtils.createFile(dir, "folder/case4.jpg", "");
+                TempDirUtils.createFile(dir, "folder/case5.txt", "");
+                TempDirUtils.createFile(dir, "folder/case6.other", "");
                 
                 assertThat(versionDir.cases(), contains(caseDir(c1), 
                                                         caseDir(c2), 
@@ -234,8 +235,8 @@ class DirectoryResourceFinderTest {
         class Name {
             
             @Test
-            void isFileName(TempDirectory dir) {
-                var caseFile = new FileCaseFile(dir.createDir("case-name"));
+            void isFileName() {
+                var caseFile = new FileCaseFile(TempDirUtils.createDir(dir, "case-name"));
                 
                 assertThat(caseFile.name(), is(equalTo("case-name")));
             }
