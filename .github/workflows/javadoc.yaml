@@ -28,3 +28,4 @@ jobs:
           java-version: 19
           target-folder: javadoc
           project: maven
+          custom-command: mvn javadoc:javadoc -pl "!tester"
