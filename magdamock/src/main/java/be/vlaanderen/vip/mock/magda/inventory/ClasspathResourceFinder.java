@@ -95,6 +95,7 @@ public class ClasspathResourceFinder implements ResourceFinder {
                         .filter(Predicate.not(p -> p.equals(path)));
         }
         catch(Exception e) {
+            log.warn("Failed to get child paths for '%s'".formatted(path), e);
             return Stream.empty();
         }
     }

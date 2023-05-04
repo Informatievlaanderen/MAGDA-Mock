@@ -26,14 +26,11 @@ public class TempDirExtension implements BeforeEachCallback, AfterEachCallback, 
     
     @Override
     public void beforeEach(ExtensionContext context) throws Exception {
-        context.getStore(Namespace.GLOBAL).put(TEMP_DIR, Files.createTempDirectory(UUID.randomUUID().toString()).toFile());
+        var dir = Files.createTempDirectory(UUID.randomUUID().toString()).toFile();
+        dir.deleteOnExit();
+        context.getStore(Namespace.GLOBAL).put(TEMP_DIR, dir);
     }
     
-    @Override
-    public void afterEach(ExtensionContext context) throws Exception {
-        FileUtils.deleteDirectory(tempDir(context));
-    }
-
     @Override
     public boolean supportsParameter(
             ParameterContext parameterContext, 
@@ -92,6 +89,7 @@ public class TempDirExtension implements BeforeEachCallback, AfterEachCallback, 
         private File createFile(File dir, String path, String content) {
             var file = new File(dir, path);
             file.getParentFile().mkdirs();
+            file.deleteOnExit();
             try {
                 Files.writeString(file.toPath(), content);
             } catch (IOException e) {
