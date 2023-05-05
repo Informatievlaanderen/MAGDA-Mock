@@ -48,6 +48,15 @@ definitions:
           - git checkout $VERSION
           - mvn -B package io.fabric8:docker-maven-plugin:0.31.0:push -s .m2/settings.xml -Pdocker-release
 
+    - step: &githubMirror
+        name: Sync to Github
+        clone:
+          enabled: false
+        script:
+          - git clone --bare git@bitbucket.org:vlaamseoverheid/magdamock.service.git
+          - cd magdamock.service.git
+          - git push --mirror git@github.com:Informatievlaanderen/MAGDA-Mock.git
+
 clone:
   depth: full
 
@@ -197,6 +206,7 @@ pipelines:
             - ./create-support.sh
     maven-release:
       - step: *release
+      - step: *githubMirror
     deploy-released-version:
       - step:
           name: Check
@@ -228,7 +238,7 @@ pipelines:
             - maven
           script:
             - export MAVEN_OPTS="-Xmx1024m"
-            - mvn -B org.owasp:dependency-check-maven:7.4.4:aggregate -DskipSystemScope=true "-DsuppressionFile=.owasp/owasp-suppression.xml" "-DhintsFile=.owasp/owasp-hints.xml" -DfailBuildOnCVSS=7 -s .m2/settings.xml
+            - mvn -B org.owasp:dependency-check-maven:8.2.1:aggregate -DskipSystemScope=true "-DsuppressionFile=.owasp/owasp-suppression.xml" "-DhintsFile=.owasp/owasp-hints.xml" -DfailBuildOnCVSS=7 -s .m2/settings.xml
           artifacts:
             - target/dependency-check-report.html
           after-script:
