@@ -278,13 +278,13 @@
             <artifactId>docker-maven-plugin</artifactId>
             <version>0.42.1</version>
             <configuration>
-              <registry>localhost:5000</registry>
+              <registry>vlaamseoverheid-magda-docker-snapshots.jfrog.io:443</registry>
               <sourceDirectory>src/main/docker</sourceDirectory>
               <verbose>all</verbose>
               <imagePullPolicy>IfNotPresent</imagePullPolicy>
               <images>
                 <image>
-                  <name>magdamock/magda/${docker.image}:latest
+                  <name>vlaamseoverheid-magda-docker-snapshots.jfrog.io/magda/${docker.image}:latest
                   </name>
                   <build>
                     <contextDir>${project.basedir}</contextDir>
@@ -295,7 +295,7 @@
                   </build>
                 </image>
                 <image>
-                  <name>magdamock/%g/${docker.image}:%l</name>
+                  <name>vlaamseoverheid-magda-docker-snapshots.jfrog.io/%g/${docker.image}:%l</name>
                 </image>
               </images>
             </configuration>
