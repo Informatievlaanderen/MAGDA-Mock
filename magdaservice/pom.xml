@@ -73,11 +73,6 @@
       <version>${commons-io.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.apache.wss4j</groupId>
       <artifactId>wss4j-ws-security-dom</artifactId>
       <version>${org.apache.wss4j.version}</version>
@@ -274,7 +269,6 @@
   </build>
 
   <profiles>
-
     <profile>
       <id>docker</id>
       <build>
@@ -284,13 +278,13 @@
             <artifactId>docker-maven-plugin</artifactId>
             <version>0.42.1</version>
             <configuration>
-              <registry>vlaamseoverheid-magda-docker-snapshots.jfrog.io:443</registry>
+              <registry>localhost:5000</registry>
               <sourceDirectory>src/main/docker</sourceDirectory>
               <verbose>all</verbose>
               <imagePullPolicy>IfNotPresent</imagePullPolicy>
               <images>
                 <image>
-                  <name>vlaamseoverheid-magda-docker-snapshots.jfrog.io/magda/${docker.image}:latest
+                  <name>magdamock/magda/${docker.image}:latest
                   </name>
                   <build>
                     <contextDir>${project.basedir}</contextDir>
@@ -301,7 +295,7 @@
                   </build>
                 </image>
                 <image>
-                  <name>vlaamseoverheid-magda-docker-snapshots.jfrog.io/%g/${docker.image}:%l</name>
+                  <name>magdamock/%g/${docker.image}:%l</name>
                 </image>
               </images>
             </configuration>

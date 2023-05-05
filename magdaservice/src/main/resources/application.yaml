@@ -23,6 +23,7 @@ management:
 
 magdamock:
   defaultresponsetime: 0
+  mockTestcasePath: ${MOCK_TESTCASE_PATH:}
 
 registratie:
   hoedanigheid:  ${MAGDA_HOEDANIGHEID:1300}

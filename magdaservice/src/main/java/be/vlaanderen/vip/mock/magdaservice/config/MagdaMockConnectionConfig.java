@@ -1,5 +1,7 @@
 package be.vlaanderen.vip.mock.magdaservice.config;
 
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,14 +10,31 @@ import be.vlaanderen.vip.mock.magda.client.MagdaMockConnection;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import be.vlaanderen.vip.mock.magdaservice.exception.InitializationException;
+import lombok.Data;
 
+@Data
 @Configuration
+@ConfigurationProperties("magdamock")
 public class MagdaMockConnectionConfig {
+    private String mockTestcasePath;
 
     @Bean
     public ResourceFinder resourceFinder() {
-        return new ResourceFinder();
+        if(StringUtils.isNotBlank(mockTestcasePath)) {
+            return ResourceFinders.combined(mockTestcasePath(mockTestcasePath),
+                                            magdaSimulator());
+        }
+        return magdaSimulator();
+    }
+    
+    private ResourceFinder mockTestcasePath(String path) {
+        return ResourceFinders.directory(path);
+    }
+    
+    private ResourceFinder magdaSimulator() {
+        return ResourceFinders.magdaSimulator();
     }
     
     @Bean
