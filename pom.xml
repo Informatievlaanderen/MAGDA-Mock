@@ -43,19 +43,36 @@
 		<sonar.language>java</sonar.language>
 	</properties>
 
-	<!-- infrastructure -->
-	<distributionManagement>
-		<repository>
-			<id>central</id>
-			<name>magda-public-release</name>
-			<url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magdamock-releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>magda-public-snapshot</name>
-			<url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magdamock-snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
+	<profiles>
+	  
+	  <profile>
+	    <id>artifactory</id>
+	    <distributionManagement>
+	      <repository>
+		<id>central</id>
+		<name>magda-public-release</name>
+		<url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magdamock-releases</url>
+	      </repository>
+	      <snapshotRepository>
+		<id>snapshots</id>
+		<name>magda-public-snapshot</name>
+		<url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magdamock-snapshots</url>
+	      </snapshotRepository>
+	    </distributionManagement>
+	  </profile>
+
+	  <profile>
+	    <!-- This profile is enabled when running the Github pipeline -->
+	    <id>github</id>
+	    <distributionManagement>
+	      <repository>
+		<id>github</id>
+		<name>GitHub Packages</name>
+		<url>https://maven.pkg.github.com/Informatievlaanderen/MAGDA-Mock</url>
+	      </repository>
+	    </distributionManagement>
+	  </profile>
+	</profiles>
 
 	<modules>
 		<module>magdaservice</module>
