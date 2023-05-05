@@ -19,7 +19,6 @@ public class GeefPasfotoTest extends TestBase {
         MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
 
         MagdaRegistrationInfo mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
-                .name(TEST_SERVICE_NAAM)
                 .identification(TEST_SERVICE_URI)
                 .build();
 
@@ -42,7 +41,6 @@ public class GeefPasfotoTest extends TestBase {
             MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
 
             MagdaRegistrationInfo mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
-                    .name(TEST_SERVICE_NAAM)
                     .identification(TEST_SERVICE_URI)
                     .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();

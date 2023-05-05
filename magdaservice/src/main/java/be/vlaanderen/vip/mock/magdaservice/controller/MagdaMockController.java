@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
-import be.vlaanderen.vip.mock.magda.client.MagdaMockConnection;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -21,9 +21,9 @@ public class MagdaMockController {
     // Gemeenschappelijk endpoint voor alle MAGDA SOAP 2.0 webservices
     private static final String MAGDA_SOAP_02_00 = "Magda-02.00/soap/WebService";
 
-    private MagdaMockConnection mockConnection;
+    private MagdaConnection mockConnection;
 
-    public MagdaMockController(MagdaMockConnection mockConnection) {
+    public MagdaMockController(MagdaConnection mockConnection) {
         this.mockConnection = mockConnection;
     }
 

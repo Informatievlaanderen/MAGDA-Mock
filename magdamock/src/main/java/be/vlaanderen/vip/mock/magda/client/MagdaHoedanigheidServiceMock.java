@@ -10,11 +10,9 @@ public class MagdaHoedanigheidServiceMock implements MagdaHoedanigheidService {
         this.mockedMagdaRegistrationInfo = mockedMagdaRegistrationInfo;
     }
 
-    public MagdaRegistrationInfo getDomeinService() {
-        return mockedMagdaRegistrationInfo;
-    }
-
+    @Override
     public MagdaRegistrationInfo getDomeinService(String name) {
         return mockedMagdaRegistrationInfo;
     }
+    
 }

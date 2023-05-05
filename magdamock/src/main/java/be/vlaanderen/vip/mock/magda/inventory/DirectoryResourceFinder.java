@@ -11,10 +11,6 @@ import java.util.List;
 
 import org.apache.commons.io.FilenameUtils;
 
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.CaseFile;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.ServiceDirectory;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.VersionDirectory;
-
 public class DirectoryResourceFinder implements ResourceFinder {
     private File dir;
     

@@ -39,7 +39,6 @@ class MagdaConnectorImplTest {
 	@BeforeEach
 	void prepare() {
 		var identity = MagdaRegistrationInfo.builder()
-				.name("test-identity-name")
 				.identification("http://magda-test")
 				.hoedanigheidscode("test-identity")
 				.build();

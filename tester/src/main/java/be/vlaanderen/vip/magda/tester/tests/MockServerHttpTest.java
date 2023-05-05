@@ -62,7 +62,7 @@ public class MockServerHttpTest extends MockServerTest {
         var afnemerLog = new AfnemerLogServiceMock();
         var magdaConfigDto = configureMagdaParameters();
         var magdaEndpoints = makeMockEndpoints();
-        var hoedanigheid = new MagdaHoedanigheidServiceImpl(magdaConfigDto, "magdamock.service.integrationtest");
+        var hoedanigheid = new MagdaHoedanigheidServiceImpl(magdaConfigDto);
         var soapConnection = new MagdaSoapConnection(magdaEndpoints, magdaConfigDto);
         var signatureConnection = new MagdaSignedConnection(soapConnection, magdaConfigDto);
         connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, hoedanigheid);

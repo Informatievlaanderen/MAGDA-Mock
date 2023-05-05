@@ -8,7 +8,6 @@ import org.springframework.util.Assert;
 @Getter
 @ToString
 public class MagdaRegistrationInfo {
-    private String name;
     private String identification;
     @Nullable private String hoedanigheidscode;
 
@@ -17,11 +16,6 @@ public class MagdaRegistrationInfo {
 
         public Builder() {
             this.inst = new MagdaRegistrationInfo();
-        }
-
-        public Builder name(String name) {
-            inst.name = name;
-            return this;
         }
 
         public Builder identification(String identification) {
@@ -40,7 +34,6 @@ public class MagdaRegistrationInfo {
         }
 
         public MagdaRegistrationInfo build() {
-            Assert.notNull(inst.name, "name cannot be null.");
             Assert.notNull(inst.identification, "identification cannot be null.");
             // hoedanigheidscode is optional
 
