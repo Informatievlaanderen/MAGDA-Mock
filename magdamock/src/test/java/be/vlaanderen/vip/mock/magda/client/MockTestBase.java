@@ -45,7 +45,6 @@ public abstract class MockTestBase {
     protected MagdaConnectorImpl makeMagdaConnector(AfnemerLogServiceMock afnemerLogService) {
         var mockConnection = mockConnection();
         var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
-                .name(TEST_SERVICE_NAAM)
                 .identification(TEST_SERVICE_URI)
                 .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                 .build();
@@ -65,7 +64,6 @@ public abstract class MockTestBase {
         var signedConnection = new MagdaSignedConnection(mockConnection, signedConnectionRequestSignerKeystore, signedConnectionResponseVerifierKeystore);
 
         var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
-                .name(TEST_SERVICE_NAAM)
                 .identification(TEST_SERVICE_URI)
                 .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                 .build();

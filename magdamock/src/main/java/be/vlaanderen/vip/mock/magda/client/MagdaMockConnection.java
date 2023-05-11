@@ -6,6 +6,8 @@ import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
+import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -15,7 +17,7 @@ public class MagdaMockConnection implements MagdaConnection {
     
     private SOAPSimulator simulator;
 
-    public MagdaMockConnection(SOAPSimulator simulator) {
+    MagdaMockConnection(SOAPSimulator simulator) {
         this.simulator = simulator;
     }
 
@@ -38,5 +40,15 @@ public class MagdaMockConnection implements MagdaConnection {
 
     public void setDefaultResponse(Document xml) {
         defaultResponse = xml;
+    }
+    
+    public static MagdaConnection create() {
+        return create(SOAPSimulatorBuilder.builder(ResourceFinders.magdaSimulator())
+                                          .magdaMockSimulator()
+                                          .build());
+    }
+    
+    public static MagdaConnection create(SOAPSimulator simulator) {
+        return new MagdaMockConnection(simulator);
     }
 }

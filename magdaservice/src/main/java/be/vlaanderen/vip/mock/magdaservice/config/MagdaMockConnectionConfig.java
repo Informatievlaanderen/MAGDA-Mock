@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import be.vlaanderen.vip.mock.magda.client.MagdaMockConnection;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
@@ -61,8 +62,8 @@ public class MagdaMockConnectionConfig {
     }
     
     @Bean
-    public MagdaMockConnection magdaMockConnection(SOAPSimulator simulator) {
-        return new MagdaMockConnection(simulator);
+    public MagdaConnection magdaMockConnection(SOAPSimulator simulator) {
+        return MagdaMockConnection.create(simulator);
     }
     
 }
