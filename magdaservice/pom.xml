@@ -276,7 +276,7 @@
           <plugin>
             <groupId>io.fabric8</groupId>
             <artifactId>docker-maven-plugin</artifactId>
-            <version>0.42.1</version>
+            <version>0.43.0</version>
             <configuration>
               <registry>vlaamseoverheid-magda-docker-snapshots.jfrog.io:443</registry>
               <sourceDirectory>src/main/docker</sourceDirectory>
@@ -326,7 +326,7 @@
           <plugin>
             <groupId>io.fabric8</groupId>
             <artifactId>docker-maven-plugin</artifactId>
-            <version>0.42.1</version>
+            <version>0.43.0</version>
             <configuration>
               <registry>vlaamseoverheid-magda-docker-releases.jfrog.io:443</registry>
               <sourceDirectory>src/main/docker</sourceDirectory>
