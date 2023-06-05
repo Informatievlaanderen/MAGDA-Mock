@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-08-07</Datum>
+					<Tijd>08:27:13.192</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>1d0557e9-5fe0-4348-b5ef-adfab3ce083b</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+					<Referte>XE:1086:25971:8405</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>8405</Referte>
+				<Inhoud>
+					<Persoon DatumCreatie="2000-03-23" DatumModificatie="2016-05-26">
+						<INSZ>99721999746</INSZ>
+						<Naam DatumBegin="2000-12-19">
+							<Achternamen>
+								<Achternaam>Janssens</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Jean-Louis</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Omschrijving>Mannelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="2016-05-23">
+							<Plaats>
+								<Gemeente>
+									<NISCode>24055</NISCode>
+									<Naam>Kortenberg</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register>
+							<Code>02</Code>
+							<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="2000-12-19">
+								<Code>123</Code>
+								<Omschrijving>Portugal</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="2000-12-19">
+							<Datum>2000-12-19</Datum>
+							<Plaats>
+								<Gemeente>
+									<NISCode>73066</NISCode>
+									<Naam>Riemst</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer>00025</Aktenummer>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="2000-12-19">
+								<Code>10</Code>
+								<Omschrijving>Ongehuwd</Omschrijving>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="2014-05-23">								
+								<Straatnaam>
+									<String>Dorpsstraat</String>
+									<Taal>nl</Taal>
+								</Straatnaam>
+								<Huisnummer>405</Huisnummer>
+								<Gemeentenaam>
+									<String>Kortenberg</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>BELGIE</String>
+									<Taal>nl</Taal>
+								</Land>
+								<Postcode>2340</Postcode>
+								<NISCodeLand>150</NISCodeLand>
+								<ISOCodeLand>BEL</ISOCodeLand>
+								<NISCodeGemeente>24055</NISCodeGemeente>
+							</Hoofdverblijfplaats>
+						</Adressen>
+						<Afstammingen>
+							<Afstamming DatumBegin="2001-02-02">
+								<Type>
+									<Code>20</Code>
+									<Omschrijving>Kind</Omschrijving>
+								</Type>
+								<Plaats>
+									<Gemeente>
+										<NISCode>73066</NISCode>
+										<Naam>Riemst</Naam>
+									</Gemeente>
+									<Land>
+										<NISCode>150</NISCode>
+										<ISOCode>BEL</ISOCode>
+										<Naam>BELGIE</Naam>
+									</Land>
+								</Plaats>
+								<Aktenummer>00987</Aktenummer>
+								<Tekst>Test</Tekst>
+								<Ouders>
+									<Ouder>
+										<INSZ>66662599704</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Dubois</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Dubois</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+											<Omschrijving>Mannelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>1966-06-25</Geboortedatum>
+									</Ouder>
+								</Ouders>
+
+							</Afstamming>
+						</Afstammingen>
+						<Referentiepersoon DatumBegin="2016-05-23">
+							<INSZ>61630799829</INSZ>
+							<Naam>
+								<Achternamen>
+									<Achternaam>Peeters</Achternaam>
+								</Achternamen>
+								<Voornamen>
+									<Voornaam>Philippe</Voornaam>
+								</Voornamen>
+							</Naam>
+							<Geslacht>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+								<Omschrijving>Vrouwelijk</Omschrijving>
+							</Geslacht>
+							<Geboortedatum>1961-03-07</Geboortedatum>
+							<Positie>
+								<Code>03</Code>
+								<Omschrijving>Zoon</Omschrijving>
+							</Positie>
+							<Woonvorm>
+								<Code>00</Code>
+							</Woonvorm>
+						</Referentiepersoon>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>
+

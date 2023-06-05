@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<web:GeefGezinssamenstellingResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefgezinssamenstelling/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefGezinssamenstelling</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-08-07</Datum>
+                    <Tijd>09:22:59.303</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>60639483-5f43-49d3-9c28-ed0f1b79e0e8</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>XE:725:25975:8438</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>8438</Referte>
+                <Inhoud>
+                    <Gezinsleden>
+                        <Gezinslid>
+                            <INSZ>57611399743</INSZ>
+                            <Naam DatumBegin="1957-01-13">
+                                <Achternamen>
+                                    <Achternaam>Janssens</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Ludo</Voornaam>
+                                    <Voornaam>René</Voornaam>
+                                    <Voornaam>Gabriel</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                            <Geslacht>
+                                <Code>1</Code>
+                                <Omschrijving>Mannelijk</Omschrijving>
+                            </Geslacht>
+                            <Geboortedatum>1957-01-13</Geboortedatum>
+                            <Positie>
+                                <Code>01</Code>
+                                <Omschrijving Taal="nl">gezinshoofd</Omschrijving>
+                            </Positie>
+                            <Adressen>
+                                <Hoofdverblijfplaats DatumBegin="1992-12-07">
+                                    <Straatnaam>
+                                        <String>Dorpsstraat</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>47</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Den Haag</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>NEDERLAND</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                </Hoofdverblijfplaats>
+                            </Adressen>
+                            <Bron>
+                                <Code>RR</Code>
+                                <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                            </Bron>
+                            <Beheerder DatumBegin="1987-10-09">
+                                <Plaats>
+                                    <Land>
+                                        <NISCode>129</NISCode>
+                                        <ISOCode>NLD</ISOCode>
+                                        <Naam>Nederland</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                        </Gezinslid>
+                        <Gezinslid DatumBegin="1983-04-06">
+                            <INSZ>62680599650</INSZ>
+                            <Naam DatumBegin="1962-08-05">
+                                <Achternamen>
+                                    <Achternaam>Dubois</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Anna</Voornaam>
+                                    <Voornaam>Maria</Voornaam>
+                                    <Voornaam>Magdalena</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                            <Geslacht>
+                                <Code>2</Code>
+                                <Omschrijving>Vrouwelijk</Omschrijving>
+                            </Geslacht>
+                            <Geboortedatum>1962-08-05</Geboortedatum>
+                            <Positie>
+                                <Code>02</Code>
+                                <Omschrijving Taal="nl">echtgenoot/echtgenote</Omschrijving>
+                            </Positie>
+                            <Adressen>
+                                <Hoofdverblijfplaats DatumBegin="1992-12-07">
+                                    <Straatnaam>
+                                        <String>Dorpsstraat</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>47</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Den Haag</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>NEDERLAND</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                </Hoofdverblijfplaats>
+                            </Adressen>
+                            <Bron>
+                                <Code>RR</Code>
+                                <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                            </Bron>
+                            <Beheerder DatumBegin="1987-10-09">
+                                <Plaats>
+                                    <Land>
+                                        <NISCode>129</NISCode>
+                                        <ISOCode>NLD</ISOCode>
+                                        <Naam>Nederland</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                        </Gezinslid>
+                    </Gezinsleden>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefGezinssamenstellingResponse>

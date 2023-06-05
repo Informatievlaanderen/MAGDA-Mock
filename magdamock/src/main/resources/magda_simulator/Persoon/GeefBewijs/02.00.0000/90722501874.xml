@@ -1,0 +1,63 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope"><soapenv:Body>
+<web:GeefBewijsResponse xmlns:web="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+    <Repliek>
+        <Context xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+            <Naam>GeefBewijs</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2023-03-15</Datum>
+                    <Tijd>17:26:23.259</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>09c488c3-00c0-4f28-a539-c6ac36a9a228</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kbo0795547478.be/ipdc2892-aip</Identificatie>
+                    <Referte>33919b71-b1e8-49a6-8c4a-337b0c45f30f</Referte>
+                    <Hoedanigheid>ipdc2892</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                    bafd491e-8d09-41ba-9b38-d7787b1d9861
+                </Referte>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>15021</Identificatie>
+                        <Oorsprong>MAGDA</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2023-03-15</Datum>
+                            <Tijd>17:26:23</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens in antwoord wegens filtering</Diagnose>
+                    </Uitzondering>
+                    <Uitzondering>
+                        <Identificatie xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">40000
+                        </Identificatie>
+                        <Oorsprong xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">LED
+                        </Oorsprong>
+                        <Type xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">FOUT</Type>
+                        <Tijdstip xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                            <Datum>2023-03-15</Datum>
+                            <Tijd>17:26:23.259</Tijd>
+                        </Tijdstip>
+                        <Diagnose xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Geen gegevens
+                            gevonden.
+                        </Diagnose>
+                        <Omstandigheid xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                            INSZnummer
+                        </Omstandigheid>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefBewijsResponse>
+</soapenv:Body></soapenv:Envelope>

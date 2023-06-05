@@ -1,3 +1,0 @@
-<xs:schema targetNamespace="http://inburgering.be/types/V01" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="01.00" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:generiek="http://inburgering.be/types/v01" xmlns="http://inburgering.be/types/V01">
-	<xs:include schemaLocation="KBIComplex.xsd"/>
-</xs:schema>

@@ -12,10 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
 
-    private static final String INSZ_MAGDA_OVERBELAST = "91010100144";
+    private static final String INSZ_MAGDA_OVERBELAST = "91610100176";
     private static final String INSZ_GEENDATA = "67021546719";
-    private static final String INSZ_DATA_NA2000 = "00010122374";
-    private static final String INSZ_DATA_VOOR2000 = "82102108114";
+    private static final String INSZ_DATA_NA2000 = "00610122377";
+    private static final String INSZ_DATA_VOOR2000 = "82702108146";
 
 
     @Test

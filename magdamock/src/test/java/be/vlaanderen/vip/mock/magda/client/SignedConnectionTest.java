@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
 public class SignedConnectionTest extends MockTestBase {
 
-    private static final String REQUEST_INSZ = "67021546719";
+    private static final String REQUEST_INSZ = "67621546751";
 
     @Test
     @SneakyThrows

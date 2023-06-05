@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-08-03</Datum>
+					<Tijd>09:59:25.394</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>ecbcbbf5-76de-4d20-900e-4d838e193805</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-bo</Identificatie>
+					<Referte>XE:1086:25920:8390</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>8390</Referte>
+				<Inhoud>
+					<Persoon DatumCreatie="1991-02-26" DatumModificatie="2013-07-08">
+						<INSZ>62611799728</INSZ>
+						<Naam DatumBegin="1962-01-17">
+							<Achternamen>
+								<Achternaam>Janssens</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Zhenzhou</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Omschrijving>Mannelijk</Omschrijving>
+						</Geslacht>
+						<Statussen>
+							<Status DatumBegin="2005-06-22">
+								<Code>992</Code>
+								<Omschrijving>Afgeschreven naar het buitenland</Omschrijving>
+							</Status>
+						</Statussen>
+						<Beheerder DatumBegin="2005-07-08">
+							<Plaats>
+								<Land>
+									<NISCode>218</NISCode>
+									<ISOCode>CHN</ISOCode>
+									<Naam>China</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>2</Code>
+								<Omschrijving>Frans</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register DatumBegin="1991-08-26">
+							<Code>2</Code>
+							<Omschrijving>Bevolkingsregister</Omschrijving>							
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1991-08-02">
+								<Code>150</Code>
+								<Omschrijving>Belg</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1962-01-17">
+							<Datum>1962-01-17</Datum>
+							<Plaats>
+								<Gemeente>
+									<Naam>Kortenberg</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>218</NISCode>
+									<ISOCode>CHN</ISOCode>
+									<Naam>China</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer>00000</Aktenummer>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="2006-12-26">
+								<Code>20</Code>
+								<Omschrijving>Gehuwd</Omschrijving>
+								<Partner>
+									<INSZ>76682100084</INSZ>
+									<Naam>
+										<Achternamen>
+											<Achternaam>Dubois</Achternaam>
+										</Achternamen>
+										<Voornamen>
+											<Voornaam>Yan</Voornaam>
+										</Voornamen>
+									</Naam>
+									<Geslacht>
+										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+										<Omschrijving>Vrouwelijk</Omschrijving>
+									</Geslacht>
+									<Geboortedatum>1976-08-21</Geboortedatum>
+								</Partner>
+								<Plaats>
+									<Gemeente>
+										<Naam>Riemst</Naam>
+									</Gemeente>
+									<Land>
+										<NISCode>218</NISCode>
+										<ISOCode>CHN</ISOCode>
+										<Naam>China</Naam>
+									</Land>
+								</Plaats>
+								<Aktenummer>1994</Aktenummer>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="1997-11-08">
+								<Straatnaam>
+									<String>Dorpsstraat</String>
+									<Taal>nl</Taal>
+								</Straatnaam>
+								<Huisnummer>405</Huisnummer>
+								<Gemeentenaam>
+									<String>Kortenberg</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>BELGIE</String>
+									<Taal>nl</Taal>
+								</Land>
+								<Postcode>2340</Postcode>
+								<NISCodeLand>150</NISCodeLand>
+								<ISOCodeLand>BEL</ISOCodeLand>
+								<NISCodeGemeente>24055</NISCodeGemeente>
+							</Hoofdverblijfplaats>
+							<VerblijfplaatsBuitenland DatumBegin="2007-08-30">
+								<DiplomatiekePost>
+									<Code>2127</Code>
+									<Omschrijving>Shanghai</Omschrijving>
+									<Land>
+										<NISCode>218</NISCode>
+										<ISOCode>CHN</ISOCode>
+										<Naam>China</Naam>
+									</Land>
+								</DiplomatiekePost>
+								<Land>
+									<NISCode>218</NISCode>
+									<ISOCode>CHN</ISOCode>
+									<Naam>China</Naam>
+								</Land>
+								<Teksten>
+									<Tekst>Room 102, Building 7, Bibo Road 49</Tekst>
+									<Tekst>shanghai 201203</Tekst>
+								</Teksten>
+							</VerblijfplaatsBuitenland>
+							<AangifteAdresBuitenland DatumBegin="2005-06-22" DatumEinde="2005-07-08">
+								<Datum>2005-06-22</Datum>
+								<Land>
+									<NISCode>218</NISCode>
+									<ISOCode>CHN</ISOCode>
+									<Naam>China</Naam>
+								</Land>
+								<Teksten>
+									<Tekst>201203 SHANGHAI Pudong</Tekst>
+									<Tekst>Gate 7 Street,49 Bivo Road,102</Tekst>
+								</Teksten>
+							</AangifteAdresBuitenland>
+						</Adressen>
+						<Afstammingen>
+							<Afstamming DatumBegin="1962-01-17">
+								<Type>
+									<Code>00</Code>
+									<Omschrijving>Kind</Omschrijving>
+								</Type>
+								<Ouders>
+									<Ouder>
+										<INSZ>00600199970</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Janssens</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Liancheng</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+											<Omschrijving>Mannelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>2000-01-01</Geboortedatum>
+									</Ouder>
+									<Ouder>
+										<INSZ>00600100002</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Peeters</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Yunqing</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+											<Omschrijving>Vrouwelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>2000-01-01</Geboortedatum>
+									</Ouder>
+								</Ouders>
+							</Afstamming>
+						</Afstammingen>
+						<Gezinsleden>
+							<Gezinslid DatumBegin="1997-06-09">
+								<Positie>
+									<Code>01</Code>
+									<Omschrijving>Alleenstaand</Omschrijving>
+								</Positie>
+							</Gezinslid>
+						</Gezinsleden>
+						<Identiteitsbewijzen>
+							<Identiteitsbewijs DatumBegin="2005-07-20">
+								<Type>
+									<Code>0000</Code>
+									<Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
+								</Type>
+								<Nummer>533934557402</Nummer>
+
+								<Vervalgegevens>
+									<Vervaldatum>2015-07-19</Vervaldatum>
+									<Tekst>Tekst</Tekst>
+								</Vervalgegevens>
+								<Plaats>
+									<Land>
+										<NISCode>218</NISCode>
+										<ISOCode>CHN</ISOCode>
+										<Naam>China</Naam>
+									</Land>
+								</Plaats>
+							</Identiteitsbewijs>
+						</Identiteitsbewijzen>
+						<WettigeVerblijven>
+							<WettigVerblijf DatumBegin="1991-08-26" DatumEinde="1996-02-07">
+								<Teksten>
+									<Tekst>A.R.081081 Inscription-RP</Tekst>
+									<Tekst>K.B.081081 Inschrijving-BR</Tekst>
+								</Teksten>
+							</WettigVerblijf>
+						</WettigeVerblijven>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>
+
