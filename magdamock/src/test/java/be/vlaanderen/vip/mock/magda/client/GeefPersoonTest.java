@@ -14,7 +14,7 @@ public class GeefPersoonTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefPersoonGeeftAntwoord() {
-        final String requestInsz = "00000099504";
+        final String requestInsz = "00600099507";
         var aanvraag = new GeefPersoonAanvraag(requestInsz);
         AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
 

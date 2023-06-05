@@ -48,11 +48,11 @@ class StaticResponseSimulatorTest {
     @SneakyThrows
     void respondsWithStaticResource() {
         var simulator = new StaticResponseSimulator(ResourceFinders.magdaSimulator(), PERSOON, KEY_INSZ);
-        var request = makeBewijsAanvraagRequest("00071031644");
+        var request = makeBewijsAanvraagRequest("00671031647");
 
         var response = simulator.send(request);
 
-        assertEquals("2014070108135743208300001H", response.getValue("//Bewijs/Leverancier/Bewijsreferte"));
+        assertEquals("2014070108135743808300040H", response.getValue("//Bewijs/Leverancier/Bewijsreferte"));
     }
 
     @Nested
