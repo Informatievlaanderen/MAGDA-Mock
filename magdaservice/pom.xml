@@ -338,7 +338,7 @@
                   </name>
                   <build>
                     <contextDir>${project.basedir}</contextDir>
-                    <dockerFile>src/main/docker/Dockerfile</dockerFile>
+                    <dockerFile>src/main/docker/Dockerfile-internal</dockerFile>
                     <tags>
                       <tag>${project.version}</tag>
                     </tags>
