@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2021-07-14</Datum>
+					<Tijd>11:44:46.099</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>MagdaGateway</Naam>
+					<Referte>51c381a5-ed38-4eb0-a21b-085c1c662f77</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-aip</Identificatie>
+					<Referte>03ce0aa7-8a4b-4f16-a8f4-dd8231e900ed</Referte>
+					<Hoedanigheid>1300</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">03ce0aa7-8a4b-4f16-a8f4-dd8231e900ed</Referte>
+				<Inhoud>
+					<Persoon Bron="RR" DatumCreatie="2009-10-29" DatumModificatie="2018-02-19">
+						<INSZ xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">85701002906</INSZ>
+						<Naam DatumBegin="1985-10-10">
+							<Achternamen>
+								<Achternaam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Alesi</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Armand</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Omschrijving>Mannelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="2018-02-14">
+							<Plaats>
+								<Gemeente>
+									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">13036</NISCode>
+									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Retie</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCode>
+									<ISOCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCode>
+									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">0</Code>
+								<Omschrijving>NEEN</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+								<Omschrijving>Nederlands of Duits</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register DatumBegin="2009-05-05">
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">6</Code>
+							<Omschrijving>W.R.- EU-Burger, die een verklaring van inschrijving heeft aangevraagd</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1985-10-10">
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">111</Code>
+								<Omschrijving>Frankrijk</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1985-10-10">
+							<Datum xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1985-10-10</Datum>
+							<Plaats>
+								<Gemeente>
+									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Toulouse</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">111</NISCode>
+									<ISOCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">FRA</ISOCode>
+									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">FRANKRIJK</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">00101</Aktenummer>
+							<Bewijsstuk>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">00</Code>
+								<Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
+							</Bewijsstuk>
+						</Geboorte>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="2018-02-14">
+								<Land>
+									<String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</String>
+									<Taal xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">nl</Taal>
+								</Land>
+								<Postcode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2470</Postcode>
+								<NISCodeLand xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCodeLand>
+								<ISOCodeLand xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCodeLand>
+								<NISCodeGemeente xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">13036</NISCodeGemeente>
+								<StraatCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">9997</StraatCode>
+								<NietGestandaardiseerdeStraatnaam>
+									<String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Inschrijving op verklaring</String>
+								</NietGestandaardiseerdeStraatnaam>
+								<NietGestandaardiseerdeGemeentenaam>
+									<String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Retie</String>
+								</NietGestandaardiseerdeGemeentenaam>
+							</Hoofdverblijfplaats>
+						</Adressen>
+						<Referentiepersoon DatumBegin="2018-02-14">
+							<Positie>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">20</Code>
+								<Omschrijving>Gemeenschappen</Omschrijving>
+							</Positie>
+							<Woonvorm>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">00</Code>
+							</Woonvorm>
+						</Referentiepersoon>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>

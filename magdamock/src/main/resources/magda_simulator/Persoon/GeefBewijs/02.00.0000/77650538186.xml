@@ -1,0 +1,677 @@
+<web:GeefBewijsResponse xmlns:web="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+    <Repliek>
+        <Context xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+            <Naam>GeefBewijs</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2023-04-12</Datum>
+                    <Tijd>11:21:28.998</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>4e926192-699f-4c70-a94a-6c59fbd8c072</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kbo0795547478.be/ipdc2892-aip</Identificatie>
+                    <Referte>TEST_TNI_3</Referte>
+                    <Hoedanigheid>ipdc2892</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">TEST_TNI_3</Referte>
+                <Inhoud>
+                    <Bewijzen>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    00677180-3946-4cdb-a928-f5c827f4844d
+                                </Bewijsreferte>
+                                <Bewijsmutatiereferte
+                                        xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    ecc4da4f-67e4-4505-adef-127fe4ab3aa5
+                                </Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1</Code>
+                                <DatumModificatie>
+                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        22.03.2023
+                                    </Datum>
+                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        11:21:39.574
+                                    </Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Secundair
+                                    onderwijs
+                                </Naam>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    2f2a3af8-f68d-4eb3-8856-d740e824ba9a
+                                </Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    77650538186
+                                </INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Authentiek
+                                    </Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Secundair onderwijs
+                                    </Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1ste
+                                        graad
+                                    </Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">A
+                                    </Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Getuigschrift
+                                    </Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Eindbewijs
+                                    </Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Secundaire school
+                                    </Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        10001
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Algemene vorming
+                                    </Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        2010
+                                    </Jaar>
+                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06
+                                    </Maand>
+                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">30
+                                    </Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    Niet beschikbaar
+                                </VolledigeNaam>
+                                <Land>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">BEL
+                                    </Code>
+                                </Land>
+                                <Taal>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">nld
+                                    </Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Sint-Jozefsinstituut
+                                    </Naam>
+                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        35212
+                                    </Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Gewoon
+                                    </Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Handel
+                                    </Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        020092
+                                    </Code>
+                                </Studierichting>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                            Bewijs omschrijving
+                                        </Naam>
+                                        <Inhoud xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                            Getuigschrift A 1ste graad Secundair onderwijs Handel
+                                        </Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">010
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Basisopleidingen, algemene opleidingen
+                                    </Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">2
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1e
+                                        graad secundair onderwijs
+                                    </Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">NBS
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet
+                                        beschikbaar
+                                    </Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">NBS
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet
+                                        beschikbaar
+                                    </Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    5b86cca0-04d6-4a05-8aca-d9d97fd5a8b8
+                                </Bewijsreferte>
+                                <Bewijsmutatiereferte
+                                        xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    0580cf61-20b6-419f-a332-64f742f1d9b7
+                                </Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1</Code>
+                                <DatumModificatie>
+                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        22.03.2023
+                                    </Datum>
+                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        11:21:07.060
+                                    </Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Secundair
+                                    onderwijs
+                                </Naam>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    1a35689d-c191-40fc-924e-901841b9308c
+                                </Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    77650538186
+                                </INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Authentiek
+                                    </Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Secundair onderwijs
+                                    </Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">2de
+                                        graad
+                                    </Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">TSO
+                                    </Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Getuigschrift
+                                    </Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Eindbewijs
+                                    </Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Secundaire school
+                                    </Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        10001
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Algemene vorming
+                                    </Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        2012
+                                    </Jaar>
+                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06
+                                    </Maand>
+                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">30
+                                    </Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    Niet beschikbaar
+                                </VolledigeNaam>
+                                <Land>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">BEL
+                                    </Code>
+                                </Land>
+                                <Taal>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">nld
+                                    </Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Sint-Jozefsinstituut
+                                    </Naam>
+                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        35212
+                                    </Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Gewoon
+                                    </Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Sociale en technische wetenschappen
+                                    </Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        021338
+                                    </Code>
+                                </Studierichting>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                            Bewijs omschrijving
+                                        </Naam>
+                                        <Inhoud xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                            Getuigschrift TSO 2de graad Secundair onderwijs Sociale en technische
+                                            wetenschappen
+                                        </Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">010
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Basisopleidingen, algemene opleidingen
+                                    </Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">3A
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">ASO,
+                                        TSO en KSO Secundair onderwijs
+                                    </Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">NVT
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet
+                                        van toepassing
+                                    </Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">NBS
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet
+                                        beschikbaar
+                                    </Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    4a15dd07-d559-4c0d-a519-652768477377
+                                </Bewijsreferte>
+                                <Bewijsmutatiereferte
+                                        xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    55fa2599-938c-4d8d-8d75-8ab8d2be3c70
+                                </Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1</Code>
+                                <DatumModificatie>
+                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        22.03.2023
+                                    </Datum>
+                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        11:20:39.177
+                                    </Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Secundair
+                                    onderwijs
+                                </Naam>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    598abbb7-2a03-4d55-b5e5-21fb89424bed
+                                </Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    77650538186
+                                </INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Authentiek
+                                    </Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Secundair onderwijs
+                                    </Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">3de
+                                        graad
+                                    </Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">TSO
+                                    </Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Diploma
+                                    </Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Eindbewijs
+                                    </Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Secundaire school
+                                    </Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        10001
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Algemene vorming
+                                    </Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        2014
+                                    </Jaar>
+                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06
+                                    </Maand>
+                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">30
+                                    </Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    Niet beschikbaar
+                                </VolledigeNaam>
+                                <Land>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">BEL
+                                    </Code>
+                                </Land>
+                                <Taal>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">nld
+                                    </Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Sint-Jozefsinstituut
+                                    </Naam>
+                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        35212
+                                    </Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Gewoon
+                                    </Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Sociale en technische wetenschappen
+                                    </Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        021338
+                                    </Code>
+                                </Studierichting>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                            Bewijs omschrijving
+                                        </Naam>
+                                        <Inhoud xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                            Diploma TSO 3de graad Secundair onderwijs Sociale en technische
+                                            wetenschappen
+                                        </Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">010
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Basisopleidingen, algemene opleidingen
+                                    </Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">3A
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">ASO,
+                                        TSO en KSO Secundair onderwijs
+                                    </Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">4
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Niveau 4
+                                    </Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">NBS
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet
+                                        beschikbaar
+                                    </Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    6362328c-2bda-4f41-ae69-c538fd6f7aff
+                                </Bewijsreferte>
+                                <Bewijsmutatiereferte
+                                        xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    fc7831f2-ee52-434e-b72f-405cb17def65
+                                </Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1</Code>
+                                <DatumModificatie>
+                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        22.03.2023
+                                    </Datum>
+                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        11:20:03.337
+                                    </Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Hoger
+                                    onderwijs
+                                </Naam>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    7bb957da-6340-4d08-8923-4f7fd3ca2df9
+                                </Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    77650538186
+                                </INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Authentiek
+                                    </Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Hoger
+                                        onderwijs
+                                    </Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Master
+                                    </Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet
+                                        van toepassing
+                                    </Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Diploma
+                                    </Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Eindbewijs
+                                    </Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Universiteit
+                                    </Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        312002
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Sociologie
+                                    </Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        2019
+                                    </Jaar>
+                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06
+                                    </Maand>
+                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">30
+                                    </Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                    Niet beschikbaar
+                                </VolledigeNaam>
+                                <Land>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">BEL
+                                    </Code>
+                                </Land>
+                                <Taal>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">nld
+                                    </Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Katholieke Universiteit Leuven
+                                    </Naam>
+                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        110131
+                                    </Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet
+                                        van toepassing
+                                    </Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Sociologie
+                                    </Naam>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        027034
+                                    </Code>
+                                </Studierichting>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                            Bewijs omschrijving
+                                        </Naam>
+                                        <Inhoud xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                            Master of Science in de sociologie
+                                        </Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">312
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Sociologie en cultuurwetenschappen
+                                    </Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">5A
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Hoger
+                                        academisch onderwijs
+                                    </Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">7
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+                                        Niveau 7
+                                    </Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">NBS
+                                    </Code>
+                                    <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet
+                                        beschikbaar
+                                    </Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                    </Bewijzen>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefBewijsResponse>

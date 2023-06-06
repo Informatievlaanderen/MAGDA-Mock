@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-06-01</Datum>
+					<Tijd>12:21:18.038</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>a0869db7-2d85-42c5-b738-edef22b15d2a</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+					<Referte>XE:420:11815:1419</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>6048</Referte>
+				<Inhoud>
+					<Persoon DatumCreatie="2009-10-01" DatumModificatie="2014-11-13">
+						<INSZ>08611699887</INSZ>
+						<Naam DatumBegin="2014-11-13">
+							<Achternamen>
+								<Achternaam>Janssens</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Bart</Voornaam>
+								<Voornaam>Marie-Lisa</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+							<Omschrijving>Vrouwelijk</Omschrijving>
+						</Geslacht>
+						<Statussen>
+							<Status DatumBegin="2014-11-13">
+								<Code>99996</Code>
+								<Omschrijving>Afwezig verklaard</Omschrijving>
+							</Status>
+						</Statussen>
+						<Beheerder DatumBegin="2009-09-23">
+							<Plaats>
+								<Land>
+									<NISCode>126</NISCode>
+									<ISOCode>SWE</ISOCode>
+									<Naam>Zweden</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>2</Code>
+								<Omschrijving Taal="nl">Frans</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register>
+							<Code>02</Code>
+							<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="2008-01-16">
+								<Code>150</Code>
+								<Omschrijving>Belg</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="2008-01-16">
+							<Datum>2008-01-16</Datum>
+							<Plaats>
+								<Gemeente>
+									<Naam>Kortenberg</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>126</NISCode>
+									<ISOCode>SWE</ISOCode>
+									<Naam>Zweden</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer>06485</Aktenummer>
+							<Bewijsstuk>
+								<Code>00</Code>
+								<Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
+							</Bewijsstuk>
+						</Geboorte>
+						<Adressen>
+							<VerblijfplaatsBuitenland DatumBegin="2009-09-23">
+								<DiplomatiekePost>
+									<Code>1372</Code>
+									<Omschrijving>Stockholm</Omschrijving>
+									<Land>
+										<NISCode>126</NISCode>
+										<ISOCode>SWE</ISOCode>
+										<Naam>Zweden</Naam>
+									</Land>
+								</DiplomatiekePost>
+								<Land>
+									<NISCode>126</NISCode>
+									<ISOCode>SWE</ISOCode>
+									<Naam>Zweden</Naam>
+								</Land>
+								<Teksten>
+									<Tekst>Stavstigen 13</Tekst>
+									<Tekst>352 49 Kortenberg</Tekst>
+									<Tekst>Zweden</Tekst>
+								</Teksten>
+							</VerblijfplaatsBuitenland>
+						</Adressen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>

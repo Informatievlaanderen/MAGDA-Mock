@@ -1,0 +1,226 @@
+<geef:GeefBewijsResponse xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefBewijs</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-05-05</Datum>
+                    <Tijd>07:46:53.751</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>f43b0c2d-9efb-4504-b2fb-1f1ddf5eab75</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>wse.vlaanderen.be/vdab/mint-aip-bo</Identificatie>
+                    <Referte>XE:193:25162:8284</Referte>
+                    <Hoedanigheid>801</Hoedanigheid>
+                    <Gebruiker>77650526706</Gebruiker>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>8284</Referte>
+                <Inhoud>
+                    <Bewijzen>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte>4990ba39-4491-405c-adbe-52eeab589c0d</Bewijsreferte>
+                                <Bewijsmutatiereferte>e0123a1b-b6b9-4113-91fa-042976107544</Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code>1</Code>
+                                <DatumModificatie>
+                                    <Datum>12.07.2014</Datum>
+                                    <Tijd>03:16:09.287</Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam>Secundair onderwijs</Naam>
+                                <Bewijsreferte>2014070107062067301700040H</Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ>98640399761</INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam>Authentiek</Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam>Secundair onderwijs</Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam>2de graad</Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam>BSO</Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam>Getuigschrift</Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam>Eindbewijs</Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam>Secundaire school</Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code>521002</Code>
+                                    <Naam>Mechanica</Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar>2014</Jaar>
+                                    <Maand>06</Maand>
+                                    <Dag>30</Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam>Niet beschikbaar</VolledigeNaam>
+                                <Land>
+                                    <Code>BEL</Code>
+                                </Land>
+                                <Taal>
+                                    <Code>nld</Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam>Harlindis en Relindis T.I.St.-Jansberg A</Naam>
+                                    <Nummer>39636</Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam>Gewoon</Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam>Basismechanica</Naam>
+                                    <Code>033207</Code>
+                                </Studierichting>
+                                <UrenVolwassenenonderwijs>0</UrenVolwassenenonderwijs>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam>Bewijs omschrijving</Naam>
+                                        <Inhoud>Getuigschrift BSO 2de graad Secundair onderwijs Basismechanica</Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code>521</Code>
+                                    <Naam>Mechanica en metaal</Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code>3C</Code>
+                                    <Naam>BSO Secundair onderwijs</Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code>2</Code>
+                                    <Naam>Niveau 2</Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte>8e36400e-c4a7-48e0-86a8-604dfaef5ca6</Bewijsreferte>
+                                <Bewijsmutatiereferte>2caecad2-9770-45ee-95f1-839864504b71</Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code>1</Code>
+                                <DatumModificatie>
+                                    <Datum>05.07.2012</Datum>
+                                    <Tijd>06:56:33.529</Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam>Secundair onderwijs</Naam>
+                                <Bewijsreferte>2012070308303810182300034H</Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ>99043002320</INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam>Authentiek</Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam>Secundair onderwijs</Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam>1ste graad</Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam>B</Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam>Getuigschrift</Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam>Eindbewijs</Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam>Secundaire school</Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code>10001</Code>
+                                    <Naam>Algemene vorming</Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar>2012</Jaar>
+                                    <Maand>06</Maand>
+                                    <Dag>30</Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam>Niet beschikbaar</VolledigeNaam>
+                                <Land>
+                                    <Code>BEL</Code>
+                                </Land>
+                                <Taal>
+                                    <Code>nld</Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam>Harlindis en Relindis E.G.S.4</Naam>
+                                    <Nummer>127671</Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam>Gewoon</Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam>Nijverheid</Naam>
+                                    <Code>029185</Code>
+                                </Studierichting>
+                                <UrenVolwassenenonderwijs>0</UrenVolwassenenonderwijs>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam>Bewijs omschrijving</Naam>
+                                        <Inhoud>Getuigschrift B 1ste graad Secundair onderwijs Nijverheid</Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code>010</Code>
+                                    <Naam>Basisopleidingen, algemene opleidingen</Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code>2</Code>
+                                    <Naam>1e graad secundair onderwijs</Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                    </Bewijzen>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</geef:GeefBewijsResponse>
+

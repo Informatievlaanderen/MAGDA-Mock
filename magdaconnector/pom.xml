@@ -5,7 +5,7 @@
   <parent>
     <artifactId>magda</artifactId>
     <groupId>be.vlaanderen.vip.mock</groupId>
-    <version>0.24.0</version>
+    <version>0.25.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -32,7 +32,7 @@
     <dependency>
       <groupId>com.sun.xml.messaging.saaj</groupId>
       <artifactId>saaj-impl</artifactId>
-      <version>3.0.0</version>
+      <version>3.0.2</version>
       <scope>provided</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/jakarta.xml.soap/jakarta.xml.soap-api -->
@@ -47,39 +47,15 @@
       <artifactId>httpclient5</artifactId>
       <version>${apache.httpcomponents.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>${assertj-core.version}</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 
 
-  <!-- infrastructure -->
-  <distributionManagement>
-    <repository>
-      <id>central</id>
-      <name>magda-public-release</name>
-      <url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magda-releases</url>
-    </repository>
-    <snapshotRepository>
-      <id>snapshots</id>
-      <name>magda-public-snapshot</name>
-      <url>https://vlaamseoverheid.jfrog.io/vlaamseoverheid/magda-snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
+        <version>3.11.0</version>
         <configuration>
           <encoding>${project.build.sourceEncoding}</encoding>
           <forceJavacCompilerUse>true</forceJavacCompilerUse>
@@ -189,7 +165,7 @@
 	<plugin>
 	  <groupId>org.jacoco</groupId>
 	  <artifactId>jacoco-maven-plugin</artifactId>
-	  <version>0.8.8</version>
+	  <version>0.8.10</version>
 	</plugin>
       </plugins>
     </pluginManagement>

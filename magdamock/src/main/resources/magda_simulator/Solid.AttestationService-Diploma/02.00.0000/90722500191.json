@@ -1,0 +1,31 @@
+{
+  "@context" : [ "https://www.w3.org/2018/credentials/v1" ],
+  "holder" : "attestation.dev.magda.vlaanderen.be",
+  "type" : "VerifiablePresentation",
+  "verifiableCredential" : [ {
+    "@context" : [ "https://www.w3.org/2018/credentials/v1", "https://w3id.org/vc-revocation-list-2020/v1", "https://w3id.org/security/suites/ed25519-2020/v1", "https://gist.githubusercontent.com/laurensdeb/bbf15d23f267d11da3f3f9ba4b4a2933/raw/6548e2e4583b0c8c9435fcab35e8bc01328b7187/context.jsonld" ],
+    "id" : "http://localhost:55576/api/v1/credentials/b0117d57-1fa8-408b-9c2f-56b5bbfa05c5",
+    "type" : [ "VerifiableCredential", "LEDDiplomaCredential" ],
+    "issuer" : {
+      "id" : "https://beta.webid.burgerprofiel.dev-vlaanderen.be/profiles/a7561cac-6fbe-409f-9a41-963daba819b4"
+    },
+    "issuanceDate" : "2022-06-01T11:53:19.1324223Z",
+    "credentialSubject" : {
+      "degree" : [ ],
+      "id" : "user-web-id"
+    },
+    "credentialStatus" : {
+      "id" : "http://localhost:55576/api/v1/issuers/123/revocations/a79881e7-30cd-46df-8d2c-33f77734ea9a#13",
+      "type" : "RevocationList2020Status",
+      "revocationListIndex" : 13,
+      "revocationListCredential" : "http://localhost:55576/api/v1/issuers/123/revocations/a79881e7-30cd-46df-8d2c-33f77734ea9a"
+    },
+    "proof" : {
+      "type" : "Ed25519Signature2020",
+      "created" : "2022-06-01T11:53:19.143422Z",
+      "verificationMethod" : "http://localhost:55576/api/v1/issuers/123/keys#key1",
+      "proofPurpose" : "assertionMethod",
+      "proofValue" : "z4q9a3rg68amcgHpCQ56fw92mgdwkcNxLqLa355wEmDpSV9eY1KJDMyp1x8Ns4vkEYTBS3DZLQv9TRRiM21pH1F1h"
+    }
+  } ]
+}

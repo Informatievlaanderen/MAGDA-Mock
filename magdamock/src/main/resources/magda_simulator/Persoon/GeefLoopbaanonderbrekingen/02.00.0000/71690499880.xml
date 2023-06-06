@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:GeefLoopbaanonderbrekingenResponse
+        xmlns:p="http://webservice.geefloopbaanonderbrekingendienst-02_00.werk-02_00.vip.vlaanderen.be"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://webservice.geefloopbaanonderbrekingendienst-02_00.werk-02_00.vip.vlaanderen.be GeefLoopbaanonderbrekingenResponse.xsd ">
+    <Repliek>
+        <Context>
+            <Naam>GeefLoopbaanonderbrekingen</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-05-05</Datum>
+                    <Tijd>07:46:54.891</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>10abe64c-195f-47ec-929b-7fbbf7fa051c</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>wse.vlaanderen.be/vdab/mint-aip-bo</Identificatie>
+                    <Referte>XE:193:25162:8287</Referte>
+                    <Hoedanigheid>801</Hoedanigheid>
+                    <Gebruiker>71690499880</Gebruiker>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>AAA</Referte>
+                <Inhoud>
+                    <Loopbaanonderbrekingen>
+                        <Loopbaanonderbreking>
+                            <Bron>RVA</Bron>
+                            <INSZ>71690499880</INSZ>
+                            <Periode>
+                                <Begin>2015-02-02</Begin>
+                                <Einde>2020-02-01</Einde>
+                            </Periode>
+                            <BijkomendeActiviteit>
+                                <Code>2</Code>
+                                <Omschrijving>Zelfstandige</Omschrijving>
+                            </BijkomendeActiviteit>
+                            <Categorie>
+                                <Code>1</Code>
+                                <Omschrijving>Tijdskrediet</Omschrijving>
+                            </Categorie>
+                            <Vermindering>
+                                <Code>5</Code>
+                                <Omschrijving>Vermindering van de voordelen, vermindering 1/5</Omschrijving>
+                            </Vermindering>
+                            <BedragMaandelijkseUitkering>15838</BedragMaandelijkseUitkering>
+                        </Loopbaanonderbreking>
+                    </Loopbaanonderbrekingen>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</p:GeefLoopbaanonderbrekingenResponse>

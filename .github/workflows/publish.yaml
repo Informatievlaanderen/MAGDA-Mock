@@ -1,0 +1,43 @@
+# Publish JAR and docker image to Github packages
+name: publish-artifacts
+run-name: Publish artifacts to Github packages
+on:
+#  push:
+  release:
+    types: [created]
+env:
+  REGISTRY: ghcr.io
+  # Image name must be lower case
+  IMAGE_NAME: informatievlaanderen/magda-mock
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: mvn-cache
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '19'
+          distribution: 'temurin'
+      - name: Publish
+        # Disable tester module because it depends on an internal library.
+        # Disable artifactory profile and enable github for deployment.
+        run: mvn --batch-mode deploy -pl "!tester" -P "!artifactory,github"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Login to docker registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: magdaservice
+          file: magdaservice/src/main/docker/Dockerfile-github
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.GITHUB_REF }}

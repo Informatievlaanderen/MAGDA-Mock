@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-06-01</Datum>
+					<Tijd>12:21:38.400</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>5784d53d-d0a7-4e63-b7ec-61892a32ff5c</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+					<Referte>XE:420:11815:1419</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>6048</Referte>
+				<Inhoud>
+					<Persoon DatumCreatie="1970-07-28" DatumModificatie="1998-05-05">
+						<INSZ>70622299753</INSZ>
+						<Naam DatumBegin="1970-02-22">
+							<Achternamen>
+								<Achternaam>Janssens</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Vincent</Voornaam>
+								<Voornaam>Emmanuel</Voornaam>
+								<Voornaam>Franco</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Omschrijving>Mannelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="1994-02-09">
+							<Plaats>
+								<Gemeente>
+									<NISCode>24055</NISCode>
+									<Naam>Kortenberg</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register DatumBegin="1978-08-09">
+							<Code >2</Code>
+							<Omschrijving>Bevolkingsregister</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1970-07-23">
+								<Code>128</Code>
+								<Omschrijving>Italië</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1970-02-22">
+							<Datum>1970-02-22</Datum>
+							<Plaats>
+								<Gemeente>
+									<NISCode>73066</NISCode>
+									<Naam>Riemst</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer>00000</Aktenummer>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="1993-09-03">
+								<Code>80</Code>
+								<Omschrijving>Partnerschap</Omschrijving>
+								<Partner>
+									<INSZ>71670199859</INSZ>
+									<Naam>
+										<Achternamen>
+											<Achternaam>Dubois</Achternaam>
+										</Achternamen>
+										<Voornamen>
+											<Voornaam>Karima</Voornaam>
+										</Voornamen>
+									</Naam>
+									<Geslacht>
+										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+										<Omschrijving>Vrouwelijk</Omschrijving>
+									</Geslacht>
+									<Geboortedatum>1971-07-01</Geboortedatum>
+								</Partner>
+								<Plaats>
+									<Gemeente>
+										<NISCode>24055</NISCode>
+										<Naam>Grimbergen</Naam>
+									</Gemeente>
+									<Land>
+										<NISCode>150</NISCode>
+										<ISOCode>BEL</ISOCode>
+										<Naam>BELGIE</Naam>
+									</Land>
+								</Plaats>
+								<Aktenummer>0090</Aktenummer>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="2014-05-23">								
+								<Straatnaam>
+									<String>Dorpsstraat</String>
+									<Taal>nl</Taal>
+								</Straatnaam>
+								<Huisnummer>405</Huisnummer>
+								<Gemeentenaam>
+									<String>Kortenberg</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>BELGIE</String>
+									<Taal>nl</Taal>
+								</Land>
+								<Postcode>2340</Postcode>
+								<NISCodeLand>150</NISCodeLand>
+								<ISOCodeLand>BEL</ISOCodeLand>
+								<NISCodeGemeente>24055</NISCodeGemeente>
+							</Hoofdverblijfplaats>
+						</Adressen>
+						<Afstammingen>
+							<Afstamming DatumBegin="1970-02-22">
+								<Type>
+									<Code>00</Code>
+									<Omschrijving>Kind</Omschrijving>
+								</Type>
+								<Ouders>
+									<Ouder>
+										<INSZ>25691899753</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Janssens</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Giovanni</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+											<Omschrijving>Mannelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>1925-09-18</Geboortedatum>
+									</Ouder>
+									<Ouder>
+										<INSZ>41702599888</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Peeters</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Marie-Jeanne</Voornaam>
+												<Voornaam>Olga</Voornaam>
+												<Voornaam>Andrée</Voornaam>
+												<Voornaam>Magdeleine</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+											<Omschrijving>Vrouwelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>1941-10-25</Geboortedatum>
+									</Ouder>
+								</Ouders>
+							</Afstamming>
+						</Afstammingen>
+						<Referentiepersoon DatumBegin="1989-07-05" DatumEinde="1991-05-24">
+							<INSZ>60682199811</INSZ>
+							<Naam>
+								<Achternamen>
+									<Achternaam>Janssens</Achternaam>
+								</Achternamen>
+								<Voornamen>
+									<Voornaam>Pasqualina</Voornaam>
+									<Voornaam>Santina</Voornaam>
+									<Voornaam>Maria</Voornaam>
+								</Voornamen>
+							</Naam>
+							<Geslacht>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+								<Omschrijving>Vrouwelijk</Omschrijving>
+							</Geslacht>
+							<Geboortedatum>1960-08-21</Geboortedatum>
+							<Positie>
+								<Code>09</Code>
+								<Omschrijving>Broer</Omschrijving>
+							</Positie>
+						</Referentiepersoon>
+						<Gezinsleden>
+							<Gezinslid DatumBegin="1998-04-30">
+								<Positie>
+									<Code>01</Code>
+									<Omschrijving>Alleenstaand</Omschrijving>
+								</Positie>
+							</Gezinslid>
+						</Gezinsleden>
+						<Identiteitsbewijzen>
+							<Identiteitsbewijs DatumBegin="1998-05-05">
+								<Type>
+									<Code >0040</Code>
+									<Omschrijving>K. EEG</Omschrijving>
+								</Type>
+								<Nummer>667146376712</Nummer>
+								<Vervalgegevens>
+									<Vervaldatum>1902-07-23</Vervaldatum>
+									<Tekst>Tekst</Tekst>
+								</Vervalgegevens>
+								<Plaats>
+									<Gemeente>
+										<NISCode>24055</NISCode>
+										<Naam>Grimbergen</Naam>
+									</Gemeente>
+									<Land>
+										<NISCode>150</NISCode>
+										<ISOCode>BEL</ISOCode>
+										<Naam>BELGIE</Naam>
+									</Land>
+								</Plaats>
+							</Identiteitsbewijs>
+						</Identiteitsbewijzen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>

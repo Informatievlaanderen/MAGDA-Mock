@@ -1,0 +1,416 @@
+<geef:GeefBewijsResponse xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefBewijs</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-05-05</Datum>
+                    <Tijd>07:46:55.284</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>92454045-c846-446b-92df-37768c264332</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>wse.vlaanderen.be/vdab/mint-aip-bo</Identificatie>
+                    <Referte>XE:193:25162:8288</Referte>
+                    <Hoedanigheid>801</Hoedanigheid>
+                    <Gebruiker>77650526706</Gebruiker>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>8288</Referte>
+                <Inhoud>
+                    <Bewijzen>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte>037d75c3-fc57-470a-ac02-88e8c4462fe5</Bewijsreferte>
+                                <Bewijsmutatiereferte>d1f36094-b906-4e2a-9ee0-d935541b2a91</Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code>1</Code>
+                                <DatumModificatie>
+                                    <Datum>16.07.2014</Datum>
+                                    <Tijd>03:25:32.676</Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam>Secundair onderwijs</Naam>
+                                <Bewijsreferte>2014070204373750111300058H</Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ>96611827972</INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam>Authentiek</Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam>Secundair onderwijs</Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam>OV2</Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam>Attest</Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam>Eindbewijs</Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam>Secundaire school</Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code>10001</Code>
+                                    <Naam>Algemene vorming</Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar>2014</Jaar>
+                                    <Maand>06</Maand>
+                                    <Dag>30</Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam>Niet beschikbaar</VolledigeNaam>
+                                <Land>
+                                    <Code>BEL</Code>
+                                </Land>
+                                <Taal>
+                                    <Code>nld</Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam>Buso Mevrouw Govaerts instituut</Naam>
+                                    <Nummer>27755</Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam>Buitengewoon</Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam>Opleidingsvorm 2 fase 2</Naam>
+                                    <Code>015244</Code>
+                                </Studierichting>
+                                <UrenVolwassenenonderwijs>0</UrenVolwassenenonderwijs>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam>Bewijs omschrijving</Naam>
+                                        <Inhoud>Attest OV2 Secundair onderwijs Opleidingsvorm 2 fase 2</Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code>010</Code>
+                                    <Naam>Basisopleidingen, algemene opleidingen</Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code>2</Code>
+                                    <Naam>1e graad secundair onderwijs</Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte>9923805c-1485-4094-be80-915db75a172d</Bewijsreferte>
+                                <Bewijsmutatiereferte>45afe8ce-8436-4457-93ce-7a8b4a91b382</Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code>1</Code>
+                                <DatumModificatie>
+                                    <Datum>05.07.2013</Datum>
+                                    <Tijd>05:30:55.558</Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam>Secundair onderwijs</Naam>
+                                <Bewijsreferte>2013070303583205434400056H</Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ>96611827972</INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam>Authentiek</Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam>Secundair onderwijs</Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam>OV2</Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam>Attest</Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam>Eindbewijs</Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam>Secundaire school</Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code>10001</Code>
+                                    <Naam>Algemene vorming</Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar>2013</Jaar>
+                                    <Maand>06</Maand>
+                                    <Dag>30</Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam>Niet beschikbaar</VolledigeNaam>
+                                <Land>
+                                    <Code>BEL</Code>
+                                </Land>
+                                <Taal>
+                                    <Code>nld</Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam>Buso Mevrouw Govaerts instituut</Naam>
+                                    <Nummer>27755</Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam>Buitengewoon</Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam>Opleidingsvorm 2 fase 1</Naam>
+                                    <Code>015088</Code>
+                                </Studierichting>
+                                <UrenVolwassenenonderwijs>0</UrenVolwassenenonderwijs>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam>Bewijs omschrijving</Naam>
+                                        <Inhoud>Attest OV2 Secundair onderwijs Opleidingsvorm 2 fase 1</Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code>010</Code>
+                                    <Naam>Basisopleidingen, algemene opleidingen</Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code>2</Code>
+                                    <Naam>1e graad secundair onderwijs</Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte>ad1c81e3-0a3d-46c2-9a9b-0d140e8afcc9</Bewijsreferte>
+                                <Bewijsmutatiereferte>6ebe4350-fa83-44e6-ba97-27da8a02c0ee</Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code>1</Code>
+                                <DatumModificatie>
+                                    <Datum>30.08.2012</Datum>
+                                    <Tijd>02:11:27.217</Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam>Secundair onderwijs</Naam>
+                                <Bewijsreferte>2012082722323503853100019H</Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ>96611827972</INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam>Authentiek</Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam>Secundair onderwijs</Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam>OV2</Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam>Attest</Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam>Eindbewijs</Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam>Secundaire school</Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code>10001</Code>
+                                    <Naam>Algemene vorming</Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar>2012</Jaar>
+                                    <Maand>06</Maand>
+                                    <Dag>30</Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam>Niet beschikbaar</VolledigeNaam>
+                                <Land>
+                                    <Code>BEL</Code>
+                                </Land>
+                                <Taal>
+                                    <Code>nld</Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam>Buso Mevrouw Govaerts instituut</Naam>
+                                    <Nummer>27755</Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam>Buitengewoon</Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam>Opleidingsvorm 2 fase 1</Naam>
+                                    <Code>015088</Code>
+                                </Studierichting>
+                                <UrenVolwassenenonderwijs>0</UrenVolwassenenonderwijs>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam>Bewijs omschrijving</Naam>
+                                        <Inhoud>Attest OV2 Secundair onderwijs Opleidingsvorm 2 fase 1</Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code>010</Code>
+                                    <Naam>Basisopleidingen, algemene opleidingen</Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code>2</Code>
+                                    <Naam>1e graad secundair onderwijs</Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                        <Bewijs>
+                            <BewijsrefertesLed>
+                                <Bewijsreferte>e654ab76-b6de-4779-8292-7a3177200cbf</Bewijsreferte>
+                                <Bewijsmutatiereferte>bb2c11af-809f-4185-9961-41e386dfe1a8</Bewijsmutatiereferte>
+                            </BewijsrefertesLed>
+                            <BewijsstatusLed>
+                                <Code>1</Code>
+                                <DatumModificatie>
+                                    <Datum>21.01.2012</Datum>
+                                    <Tijd>03:35:38.832</Tijd>
+                                </DatumModificatie>
+                            </BewijsstatusLed>
+                            <Leverancier>
+                                <Naam>Secundair onderwijs</Naam>
+                                <Bewijsreferte>2011070823422635514000086H</Bewijsreferte>
+                            </Leverancier>
+                            <PersoonUitgereikt>
+                                <INSZ>96611827972</INSZ>
+                            </PersoonUitgereikt>
+                            <Basis>
+                                <Authenticiteit>
+                                    <Naam>Authentiek</Naam>
+                                </Authenticiteit>
+                                <Categorie>
+                                    <Naam>Secundair onderwijs</Naam>
+                                </Categorie>
+                                <Graad>
+                                    <Naam>OV3</Naam>
+                                </Graad>
+                                <Onderwijsvorm>
+                                    <Naam>Niet van toepassing</Naam>
+                                </Onderwijsvorm>
+                                <Bewijstype>
+                                    <Naam>Attest</Naam>
+                                </Bewijstype>
+                                <Bewijsstaat>
+                                    <Naam>Eindbewijs</Naam>
+                                </Bewijsstaat>
+                                <Instantie>
+                                    <Naam>Secundaire school</Naam>
+                                </Instantie>
+                                <Onderwerp>
+                                    <Code>10001</Code>
+                                    <Naam>Algemene vorming</Naam>
+                                </Onderwerp>
+                                <Uitreikingsdatum>
+                                    <Jaar>2011</Jaar>
+                                    <Maand>06</Maand>
+                                    <Dag>30</Dag>
+                                </Uitreikingsdatum>
+                                <VolledigeNaam>Niet beschikbaar</VolledigeNaam>
+                                <Land>
+                                    <Code>BEL</Code>
+                                </Land>
+                                <Taal>
+                                    <Code>nld</Code>
+                                </Taal>
+                                <Instelling>
+                                    <Naam>Instituut Mevr. Govaerts Bu.S.O.</Naam>
+                                    <Nummer>27755</Nummer>
+                                </Instelling>
+                                <Schooltype>
+                                    <Naam>Buitengewoon</Naam>
+                                </Schooltype>
+                                <Studierichting>
+                                    <Naam>Observatiejaar</Naam>
+                                    <Code>015001</Code>
+                                </Studierichting>
+                                <UrenVolwassenenonderwijs>0</UrenVolwassenenonderwijs>
+                                <BijkomendeInformaties>
+                                    <BijkomendeInformatie>
+                                        <Naam>Bewijs omschrijving</Naam>
+                                        <Inhoud>Attest OV3 Secundair onderwijs Observatiejaar</Inhoud>
+                                    </BijkomendeInformatie>
+                                </BijkomendeInformaties>
+                            </Basis>
+                            <Afgeleid>
+                                <ISCEDStudiegebied>
+                                    <Code>010</Code>
+                                    <Naam>Basisopleidingen, algemene opleidingen</Naam>
+                                </ISCEDStudiegebied>
+                                <ISCEDNiveau>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </ISCEDNiveau>
+                                <VKSNiveauOnderwijskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauOnderwijskwalificatie>
+                                <VKSNiveauBeroepskwalificatie>
+                                    <Code>NBS</Code>
+                                    <Naam>Niet beschikbaar</Naam>
+                                </VKSNiveauBeroepskwalificatie>
+                            </Afgeleid>
+                        </Bewijs>
+                    </Bewijzen>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</geef:GeefBewijsResponse>
+

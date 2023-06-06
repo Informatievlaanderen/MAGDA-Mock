@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<web:GeefHistoriekPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefhistoriekpersoon/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefHistoriekPersoon</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-07-17</Datum>
+                    <Tijd>15:50:12.796</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>8dbace61-ab4d-44f2-8bf7-738662690f55</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>ov.vlaanderen.be/studietoelagen/daf-aip-jg</Identificatie>
+                    <Referte>XE:1083:25734:8369</Referte>
+                    <Hoedanigheid>103</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>8369</Referte>
+                <Inhoud>
+                    <HistoriekPersoon>
+                        <INSZ>71690499880</INSZ>
+                        <HistoriekNaam>
+                            <Naam DatumBegin="1971-09-04">
+                                <Achternamen>
+                                    <Achternaam>Janssens</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Isabelle</Voornaam>
+                                    <Voornaam>Giovanna</Voornaam>
+                                    <Voornaam>Mariette</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                        </HistoriekNaam>
+                        <HistoriekGeslacht>
+                            <Geslacht>
+                                <Code>2</Code>
+                                <Omschrijving>Vrouwelijk</Omschrijving>
+                            </Geslacht>
+                        </HistoriekGeslacht>
+                        <HistoriekBeheerder>
+                            <Beheerder DatumBegin="1997-08-13">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>24055</NISCode>
+                                        <Naam>Kortenberg</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="1995-03-03" DatumEinde="1997-08-13">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>73066</NISCode>
+                                        <Naam>Riemst</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="1989-03-09" DatumEinde="1995-03-03">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>23025</NISCode>
+                                        <Naam>Grimbergen</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="1987-12-03" DatumEinde="1989-03-09">
+                                <Plaats>
+                                    <Land>
+                                        <NISCode>306</NISCode>
+                                        <ISOCode>COD</ISOCode>
+                                        <Naam>Congo (Dem. Rep.)</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="1986-07-05" DatumEinde="1987-12-03">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>23025</NISCode>
+                                        <Naam>Grimbergen</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="1984-01-05" DatumEinde="1986-07-05">
+                                <Plaats>
+                                    <Land>
+                                        <NISCode>306</NISCode>
+                                        <ISOCode>COD</ISOCode>
+                                        <Naam>Congo (Dem. Rep.)</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="1983-06-27" DatumEinde="1984-01-05">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>23025</NISCode>
+                                        <Naam>Grimbergen</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="1982-08-17" DatumEinde="1983-06-27">
+                                <Plaats>
+                                    <Land>
+                                        <NISCode>306</NISCode>
+                                        <ISOCode>COD</ISOCode>
+                                        <Naam>Congo (Dem. Rep.)</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="1977-01-02" DatumEinde="1982-08-17">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>23025</NISCode>
+                                        <Naam>Grimbergen</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="1975-11-22" DatumEinde="1977-01-02">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>21018</NISCode>
+                                        <Naam>Sint-Lambrechts-Woluwe</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                            <Beheerder DatumBegin="1971-12-02" DatumEinde="1975-11-22">
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>25023</NISCode>
+                                        <Naam>Court-Saint-Étienne</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Beheerder>
+                        </HistoriekBeheerder>
+                        <HistoriekNationaliteit>
+                            <Nationaliteit DatumBegin="1985-01-01">
+                                <Code>150</Code>
+                                <Omschrijving >België</Omschrijving>
+                            </Nationaliteit>
+                            <Nationaliteit DatumBegin="1971-09-04">
+                                <Code>128</Code>
+                                <Omschrijving >Italië</Omschrijving>
+                            </Nationaliteit>
+                        </HistoriekNationaliteit>
+                        <HistoriekGeboorte>
+                            <Geboorte>
+                                <Datum>1971-09-04</Datum>
+                                <Plaats>
+                                    <Gemeente>
+                                        <NISCode>24055</NISCode>
+                                        <Naam>Kortenberg</Naam>
+                                    </Gemeente>
+                                    <Land>
+                                        <NISCode>150</NISCode>
+                                        <ISOCode>BEL</ISOCode>
+                                        <Naam>België</Naam>
+                                    </Land>
+                                </Plaats>
+                            </Geboorte>
+                        </HistoriekGeboorte>
+                        <HistoriekBurgerlijkeStaat>
+                            <BurgerlijkeStaat DatumBegin="1971-09-04">
+                                <Code>10</Code>
+                                <Omschrijving >Ongehuwd</Omschrijving>
+                            </BurgerlijkeStaat>
+                        </HistoriekBurgerlijkeStaat>
+                        <HistoriekAdressen>
+                            <HistoriekHoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="2016-05-26">
+                                    <Straatnaam>
+                                        <String>Dorpsstraat</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>1</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Kortenberg</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>7712</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="1995-07-24">
+                                    <Straatnaam>
+                                        <String>Antwerpsesteenweg</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>35</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Riemst</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>7712</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>73066</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="1995-03-03">
+                                    <Straatnaam>
+                                        <String>Kerkplein</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>4</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Riemst</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>7712</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>5651</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="2009-02-02">
+                                    <Straatnaam>
+                                        <String>Koning Albert II laan</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>1</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Grimbergen</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+
+
+                                    <Postcode>5651</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>23025</NISCodeGemeente>
+
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="1979-05-03">
+                                    <Straatnaam>
+                                        <String>rue de l'église</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>10</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Grimbergen</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>7712</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="1975-11-22">
+                                    <Straatnaam>
+                                        <String>Antwerpsesteenweg</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>13</Huisnummer>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>7712</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                                <Hoofdverblijfplaats DatumBegin="1972-01-01">
+                                    <Straatnaam>
+                                        <String>Dorpsstraat</String>
+                                        <Taal>nl</Taal>
+                                    </Straatnaam>
+                                    <Huisnummer>1</Huisnummer>
+                                    <Gemeentenaam>
+                                        <String>Riemst</String>
+                                        <Taal>nl</Taal>
+                                    </Gemeentenaam>
+                                    <Land>
+                                        <String>BELGIE</String>
+                                        <Taal>nl</Taal>
+                                    </Land>
+                                    <Postcode>7712</Postcode>
+                                    <NISCodeLand>150</NISCodeLand>
+                                    <ISOCodeLand>BEL</ISOCodeLand>
+                                    <NISCodeGemeente>24055</NISCodeGemeente>
+                                </Hoofdverblijfplaats>
+                            </HistoriekHoofdverblijfplaats>
+                        </HistoriekAdressen>
+                    </HistoriekPersoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefHistoriekPersoonResponse>
+

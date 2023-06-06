@@ -1,0 +1,36 @@
+<web:GeefAttestResponse xmlns:web="http://webservice.geefattestdienst-02_00.persoon-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefAttest</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2018-04-07</Datum>
+                    <Tijd>06:00:42.394</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-mock-server</Identificatie>
+                    <Naam>Burgerloket Magda Mock</Naam>
+                    <Referte>61d7e928-b3b7-42bf-837f-715b827270c9</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-mock</Identificatie>
+                    <Referte>ab5d70c1-2451-4d01-9122-bce36b5ef991</Referte>
+                    <Hoedanigheid>1300</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>XE:184:3346:794</Referte>
+                <Inhoud>
+                    <Attest>
+                        <INSZ>86700400636</INSZ>
+                        <Document/>    
+                    </Attest>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefAttestResponse>

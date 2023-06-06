@@ -1,0 +1,51 @@
+{
+  "@context" : [ "https://www.w3.org/2018/credentials/v1" ],
+  "holder" : "attestation.dev.magda.vlaanderen.be",
+  "type" : "VerifiablePresentation",
+  "verifiableCredential" : [ {
+    "@context" : [ "https://www.w3.org/2018/credentials/v1", "https://w3id.org/vc-revocation-list-2020/v1", "https://w3id.org/security/suites/ed25519-2020/v1", "https://gist.githubusercontent.com/laurensdeb/bbf15d23f267d11da3f3f9ba4b4a2933/raw/6548e2e4583b0c8c9435fcab35e8bc01328b7187/context.jsonld" ],
+    "id" : "http://localhost:55576/api/v1/credentials/576077c4-389b-457a-a632-63dd701e241a",
+    "type" : [ "VerifiableCredential", "LEDDiplomaCredential" ],
+    "issuer" : {
+      "id" : "https://beta.webid.burgerprofiel.dev-vlaanderen.be/profiles/a7561cac-6fbe-409f-9a41-963daba819b4"
+    },
+    "issuanceDate" : "2022-06-01T11:53:20.7666631Z",
+    "credentialSubject" : {
+      "degree" : [ {
+        "reference" : "5bf165f0-0fa5-4abf-8ae3-5b42870bf449",
+        "@type" : "Degree",
+        "name" : "Niet beschikbaar"
+      }, {
+        "reference" : "327ebae7-cf75-40aa-9f28-ed64d75524ca",
+        "@type" : "Degree",
+        "name" : "Niet beschikbaar"
+      }, {
+        "reference" : "01a8ce4a-7f28-45dd-ada8-626165a767e8",
+        "@type" : "Degree",
+        "name" : "Niet beschikbaar"
+      }, {
+        "reference" : "ca7491ce-fac9-45e2-955a-6c929f9d79a3",
+        "@type" : "Degree",
+        "name" : "Niet beschikbaar"
+      }, {
+        "reference" : "38a16395-7e99-4733-b977-c05a48c8c438",
+        "@type" : "Degree",
+        "name" : "BSO 2de graad: Studiegebied Voeding"
+      } ],
+      "id" : "user-web-id"
+    },
+    "credentialStatus" : {
+      "id" : "http://localhost:55576/api/v1/issuers/123/revocations/a79881e7-30cd-46df-8d2c-33f77734ea9a#28",
+      "type" : "RevocationList2020Status",
+      "revocationListIndex" : 28,
+      "revocationListCredential" : "http://localhost:55576/api/v1/issuers/123/revocations/a79881e7-30cd-46df-8d2c-33f77734ea9a"
+    },
+    "proof" : {
+      "type" : "Ed25519Signature2020",
+      "created" : "2022-06-01T11:53:20.7716636Z",
+      "verificationMethod" : "http://localhost:55576/api/v1/issuers/123/keys#key1",
+      "proofPurpose" : "assertionMethod",
+      "proofValue" : "zZyxdTbcX2mHwSvawPnKSUyEPXoHiJFgi21NyQUT7xqdNL4TBRUzhzTWCJWoCAiXYM9fYRbseF4YtkHRAusHMX9d"
+    }
+  } ]
+}
