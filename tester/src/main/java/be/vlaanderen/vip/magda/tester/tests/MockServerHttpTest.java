@@ -34,9 +34,9 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 @SpringBootTest
 public class MockServerHttpTest extends MockServerTest {
 
-    private static final String CORRECT_INSZ = "67021546719";
-    private static final String INSZ_MAGDA_OVERBELAST = "91010100144";
-    private static final String INSZ_ECHTE_PASFOTO = "67021546719";
+    private static final String CORRECT_INSZ = "67621546751";
+    private static final String INSZ_MAGDA_OVERBELAST = "91610100176";
+    private static final String INSZ_ECHTE_PASFOTO = "67621546751";
     private static final String INSZ_RANDOM_MAN = "67021400130";
     private static final String INSZ_RANDOM_VROUW = "67021400229";
 
