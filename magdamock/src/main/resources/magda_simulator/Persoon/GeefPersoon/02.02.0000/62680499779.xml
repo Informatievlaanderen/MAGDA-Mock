@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-08-03</Datum>
+					<Tijd>09:53:51.740</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>478b8412-3418-4277-8d4e-504fed5ce63a</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-bo</Identificatie>
+					<Referte>XE:1086:25917:8377</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>8377</Referte>
+				<Inhoud>
+					<Persoon DatumCreatie="1980-07-17" DatumModificatie="1998-09-18">
+						<INSZ>62680499779</INSZ>
+						<Naam DatumBegin="1962-08-04">
+							<Achternamen>
+								<Achternaam>Janssens</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Philippe</Voornaam>
+								<Voornaam>Jean</Voornaam>
+								<Voornaam>Ghislain</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Omschrijving>Mannelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="1996-03-27">
+							<Plaats>
+								<Gemeente>
+									<NISCode>24055</NISCode>
+									<Naam>Kortenberg</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register>
+							<Code>02</Code>
+							<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1962-08-04">
+								<Code>150</Code>
+								<Omschrijving>Belg</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1962-08-04">
+							<Datum>1962-08-04</Datum>
+							<Plaats>
+								<Gemeente>
+									<NISCode>73066</NISCode>
+									<Naam>Riemst</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer>00000</Aktenummer>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="1989-05-27">
+								<Code>20</Code>
+								<Omschrijving>Gehuwd</Omschrijving>
+								<Partner>
+									<INSZ>68712799820</INSZ>
+									<Naam>
+										<Achternamen>
+											<Achternaam>Dubois</Achternaam>
+										</Achternamen>
+										<Voornamen>
+											<Voornaam>Fabienne</Voornaam>
+											<Voornaam>Michèle</Voornaam>
+											<Voornaam>Yvette</Voornaam>
+										</Voornamen>
+									</Naam>
+									<Geslacht>
+										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+										<Omschrijving>Vrouwelijk</Omschrijving>
+									</Geslacht>
+									<Geboortedatum>1968-11-27</Geboortedatum>
+								</Partner>
+								<Plaats>
+									<Gemeente>
+										<NISCode>23025</NISCode>
+										<Naam>Grimbergen</Naam>
+									</Gemeente>
+									<Land>
+										<NISCode>150</NISCode>
+										<ISOCode>BEL</ISOCode>
+										<Naam>BELGIE</Naam>
+									</Land>
+								</Plaats>
+								<Aktenummer>0028</Aktenummer>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="1996-03-27">					
+								<Straatnaam>
+									<String>Dorpsstraat</String>
+									<Taal>nl</Taal>
+								</Straatnaam>
+								<Huisnummer>405</Huisnummer>
+								<Gemeentenaam>
+									<String>Kortenberg</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>BELGIE</String>
+									<Taal>nl</Taal>
+								</Land>
+								<Postcode>2340</Postcode>
+								<NISCodeLand>150</NISCodeLand>
+								<ISOCodeLand>BEL</ISOCodeLand>
+								<NISCodeGemeente>24055</NISCodeGemeente>
+							</Hoofdverblijfplaats>
+							<AangifteAdreswijziging DatumBegin="1998-09-18">
+								<Datum>1998-09-18</Datum>
+								<Tekst>6560RUE DES DEPORTE 4</Tekst>
+							</AangifteAdreswijziging>
+						</Adressen>
+						<Afstammingen>
+							<Afstamming DatumBegin="1962-08-04">
+								<Type>
+									<Code>00</Code>
+									<Omschrijving>Kind</Omschrijving>
+								</Type>
+								<Ouders>
+									<Ouder>
+										<INSZ>00600199970</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Peeters</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Jean</Voornaam>
+												<Voornaam>Louis</Voornaam>
+												<Voornaam>Philippe</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+											<Omschrijving>Mannelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>2000-01-01</Geboortedatum>
+									</Ouder>
+									<Ouder>
+										<INSZ>33701999803</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Duchamp</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Suzanne</Voornaam>
+												<Voornaam>Augusta</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+											<Omschrijving>Vrouwelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>1933-10-19</Geboortedatum>
+									</Ouder>
+								</Ouders>
+							</Afstamming>
+						</Afstammingen>
+						<Referentiepersoon DatumBegin="1976-07-13" DatumEinde="1989-08-08">
+							<INSZ>13641999826</INSZ>
+							<Naam>
+								<Achternamen>
+									<Achternaam>Desmet</Achternaam>
+								</Achternamen>
+								<Voornamen>
+									<Voornaam>Zoé</Voornaam>
+									<Voornaam>Maria</Voornaam>
+								</Voornamen>
+							</Naam>
+							<Geslacht>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+								<Omschrijving>Vrouwelijk</Omschrijving>
+							</Geslacht>
+							<Geboortedatum>1913-04-19</Geboortedatum>
+							<Positie>
+								<Code>05</Code>
+								<Omschrijving>Kleinzoon</Omschrijving>
+							</Positie>
+						</Referentiepersoon>
+						<Gezinsleden>
+							<Gezinslid DatumBegin="1989-08-08">
+								<INSZ>68712799820</INSZ>
+								<Naam>
+									<Achternamen>
+										<Achternaam>Dubois</Achternaam>
+									</Achternamen>
+									<Voornamen>
+										<Voornaam>Fabienne</Voornaam>
+										<Voornaam>Michèle</Voornaam>
+										<Voornaam>Yvette</Voornaam>
+									</Voornamen>
+								</Naam>
+								<Geslacht>
+									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+									<Omschrijving>Vrouwelijk</Omschrijving>
+								</Geslacht>
+								<Geboortedatum>1968-11-27</Geboortedatum>
+								<Positie>
+									<Code>02</Code>
+									<Omschrijving>Echtgenote</Omschrijving>
+								</Positie>
+							</Gezinslid>
+							<Gezinslid DatumBegin="1990-03-12">
+								<INSZ>90631299803</INSZ>
+								<Naam>
+									<Achternamen>
+										<Achternaam>Janssens</Achternaam>
+									</Achternamen>
+									<Voornamen>
+										<Voornaam>Alice</Voornaam>
+										<Voornaam>Françoise</Voornaam>
+										<Voornaam>Ghislaine</Voornaam>
+									</Voornamen>
+								</Naam>
+								<Geslacht>
+									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+									<Omschrijving>Vrouwelijk</Omschrijving>
+								</Geslacht>
+								<Geboortedatum>1990-03-12</Geboortedatum>
+								<Positie>
+									<Code>03</Code>
+									<Omschrijving>Dochter</Omschrijving>
+								</Positie>
+							</Gezinslid>
+							<Gezinslid DatumBegin="1993-09-06">
+								<INSZ>93690699894</INSZ>
+								<Naam>
+									<Achternamen>
+										<Achternaam>Janssens</Achternaam>
+									</Achternamen>
+									<Voornamen>
+										<Voornaam>Florence</Voornaam>
+										<Voornaam>Sophie</Voornaam>
+										<Voornaam>Ghislaine</Voornaam>
+									</Voornamen>
+								</Naam>
+								<Geslacht>
+									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+									<Omschrijving>Vrouwelijk</Omschrijving>
+								</Geslacht>
+								<Geboortedatum>1993-09-06</Geboortedatum>
+								<Positie>
+									<Code>03</Code>
+									<Omschrijving>Dochter</Omschrijving>
+								</Positie>
+							</Gezinslid>
+						</Gezinsleden>
+						<Identiteitsbewijzen>
+							<Identiteitsbewijs DatumBegin="1996-06-12">
+								<Type>
+									<Code>0000</Code>
+									<Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
+								</Type>
+								<Nummer>776174534619</Nummer>								
+							</Identiteitsbewijs>
+						</Identiteitsbewijzen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>
+

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2021-07-14</Datum>
+					<Tijd>11:44:33.408</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>MagdaGateway</Naam>
+					<Referte>19040940-0d04-486c-a138-ba53fa2e18b4</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-aip</Identificatie>
+					<Referte>7b0488f3-71ea-4c53-a4e1-56d924fc32a6</Referte>
+					<Hoedanigheid>1300</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">7b0488f3-71ea-4c53-a4e1-56d924fc32a6</Referte>
+				<Inhoud>
+					<Persoon Bron="RR" DatumCreatie="2008-03-11" DatumModificatie="2008-03-11">
+						<INSZ xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">75721232437</INSZ>
+						<Naam DatumBegin="1975-12-12">
+							<Achternamen>
+								<Achternaam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Sermon</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Christianne</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+							<Omschrijving>Vrouwelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="1975-12-12">
+							<Plaats>
+								<Gemeente>
+									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">23077</NISCode>
+									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Sint-Pieters-Leeuw</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCode>
+									<ISOCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCode>
+									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">0</Code>
+								<Omschrijving>NEEN</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+								<Omschrijving>Nederlands of Duits</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1975-12-12">
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</Code>
+								<Omschrijving>Belg</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1975-12-12">
+							<Datum xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1975-12-12</Datum>
+							<Plaats>
+								<Gemeente>
+									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">21004</NISCode>
+									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Brussel</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCode>
+									<ISOCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCode>
+									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">05217</Aktenummer>
+							<Bewijsstuk>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">00</Code>
+								<Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
+							</Bewijsstuk>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="2000-10-09">
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">20</Code>
+								<Omschrijving>Gehuwd</Omschrijving>
+								<Partner>
+									<INSZ>77650538186</INSZ>
+									<Naam>
+										<Achternamen>
+											<Achternaam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Hubens</Achternaam>
+										</Achternamen>
+										<Voornamen>
+											<Voornaam>Igor</Voornaam>
+										</Voornamen>
+									</Naam>
+								</Partner>
+								<Plaats>
+									<Gemeente>
+										<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">23077</NISCode>
+										<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Sint-Pieters-Leeuw</Naam>
+									</Gemeente>
+									<Land>
+										<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCode>
+										<ISOCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCode>
+										<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</Naam>
+									</Land>
+								</Plaats>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="2003-03-20">
+								<Huisnummer xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">25</Huisnummer>
+								<Land>
+									<String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</String>
+									<Taal xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">nl</Taal>
+								</Land>
+								<Postcode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1600</Postcode>
+								<NISCodeLand xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCodeLand>
+								<ISOCodeLand xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCodeLand>
+								<NISCodeGemeente xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">23077</NISCodeGemeente>
+								<StraatCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">0185</StraatCode>
+								<NietGestandaardiseerdeStraatnaam>
+									<String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Vlezenbeeklaan</String>
+								</NietGestandaardiseerdeStraatnaam>
+								<NietGestandaardiseerdeGemeentenaam>
+									<String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Sint-Pieters-Leeuw</String>
+								</NietGestandaardiseerdeGemeentenaam>
+							</Hoofdverblijfplaats>
+						</Adressen>
+						<Referentiepersoon DatumBegin="2000-10-09" DatumEinde="2003-03-20">
+							<INSZ>77650538186</INSZ>
+							<Positie>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">02</Code>
+								<Omschrijving>Echtgenote</Omschrijving>
+							</Positie>
+						</Referentiepersoon>
+						<Gezinsleden>
+							<Gezinslid DatumBegin="2003-03-20">
+								<INSZ>02630300302</INSZ>
+								<Naam>
+									<Achternamen>
+										<Achternaam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Hubens</Achternaam>
+									</Achternamen>
+									<Voornamen>
+										<Voornaam>Josse-Pierre</Voornaam>
+									</Voornamen>
+								</Naam>
+								<Geslacht>
+									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+									<Omschrijving>Mannelijk</Omschrijving>
+								</Geslacht>
+								<Geboortedatum xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2002-03-03</Geboortedatum>
+								<Positie>
+									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">03</Code>
+									<Omschrijving>Zoon</Omschrijving>
+								</Positie>
+							</Gezinslid>
+						</Gezinsleden>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>

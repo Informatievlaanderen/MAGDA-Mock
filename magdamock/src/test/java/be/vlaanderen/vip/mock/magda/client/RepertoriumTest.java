@@ -17,8 +17,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class RepertoriumTest extends MockTestBase {
 
-    private static final String INSZ_MAGDA_OVERBELAST = "91010100144";
-    private static final String INSZ_REPERTORIUM_FOUT = "91010100243";
+    private static final String INSZ_MAGDA_OVERBELAST = "91610100176";
+    private static final String INSZ_REPERTORIUM_FOUT = "91610100275";
     private static final String INSZ_REPERTORIUM_OK = "67021546719";
 
     @Test

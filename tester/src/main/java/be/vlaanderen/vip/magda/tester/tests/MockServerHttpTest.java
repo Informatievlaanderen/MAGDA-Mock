@@ -34,9 +34,9 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 @SpringBootTest
 public class MockServerHttpTest extends MockServerTest {
 
-    private static final String CORRECT_INSZ = "67021546719";
-    private static final String INSZ_MAGDA_OVERBELAST = "91010100144";
-    private static final String INSZ_ECHTE_PASFOTO = "67021546719";
+    private static final String CORRECT_INSZ = "67621546751";
+    private static final String INSZ_MAGDA_OVERBELAST = "91610100176";
+    private static final String INSZ_ECHTE_PASFOTO = "67621546751";
     private static final String INSZ_RANDOM_MAN = "67021400130";
     private static final String INSZ_RANDOM_VROUW = "67021400229";
 
@@ -62,7 +62,7 @@ public class MockServerHttpTest extends MockServerTest {
         var afnemerLog = new AfnemerLogServiceMock();
         var magdaConfigDto = configureMagdaParameters();
         var magdaEndpoints = makeMockEndpoints();
-        var hoedanigheid = new MagdaHoedanigheidServiceImpl(magdaConfigDto, "magdamock.service.integrationtest");
+        var hoedanigheid = new MagdaHoedanigheidServiceImpl(magdaConfigDto);
         var soapConnection = new MagdaSoapConnection(magdaEndpoints, magdaConfigDto);
         var signatureConnection = new MagdaSignedConnection(soapConnection, magdaConfigDto);
         connector = new MagdaConnectorImpl(signatureConnection, afnemerLog, hoedanigheid);

@@ -5,7 +5,7 @@
     <parent>
         <artifactId>magda</artifactId>
         <groupId>be.vlaanderen.vip.mock</groupId>
-        <version>0.25.0-SNAPSHOT</version>
+        <version>0.27.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -124,7 +124,7 @@
                     <plugin>
                         <groupId>io.fabric8</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
-                        <version>0.42.1</version>
+                        <version>0.43.0</version>
                         <configuration>
                             <registry>vlaamseoverheid-magda-docker-snapshots.jfrog.io:443</registry>
                             <sourceDirectory>src/main/docker</sourceDirectory>
@@ -174,7 +174,7 @@
                     <plugin>
                         <groupId>io.fabric8</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
-                        <version>0.42.1</version>
+                        <version>0.43.0</version>
                         <configuration>
                             <registry>vlaamseoverheid-magda-docker-releases.jfrog.io:443</registry>
                             <sourceDirectory>src/main/docker</sourceDirectory>

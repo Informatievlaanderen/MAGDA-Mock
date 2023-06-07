@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2021-07-14</Datum>
+					<Tijd>11:44:43.740</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>MagdaGateway</Naam>
+					<Referte>a84824ac-d759-4a9e-a642-a02a209564f7</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-aip</Identificatie>
+					<Referte>bbd051b2-bb6b-4279-a1e4-d75d3d6dcef6</Referte>
+					<Hoedanigheid>1300</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">bbd051b2-bb6b-4279-a1e4-d75d3d6dcef6</Referte>
+				<Inhoud>
+					<Persoon Bron="RR" DatumCreatie="2009-10-29" DatumModificatie="2009-10-29">
+						<INSZ xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">81660624292</INSZ>
+						<Naam DatumBegin="1981-06-06">
+							<Achternamen>
+								<Achternaam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Bruni</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Justine</Voornaam>
+								<Voornaam>Julie</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+							<Omschrijving>Vrouwelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="1981-06-06">
+							<Plaats>
+								<Gemeente>
+									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">21004</NISCode>
+									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Brussel</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCode>
+									<ISOCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCode>
+									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">0</Code>
+								<Omschrijving>NEEN</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+								<Omschrijving>Frans</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1981-06-06">
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</Code>
+								<Omschrijving>Belg</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1981-06-06">
+							<Datum xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1981-06-06</Datum>
+							<Plaats>
+								<Gemeente>
+									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">21010</NISCode>
+									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Jette</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCode>
+									<ISOCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCode>
+									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">04444</Aktenummer>
+							<Bewijsstuk>
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">00</Code>
+								<Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
+							</Bewijsstuk>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="2002-06-06">
+								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">41</Code>
+								<Omschrijving>Uit de echt gescheiden</Omschrijving>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="1981-06-06">
+								<Huisnummer xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">32</Huisnummer>
+								<Land>
+									<String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</String>
+									<Taal xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">nl</Taal>
+								</Land>
+								<Postcode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1000</Postcode>
+								<NISCodeLand xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCodeLand>
+								<ISOCodeLand xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCodeLand>
+								<NISCodeGemeente xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">21004</NISCodeGemeente>
+								<StraatCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1005</StraatCode>
+								<NietGestandaardiseerdeStraatnaam>
+									<String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Ezelsstraat</String>
+								</NietGestandaardiseerdeStraatnaam>
+								<NietGestandaardiseerdeGemeentenaam>
+									<String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Brussel</String>
+								</NietGestandaardiseerdeGemeentenaam>
+							</Hoofdverblijfplaats>
+						</Adressen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.6</version>
+		<version>3.1.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>be.vlaanderen.vip.mock</groupId>
 	<artifactId>magda</artifactId>
-	<version>0.25.0-SNAPSHOT</version>
+	<version>0.27.0-SNAPSHOT</version>
 	<name>magdaservice</name>
 	<description>MAGDA diensten Mock voor afnemers</description>
 	<properties>
@@ -22,19 +21,19 @@
 		<magda-openjdk.version>19.0.2</magda-openjdk.version>
 		<docker.image>magdamock.service</docker.image>
 		<assertj-core.version>3.24.2</assertj-core.version>
-		<commons-io.version>2.11.0</commons-io.version>
+		<commons-io.version>2.12.0</commons-io.version>
 		<commons-lang3.version>3.12.0</commons-lang3.version>
 		<dom4j.version>2.1.4</dom4j.version>
 		<jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
-		<jackson-dataformat-yaml.version>2.15.0</jackson-dataformat-yaml.version>
+		<jackson-dataformat-yaml.version>2.15.2</jackson-dataformat-yaml.version>
 		<javax.json.version>1.1.4</javax.json.version>
 		<log4j2.version>2.18.0</log4j2.version>
 		<logstash.logback.version>7.3</logstash.logback.version>
-		<lombok.version>1.18.26</lombok.version>
+		<lombok.version>1.18.28</lombok.version>
 		<mapstruct-lombok.version>0.2.0</mapstruct-lombok.version>
 		<mockito.version>5.3.1</mockito.version>
 		<org.apache.wss4j.version>2.4.1</org.apache.wss4j.version>
-		<spring-cloud.version>2022.0.2</spring-cloud.version>
+		<spring-cloud.version>2022.0.3</spring-cloud.version>
 		<springdoc.api>1.7.0</springdoc.api>
 		<springfox-swagger2.version>3.0.0</springfox-swagger2.version>
 		<testrunner.version>0.2.0</testrunner.version>
@@ -73,6 +72,24 @@
 	    </distributionManagement>
 	  </profile>
 	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.xmlunit</groupId>
+			<artifactId>xmlunit-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.xmlunit</groupId>
+			<artifactId>xmlunit-matchers</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<modules>
 		<module>magdaservice</module>

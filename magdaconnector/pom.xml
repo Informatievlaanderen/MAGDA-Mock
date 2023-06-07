@@ -5,7 +5,7 @@
   <parent>
     <artifactId>magda</artifactId>
     <groupId>be.vlaanderen.vip.mock</groupId>
-    <version>0.25.0-SNAPSHOT</version>
+    <version>0.27.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -32,7 +32,7 @@
     <dependency>
       <groupId>com.sun.xml.messaging.saaj</groupId>
       <artifactId>saaj-impl</artifactId>
-      <version>3.0.1</version>
+      <version>3.0.2</version>
       <scope>provided</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/jakarta.xml.soap/jakarta.xml.soap-api -->
@@ -46,17 +46,6 @@
       <groupId>org.apache.httpcomponents.client5</groupId>
       <artifactId>httpclient5</artifactId>
       <version>${apache.httpcomponents.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>${assertj-core.version}</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 

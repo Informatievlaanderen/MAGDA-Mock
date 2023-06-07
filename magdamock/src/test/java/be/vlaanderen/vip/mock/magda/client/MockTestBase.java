@@ -1,17 +1,22 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import be.vlaanderen.vip.magda.client.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.BeforeEach;
+
+import be.vlaanderen.vip.magda.client.Aanvraag;
+import be.vlaanderen.vip.magda.client.MagdaAntwoord;
+import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.MagdaSignedConnection;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import lombok.extern.slf4j.Slf4j;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.jupiter.api.BeforeEach;
 
 @Slf4j
 public abstract class MockTestBase {
@@ -34,13 +39,12 @@ public abstract class MockTestBase {
     
     @BeforeEach
     void setup() {
-        finder = new ResourceFinder();
+        finder = ResourceFinders.magdaSimulator();
     }
 
     protected MagdaConnectorImpl makeMagdaConnector(AfnemerLogServiceMock afnemerLogService) {
         var mockConnection = mockConnection();
         var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
-                .name(TEST_SERVICE_NAAM)
                 .identification(TEST_SERVICE_URI)
                 .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                 .build();
@@ -60,7 +64,6 @@ public abstract class MockTestBase {
         var signedConnection = new MagdaSignedConnection(mockConnection, signedConnectionRequestSignerKeystore, signedConnectionResponseVerifierKeystore);
 
         var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
-                .name(TEST_SERVICE_NAAM)
                 .identification(TEST_SERVICE_URI)
                 .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                 .build();

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:GeefStatusRechtOndersteuningenResponse
+        xmlns:p="http://webservice.geefstatusrechtondersteuningen-02_00.socecon-02_00.vip.vlaanderen.be"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://webservice.geefstatusrechtondersteuningen-02_00.socecon-02_00.vip.vlaanderen.be StatusRechtOndersteuningenResponse.xsd ">
+    <Repliek>
+        <Context>
+            <Naam>GeefStatusRechtOndersteuningen</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-05-05</Datum>
+                    <Tijd>07:46:54.891</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>10abe64c-195f-47ec-929b-7fbbf7fa051c</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>wse.vlaanderen.be/vdab/mint-aip-bo</Identificatie>
+                    <Referte>XE:193:25162:8287</Referte>
+                    <Hoedanigheid>801</Hoedanigheid>
+                    <Gebruiker>71690498890</Gebruiker>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>AAA</Referte>
+                <Inhoud>
+                    <StatusRechtOndersteuningen>
+                        <StatusRechtOndersteuning>
+                            <Maatregel>
+                                <Code>LDE</Code>
+                                <Omschrijving>Lokale Diensten Economie</Omschrijving>
+                            </Maatregel>
+                            <INSZ>71690498890</INSZ>
+                           <Status>
+                                <Code>GG</Code>
+                                <Omschrijving>Goedgekeurd</Omschrijving>
+                            </Status>
+                            <DatumBeslissing>2015-01-01</DatumBeslissing>
+                            <Periode>
+                                <Begin>2015-01-01</Begin>
+                                <Einde>2015-12-31</Einde>
+                            </Periode>
+                        </StatusRechtOndersteuning>
+                    </StatusRechtOndersteuningen>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</p:GeefStatusRechtOndersteuningenResponse>
