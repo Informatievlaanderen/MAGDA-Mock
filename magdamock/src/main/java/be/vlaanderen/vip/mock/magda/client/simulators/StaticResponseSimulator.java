@@ -24,10 +24,10 @@ public class StaticResponseSimulator extends BaseSOAPSimulator {
 
     @Override
     public MagdaDocument send(MagdaDocument request) throws MagdaMockException {
-        var values = keys.stream().map(request::getValue).toList();
-
         var dienst = request.getValue("//Verzoek/Context/Naam");
         var versie = request.getValue("//Verzoek/Context/Versie");
+
+        var values = keys.stream().map(request::getValue).toList();
 
         var responseBody = loadResource(dienst, versie, values);
         if (responseBody == null) {

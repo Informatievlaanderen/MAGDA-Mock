@@ -41,11 +41,10 @@ public class RandomPasfotoSimulator extends BaseSOAPSimulator {
 
     @Override
     public MagdaDocument send(MagdaDocument request) throws MagdaMockException {
-        var values = keys.stream().map(request::getValue).toList();
-        var insz = values.get(0);
-
         var dienst = request.getValue("//Verzoek/Context/Naam");
         var versie = request.getValue("//Verzoek/Context/Versie");
+
+        var insz = request.getValue(keys.get(0));
 
         var responseBody = loadSimulatorResource(type, exactPasFotoresourcePath(dienst, versie, insz));
         if (responseBody == null) {
