@@ -13,7 +13,6 @@ public class TestcaseService {
 
     @Override
     public String toString() {
-        return service + "/" + version;
+        return String.join("/", service, version);
     }
-
 }

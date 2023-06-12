@@ -17,9 +17,9 @@ public abstract class MockServerTest {
     protected TesterConfig testerConfig;
 
     public boolean somebodyListeningOn(String host, int port) {
-        boolean ret = false;
+        var ret = false;
         try {
-            Socket s = new Socket(host, port);
+            var s = new Socket(host, port);
             ret = true;
             s.close();
         } catch (Exception e) {
@@ -29,7 +29,7 @@ public abstract class MockServerTest {
     }
 
     protected void assertServiceAvailable() throws InterruptedException {
-        for(int attempt = 1; attempt <= testerConfig.getProbeRetryMax(); attempt++) {
+        for(var attempt = 1; attempt <= testerConfig.getProbeRetryMax(); attempt++) {
             log.debug("Checking if MagdaMock service is running (" + attempt + "/" + testerConfig.getProbeRetryMax() + ")");
             if(somebodyListeningOn(testerConfig.getServiceHost(), testerConfig.getServicePort())) {
                 log.debug("MagdaMock service available.");

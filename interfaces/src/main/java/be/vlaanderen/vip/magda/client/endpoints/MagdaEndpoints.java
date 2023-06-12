@@ -13,7 +13,7 @@ public interface MagdaEndpoints {
 
     class Builder {
 
-        private ServiceMappedMagdaEndpoints serviceMappedMagdaEndpoints;
+        private final ServiceMappedMagdaEndpoints serviceMappedMagdaEndpoints;
 
         public Builder() {
             this.serviceMappedMagdaEndpoints = new ServiceMappedMagdaEndpoints();

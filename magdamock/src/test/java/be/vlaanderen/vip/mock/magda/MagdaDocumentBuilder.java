@@ -1,17 +1,15 @@
 package be.vlaanderen.vip.mock.magda;
 
-import java.util.Map;
-
+import be.vlaanderen.vip.magda.client.MagdaDocument;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
-import be.vlaanderen.vip.magda.client.MagdaDocument;
+import java.util.Map;
 
 public class MagdaDocumentBuilder {
-    private static XmlMapper mapper = new XmlMapper();
+    private static final XmlMapper mapper = new XmlMapper();
     
-    MagdaDocumentBuilder() {}
-
+    private MagdaDocumentBuilder() {}
     
     public static MagdaDocument request(Map<Object, Object> map) {
         return MagdaDocument.fromString(toXmlString("Verzoek", map));

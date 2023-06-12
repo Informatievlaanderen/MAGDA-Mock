@@ -1,12 +1,12 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockException;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 
 public class StaticResponseSimulator extends BaseSOAPSimulator {
     private final String type;
@@ -23,26 +23,26 @@ public class StaticResponseSimulator extends BaseSOAPSimulator {
     }
 
     @Override
-    public MagdaDocument send(MagdaDocument request) throws MagdaSendFailed {
-        var params = new MagdaRequest(request, keys);
+    public MagdaDocument send(MagdaDocument request) throws MagdaMockException {
+        var values = keys.stream().map(request::getValue).toList();
 
-        var dienst = params.getServiceNaam();
-        var versie = params.getServiceVersie();
+        var dienst = request.getValue("//Verzoek/Context/Naam");
+        var versie = request.getValue("//Verzoek/Context/Versie");
 
-        var responseBody = loadResource(dienst, versie, params.getKeys());
+        var responseBody = loadResource(dienst, versie, values);
         if (responseBody == null) {
-            responseBody = loadResource(dienst, versie, replaceLastKey(params.getKeys(), "notfound"));
+            responseBody = loadResource(dienst, versie, replaceLastKey(values, "notfound"));
         }
         if (responseBody == null) {
-            responseBody = loadResource(dienst, versie, replaceLastKey(params.getKeys(), "success"));
+            responseBody = loadResource(dienst, versie, replaceLastKey(values, "success"));
         }
 
         if (responseBody != null) {
-            patchResponse(params, responseBody);
+            patchResponse(request, responseBody);
 
             return wrapInEnvelope(responseBody);
         } else {
-            throw new MagdaSendFailed("Geen mock data gevonden voor request naar " + dienst + " " + versie);
+            throw new MagdaMockException("No mock data found for request to %s %s".formatted(dienst, versie));
         }
     }
 

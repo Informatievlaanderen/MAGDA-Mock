@@ -10,17 +10,17 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 @Slf4j
-public class GeefAanslagbiljetPersonenBelastingTest extends TestBase {
+class GeefAanslagbiljetPersonenBelastingTest extends TestBase {
 
     @Test
     void aanvraagFillsInStandardRequestParameters() {
 
-        var insz = RandomStringUtils.randomNumeric(11) ;
+        var insz = RandomStringUtils.randomNumeric(11);
         var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(insz);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
+        var request = MagdaDocument.fromTemplate(aanvraag);
 
-        MagdaRegistrationInfo mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
+        var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
                 .build();
 
@@ -50,9 +50,9 @@ public class GeefAanslagbiljetPersonenBelastingTest extends TestBase {
             var insz = RandomStringUtils.randomNumeric(11) ;
             var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(insz);
 
-            MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
+            var request = MagdaDocument.fromTemplate(aanvraag);
 
-            MagdaRegistrationInfo mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
+            var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                     .identification(TEST_SERVICE_URI)
                     .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();

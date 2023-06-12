@@ -23,13 +23,15 @@ public class MagdaEndpointsTest {
 
             assertEquals(URI.create("http://foo/endpoint"), magdaEndpoints.magdaUri(new MagdaServiceIdentificatie("foo", "00.01.00")));
             assertEquals(URI.create("http://bar/endpoint"), magdaEndpoints.magdaUri(new MagdaServiceIdentificatie("bar", "00.02.00")));
-            assertThrows(IllegalArgumentException.class, () -> magdaEndpoints.magdaUri(new MagdaServiceIdentificatie("baz", "00.01.00")));
-            assertThrows(IllegalArgumentException.class, () -> magdaEndpoints.magdaUri(new MagdaServiceIdentificatie("foo", "00.02.00")));
+            var identification1 = new MagdaServiceIdentificatie("baz", "00.01.00");
+            assertThrows(IllegalArgumentException.class, () -> magdaEndpoints.magdaUri(identification1));
+            var identification2 = new MagdaServiceIdentificatie("foo", "00.02.00");
+            assertThrows(IllegalArgumentException.class, () -> magdaEndpoints.magdaUri(identification2));
         }
 
         @Test
         void relativeUriIsNotAllowed() {
-            assertThrows(IllegalArgumentException.class, () -> MagdaEndpoints.builder().addMapping("foo", "00.01.00", MagdaEndpoint.of("/endpoint")));
+            assertThrows(IllegalArgumentException.class, () -> MagdaEndpoint.of("/endpoint"));
         }
     }
 }

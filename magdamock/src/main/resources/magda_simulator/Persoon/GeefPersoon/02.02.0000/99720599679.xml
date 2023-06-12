@@ -134,26 +134,6 @@
 										</Geslacht>
 										<Geboortedatum>1958-12-15</Geboortedatum>
 									</Ouder>
-									<!--
-                                    <Ouder>
-                                        <INSZ>63610599820</INSZ>
-                                        <Naam>
-                                            <Achternamen>
-                                                <Achternaam>Dubois</Achternaam>
-                                            </Achternamen>
-                                            <Voornamen>
-                                                <Voornaam>Sophie</Voornaam>
-                                                <Voornaam>Ghislaine</Voornaam>
-                                                <Voornaam>Brigitte</Voornaam>
-                                            </Voornamen>
-                                        </Naam>
-                                        <Geslacht>
-                                            <Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-<Omschrijving>Vrouwelijk</Omschrijving>
-                                        </Geslacht>
-                                        <Geboortedatum>1963-01-05</Geboortedatum>
-                                    </Ouder>
-                                    -->
 								</Ouders>
 							</Afstamming>
 						</Afstammingen>

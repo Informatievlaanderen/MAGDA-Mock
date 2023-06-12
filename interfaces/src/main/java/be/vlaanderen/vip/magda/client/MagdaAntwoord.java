@@ -10,7 +10,6 @@ import org.w3c.dom.Node;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
-import java.util.function.Predicate;
 
 @Getter
 @Builder
@@ -24,11 +23,6 @@ public class MagdaAntwoord {
     private final MagdaDocument document;
     private final boolean heeftInhoud;
     private final Set<String> insz;
-
-    public void verwijderUitzonderingen(Predicate<Uitzondering> reject) {
-        uitzonderingen.removeIf(reject);
-        antwoordUitzonderingen.removeIf(reject);
-    }
 
     public boolean isBodyIngevuld() {
         return uitzonderingen.isEmpty() && heeftInhoud && body != null;

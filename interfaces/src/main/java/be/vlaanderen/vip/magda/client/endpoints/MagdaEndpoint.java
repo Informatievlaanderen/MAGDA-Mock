@@ -7,7 +7,7 @@ import java.net.URI;
 @Getter
 public class MagdaEndpoint {
 
-    private URI uri;
+    private final URI uri;
 
     private MagdaEndpoint(URI uri) {
         this.uri = uri;

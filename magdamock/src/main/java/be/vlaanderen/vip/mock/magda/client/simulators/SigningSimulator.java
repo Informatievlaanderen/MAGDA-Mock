@@ -1,11 +1,10 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
-import org.apache.wss4j.common.ext.WSSecurityException;
-
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.security.DocumentSigner;
-import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockException;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import org.apache.wss4j.common.ext.WSSecurityException;
 
 public class SigningSimulator extends BaseSOAPSimulator {
 
@@ -19,13 +18,13 @@ public class SigningSimulator extends BaseSOAPSimulator {
     }
 
     @Override
-    public MagdaDocument send(MagdaDocument request) throws MagdaSendFailed {
+    public MagdaDocument send(MagdaDocument request) throws MagdaMockException {
         var response = simulator.send(request);
 
         try {
-            responseSigner.signDocument(response);
+            responseSigner.signDocument(response.getXml());
         } catch (WSSecurityException e) {
-            throw new MagdaSendFailed("Failed to sign simulated SOAP response", e);
+            throw new MagdaMockException("Failed to sign simulated SOAP response", e);
         }
 
         return response;

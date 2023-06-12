@@ -5,6 +5,7 @@ import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestBase {
 
@@ -17,14 +18,14 @@ public class TestBase {
     public static final String AFZENDER_HOEDANIGHEID = "//Bericht/Afzender/Hoedanigheid";
 
     protected void assertThatXmlFieldIsEqualTo(MagdaDocument doc, String xmlPath, String expected) {
-        String value = doc.getValue(xmlPath);
+        var value = doc.getValue(xmlPath);
         assertThat(value).isNotNull();
         assertThat(value).isEqualTo(expected);
     }
 
     protected void assertThatXmlHasNoFieldForPath(MagdaDocument doc, String xmlPath) {
         var nodes = doc.xpath(xmlPath);
-        assertThat(nodes.getLength()).isEqualTo(0);
+        assertThat(nodes.getLength()).isZero();
     }
 
     protected void assertThatTechnicalFieldsInRequestMatchAanvraag(MagdaDocument doc, Aanvraag aanvraag, MagdaRegistrationInfo hoedanigheid) {
@@ -37,7 +38,9 @@ public class TestBase {
     protected void assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(MagdaDocument doc, Aanvraag aanvraag, MagdaRegistrationInfo hoedanigheid) {
         assertThatXmlFieldIsEqualTo(doc, AFZENDER_REFERTE, aanvraag.getRequestId().toString());
         assertThatXmlFieldIsEqualTo(doc, AFZENDER_IDENTIFICATIE, hoedanigheid.getIdentification());
-        assertThatXmlFieldIsEqualTo(doc, AFZENDER_HOEDANIGHEID, hoedanigheid.getHoedanigheidscode());
+        var hoedanigheidscode = hoedanigheid.getHoedanigheidscode();
+        assertTrue(hoedanigheidscode.isPresent());
+        assertThatXmlFieldIsEqualTo(doc, AFZENDER_HOEDANIGHEID, hoedanigheidscode.get());
         assertThatXmlFieldIsEqualTo(doc, VRAAG_REFERTE, aanvraag.getRequestId().toString());
     }
 }

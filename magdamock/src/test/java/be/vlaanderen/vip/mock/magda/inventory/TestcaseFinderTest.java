@@ -1,19 +1,6 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
-import static be.vlaanderen.vip.mock.magda.TempDirUtils.FileDescriptor.file;
-import static java.util.Map.of;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.hasItems;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertAll;
-
-import java.io.File;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.function.Predicate;
-
+import be.vlaanderen.vip.mock.magda.TempDirUtils;
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -22,13 +9,21 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import be.vlaanderen.vip.mock.magda.TempDirUtils;
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Predicate;
+
+import static be.vlaanderen.vip.mock.magda.TempDirUtils.FileDescriptor.file;
+import static java.util.Map.of;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 class TestcaseFinderTest {
     @TempDir
     private File dir;
-    
-    private ResourceFinder finder;
 
     private TestcaseFinder caseFinder;
     
@@ -36,11 +31,10 @@ class TestcaseFinderTest {
     class ListServices {
         
         @BeforeEach
-        void setup() {
+        void setup() throws IOException {
             TempDirUtils.createFileStructure(dir, fileStructure());
-            
-            finder = ResourceFinders.directory(dir);
-            caseFinder = new TestcaseFinder(finder);
+
+            caseFinder = new TestcaseFinder(ResourceFinders.directory(dir));
         }
         
         private Map<Object, Object> fileStructure() {
@@ -148,7 +142,7 @@ class TestcaseFinderTest {
         }
         
         private Matcher<Testcase> withCase(Predicate<Testcase> test) {
-            return new BaseMatcher<Testcase>() {
+            return new BaseMatcher<>() {
 
                 @Override
                 public boolean matches(Object actual) {

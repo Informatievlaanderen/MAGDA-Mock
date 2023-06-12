@@ -1,14 +1,31 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockException;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Arrays;
 import java.util.List;
-
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
-import be.vlaanderen.vip.mock.magda.client.util.INSZ;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import java.util.Optional;
 
 public class RandomPasfotoSimulator extends BaseSOAPSimulator {
+
+    // FIXME number of files shouldn't be hardcoded, as the user of magdamock may mount an alternate set of xml files
+    private enum GenderCategory {
+        MALE("mannen", 6),
+        FEMALE("vrouwen", 4);
+
+        @Getter private final String directoryName;
+        @Getter private final int numberOfFiles;
+
+        GenderCategory(String directoryName, int numberOfFiles) {
+            this.directoryName = directoryName;
+            this.numberOfFiles = numberOfFiles;
+        }
+    }
+
     private final String type;
     private final List<String> keys;
 
@@ -23,55 +40,61 @@ public class RandomPasfotoSimulator extends BaseSOAPSimulator {
     }
 
     @Override
-    public MagdaDocument send(MagdaDocument request) throws MagdaSendFailed {
-        var params = new MagdaRequest(request, keys);
+    public MagdaDocument send(MagdaDocument request) throws MagdaMockException {
+        var values = keys.stream().map(request::getValue).toList();
+        var insz = values.get(0);
 
-        var dienst = params.getServiceNaam();
-        var versie = params.getServiceVersie();
+        var dienst = request.getValue("//Verzoek/Context/Naam");
+        var versie = request.getValue("//Verzoek/Context/Versie");
 
-        var responseBody = loadSimulatorResource(type,exactPasFotoresourcePath(dienst, versie, params.getKeys().get(0)));
+        var responseBody = loadSimulatorResource(type, exactPasFotoresourcePath(dienst, versie, insz));
         if (responseBody == null) {
-            responseBody = loadSimulatorResource(type,randomPasFotoresourcePath(dienst, versie, params.getKeys().get(0)));
+            responseBody = loadSimulatorResource(type, randomPasFotoResourcePath(dienst, versie, insz));
         }
         if (responseBody == null) {
-            responseBody = loadSimulatorResource(type,exactPasFotoresourcePath(dienst, versie, "notfound"));
+            responseBody = loadSimulatorResource(type, exactPasFotoresourcePath(dienst, versie, "notfound"));
         }
         if (responseBody == null) {
-            responseBody = loadSimulatorResource(type,exactPasFotoresourcePath(dienst, versie, "succes"));
+            responseBody = loadSimulatorResource(type, exactPasFotoresourcePath(dienst, versie, "succes"));
         }
 
         if (responseBody != null) {
-            patchResponse(params, responseBody);
+            patchResponse(request, responseBody);
 
             // Patch response gebaseerd op request input
-            responseBody.setValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ", params.getKeys().get(0));
+            responseBody.setValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ", insz);
 
             return wrapInEnvelope(responseBody);
         } else {
-            throw new MagdaSendFailed("Geen mock data gevonden voor request naar " + dienst + " " + versie);
+            throw new MagdaMockException("No mock data found for request to %s %s".formatted(dienst, versie));
         }
     }
 
-    private String randomPasFotoresourcePath(String dienst, String versie, String insz) {
-        String path = dienst + "/" + versie;
+    private String randomPasFotoResourcePath(String dienst, String versie, String insz) {
+        var genderCategory = isMaleINSZ(insz) ? GenderCategory.MALE : GenderCategory.FEMALE;
 
-        String geboorteDatum = insz.substring(0, 6);
-        int dateOfBirth = Integer.parseInt(geboorteDatum);
+        return String.join("/",
+                dienst,
+                versie,
+                genderCategory.directoryName,
+                String.valueOf(insz.hashCode() % genderCategory.numberOfFiles))
+                + ".xml";
+    }
 
-        if (INSZ.isMannelijk(insz)) {
-            path = path + "/mannen/" + (dateOfBirth % 6) + ".xml";
-        } else {
-            path = path + "/vrouwen/" + (dateOfBirth % 4) + ".xml";
-        }
-
-        return path;
+    /**
+     * Determines if an INSZ number refers to a male.
+     * If not male, then the INSZ number refers to a female (because nonbinary people don't exist, apparently)
+     *
+     * @see <a href="https://www.ibz.rrn.fgov.be/nl/rijksregister/faq/meer-technische-informatie-it-autogeneratie-wijzigingen/">Normative source on information encoded in INSZ numbers</a>
+     */
+    public boolean isMaleINSZ(String insz) {
+        return Optional.of(insz)
+                .filter(StringUtils::isNumeric)
+                .map(i -> Integer.parseInt(i.substring(6, 9)) % 2 == 1)
+                .orElse(false);
     }
 
     private String exactPasFotoresourcePath(String dienst, String versie, String insz) {
-        String path = dienst + "/" + versie + "/" + insz + ".xml";
-
-        return path;
+        return String.join("/", dienst, versie, insz) + ".xml";
     }
-
-
 }

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
+class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
 
     private static final String INSZ_MAGDA_OVERBELAST = "91610100176";
     private static final String INSZ_GEENDATA = "67021546719";
@@ -23,9 +23,9 @@ public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     void defaultAanslagBiljet() {
         var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(INSZ_GEENDATA);
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -35,7 +35,7 @@ public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
@@ -51,9 +51,9 @@ public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     void aanslagBiljetMet2Codes() {
         var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(INSZ_DATA_NA2000);
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -61,7 +61,7 @@ public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         var doc = antwoord.getDocument();
         assertNotNull(doc);
@@ -86,9 +86,9 @@ public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     void aanslagBiljetMet2CodesVoor2000() {
         var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(INSZ_DATA_VOOR2000);
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -96,7 +96,7 @@ public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         var doc = antwoord.getDocument();
         assertNotNull(doc);
@@ -121,9 +121,9 @@ public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     void geefAanslagbiljetPersonenBelasting0200LuktNietOmdatMagdaOverbelastIs() {
         var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(INSZ_MAGDA_OVERBELAST);
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -131,7 +131,7 @@ public class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
         assertThatAnswerContainsUitzondering(antwoord);
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(0);
+        assertThat(afnemerLogService.getGeslaagd()).isZero();
         assertThat(afnemerLogService.getGefaald()).isEqualTo(1);
 
         var uitzondering = antwoord.getUitzonderingen().get(0);

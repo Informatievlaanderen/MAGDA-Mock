@@ -22,7 +22,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URI;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
@@ -74,7 +73,7 @@ public class MockServerHttpTest extends MockServerTest {
         var aanvraag = new GeefBewijsAanvraag(CORRECT_INSZ);
 
         var antwoord = connector.send(aanvraag);
-        log.debug("Antwoord : {}", antwoord.getDocument());
+        logMagdaAntwoord(antwoord);
 
         assertResponsBevatAntwoord(antwoord);
 
@@ -91,7 +90,7 @@ public class MockServerHttpTest extends MockServerTest {
     void callRegistreerInschrijving() {
         var aanvraag = new RegistreerInschrijvingAanvraag(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
         var antwoord = connector.send(aanvraag);
-        log.debug("Antwoord : {}", antwoord.getDocument());
+        logMagdaAntwoord(antwoord);
 
         assertResponsBevatAntwoord(antwoord);
 
@@ -108,7 +107,7 @@ public class MockServerHttpTest extends MockServerTest {
     void callRegistreerInschrijvingFaaltMagdaOverbelast() {
         var aanvraag = new RegistreerInschrijvingAanvraag(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
         var antwoord = connector.send(aanvraag);
-        log.debug("Antwoord : {}", antwoord.getDocument());
+        logMagdaAntwoord(antwoord);
 
         assertResponsBevatUitzondering(antwoord, TypeUitzondering.FOUT, "99996", "Te veel gelijktijdige bevragingen");
     }
@@ -118,7 +117,7 @@ public class MockServerHttpTest extends MockServerTest {
     void callRegistreerUitschrijving() {
         var aanvraag = new RegistreerUitschrijvingAanvraag(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
         var antwoord = connector.send(aanvraag);
-        log.debug("Antwoord : {}", antwoord.getDocument());
+        logMagdaAntwoord(antwoord);
 
         assertResponsBevatAntwoord(antwoord);
 
@@ -135,7 +134,7 @@ public class MockServerHttpTest extends MockServerTest {
     void callRegistreerUitschrijvingFaaltMagdaOverbelast() {
         var aanvraag = new RegistreerUitschrijvingAanvraag(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
         var antwoord = connector.send(aanvraag);
-        log.debug("Antwoord : {}", antwoord.getDocument());
+        logMagdaAntwoord(antwoord);
 
         assertResponsBevatUitzondering(antwoord, TypeUitzondering.FOUT, "99996", "Te veel gelijktijdige bevragingen");
     }
@@ -145,7 +144,7 @@ public class MockServerHttpTest extends MockServerTest {
     void callGeefAanslagbiljetPersonenbelasting() {
         var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag("82102108114");
         var antwoord = connector.send(aanvraag);
-        log.debug("Antwoord : {}", antwoord.getDocument());
+        logMagdaAntwoord(antwoord);
 
         assertResponsBevatAntwoord(antwoord);
 
@@ -170,13 +169,13 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void geefPasfotoVoorRandomMan() {
-        assertPasfotoCorrect(INSZ_RANDOM_MAN, 28722);
+        assertPasfotoCorrect(INSZ_RANDOM_MAN, 30271);
     }
 
     @Test
     @SneakyThrows
     void geefPasfotoVoorRandomVrouw() {
-        assertPasfotoCorrect(INSZ_RANDOM_VROUW, 32659);
+        assertPasfotoCorrect(INSZ_RANDOM_VROUW, 34052);
     }
 
     @Test
@@ -193,7 +192,7 @@ public class MockServerHttpTest extends MockServerTest {
         var aanvraag = new GeefPasfotoAanvraag(requestInsz);
 
         var antwoord = connector.send(aanvraag);
-        log.debug("Antwoord : {}", antwoord.getDocument());
+        logMagdaAntwoord(antwoord);
 
         assertResponsBevatAntwoord(antwoord);
 
@@ -240,8 +239,8 @@ public class MockServerHttpTest extends MockServerTest {
 
     private static void storeImage(byte[] decoded) throws IOException {
         if (STORE_FOTO_IN_TEMP_FILE) {
-            File tempFile = File.createTempFile("mugshot", ".jpg", null);
-            try (FileOutputStream fos = new FileOutputStream(tempFile)) {
+            var tempFile = File.createTempFile("mugshot", ".jpg", null);
+            try (var fos = new FileOutputStream(tempFile)) {
                 fos.write(decoded);
             }
             log.debug("Wrote file to " + tempFile.getAbsolutePath());
@@ -249,13 +248,13 @@ public class MockServerHttpTest extends MockServerTest {
     }
 
     protected void assertThatXmlFieldIsEqualTo(MagdaDocument doc, String xmlPath, String expected) {
-        String value = doc.getValue(xmlPath);
+        var value = doc.getValue(xmlPath);
         assertThat(value).isNotNull();
         assertThat(value).isEqualTo(expected);
     }
 
     private MockMagdaEndpoints makeMockEndpoints() {
-        return new MockMagdaEndpoints(URI.create(testerConfig.getServiceUrl() + "/Magda-02.00/soap/WebService"));
+        return new MockMagdaEndpoints(testerConfig.getServiceUrl().resolve("/Magda-02.00/soap/WebService"));
     }
 
     private MagdaConfigDto configureMagdaParameters() {
@@ -270,5 +269,9 @@ public class MockServerHttpTest extends MockServerTest {
         magdaConfigDto.getRegistration().put("custom", MagdaRegistrationConfigDto.builder().identification("kb.vlaanderen.be/aiv/burgerloket-wwoom-custom-mock").build());
 
         return magdaConfigDto;
+    }
+
+    private void logMagdaAntwoord(MagdaAntwoord antwoord) {
+        log.debug("Response : {}", antwoord.getDocument());
     }
 }

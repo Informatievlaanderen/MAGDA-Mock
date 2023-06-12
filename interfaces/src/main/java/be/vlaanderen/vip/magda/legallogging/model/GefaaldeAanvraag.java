@@ -18,8 +18,8 @@ import java.util.UUID;
  */
 @Getter
 public class GefaaldeAanvraag extends GelogdeAanvraag {
-    private List<Uitzondering> uitzonderingen;
-    private Duration duratie;
+    private final List<Uitzondering> uitzonderingen;
+    private final Duration duratie;
 
     public GefaaldeAanvraag(String insz,
                             UUID transactieID,
@@ -33,6 +33,4 @@ public class GefaaldeAanvraag extends GelogdeAanvraag {
         this.uitzonderingen = uitzonderingen;
         this.duratie = duratie;
     }
-
-
 }

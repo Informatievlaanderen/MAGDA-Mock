@@ -1,4 +1,3 @@
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope"><soapenv:Body>
 <web:GeefBewijsResponse xmlns:web="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
     <Repliek>
         <Context xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
@@ -24,9 +23,7 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                    bafd491e-8d09-41ba-9b38-d7787b1d9861
-                </Referte>
+                <Referte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">bafd491e-8d09-41ba-9b38-d7787b1d9861</Referte>
                 <Uitzonderingen>
                     <Uitzondering>
                         <Identificatie>15021</Identificatie>
@@ -39,10 +36,8 @@
                         <Diagnose>Geen gegevens in antwoord wegens filtering</Diagnose>
                     </Uitzondering>
                     <Uitzondering>
-                        <Identificatie xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">40000
-                        </Identificatie>
-                        <Oorsprong xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">LED
-                        </Oorsprong>
+                        <Identificatie xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">40000</Identificatie>
+                        <Oorsprong xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">LED</Oorsprong>
                         <Type xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">FOUT</Type>
                         <Tijdstip xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
                             <Datum>2023-03-15</Datum>
@@ -60,4 +55,3 @@
         </Antwoorden>
     </Repliek>
 </web:GeefBewijsResponse>
-</soapenv:Body></soapenv:Envelope>

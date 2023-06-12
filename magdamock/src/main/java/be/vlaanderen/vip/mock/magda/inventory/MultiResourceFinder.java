@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class MultiResourceFinder implements ResourceFinder {
-    private List<ResourceFinder> finders;
+    private final List<ResourceFinder> finders;
     
     MultiResourceFinder(
             List<ResourceFinder> finders) {

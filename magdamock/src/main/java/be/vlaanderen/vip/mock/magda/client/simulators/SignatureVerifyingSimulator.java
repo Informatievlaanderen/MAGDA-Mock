@@ -3,7 +3,7 @@ package be.vlaanderen.vip.mock.magda.client.simulators;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.security.DocumentSignatureVerifier;
 import be.vlaanderen.vip.magda.client.security.InvalidSignatureException;
-import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockException;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 
 public class SignatureVerifyingSimulator extends BaseSOAPSimulator {
@@ -18,9 +18,9 @@ public class SignatureVerifyingSimulator extends BaseSOAPSimulator {
     }
 
     @Override
-    public MagdaDocument send(MagdaDocument request) throws MagdaSendFailed {
+    public MagdaDocument send(MagdaDocument request) throws MagdaMockException {
         try {
-            requestVerifier.verifyDocument(request);
+            requestVerifier.verifyDocument(request.getXml());
 
             return simulator.send(request);
         } catch (InvalidSignatureException e) {

@@ -11,16 +11,16 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-public class GeefBewijsTest extends MockTestBase {
+class GeefBewijsTest extends MockTestBase {
       @Test
     @SneakyThrows
     void geefBewijsGeeftAntwoord() {
-        final String requestInsz = "67621546751";
+        final var requestInsz = "67621546751";
         var aanvraag = new GeefBewijsAanvraag(requestInsz);
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+          var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+          var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         log.info("{}", antwoord.getDocument());
@@ -32,7 +32,7 @@ public class GeefBewijsTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -55,24 +55,24 @@ public class GeefBewijsTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefBewijsVoorOnbekendePersoonGeeftGeenGegevensGevonden() {
-        final String requestInsz = "57021546719";
+        final var requestInsz = "57021546719";
         var aanvraag = new GeefBewijsAanvraag(requestInsz);
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isFalse();
         assertThat(antwoord.isHeeftInhoud()).isFalse();
-        assertThat(antwoord.getAntwoordUitzonderingen().size()).isEqualTo(1);
+        assertThat(antwoord.getAntwoordUitzonderingen()).hasSize(1);
         assertThat(antwoord.getUitzonderingen()).isEmpty();
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         var doc = antwoord.getDocument();
 

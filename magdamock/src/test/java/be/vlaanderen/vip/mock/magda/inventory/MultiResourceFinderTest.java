@@ -1,16 +1,6 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
-import java.io.InputStream;
-import java.util.Arrays;
-
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.ServiceDirectory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -19,7 +9,13 @@ import org.mockito.Mock;
 import org.mockito.Mock.Strictness;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.ServiceDirectory;
+import java.io.InputStream;
+import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class MultiResourceFinderTest {
@@ -39,7 +35,6 @@ class MultiResourceFinderTest {
     
     @Nested
     class LoadSimulatorResource {
-        @Mock private InputStream is1;
         @Mock private InputStream is2;
         @Mock private InputStream is3;
         
@@ -77,9 +72,9 @@ class MultiResourceFinderTest {
             var dir3 = serivceDir();
             var dir4 = serivceDir();
 
-            when(finder1.listServicesDirectories("type")).thenReturn(Arrays.asList(dir1));
-            when(finder2.listServicesDirectories("type")).thenReturn(Arrays.asList(dir2, dir3));
-            when(finder3.listServicesDirectories("type")).thenReturn(Arrays.asList(dir4));
+            when(finder1.listServicesDirectories("type")).thenReturn(List.of(dir1));
+            when(finder2.listServicesDirectories("type")).thenReturn(List.of(dir2, dir3));
+            when(finder3.listServicesDirectories("type")).thenReturn(List.of(dir4));
             
             var result = finder.listServicesDirectories("type");
             

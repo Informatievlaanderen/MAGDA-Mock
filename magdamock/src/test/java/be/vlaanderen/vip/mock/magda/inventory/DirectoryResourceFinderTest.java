@@ -1,16 +1,12 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
-import java.io.File;
-import java.io.IOException;
-
+import be.vlaanderen.vip.mock.magda.TempDirUtils;
+import be.vlaanderen.vip.mock.magda.inventory.DirectoryResourceFinder.FileCaseFile;
+import be.vlaanderen.vip.mock.magda.inventory.DirectoryResourceFinder.FileServiceDirectory;
+import be.vlaanderen.vip.mock.magda.inventory.DirectoryResourceFinder.FileVersionDirectory;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.CaseFile;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.ServiceDirectory;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.VersionDirectory;
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -19,13 +15,13 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import be.vlaanderen.vip.mock.magda.TempDirUtils;
-import be.vlaanderen.vip.mock.magda.inventory.DirectoryResourceFinder.FileCaseFile;
-import be.vlaanderen.vip.mock.magda.inventory.DirectoryResourceFinder.FileServiceDirectory;
-import be.vlaanderen.vip.mock.magda.inventory.DirectoryResourceFinder.FileVersionDirectory;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.CaseFile;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.ServiceDirectory;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.VersionDirectory;
+import java.io.File;
+import java.io.IOException;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class DirectoryResourceFinderTest {
     private DirectoryResourceFinder finder;
@@ -63,7 +59,7 @@ class DirectoryResourceFinderTest {
     class ListServicesDirectories {
         
         @Test
-        void returnsServiceDirectory_forType() {
+        void returnsServiceDirectory_forType() throws IOException {
             var dir1 = TempDirUtils.createDir(dir, "type/dir1");
             var dir2 = TempDirUtils.createDir(dir, "type/dir2");
             TempDirUtils.createDir(dir, "other-type/dir3");
@@ -76,7 +72,7 @@ class DirectoryResourceFinderTest {
         }
         
         @Test
-        void isEmptyWhenNoDirForType() {
+        void isEmptyWhenNoDirForType() throws IOException {
             TempDirUtils.createDir(dir, "type/dir1");
             TempDirUtils.createDir(dir, "type/dir2");
 
@@ -86,7 +82,7 @@ class DirectoryResourceFinderTest {
         }
         
         private Matcher<ServiceDirectory> serviceDirectoryFor(File dir) {
-            return new BaseMatcher<ServiceDirectory>() {
+            return new BaseMatcher<>() {
 
                 @Override
                 public boolean matches(Object actual) {
@@ -112,7 +108,7 @@ class DirectoryResourceFinderTest {
         class Service {
             
             @Test
-            void isFileName() {
+            void isFileName() throws IOException {
                 var serviceDir = new FileServiceDirectory(TempDirUtils.createDir(dir, "folder-name"));
                 
                 assertThat(serviceDir.service(), is(equalTo("folder-name")));
@@ -124,7 +120,7 @@ class DirectoryResourceFinderTest {
         class Versions {
             
             @Test
-            void isAListOfFoldersInDir() {
+            void isAListOfFoldersInDir() throws IOException {
                 var serviceDir = new FileServiceDirectory(TempDirUtils.createDir(dir, "folder"));
                 var v1 = TempDirUtils.createDir(dir, "folder/version1");
                 var v2 = TempDirUtils.createDir(dir, "folder/version2");
@@ -165,7 +161,7 @@ class DirectoryResourceFinderTest {
         class Version {
             
             @Test
-            void isFileName() {
+            void isFileName() throws IOException {
                 var versionDir = new FileVersionDirectory(TempDirUtils.createDir(dir, "folder-name"));
                 
                 assertThat(versionDir.version(), is(equalTo("folder-name")));
@@ -177,7 +173,7 @@ class DirectoryResourceFinderTest {
         class Cases {
             
             @Test
-            void isAListOfFilesInDir() {
+            void isAListOfFilesInDir() throws IOException {
                 var versionDir = new FileVersionDirectory(TempDirUtils.createDir(dir, "folder"));
                 var c1 = TempDirUtils.createFile(dir, "folder/case1.xml", "");
                 var c2 = TempDirUtils.createFile(dir, "folder/case2.xml", "");
@@ -190,7 +186,7 @@ class DirectoryResourceFinderTest {
             }
             
             @Test
-            void filtersOutFilesWithUnsupportedExtensions() {
+            void filtersOutFilesWithUnsupportedExtensions() throws IOException {
                 var versionDir = new FileVersionDirectory(TempDirUtils.createDir(dir, "folder"));
                 var c1 = TempDirUtils.createFile(dir, "folder/case1.xml", "");
                 var c2 = TempDirUtils.createFile(dir, "folder/case2.json", "");
@@ -235,7 +231,7 @@ class DirectoryResourceFinderTest {
         class Name {
             
             @Test
-            void isFileName() {
+            void isFileName() throws IOException {
                 var caseFile = new FileCaseFile(TempDirUtils.createDir(dir, "case-name"));
                 
                 assertThat(caseFile.name(), is(equalTo("case-name")));

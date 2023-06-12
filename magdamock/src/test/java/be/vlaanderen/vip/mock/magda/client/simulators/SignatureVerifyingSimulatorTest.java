@@ -1,27 +1,22 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.when;
-
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.security.DocumentSignatureVerifier;
+import be.vlaanderen.vip.magda.client.security.InvalidSignatureException;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.w3c.dom.Document;
 
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.security.DocumentSignatureVerifier;
-import be.vlaanderen.vip.magda.client.security.InvalidSignatureException;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
-import lombok.SneakyThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class SignatureVerifyingSimulatorTest {
-    @Mock private ResourceFinder finder;
     @Mock private SOAPSimulator childSimulator;
     @Mock private DocumentSignatureVerifier verifier;
     
@@ -39,14 +34,16 @@ class SignatureVerifyingSimulatorTest {
         var doc = signingSimulator.send(request);
 
         assertEquals(response, doc);
-        Mockito.verify(verifier, times(1)).verifyDocument(request);
+        Mockito.verify(verifier, times(1)).verifyDocument(request.getXml());
     }
 
     @Test
     @SneakyThrows
     void returnsFaultDocument_ifVerifierFails() {
         var request = mock(MagdaDocument.class);
-        doThrow(new InvalidSignatureException("Huh?!")).when(verifier).verifyDocument(request);
+        var requestXml = mock(Document.class);
+        when(request.getXml()).thenReturn(requestXml);
+        doThrow(new InvalidSignatureException("Huh?!")).when(verifier).verifyDocument(requestXml);
 
         var doc = signingSimulator.send(request);
 

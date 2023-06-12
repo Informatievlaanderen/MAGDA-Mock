@@ -11,8 +11,6 @@ import java.util.Set;
 
 @Slf4j
 public class AfnemerLogServiceMock implements AfnemerLogService {
-    private int nietgeautoriseerd = 0;
-    private int validatiefout = 0;
 
     private final List<MagdaAanvraag> aanvragenLijst = new ArrayList<>();
     private final List<GeslaagdeAanvraag> geslaagdeAanvragenLijst = new ArrayList<>();
@@ -21,25 +19,25 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
 
     @Override
     public synchronized void logAanvraag(MagdaAanvraag aanvraag) {
-        log.info("Aanvraag: {}", aanvraag);
+        log.info("Request: {}", aanvraag);
         aanvragenLijst.add(aanvraag);
     }
 
     @Override
     public synchronized void logGeslaagdeAanvraag(GeslaagdeAanvraag aanvraag) {
-        log.info("Geslaagd: {}", aanvraag);
+        log.info("Succeeded: {}", aanvraag);
         geslaagdeAanvragenLijst.add(aanvraag);
     }
 
     @Override
     public synchronized void logGefaaldeAanvraag(GefaaldeAanvraag aanvraag) {
-        log.info("Gefaald: {}", aanvraag);
+        log.info("Failed: {}", aanvraag);
         gefaaldeAanvragenLijst.add(aanvraag);
     }
 
     @Override
     public synchronized void logOnbeantwoordeAanvraag(OnbeantwoordeAanvraag aanvraag) {
-        log.info("Onbeantwoord: {}", aanvraag);
+        log.info("Unanswered: {}", aanvraag);
         onbeantwoordeAanvragenLijst.add(aanvraag);
     }
 
@@ -51,20 +49,8 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
         return geslaagdeAanvragenLijst.size();
     }
 
-    public int getOnbeantwoord() {
-        return this.onbeantwoordeAanvragenLijst.size();
-    }
-
     public int getGefaald() {
         return gefaaldeAanvragenLijst.size();
-    }
-
-    public int getNietgeautoriseerd() {
-        return this.nietgeautoriseerd;
-    }
-
-    public int getValidatiefout() {
-        return this.validatiefout;
     }
 
     public List<MagdaAanvraag> getAanvragenLijst() {
@@ -91,15 +77,15 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
     }
 
     private void assertReferteIsNietTransactie() {
-        aanvragenLijst.stream().forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
-        geslaagdeAanvragenLijst.stream().forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
-        gefaaldeAanvragenLijst.stream().forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
-        onbeantwoordeAanvragenLijst.stream().forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
+        aanvragenLijst.forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
+        geslaagdeAanvragenLijst.forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
+        gefaaldeAanvragenLijst.forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
+        onbeantwoordeAanvragenLijst.forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
     }
 
     private static void assertReferentieverschillendVanTransactie(GelogdeAanvraag antwoord) {
         if (antwoord.getLocalTransactieID() == antwoord.getTransactieID()) {
-            throw new IllegalStateException(String.format("Antwoord met referentie %s voor service %s door INSZ %s voor INSZ %s heeft referentie == transactie",
+            throw new IllegalStateException(String.format("Response with reference %s for service %s by INSZ %s for INSZ %s reference equals transaction",
                     antwoord.getLocalTransactieID().toString(),
                     antwoord.getDienst(),
                     antwoord.getInsz(),
@@ -109,10 +95,10 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
 
     private void assertGeenDubbeleAntwoorden() {
         Set<String> antwoorden = new HashSet<>();
-        for (GeslaagdeAanvraag antwoord : geslaagdeAanvragenLijst) {
-            String content = inhoudVan(antwoord);
+        for (var antwoord : geslaagdeAanvragenLijst) {
+            var content = inhoudVan(antwoord);
             if (antwoorden.contains(content)) {
-                throw new IllegalStateException(String.format("Antwoord met referentie %s voor service %s door INSZ %s voor INSZ %s komt meerdere keren voor",
+                throw new IllegalStateException(String.format("Response with reference %s for service %s by INSZ %s for INSZ %s has multiple occurrences",
                         antwoord.getLocalTransactieID().toString(),
                         antwoord.getDienst(),
                         antwoord.getInsz(),
@@ -125,10 +111,10 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
 
     private void assertGeenDubbeleOnbeantwoorden() {
         Set<String> antwoorden = new HashSet<>();
-        for (OnbeantwoordeAanvraag antwoord : onbeantwoordeAanvragenLijst) {
-            String content = inhoudVan(antwoord);
+        for (var antwoord : onbeantwoordeAanvragenLijst) {
+            var content = inhoudVan(antwoord);
             if (antwoorden.contains(content)) {
-                throw new IllegalStateException(String.format("Onbeantwoord met referentie %s voor service %s door INSZ %s voor INSZ %s komt meerdere keren voor",
+                throw new IllegalStateException(String.format("Unanswered requests with reference %s for service %s by INSZ %s for INSZ %s has multiple occurrences",
                         antwoord.getLocalTransactieID().toString(),
                         antwoord.getDienst(),
                         antwoord.getInsz(),
@@ -148,21 +134,23 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
     }
 
     private void assertElkeAanvraagHeeftAntwoord() {
-        for (MagdaAanvraag aanvraag : aanvragenLijst) {
-            List<GeslaagdeAanvraag> matchingGeslaagd = matchVoorAntwoord(aanvraag);
-            List<OnbeantwoordeAanvraag> matchingOnbeantwoord = matchVoorOnbeantwoord(aanvraag);
-            List<GefaaldeAanvraag> matchGefaald = matchVoorGefaald(aanvraag);
+        for (var aanvraag : aanvragenLijst) {
+            var matchingGeslaagd = matchVoorAntwoord(aanvraag);
+            var matchingOnbeantwoord = matchVoorOnbeantwoord(aanvraag);
+            var matchGefaald = matchVoorGefaald(aanvraag);
             if (!matchingGeslaagd.isEmpty() && !matchingOnbeantwoord.isEmpty() && !matchGefaald.isEmpty()) {
-                dumpMe();
-                throw new IllegalStateException(String.format("Aanvraag met referentie %s voor dienst %s door INSZ %s voor INSZ %s heeft zowel antwoorden als onbeantwoord als fouten",
+                log.error("Illegal AfnemerLogServiceMock state");
+                logState();
+                throw new IllegalStateException(String.format("Request with reference %s for service %s by INSZ %s for INSZ %s has responses, as well as unanswered requests and errors",
                         aanvraag.getLocalTransactieID().toString(),
                         aanvraag.getDienst(),
                         aanvraag.getInsz(),
                         aanvraag.getOverWie()));
             }
             if (matchingGeslaagd.isEmpty() && matchingOnbeantwoord.isEmpty() && matchGefaald.isEmpty()) {
-                dumpMe();
-                throw new IllegalStateException(String.format("Aanvraag met referentie %s voor dienst %s door INSZ %s voor INSZ %s heeft noch antwoord noch onbeantwoord noch fout",
+                log.error("Illegal AfnemerLogServiceMock state");
+                logState();
+                throw new IllegalStateException(String.format("Request with reference %s for service %s by INSZ %s for INSZ %s has neither responses, nor unanswered requests, nor errors",
                         aanvraag.getLocalTransactieID().toString(),
                         aanvraag.getDienst(),
                         aanvraag.getInsz(),
@@ -171,22 +159,22 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
         }
     }
 
-    private void dumpMe() {
-        System.out.println("Vragen:");
-        for (MagdaAanvraag aanvraag : getAanvragenLijst()) {
-            System.out.println(String.format("Aanvraag %s %s %s %s %s", aanvraag.getDienst(), aanvraag.getInsz(), aanvraag.getOverWie(), aanvraag.getTransactieID().toString(), aanvraag.getLocalTransactieID().toString()));
-        }
-        System.out.println("Antwoorden:");
-        for (GeslaagdeAanvraag aanvraag : getGeslaagdeAanvragenLijst()) {
-            System.out.println(String.format("Aanvraag %s %s %s %s %s", aanvraag.getDienst(), aanvraag.getInsz(), aanvraag.getOverWie(), aanvraag.getTransactieID().toString(), aanvraag.getLocalTransactieID().toString()));
-        }
-        System.out.println("Fouten:");
-        for (GefaaldeAanvraag aanvraag : getGefaaldeAanvragenLijst()) {
-            System.out.println(String.format("Aanvraag %s %s %s %s %s", aanvraag.getDienst(), aanvraag.getInsz(), aanvraag.getOverWie(), aanvraag.getTransactieID().toString(), aanvraag.getLocalTransactieID().toString()));
-        }
-        System.out.println("Onbeantwoord:");
-        for (OnbeantwoordeAanvraag aanvraag : getOnbeantwoordeAanvragenLijst()) {
-            System.out.println(String.format("Aanvraag %s %s %s %s %s", aanvraag.getDienst(), aanvraag.getInsz(), aanvraag.getOverWie(), aanvraag.getTransactieID().toString(), aanvraag.getLocalTransactieID().toString()));
+    private void logState() {
+        logLoggedRequests("Vragen:", getAanvragenLijst());
+        logLoggedRequests("Antwoorden:", getGeslaagdeAanvragenLijst());
+        logLoggedRequests("Fouten:", getGefaaldeAanvragenLijst());
+        logLoggedRequests("Onbeantwoord:", getOnbeantwoordeAanvragenLijst());
+    }
+
+    private void logLoggedRequests(String header, Iterable<? extends GelogdeAanvraag> loggedRequests) {
+        log.debug(header);
+        for (GelogdeAanvraag loggedRequest : loggedRequests) {
+            log.debug("Request {} {} {} {} {}",
+                    loggedRequest.getDienst(),
+                    loggedRequest.getInsz(),
+                    loggedRequest.getOverWie(),
+                    loggedRequest.getTransactieID(),
+                    loggedRequest.getLocalTransactieID());
         }
     }
 

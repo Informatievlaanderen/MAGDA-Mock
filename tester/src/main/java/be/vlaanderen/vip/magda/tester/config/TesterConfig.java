@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import java.net.URI;
 import java.time.Duration;
 
 @Configuration
@@ -16,7 +17,7 @@ public class TesterConfig {
     private Duration probeRetryMils;
     private int probeRetryMax;
 
-    public String getServiceUrl() {
-        return serviceScheme + "://" + serviceHost + ":" + servicePort;
+    public URI getServiceUrl() {
+        return URI.create(serviceScheme + "://" + serviceHost + ":" + servicePort);
     }
 }

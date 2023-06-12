@@ -29,13 +29,13 @@ public class TestcasesTest extends MockServerTest {
 
     @Test
     void callsPersoonTestcases() {
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(java.util.List.of(MediaType.APPLICATION_JSON));
         var request = new HttpEntity<String>(null, headers);
 
         var restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.exchange(testerConfig.getServiceUrl() + "/api/v1/testcases/persoon", HttpMethod.GET, request, String.class);
+        var response = restTemplate.exchange(testerConfig.getServiceUrl().resolve("/api/v1/testcases/persoon"), HttpMethod.GET, request, String.class);
         log.debug(response.getStatusCode().toString());
         log.debug(response.getBody());
 
@@ -44,13 +44,13 @@ public class TestcasesTest extends MockServerTest {
 
     @Test
     void callsOndernemingTestcases() {
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(java.util.List.of(MediaType.APPLICATION_JSON));
         var request = new HttpEntity<String>(null, headers);
 
         var restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.exchange(testerConfig.getServiceUrl() + "/api/v1/testcases/onderneming", HttpMethod.GET, request, String.class);
+        var response = restTemplate.exchange(testerConfig.getServiceUrl().resolve("/api/v1/testcases/onderneming"), HttpMethod.GET, request, String.class);
         log.debug(response.getStatusCode().toString());
         log.debug(response.getBody());
 

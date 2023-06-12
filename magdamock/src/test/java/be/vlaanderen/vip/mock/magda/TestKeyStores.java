@@ -7,6 +7,8 @@ import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
  */
 public class TestKeyStores {
 
+    private TestKeyStores() {}
+
     public static final TwoWaySslProperties mockKeystoreProperties = new TwoWaySslProperties();
     static {
         mockKeystoreProperties.setKeyStoreLocation("src/test/resources/certificates/mock keystore.jks");

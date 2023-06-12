@@ -15,7 +15,7 @@ import java.time.temporal.ChronoUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RepertoriumTest extends MockTestBase {
+class RepertoriumTest extends MockTestBase {
 
     private static final String INSZ_MAGDA_OVERBELAST = "91610100176";
     private static final String INSZ_REPERTORIUM_FOUT = "91610100275";
@@ -26,9 +26,9 @@ public class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0200Lukt() {
         var aanvraag = new RegistreerInschrijvingAanvraag(INSZ_REPERTORIUM_OK, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -38,7 +38,7 @@ public class RepertoriumTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/Resultaat", "1");
 
@@ -49,9 +49,9 @@ public class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0200LuktNietWegensInhoudelijkProbleem() {
         var aanvraag = new RegistreerInschrijvingAanvraag(INSZ_REPERTORIUM_FOUT, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -59,7 +59,7 @@ public class RepertoriumTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -74,9 +74,9 @@ public class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0200LuktNietOmdatMagdaOverbelastIs() {
         var aanvraag = new RegistreerInschrijvingAanvraag(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -84,7 +84,7 @@ public class RepertoriumTest extends MockTestBase {
         assertThatAnswerContainsUitzondering(antwoord);
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(0);
+        assertThat(afnemerLogService.getGeslaagd()).isZero();
         assertThat(afnemerLogService.getGefaald()).isEqualTo(1);
 
         var uitzondering = antwoord.getUitzonderingen().get(0);
@@ -98,9 +98,9 @@ public class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0201Lukt() {
         var aanvraag = new RegistreerInschrijving0201Aanvraag(TypeInschrijving.PERSOON, INSZ_REPERTORIUM_OK, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -110,7 +110,7 @@ public class RepertoriumTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
 
         var doc = antwoord.getDocument();
@@ -127,9 +127,9 @@ public class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0201OndernemingLukt() {
         var aanvraag = new RegistreerInschrijving0201Aanvraag(TypeInschrijving.ONDERNEMING, "123456789012", LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -139,7 +139,7 @@ public class RepertoriumTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
 
         var doc = antwoord.getDocument();
@@ -156,9 +156,9 @@ public class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0201LuktNietWegensInhoudelijkProbleem() {
         var aanvraag = new RegistreerInschrijving0201Aanvraag(TypeInschrijving.PERSOON, INSZ_REPERTORIUM_FOUT, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -167,7 +167,7 @@ public class RepertoriumTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
 
         var doc = antwoord.getDocument();
@@ -183,9 +183,9 @@ public class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0201LuktNietOmdatMagdaOverbelastIs() {
         var aanvraag = new RegistreerInschrijving0201Aanvraag(TypeInschrijving.PERSOON, INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -193,7 +193,7 @@ public class RepertoriumTest extends MockTestBase {
         assertThatAnswerContainsUitzondering(antwoord);
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(0);
+        assertThat(afnemerLogService.getGeslaagd()).isZero();
         assertThat(afnemerLogService.getGefaald()).isEqualTo(1);
 
         var uitzondering = antwoord.getUitzonderingen().get(0);
@@ -207,9 +207,9 @@ public class RepertoriumTest extends MockTestBase {
     void registreerUitschrijvingv0200Lukt() {
         var aanvraag = new RegistreerUitschrijvingAanvraag(INSZ_REPERTORIUM_OK, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -220,7 +220,7 @@ public class RepertoriumTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -236,9 +236,9 @@ public class RepertoriumTest extends MockTestBase {
     void registreerUitschrijvingv0200LuktNietWegensInhoudelijkProbleem() {
         var aanvraag = new RegistreerUitschrijvingAanvraag(INSZ_REPERTORIUM_FOUT, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -246,7 +246,7 @@ public class RepertoriumTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -261,9 +261,9 @@ public class RepertoriumTest extends MockTestBase {
     void registreerUitschrijvingv0200LuktNietOmdatMagdaOverbelastIs() {
         var aanvraag = new RegistreerUitschrijvingAanvraag(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -271,7 +271,7 @@ public class RepertoriumTest extends MockTestBase {
         assertThatAnswerContainsUitzondering(antwoord);
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(0);
+        assertThat(afnemerLogService.getGeslaagd()).isZero();
         assertThat(afnemerLogService.getGefaald()).isEqualTo(1);
 
         var uitzondering = antwoord.getUitzonderingen().get(0);

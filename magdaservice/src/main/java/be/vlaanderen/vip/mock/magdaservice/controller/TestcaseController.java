@@ -1,18 +1,17 @@
 package be.vlaanderen.vip.mock.magdaservice.controller;
 
+import be.vlaanderen.vip.mock.magda.inventory.TestcaseInventory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import be.vlaanderen.vip.mock.magda.inventory.TestcaseInventory;
 
 @RestController
 @RequestMapping("/api/v1/testcases")
 public class TestcaseController {
-    private TestcaseInventory personTestcases;
-    private TestcaseInventory businesesTestcases;
+    private final TestcaseInventory personTestcases;
+    private final TestcaseInventory businesesTestcases;
     
     public TestcaseController(
             TestcaseInventory personTestcases,
@@ -21,8 +20,7 @@ public class TestcaseController {
         this.businesesTestcases = businesesTestcases;
     }
 
-    @RequestMapping(
-            method = RequestMethod.GET,
+    @GetMapping(
             value = "/persoon",
             produces = {"application/json"}
     )
@@ -30,8 +28,7 @@ public class TestcaseController {
         return new ResponseEntity<>(personTestcases, HttpStatus.OK);
     }
 
-    @RequestMapping(
-            method = RequestMethod.GET,
+    @GetMapping(
             value = "/onderneming",
             produces = {"application/json"}
     )

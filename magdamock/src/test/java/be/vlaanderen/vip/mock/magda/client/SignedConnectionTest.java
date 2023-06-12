@@ -4,7 +4,7 @@ import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
 import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
 import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
-import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import be.vlaanderen.vip.mock.magda.TestKeyStores;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
-public class SignedConnectionTest extends MockTestBase {
+class SignedConnectionTest extends MockTestBase {
 
     private static final String REQUEST_INSZ = "67621546751";
 
@@ -41,7 +41,7 @@ public class SignedConnectionTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -70,7 +70,7 @@ public class SignedConnectionTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -159,7 +159,7 @@ public class SignedConnectionTest extends MockTestBase {
             connector.send(aanvraag);
             fail("No exception was thrown");
         } catch(GeenAntwoordException e) {
-            assertInstanceOf(MagdaSendFailed.class, e.getCause());
+            assertInstanceOf(MagdaConnectionException.class, e.getCause());
         } catch(Exception ex) {
             fail("Unexpected exception was thrown: " + ex);
         }
@@ -181,7 +181,7 @@ public class SignedConnectionTest extends MockTestBase {
             connector.send(aanvraag);
             fail("No exception was thrown");
         } catch(GeenAntwoordException e) {
-            assertInstanceOf(MagdaSendFailed.class, e.getCause());
+            assertInstanceOf(MagdaConnectionException.class, e.getCause());
         } catch(Exception ex) {
             fail("Unexpected exception was thrown: " + ex);
         }

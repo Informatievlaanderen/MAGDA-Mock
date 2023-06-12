@@ -1,12 +1,7 @@
 package be.vlaanderen.vip.mock.magdaservice.config;
 
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
-import be.vlaanderen.vip.magda.exception.TwoWaySslException;
+import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.mock.magda.client.MagdaMockConnection;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
@@ -14,6 +9,10 @@ import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import be.vlaanderen.vip.mock.magdaservice.exception.InitializationException;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 @Data
 @Configuration
@@ -49,7 +48,7 @@ public class MagdaMockConnectionConfig {
             try {
                 builder = builder.requestVerifierProperties(properties);
             } catch (TwoWaySslException e) {
-              throw new InitializationException("Failed to create request verifier from properties", e);
+                throw new InitializationException("Failed to create request verifier from properties", e);
             }
             
             try {
