@@ -10,15 +10,15 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-public class GeefPersoonTest extends MockTestBase {
+class GeefPersoonTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefPersoonGeeftAntwoord() {
-        final String requestInsz = "00600099507";
+        final var requestInsz = "00600099507";
         var aanvraag = new GeefPersoonAanvraag(requestInsz);
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         log.info("{}", antwoord.getDocument());
@@ -30,7 +30,7 @@ public class GeefPersoonTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         var doc = antwoord.getDocument();
 

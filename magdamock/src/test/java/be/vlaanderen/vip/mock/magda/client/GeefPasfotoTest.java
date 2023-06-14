@@ -1,6 +1,5 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
 import be.vlaanderen.vip.magda.client.diensten.GeefPasfotoAanvraag;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
@@ -19,8 +18,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GeefPasfotoTest extends MockTestBase {
     private static final String INSZ_MAGDA_OVERBELAST = "91610100176";
     private static final String INSZ_ECHTE_PASFOTO = "67621546751";
-    private static final String INSZ_RANDOM_MAN = "67021400130" ;
-    private static final String INSZ_RANDOM_VROUW = "67021400229" ;
+    private static final String INSZ_RANDOM_MAN = "67021400130";
+    private static final String INSZ_RANDOM_VROUW = "67021400229";
 
     // Zet deze constante op true om de base64 geëncodeerde foto te bewaren in een temp jpeg bestand
     // De test print uit op welk pad de foto bewaard is.
@@ -36,21 +35,20 @@ public class GeefPasfotoTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefPasfotoVoorRandomMan() {
-        assertPasfotoCorrect(INSZ_RANDOM_MAN, 28722);
+        assertPasfotoCorrect(INSZ_RANDOM_MAN, 30271);
     }
 
     @Test
     @SneakyThrows
     void geefPasfotoVoorRandomVrouw() {
-        assertPasfotoCorrect(INSZ_RANDOM_VROUW, 32659);
+        assertPasfotoCorrect(INSZ_RANDOM_VROUW, 34052);
     }
 
-    private void assertPasfotoCorrect(String inszRandomMan, int expected) throws IOException {
-        final String requestInsz = inszRandomMan;
+    private void assertPasfotoCorrect(String requestInsz, int expected) throws IOException {
         var aanvraag = new GeefPasfotoAanvraag(requestInsz);
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         log.info("{}", antwoord.getDocument());
@@ -62,7 +60,7 @@ public class GeefPasfotoTest extends MockTestBase {
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
         assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(0);
+        assertThat(afnemerLogService.getGefaald()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -74,15 +72,15 @@ public class GeefPasfotoTest extends MockTestBase {
 
         var base64Foto = doc.getValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/Foto");
         var decoded = Base64.decodeBase64(base64Foto.getBytes());
-        assertThat(decoded.length).isEqualTo(expected) ;
+        assertThat(decoded).hasSize(expected);
 
         storeImage(decoded);
     }
 
     private static void storeImage(byte[] decoded) throws IOException {
         if (STORE_FOTO_IN_TEMP_FILE) {
-            File tempFile = File.createTempFile("mugshot", ".jpg", null);
-            try (FileOutputStream fos = new FileOutputStream(tempFile)) {
+            var tempFile = File.createTempFile("passport_photo", ".jpg", null);
+            try (var fos = new FileOutputStream(tempFile)) {
                 fos.write(decoded);
             }
             System.out.println("Wrote file to " + tempFile.getAbsolutePath());
@@ -94,9 +92,9 @@ public class GeefPasfotoTest extends MockTestBase {
     void geefPasfotov0200LuktNietOmdatMagdaOverbelastIs() {
         var aanvraag = new GeefPasfotoAanvraag(INSZ_MAGDA_OVERBELAST);
 
-        AfnemerLogServiceMock afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-        MagdaConnectorImpl connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
         var antwoord = connector.send(aanvraag);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
@@ -104,7 +102,7 @@ public class GeefPasfotoTest extends MockTestBase {
         assertThatAnswerContainsUitzondering(antwoord);
 
         assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(0);
+        assertThat(afnemerLogService.getGeslaagd()).isZero();
         assertThat(afnemerLogService.getGefaald()).isEqualTo(1);
 
         var uitzondering = antwoord.getUitzonderingen().get(0);
@@ -112,6 +110,4 @@ public class GeefPasfotoTest extends MockTestBase {
         assertThat(uitzondering.getIdentificatie()).isEqualTo("99996");
         assertThat(uitzondering.getDiagnose()).isEqualTo("Te veel gelijktijdige bevragingen");
     }
-
-
 }

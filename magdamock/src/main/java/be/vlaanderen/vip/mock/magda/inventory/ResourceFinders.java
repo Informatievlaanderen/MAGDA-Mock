@@ -5,7 +5,7 @@ import java.io.File;
 public class ResourceFinders {
     private static final String MAGDA_SIMULATOR = "magda_simulator";
 
-    ResourceFinders() {}
+    private ResourceFinders() {}
     
     public static ResourceFinder magdaSimulator() {
         return ClasspathResourceFinder.create(MAGDA_SIMULATOR);

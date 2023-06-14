@@ -1,35 +1,24 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.jupiter.api.BeforeEach;
-
-import be.vlaanderen.vip.magda.client.Aanvraag;
-import be.vlaanderen.vip.magda.client.MagdaAntwoord;
-import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.MagdaSignedConnection;
+import be.vlaanderen.vip.magda.client.*;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
-import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.BeforeEach;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 public abstract class MockTestBase {
 
-    public static final String TEST_SERVICE_NAAM = "Magda Mock";
     public static final String TEST_SERVICE_URI = "be.vlaanderen/magda/mock.service";
     public static final String TEST_SERVICE_HOEDANIGHEID = "123";
 
-    public static final String VRAAG_REFERTE = "//Vragen/Vraag/Referte";
-    public static final String AFZENDER_REFERTE = "//Bericht/Afzender/Referte";
-    public static final String AFZENDER_IDENTIFICATIE = "//Bericht/Afzender/Identificatie";
-    public static final String AFZENDER_HOEDANIGHEID = "//Bericht/Afzender/Hoedanigheid";
-    
     public static final String ANTWOORD_REFERTE = "//Antwoorden/Antwoord/Referte";
     public static final String ONTVANGER_REFERTE = "//Bericht/Ontvanger/Referte";
     public static final String ONTVANGER_IDENTIFICATIE = "//Bericht/Ontvanger/Identificatie";
@@ -106,7 +95,7 @@ public abstract class MockTestBase {
     }
 
     protected void assertThatXmlFieldIsEqualTo(MagdaDocument doc, String xmlPath, String expected) {
-        String value = doc.getValue(xmlPath);
+        var value = doc.getValue(xmlPath);
         assertThat(value).isNotNull();
         assertThat(value).isEqualTo(expected);
     }

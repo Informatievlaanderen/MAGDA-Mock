@@ -1,18 +1,15 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
+import org.apache.commons.io.FilenameUtils;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
-import org.apache.commons.io.FilenameUtils;
+import java.util.*;
 
 public class DirectoryResourceFinder implements ResourceFinder {
-    private File dir;
+    private final File dir;
     
     DirectoryResourceFinder(File dir) {
         if(!dir.isDirectory()) {
@@ -24,7 +21,7 @@ public class DirectoryResourceFinder implements ResourceFinder {
     @Override
     public InputStream loadSimulatorResource(String type, String resource) {
         try {
-            return new FileInputStream(new File(dir, type + "/" + resource));
+            return new FileInputStream(new File(dir, "%s/%s".formatted(type, resource)));
         } catch (FileNotFoundException e) {
             return null;
         }
@@ -40,7 +37,7 @@ public class DirectoryResourceFinder implements ResourceFinder {
     }
     
     private List<ServiceDirectory> getServiceDirectories(File dir) {
-        return Arrays.stream(dir.listFiles())
+        return Arrays.stream(Objects.requireNonNull(dir.listFiles()))
                      .filter(File::isDirectory)
                      .<ServiceDirectory>map(FileServiceDirectory::new)
                      .sorted(Comparator.comparing(ServiceDirectory::service))
@@ -62,8 +59,7 @@ public class DirectoryResourceFinder implements ResourceFinder {
         }
         
         public List<VersionDirectory> versions() {
-            return Arrays.asList(dir.listFiles())
-                         .stream()
+            return Arrays.stream(Objects.requireNonNull(dir.listFiles()))
                          .filter(File::isDirectory)
                          .<VersionDirectory>map(FileVersionDirectory::new)
                          .sorted(Comparator.comparing(VersionDirectory::version))
@@ -79,8 +75,7 @@ public class DirectoryResourceFinder implements ResourceFinder {
         }
         
         public List<CaseFile> cases() {
-            return Arrays.asList(file.listFiles())
-                         .stream()
+            return Arrays.stream(Objects.requireNonNull(file.listFiles()))
                          .filter(File::isFile)
                          .filter(this::isCaseFile)
                          .<CaseFile>map(FileCaseFile::new)
@@ -101,5 +96,4 @@ public class DirectoryResourceFinder implements ResourceFinder {
         }
         
     }
-
 }

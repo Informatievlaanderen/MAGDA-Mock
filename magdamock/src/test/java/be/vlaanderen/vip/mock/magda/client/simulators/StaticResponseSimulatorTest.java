@@ -1,19 +1,11 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
-import static be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder.KEY_INSZ;
-import static be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder.PERSOON;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.when;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.Map;
-
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.mock.magda.MagdaDocumentBuilder;
+import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockException;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -22,12 +14,16 @@ import org.mockito.Mock;
 import org.mockito.Mock.Strictness;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
-import be.vlaanderen.vip.mock.magda.MagdaDocumentBuilder;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
-import lombok.SneakyThrows;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Map;
+
+import static be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder.KEY_INSZ;
+import static be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder.PERSOON;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class StaticResponseSimulatorTest {
@@ -280,7 +276,7 @@ class StaticResponseSimulatorTest {
 
             var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
-            assertThrows(MagdaSendFailed.class, () -> simulator.send(makeBewijsAanvraagRequest("00071031644")));
+            assertThrows(MagdaMockException.class, () -> simulator.send(makeBewijsAanvraagRequest("00071031644")));
         }
     }
     
@@ -294,40 +290,38 @@ class StaticResponseSimulatorTest {
         void setup() {
             simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
             
-            when(finder.loadSimulatorResource(eq(PERSOON), anyString())).thenAnswer(iom -> {
-               return new ByteArrayInputStream("""
+            when(finder.loadSimulatorResource(eq(PERSOON), anyString())).thenAnswer(iom -> new ByteArrayInputStream("""
 <geef:GeefBewijsResponse xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefBewijs</Naam>
-            <Versie>02.00.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:46:52.589</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>c42275a3-f433-4fa1-b469-e47651f08208</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>wse.vlaanderen.be/vdab/mint-aip-bo</Identificatie>
-                    <Referte>XE:193:25162:8280</Referte>
-                    <Hoedanigheid>801</Hoedanigheid>
-                    <Gebruiker>77050526771</Gebruiker>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-    </Repliek>
+ <Repliek>
+     <Context>
+         <Naam>GeefBewijs</Naam>
+         <Versie>02.00.0000</Versie>
+         <Bericht>
+             <Type>ANTWOORD</Type>
+             <Tijdstip>
+                 <Datum>2017-05-05</Datum>
+                 <Tijd>07:46:52.589</Tijd>
+             </Tijdstip>
+             <Afzender>
+                 <Identificatie>vip.vlaanderen.be</Identificatie>
+                 <Naam>MagdaGateway</Naam>
+                 <Referte>c42275a3-f433-4fa1-b469-e47651f08208</Referte>
+             </Afzender>
+             <Ontvanger>
+                 <Identificatie>wse.vlaanderen.be/vdab/mint-aip-bo</Identificatie>
+                 <Referte>XE:193:25162:8280</Referte>
+                 <Hoedanigheid>801</Hoedanigheid>
+                 <Gebruiker>77050526771</Gebruiker>
+             </Ontvanger>
+         </Bericht>
+     </Context>
+ </Repliek>
 </geef:GeefBewijsResponse>
-                       """.getBytes()); 
-            });
+                    """.getBytes()));
         }
         
         @Test
-        void setsUser_whenPresentInRequest() throws MagdaSendFailed {
+        void setsUser_whenPresentInRequest() {
             var request = MagdaDocumentBuilder.request(Map.of("Context", GIVE_PROOF_CONTEXT,
                                                               "Vragen", questionInsz("00071031644"),
                                                               "Afzender", Map.of("Gebruiker", "123")));
@@ -335,11 +329,10 @@ class StaticResponseSimulatorTest {
             var result = simulator.send(request);
             
             assertEquals("123", result.getValue("//Gebruiker"));
-            
         }
         
         @Test
-        void removesUser_whenNotPresentInRequest() throws MagdaSendFailed {
+        void removesUser_whenNotPresentInRequest() {
             var request = MagdaDocumentBuilder.request(Map.of("Context", GIVE_PROOF_CONTEXT,
                                                               "Vragen", questionInsz("00071031644")));
 

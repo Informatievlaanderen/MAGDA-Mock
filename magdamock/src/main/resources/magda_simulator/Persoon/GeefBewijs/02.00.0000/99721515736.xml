@@ -28,37 +28,24 @@
                     <Bewijzen>
                         <Bewijs>
                             <BewijsrefertesLed>
-                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    c5745067-c01e-4764-a6c2-5fc3e75f1eb5
-                                </Bewijsreferte>
-                                <Bewijsmutatiereferte
-                                        xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    8b61ec95-63ec-4c65-aea2-070a732b008a
-                                </Bewijsmutatiereferte>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">c5745067-c01e-4764-a6c2-5fc3e75f1eb5</Bewijsreferte>
+                                <Bewijsmutatiereferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">8b61ec95-63ec-4c65-aea2-070a732b008a</Bewijsmutatiereferte>
                             </BewijsrefertesLed>
                             <BewijsstatusLed>
                                 <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1</Code>
                                 <DatumModificatie>
-                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        22.03.2023
-                                    </Datum>
-                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        11:24:19.282
-                                    </Tijd>
+                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">22.03.2023</Datum>
+                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">11:24:19.282</Tijd>
                                 </DatumModificatie>
                             </BewijsstatusLed>
                             <Leverancier>
                                 <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Secundair
                                     onderwijs
                                 </Naam>
-                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    47e4fb34-12ef-4f6c-93ca-e5c3974f998d
-                                </Bewijsreferte>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">47e4fb34-12ef-4f6c-93ca-e5c3974f998d</Bewijsreferte>
                             </Leverancier>
                             <PersoonUitgereikt>
-                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    99721515736
-                                </INSZ>
+                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">99721515736</INSZ>
                             </PersoonUitgereikt>
                             <Basis>
                                 <Authenticiteit>
@@ -104,13 +91,9 @@
                                     </Naam>
                                 </Onderwerp>
                                 <Uitreikingsdatum>
-                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        2010
-                                    </Jaar>
-                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06
-                                    </Maand>
-                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">30
-                                    </Dag>
+                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">2010</Jaar>
+                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06</Maand>
+                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">30</Dag>
                                 </Uitreikingsdatum>
                                 <VolledigeNaam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
                                     Niet beschikbaar
@@ -127,9 +110,7 @@
                                     <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
                                         Sint-Jozefsinstituut
                                     </Naam>
-                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        35212
-                                    </Nummer>
+                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">35212</Nummer>
                                 </Instelling>
                                 <Schooltype>
                                     <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
@@ -188,37 +169,24 @@
                         </Bewijs>
                         <Bewijs>
                             <BewijsrefertesLed>
-                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    41aed491-f6a1-4725-9038-554520d4100d
-                                </Bewijsreferte>
-                                <Bewijsmutatiereferte
-                                        xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    5bd55059-781f-4cc0-967c-f6ab395f1015
-                                </Bewijsmutatiereferte>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">41aed491-f6a1-4725-9038-554520d4100d</Bewijsreferte>
+                                <Bewijsmutatiereferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">5bd55059-781f-4cc0-967c-f6ab395f1015</Bewijsmutatiereferte>
                             </BewijsrefertesLed>
                             <BewijsstatusLed>
                                 <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1</Code>
                                 <DatumModificatie>
-                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        22.03.2023
-                                    </Datum>
-                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        11:23:52.321
-                                    </Tijd>
+                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">22.03.2023</Datum>
+                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">11:23:52.321</Tijd>
                                 </DatumModificatie>
                             </BewijsstatusLed>
                             <Leverancier>
                                 <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Secundair
                                     onderwijs
                                 </Naam>
-                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    4b531e54-bbd3-4f5f-bf45-248321cc17ea
-                                </Bewijsreferte>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">4b531e54-bbd3-4f5f-bf45-248321cc17ea</Bewijsreferte>
                             </Leverancier>
                             <PersoonUitgereikt>
-                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    99721515736
-                                </INSZ>
+                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">99721515736</INSZ>
                             </PersoonUitgereikt>
                             <Basis>
                                 <Authenticiteit>
@@ -264,13 +232,9 @@
                                     </Naam>
                                 </Onderwerp>
                                 <Uitreikingsdatum>
-                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        2012
-                                    </Jaar>
-                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06
-                                    </Maand>
-                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">30
-                                    </Dag>
+                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">2012</Jaar>
+                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06</Maand>
+                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">30</Dag>
                                 </Uitreikingsdatum>
                                 <VolledigeNaam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
                                     Niet beschikbaar
@@ -287,9 +251,7 @@
                                     <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
                                         Sint-Jozefsinstituut
                                     </Naam>
-                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        35212
-                                    </Nummer>
+                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">35212</Nummer>
                                 </Instelling>
                                 <Schooltype>
                                     <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
@@ -349,37 +311,24 @@
                         </Bewijs>
                         <Bewijs>
                             <BewijsrefertesLed>
-                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    c5401dea-266e-4217-b66c-786d1efe422a
-                                </Bewijsreferte>
-                                <Bewijsmutatiereferte
-                                        xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    94571326-70ef-4cff-8df1-28fb6a310526
-                                </Bewijsmutatiereferte>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">c5401dea-266e-4217-b66c-786d1efe422a</Bewijsreferte>
+                                <Bewijsmutatiereferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">94571326-70ef-4cff-8df1-28fb6a310526</Bewijsmutatiereferte>
                             </BewijsrefertesLed>
                             <BewijsstatusLed>
                                 <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1</Code>
                                 <DatumModificatie>
-                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        22.03.2023
-                                    </Datum>
-                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        11:23:25.247
-                                    </Tijd>
+                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">22.03.2023</Datum>
+                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">11:23:25.247</Tijd>
                                 </DatumModificatie>
                             </BewijsstatusLed>
                             <Leverancier>
                                 <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Secundair
                                     onderwijs
                                 </Naam>
-                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    fdf6263e-81a7-45e5-9d34-e13f9ec84f7b
-                                </Bewijsreferte>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">fdf6263e-81a7-45e5-9d34-e13f9ec84f7b</Bewijsreferte>
                             </Leverancier>
                             <PersoonUitgereikt>
-                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    99721515736
-                                </INSZ>
+                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">99721515736</INSZ>
                             </PersoonUitgereikt>
                             <Basis>
                                 <Authenticiteit>
@@ -425,13 +374,9 @@
                                     </Naam>
                                 </Onderwerp>
                                 <Uitreikingsdatum>
-                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        2014
-                                    </Jaar>
-                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06
-                                    </Maand>
-                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">30
-                                    </Dag>
+                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">2014</Jaar>
+                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06</Maand>
+                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">30</Dag>
                                 </Uitreikingsdatum>
                                 <VolledigeNaam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
                                     Niet beschikbaar
@@ -448,9 +393,7 @@
                                     <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
                                         Sint-Jozefsinstituut
                                     </Naam>
-                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        35212
-                                    </Nummer>
+                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">35212</Nummer>
                                 </Instelling>
                                 <Schooltype>
                                     <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
@@ -510,37 +453,24 @@
                         </Bewijs>
                         <Bewijs>
                             <BewijsrefertesLed>
-                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    7d97bbca-092c-496c-978a-a2ac4ffa30a0
-                                </Bewijsreferte>
-                                <Bewijsmutatiereferte
-                                        xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    f2aab556-2ff1-4752-81b4-576f990ae96d
-                                </Bewijsmutatiereferte>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">7d97bbca-092c-496c-978a-a2ac4ffa30a0</Bewijsreferte>
+                                <Bewijsmutatiereferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">f2aab556-2ff1-4752-81b4-576f990ae96d</Bewijsmutatiereferte>
                             </BewijsrefertesLed>
                             <BewijsstatusLed>
                                 <Code xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">1</Code>
                                 <DatumModificatie>
-                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        22.03.2023
-                                    </Datum>
-                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        11:22:55.807
-                                    </Tijd>
+                                    <Datum xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">22.03.2023</Datum>
+                                    <Tijd xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">11:22:55.807</Tijd>
                                 </DatumModificatie>
                             </BewijsstatusLed>
                             <Leverancier>
                                 <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Hoger
                                     onderwijs
                                 </Naam>
-                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    0b482593-32f6-4a79-84c1-3c51f6670b75
-                                </Bewijsreferte>
+                                <Bewijsreferte xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">0b482593-32f6-4a79-84c1-3c51f6670b75</Bewijsreferte>
                             </Leverancier>
                             <PersoonUitgereikt>
-                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                    99721515736
-                                </INSZ>
+                                <INSZ xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">99721515736</INSZ>
                             </PersoonUitgereikt>
                             <Basis>
                                 <Authenticiteit>
@@ -587,13 +517,9 @@
                                     </Naam>
                                 </Onderwerp>
                                 <Uitreikingsdatum>
-                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        2019
-                                    </Jaar>
-                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06
-                                    </Maand>
-                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">30
-                                    </Dag>
+                                    <Jaar xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">2019</Jaar>
+                                    <Maand xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">06</Maand>
+                                    <Dag xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">30</Dag>
                                 </Uitreikingsdatum>
                                 <VolledigeNaam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
                                     Niet beschikbaar
@@ -610,9 +536,7 @@
                                     <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
                                         Katholieke Universiteit Leuven
                                     </Naam>
-                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
-                                        110131
-                                    </Nummer>
+                                    <Nummer xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">110131</Nummer>
                                 </Instelling>
                                 <Schooltype>
                                     <Naam xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">Niet

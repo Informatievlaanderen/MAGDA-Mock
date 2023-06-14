@@ -35,18 +35,19 @@ public class RegistreerInschrijving0201Aanvraag extends Aanvraag {
     public void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         super.fillIn(request, magdaRegistrationInfo);
 
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
+        var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Start", getStart().format(dateFormatter));
         request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEinde().format(dateFormatter));
         request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Type", getType().getTypeString());
         request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Type", getType().getTypeString());
         request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Sleutel", getInsz());
         request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", magdaRegistrationInfo.getIdentification());
-        if(magdaRegistrationInfo.getHoedanigheidscode() == null) {
+
+        var hoedanigheidscode = magdaRegistrationInfo.getHoedanigheidscode();
+        if(hoedanigheidscode.isEmpty()) {
             request.removeNode("//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid");
         } else {
-            request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", magdaRegistrationInfo.getHoedanigheidscode());
+            request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Hoedanigheid", hoedanigheidscode.get());
         }
     }
-
 }

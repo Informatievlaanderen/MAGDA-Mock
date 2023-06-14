@@ -9,16 +9,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 @Slf4j
-public class GeefPasfotoTest extends TestBase {
+class GeefPasfotoTest extends TestBase {
     private static final String INSZ = "67021546719";
 
     @Test
     void fillsInRequestGeefPasfoto0200() {
         var aanvraag = new GeefPasfotoAanvraag(INSZ);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
+        var request = MagdaDocument.fromTemplate(aanvraag);
 
-        MagdaRegistrationInfo mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
+        var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
                 .build();
 
@@ -38,9 +38,9 @@ public class GeefPasfotoTest extends TestBase {
         void fillsInRequestGeefPasfoto0200() {
             var aanvraag = new GeefPasfotoAanvraag(INSZ);
 
-            MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
+            var request = MagdaDocument.fromTemplate(aanvraag);
 
-            MagdaRegistrationInfo mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
+            var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                     .identification(TEST_SERVICE_URI)
                     .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();

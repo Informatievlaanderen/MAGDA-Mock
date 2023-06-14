@@ -11,13 +11,13 @@ public class ServiceMappedMagdaEndpoints implements MagdaEndpoints {
     private final Map<MagdaServiceIdentificatie, MagdaEndpoint> endpoints = new HashMap<>();
 
     public URI magdaUri(MagdaServiceIdentificatie aanvraag) {
-        return bepaalMagdaPath(aanvraag).getUri();
+        return determineMagdaPath(aanvraag).getUri();
     }
 
-    private MagdaEndpoint bepaalMagdaPath(MagdaServiceIdentificatie dienst) {
-        final MagdaEndpoint magdaEndpoint = endpoints.get(dienst);
+    private MagdaEndpoint determineMagdaPath(MagdaServiceIdentificatie dienst) {
+        final var magdaEndpoint = endpoints.get(dienst);
         if(magdaEndpoint == null) {
-            throw new IllegalArgumentException("Geen MagdaEndpoint geconfigureerd voor dienst '" + dienst + "'. Voeg deze toe in MagdaEndpoints");
+            throw new IllegalArgumentException("No MagdaEndpoint configured for service '" + dienst + "'. Add them in MagdaEndpoints.");
         }
         return magdaEndpoint;
     }

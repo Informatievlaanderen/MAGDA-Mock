@@ -16,7 +16,7 @@ import java.util.UUID;
  */
 @Getter
 public class GeslaagdeAanvraag extends GelogdeAanvraag {
-    private Duration duratie;
+    private final Duration duratie;
 
     public GeslaagdeAanvraag(String insz,
                              List<String> overWie,

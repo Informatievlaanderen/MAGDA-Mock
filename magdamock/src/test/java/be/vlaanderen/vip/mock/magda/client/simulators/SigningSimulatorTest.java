@@ -1,12 +1,9 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.when;
-
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.security.DocumentSigner;
+import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockException;
+import lombok.SneakyThrows;
 import org.apache.wss4j.common.ext.WSSecurityException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,16 +11,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.w3c.dom.Document;
 
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.security.DocumentSigner;
-import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
-import lombok.SneakyThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class SigningSimulatorTest {
-    @Mock private ResourceFinder finder;
     @Mock private SOAPSimulator childSimulator;
     @Mock private DocumentSigner signer;
 
@@ -40,7 +35,7 @@ class SigningSimulatorTest {
         var doc = signingSimulator.send(request);
 
         assertEquals(response, doc);
-        Mockito.verify(signer, times(1)).signDocument(response);
+        Mockito.verify(signer, times(1)).signDocument(response.getXml());
     }
 
     @Test
@@ -48,9 +43,11 @@ class SigningSimulatorTest {
     void throwsMagdaSendFailed_ifSignerFails() {
         var request = mock(MagdaDocument.class);
         var response = mock(MagdaDocument.class);
+        var responseXml = mock(Document.class);
+        when(response.getXml()).thenReturn(responseXml);
         when(childSimulator.send(request)).thenReturn(response);
-        doThrow(WSSecurityException.class).when(signer).signDocument(response);
+        doThrow(WSSecurityException.class).when(signer).signDocument(responseXml);
 
-        assertThrows(MagdaSendFailed.class, () -> signingSimulator.send(request));
+        assertThrows(MagdaMockException.class, () -> signingSimulator.send(request));
     }
 }

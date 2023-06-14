@@ -1,39 +1,38 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
-import java.io.InputStream;
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import lombok.extern.slf4j.Slf4j;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
-import lombok.extern.slf4j.Slf4j;
-
 @Slf4j
 public abstract class BaseSOAPSimulator implements SOAPSimulator {
-    private ResourceFinder finder;
+    private final ResourceFinder finder;
 
     protected BaseSOAPSimulator(ResourceFinder finder) {
         this.finder = finder;
     }
 
-    protected static void patchResponse(MagdaRequest params, MagdaDocument response) {
-        response.setValue("//Referte", params.getReferte());
-        response.setValue("//Ontvanger/Identificatie", params.getIdentificatie());
-        response.setValue("//Ontvanger/Hoedanigheid", params.getHoedanigheid());
+    protected static void patchResponse(MagdaDocument request, MagdaDocument response) {
+        response.setValue("//Referte", request.getValue("//Afzender/Referte"));
+        response.setValue("//Ontvanger/Identificatie", request.getValue("//Afzender/Identificatie"));
+        response.setValue("//Ontvanger/Hoedanigheid", request.getValue("//Afzender/Hoedanigheid"));
         
-        Optional.ofNullable(params.getGebruiker())
+        Optional.ofNullable(request.getValue("//Afzender/Gebruiker"))
                 .ifPresentOrElse(user -> response.setValue("//Ontvanger/Gebruiker", user), 
                                  () -> response.removeNode("//Ontvanger/Gebruiker"));
 
-        SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String today = dayFormat.format(new Date());
+        var dayFormat = new SimpleDateFormat("yyyy-MM-dd");
+        var today = dayFormat.format(new Date());
         response.setValue("//Context/Bericht/Tijdstip/Datum", today);
 
-        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss.S");
-        String time = timeFormat.format(new Date());
+        var timeFormat = new SimpleDateFormat("HH:mm:ss.S");
+        var time = timeFormat.format(new Date());
         response.setValue("//Context/Bericht/Tijdstip/Tijd", time);
 
         // Identificeert antwoord als komend van Magda Mock
@@ -43,18 +42,18 @@ public abstract class BaseSOAPSimulator implements SOAPSimulator {
     }
 
     protected MagdaDocument loadSimulatorResource(String type, String testResource) {
-        try (InputStream resource = finder.loadSimulatorResource(type, testResource)) {
+        try (var resource = finder.loadSimulatorResource(type, testResource)) {
             if (Objects.nonNull(resource)) {
                 return MagdaDocument.fromStream(resource);
             }
         } catch (Exception e) {
-            log.error("Fout bij het laden van resource {}: ", testResource, e);
+            log.error("Error loading resource {}: ", testResource, e);
         }
         return null;
     }
 
     protected MagdaDocument wrapInEnvelope(MagdaDocument bodyDocument) {
-        String soap = """
+        var soap = """
                 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" >
                 <soapenv:Header/>
                     <soapenv:Body>
@@ -66,7 +65,7 @@ public abstract class BaseSOAPSimulator implements SOAPSimulator {
     }
 
     protected MagdaDocument makeFaultDocument(String faultCode, String faultString) {
-        var faultDocument = MagdaDocument.fromResource(getClass(), "/magda_simulator/generic_fault.xml");
+        var faultDocument = Objects.requireNonNull(MagdaDocument.fromResource(getClass(), "/magda_simulator/generic_fault.xml"));
         faultDocument.setValue("//soapenv:Fault/faultcode", faultCode);
         faultDocument.setValue("//soapenv:Fault/faultstring", faultString);
 

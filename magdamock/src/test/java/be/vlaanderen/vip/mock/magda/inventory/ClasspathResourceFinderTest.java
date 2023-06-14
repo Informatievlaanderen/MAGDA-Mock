@@ -1,14 +1,8 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
-
-import java.io.IOException;
-
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.CaseFile;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.ServiceDirectory;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.VersionDirectory;
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -16,9 +10,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.CaseFile;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.ServiceDirectory;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.VersionDirectory;
+import java.io.IOException;
+import java.util.Objects;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 class ClasspathResourceFinderTest {
     private ClasspathResourceFinder finder;
@@ -46,8 +42,8 @@ class ClasspathResourceFinderTest {
         }
         
         private String getResourceContent(String resource) {
-            try {
-                return new String(getClass().getClassLoader().getResourceAsStream(resource).readAllBytes());
+            try(var stream = Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(resource))) {
+                return new String(stream.readAllBytes());
             } catch (IOException e) {
                 throw new RuntimeException("Failed to read " + resource);
             }
@@ -75,11 +71,11 @@ class ClasspathResourceFinderTest {
         }
         
         private Matcher<ServiceDirectory> serviceDirectoryFor(String service) {
-            return new BaseMatcher<ServiceDirectory>() {
+            return new BaseMatcher<>() {
 
                 @Override
                 public boolean matches(Object actual) {
-                    if(actual instanceof ServiceDirectory sd) {
+                    if (actual instanceof ServiceDirectory sd) {
                         return sd.service().equals(service);
                     }
                     return false;

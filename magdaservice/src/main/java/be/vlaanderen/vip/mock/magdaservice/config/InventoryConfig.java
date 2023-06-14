@@ -1,17 +1,14 @@
 package be.vlaanderen.vip.mock.magdaservice.config;
 
-import java.io.IOException;
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import be.vlaanderen.vip.mock.magda.inventory.TestcaseFinder;
 import be.vlaanderen.vip.mock.magda.inventory.TestcaseInventory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class InventoryConfig {
-    private ResourceFinder finder;
+    private final ResourceFinder finder;
     
     public InventoryConfig(
             ResourceFinder finder) {
@@ -29,7 +26,7 @@ public class InventoryConfig {
     }
 
     @Bean
-    public TestcaseInventory businesesTestcases() throws IOException {
+    public TestcaseInventory businesesTestcases() {
         return new TestcaseInventory(testcaseFinder().listServices("Onderneming"));
     }
     

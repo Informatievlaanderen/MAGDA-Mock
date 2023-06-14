@@ -1,18 +1,17 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
 import java.io.InputStream;
-import java.util.Arrays;
 import java.util.List;
 
 public interface ResourceFinder {
-    static final List<String> CASE_FILE_EXTENSION = Arrays.asList(
+    List<String> CASE_FILE_EXTENSION = List.of(
             "xml", "json", "pdf", "jpg");
     
-    InputStream loadSimulatorResource(String type, String resource);
+    InputStream loadSimulatorResource(String type, String resource); // TODO refactor so that we use resource locators, which are subclassed by resource type
     
     List<ServiceDirectory> listServicesDirectories(String type);
     
-    public interface ServiceDirectory { 
+    interface ServiceDirectory {
         
         String service();
         
@@ -20,17 +19,17 @@ public interface ResourceFinder {
         
     }
     
-    public interface VersionDirectory {
+    interface VersionDirectory {
         
-        public String version();
+        String version();
         
-        public List<CaseFile> cases();
+        List<CaseFile> cases();
         
     }
     
-    public interface CaseFile {
+    interface CaseFile {
         
-        public String name();
+        String name();
         
     }
     

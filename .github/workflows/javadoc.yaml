@@ -1,0 +1,47 @@
+name: publish-javadoc
+run-name: Publish Javadocs to Github pages
+on:
+  push:
+  release:
+    types: [created]
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+  
+jobs:
+  generate-javadoc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: javadoc-cache
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '19'
+          distribution: 'temurin'
+      - name: Generate JavaDoc
+        run: mvn --batch-mode install javadoc:javadoc -pl "!tester"
+      - name: Upload interface artifact
+        uses: actions/upload-pages-artifact@v1.0.8
+        with:
+          path: interfaces/target/site/apidocs
+          
+  deploy:
+    needs: generate-javadoc
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2.0.1

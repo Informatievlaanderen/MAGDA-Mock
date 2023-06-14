@@ -10,13 +10,13 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties("tester.wss")
 public class WssConfig {
 
-    public String keyStore;
-    public String keyAlias;
-    public String keyPassword;
-    public String keystorePassword;
+    private String keyStore;
+    private String keyAlias;
+    private String keyPassword;
+    private String keystorePassword;
 
     public boolean isWssEnabled() {
-        return getKeyStore() != null && getKeyStore() != "";
+        return getKeyStore() != null && !getKeyStore().equals("");
     }
 
     public TwoWaySslProperties getKeystoreProperties() {

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>be.vlaanderen.vip.mock</groupId>
 	<artifactId>magda</artifactId>
-	<version>0.26.0</version>
+	<version>1.0.0</version>
 	<name>magdaservice</name>
 	<description>MAGDA diensten Mock voor afnemers</description>
 	<properties>
@@ -21,7 +21,7 @@
 		<magda-openjdk.version>19.0.2</magda-openjdk.version>
 		<docker.image>magdamock.service</docker.image>
 		<assertj-core.version>3.24.2</assertj-core.version>
-		<commons-io.version>2.12.0</commons-io.version>
+		<commons-io.version>2.13.0</commons-io.version>
 		<commons-lang3.version>3.12.0</commons-lang3.version>
 		<dom4j.version>2.1.4</dom4j.version>
 		<jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
@@ -92,12 +92,13 @@
 	</dependencies>
 
 	<modules>
+		<module>common</module>
+		<module>signing</module>
 		<module>magdaservice</module>
 		<module>magdamock</module>
 		<module>magdaconnector</module>
 		<module>interfaces</module>
 		<module>tester</module>
 	</modules>
-
 
 </project>

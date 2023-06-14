@@ -7,15 +7,15 @@ import java.util.Map;
 
 public class TempDirUtils {
     
-    public static File createDir(File dir, String name) {
+    public static File createDir(File dir, String name) throws IOException {
         var newDir = new File(dir, name);
-        newDir.mkdirs();
+        provideParentDirectories(newDir);
         return newDir;
     }
     
-    public static File createFile(File dir, String path, String content) {
+    public static File createFile(File dir, String path, String content) throws IOException {
         var file = new File(dir, path);
-        file.getParentFile().mkdirs();
+        provideParentDirectories(file.getParentFile());
         file.deleteOnExit();
         try {
             Files.writeString(file.toPath(), content);
@@ -25,7 +25,7 @@ public class TempDirUtils {
         return file;
     }
     
-    public static void createFileStructure(File dir, Map<?, ?> structure) {
+    public static void createFileStructure(File dir, Map<?, ?> structure) throws IOException {
         for(var entry : structure.entrySet()) {
             if(entry.getValue() instanceof Map<?, ?> sub) {
                 var subDir = createDir(dir, entry.getKey().toString());
@@ -36,8 +36,14 @@ public class TempDirUtils {
             }
         }
     }
+
+    private static void provideParentDirectories(File file) throws IOException {
+        if(!file.exists() && !file.mkdirs()) {
+            throw new IOException("Failed to make parent directories for file %s".formatted(file.toPath().toString()));
+        }
+    }
     
-    public static record FileDescriptor(String content) {
+    public record FileDescriptor(String content) {
         
         public static FileDescriptor file() {
             return new FileDescriptor("");
@@ -48,5 +54,4 @@ public class TempDirUtils {
         }
         
     }
-
 }

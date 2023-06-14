@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 @Slf4j
-public class RegistreerUitschrijvingTest extends TestBase {
+class RegistreerUitschrijvingTest extends TestBase {
 
     @Test
     void fillsInRequestRegistreerUitschrijving() {
@@ -20,9 +20,9 @@ public class RegistreerUitschrijvingTest extends TestBase {
         
         var aanvraag = new RegistreerUitschrijvingAanvraag("67021546719", start, end);
 
-        MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
+        var request = MagdaDocument.fromTemplate(aanvraag);
 
-        MagdaRegistrationInfo mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
+        var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
                 .build();
 
@@ -68,9 +68,9 @@ public class RegistreerUitschrijvingTest extends TestBase {
 
             var aanvraag = new RegistreerUitschrijvingAanvraag("67021546719", start, end);
 
-            MagdaDocument request = MagdaDocument.fromTemplate(aanvraag);
+            var request = MagdaDocument.fromTemplate(aanvraag);
 
-            MagdaRegistrationInfo mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
+            var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                     .identification(TEST_SERVICE_URI)
                     .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();

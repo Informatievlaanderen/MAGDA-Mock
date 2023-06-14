@@ -2,8 +2,8 @@ package be.vlaanderen.vip.mock.magda.client.simulators;
 
 import be.vlaanderen.vip.magda.client.security.DocumentSignatureVerifier;
 import be.vlaanderen.vip.magda.client.security.DocumentSigner;
+import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
-import be.vlaanderen.vip.magda.exception.TwoWaySslException;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 
 public class SOAPSimulatorBuilder {
@@ -15,9 +15,15 @@ public class SOAPSimulatorBuilder {
     public static final String KEY_INSZ = "//INSZ";
     public static final String KEY_ONDERNEMINGSNUMMER = "//Ondernemingsnummer";
     public static final String KEY_RRNR = "//rrnr";
-    
-    private ResourceFinder finder;
-    private CombinedSimulator simulator;
+
+    private static final String VERSION_01_00 = "01.00.0000";
+    private static final String VERSION_02_00 = "02.00.0000";
+    private static final String VERSION_02_01 = "02.01.0000";
+    private static final String VERSION_02_02 = "02.02.0000";
+    private static final String VERSION_03_00 = "03.00.0000";
+
+    private final ResourceFinder finder;
+    private final CombinedSimulator simulator;
     private SOAPSimulator result;
     
     SOAPSimulatorBuilder(ResourceFinder finder) {
@@ -28,46 +34,46 @@ public class SOAPSimulatorBuilder {
     
     public SOAPSimulatorBuilder magdaMockSimulator() {
         // PERSOON Standaard
-        simulator.register("RegistreerInschrijving", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("RegistreerInschrijving", "02.01.0000", new StaticResponseSimulator(finder, PERSOON, "//Subject/Type", "//Subject/Sleutel"));
-        simulator.register("RegistreerUitschrijving", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("RegistreerInschrijving", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("RegistreerInschrijving", VERSION_02_01, new StaticResponseSimulator(finder, PERSOON, "//Subject/Type", "//Subject/Sleutel"));
+        simulator.register("RegistreerUitschrijving", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
-        simulator.register("GeefBewijs", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefHistoriekInschrijving", "02.01.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("RaadpleegLeerkredietsaldo", "01.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefBewijs", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefHistoriekInschrijving", VERSION_02_01, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("RaadpleegLeerkredietsaldo", VERSION_01_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
-        simulator.register("GeefLoopbaanOnderbrekingen", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefStatusRechtOndersteuningen", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefFuncties", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefDossiers", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefKindVoordelen", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefVolledigDossierHandicap", "03.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_RRNR));
+        simulator.register("GeefLoopbaanOnderbrekingen", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefStatusRechtOndersteuningen", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefFuncties", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefDossiers", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefKindVoordelen", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefVolledigDossierHandicap", VERSION_03_00, new StaticResponseSimulator(finder, PERSOON, KEY_RRNR));
 
-        simulator.register("GeefPersoon", "02.02.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefHistoriekPersoon", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefHistoriekPersoon", "02.02.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefGezinssamenstelling", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefGezinssamenstelling", "02.02.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefPersoon", VERSION_02_02, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefHistoriekPersoon", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefHistoriekPersoon", VERSION_02_02, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefGezinssamenstelling", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefGezinssamenstelling", VERSION_02_02, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
-        simulator.register("GeefDossierKBI", "01.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefDossierKBI", VERSION_01_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
-        simulator.register("GeefAanslagbiljetPersonenbelasting", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefAanslagbiljetPersonenbelasting", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
-        simulator.register("ZoekEigendomstoestanden", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("ZoekEigendomstoestanden", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
-        simulator.register("ZoekPersoonOpAdres", "02.02.0000", new StaticResponseSimulator(finder, PERSOON, "//Inhoud/Bron","//Criteria/Adres/PostCode", "//Criteria/Adres/Straatcode", "//Criteria/Adres/Huisnummer", "//Criteria/EnkelReferentiepersoon"));
+        simulator.register("ZoekPersoonOpAdres", VERSION_02_02, new StaticResponseSimulator(finder, PERSOON, "//Inhoud/Bron","//Criteria/Adres/PostCode", "//Criteria/Adres/Straatcode", "//Criteria/Adres/Huisnummer", "//Criteria/EnkelReferentiepersoon"));
 
         // PERSOON Custom
-        simulator.register("GeefAttest", "02.00.0000", new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefPasfoto", "02.00.0000", new RandomPasfotoSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefAttest", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefPasfoto", VERSION_02_00, new RandomPasfotoSimulator(finder, PERSOON, KEY_INSZ));
 
         // ONDERNEMING
-        simulator.register("GeefOnderneming", "02.00.0000", new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
-        simulator.register("GeefOndernemingVKBO", "02.00.0000", new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
+        simulator.register("GeefOnderneming", VERSION_02_00, new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
+        simulator.register("GeefOndernemingVKBO", VERSION_02_00, new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
 
         // GEBOUW
-        simulator.register("GeefEpc", "02.00.0000", new StaticResponseSimulator(finder, VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId"));
-        simulator.register("GeefEpc", "02.01.0000", new StaticResponseSimulator(finder, VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId", "//Criteria/Adres/Postcode", "//Criteria/Adres/Straat", "//Criteria/Adres/Huisnummer"));
+        simulator.register("GeefEpc", VERSION_02_00, new StaticResponseSimulator(finder, VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId"));
+        simulator.register("GeefEpc", VERSION_02_01, new StaticResponseSimulator(finder, VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId", "//Criteria/Adres/Postcode", "//Criteria/Adres/Straat", "//Criteria/Adres/Huisnummer"));
 
         return this;
     }

@@ -1,5 +1,10 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.CaseFile;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.ServiceDirectory;
+import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.VersionDirectory;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
@@ -8,14 +13,9 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.CaseFile;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.ServiceDirectory;
-import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.VersionDirectory;
-import lombok.extern.slf4j.Slf4j;
-
 @Slf4j
 public class TestcaseFinder {
-    private ResourceFinder finder;
+    private final ResourceFinder finder;
     
     public TestcaseFinder(ResourceFinder finder) {
         this.finder = finder;

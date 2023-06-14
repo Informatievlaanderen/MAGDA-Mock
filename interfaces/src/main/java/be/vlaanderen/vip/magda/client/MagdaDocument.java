@@ -1,30 +1,31 @@
 package be.vlaanderen.vip.magda.client;
 
+import be.vlaanderen.vip.magda.client.util.XmlUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.dom4j.dom.DOMNodeHelper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import javax.xml.namespace.NamespaceContext;
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import javax.xml.xpath.*;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 
 @Slf4j
@@ -45,7 +46,7 @@ public class MagdaDocument {
     }
 
     public static MagdaDocument fromResource(Class<?> clazz, String name) {
-        InputStream resource = clazz.getResourceAsStream(name);
+        var resource = clazz.getResourceAsStream(name);
         if (resource != null) {
             return new MagdaDocument(parseStream(resource));
         } else {
@@ -63,25 +64,24 @@ public class MagdaDocument {
 
     private static Document parseStream(InputStream resource) {
         try {
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            var dbf = DocumentBuilderFactory.newInstance();
             dbf.setExpandEntityReferences(false);
             dbf.setIgnoringElementContentWhitespace(true);
             dbf.setValidating(false);
             dbf.setNamespaceAware(true);
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            InputStreamReader reader = new InputStreamReader(resource, "UTF-8");
-            InputSource is = new InputSource(reader);
+            var db = dbf.newDocumentBuilder();
+            var reader = new InputStreamReader(resource, StandardCharsets.UTF_8);
+            var is = new InputSource(reader);
             is.setEncoding("UTF-8");
 
-            Document xmlInhoud = db.parse(is);
-            return xmlInhoud;
+            return db.parse(is);
         } catch (ParserConfigurationException | IOException | SAXException e) {
-            throw new RuntimeException(e);
+            throw new MagdaDocumentException("Failed to parse stream as document", e);
         }
     }
 
     private static Document parseString(String input) {
-        return parseStream(IOUtils.toInputStream(input, "UTF-8"));
+        return parseStream(IOUtils.toInputStream(input, StandardCharsets.UTF_8));
     }
 
     public Document getXml() {
@@ -101,14 +101,12 @@ public class MagdaDocument {
     }
 
     public NodeList xpath(String expression, String defaultNamespace) {
-        final XPath xpath = makeXpath(defaultNamespace);
-        XPathExpression expr = null;
+        final var xpath = makeXpath(defaultNamespace);
         try {
-            expr = xpath.compile(expression);
-            NodeList nodes = (NodeList) expr.evaluate(xml, XPathConstants.NODESET);
-            return nodes;
+            // TODO improvement: use pre-compiled xpath expressions instead of compiling them on the fly
+            return (NodeList) xpath.compile(expression).evaluate(xml, XPathConstants.NODESET);
         } catch (XPathExpressionException e) {
-            log.warn("Fout bij het ophalen van waarde '{}' : ", expression, e);
+            log.warn("Error retrieving value '{}' : ", expression, e);
         }
         return new DOMNodeHelper.EmptyNodeList();
     }
@@ -118,13 +116,15 @@ public class MagdaDocument {
     }
 
     private XPath makeXpath(String defaultNamespace) {
-        NamespaceContext ctx = new NamespaceContext() {
+        var ctx = new NamespaceContext() {
             public String getNamespaceURI(String prefix) {
-                return prefix.equals("soapenv") ? "http://schemas.xmlsoap.org/soap/envelope/"
-                        : prefix.equals("wsu") ? "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
-                        : prefix.equals("wsse") ? "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
-                        : prefix.equals("ds") ? "http://www.w3.org/2000/09/xmldsig#"
-                        : defaultNamespace;
+                return switch (prefix) {
+                    case "soapenv" -> "http://schemas.xmlsoap.org/soap/envelope/";
+                    case "wsu"     -> "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd";
+                    case "wsse"    -> "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd";
+                    case "ds"      -> "http://www.w3.org/2000/09/xmldsig#";
+                    default        -> defaultNamespace;
+                };
             }
 
             public Iterator<String> getPrefixes(String val) {
@@ -136,42 +136,33 @@ public class MagdaDocument {
             }
         };
 
-        final XPath xpath = xPathfactory.newXPath();
+        final var xpath = xPathfactory.newXPath();
         xpath.setNamespaceContext(ctx);
         return xpath;
     }
 
     public void setValue(String expression, String value) {
-        NodeList nodes = xpath(expression);
-        for (int pos = 0; pos < nodes.getLength(); pos++) {
+        var nodes = xpath(expression);
+        for (var pos = 0; pos < nodes.getLength(); pos++) {
             nodes.item(pos).setTextContent(value);
         }
     }
 
-    public void setValue(String expression, String value, String defaultNamespace) {
-        NodeList nodes = xpath(expression, defaultNamespace);
-        for (int pos = 0; pos < nodes.getLength(); pos++) {
-            nodes.item(pos).setTextContent(value);
-        }
-    }
-
-    public Node createNode(String expression, String nodeName) {
+    public void createNode(String expression, String nodeName) {
         var node = xml.createElement(nodeName);
         xpath(expression).item(0).appendChild(node);
-        return node;
     }
 
-    public Node createTextNode(String expression, String nodeName, String value) {
+    public void createTextNode(String expression, String nodeName, String value) {
         var node = xml.createElement(nodeName);
         var textNode = xml.createTextNode(value);
         node.appendChild(textNode);
         xpath(expression).item(0).appendChild(node);
-        return node;
     }
 
     public void removeNode(String expression) {
-        NodeList nodes = xpath(expression);
-        for(int pos = nodes.getLength() - 1; pos >= 0; pos--) { // traverse the list in reverse, because this is going to be messing with the indices
+        var nodes = xpath(expression);
+        for(var pos = nodes.getLength() - 1; pos >= 0; pos--) { // traverse the list in reverse, because this is going to be messing with the indices
             var elm = (Element)nodes.item(pos);
             elm.getParentNode().removeChild(elm);
         }
@@ -184,17 +175,15 @@ public class MagdaDocument {
     }
 
     public String toString() {
-        TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer transformer = null;
         try {
-            transformer = tf.newTransformer();
+            var transformer = XmlUtils.createTransformer();
             transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
             transformer.setOutputProperty(OutputKeys.INDENT, "no");
-            StringWriter writer = new StringWriter();
+            var writer = new StringWriter();
             transformer.transform(new DOMSource(xml), new StreamResult(writer));
             return writer.toString();
         } catch (TransformerException e) {
-            log.warn("Fout bij omzetten van XML naar string: ", e);
+            log.warn("Error converting XML to string: ", e);
         }
         return "";
     }

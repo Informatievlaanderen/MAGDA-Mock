@@ -4,33 +4,35 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MagdaRegistrationConfigDtoTest {
+class MagdaRegistrationConfigDtoTest {
 
     @Test
-    public void builder_canBuildInstanceWithoutHoedanigheidscode() {
-        MagdaRegistrationConfigDto dto = MagdaRegistrationConfigDto.builder()
+    void builder_canBuildInstanceWithoutHoedanigheidscode() {
+        var dto = MagdaRegistrationConfigDto.builder()
                 .identification("http://foo-uri")
                 .build();
 
         assertEquals("http://foo-uri", dto.getIdentification());
-        assertNull(dto.getHoedanigheidscode());
+        assertTrue(dto.getHoedanigheidscode().isEmpty());
     }
 
     @Test
-    public void builder_canBuildInstanceWithHoedanigheidscode() {
-        MagdaRegistrationConfigDto dto = MagdaRegistrationConfigDto.builder()
+    void builder_canBuildInstanceWithHoedanigheidscode() {
+        var dto = MagdaRegistrationConfigDto.builder()
                 .identification("http://foo-uri")
                 .hoedanigheidscode("1234")
                 .build();
 
         assertEquals("http://foo-uri", dto.getIdentification());
-        assertEquals("1234", dto.getHoedanigheidscode());
+        var hoedanigheidscode = dto.getHoedanigheidscode();
+        assertTrue(hoedanigheidscode.isPresent());
+        assertEquals("1234", hoedanigheidscode.get());
     }
 
     @Test
-    public void builder_cannotBuildInstanceWithoutIdentification() {
-        assertThrows(IllegalArgumentException.class, () ->
-                MagdaRegistrationConfigDto.builder()
-                        .build());
+    void builder_cannotBuildInstanceWithoutIdentification() {
+        var builder = MagdaRegistrationConfigDto.builder();
+
+        assertThrows(IllegalArgumentException.class, builder::build);
     }
 }

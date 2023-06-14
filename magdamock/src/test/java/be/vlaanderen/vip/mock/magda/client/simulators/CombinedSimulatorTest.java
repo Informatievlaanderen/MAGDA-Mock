@@ -2,7 +2,7 @@ package be.vlaanderen.vip.mock.magda.client.simulators;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
-import be.vlaanderen.vip.magda.exception.MagdaSendFailed;
+import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockException;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
@@ -65,6 +65,6 @@ class CombinedSimulatorTest {
         combinedSimulator.register("foo", "1", simulator);
 
         assertDoesNotThrow(() -> combinedSimulator.send(requestA));
-        assertThrows(MagdaSendFailed.class, () -> combinedSimulator.send(requestB));
+        assertThrows(MagdaMockException.class, () -> combinedSimulator.send(requestB));
     }
 }

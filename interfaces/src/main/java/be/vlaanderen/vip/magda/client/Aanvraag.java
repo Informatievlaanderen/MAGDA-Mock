@@ -11,6 +11,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
+// TODO make builders for the subclasses to get rid of the long param lists and the logic in the constructors
 @Getter
 public abstract class Aanvraag {
     private final UUID correlationId = CorrelationId.get();
@@ -27,7 +28,7 @@ public abstract class Aanvraag {
         this(insz, insz);
     }
 
-    protected Aanvraag(String insz, String overWie) {
+    protected Aanvraag(@NotNull String insz, @NotNull String overWie) {
         this.insz = insz;
         this.overWie = overWie;
     }
@@ -38,24 +39,26 @@ public abstract class Aanvraag {
         request.setValue("//Referte", getRequestId().toString());
         request.setValue("//INSZ", getOverWie());
 
-        final Instant now = Instant.now();
-        LocalDateTime ldt = LocalDateTime.ofInstant(now, ZoneId.of("Europe/Brussels"));
+        final var now = Instant.now();
+        var ldt = LocalDateTime.ofInstant(now, ZoneId.of("Europe/Brussels"));
 
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        String today = ldt.format(dateFormatter);
+        var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
+        var today = ldt.format(dateFormatter);
         request.setValue("//Context/Bericht/Tijdstip/Datum", today);
 
         // Hardcoded 000 milliseconden wordt door alle Magda services aanvaard
         // Afwezigheid van milliseconden of milliseconden <> 000 wordt door sommige services geweigerd
-        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
-        String time = ldt.format(timeFormat) + ".000";
+        var timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
+        var time = ldt.format(timeFormat) + ".000";
         request.setValue("//Context/Bericht/Tijdstip/Tijd", time);
 
         request.setValue("//Context/Bericht/Afzender/Identificatie", magdaRegistrationInfo.getIdentification());
-        if(magdaRegistrationInfo.getHoedanigheidscode() == null) {
+
+        var hoedanigheidscode = magdaRegistrationInfo.getHoedanigheidscode();
+        if(hoedanigheidscode.isEmpty()) {
             request.removeNode("//Context/Bericht/Afzender/Hoedanigheid");
         } else {
-            request.setValue("//Context/Bericht/Afzender/Hoedanigheid", magdaRegistrationInfo.getHoedanigheidscode());
+            request.setValue("//Context/Bericht/Afzender/Hoedanigheid", hoedanigheidscode.get());
         }
     }
 }

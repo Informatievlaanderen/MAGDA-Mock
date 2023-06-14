@@ -35,10 +35,12 @@ public class RegistreerUitschrijvingAanvraag extends Aanvraag {
 
         setDateFields(request);
         request.setValue("//Vraag/Inhoud/Uitschrijving/Identificatie", magdaRegistrationInfo.getIdentification());
-        if(magdaRegistrationInfo.getHoedanigheidscode() == null) {
+
+        var hoedanigheidscode = magdaRegistrationInfo.getHoedanigheidscode();
+        if(hoedanigheidscode.isEmpty()) {
             request.removeNode("//Vraag/Inhoud/Uitschrijving/Hoedanigheid");
         } else {
-            request.setValue("//Vraag/Inhoud/Uitschrijving/Hoedanigheid", magdaRegistrationInfo.getHoedanigheidscode());
+            request.setValue("//Vraag/Inhoud/Uitschrijving/Hoedanigheid", hoedanigheidscode.get());
         }
     }
     
@@ -55,8 +57,6 @@ public class RegistreerUitschrijvingAanvraag extends Aanvraag {
             if(getEinde() != null) {
                 request.createTextNode("//Vraag/Inhoud/Uitschrijving/Periode", "Einde", getEinde().format(dateFormatter));
             }
-            
         }
     }
-
 }
