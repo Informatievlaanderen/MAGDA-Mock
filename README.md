@@ -1,20 +1,48 @@
-# README #
+<h1><img src="docs/img/magda_logo.png" height="80" align="center">  MAGDA Mock</h1>
 
-## General information ##
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/Informatievlaanderen/MAGDA-Mock?label=version)
+![GitHub issues](https://img.shields.io/github/issues/InformatieVlaanderen/MAGDA-Mock)
+![GitHub](https://img.shields.io/github/license/InformatieVlaanderen/MAGDA-mock)
 
-This is a MAGDA mock, which is available both as a service and a library.
+MAGDA Mock is a project by Digitaal Vlaanderen's MAGDA Platform to offer a mock environment for customers of its SOAP v3 and v2 services, 
+without real personal identifiable information and with stable and consistent test cases across services.
 
-This project also includes a MAGDA Soap connector and a mock connector
+The MAGDA Mock is available as a Docker image, library and the project also offers a SOAP and Mock connector which
+can be used to connect to MAGDA Acceptance and Production environments after testing with the mock.
 
 ### Repository structure ###
+#### `interfaces` module
+Defines the interface to which both a "real" signed MAGDA connection in acceptance (TNI) or production will adhere ([`MagdaSoapConnection`](magdaconnector/src/main/java/be/vlaanderen/vip/magda/client/MagdaSignedConnection.java) and [`MagdaSignedConnection`](magdaconnector/src/main/java/be/vlaanderen/vip/magda/client/MagdaSoapConnection.java)) and which is also
+followed by the MAGDA Mock library ([`MagdaMockConnection`](magdamock/src/main/java/be/vlaanderen/vip/mock/magda/client/MagdaMockConnection.java)).
 
-Your application ==> magdaconnector ==> interfaces
+Additionally, the module defines templates for the interfaces of the MAGDA SOAP Services which can be addressed through the MAGDA Mock in order to facilitate the use.
 
-Your unit tests ==> magdamock ==> interfaces
+#### `magdaconnector` module
+Implements a Signed MAGDA SOAP connection to v2 or v3 services, following the `MagdaConnector` interface from the `interfaces` package.
+Supports certificate based authentication through mTLS and SOAP message signing following the guidelines on the [MAGDA Gebruikersomgeving](https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/485982282/Certificaten).
 
-magdaservice (called via magdaconnector or your own connector) ==> magdamock ==> interfaces
+_Your application code can use this module to integrate with a real MAGDA environment like acceptance or production for SOAP services._
 
-See [Architecture](https://vlaamseoverheid.atlassian.net/wiki/spaces/MARCHT/pages/6170676392/MAGDA+Afnemer+Mock+-+Architectuur)
+#### `magdamock` module
+Implements a mocked MAGDA connection for a number of services with respect to 
+[`Persoon`](magdamock/src/main/resources/magda_simulator/Persoon) (services related to a citizen, 
+like [GeefPersoon-02.02](https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/1093927442/Persoon.GeefPersoon-02.02)) 
+and [`Onderneming`](magdamock/src/main/resources/magda_simulator/Onderneming) (services related to the registration of enterprises).
+
+This module stores the test cases used to respond to these requests for personas in its resources, see [`magda_simulator`](magdamock/src/main/resources/magda_simulator).
+
+Not all MAGDA SOAP services currently have test data, MAGDA customers can request for additional test cases through their aansluitingsbeheerder or via the MAGDA Service desk.
+Pull requests to add additional test data are also appreciated, but will be subject to approval and availability of the MAGDA Mock team.
+
+_The unit testing in your application can use this module to integrate with a MAGDA mock environment for SOAP services._
+
+#### `magdaservice` module
+The MAGDA service integrates with the `magdamock` module to offer a Spring Boot application which exposes the endpoint `POST Magda-02.00/soap/WebService` that accepts
+a valid SOAP request payload for any MAGDA SOAP service for which test cases have been defined in the `magdamock` module.
+
+For the response a matching will be attempted with the service and its test case for the specified test persona.
+
+The `magdaservice` module also builds a [Docker image](https://github.com/Informatievlaanderen/MAGDA-Mock/pkgs/container/magda-mock), which is provided through Github packages and can be run locally to mimick the working of MAGDA Platform in your environment.
 
 ### How do I get set up? ###
 
@@ -24,19 +52,30 @@ No database or queueing or other infrastructure necessary.
 
 ### Who do I talk to? ###
 
-* MAGDA solution architecture team
-* SOLID team (the first users of the mock)
-
-### Documentation ###
-
-* [Functional analysis](https://vlaamseoverheid.atlassian.net/wiki/spaces/MARCHT/pages/6083871398/MAGDA+afnemer+Mock+vs+MAGDA+developer+Mock)
-* [Architecture + HOWTO nieuwe testcases toevoegen](https://vlaamseoverheid.atlassian.net/wiki/spaces/MARCHT/pages/6170676392/MAGDA+Afnemer+Mock+-+Architectuur)
-* [Code repository](https://bitbucket.org/vlaamseoverheid/magdamock.service/src/main/)
-* [Infra repository](https://bitbucket.org/vlaamseoverheid/magdamock.service-infra/src/master/)
+* **For external users:** Raise a technical issue, i.e. bugs or inconsistencies in test cases, on Github or request for additional test cases or services through the MAGDA Service desk
+* **For internal users:** Talk to the MAGDA Solutions Architects.
 
 ### Acknowledgements ###
+Original connector code and some test cases adapted from [Mijn Burgerprofiel](https://www.burgerprofiel.be/).
 
-Connector and mock extracted from [Mijn Burgerprofiel](https://www.burgerprofiel.be/)
+## Testcases
+Testcases in the MAGDA Mock follow the principle of test personas, where we try to provide consistent information (or edge cases)
+for the persona across multiple services in the MAGDA Mock.
+
+### TST-numbers
+In order to not conflict with actual citizen identifiers in the MAGDA Mock (i.e. INSZ-numbers), we define so-called TST-numbers for the test cases of services pertaining to personal identifiable information of citizens.
+
+These TST-numbers have the same basic format as an INSZ-number (`^{0-9}[11]$`), and succeed under the [modulo 97 checksum](https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/6208324471/Validatiemethodes).
+An important difference is that, unlike for a national registry number (rijkregisternummer), the third and fourth number do not form a valid month in the range 01 through 12 instead they lie in the range 61 through 72 in order to
+discourage processing of the number for the purpose of obtaining the date of birth of the individual and to avoid collisions with real citizen identifiers.
+
+
+### Consistency of test cases
+We try to ensure that all TST-numbers mentioned in test cases at least are present in the `Persoon.GeefPersoon-02.02` mock service, such
+that a minimal set of information on the test persona is available. If this is not the case, please raise an issue and we will look to resolve this.
+
+However, if your use case requires additional test data for a persona outside of the GeefPersoon-service, it is considered a feature
+request and will have to be sent through the MAGDA Service Desk.
 
 ## Development ##
 
@@ -126,4 +165,4 @@ On the JUnit test runtime level, there is a check in place to ensure that any do
 Make sure that the document is conformant to the according XSD (otherwise the build will fail), but also make sure that any new subdirectory added to `magda_simulator` has an according XSD to match its content against.
 To do this, check if the subdirectory falls under any of the subdirectories listed in `SimulatorXmlValidation::XML_FOLDERS_AND_XSDS`, and if not, add one to that list if possible.
 
-Source of the XSD files: https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/487620609/Overzicht+testdata+endpoints+en+XSD+s#Diensten-alle-versies-samen
+_Source of the XSD files:_ https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/487620609/Overzicht+testdata+endpoints+en+XSD+s#Diensten-alle-versies-samen
