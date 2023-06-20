@@ -1,17 +1,17 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
+import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockException;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class CombinedSimulator implements SOAPSimulator {
-    private final Map<MagdaServiceIdentificatie, SOAPSimulator> simulators = new HashMap<>();
+    private final Map<MagdaServiceIdentification, SOAPSimulator> simulators = new HashMap<>();
 
     public void register(String service, String version, SOAPSimulator simulator) {
-        simulators.put(new MagdaServiceIdentificatie(service, version), simulator);
+        simulators.put(new MagdaServiceIdentification(service, version), simulator);
     }
 
     @Override

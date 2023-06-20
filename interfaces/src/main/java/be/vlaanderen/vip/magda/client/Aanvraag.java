@@ -33,9 +33,17 @@ public abstract class Aanvraag {
         this.overWie = overWie;
     }
 
-    public abstract MagdaServiceIdentificatie magdaService();
+    public abstract MagdaServiceIdentification magdaServiceIdentification();
 
-    public void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
+    public MagdaDocument toMagdaDocument(MagdaRegistrationInfo magdaRegistrationInfo) {
+        var serviceId = magdaServiceIdentification();
+        var document = MagdaDocument.fromResource(MagdaDocument.class, "/templates/" + serviceId.getNaam() + "/" + serviceId.getVersie() + "/template.xml");
+        fillIn(document, magdaRegistrationInfo);
+
+        return document;
+    }
+
+    protected void fillInCommonFields(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         request.setValue("//Referte", getRequestId().toString());
         request.setValue("//INSZ", getOverWie());
 
@@ -61,4 +69,6 @@ public abstract class Aanvraag {
             request.setValue("//Context/Bericht/Afzender/Hoedanigheid", hoedanigheidscode.get());
         }
     }
+
+    protected abstract void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo);
 }

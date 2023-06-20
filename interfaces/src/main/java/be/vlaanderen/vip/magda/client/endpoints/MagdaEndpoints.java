@@ -1,11 +1,11 @@
 package be.vlaanderen.vip.magda.client.endpoints;
 
-import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
+import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 
 import java.net.URI;
 
 public interface MagdaEndpoints {
-    URI magdaUri(MagdaServiceIdentificatie aanvraag);
+    URI magdaUri(MagdaServiceIdentification aanvraag);
 
     static Builder builder() {
         return new Builder();

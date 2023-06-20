@@ -1,6 +1,5 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
-import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Nested;
@@ -16,18 +15,16 @@ class GeefPasfotoTest extends TestBase {
     void fillsInRequestGeefPasfoto0200() {
         var aanvraag = new GeefPasfotoAanvraag(INSZ);
 
-        var request = MagdaDocument.fromTemplate(aanvraag);
-
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
                 .build();
 
-        aanvraag.fillIn(request, mockedMagdaRegistrationInfo);
+        var requestDocument = aanvraag.toMagdaDocument(mockedMagdaRegistrationInfo);
 
-        log.debug("Request:  {}", request.toString());
+        log.debug("Request:  {}", requestDocument.toString());
 
         assertAll(
-                () -> assertThatTechnicalFieldsInRequestMatchAanvraag(request, aanvraag, mockedMagdaRegistrationInfo)
+                () -> assertThatTechnicalFieldsInRequestMatchAanvraag(requestDocument, aanvraag, mockedMagdaRegistrationInfo)
         );
     }
 
@@ -38,19 +35,17 @@ class GeefPasfotoTest extends TestBase {
         void fillsInRequestGeefPasfoto0200() {
             var aanvraag = new GeefPasfotoAanvraag(INSZ);
 
-            var request = MagdaDocument.fromTemplate(aanvraag);
-
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                     .identification(TEST_SERVICE_URI)
                     .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();
 
-            aanvraag.fillIn(request, mockedMagdaRegistrationInfo);
+            var requestDocument = aanvraag.toMagdaDocument(mockedMagdaRegistrationInfo);
 
-            log.debug("Request:  {}", request.toString());
+            log.debug("Request:  {}", requestDocument.toString());
 
             assertAll(
-                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(request, aanvraag, mockedMagdaRegistrationInfo)
+                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(requestDocument, aanvraag, mockedMagdaRegistrationInfo)
             );
         }
     }

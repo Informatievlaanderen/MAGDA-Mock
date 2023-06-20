@@ -2,7 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.Aanvraag;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
+import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.Getter;
 import lombok.ToString;
@@ -27,13 +27,13 @@ public class RegistreerInschrijving0201Aanvraag extends Aanvraag {
     }
 
     @Override
-    public MagdaServiceIdentificatie magdaService() {
-        return new MagdaServiceIdentificatie("RegistreerInschrijving", "02.01.0000");
+    public MagdaServiceIdentification magdaServiceIdentification() {
+        return new MagdaServiceIdentification("RegistreerInschrijving", "02.01.0000");
     }
 
     @Override
-    public void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
-        super.fillIn(request, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
+        fillInCommonFields(request, magdaRegistrationInfo);
 
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Start", getStart().format(dateFormatter));

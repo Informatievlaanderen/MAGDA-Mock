@@ -12,7 +12,7 @@ public class LoggingUtils {
 
     public static LoggingEventBuilder magdaAanvraagLoggingEventBuilder(Logger logger, Level level, Aanvraag aanvraag) {
         return logger.makeLoggingEventBuilder(level)
-                .addKeyValue(LoggingKeys.MAGDA_SERVICE_NAME.getKey(), aanvraag.magdaService().getNaam())
-                .addKeyValue(LoggingKeys.MAGDA_SERVICE_VERSION.getKey(), aanvraag.magdaService().getVersie());
+                .addKeyValue(LoggingKeys.MAGDA_SERVICE_NAME.getKey(), aanvraag.magdaServiceIdentification().getNaam())
+                .addKeyValue(LoggingKeys.MAGDA_SERVICE_VERSION.getKey(), aanvraag.magdaServiceIdentification().getVersie());
     }
 }

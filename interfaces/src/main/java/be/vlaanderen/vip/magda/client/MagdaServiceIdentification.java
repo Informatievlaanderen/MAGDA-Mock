@@ -9,7 +9,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 @AllArgsConstructor
-public class MagdaServiceIdentificatie {
+public class MagdaServiceIdentification {
     private String naam;
     private String versie;
 }

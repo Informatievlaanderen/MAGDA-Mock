@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.magda.tester.config;
 
-import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
+import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import lombok.RequiredArgsConstructor;
 
@@ -11,7 +11,7 @@ public class MockMagdaEndpoints implements MagdaEndpoints {
     private final URI uri;
 
     @Override
-    public URI magdaUri(MagdaServiceIdentificatie aanvraag) {
+    public URI magdaUri(MagdaServiceIdentification aanvraag) {
         return uri;
     }
 }

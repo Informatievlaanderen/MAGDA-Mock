@@ -37,21 +37,19 @@ public class MagdaConnectorImpl implements MagdaConnector {
     public MagdaAntwoord send(Aanvraag aanvraag) {
         var start = System.nanoTime();
 
-        var request = MagdaDocument.fromTemplate(aanvraag);
-
         logAanvraag(aanvraag);
 
         var magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
-        aanvraag.fillIn(request, magdaRegistrationInfo);
+        var requestDocument = aanvraag.toMagdaDocument(magdaRegistrationInfo);
 
         magdaAanvraagLoggingEventBuilder(log, Level.INFO, aanvraag)
                 .log("Aanvraag naar MAGDA dienst met referte [{}]", aanvraag.getRequestId());
 
         magdaAanvraagLoggingEventBuilder(log, Level.DEBUG, aanvraag)
-                .log("Request: {}", request);
+                .log("Request: {}", requestDocument);
 
         try {
-            var response = callMagda(request);
+            var response = callMagda(requestDocument);
             magdaAanvraagLoggingEventBuilder(log, Level.INFO, aanvraag)
                     .log("Response: {}", response);
 
@@ -109,8 +107,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 aanvraag.getOverWie(),
                 aanvraag.getCorrelationId(),
                 aanvraag.getRequestId(),
-                aanvraag.magdaService().getNaam(),
-                aanvraag.magdaService().getVersie(),
+                aanvraag.magdaServiceIdentification().getNaam(),
+                aanvraag.magdaServiceIdentification().getVersie(),
                 magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie())));
     }
 
@@ -119,8 +117,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 aanvraag.getOverWie(),
                 aanvraag.getCorrelationId(),
                 aanvraag.getRequestId(),
-                aanvraag.magdaService().getNaam(),
-                aanvraag.magdaService().getVersie(),
+                aanvraag.magdaServiceIdentification().getNaam(),
+                aanvraag.magdaServiceIdentification().getVersie(),
                 magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie())));
 
     }
@@ -131,8 +129,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 aanvraag.getCorrelationId(),
                 aanvraag.getRequestId(),
                 duration,
-                aanvraag.magdaService().getNaam(),
-                aanvraag.magdaService().getVersie(),
+                aanvraag.magdaServiceIdentification().getNaam(),
+                aanvraag.magdaServiceIdentification().getVersie(),
                 magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie())));
     }
 
@@ -142,8 +140,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 aanvraag.getRequestId(),
                 duration,
                 uitzonderingen,
-                aanvraag.magdaService().getNaam(),
-                aanvraag.magdaService().getVersie(),
+                aanvraag.magdaServiceIdentification().getNaam(),
+                aanvraag.magdaServiceIdentification().getVersie(),
                 magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie())));
     }
 

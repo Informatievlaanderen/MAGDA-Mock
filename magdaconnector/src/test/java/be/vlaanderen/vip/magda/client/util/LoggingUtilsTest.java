@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.magda.client.util;
 
 import be.vlaanderen.vip.magda.client.Aanvraag;
-import be.vlaanderen.vip.magda.client.MagdaServiceIdentificatie;
+import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
@@ -24,10 +24,10 @@ class LoggingUtilsTest {
         var mockAanvraag = Mockito.mock(Aanvraag.class);
         var mockEventBuilder = mock(LoggingEventBuilder.class, RETURNS_SELF);
 
-        var service = new MagdaServiceIdentificatie(GEEF_BEWIJS, VERSIE);
+        var service = new MagdaServiceIdentification(GEEF_BEWIJS, VERSIE);
 
         when(mockLogger.makeLoggingEventBuilder(any())).thenReturn(mockEventBuilder);
-        when(mockAanvraag.magdaService()).thenReturn(service);
+        when(mockAanvraag.magdaServiceIdentification()).thenReturn(service);
 
         magdaAanvraagLoggingEventBuilder(mockLogger, Level.INFO, mockAanvraag);
 

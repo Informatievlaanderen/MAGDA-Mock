@@ -112,7 +112,7 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
         var service = doc.getValue("//Verzoek/Context/Naam");
         var versie = doc.getValue("//Verzoek/Context/Versie");
 
-        var aanvraag = new MagdaServiceIdentificatie(service, versie);
+        var aanvraag = new MagdaServiceIdentification(service, versie);
         final var urlString = magdaEndpoints.magdaUri(aanvraag).toString();
 
         log.info("Call to SOAP endpoint {}", urlString);
