@@ -12,31 +12,31 @@ import java.util.Set;
 @Slf4j
 public class AfnemerLogServiceMock implements AfnemerLogService {
 
-    private final List<MagdaAanvraag> aanvragenLijst = new ArrayList<>();
-    private final List<GeslaagdeAanvraag> geslaagdeAanvragenLijst = new ArrayList<>();
-    private final List<OnbeantwoordeAanvraag> onbeantwoordeAanvragenLijst = new ArrayList<>();
-    private final List<GefaaldeAanvraag> gefaaldeAanvragenLijst = new ArrayList<>();
+    private final List<MagdaLoggedRequest> aanvragenLijst = new ArrayList<>();
+    private final List<SucceededLoggedRequest> geslaagdeAanvragenLijst = new ArrayList<>();
+    private final List<UnansweredLoggedRequest> onbeantwoordeAanvragenLijst = new ArrayList<>();
+    private final List<FailedLoggedRequest> gefaaldeAanvragenLijst = new ArrayList<>();
 
     @Override
-    public synchronized void logAanvraag(MagdaAanvraag aanvraag) {
-        log.info("Request: {}", aanvraag);
-        aanvragenLijst.add(aanvraag);
+    public synchronized void logMagdaRequest(MagdaLoggedRequest magdaLoggedRequest) {
+        log.info("Request: {}", magdaLoggedRequest);
+        aanvragenLijst.add(magdaLoggedRequest);
     }
 
     @Override
-    public synchronized void logGeslaagdeAanvraag(GeslaagdeAanvraag aanvraag) {
+    public synchronized void logSucceededRequest(SucceededLoggedRequest aanvraag) {
         log.info("Succeeded: {}", aanvraag);
         geslaagdeAanvragenLijst.add(aanvraag);
     }
 
     @Override
-    public synchronized void logGefaaldeAanvraag(GefaaldeAanvraag aanvraag) {
+    public synchronized void logFailedRequest(FailedLoggedRequest aanvraag) {
         log.info("Failed: {}", aanvraag);
         gefaaldeAanvragenLijst.add(aanvraag);
     }
 
     @Override
-    public synchronized void logOnbeantwoordeAanvraag(OnbeantwoordeAanvraag aanvraag) {
+    public synchronized void logUnansweredRequest(UnansweredLoggedRequest aanvraag) {
         log.info("Unanswered: {}", aanvraag);
         onbeantwoordeAanvragenLijst.add(aanvraag);
     }
@@ -53,19 +53,19 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
         return gefaaldeAanvragenLijst.size();
     }
 
-    public List<MagdaAanvraag> getAanvragenLijst() {
+    public List<MagdaLoggedRequest> getAanvragenLijst() {
         return this.aanvragenLijst;
     }
 
-    public List<GeslaagdeAanvraag> getGeslaagdeAanvragenLijst() {
+    public List<SucceededLoggedRequest> getGeslaagdeAanvragenLijst() {
         return this.geslaagdeAanvragenLijst;
     }
 
-    public List<OnbeantwoordeAanvraag> getOnbeantwoordeAanvragenLijst() {
+    public List<UnansweredLoggedRequest> getOnbeantwoordeAanvragenLijst() {
         return this.onbeantwoordeAanvragenLijst;
     }
 
-    public List<GefaaldeAanvraag> getGefaaldeAanvragenLijst() {
+    public List<FailedLoggedRequest> getGefaaldeAanvragenLijst() {
         return this.gefaaldeAanvragenLijst;
     }
 
@@ -83,7 +83,7 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
         onbeantwoordeAanvragenLijst.forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
     }
 
-    private static void assertReferentieverschillendVanTransactie(GelogdeAanvraag antwoord) {
+    private static void assertReferentieverschillendVanTransactie(LoggedRequest antwoord) {
         if (antwoord.getLocalTransactieID() == antwoord.getTransactieID()) {
             throw new IllegalStateException(String.format("Response with reference %s for service %s by INSZ %s for INSZ %s reference equals transaction",
                     antwoord.getLocalTransactieID().toString(),
@@ -125,7 +125,7 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
     }
 
 
-    private String inhoudVan(GelogdeAanvraag antwoord) {
+    private String inhoudVan(LoggedRequest antwoord) {
         return antwoord.getDienst() + "/" +
                 antwoord.getTransactieID().toString() + "/" +
                 antwoord.getLocalTransactieID().toString() + "/" +
@@ -166,9 +166,9 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
         logLoggedRequests("Onbeantwoord:", getOnbeantwoordeAanvragenLijst());
     }
 
-    private void logLoggedRequests(String header, Iterable<? extends GelogdeAanvraag> loggedRequests) {
+    private void logLoggedRequests(String header, Iterable<? extends LoggedRequest> loggedRequests) {
         log.debug(header);
-        for (GelogdeAanvraag loggedRequest : loggedRequests) {
+        for (LoggedRequest loggedRequest : loggedRequests) {
             log.debug("Request {} {} {} {} {}",
                     loggedRequest.getDienst(),
                     loggedRequest.getInsz(),
@@ -178,31 +178,31 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
         }
     }
 
-    public List<GefaaldeAanvraag> matchVoorGefaald(MagdaAanvraag aanvraag) {
+    public List<FailedLoggedRequest> matchVoorGefaald(MagdaLoggedRequest aanvraag) {
         return this.gefaaldeAanvragenLijst.stream()
                 .filter(antwoord -> match(aanvraag, antwoord))
                 .toList();
     }
 
-    public List<GeslaagdeAanvraag> matchVoorAntwoord(MagdaAanvraag vraag) {
+    public List<SucceededLoggedRequest> matchVoorAntwoord(MagdaLoggedRequest vraag) {
         return geslaagdeAanvragenLijst.stream()
                 .filter(antwoord -> match(vraag, antwoord))
                 .toList();
     }
 
-    public List<OnbeantwoordeAanvraag> matchVoorOnbeantwoord(MagdaAanvraag vraag) {
+    public List<UnansweredLoggedRequest> matchVoorOnbeantwoord(MagdaLoggedRequest vraag) {
         return onbeantwoordeAanvragenLijst.stream()
                 .filter(antwoord -> match(vraag, antwoord))
                 .toList();
     }
 
-    private boolean match(GelogdeAanvraag vraag, GelogdeAanvraag antwoord) {
+    private boolean match(LoggedRequest vraag, LoggedRequest antwoord) {
         return vraag.getLocalTransactieID().equals(antwoord.getLocalTransactieID()) &&
                 vraag.getTransactieID().equals(antwoord.getTransactieID()) &&
                 vraag.getInsz().equals(antwoord.getInsz());
     }
 
-    private void assertLogVoor(GelogdeAanvraag log, String insz) {
+    private void assertLogVoor(LoggedRequest log, String insz) {
         assert insz.equals(log.getInsz()) : String.format("Log voor dienst %s bevat niet verwachte INSZ van vrager", log.getDienst());
     }
 

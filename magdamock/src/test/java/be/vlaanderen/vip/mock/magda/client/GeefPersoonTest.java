@@ -1,7 +1,6 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
-import be.vlaanderen.vip.magda.client.diensten.GeefPersoonAanvraag;
+import be.vlaanderen.vip.magda.client.diensten.GeefPersoonRequest;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +14,7 @@ class GeefPersoonTest extends MockTestBase {
     @SneakyThrows
     void geefPersoonGeeftAntwoord() {
         final var requestInsz = "00600099507";
-        var aanvraag = new GeefPersoonAanvraag(requestInsz);
+        var aanvraag = new GeefPersoonRequest(requestInsz);
         var afnemerLogService = new AfnemerLogServiceMock();
 
         var connector = makeMagdaConnector(afnemerLogService);

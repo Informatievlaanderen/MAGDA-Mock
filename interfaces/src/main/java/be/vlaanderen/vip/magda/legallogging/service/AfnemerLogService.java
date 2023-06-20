@@ -1,18 +1,18 @@
 package be.vlaanderen.vip.magda.legallogging.service;
 
 
-import be.vlaanderen.vip.magda.legallogging.model.GefaaldeAanvraag;
-import be.vlaanderen.vip.magda.legallogging.model.GeslaagdeAanvraag;
-import be.vlaanderen.vip.magda.legallogging.model.MagdaAanvraag;
-import be.vlaanderen.vip.magda.legallogging.model.OnbeantwoordeAanvraag;
+import be.vlaanderen.vip.magda.legallogging.model.FailedLoggedRequest;
+import be.vlaanderen.vip.magda.legallogging.model.SucceededLoggedRequest;
+import be.vlaanderen.vip.magda.legallogging.model.MagdaLoggedRequest;
+import be.vlaanderen.vip.magda.legallogging.model.UnansweredLoggedRequest;
 
 public interface AfnemerLogService {
 
-    void logGeslaagdeAanvraag(GeslaagdeAanvraag aanvraag);
+    void logMagdaRequest(MagdaLoggedRequest magdaLoggedRequest);
 
-    void logGefaaldeAanvraag(GefaaldeAanvraag gefaaldeAanvraag);
+    void logSucceededRequest(SucceededLoggedRequest succeededLoggedRequest);
 
-    void logOnbeantwoordeAanvraag(OnbeantwoordeAanvraag onbeantwoordeAanvraag);
+    void logFailedRequest(FailedLoggedRequest failedLoggedRequest);
 
-    void logAanvraag(MagdaAanvraag aanvraag);
+    void logUnansweredRequest(UnansweredLoggedRequest unansweredLoggedRequest);
 }

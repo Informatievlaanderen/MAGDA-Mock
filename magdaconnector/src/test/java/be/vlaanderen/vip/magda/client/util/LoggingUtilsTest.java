@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.magda.client.util;
 
-import be.vlaanderen.vip.magda.client.Aanvraag;
+import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -21,7 +21,7 @@ class LoggingUtilsTest {
     @Test
     void testMakeMagdaLoggingEventBuilder() {
         var mockLogger = mock(Logger.class);
-        var mockAanvraag = Mockito.mock(Aanvraag.class);
+        var mockAanvraag = Mockito.mock(MagdaRequest.class);
         var mockEventBuilder = mock(LoggingEventBuilder.class, RETURNS_SELF);
 
         var service = new MagdaServiceIdentification(GEEF_BEWIJS, VERSIE);

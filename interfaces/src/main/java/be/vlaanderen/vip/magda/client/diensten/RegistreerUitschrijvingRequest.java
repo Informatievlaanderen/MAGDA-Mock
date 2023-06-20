@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
-import be.vlaanderen.vip.magda.client.Aanvraag;
+import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
@@ -13,12 +13,12 @@ import java.time.format.DateTimeFormatter;
 
 @Getter
 @ToString
-public class RegistreerUitschrijvingAanvraag extends Aanvraag {
+public class RegistreerUitschrijvingRequest extends MagdaRequest {
 
     private final LocalDate start;
     private final LocalDate einde;
 
-    public RegistreerUitschrijvingAanvraag(String insz, LocalDate start, LocalDate einde) {
+    public RegistreerUitschrijvingRequest(String insz, LocalDate start, LocalDate einde) {
         super(insz);
         this.start = start;
         this.einde = einde;

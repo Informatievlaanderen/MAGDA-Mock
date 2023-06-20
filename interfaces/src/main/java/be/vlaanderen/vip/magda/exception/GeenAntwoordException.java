@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.magda.exception;
 
-import be.vlaanderen.vip.magda.client.Aanvraag;
+import be.vlaanderen.vip.magda.client.MagdaRequest;
 import lombok.Getter;
 
 import java.io.Serial;
@@ -18,10 +18,10 @@ public class GeenAntwoordException extends BronException {
     private final UUID localTransactieID;
     private final String dienst;
 
-    public GeenAntwoordException(String bericht, Throwable oorzaak, Aanvraag aanvraag) {
+    public GeenAntwoordException(String bericht, Throwable oorzaak, MagdaRequest magdaRequest) {
         super(bericht, oorzaak);
-        this.transactieID = aanvraag.getCorrelationId();
-        this.localTransactieID = aanvraag.getRequestId();
-        this.dienst = aanvraag.magdaServiceIdentification().getNaam();
+        this.transactieID = magdaRequest.getCorrelationId();
+        this.localTransactieID = magdaRequest.getRequestId();
+        this.dienst = magdaRequest.magdaServiceIdentification().getNaam();
     }
 }

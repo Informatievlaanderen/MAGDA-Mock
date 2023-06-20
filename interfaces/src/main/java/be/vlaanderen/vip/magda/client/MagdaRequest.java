@@ -13,7 +13,7 @@ import java.util.UUID;
 
 // TODO make builders for the subclasses to get rid of the long param lists and the logic in the constructors
 @Getter
-public abstract class Aanvraag {
+public abstract class MagdaRequest {
     private final UUID correlationId = CorrelationId.get();
     private final UUID requestId = UUID.randomUUID();
     @NotNull
@@ -24,11 +24,11 @@ public abstract class Aanvraag {
     @NotNull
     private String registratie = "default";
 
-    protected Aanvraag(String insz) {
+    protected MagdaRequest(String insz) {
         this(insz, insz);
     }
 
-    protected Aanvraag(@NotNull String insz, @NotNull String overWie) {
+    protected MagdaRequest(@NotNull String insz, @NotNull String overWie) {
         this.insz = insz;
         this.overWie = overWie;
     }

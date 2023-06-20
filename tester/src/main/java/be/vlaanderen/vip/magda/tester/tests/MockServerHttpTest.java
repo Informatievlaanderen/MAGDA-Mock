@@ -70,7 +70,7 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callGeefBewijs() {
-        var aanvraag = new GeefBewijsAanvraag(CORRECT_INSZ);
+        var aanvraag = new GeefBewijsRequest(CORRECT_INSZ);
 
         var antwoord = connector.send(aanvraag);
         logMagdaAntwoord(antwoord);
@@ -88,7 +88,7 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callRegistreerInschrijving() {
-        var aanvraag = new RegistreerInschrijvingAanvraag(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var aanvraag = new RegistreerInschrijvingRequest(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
         var antwoord = connector.send(aanvraag);
         logMagdaAntwoord(antwoord);
 
@@ -105,7 +105,7 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callRegistreerInschrijvingFaaltMagdaOverbelast() {
-        var aanvraag = new RegistreerInschrijvingAanvraag(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var aanvraag = new RegistreerInschrijvingRequest(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
         var antwoord = connector.send(aanvraag);
         logMagdaAntwoord(antwoord);
 
@@ -115,7 +115,7 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callRegistreerUitschrijving() {
-        var aanvraag = new RegistreerUitschrijvingAanvraag(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var aanvraag = new RegistreerUitschrijvingRequest(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
         var antwoord = connector.send(aanvraag);
         logMagdaAntwoord(antwoord);
 
@@ -132,7 +132,7 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callRegistreerUitschrijvingFaaltMagdaOverbelast() {
-        var aanvraag = new RegistreerUitschrijvingAanvraag(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var aanvraag = new RegistreerUitschrijvingRequest(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
         var antwoord = connector.send(aanvraag);
         logMagdaAntwoord(antwoord);
 
@@ -142,7 +142,7 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callGeefAanslagbiljetPersonenbelasting() {
-        var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag("82102108114");
+        var aanvraag = new GeefAanslagbiljetPersonenbelastingRequest("82102108114");
         var antwoord = connector.send(aanvraag);
         logMagdaAntwoord(antwoord);
 
@@ -181,7 +181,7 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void multipleCalls() {
-        var aanvraag = new GeefBewijsAanvraag(CORRECT_INSZ);
+        var aanvraag = new GeefBewijsRequest(CORRECT_INSZ);
 
         assertDoesNotThrow(() -> connector.send(aanvraag));
         assertDoesNotThrow(() -> connector.send(aanvraag));
@@ -189,7 +189,7 @@ public class MockServerHttpTest extends MockServerTest {
 
     @SneakyThrows
     private void assertPasfotoCorrect(String requestInsz, int expected) {
-        var aanvraag = new GeefPasfotoAanvraag(requestInsz);
+        var aanvraag = new GeefPasfotoRequest(requestInsz);
 
         var antwoord = connector.send(aanvraag);
         logMagdaAntwoord(antwoord);

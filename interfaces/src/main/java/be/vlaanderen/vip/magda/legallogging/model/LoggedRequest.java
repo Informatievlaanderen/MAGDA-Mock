@@ -18,7 +18,7 @@ import java.util.UUID;
  */
 @Getter
 @AllArgsConstructor
-public class GelogdeAanvraag {
+public class LoggedRequest { // XXX remove dutch from attributes
     private final String insz;
     private final List<String> overWie;
     private final UUID transactieID;

@@ -10,25 +10,25 @@ import java.util.UUID;
 
 /**
  * MAGDA heeft een respons gestuurd, maar deze bevat {@link Uitzondering}.
- * Voegt de volgende velden toe aan {@link GelogdeAanvraag}:
+ * Voegt de volgende velden toe aan {@link LoggedRequest}:
  * <ul>
  * <li>duratie tijd voor respons, met nanoseconden precisie</li>
  * <li>Lijst van {@link Uitzondering} die MAGDA antwoordde</li>
  * </ul>
  */
 @Getter
-public class GefaaldeAanvraag extends GelogdeAanvraag {
+public class FailedLoggedRequest extends LoggedRequest {
     private final List<Uitzondering> uitzonderingen;
     private final Duration duratie;
 
-    public GefaaldeAanvraag(String insz,
-                            UUID transactieID,
-                            UUID localTransactieID,
-                            Duration duratie,
-                            List<Uitzondering> uitzonderingen,
-                            String dienst,
-                            String dienstVersie,
-                            MagdaRegistrationInfo registratie) {
+    public FailedLoggedRequest(String insz,
+                               UUID transactieID,
+                               UUID localTransactieID,
+                               Duration duratie,
+                               List<Uitzondering> uitzonderingen,
+                               String dienst,
+                               String dienstVersie,
+                               MagdaRegistrationInfo registratie) {
         super(insz, new ArrayList<>(), transactieID, localTransactieID, dienst, dienstVersie, registratie);
         this.uitzonderingen = uitzonderingen;
         this.duratie = duratie;

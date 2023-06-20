@@ -34,47 +34,47 @@ public class MagdaConnectorImpl implements MagdaConnector {
     private final MagdaHoedanigheidService magdaHoedanigheidService;
 
     @Override
-    public MagdaAntwoord send(Aanvraag aanvraag) {
+    public MagdaAntwoord send(MagdaRequest magdaRequest) {
         var start = System.nanoTime();
 
-        logAanvraag(aanvraag);
+        logAanvraag(magdaRequest);
 
-        var magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie());
-        var requestDocument = aanvraag.toMagdaDocument(magdaRegistrationInfo);
+        var magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie());
+        var requestDocument = magdaRequest.toMagdaDocument(magdaRegistrationInfo);
 
-        magdaAanvraagLoggingEventBuilder(log, Level.INFO, aanvraag)
-                .log("Aanvraag naar MAGDA dienst met referte [{}]", aanvraag.getRequestId());
+        magdaAanvraagLoggingEventBuilder(log, Level.INFO, magdaRequest)
+                .log("Aanvraag naar MAGDA dienst met referte [{}]", magdaRequest.getRequestId());
 
-        magdaAanvraagLoggingEventBuilder(log, Level.DEBUG, aanvraag)
+        magdaAanvraagLoggingEventBuilder(log, Level.DEBUG, magdaRequest)
                 .log("Request: {}", requestDocument);
 
         try {
             var response = callMagda(requestDocument);
-            magdaAanvraagLoggingEventBuilder(log, Level.INFO, aanvraag)
+            magdaAanvraagLoggingEventBuilder(log, Level.INFO, magdaRequest)
                     .log("Response: {}", response);
 
             var duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
 
-            var antwoord = maakAntwoord(aanvraag, response);
+            var antwoord = maakAntwoord(magdaRequest, response);
 
             final var uitzonderingen = antwoord.getUitzonderingen();
-            legalLogging(aanvraag, duration, uitzonderingen, antwoord.getInsz());
+            legalLogging(magdaRequest, duration, uitzonderingen, antwoord.getInsz());
 
             final var antwoordUitzonderingen = antwoord.getAntwoordUitzonderingen();
             var uitzonderingenMessage1 = uitzonderingenMessage(uitzonderingen, antwoordUitzonderingen);
 
-            magdaAanvraagLoggingEventBuilder(log, Level.INFO, aanvraag)
-                    .log("Resultaat van aanvraag naar MAGDA dienst met referte [{}] ({} ms): {}",aanvraag.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
+            magdaAanvraagLoggingEventBuilder(log, Level.INFO, magdaRequest)
+                    .log("Resultaat van aanvraag naar MAGDA dienst met referte [{}] ({} ms): {}", magdaRequest.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
 
             if(!antwoord.isHeeftInhoud() && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
-                throw new BackendUitzonderingenException(aanvraag.getInsz(), getNiveau1Uitzondering(response));
+                throw new BackendUitzonderingenException(magdaRequest.getInsz(), getNiveau1Uitzondering(response));
             }
 
             return antwoord;
         } catch (MagdaConnectionException e) {
-            logGeenAntwoord(aanvraag);
+            logGeenAntwoord(magdaRequest);
 
-            throw new GeenAntwoordException("No response", e, aanvraag);
+            throw new GeenAntwoordException("No response", e, magdaRequest);
         }
     }
 
@@ -102,47 +102,47 @@ public class MagdaConnectorImpl implements MagdaConnector {
         }
     }
 
-    private void logGeenAntwoord(Aanvraag aanvraag) {
-        afnemerLogService.logOnbeantwoordeAanvraag(new OnbeantwoordeAanvraag(aanvraag.getInsz(),
-                aanvraag.getOverWie(),
-                aanvraag.getCorrelationId(),
-                aanvraag.getRequestId(),
-                aanvraag.magdaServiceIdentification().getNaam(),
-                aanvraag.magdaServiceIdentification().getVersie(),
-                magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie())));
+    private void logGeenAntwoord(MagdaRequest magdaRequest) {
+        afnemerLogService.logUnansweredRequest(new UnansweredLoggedRequest(magdaRequest.getInsz(),
+                magdaRequest.getOverWie(),
+                magdaRequest.getCorrelationId(),
+                magdaRequest.getRequestId(),
+                magdaRequest.magdaServiceIdentification().getNaam(),
+                magdaRequest.magdaServiceIdentification().getVersie(),
+                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
     }
 
-    private void logAanvraag(Aanvraag aanvraag) {
-        afnemerLogService.logAanvraag(new MagdaAanvraag(aanvraag.getInsz(),
-                aanvraag.getOverWie(),
-                aanvraag.getCorrelationId(),
-                aanvraag.getRequestId(),
-                aanvraag.magdaServiceIdentification().getNaam(),
-                aanvraag.magdaServiceIdentification().getVersie(),
-                magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie())));
+    private void logAanvraag(MagdaRequest magdaRequest) {
+        afnemerLogService.logMagdaRequest(new MagdaLoggedRequest(magdaRequest.getInsz(),
+                magdaRequest.getOverWie(),
+                magdaRequest.getCorrelationId(),
+                magdaRequest.getRequestId(),
+                magdaRequest.magdaServiceIdentification().getNaam(),
+                magdaRequest.magdaServiceIdentification().getVersie(),
+                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
 
     }
 
-    private void logAlleInszGeslaagd(Aanvraag aanvraag, Duration duration, Set<String> inszs) {
-        afnemerLogService.logGeslaagdeAanvraag(new GeslaagdeAanvraag(aanvraag.getInsz(),
+    private void logAlleInszGeslaagd(MagdaRequest magdaRequest, Duration duration, Set<String> inszs) {
+        afnemerLogService.logSucceededRequest(new SucceededLoggedRequest(magdaRequest.getInsz(),
                 new ArrayList<>(inszs),
-                aanvraag.getCorrelationId(),
-                aanvraag.getRequestId(),
+                magdaRequest.getCorrelationId(),
+                magdaRequest.getRequestId(),
                 duration,
-                aanvraag.magdaServiceIdentification().getNaam(),
-                aanvraag.magdaServiceIdentification().getVersie(),
-                magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie())));
+                magdaRequest.magdaServiceIdentification().getNaam(),
+                magdaRequest.magdaServiceIdentification().getVersie(),
+                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
     }
 
-    private void logAlleUitzonderingen(Aanvraag aanvraag, Duration duration, List<Uitzondering> uitzonderingen) {
-        afnemerLogService.logGefaaldeAanvraag(new GefaaldeAanvraag(aanvraag.getInsz(),
-                aanvraag.getCorrelationId(),
-                aanvraag.getRequestId(),
+    private void logAlleUitzonderingen(MagdaRequest magdaRequest, Duration duration, List<Uitzondering> uitzonderingen) {
+        afnemerLogService.logFailedRequest(new FailedLoggedRequest(magdaRequest.getInsz(),
+                magdaRequest.getCorrelationId(),
+                magdaRequest.getRequestId(),
                 duration,
                 uitzonderingen,
-                aanvraag.magdaServiceIdentification().getNaam(),
-                aanvraag.magdaServiceIdentification().getVersie(),
-                magdaHoedanigheidService.getDomeinService(aanvraag.getRegistratie())));
+                magdaRequest.magdaServiceIdentification().getNaam(),
+                magdaRequest.magdaServiceIdentification().getVersie(),
+                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
     }
 
 
@@ -154,24 +154,24 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return uitzonderingenMessage1;
     }
 
-    private void legalLogging(Aanvraag aanvraag, Duration duration, List<Uitzondering> uitzonderingen, Set<String> alleInsz) {
+    private void legalLogging(MagdaRequest magdaRequest, Duration duration, List<Uitzondering> uitzonderingen, Set<String> alleInsz) {
         if (uitzonderingen.isEmpty()) {
-            logAlleInszGeslaagd(aanvraag, duration, alleInsz);
+            logAlleInszGeslaagd(magdaRequest, duration, alleInsz);
         } else {
-            logAlleUitzonderingen(aanvraag, duration, uitzonderingen);
+            logAlleUitzonderingen(magdaRequest, duration, uitzonderingen);
         }
     }
 
-    private MagdaAntwoord maakAntwoord(Aanvraag aanvraag, MagdaDocument response) {
+    private MagdaAntwoord maakAntwoord(MagdaRequest magdaRequest, MagdaDocument response) {
         return MagdaAntwoord.builder()
-                .correlationId(aanvraag.getCorrelationId())
-                .requestId(aanvraag.getRequestId())
+                .correlationId(magdaRequest.getCorrelationId())
+                .requestId(magdaRequest.getRequestId())
                 .uitzonderingen(level1Uitzonderingen(response))
                 .antwoordUitzonderingen(level2Uitzonderingen(response))
                 .body(getBody(response))
                 .document(response)
                 .heeftInhoud(responseHeeftInhoud(response))
-                .insz(vindAlleINSZIn(aanvraag, response))
+                .insz(vindAlleINSZIn(magdaRequest, response))
                 .build();
     }
 
@@ -227,9 +227,9 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
 
-    private Set<String> vindAlleINSZIn(Aanvraag aanvraag, MagdaDocument antwoord) {
+    private Set<String> vindAlleINSZIn(MagdaRequest magdaRequest, MagdaDocument antwoord) {
         Set<String> inszs = new HashSet<>();
-        inszs.add(aanvraag.getOverWie());
+        inszs.add(magdaRequest.getOverWie());
         var nodes = antwoord.xpath("//INSZ");
         if (nodes.getLength() > 0) {
             for (var pos = 0; pos < nodes.getLength(); pos++) {

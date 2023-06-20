@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import be.vlaanderen.vip.magda.client.diensten.GeefPasfotoAanvraag;
+import be.vlaanderen.vip.magda.client.diensten.GeefPasfotoRequest;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
@@ -45,7 +45,7 @@ public class GeefPasfotoTest extends MockTestBase {
     }
 
     private void assertPasfotoCorrect(String requestInsz, int expected) throws IOException {
-        var aanvraag = new GeefPasfotoAanvraag(requestInsz);
+        var aanvraag = new GeefPasfotoRequest(requestInsz);
         var afnemerLogService = new AfnemerLogServiceMock();
 
         var connector = makeMagdaConnector(afnemerLogService);
@@ -90,7 +90,7 @@ public class GeefPasfotoTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefPasfotov0200LuktNietOmdatMagdaOverbelastIs() {
-        var aanvraag = new GeefPasfotoAanvraag(INSZ_MAGDA_OVERBELAST);
+        var aanvraag = new GeefPasfotoRequest(INSZ_MAGDA_OVERBELAST);
 
         var afnemerLogService = new AfnemerLogServiceMock();
 

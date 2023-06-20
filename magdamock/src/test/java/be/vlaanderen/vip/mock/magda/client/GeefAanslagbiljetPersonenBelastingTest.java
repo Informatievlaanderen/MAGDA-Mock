@@ -1,7 +1,6 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
-import be.vlaanderen.vip.magda.client.diensten.GeefAanslagbiljetPersonenbelastingAanvraag;
+import be.vlaanderen.vip.magda.client.diensten.GeefAanslagbiljetPersonenbelastingRequest;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
@@ -21,7 +20,7 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     @Test
     @SneakyThrows
     void defaultAanslagBiljet() {
-        var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(INSZ_GEENDATA);
+        var aanvraag = new GeefAanslagbiljetPersonenbelastingRequest(INSZ_GEENDATA);
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -49,7 +48,7 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     @Test
     @SneakyThrows
     void aanslagBiljetMet2Codes() {
-        var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(INSZ_DATA_NA2000);
+        var aanvraag = new GeefAanslagbiljetPersonenbelastingRequest(INSZ_DATA_NA2000);
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -84,7 +83,7 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     @Test
     @SneakyThrows
     void aanslagBiljetMet2CodesVoor2000() {
-        var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(INSZ_DATA_VOOR2000);
+        var aanvraag = new GeefAanslagbiljetPersonenbelastingRequest(INSZ_DATA_VOOR2000);
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -119,7 +118,7 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefAanslagbiljetPersonenBelasting0200LuktNietOmdatMagdaOverbelastIs() {
-        var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(INSZ_MAGDA_OVERBELAST);
+        var aanvraag = new GeefAanslagbiljetPersonenbelastingRequest(INSZ_MAGDA_OVERBELAST);
 
         var afnemerLogService = new AfnemerLogServiceMock();
 

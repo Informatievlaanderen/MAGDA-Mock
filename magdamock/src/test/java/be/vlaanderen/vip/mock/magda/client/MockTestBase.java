@@ -87,9 +87,9 @@ public abstract class MockTestBase {
         return new MagdaMockConnection(simulatorBuilder.build());
     }
 
-    protected void assertThatTechnicalFieldsInResponseMatchRequest(MagdaAntwoord antwoord, Aanvraag aanvraag) {
+    protected void assertThatTechnicalFieldsInResponseMatchRequest(MagdaAntwoord antwoord, MagdaRequest magdaRequest) {
         var doc = antwoord.getDocument();
-        assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_REFERTE, aanvraag.getRequestId().toString());
+        assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_REFERTE, magdaRequest.getRequestId().toString());
         assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_IDENTIFICATIE, TEST_SERVICE_URI);
         assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_HOEDANIGHEID, TEST_SERVICE_HOEDANIGHEID);
     }
@@ -114,9 +114,9 @@ public abstract class MockTestBase {
         assertThat(antwoord.getUitzonderingen()).hasSize(1);
     }
 
-    protected void assertThatTechnicalFieldsAreFilledInCorrectly(MagdaAntwoord antwoord, Aanvraag aanvraag) {
+    protected void assertThatTechnicalFieldsAreFilledInCorrectly(MagdaAntwoord antwoord, MagdaRequest magdaRequest) {
         log.debug("Response: {}", antwoord.getDocument().toString());
 
-        assertThatTechnicalFieldsInResponseMatchRequest(antwoord, aanvraag);
+        assertThatTechnicalFieldsInResponseMatchRequest(antwoord, magdaRequest);
     }
 }

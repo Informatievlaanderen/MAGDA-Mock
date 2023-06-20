@@ -75,16 +75,16 @@ This interface contains callbacks for certain events:
 
 ```java
 // triggered before a request is sent
-void logAanvraag(MagdaAanvraag aanvraag);
+void logAanvraag(MagdaAanvraag magdaRequest);
 
 // triggered after a response has been received that does not contain errors
-void logGeslaagdeAanvraag(GeslaagdeAanvraag aanvraag);
+void logGeslaagdeAanvraag(GeslaagdeAanvraag magdaRequest);
 
 // triggered after a response has been received that contains errors
-void logGefaaldeAanvraag(GefaaldeAanvraag gefaaldeAanvraag);
+void logGefaaldeAanvraag(GefaaldeAanvraag failedLoggedRequest);
 
 // triggered when the connection.send throws MagdaSendFailed
-void logOnbeantwoordeAanvraag(OnbeantwoordeAanvraag onbeantwoordeAanvraag);
+void logOnbeantwoordeAanvraag(OnbeantwoordeAanvraag unansweredLoggedRequest);
 ```
 
 The `magdamock` library contains a implementation of this class: `AfnemerLogServiceMock`. This class retains all the data from the callbacks and logs it to the info log. This class should NOT be used in an production environment because it logs sensitive information to info logs and as data is contained in lists, at some point this will cause out of memory exceptions.

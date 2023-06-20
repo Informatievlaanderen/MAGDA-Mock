@@ -1,7 +1,6 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
-import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
+import be.vlaanderen.vip.magda.client.diensten.GeefBewijsRequest;
 import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
 import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
 import lombok.SneakyThrows;
@@ -16,7 +15,7 @@ class GeefBewijsTest extends MockTestBase {
     @SneakyThrows
     void geefBewijsGeeftAntwoord() {
         final var requestInsz = "67621546751";
-        var aanvraag = new GeefBewijsAanvraag(requestInsz);
+        var aanvraag = new GeefBewijsRequest(requestInsz);
 
           var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -56,7 +55,7 @@ class GeefBewijsTest extends MockTestBase {
     @SneakyThrows
     void geefBewijsVoorOnbekendePersoonGeeftGeenGegevensGevonden() {
         final var requestInsz = "57021546719";
-        var aanvraag = new GeefBewijsAanvraag(requestInsz);
+        var aanvraag = new GeefBewijsRequest(requestInsz);
 
         var afnemerLogService = new AfnemerLogServiceMock();
 

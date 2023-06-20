@@ -22,7 +22,7 @@ class RegistreerInschrijvingTest extends TestBase {
         var start = LocalDate.of(2020, 8, 15);
         var end = LocalDate.of(2021, 9, 20);
         
-        var aanvraag = new RegistreerInschrijvingAanvraag(INSZ, start, end);
+        var aanvraag = new RegistreerInschrijvingRequest(INSZ, start, end);
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
@@ -43,7 +43,7 @@ class RegistreerInschrijvingTest extends TestBase {
 
     @Test
     void fillsInRequestRegistreerInschrijving0201() {
-        var aanvraag = new RegistreerInschrijving0201Aanvraag(TypeInschrijving.PERSOON, INSZ, LocalDate.now(), LocalDate.now().plusDays(5));
+        var aanvraag = new RegistreerInschrijving0201Request(TypeInschrijving.PERSOON, INSZ, LocalDate.now(), LocalDate.now().plusDays(5));
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
@@ -66,7 +66,7 @@ class RegistreerInschrijvingTest extends TestBase {
             var start = LocalDate.of(2020, 8, 15);
             var end = LocalDate.of(2021, 9, 20);
 
-            var aanvraag = new RegistreerInschrijvingAanvraag(INSZ, start, end);
+            var aanvraag = new RegistreerInschrijvingRequest(INSZ, start, end);
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                     .identification(TEST_SERVICE_URI)
@@ -90,7 +90,7 @@ class RegistreerInschrijvingTest extends TestBase {
 
         @Test
         void fillsInRequestRegistreerInschrijving0201() {
-            var aanvraag = new RegistreerInschrijving0201Aanvraag(TypeInschrijving.PERSOON, INSZ, LocalDate.now(), LocalDate.now().plusDays(5));
+            var aanvraag = new RegistreerInschrijving0201Request(TypeInschrijving.PERSOON, INSZ, LocalDate.now(), LocalDate.now().plusDays(5));
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                     .identification(TEST_SERVICE_URI)

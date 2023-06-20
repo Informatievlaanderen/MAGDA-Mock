@@ -37,7 +37,7 @@
                     <Code>Ingediend</Code>
                     <Fase>Samenstelling</Fase>
                     <Details>
-                      <Detail>Wij hebben uw aanvraag ontvangen</Detail>
+                      <Detail>Wij hebben uw magdaRequest ontvangen</Detail>
                     </Details>
                     <DatumModificatie>2018-01-01T09:00:00</DatumModificatie>
                   </Status>
@@ -219,7 +219,7 @@
                     <Code>Ingediend</Code>
                     <Fase>Samenstelling</Fase>
                     <Details>
-                      <Detail>Wij hebben uw aanvraag ontvangen</Detail>
+                      <Detail>Wij hebben uw magdaRequest ontvangen</Detail>
                     </Details>
                     <DatumModificatie>2018-02-28T09:00:00</DatumModificatie>
                   </Status>
