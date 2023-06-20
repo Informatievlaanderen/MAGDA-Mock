@@ -10,8 +10,8 @@ public class ServiceMappedMagdaEndpoints implements MagdaEndpoints {
 
     private final Map<MagdaServiceIdentification, MagdaEndpoint> endpoints = new HashMap<>();
 
-    public URI magdaUri(MagdaServiceIdentification aanvraag) {
-        return determineMagdaPath(aanvraag).getUri();
+    public URI magdaUri(MagdaServiceIdentification serviceId) {
+        return determineMagdaPath(serviceId).getUri();
     }
 
     private MagdaEndpoint determineMagdaPath(MagdaServiceIdentification dienst) {

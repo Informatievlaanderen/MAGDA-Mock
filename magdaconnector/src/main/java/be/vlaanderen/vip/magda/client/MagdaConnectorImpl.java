@@ -23,7 +23,7 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
-import static be.vlaanderen.vip.magda.client.util.LoggingUtils.magdaAanvraagLoggingEventBuilder;
+import static be.vlaanderen.vip.magda.client.util.LoggingUtils.magdaRequestLoggingEventBuilder;
 import static java.util.stream.Collectors.joining;
 
 @Slf4j
@@ -37,20 +37,20 @@ public class MagdaConnectorImpl implements MagdaConnector {
     public MagdaAntwoord send(MagdaRequest magdaRequest) {
         var start = System.nanoTime();
 
-        logAanvraag(magdaRequest);
+        logRequest(magdaRequest);
 
         var magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie());
         var requestDocument = magdaRequest.toMagdaDocument(magdaRegistrationInfo);
 
-        magdaAanvraagLoggingEventBuilder(log, Level.INFO, magdaRequest)
-                .log("Aanvraag naar MAGDA dienst met referte [{}]", magdaRequest.getRequestId());
+        magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
+                .log("Request to MAGDA service with reference [{}]", magdaRequest.getRequestId());
 
-        magdaAanvraagLoggingEventBuilder(log, Level.DEBUG, magdaRequest)
+        magdaRequestLoggingEventBuilder(log, Level.DEBUG, magdaRequest)
                 .log("Request: {}", requestDocument);
 
         try {
             var response = callMagda(requestDocument);
-            magdaAanvraagLoggingEventBuilder(log, Level.INFO, magdaRequest)
+            magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
                     .log("Response: {}", response);
 
             var duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
@@ -63,8 +63,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
             final var antwoordUitzonderingen = antwoord.getAntwoordUitzonderingen();
             var uitzonderingenMessage1 = uitzonderingenMessage(uitzonderingen, antwoordUitzonderingen);
 
-            magdaAanvraagLoggingEventBuilder(log, Level.INFO, magdaRequest)
-                    .log("Resultaat van aanvraag naar MAGDA dienst met referte [{}] ({} ms): {}", magdaRequest.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
+            magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
+                    .log("Result of request to MAGDA service with reference [{}] ({} ms): {}", magdaRequest.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
 
             if(!antwoord.isHeeftInhoud() && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
                 throw new BackendUitzonderingenException(magdaRequest.getInsz(), getNiveau1Uitzondering(response));
@@ -107,18 +107,18 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 magdaRequest.getOverWie(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
-                magdaRequest.magdaServiceIdentification().getNaam(),
-                magdaRequest.magdaServiceIdentification().getVersie(),
+                magdaRequest.magdaServiceIdentification().getName(),
+                magdaRequest.magdaServiceIdentification().getVersion(),
                 magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
     }
 
-    private void logAanvraag(MagdaRequest magdaRequest) {
+    private void logRequest(MagdaRequest magdaRequest) {
         afnemerLogService.logMagdaRequest(new MagdaLoggedRequest(magdaRequest.getInsz(),
                 magdaRequest.getOverWie(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
-                magdaRequest.magdaServiceIdentification().getNaam(),
-                magdaRequest.magdaServiceIdentification().getVersie(),
+                magdaRequest.magdaServiceIdentification().getName(),
+                magdaRequest.magdaServiceIdentification().getVersion(),
                 magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
 
     }
@@ -129,8 +129,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 duration,
-                magdaRequest.magdaServiceIdentification().getNaam(),
-                magdaRequest.magdaServiceIdentification().getVersie(),
+                magdaRequest.magdaServiceIdentification().getName(),
+                magdaRequest.magdaServiceIdentification().getVersion(),
                 magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
     }
 
@@ -140,8 +140,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 magdaRequest.getRequestId(),
                 duration,
                 uitzonderingen,
-                magdaRequest.magdaServiceIdentification().getNaam(),
-                magdaRequest.magdaServiceIdentification().getVersie(),
+                magdaRequest.magdaServiceIdentification().getName(),
+                magdaRequest.magdaServiceIdentification().getVersion(),
                 magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
     }
 

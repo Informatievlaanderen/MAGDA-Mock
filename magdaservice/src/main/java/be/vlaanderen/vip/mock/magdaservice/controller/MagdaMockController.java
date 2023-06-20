@@ -34,9 +34,9 @@ public class MagdaMockController {
 
     private ResponseEntity<String> processMagdaMockRequest(String request) throws MagdaConnectionException {
         //TODO: handle request parsing errors and return Magda Uitzondering error
-        var aanvraag = MagdaDocument.fromString(request);
+        var requestDocument = MagdaDocument.fromString(request);
 
-        var antwoord = mockConnection.sendDocument(aanvraag.getXml());
+        var antwoord = mockConnection.sendDocument(requestDocument.getXml());
         if (antwoord != null) {
             return parseInputstream(MagdaDocument.fromDocument(antwoord));
 

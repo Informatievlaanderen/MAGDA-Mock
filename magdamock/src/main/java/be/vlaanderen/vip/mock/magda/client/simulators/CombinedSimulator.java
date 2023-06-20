@@ -21,7 +21,7 @@ public class CombinedSimulator implements SOAPSimulator {
         if(simulators.containsKey(serviceIdentification)) {
             return simulators.get(serviceIdentification).send(request);
         } else {
-            throw new MagdaMockException("No magda simulator is registered for %s/%s".formatted(serviceIdentification.getNaam(), serviceIdentification.getVersie()));
+            throw new MagdaMockException("No magda simulator is registered for %s/%s".formatted(serviceIdentification.getName(), serviceIdentification.getVersion()));
         }
     }
 }

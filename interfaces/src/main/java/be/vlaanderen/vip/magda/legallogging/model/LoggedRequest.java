@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Basis klasse voor alle gelogde aanvragen.
+ * Base class for all request logs.
  * <p>
- * Bevat:
+ * Contains:
  * <ul>
- * <li>INSZ nummer van de persoon die de aanvraag deed</li>
- * <li>Uniek transactie ID van de aanvraag</li>
+ * <li>INSZ number of the person that performed the request</li>
+ * <li>Unique transaction ID of the request</li>
  * </ul>
  */
 @Getter

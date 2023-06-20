@@ -11,17 +11,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 class GeefBewijsTest extends MockTestBase {
-      @Test
+    @Test
     @SneakyThrows
     void geefBewijsGeeftAntwoord() {
         final var requestInsz = "67621546751";
-        var aanvraag = new GeefBewijsRequest(requestInsz);
+        var request = new GeefBewijsRequest(requestInsz);
 
-          var afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new AfnemerLogServiceMock();
 
-          var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(afnemerLogService);
 
-        var antwoord = connector.send(aanvraag);
+        var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
@@ -29,14 +29,14 @@ class GeefBewijsTest extends MockTestBase {
         assertThat(antwoord.getUitzonderingen()).isEmpty();
         assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
 
-        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isZero();
+        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(aanvraag.getRequestId().toString());
+        assertThat(referte).isEqualTo(request.getRequestId().toString());
 
         var leverancier = doc.getValue("//Antwoorden/Antwoord/Inhoud/Bewijzen/Bewijs/Leverancier/Naam");
         assertThat(leverancier).isEqualTo("Volwassenenonderwijs");
@@ -55,13 +55,13 @@ class GeefBewijsTest extends MockTestBase {
     @SneakyThrows
     void geefBewijsVoorOnbekendePersoonGeeftGeenGegevensGevonden() {
         final var requestInsz = "57021546719";
-        var aanvraag = new GeefBewijsRequest(requestInsz);
+        var request = new GeefBewijsRequest(requestInsz);
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
         var connector = makeMagdaConnector(afnemerLogService);
 
-        var antwoord = connector.send(aanvraag);
+        var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isFalse();
@@ -69,14 +69,14 @@ class GeefBewijsTest extends MockTestBase {
         assertThat(antwoord.getAntwoordUitzonderingen()).hasSize(1);
         assertThat(antwoord.getUitzonderingen()).isEmpty();
 
-        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isZero();
+        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(aanvraag.getRequestId().toString());
+        assertThat(referte).isEqualTo(request.getRequestId().toString());
 
         var uitzondering = antwoord.getAntwoordUitzonderingen().get(0);
         assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT);

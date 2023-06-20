@@ -45,12 +45,12 @@ public class GeefPasfotoTest extends MockTestBase {
     }
 
     private void assertPasfotoCorrect(String requestInsz, int expected) throws IOException {
-        var aanvraag = new GeefPasfotoRequest(requestInsz);
+        var request = new GeefPasfotoRequest(requestInsz);
         var afnemerLogService = new AfnemerLogServiceMock();
 
         var connector = makeMagdaConnector(afnemerLogService);
 
-        var antwoord = connector.send(aanvraag);
+        var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
@@ -58,14 +58,14 @@ public class GeefPasfotoTest extends MockTestBase {
         assertThat(antwoord.getUitzonderingen()).isEmpty();
         assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
 
-        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isZero();
+        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(aanvraag.getRequestId().toString());
+        assertThat(referte).isEqualTo(request.getRequestId().toString());
 
         var insz = doc.getValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ");
         assertThat(insz).isEqualTo(requestInsz);
@@ -90,20 +90,20 @@ public class GeefPasfotoTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefPasfotov0200LuktNietOmdatMagdaOverbelastIs() {
-        var aanvraag = new GeefPasfotoRequest(INSZ_MAGDA_OVERBELAST);
+        var request = new GeefPasfotoRequest(INSZ_MAGDA_OVERBELAST);
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
         var connector = makeMagdaConnector(afnemerLogService);
 
-        var antwoord = connector.send(aanvraag);
-        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
+        var antwoord = connector.send(request);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
 
         assertThatAnswerContainsUitzondering(antwoord);
 
-        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isZero();
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(1);
+        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isZero();
+        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
 
         var uitzondering = antwoord.getUitzonderingen().get(0);
         assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT);

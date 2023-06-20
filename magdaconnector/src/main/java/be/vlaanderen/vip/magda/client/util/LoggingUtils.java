@@ -10,9 +10,9 @@ public class LoggingUtils {
         throw new IllegalStateException("Utility class");
     }
 
-    public static LoggingEventBuilder magdaAanvraagLoggingEventBuilder(Logger logger, Level level, MagdaRequest magdaRequest) {
+    public static LoggingEventBuilder magdaRequestLoggingEventBuilder(Logger logger, Level level, MagdaRequest magdaRequest) {
         return logger.makeLoggingEventBuilder(level)
-                .addKeyValue(LoggingKeys.MAGDA_SERVICE_NAME.getKey(), magdaRequest.magdaServiceIdentification().getNaam())
-                .addKeyValue(LoggingKeys.MAGDA_SERVICE_VERSION.getKey(), magdaRequest.magdaServiceIdentification().getVersie());
+                .addKeyValue(LoggingKeys.MAGDA_SERVICE_NAME.getKey(), magdaRequest.magdaServiceIdentification().getName())
+                .addKeyValue(LoggingKeys.MAGDA_SERVICE_VERSION.getKey(), magdaRequest.magdaServiceIdentification().getVersion());
     }
 }

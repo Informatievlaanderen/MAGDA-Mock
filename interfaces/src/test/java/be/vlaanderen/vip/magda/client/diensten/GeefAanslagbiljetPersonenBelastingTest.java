@@ -12,24 +12,24 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 class GeefAanslagbiljetPersonenBelastingTest extends TestBase {
 
     @Test
-    void aanvraagFillsInStandardRequestParameters() {
+    void requestFillsInStandardRequestParameters() {
 
         var insz = RandomStringUtils.randomNumeric(11);
-        var aanvraag = new GeefAanslagbiljetPersonenbelastingRequest(insz);
+        var request = new GeefAanslagbiljetPersonenbelastingRequest(insz);
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
                 .build();
 
-        var requestDocument = aanvraag.toMagdaDocument(mockedMagdaRegistrationInfo);
+        var requestDocument = request.toMagdaDocument(mockedMagdaRegistrationInfo);
 
         log.debug("Request:  {}", requestDocument);
 
         assertAll(
-                () -> assertThatTechnicalFieldsInRequestMatchAanvraag(requestDocument, aanvraag, mockedMagdaRegistrationInfo),
+                () -> assertThatTechnicalFieldsInRequestMatchRequest(requestDocument, request, mockedMagdaRegistrationInfo),
                 () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/INSZ", insz),
 
-                // TODO: Should these values be passed as inputs in Aanvraag instead of hardcoded in the request template?
+                // TODO: Should these values be passed as inputs in MagdaRequest instead of hardcoded in the request template?
                 () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/Inkomensjaar", "2011"),
                 () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[1]", "7555"),
                 () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[2]", "7557"),
@@ -42,25 +42,25 @@ class GeefAanslagbiljetPersonenBelastingTest extends TestBase {
     class Deprecated {
 
         @Test
-        void aanvraagFillsInStandardRequestParameters() {
+        void requestFillsInStandardRequestParameters() {
 
             var insz = RandomStringUtils.randomNumeric(11) ;
-            var aanvraag = new GeefAanslagbiljetPersonenbelastingRequest(insz);
+            var request = new GeefAanslagbiljetPersonenbelastingRequest(insz);
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                     .identification(TEST_SERVICE_URI)
                     .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();
 
-            var requestDocument = aanvraag.toMagdaDocument(mockedMagdaRegistrationInfo);
+            var requestDocument = request.toMagdaDocument(mockedMagdaRegistrationInfo);
 
             log.debug("Request:  {}", requestDocument);
 
             assertAll(
-                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(requestDocument, aanvraag, mockedMagdaRegistrationInfo),
+                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchRequest(requestDocument, request, mockedMagdaRegistrationInfo),
                     () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/INSZ", insz),
 
-                    // TODO: Should these values be passed as inputs in Aanvraag instead of hardcoded in the request template?
+                    // TODO: Should these values be passed as inputs in MagdaRequest instead of hardcoded in the request template?
                     () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/Inkomensjaar", "2011"),
                     () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[1]", "7555"),
                     () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[2]", "7557"),

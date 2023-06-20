@@ -28,14 +28,14 @@ public class TestBase {
         assertThat(nodes.getLength()).isZero();
     }
 
-    protected void assertThatTechnicalFieldsInRequestMatchAanvraag(MagdaDocument doc, MagdaRequest magdaRequest, MagdaRegistrationInfo hoedanigheid) {
+    protected void assertThatTechnicalFieldsInRequestMatchRequest(MagdaDocument doc, MagdaRequest magdaRequest, MagdaRegistrationInfo hoedanigheid) {
         assertThatXmlFieldIsEqualTo(doc, AFZENDER_REFERTE, magdaRequest.getRequestId().toString());
         assertThatXmlFieldIsEqualTo(doc, AFZENDER_IDENTIFICATIE, hoedanigheid.getIdentification());
         assertThatXmlHasNoFieldForPath(doc, AFZENDER_HOEDANIGHEID);
         assertThatXmlFieldIsEqualTo(doc, VRAAG_REFERTE, magdaRequest.getRequestId().toString());
     }
 
-    protected void assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(MagdaDocument doc, MagdaRequest magdaRequest, MagdaRegistrationInfo hoedanigheid) {
+    protected void assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchRequest(MagdaDocument doc, MagdaRequest magdaRequest, MagdaRegistrationInfo hoedanigheid) {
         assertThatXmlFieldIsEqualTo(doc, AFZENDER_REFERTE, magdaRequest.getRequestId().toString());
         assertThatXmlFieldIsEqualTo(doc, AFZENDER_IDENTIFICATIE, hoedanigheid.getIdentification());
         var hoedanigheidscode = hoedanigheid.getHoedanigheidscode();

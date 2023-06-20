@@ -109,11 +109,11 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
     @Override
     public Document sendDocument(Document xml) throws MagdaConnectionException {
         var doc = MagdaDocument.fromDocument(xml);
-        var service = doc.getValue("//Verzoek/Context/Naam");
-        var versie = doc.getValue("//Verzoek/Context/Versie");
+        var name = doc.getValue("//Verzoek/Context/Naam");
+        var version = doc.getValue("//Verzoek/Context/Versie");
 
-        var aanvraag = new MagdaServiceIdentification(service, versie);
-        final var urlString = magdaEndpoints.magdaUri(aanvraag).toString();
+        var serviceId = new MagdaServiceIdentification(name, version);
+        final var urlString = magdaEndpoints.magdaUri(serviceId).toString();
 
         log.info("Call to SOAP endpoint {}", urlString);
         final var request = new HttpPost(urlString);

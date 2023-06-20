@@ -5,7 +5,7 @@ import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import java.net.URI;
 
 public interface MagdaEndpoints {
-    URI magdaUri(MagdaServiceIdentification aanvraag);
+    URI magdaUri(MagdaServiceIdentification serviceId);
 
     static Builder builder() {
         return new Builder();
@@ -19,8 +19,8 @@ public interface MagdaEndpoints {
             this.serviceMappedMagdaEndpoints = new ServiceMappedMagdaEndpoints();
         }
 
-        public Builder addMapping(String dienstNaam, String versie, MagdaEndpoint magdaEndpoint) {
-            serviceMappedMagdaEndpoints.addMapping(dienstNaam, versie, magdaEndpoint);
+        public Builder addMapping(String name, String version, MagdaEndpoint magdaEndpoint) {
+            serviceMappedMagdaEndpoints.addMapping(name, version, magdaEndpoint);
             return this;
         }
 

@@ -13,18 +13,18 @@ class GeefPasfotoTest extends TestBase {
 
     @Test
     void fillsInRequestGeefPasfoto0200() {
-        var aanvraag = new GeefPasfotoRequest(INSZ);
+        var request = new GeefPasfotoRequest(INSZ);
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
                 .build();
 
-        var requestDocument = aanvraag.toMagdaDocument(mockedMagdaRegistrationInfo);
+        var requestDocument = request.toMagdaDocument(mockedMagdaRegistrationInfo);
 
         log.debug("Request:  {}", requestDocument.toString());
 
         assertAll(
-                () -> assertThatTechnicalFieldsInRequestMatchAanvraag(requestDocument, aanvraag, mockedMagdaRegistrationInfo)
+                () -> assertThatTechnicalFieldsInRequestMatchRequest(requestDocument, request, mockedMagdaRegistrationInfo)
         );
     }
 
@@ -33,19 +33,19 @@ class GeefPasfotoTest extends TestBase {
 
         @Test
         void fillsInRequestGeefPasfoto0200() {
-            var aanvraag = new GeefPasfotoRequest(INSZ);
+            var request = new GeefPasfotoRequest(INSZ);
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                     .identification(TEST_SERVICE_URI)
                     .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();
 
-            var requestDocument = aanvraag.toMagdaDocument(mockedMagdaRegistrationInfo);
+            var requestDocument = request.toMagdaDocument(mockedMagdaRegistrationInfo);
 
             log.debug("Request:  {}", requestDocument.toString());
 
             assertAll(
-                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(requestDocument, aanvraag, mockedMagdaRegistrationInfo)
+                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchRequest(requestDocument, request, mockedMagdaRegistrationInfo)
             );
         }
     }

@@ -70,16 +70,16 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callGeefBewijs() {
-        var aanvraag = new GeefBewijsRequest(CORRECT_INSZ);
+        var request = new GeefBewijsRequest(CORRECT_INSZ);
 
-        var antwoord = connector.send(aanvraag);
+        var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
         assertResponsBevatAntwoord(antwoord);
 
         var doc = antwoord.getDocument();
 
-        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
+        assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
 
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Bewijzen/Bewijs/BewijsrefertesLed/Bewijsreferte");
         assertThat(resultaat).isEqualTo("66567d75-a223-4c12-959e-6560e3d0f0e5");
@@ -88,15 +88,15 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callRegistreerInschrijving() {
-        var aanvraag = new RegistreerInschrijvingRequest(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
-        var antwoord = connector.send(aanvraag);
+        var request = new RegistreerInschrijvingRequest(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
         assertResponsBevatAntwoord(antwoord);
 
         var doc = antwoord.getDocument();
 
-        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
+        assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
 
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
         assertThat(resultaat).isEqualTo("1");
@@ -105,8 +105,8 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callRegistreerInschrijvingFaaltMagdaOverbelast() {
-        var aanvraag = new RegistreerInschrijvingRequest(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
-        var antwoord = connector.send(aanvraag);
+        var request = new RegistreerInschrijvingRequest(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
         assertResponsBevatUitzondering(antwoord, TypeUitzondering.FOUT, "99996", "Te veel gelijktijdige bevragingen");
@@ -115,15 +115,15 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callRegistreerUitschrijving() {
-        var aanvraag = new RegistreerUitschrijvingRequest(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
-        var antwoord = connector.send(aanvraag);
+        var request = new RegistreerUitschrijvingRequest(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
         assertResponsBevatAntwoord(antwoord);
 
         var doc = antwoord.getDocument();
 
-        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
+        assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
 
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
         assertThat(resultaat).isEqualTo("1");
@@ -132,8 +132,8 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callRegistreerUitschrijvingFaaltMagdaOverbelast() {
-        var aanvraag = new RegistreerUitschrijvingRequest(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
-        var antwoord = connector.send(aanvraag);
+        var request = new RegistreerUitschrijvingRequest(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
         assertResponsBevatUitzondering(antwoord, TypeUitzondering.FOUT, "99996", "Te veel gelijktijdige bevragingen");
@@ -142,15 +142,15 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callGeefAanslagbiljetPersonenbelasting() {
-        var aanvraag = new GeefAanslagbiljetPersonenbelastingRequest("82102108114");
-        var antwoord = connector.send(aanvraag);
+        var request = new GeefAanslagbiljetPersonenbelastingRequest("82102108114");
+        var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
         assertResponsBevatAntwoord(antwoord);
 
         var doc = antwoord.getDocument();
 
-        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
+        assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
 
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
@@ -181,24 +181,24 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void multipleCalls() {
-        var aanvraag = new GeefBewijsRequest(CORRECT_INSZ);
+        var request = new GeefBewijsRequest(CORRECT_INSZ);
 
-        assertDoesNotThrow(() -> connector.send(aanvraag));
-        assertDoesNotThrow(() -> connector.send(aanvraag));
+        assertDoesNotThrow(() -> connector.send(request));
+        assertDoesNotThrow(() -> connector.send(request));
     }
 
     @SneakyThrows
     private void assertPasfotoCorrect(String requestInsz, int expected) {
-        var aanvraag = new GeefPasfotoRequest(requestInsz);
+        var request = new GeefPasfotoRequest(requestInsz);
 
-        var antwoord = connector.send(aanvraag);
+        var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
         assertResponsBevatAntwoord(antwoord);
 
         var doc = antwoord.getDocument();
 
-        assertResponsKomtOvereenMetRequest(doc, aanvraag.getRequestId());
+        assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
 
         var insz = doc.getValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ");
         assertThat(insz).isEqualTo(requestInsz);

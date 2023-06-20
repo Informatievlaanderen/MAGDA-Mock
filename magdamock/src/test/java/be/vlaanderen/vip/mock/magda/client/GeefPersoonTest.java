@@ -14,12 +14,12 @@ class GeefPersoonTest extends MockTestBase {
     @SneakyThrows
     void geefPersoonGeeftAntwoord() {
         final var requestInsz = "00600099507";
-        var aanvraag = new GeefPersoonRequest(requestInsz);
+        var request = new GeefPersoonRequest(requestInsz);
         var afnemerLogService = new AfnemerLogServiceMock();
 
         var connector = makeMagdaConnector(afnemerLogService);
 
-        var antwoord = connector.send(aanvraag);
+        var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
@@ -27,14 +27,14 @@ class GeefPersoonTest extends MockTestBase {
         assertThat(antwoord.getUitzonderingen()).isEmpty();
         assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
 
-        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isZero();
+        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(aanvraag.getRequestId().toString());
+        assertThat(referte).isEqualTo(request.getRequestId().toString());
 
         var insz = doc.getValue("//Antwoorden/Antwoord/Inhoud/Persoon/INSZ");
         assertThat(insz).isEqualTo(requestInsz);

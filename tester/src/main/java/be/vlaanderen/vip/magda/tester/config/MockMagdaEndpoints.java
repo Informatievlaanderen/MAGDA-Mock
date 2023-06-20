@@ -11,7 +11,7 @@ public class MockMagdaEndpoints implements MagdaEndpoints {
     private final URI uri;
 
     @Override
-    public URI magdaUri(MagdaServiceIdentification aanvraag) {
+    public URI magdaUri(MagdaServiceIdentification serviceId) {
         return uri;
     }
 }

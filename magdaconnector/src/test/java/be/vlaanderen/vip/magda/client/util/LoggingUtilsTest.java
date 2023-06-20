@@ -10,7 +10,7 @@ import org.slf4j.spi.LoggingEventBuilder;
 
 import static be.vlaanderen.vip.magda.client.util.LoggingKeys.MAGDA_SERVICE_NAME;
 import static be.vlaanderen.vip.magda.client.util.LoggingKeys.MAGDA_SERVICE_VERSION;
-import static be.vlaanderen.vip.magda.client.util.LoggingUtils.magdaAanvraagLoggingEventBuilder;
+import static be.vlaanderen.vip.magda.client.util.LoggingUtils.magdaRequestLoggingEventBuilder;
 import static org.mockito.Mockito.*;
 
 class LoggingUtilsTest {
@@ -21,15 +21,15 @@ class LoggingUtilsTest {
     @Test
     void testMakeMagdaLoggingEventBuilder() {
         var mockLogger = mock(Logger.class);
-        var mockAanvraag = Mockito.mock(MagdaRequest.class);
+        var mockRequest = Mockito.mock(MagdaRequest.class);
         var mockEventBuilder = mock(LoggingEventBuilder.class, RETURNS_SELF);
 
-        var service = new MagdaServiceIdentification(GEEF_BEWIJS, VERSIE);
+        var serviceId = new MagdaServiceIdentification(GEEF_BEWIJS, VERSIE);
 
         when(mockLogger.makeLoggingEventBuilder(any())).thenReturn(mockEventBuilder);
-        when(mockAanvraag.magdaServiceIdentification()).thenReturn(service);
+        when(mockRequest.magdaServiceIdentification()).thenReturn(serviceId);
 
-        magdaAanvraagLoggingEventBuilder(mockLogger, Level.INFO, mockAanvraag);
+        magdaRequestLoggingEventBuilder(mockLogger, Level.INFO, mockRequest);
 
         verify(mockLogger).makeLoggingEventBuilder(Level.INFO);
         verify(mockEventBuilder).addKeyValue(MAGDA_SERVICE_NAME.getKey(), GEEF_BEWIJS);

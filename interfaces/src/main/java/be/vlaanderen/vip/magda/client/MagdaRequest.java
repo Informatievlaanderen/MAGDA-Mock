@@ -37,7 +37,7 @@ public abstract class MagdaRequest {
 
     public MagdaDocument toMagdaDocument(MagdaRegistrationInfo magdaRegistrationInfo) {
         var serviceId = magdaServiceIdentification();
-        var document = MagdaDocument.fromResource(MagdaDocument.class, "/templates/" + serviceId.getNaam() + "/" + serviceId.getVersie() + "/template.xml");
+        var document = MagdaDocument.fromResource(MagdaDocument.class, "/templates/" + serviceId.getName() + "/" + serviceId.getVersion() + "/template.xml");
         fillIn(document, magdaRegistrationInfo);
 
         return document;

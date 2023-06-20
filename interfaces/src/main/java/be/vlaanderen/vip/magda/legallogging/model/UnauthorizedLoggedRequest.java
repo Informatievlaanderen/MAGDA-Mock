@@ -5,11 +5,11 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import java.util.UUID;
 
 /**
- * Niet gemachtigd om deze aanvraag te doen
+ * Not authorized to perform this request
  * <p>
- * Voegt de volgende velden toe aan {@link LoggedRequest}:
+ * Adds the following fields to {@link LoggedRequest}:
  * <ul>
- * <li>geen</li>
+ * <li>none</li>
  * </ul>
  */
 public class UnauthorizedLoggedRequest extends LoggedRequest {

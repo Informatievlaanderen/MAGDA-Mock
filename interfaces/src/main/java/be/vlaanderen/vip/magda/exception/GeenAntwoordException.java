@@ -22,6 +22,6 @@ public class GeenAntwoordException extends BronException {
         super(bericht, oorzaak);
         this.transactieID = magdaRequest.getCorrelationId();
         this.localTransactieID = magdaRequest.getRequestId();
-        this.dienst = magdaRequest.magdaServiceIdentification().getNaam();
+        this.dienst = magdaRequest.magdaServiceIdentification().getName();
     }
 }

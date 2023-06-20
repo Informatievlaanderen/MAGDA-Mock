@@ -10,6 +10,6 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public class MagdaServiceIdentification {
-    private String naam;
-    private String versie;
+    private String name;
+    private String version;
 }
