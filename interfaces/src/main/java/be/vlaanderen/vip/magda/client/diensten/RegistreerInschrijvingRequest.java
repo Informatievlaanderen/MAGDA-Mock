@@ -50,7 +50,7 @@ public class RegistreerInschrijvingRequest extends MagdaRequest {
     private final LocalDate start;
     private final LocalDate einde;
 
-    public RegistreerInschrijvingRequest(String insz, LocalDate start, LocalDate einde) {
+    private RegistreerInschrijvingRequest(String insz, LocalDate start, LocalDate einde) {
         super(insz, insz);
         this.start = start;
         this.einde = einde;

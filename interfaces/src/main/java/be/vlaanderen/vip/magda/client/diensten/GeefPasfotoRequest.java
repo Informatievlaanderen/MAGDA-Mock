@@ -27,11 +27,7 @@ public class GeefPasfotoRequest extends MagdaRequest {
         return new Builder();
     }
 
-    public GeefPasfotoRequest(String insz) {
-        super(insz, insz);
-    }
-
-    public GeefPasfotoRequest(String insz, String overWie, String registratie) {
+    private GeefPasfotoRequest(String insz, String overWie, String registratie) {
         super(insz, StringUtils.defaultString(overWie, insz));
         setRegistratie(StringUtils.defaultString(registratie, "default"));
     }

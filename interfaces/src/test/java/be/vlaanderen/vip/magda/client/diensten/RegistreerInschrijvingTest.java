@@ -21,8 +21,12 @@ class RegistreerInschrijvingTest extends TestBase {
     void fillsInRequestRegistreerInschrijving0200() {
         var start = LocalDate.of(2020, 8, 15);
         var end = LocalDate.of(2021, 9, 20);
-        
-        var request = new RegistreerInschrijvingRequest(INSZ, start, end);
+
+        var request = RegistreerInschrijvingRequest.builder()
+                .insz(INSZ)
+                .start(start)
+                .einde(end)
+                .build();
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
@@ -43,7 +47,12 @@ class RegistreerInschrijvingTest extends TestBase {
 
     @Test
     void fillsInRequestRegistreerInschrijving0201() {
-        var request = new RegistreerInschrijving0201Request(TypeInschrijving.PERSOON, INSZ, LocalDate.now(), LocalDate.now().plusDays(5));
+        var request = RegistreerInschrijving0201Request.builder()
+                .type(TypeInschrijving.PERSOON)
+                .insz(INSZ)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plusDays(5))
+                .build();
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
@@ -66,7 +75,11 @@ class RegistreerInschrijvingTest extends TestBase {
             var start = LocalDate.of(2020, 8, 15);
             var end = LocalDate.of(2021, 9, 20);
 
-            var request = new RegistreerInschrijvingRequest(INSZ, start, end);
+            var request = RegistreerInschrijvingRequest.builder()
+                    .insz(INSZ)
+                    .start(start)
+                    .einde(end)
+                    .build();
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                     .identification(TEST_SERVICE_URI)
@@ -90,7 +103,12 @@ class RegistreerInschrijvingTest extends TestBase {
 
         @Test
         void fillsInRequestRegistreerInschrijving0201() {
-            var request = new RegistreerInschrijving0201Request(TypeInschrijving.PERSOON, INSZ, LocalDate.now(), LocalDate.now().plusDays(5));
+            var request = RegistreerInschrijving0201Request.builder()
+                    .type(TypeInschrijving.PERSOON)
+                    .insz(INSZ)
+                    .start(LocalDate.now())
+                    .einde(LocalDate.now().plusDays(5))
+                    .build();
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                     .identification(TEST_SERVICE_URI)

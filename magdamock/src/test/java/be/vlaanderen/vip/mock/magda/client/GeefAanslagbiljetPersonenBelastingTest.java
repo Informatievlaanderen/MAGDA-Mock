@@ -20,7 +20,9 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     @Test
     @SneakyThrows
     void defaultAanslagBiljet() {
-        var request = new GeefAanslagbiljetPersonenbelastingRequest(INSZ_GEENDATA);
+        var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
+                .insz(INSZ_GEENDATA)
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -48,7 +50,9 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     @Test
     @SneakyThrows
     void aanslagBiljetMet2Codes() {
-        var request = new GeefAanslagbiljetPersonenbelastingRequest(INSZ_DATA_NA2000);
+        var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
+                .insz(INSZ_DATA_NA2000)
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -83,7 +87,9 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     @Test
     @SneakyThrows
     void aanslagBiljetMet2CodesVoor2000() {
-        var request = new GeefAanslagbiljetPersonenbelastingRequest(INSZ_DATA_VOOR2000);
+        var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
+                .insz(INSZ_DATA_VOOR2000)
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -118,7 +124,9 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefAanslagbiljetPersonenBelasting0200LuktNietOmdatMagdaOverbelastIs() {
-        var request = new GeefAanslagbiljetPersonenbelastingRequest(INSZ_MAGDA_OVERBELAST);
+        var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
+                .insz(INSZ_MAGDA_OVERBELAST)
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 

@@ -27,11 +27,7 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends MagdaRequest {
         return new Builder();
     }
 
-    public GeefAanslagbiljetPersonenbelastingRequest(String insz) {
-        super(insz, insz);
-    }
-
-    public GeefAanslagbiljetPersonenbelastingRequest(String insz, String overWie, String registratie) {
+    private GeefAanslagbiljetPersonenbelastingRequest(String insz, String overWie, String registratie) {
         super(insz, StringUtils.defaultString(overWie, insz));
         setRegistratie(StringUtils.defaultString(registratie, "default"));
     }

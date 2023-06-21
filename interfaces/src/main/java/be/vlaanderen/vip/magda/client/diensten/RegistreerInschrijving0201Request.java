@@ -60,7 +60,7 @@ public class RegistreerInschrijving0201Request extends MagdaRequest {
     private final LocalDate start;
     private final LocalDate einde;
 
-    public RegistreerInschrijving0201Request(TypeInschrijving type, String insz, LocalDate start, LocalDate einde) {
+    private RegistreerInschrijving0201Request(TypeInschrijving type, String insz, LocalDate start, LocalDate einde) {
         super(insz, insz);
         this.type = type;
         this.start = start;

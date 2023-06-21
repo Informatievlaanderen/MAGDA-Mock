@@ -47,7 +47,9 @@ class MagdaConnectorImplTest {
 
 		@Test
 		void sendDocumentReturnsNull() {
-			var req = new GeefBewijsRequest("test-insz");
+			var req = GeefBewijsRequest.builder()
+					.insz("test-insz")
+					.build();
 
 			// if this occurs, we ought to treat it as a bug in the code
 			assertThrows(IllegalStateException.class, () -> connector.send(req));
@@ -57,7 +59,9 @@ class MagdaConnectorImplTest {
 		void requestFails() throws MagdaConnectionException {
 			when(connection.sendDocument(any())).thenThrow(new MagdaConnectionException("something went wrong"));
 
-			var req = new GeefBewijsRequest("test-insz");
+			var req = GeefBewijsRequest.builder()
+					.insz("test-insz")
+					.build();
 
 			assertThrows(GeenAntwoordException.class, () -> connector.send(req));
 		}
@@ -66,7 +70,9 @@ class MagdaConnectorImplTest {
 		void logsRequest() throws MagdaConnectionException {
 			when(connection.sendDocument(any())).thenThrow(new MagdaConnectionException("something went wrong"));
 
-			var req = new GeefBewijsRequest("test-insz");
+			var req = GeefBewijsRequest.builder()
+					.insz("test-insz")
+					.build();
 
 			assertThrows(GeenAntwoordException.class, () -> connector.send(req));
 			verify(logService).logMagdaRequest(any());
@@ -76,7 +82,9 @@ class MagdaConnectorImplTest {
 		void logsNoReply() throws MagdaConnectionException {
 			when(connection.sendDocument(any())).thenThrow(new MagdaConnectionException("something went wrong"));
 
-			var req = new GeefBewijsRequest("test-insz");
+			var req = GeefBewijsRequest.builder()
+					.insz("test-insz")
+					.build();
 
 			assertThrows(GeenAntwoordException.class, () -> connector.send(req));
 			verify(logService).logUnansweredRequest(any());
@@ -96,14 +104,18 @@ class MagdaConnectorImplTest {
 
 		@Test
 		void requestFails() {
-			var req = new GeefBewijsRequest("test-insz");
+			var req = GeefBewijsRequest.builder()
+					.insz("test-insz")
+					.build();
 
 			assertThrows(BackendUitzonderingenException.class, () -> connector.send(req));
 		}
 
 		@Test
 		void logsRequest() {
-			var req = new GeefBewijsRequest("test-insz");
+			var req = GeefBewijsRequest.builder()
+					.insz("test-insz")
+					.build();
 
 			assertThrows(BackendUitzonderingenException.class, () -> connector.send(req));
 			verify(logService).logMagdaRequest(any());
@@ -115,7 +127,9 @@ class MagdaConnectorImplTest {
 
 		@Test
 		void returnsReply() {
-			var req = new GeefBewijsRequest("test-insz");
+			var req = GeefBewijsRequest.builder()
+					.insz("test-insz")
+					.build();
 			mockReply(buildReplyDocument());
 
 			var reply = connector.send(req);
@@ -124,7 +138,9 @@ class MagdaConnectorImplTest {
 
 		@Test
 		void logsRequest() {
-			var req = new GeefBewijsRequest("test-insz");
+			var req = GeefBewijsRequest.builder()
+					.insz("test-insz")
+					.build();
 			mockReply(buildReplyDocument());
 
 			connector.send(req);
@@ -133,7 +149,9 @@ class MagdaConnectorImplTest {
 
 		@Test
 		void returnsGeneralExceptions() {
-			var req = new GeefBewijsRequest("test-insz");
+			var req = GeefBewijsRequest.builder()
+					.insz("test-insz")
+					.build();
 			mockReply(buildReplyDocument(buildException("test-exception"), ""));
 
 			var reply = connector.send(req);
@@ -142,7 +160,9 @@ class MagdaConnectorImplTest {
 
 		@Test
 		void returnsReplyExceptions() {
-			var req = new GeefBewijsRequest("test-insz");
+			var req = GeefBewijsRequest.builder()
+					.insz("test-insz")
+					.build();
 			mockReply(buildReplyDocument("", buildException("test-exception")));
 
 			var reply = connector.send(req);

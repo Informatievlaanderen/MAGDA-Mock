@@ -22,7 +22,9 @@ class SignedConnectionTest extends MockTestBase {
     @Test
     @SneakyThrows
     void respondsAsNormal_IfRequestSignatureIsValid() {
-        var request = new GeefBewijsRequest(REQUEST_INSZ);
+        var request = GeefBewijsRequest.builder()
+                .insz(REQUEST_INSZ)
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
         var connector = makeSignedMagdaConnector(afnemerLogService,
@@ -51,7 +53,9 @@ class SignedConnectionTest extends MockTestBase {
     @Test
     @SneakyThrows
     void respondsAsNormal_IfNoKeystoresAreUsedAnywhere() {
-        var request = new GeefBewijsRequest(REQUEST_INSZ);
+        var request = GeefBewijsRequest.builder()
+                .insz(REQUEST_INSZ)
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
         var connector = makeSignedMagdaConnector(afnemerLogService,
@@ -80,7 +84,9 @@ class SignedConnectionTest extends MockTestBase {
     @Test
     @SneakyThrows
     void respondsWithBackendUitzonderingenException_IfRequestSignatureIsUnexpected() {
-        var request = new GeefBewijsRequest(REQUEST_INSZ);
+        var request = GeefBewijsRequest.builder()
+                .insz(REQUEST_INSZ)
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
         var connector = makeSignedMagdaConnector(afnemerLogService,
@@ -113,7 +119,9 @@ class SignedConnectionTest extends MockTestBase {
     @Test
     @SneakyThrows
     void respondsWithBackendUitzonderingenException_IfRequestIsNotSigned() {
-        var request = new GeefBewijsRequest(REQUEST_INSZ);
+        var request = GeefBewijsRequest.builder()
+                .insz(REQUEST_INSZ)
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
         var connector = makeSignedMagdaConnector(afnemerLogService,
@@ -146,7 +154,9 @@ class SignedConnectionTest extends MockTestBase {
     @Test
     @SneakyThrows
     void respondsWithGeenAntwoordException_IfResponseSignatureIsUnexpected() {
-        var request = new GeefBewijsRequest(REQUEST_INSZ);
+        var request = GeefBewijsRequest.builder()
+                .insz(REQUEST_INSZ)
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
         var connector = makeSignedMagdaConnector(afnemerLogService,
@@ -168,7 +178,9 @@ class SignedConnectionTest extends MockTestBase {
     @Test
     @SneakyThrows
     void respondsWithGeenAntwoordException_IfResponseIsNotSigned() {
-        var request = new GeefBewijsRequest(REQUEST_INSZ);
+        var request = GeefBewijsRequest.builder()
+                .insz(REQUEST_INSZ)
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
         var connector = makeSignedMagdaConnector(afnemerLogService,

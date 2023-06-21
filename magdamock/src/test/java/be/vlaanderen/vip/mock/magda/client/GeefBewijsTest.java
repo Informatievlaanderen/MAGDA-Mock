@@ -15,7 +15,9 @@ class GeefBewijsTest extends MockTestBase {
     @SneakyThrows
     void geefBewijsGeeftAntwoord() {
         final var requestInsz = "67621546751";
-        var request = new GeefBewijsRequest(requestInsz);
+        var request = GeefBewijsRequest.builder()
+                .insz(requestInsz)
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -55,7 +57,9 @@ class GeefBewijsTest extends MockTestBase {
     @SneakyThrows
     void geefBewijsVoorOnbekendePersoonGeeftGeenGegevensGevonden() {
         final var requestInsz = "57021546719";
-        var request = new GeefBewijsRequest(requestInsz);
+        var request = GeefBewijsRequest.builder()
+                .insz(requestInsz)
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 

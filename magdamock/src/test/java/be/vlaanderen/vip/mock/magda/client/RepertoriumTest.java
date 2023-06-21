@@ -23,7 +23,11 @@ class RepertoriumTest extends MockTestBase {
     @Test
     @SneakyThrows
     void registreerInschrijvingv0200Lukt() {
-        var request = new RegistreerInschrijvingRequest(INSZ_REPERTORIUM_OK, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerInschrijvingRequest.builder()
+                .insz(INSZ_REPERTORIUM_OK)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -46,7 +50,11 @@ class RepertoriumTest extends MockTestBase {
     @Test
     @SneakyThrows
     void registreerInschrijvingv0200LuktNietWegensInhoudelijkProbleem() {
-        var request = new RegistreerInschrijvingRequest(INSZ_REPERTORIUM_FOUT, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerInschrijvingRequest.builder()
+                .insz(INSZ_REPERTORIUM_FOUT)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -71,7 +79,11 @@ class RepertoriumTest extends MockTestBase {
     @Test
     @SneakyThrows
     void registreerInschrijvingv0200LuktNietOmdatMagdaOverbelastIs() {
-        var request = new RegistreerInschrijvingRequest(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerInschrijvingRequest.builder()
+                .insz(INSZ_MAGDA_OVERBELAST)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -95,7 +107,12 @@ class RepertoriumTest extends MockTestBase {
     @Test
     @SneakyThrows
     void registreerInschrijvingv0201Lukt() {
-        var request = new RegistreerInschrijving0201Request(TypeInschrijving.PERSOON, INSZ_REPERTORIUM_OK, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerInschrijving0201Request.builder()
+                .type(TypeInschrijving.PERSOON)
+                .insz(INSZ_REPERTORIUM_OK)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -124,7 +141,12 @@ class RepertoriumTest extends MockTestBase {
     @Test
     @SneakyThrows
     void registreerInschrijvingv0201OndernemingLukt() {
-        var request = new RegistreerInschrijving0201Request(TypeInschrijving.ONDERNEMING, "123456789012", LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerInschrijving0201Request.builder()
+                .type(TypeInschrijving.PERSOON)
+                .insz("123456789012")
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -153,7 +175,12 @@ class RepertoriumTest extends MockTestBase {
     @Test
     @SneakyThrows
     void registreerInschrijvingv0201LuktNietWegensInhoudelijkProbleem() {
-        var request = new RegistreerInschrijving0201Request(TypeInschrijving.PERSOON, INSZ_REPERTORIUM_FOUT, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerInschrijving0201Request.builder()
+                .type(TypeInschrijving.PERSOON)
+                .insz(INSZ_REPERTORIUM_FOUT)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -180,7 +207,12 @@ class RepertoriumTest extends MockTestBase {
     @Test
     @SneakyThrows
     void registreerInschrijvingv0201LuktNietOmdatMagdaOverbelastIs() {
-        var request = new RegistreerInschrijving0201Request(TypeInschrijving.PERSOON, INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerInschrijving0201Request.builder()
+                .type(TypeInschrijving.PERSOON)
+                .insz(INSZ_MAGDA_OVERBELAST)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -204,7 +236,11 @@ class RepertoriumTest extends MockTestBase {
     @Test
     @SneakyThrows
     void registreerUitschrijvingv0200Lukt() {
-        var request = new RegistreerUitschrijvingRequest(INSZ_REPERTORIUM_OK, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerUitschrijvingRequest.builder()
+                .insz(INSZ_REPERTORIUM_OK)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -233,7 +269,11 @@ class RepertoriumTest extends MockTestBase {
     @Test
     @SneakyThrows
     void registreerUitschrijvingv0200LuktNietWegensInhoudelijkProbleem() {
-        var request = new RegistreerUitschrijvingRequest(INSZ_REPERTORIUM_FOUT, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerUitschrijvingRequest.builder()
+                .insz(INSZ_REPERTORIUM_FOUT)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 
@@ -258,7 +298,11 @@ class RepertoriumTest extends MockTestBase {
     @Test
     @SneakyThrows
     void registreerUitschrijvingv0200LuktNietOmdatMagdaOverbelastIs() {
-        var request = new RegistreerUitschrijvingRequest(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerUitschrijvingRequest.builder()
+                .insz(INSZ_MAGDA_OVERBELAST)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
 
         var afnemerLogService = new AfnemerLogServiceMock();
 

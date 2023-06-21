@@ -70,7 +70,9 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callGeefBewijs() {
-        var request = new GeefBewijsRequest(CORRECT_INSZ);
+        var request = GeefBewijsRequest.builder()
+                .insz(CORRECT_INSZ)
+                .build();
 
         var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
@@ -88,7 +90,12 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callRegistreerInschrijving() {
-        var request = new RegistreerInschrijvingRequest(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerInschrijvingRequest.builder()
+                .insz(CORRECT_INSZ)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
+
         var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
@@ -105,7 +112,11 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callRegistreerInschrijvingFaaltMagdaOverbelast() {
-        var request = new RegistreerInschrijvingRequest(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerInschrijvingRequest.builder()
+                .insz(INSZ_MAGDA_OVERBELAST)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
         var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
@@ -115,7 +126,11 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callRegistreerUitschrijving() {
-        var request = new RegistreerUitschrijvingRequest(CORRECT_INSZ, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerUitschrijvingRequest.builder()
+                .insz(CORRECT_INSZ)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
         var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
@@ -132,7 +147,11 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callRegistreerUitschrijvingFaaltMagdaOverbelast() {
-        var request = new RegistreerUitschrijvingRequest(INSZ_MAGDA_OVERBELAST, LocalDate.now(), LocalDate.now().plus(7, ChronoUnit.DAYS));
+        var request = RegistreerUitschrijvingRequest.builder()
+                .insz(INSZ_MAGDA_OVERBELAST)
+                .start(LocalDate.now())
+                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .build();
         var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
@@ -142,7 +161,9 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void callGeefAanslagbiljetPersonenbelasting() {
-        var request = new GeefAanslagbiljetPersonenbelastingRequest("82102108114");
+        var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
+                .insz("82102108114")
+                .build();
         var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
@@ -181,7 +202,9 @@ public class MockServerHttpTest extends MockServerTest {
     @Test
     @SneakyThrows
     void multipleCalls() {
-        var request = new GeefBewijsRequest(CORRECT_INSZ);
+        var request = GeefBewijsRequest.builder()
+                .insz(CORRECT_INSZ)
+                .build();
 
         assertDoesNotThrow(() -> connector.send(request));
         assertDoesNotThrow(() -> connector.send(request));
@@ -189,7 +212,9 @@ public class MockServerHttpTest extends MockServerTest {
 
     @SneakyThrows
     private void assertPasfotoCorrect(String requestInsz, int expected) {
-        var request = new GeefPasfotoRequest(requestInsz);
+        var request = GeefPasfotoRequest.builder()
+                .insz(requestInsz)
+                .build();
 
         var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);

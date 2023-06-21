@@ -27,11 +27,7 @@ public class GeefPersoonRequest extends MagdaRequest {
         return new Builder();
     }
 
-    public GeefPersoonRequest(String insz) {
-        super(insz, insz);
-    }
-
-    public GeefPersoonRequest(String insz, String overWie, String registratie) {
+    private GeefPersoonRequest(String insz, String overWie, String registratie) {
         super(insz, StringUtils.defaultString(overWie, insz));
         setRegistratie(StringUtils.defaultString(registratie, "default"));
     }

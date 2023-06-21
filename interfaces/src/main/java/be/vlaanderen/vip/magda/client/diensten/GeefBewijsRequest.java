@@ -6,6 +6,7 @@ import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.Getter;
 import lombok.ToString;
+import org.apache.commons.lang3.StringUtils;
 
 @Getter
 @ToString
@@ -15,7 +16,9 @@ public class GeefBewijsRequest extends MagdaRequest {
 
         public GeefBewijsRequest build() {
             return new GeefBewijsRequest(
-                    getInsz()
+                    getInsz(),
+                    getOverWie(),
+                    getRegistratie()
             );
         }
     }
@@ -24,8 +27,9 @@ public class GeefBewijsRequest extends MagdaRequest {
         return new Builder();
     }
 
-    public GeefBewijsRequest(String insz) {
-        super(insz, insz);
+    private GeefBewijsRequest(String insz, String overWie, String registratie) {
+        super(insz, StringUtils.defaultString(overWie, insz));
+        setRegistratie(StringUtils.defaultString(registratie, "default"));
     }
 
     @Override

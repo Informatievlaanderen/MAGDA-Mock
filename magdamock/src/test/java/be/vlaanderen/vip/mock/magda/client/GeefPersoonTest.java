@@ -14,7 +14,9 @@ class GeefPersoonTest extends MockTestBase {
     @SneakyThrows
     void geefPersoonGeeftAntwoord() {
         final var requestInsz = "00600099507";
-        var request = new GeefPersoonRequest(requestInsz);
+        var request = GeefPersoonRequest.builder()
+                .insz(requestInsz)
+                .build();
         var afnemerLogService = new AfnemerLogServiceMock();
 
         var connector = makeMagdaConnector(afnemerLogService);
