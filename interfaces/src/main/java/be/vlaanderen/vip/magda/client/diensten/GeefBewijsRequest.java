@@ -11,8 +11,21 @@ import lombok.ToString;
 @ToString
 public class GeefBewijsRequest extends MagdaRequest {
 
+    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
+
+        public GeefBewijsRequest build() {
+            return new GeefBewijsRequest(
+                    getInsz()
+            );
+        }
+    }
+
+    public static Builder<? extends Builder<?>> builder() {
+        return new Builder();
+    }
+
     public GeefBewijsRequest(String insz) {
-        super(insz);
+        super(insz, insz);
     }
 
     @Override

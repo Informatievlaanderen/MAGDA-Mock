@@ -4,6 +4,7 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.StringUtils;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -11,22 +12,54 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
-// TODO make builders for the subclasses to get rid of the long param lists and the logic in the constructors
 @Getter
-public abstract class MagdaRequest {
-    private final UUID correlationId = CorrelationId.get();
-    private final UUID requestId = UUID.randomUUID();
+public abstract class MagdaRequest { // XXX make the attributes english
+
+    protected abstract static class Builder<SELF extends Builder<SELF>> {
+        private String insz;
+        private String overWie;
+        private String registratie;
+
+        @SuppressWarnings("unchecked")
+        public SELF insz(String insz) {
+            this.insz = insz;
+            return (SELF) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public SELF overWie(String overWie) {
+            this.overWie = overWie;
+            return (SELF) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public SELF registratie(String registratie) {
+            this.registratie = registratie;
+            return (SELF) this;
+        }
+
+        protected String getInsz() {
+            return insz;
+        }
+
+        protected String getOverWie() {
+            return StringUtils.defaultString(overWie, insz);
+        }
+
+        protected String getRegistratie() {
+            return StringUtils.defaultString(registratie, "default");
+        }
+    }
+
+    private final UUID correlationId = CorrelationId.get(); // XXX set this in the builder
+    private final UUID requestId = UUID.randomUUID(); // XXX set this in the builder
     @NotNull
     private final String insz;
     @NotNull
-    private final String overWie;
-    @Setter
+    private final String overWie; // XXX remove overWie and replace it entirely with INSZ?
+    @Setter // XXX remove the setter
     @NotNull
-    private String registratie = "default";
-
-    protected MagdaRequest(String insz) {
-        this(insz, insz);
-    }
+    private String registratie = "default"; // XXX can be final
 
     protected MagdaRequest(@NotNull String insz, @NotNull String overWie) {
         this.insz = insz;
