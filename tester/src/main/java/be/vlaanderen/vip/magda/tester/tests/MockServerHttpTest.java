@@ -250,8 +250,8 @@ public class MockServerHttpTest extends MockServerTest {
 
         var uitzondering = antwoord.getUitzonderingen().get(0);
         assertThat(uitzondering.getUitzonderingType()).isEqualTo(exptectedType);
-        assertThat(uitzondering.getIdentificatie()).isEqualTo(expectedFoutCode);
-        assertThat(uitzondering.getDiagnose()).isEqualTo(expectedDiagnose);
+        assertThat(uitzondering.getIdentification()).isEqualTo(expectedFoutCode);
+        assertThat(uitzondering.getDiagnosis()).isEqualTo(expectedDiagnose);
     }
 
     private void assertResponsKomtOvereenMetRequest(MagdaDocument doc, UUID requestId) {

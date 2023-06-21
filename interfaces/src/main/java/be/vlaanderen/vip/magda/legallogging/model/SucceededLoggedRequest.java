@@ -8,25 +8,25 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * MAGDA heeft een respons gestuurd.
- * Voegt de volgende velden toe aan {@link LoggedRequest}:
+ * MAGDA has sent a response.
+ * Adds the following fields to the {@link LoggedRequest}:
  * <ul>
- * <li>duratie tijd voor respons, in nanoseconden</li>
+ * <li>duration until the response was received, in nanoseconds</li>
  * </ul>
  */
 @Getter
 public class SucceededLoggedRequest extends LoggedRequest {
-    private final Duration duratie;
+    private final Duration duration;
 
     public SucceededLoggedRequest(String insz,
-                                  List<String> overWie,
-                                  UUID transactieID,
-                                  UUID localTransactieID,
-                                  Duration duratie,
-                                  String dienst,
-                                  String dienstVersie,
-                                  MagdaRegistrationInfo registratie) {
-        super(insz, overWie, transactieID, localTransactieID, dienst, dienstVersie, registratie);
-        this.duratie = duratie;
+                                  List<String> aboutWhom,
+                                  UUID transactionID,
+                                  UUID localTransactionID,
+                                  Duration duration,
+                                  String serviceName,
+                                  String serviceVersion,
+                                  MagdaRegistrationInfo registrationInfo) {
+        super(insz, aboutWhom, transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
+        this.duration = duration;
     }
 }

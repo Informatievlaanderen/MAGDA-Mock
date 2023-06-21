@@ -16,7 +16,7 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends MagdaRequest {
         public GeefAanslagbiljetPersonenbelastingRequest build() {
             return new GeefAanslagbiljetPersonenbelastingRequest(
                     getInsz(),
-                    getOverWie(),
+                    getAboutWhom(),
                     getRegistratie()
             );
         }
@@ -26,8 +26,8 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends MagdaRequest {
         return new Builder();
     }
 
-    private GeefAanslagbiljetPersonenbelastingRequest(String insz, String overWie, String registratie) {
-        super(insz, overWie, registratie);
+    private GeefAanslagbiljetPersonenbelastingRequest(String insz, String aboutWhom, String registratie) {
+        super(insz, aboutWhom, registratie);
     }
 
     @Override

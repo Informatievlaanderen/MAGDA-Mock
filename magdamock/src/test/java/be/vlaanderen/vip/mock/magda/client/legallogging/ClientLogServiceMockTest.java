@@ -113,17 +113,17 @@ class ClientLogServiceMockTest {
 	}
 	
 	private SucceededLoggedRequest successRequest(MagdaLoggedRequest req) {
-		return new SucceededLoggedRequest(req.getInsz(), req.getOverWie(), req.getTransactieID(), req.getLocalTransactieID(),
-				Duration.ofSeconds(1), req.getDienst(), req.getDienstVersie(), req.getRegistratie());
+		return new SucceededLoggedRequest(req.getInsz(), req.getAboutWhom(), req.getTransactionID(), req.getLocalTransactionID(),
+				Duration.ofSeconds(1), req.getServiceName(), req.getServiceVersion(), req.getRegistrationInfo());
 	}
 	
 	private FailedLoggedRequest failedRequest(MagdaLoggedRequest req) {
-		return new FailedLoggedRequest(req.getInsz(), req.getTransactieID(), req.getLocalTransactieID(),
-				Duration.ofSeconds(1), Collections.emptyList(), req.getDienst(), req.getDienstVersie(), req.getRegistratie());
+		return new FailedLoggedRequest(req.getInsz(), req.getTransactionID(), req.getLocalTransactionID(),
+				Duration.ofSeconds(1), Collections.emptyList(), req.getServiceName(), req.getServiceVersion(), req.getRegistrationInfo());
 	}
 	
 	private UnansweredLoggedRequest unansweredRequest(MagdaLoggedRequest req) {
-		return new UnansweredLoggedRequest(req.getInsz(), null, req.getTransactieID(), req.getLocalTransactieID(),
-				req.getDienst(), req.getDienstVersie(), req.getRegistratie());
+		return new UnansweredLoggedRequest(req.getInsz(), null, req.getTransactionID(), req.getLocalTransactionID(),
+				req.getServiceName(), req.getServiceVersion(), req.getRegistrationInfo());
 	}
 }

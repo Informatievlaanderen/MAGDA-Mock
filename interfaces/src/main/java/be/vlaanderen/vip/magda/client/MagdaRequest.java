@@ -16,7 +16,7 @@ public abstract class MagdaRequest { // XXX make the attributes english
 
     protected abstract static class Builder<SELF extends Builder<SELF>> {
         private String insz;
-        private String overWie;
+        private String aboutWhom;
         private String registration;
 
         @SuppressWarnings("unchecked")
@@ -26,8 +26,8 @@ public abstract class MagdaRequest { // XXX make the attributes english
         }
 
         @SuppressWarnings("unchecked")
-        public SELF overWie(String overWie) {
-            this.overWie = overWie;
+        public SELF aboutWhom(String aboutWhom) {
+            this.aboutWhom = aboutWhom;
             return (SELF) this;
         }
 
@@ -41,8 +41,8 @@ public abstract class MagdaRequest { // XXX make the attributes english
             return insz;
         }
 
-        protected String getOverWie() {
-            return StringUtils.defaultString(overWie, insz);
+        protected String getAboutWhom() {
+            return StringUtils.defaultString(aboutWhom, insz);
         }
 
         protected String getRegistratie() {
@@ -55,13 +55,13 @@ public abstract class MagdaRequest { // XXX make the attributes english
     @NotNull
     private final String insz;
     @NotNull
-    private final String overWie; // XXX remove overWie and replace it entirely with INSZ?
+    private final String aboutWhom; // XXX remove aboutWhom and replace it entirely with INSZ?
     @NotNull
     private final String registration;
 
-    protected MagdaRequest(@NotNull String insz, @NotNull String overWie, @NotNull String registration) {
+    protected MagdaRequest(@NotNull String insz, @NotNull String aboutWhom, @NotNull String registration) {
         this.insz = insz;
-        this.overWie = overWie;
+        this.aboutWhom = aboutWhom;
         this.registration = registration;
     }
 
@@ -77,7 +77,7 @@ public abstract class MagdaRequest { // XXX make the attributes english
 
     protected void fillInCommonFields(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         request.setValue("//Referte", getRequestId().toString());
-        request.setValue("//INSZ", getOverWie());
+        request.setValue("//INSZ", getAboutWhom());
 
         final var now = Instant.now();
         var ldt = LocalDateTime.ofInstant(now, ZoneId.of("Europe/Brussels"));

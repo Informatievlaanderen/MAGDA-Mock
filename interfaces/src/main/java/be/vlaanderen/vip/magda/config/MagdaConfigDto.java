@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A DTO to configure a Magdaservice.
+ */
 @Builder
 @Data
 @AllArgsConstructor

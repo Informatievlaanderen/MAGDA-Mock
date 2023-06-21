@@ -2,7 +2,9 @@ package be.vlaanderen.vip.magda.exception;
 
 import java.io.Serial;
 
-// TODO - TEMP: to be replaced by version from Wwoom Common
+/**
+ * An exception that occurs in a communication with a MAGDA server.
+ */
 public class ServerException extends RuntimeException {
     @Serial
     private static final long serialVersionUID = -3155129158010790297L;

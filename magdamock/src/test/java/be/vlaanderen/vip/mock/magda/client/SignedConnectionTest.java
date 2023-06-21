@@ -100,13 +100,13 @@ class SignedConnectionTest extends MockTestBase {
             fail("No exception was thrown");
         } catch(UitzonderingenSectionInResponseException e) {
             assertEquals(REQUEST_INSZ, e.getInsz());
-            assertEquals(1, e.getUitzonderingen().size());
+            assertEquals(1, e.getUitzonderingEntries().size());
 
-            var uitzondering = e.getUitzonderingen().get(0);
-            assertEquals("SOAP FAULT", uitzondering.getIdentificatie());
-            assertEquals("MAGDA", uitzondering.getOorsprong());
+            var uitzondering = e.getUitzonderingEntries().get(0);
+            assertEquals("SOAP FAULT", uitzondering.getIdentification());
+            assertEquals("MAGDA", uitzondering.getOrigin());
 
-            var errorDocument = MagdaDocument.fromString(uitzondering.getDiagnose());
+            var errorDocument = MagdaDocument.fromString(uitzondering.getDiagnosis());
             assertEquals("Server",
                     errorDocument.getValue("//soapenv:Envelope/soapenv:Body/soapenv:Fault/faultcode"));
             assertEquals("ERR_025: Verification Failure: Document signature verification failed",
@@ -135,13 +135,13 @@ class SignedConnectionTest extends MockTestBase {
             fail("No exception was thrown");
         } catch(UitzonderingenSectionInResponseException e) {
             assertEquals(REQUEST_INSZ, e.getInsz());
-            assertEquals(1, e.getUitzonderingen().size());
+            assertEquals(1, e.getUitzonderingEntries().size());
 
-            var uitzondering = e.getUitzonderingen().get(0);
-            assertEquals("SOAP FAULT", uitzondering.getIdentificatie());
-            assertEquals("MAGDA", uitzondering.getOorsprong());
+            var uitzondering = e.getUitzonderingEntries().get(0);
+            assertEquals("SOAP FAULT", uitzondering.getIdentification());
+            assertEquals("MAGDA", uitzondering.getOrigin());
 
-            var errorDocument = MagdaDocument.fromString(uitzondering.getDiagnose());
+            var errorDocument = MagdaDocument.fromString(uitzondering.getDiagnosis());
             assertEquals("Server",
                     errorDocument.getValue("//soapenv:Envelope/soapenv:Body/soapenv:Fault/faultcode"));
             assertEquals("ERR_025: Verification Failure: Document is not signed",

@@ -55,7 +55,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             var duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
 
-            var antwoord = makeResponse(magdaRequest, response);
+            var antwoord = buildResponse(magdaRequest, response);
 
             final var uitzonderingen = antwoord.getUitzonderingen();
             legalLogging(magdaRequest, duration, uitzonderingen, antwoord.getInsz());
@@ -80,9 +80,9 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private List<UitzonderingEntry> getLevel1UitzonderingEntry(MagdaDocument response) {
         var niveau1 = UitzonderingEntry.builder()
-                .identificatie("SOAP FAULT")
-                .oorsprong("MAGDA")
-                .diagnose(getSoap(response))
+                .identification("SOAP FAULT")
+                .origin("MAGDA")
+                .diagnosis(getSoap(response))
                 .uitzonderingType(UitzonderingType.FOUT)
                 .build();
         return Collections.singletonList(niveau1);
@@ -103,8 +103,9 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
     private void logNoResponse(MagdaRequest magdaRequest) {
-        clientLogService.logUnansweredRequest(new UnansweredLoggedRequest(magdaRequest.getInsz(),
-                magdaRequest.getOverWie(),
+        clientLogService.logUnansweredRequest(new UnansweredLoggedRequest(
+                magdaRequest.getInsz(),
+                magdaRequest.getAboutWhom(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 magdaRequest.magdaServiceIdentification().getName(),
@@ -113,8 +114,9 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
     private void logRequest(MagdaRequest magdaRequest) {
-        clientLogService.logMagdaRequest(new MagdaLoggedRequest(magdaRequest.getInsz(),
-                magdaRequest.getOverWie(),
+        clientLogService.logMagdaRequest(new MagdaLoggedRequest(
+                magdaRequest.getInsz(),
+                magdaRequest.getAboutWhom(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 magdaRequest.magdaServiceIdentification().getName(),
@@ -124,7 +126,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
     private void logAllINSZsSucceeded(MagdaRequest magdaRequest, Duration duration, Set<String> inszs) {
-        clientLogService.logSucceededRequest(new SucceededLoggedRequest(magdaRequest.getInsz(),
+        clientLogService.logSucceededRequest(new SucceededLoggedRequest(
+                magdaRequest.getInsz(),
                 new ArrayList<>(inszs),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
@@ -135,7 +138,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
     private void logAllUitzonderingEntries(MagdaRequest magdaRequest, Duration duration, List<UitzonderingEntry> uitzonderingEntries) {
-        clientLogService.logFailedRequest(new FailedLoggedRequest(magdaRequest.getInsz(),
+        clientLogService.logFailedRequest(new FailedLoggedRequest(
+                magdaRequest.getInsz(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 duration,
@@ -162,7 +166,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         }
     }
 
-    private MagdaResponse makeResponse(MagdaRequest magdaRequest, MagdaDocument responseDocument) {
+    private MagdaResponse buildResponse(MagdaRequest magdaRequest, MagdaDocument responseDocument) {
         return MagdaResponse.builder()
                 .correlationId(magdaRequest.getCorrelationId())
                 .requestId(magdaRequest.getRequestId())
@@ -221,7 +225,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
             return "";
         }
         final var collect = uitzonderingen.stream()
-                .map(uitzonderingEntry -> String.format("{%s %s %s '%s'}", uitzonderingEntry.getOorsprong(), uitzonderingEntry.getUitzonderingType().toString(), uitzonderingEntry.getIdentificatie(), uitzonderingEntry.getDiagnose()))
+                .map(uitzonderingEntry -> String.format("{%s %s %s '%s'}", uitzonderingEntry.getOrigin(), uitzonderingEntry.getUitzonderingType().toString(), uitzonderingEntry.getIdentification(), uitzonderingEntry.getDiagnosis()))
                 .collect(joining(", "));
         return title + collect;
     }
@@ -229,7 +233,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private Set<String> findAllINSZsIn(MagdaRequest magdaRequest, MagdaDocument responseDocument) {
         Set<String> inszs = new HashSet<>();
-        inszs.add(magdaRequest.getOverWie());
+        inszs.add(magdaRequest.getAboutWhom());
         var nodes = responseDocument.xpath("//INSZ");
         if (nodes.getLength() > 0) {
             for (var pos = 0; pos < nodes.getLength(); pos++) {
@@ -252,7 +256,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private UitzonderingEntry parseUitzonderingEntry(Node item) {
         final var builder = UitzonderingEntry.builder();
-        builder.annotaties(Collections.emptyList());
+        builder.annotatieFields(Collections.emptyList());
 
         final var nodes = item.getChildNodes();
         for (var pos = 0; pos < nodes.getLength(); pos++) {
@@ -261,15 +265,15 @@ public class MagdaConnectorImpl implements MagdaConnector {
             if (name != null) {
                 var value = child.getTextContent();
                 if ("Identificatie".equalsIgnoreCase(name)) {
-                    builder.identificatie(value);
+                    builder.identification(value);
                 } else if ("Oorsprong".equalsIgnoreCase(name)) {
-                    builder.oorsprong(value);
+                    builder.origin(value);
                 } else if ("Type".equalsIgnoreCase(name)) {
                     builder.uitzonderingType(UitzonderingType.valueOf(value));
                 } else if ("Diagnose".equalsIgnoreCase(name)) {
-                    builder.diagnose(value);
+                    builder.diagnosis(value);
                 } else if ("Annotaties".equalsIgnoreCase(name)) {
-                    builder.annotaties(parseAnnotatieFields(child));
+                    builder.annotatieFields(parseAnnotatieFields(child));
                 } else if ("Uitzondering".equalsIgnoreCase(name)) {
                     return parseUitzonderingEntry(child);
                 }
@@ -301,9 +305,9 @@ public class MagdaConnectorImpl implements MagdaConnector {
             if (name != null) {
                 var value = child.getTextContent();
                 if ("Naam".equalsIgnoreCase(name)) {
-                    builder.naam(value);
+                    builder.name(value);
                 } else if ("Waarde".equalsIgnoreCase(name)) {
-                    builder.waarde(value);
+                    builder.value(value);
                 }
             }
         }

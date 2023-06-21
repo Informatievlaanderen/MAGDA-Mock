@@ -6,15 +6,15 @@ import java.util.Collections;
 import java.util.UUID;
 
 /**
- * MAGDA heeft geen respons gestuurd, communicatie fout of timeout.
+ * MAGDA sent no response, communication error or timeout.
  * <p>
- * Voegt de volgende velden toe aan {@link LoggedRequest}:
+ * Adds the following fields to {@link LoggedRequest}:
  * <ul>
- * <li>geen</li>
+ * <li>none</li>
  * </ul>
  */
 public class UnansweredLoggedRequest extends LoggedRequest {
-    public UnansweredLoggedRequest(String insz, String overWie, UUID transactieID, UUID localTransactieID, String dienst, String dienstVersie, MagdaRegistrationInfo registratie) {
-        super(insz, Collections.singletonList(overWie), transactieID, localTransactieID, dienst, dienstVersie, registratie);
+    public UnansweredLoggedRequest(String insz, String aboutWhom, UUID transactionID, UUID localTransactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
+        super(insz, Collections.singletonList(aboutWhom), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
     }
 }

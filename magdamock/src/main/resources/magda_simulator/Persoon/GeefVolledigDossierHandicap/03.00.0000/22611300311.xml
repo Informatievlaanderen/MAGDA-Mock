@@ -1070,7 +1070,7 @@
                                 <!--                                                    &lt;!&ndash;Optional:&ndash;&gt;-->
                                 <!--                                                    <gemeente>-->
                                 <!--                                                        &lt;!&ndash;Optional:&ndash;&gt;-->
-                                <!--                                                        <naam>string</naam>-->
+                                <!--                                                        <name>string</name>-->
                                 <!--                                                        &lt;!&ndash;Optional:&ndash;&gt;-->
                                 <!--                                                        <nisCode>string</nisCode>-->
                                 <!--                                                        &lt;!&ndash;Optional:&ndash;&gt;-->
@@ -1083,7 +1083,7 @@
                                 <!--                                                        &lt;!&ndash;Optional:&ndash;&gt;-->
                                 <!--                                                        <isoCode>string</isoCode>-->
                                 <!--                                                        &lt;!&ndash;Optional:&ndash;&gt;-->
-                                <!--                                                        <naam>string</naam>-->
+                                <!--                                                        <name>string</name>-->
                                 <!--                                                        &lt;!&ndash;Optional:&ndash;&gt;-->
                                 <!--                                                        <nisCode>string</nisCode>-->
                                 <!--                                                    </land>-->
@@ -1092,13 +1092,13 @@
                                 <!--                                                        &lt;!&ndash;Optional:&ndash;&gt;-->
                                 <!--                                                        <code>string</code>-->
                                 <!--                                                        &lt;!&ndash;Optional:&ndash;&gt;-->
-                                <!--                                                        <naam>string</naam>-->
+                                <!--                                                        <name>string</name>-->
                                 <!--                                                    </straat>-->
                                 <!--                                                </adres>-->
                                 <!--                                                &lt;!&ndash;Optional:&ndash;&gt;-->
                                 <!--                                                <erkenningsnummer>string</erkenningsnummer>-->
                                 <!--                                                &lt;!&ndash;Optional:&ndash;&gt;-->
-                                <!--                                                <naam>string</naam>-->
+                                <!--                                                <name>string</name>-->
                                 <!--                                                &lt;!&ndash;Optional:&ndash;&gt;-->
                                 <!--                                                <ondernemingsnummer>string</ondernemingsnummer>-->
                                 <!--                                                &lt;!&ndash;Optional:&ndash;&gt;-->

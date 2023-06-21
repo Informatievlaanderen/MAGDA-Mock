@@ -7,21 +7,21 @@ import java.io.Serial;
 import java.util.UUID;
 
 /**
- * De server heeft geen antwoord geleverd.
+ * The MAGDA server has not delivered a (valid) response.
  */
 @Getter
 public class NoResponseException extends ServerException {
     @Serial
     private static final long serialVersionUID = 4914331924177455934L;
     
-    private final UUID transactieID;
-    private final UUID localTransactieID;
-    private final String dienst;
+    private final UUID transactionID;
+    private final UUID localTransactionID;
+    private final String serviceName;
 
     public NoResponseException(String bericht, Throwable oorzaak, MagdaRequest magdaRequest) {
         super(bericht, oorzaak);
-        this.transactieID = magdaRequest.getCorrelationId();
-        this.localTransactieID = magdaRequest.getRequestId();
-        this.dienst = magdaRequest.magdaServiceIdentification().getName();
+        this.transactionID = magdaRequest.getCorrelationId();
+        this.localTransactionID = magdaRequest.getRequestId();
+        this.serviceName = magdaRequest.magdaServiceIdentification().getName();
     }
 }

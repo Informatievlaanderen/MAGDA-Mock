@@ -4,6 +4,9 @@ import lombok.Getter;
 
 import java.io.Serial;
 
+/**
+ * An exception that occurs while connecting to a MAGDA server.
+ */
 @Getter
 public class MagdaConnectionException extends Exception {
     @Serial

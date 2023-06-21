@@ -84,8 +84,8 @@ class GeefBewijsTest extends MockTestBase {
 
         var uitzondering = antwoord.getAntwoordUitzonderingen().get(0);
         assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
-        assertThat(uitzondering.getIdentificatie()).isEqualTo("40000");
-        assertThat(uitzondering.getOorsprong()).isEqualTo("LED");
-        assertThat(uitzondering.getDiagnose()).isEqualTo("Geen gegevens gevonden.");
+        assertThat(uitzondering.getIdentification()).isEqualTo("40000");
+        assertThat(uitzondering.getOrigin()).isEqualTo("LED");
+        assertThat(uitzondering.getDiagnosis()).isEqualTo("Geen gegevens gevonden.");
     }
 }

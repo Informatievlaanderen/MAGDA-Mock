@@ -9,28 +9,28 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * MAGDA heeft een respons gestuurd, maar deze bevat {@link UitzonderingEntry}.
- * Voegt de volgende velden toe aan {@link LoggedRequest}:
+ * MAGDA has sent a response, but it contains a list of {@link UitzonderingEntry}.
+ * Adds the following fields to {@link LoggedRequest}:
  * <ul>
- * <li>duratie tijd voor respons, met nanoseconden precisie</li>
- * <li>Lijst van {@link UitzonderingEntry} die MAGDA antwoordde</li>
+ * <li>duration until the response was received, in nanoseconds</li>
+ * <li>list of {@link UitzonderingEntry} that MAGDA included in the response</li>
  * </ul>
  */
 @Getter
 public class FailedLoggedRequest extends LoggedRequest {
-    private final List<UitzonderingEntry> uitzonderingen;
-    private final Duration duratie;
+    private final Duration duration;
+    private final List<UitzonderingEntry> uitzonderingEntries;
 
     public FailedLoggedRequest(String insz,
-                               UUID transactieID,
-                               UUID localTransactieID,
-                               Duration duratie,
-                               List<UitzonderingEntry> uitzonderingen,
-                               String dienst,
-                               String dienstVersie,
-                               MagdaRegistrationInfo registratie) {
-        super(insz, new ArrayList<>(), transactieID, localTransactieID, dienst, dienstVersie, registratie);
-        this.uitzonderingen = uitzonderingen;
-        this.duratie = duratie;
+                               UUID transactionID,
+                               UUID localTransactionID,
+                               Duration duration,
+                               List<UitzonderingEntry> uitzonderingEntries,
+                               String serviceName,
+                               String serviceVersion,
+                               MagdaRegistrationInfo registrationInfo) {
+        super(insz, new ArrayList<>(), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
+        this.uitzonderingEntries = uitzonderingEntries;
+        this.duration = duration;
     }
 }

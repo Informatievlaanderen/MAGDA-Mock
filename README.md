@@ -166,3 +166,10 @@ Make sure that the document is conformant to the according XSD (otherwise the bu
 To do this, check if the subdirectory falls under any of the subdirectories listed in `SimulatorXmlValidation::XML_FOLDERS_AND_XSDS`, and if not, add one to that list if possible.
 
 _Source of the XSD files:_ https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/487620609/Overzicht+testdata+endpoints+en+XSD+s#Diensten-alle-versies-samen
+
+### Note on the use of language within the project
+
+A great deal of this code has a history of having been written in Dutch, due to its origin as an internal project of the Flemish government. Since it is now open source, translation efforts are in progress, and the intention should be to write as much as of it as possible in English.
+
+The exception to this rule is when a word is a reference to another word (conform the grammatical concept of the "use-mention distinction"); in other words, when a word could be written between quotation marks because for instance it occurs as an element in an XML file (e.g., UitzonderingEntry can be read as: "Uitzondering" entry).
+Wherever this is the case, the documentation ought to explain what the referent of that word means.

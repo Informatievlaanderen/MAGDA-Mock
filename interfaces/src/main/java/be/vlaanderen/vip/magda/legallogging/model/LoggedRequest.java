@@ -20,10 +20,10 @@ import java.util.UUID;
 @AllArgsConstructor
 public class LoggedRequest {
     private final String insz;
-    private final List<String> overWie;
-    private final UUID transactieID;
-    private final UUID localTransactieID;
-    private final String dienst;
-    private final String dienstVersie;
-    private final MagdaRegistrationInfo registratie;
+    private final List<String> aboutWhom;
+    private final UUID transactionID;
+    private final UUID localTransactionID;
+    private final String serviceName;
+    private final String serviceVersion;
+    private final MagdaRegistrationInfo registrationInfo;
 }

@@ -111,7 +111,7 @@ public class GeefPasfotoTest extends MockTestBase {
 
         var uitzondering = antwoord.getUitzonderingen().get(0);
         assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
-        assertThat(uitzondering.getIdentificatie()).isEqualTo("99996");
-        assertThat(uitzondering.getDiagnose()).isEqualTo("Te veel gelijktijdige bevragingen");
+        assertThat(uitzondering.getIdentification()).isEqualTo("99996");
+        assertThat(uitzondering.getDiagnosis()).isEqualTo("Te veel gelijktijdige bevragingen");
     }
 }
