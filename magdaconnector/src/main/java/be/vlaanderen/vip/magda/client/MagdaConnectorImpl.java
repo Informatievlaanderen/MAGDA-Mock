@@ -55,19 +55,19 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             var duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
 
-            var antwoord = maakAntwoord(magdaRequest, response);
+            var antwoord = makeResponse(magdaRequest, response);
 
             final var uitzonderingen = antwoord.getUitzonderingen();
             legalLogging(magdaRequest, duration, uitzonderingen, antwoord.getInsz());
 
             final var antwoordUitzonderingen = antwoord.getAntwoordUitzonderingen();
-            var uitzonderingenMessage1 = uitzonderingenMessage(uitzonderingen, antwoordUitzonderingen);
+            var uitzonderingenMessage1 = messageForUitzonderingEntries(uitzonderingen, antwoordUitzonderingen);
 
             magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
                     .log("Result of request to MAGDA service with reference [{}] ({} ms): {}", magdaRequest.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
 
             if(!antwoord.isHeeftInhoud() && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
-                throw new UitzonderingenSectionInResponseException(magdaRequest.getInsz(), getNiveau1Uitzondering(response));
+                throw new UitzonderingenSectionInResponseException(magdaRequest.getInsz(), getLevel1UitzonderingEntry(response));
             }
 
             return antwoord;
@@ -78,7 +78,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         }
     }
 
-    private List<UitzonderingEntry> getNiveau1Uitzondering(MagdaDocument response) {
+    private List<UitzonderingEntry> getLevel1UitzonderingEntry(MagdaDocument response) {
         var niveau1 = UitzonderingEntry.builder()
                 .identificatie("SOAP FAULT")
                 .oorsprong("MAGDA")
@@ -123,7 +123,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     }
 
-    private void logAlleInszGeslaagd(MagdaRequest magdaRequest, Duration duration, Set<String> inszs) {
+    private void logAllINSZsSucceeded(MagdaRequest magdaRequest, Duration duration, Set<String> inszs) {
         clientLogService.logSucceededRequest(new SucceededLoggedRequest(magdaRequest.getInsz(),
                 new ArrayList<>(inszs),
                 magdaRequest.getCorrelationId(),
@@ -134,73 +134,73 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration())));
     }
 
-    private void logAlleUitzonderingen(MagdaRequest magdaRequest, Duration duration, List<UitzonderingEntry> uitzonderingen) {
+    private void logAllUitzonderingEntries(MagdaRequest magdaRequest, Duration duration, List<UitzonderingEntry> uitzonderingEntries) {
         clientLogService.logFailedRequest(new FailedLoggedRequest(magdaRequest.getInsz(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 duration,
-                uitzonderingen,
+                uitzonderingEntries,
                 magdaRequest.magdaServiceIdentification().getName(),
                 magdaRequest.magdaServiceIdentification().getVersion(),
                 magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration())));
     }
 
 
-    private String uitzonderingenMessage(List<UitzonderingEntry> uitzonderingen, List<UitzonderingEntry> antwoordUitzonderingen) {
+    private String messageForUitzonderingEntries(List<UitzonderingEntry> uitzonderingenEntries, List<UitzonderingEntry> responseUitzonderingEntries) {
         var uitzonderingenMessage1 = "Ok";
-        if (!antwoordUitzonderingen.isEmpty() || !uitzonderingen.isEmpty()) {
-            uitzonderingenMessage1 = formatUitzonderingen("Level 2: ", uitzonderingen) + formatUitzonderingen("Level 3: ", antwoordUitzonderingen);
+        if (!responseUitzonderingEntries.isEmpty() || !uitzonderingenEntries.isEmpty()) {
+            uitzonderingenMessage1 = formatUitzonderingEntries("Level 2: ", uitzonderingenEntries) + formatUitzonderingEntries("Level 3: ", responseUitzonderingEntries);
         }
         return uitzonderingenMessage1;
     }
 
-    private void legalLogging(MagdaRequest magdaRequest, Duration duration, List<UitzonderingEntry> uitzonderingen, Set<String> alleInsz) {
-        if (uitzonderingen.isEmpty()) {
-            logAlleInszGeslaagd(magdaRequest, duration, alleInsz);
+    private void legalLogging(MagdaRequest magdaRequest, Duration duration, List<UitzonderingEntry> uitzonderingEntries, Set<String> inszs) {
+        if (uitzonderingEntries.isEmpty()) {
+            logAllINSZsSucceeded(magdaRequest, duration, inszs);
         } else {
-            logAlleUitzonderingen(magdaRequest, duration, uitzonderingen);
+            logAllUitzonderingEntries(magdaRequest, duration, uitzonderingEntries);
         }
     }
 
-    private MagdaResponse maakAntwoord(MagdaRequest magdaRequest, MagdaDocument response) {
+    private MagdaResponse makeResponse(MagdaRequest magdaRequest, MagdaDocument responseDocument) {
         return MagdaResponse.builder()
                 .correlationId(magdaRequest.getCorrelationId())
                 .requestId(magdaRequest.getRequestId())
-                .uitzonderingen(level1Uitzonderingen(response))
-                .antwoordUitzonderingen(level2Uitzonderingen(response))
-                .body(getBody(response))
-                .document(response)
-                .heeftInhoud(responseHeeftInhoud(response))
-                .insz(vindAlleINSZIn(magdaRequest, response))
+                .uitzonderingen(level1UitzonderingEntries(responseDocument))
+                .antwoordUitzonderingen(level2UitzonderingEntries(responseDocument))
+                .body(getBody(responseDocument))
+                .document(responseDocument)
+                .heeftInhoud(responseHasContents(responseDocument))
+                .insz(findAllINSZsIn(magdaRequest, responseDocument))
                 .build();
     }
 
-    private Node getBody(MagdaDocument response) {
-        var nodes = response.xpath("//*[local-name()='Body']/*");
+    private Node getBody(MagdaDocument responseDocument) {
+        var nodes = responseDocument.xpath("//*[local-name()='Body']/*");
         if (nodes.getLength() == 1) {
             return nodes.item(0);
         }
         return null;
     }
 
-    private List<UitzonderingEntry> level1Uitzonderingen(MagdaDocument response) {
-        return parseUitzonderingen(response, "//Repliek/Uitzonderingen");
+    private List<UitzonderingEntry> level1UitzonderingEntries(MagdaDocument response) {
+        return parseUitzonderingenSection(response, "//Repliek/Uitzonderingen");
     }
 
-    private List<UitzonderingEntry> level2Uitzonderingen(MagdaDocument response) {
-        return parseUitzonderingen(response, "//Repliek/Antwoorden/Antwoord/Uitzonderingen");
+    private List<UitzonderingEntry> level2UitzonderingEntries(MagdaDocument response) {
+        return parseUitzonderingenSection(response, "//Repliek/Antwoorden/Antwoord/Uitzonderingen");
     }
 
-    private List<UitzonderingEntry> parseUitzonderingen(MagdaDocument response, String expression) {
+    private List<UitzonderingEntry> parseUitzonderingenSection(MagdaDocument response, String expression) {
         var uitzonderingen = response.xpath(expression);
         if (uitzonderingen.getLength() == 1) {
-            return alleUitzonderingenIn(uitzonderingen.item(0).getChildNodes());
+            return allUitzonderingEntriesIn(uitzonderingen.item(0).getChildNodes());
         } else {
             return Collections.emptyList();
         }
     }
 
-    private boolean responseHeeftInhoud(MagdaDocument response) {
+    private boolean responseHasContents(MagdaDocument response) {
         var inhoud = response.xpath("//Repliek/Antwoorden/Antwoord/Inhoud");
         return inhoud.getLength() == 1;
     }
@@ -216,7 +216,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
 
-    private String formatUitzonderingen(String title, List<UitzonderingEntry> uitzonderingen) {
+    private String formatUitzonderingEntries(String title, List<UitzonderingEntry> uitzonderingen) {
         if (uitzonderingen.isEmpty()) {
             return "";
         }
@@ -227,10 +227,10 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
 
-    private Set<String> vindAlleINSZIn(MagdaRequest magdaRequest, MagdaDocument antwoord) {
+    private Set<String> findAllINSZsIn(MagdaRequest magdaRequest, MagdaDocument responseDocument) {
         Set<String> inszs = new HashSet<>();
         inszs.add(magdaRequest.getOverWie());
-        var nodes = antwoord.xpath("//INSZ");
+        var nodes = responseDocument.xpath("//INSZ");
         if (nodes.getLength() > 0) {
             for (var pos = 0; pos < nodes.getLength(); pos++) {
                 inszs.add(nodes.item(pos).getTextContent());
@@ -239,18 +239,18 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return inszs;
     }
 
-    private List<UitzonderingEntry> alleUitzonderingenIn(NodeList nodes) {
+    private List<UitzonderingEntry> allUitzonderingEntriesIn(NodeList nodes) {
         final var uitzonderingen = new ArrayList<UitzonderingEntry>();
         for (var pos = 0; pos < nodes.getLength(); pos++) {
             final var uitzondering = nodes.item(pos);
             if ("Uitzondering".equalsIgnoreCase(uitzondering.getLocalName())) {
-                uitzonderingen.add(parseUitzondering(uitzondering));
+                uitzonderingen.add(parseUitzonderingEntry(uitzondering));
             }
         }
         return uitzonderingen;
     }
 
-    private UitzonderingEntry parseUitzondering(Node item) {
+    private UitzonderingEntry parseUitzonderingEntry(Node item) {
         final var builder = UitzonderingEntry.builder();
         builder.annotaties(Collections.emptyList());
 
@@ -269,16 +269,16 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 } else if ("Diagnose".equalsIgnoreCase(name)) {
                     builder.diagnose(value);
                 } else if ("Annotaties".equalsIgnoreCase(name)) {
-                    builder.annotaties(parseAnnotaties(child));
+                    builder.annotaties(parseAnnotatieFields(child));
                 } else if ("Uitzondering".equalsIgnoreCase(name)) {
-                    return parseUitzondering(child);
+                    return parseUitzonderingEntry(child);
                 }
             }
         }
         return builder.build();
     }
 
-    private List<AnnotatieField> parseAnnotaties(Node item) {
+    private List<AnnotatieField> parseAnnotatieFields(Node item) {
         List<AnnotatieField> annotaties = new ArrayList<>();
 
         final var nodes = item.getChildNodes();
@@ -286,13 +286,13 @@ public class MagdaConnectorImpl implements MagdaConnector {
             var child = nodes.item(pos);
             var name = child.getLocalName();
             if ("Annotatie".equalsIgnoreCase(name)) {
-                annotaties.add(parseAnnotatie(child));
+                annotaties.add(parseAnnotatieField(child));
             }
         }
         return annotaties;
     }
 
-    private AnnotatieField parseAnnotatie(Node item) {
+    private AnnotatieField parseAnnotatieField(Node item) {
         final var builder = AnnotatieField.builder();
         var nodes = item.getChildNodes();
         for (var pos = 0; pos < nodes.getLength(); pos++) {
