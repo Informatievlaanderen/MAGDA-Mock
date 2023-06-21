@@ -44,8 +44,10 @@ public class RegistreerInschrijving0201Request extends MagdaRequest {
 
         public RegistreerInschrijving0201Request build() {
             return new RegistreerInschrijving0201Request(
-                    getType(),
                     getInsz(),
+                    getOverWie(),
+                    getRegistratie(),
+                    getType(),
                     getStart(),
                     getEinde()
             );
@@ -60,8 +62,8 @@ public class RegistreerInschrijving0201Request extends MagdaRequest {
     private final LocalDate start;
     private final LocalDate einde;
 
-    private RegistreerInschrijving0201Request(TypeInschrijving type, String insz, LocalDate start, LocalDate einde) {
-        super(insz, insz);
+    private RegistreerInschrijving0201Request(String insz, String overWie, String registratie, TypeInschrijving type, LocalDate start, LocalDate einde) {
+        super(insz, overWie, registratie);
         this.type = type;
         this.start = start;
         this.einde = einde;

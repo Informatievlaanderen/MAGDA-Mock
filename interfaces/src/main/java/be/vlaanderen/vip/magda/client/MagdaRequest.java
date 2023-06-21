@@ -3,7 +3,6 @@ package be.vlaanderen.vip.magda.client;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
-import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
 import java.time.Instant;
@@ -57,13 +56,13 @@ public abstract class MagdaRequest { // XXX make the attributes english
     private final String insz;
     @NotNull
     private final String overWie; // XXX remove overWie and replace it entirely with INSZ?
-    @Setter // XXX remove the setter
     @NotNull
-    private String registratie = "default"; // XXX can be final
+    private final String registratie;
 
-    protected MagdaRequest(@NotNull String insz, @NotNull String overWie) {
+    protected MagdaRequest(@NotNull String insz, @NotNull String overWie, @NotNull String registratie) {
         this.insz = insz;
         this.overWie = overWie;
+        this.registratie = registratie;
     }
 
     public abstract MagdaServiceIdentification magdaServiceIdentification();

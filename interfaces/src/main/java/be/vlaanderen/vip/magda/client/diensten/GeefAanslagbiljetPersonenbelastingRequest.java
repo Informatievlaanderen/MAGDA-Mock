@@ -6,7 +6,6 @@ import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.Getter;
 import lombok.ToString;
-import org.apache.commons.lang3.StringUtils;
 
 @Getter
 @ToString
@@ -28,8 +27,7 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends MagdaRequest {
     }
 
     private GeefAanslagbiljetPersonenbelastingRequest(String insz, String overWie, String registratie) {
-        super(insz, StringUtils.defaultString(overWie, insz));
-        setRegistratie(StringUtils.defaultString(registratie, "default"));
+        super(insz, overWie, registratie);
     }
 
     @Override

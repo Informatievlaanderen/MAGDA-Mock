@@ -37,6 +37,8 @@ public class RegistreerUitschrijvingRequest extends MagdaRequest {
         public RegistreerUitschrijvingRequest build() {
             return new RegistreerUitschrijvingRequest(
                     getInsz(),
+                    getOverWie(),
+                    getRegistratie(),
                     getStart(),
                     getEinde()
             );
@@ -50,8 +52,8 @@ public class RegistreerUitschrijvingRequest extends MagdaRequest {
     private final LocalDate start;
     private final LocalDate einde;
 
-    private RegistreerUitschrijvingRequest(String insz, LocalDate start, LocalDate einde) {
-        super(insz, insz);
+    private RegistreerUitschrijvingRequest(String insz, String overWie, String registratie, LocalDate start, LocalDate einde) {
+        super(insz, overWie, registratie);
         this.start = start;
         this.einde = einde;
     }
