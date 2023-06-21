@@ -14,13 +14,13 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class AfnemerLogServiceMockTest {
+class ClientLogServiceMockTest {
 
-	private AfnemerLogServiceMock service;
+	private ClientLogServiceMock service;
 	
 	@BeforeEach
 	void prepare() {
-		service = new AfnemerLogServiceMock();
+		service = new ClientLogServiceMock();
 	}
 	
 	@Nested

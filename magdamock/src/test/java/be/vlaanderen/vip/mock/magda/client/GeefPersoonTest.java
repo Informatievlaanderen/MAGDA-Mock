@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.diensten.GeefPersoonRequest;
-import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -17,9 +17,9 @@ class GeefPersoonTest extends MockTestBase {
         var request = GeefPersoonRequest.builder()
                 .insz(requestInsz)
                 .build();
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
@@ -29,9 +29,9 @@ class GeefPersoonTest extends MockTestBase {
         assertThat(antwoord.getUitzonderingen()).isEmpty();
         assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 

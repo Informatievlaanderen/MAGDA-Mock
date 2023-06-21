@@ -3,9 +3,9 @@ package be.vlaanderen.vip.mock.magda.client;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijving0201Request;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijvingRequest;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerUitschrijvingRequest;
-import be.vlaanderen.vip.magda.client.diensten.TypeInschrijving;
-import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
-import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import be.vlaanderen.vip.magda.client.diensten.RegistrationType;
+import be.vlaanderen.vip.magda.legallogging.model.UitzonderingType;
+import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
@@ -29,9 +29,9 @@ class RepertoriumTest extends MockTestBase {
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
@@ -39,9 +39,9 @@ class RepertoriumTest extends MockTestBase {
 
         assertThatResponseContainsAnswerNoError(antwoord);
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/Resultaat", "1");
 
@@ -56,17 +56,17 @@ class RepertoriumTest extends MockTestBase {
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), RepertoriumTest.ANTWOORD_REFERTE, request.getRequestId().toString());
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -85,21 +85,21 @@ class RepertoriumTest extends MockTestBase {
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
 
         assertThatAnswerContainsUitzondering(antwoord);
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isZero();
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
 
         var uitzondering = antwoord.getUitzonderingen().get(0);
-        assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT);
+        assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
         assertThat(uitzondering.getIdentificatie()).isEqualTo("99996");
         assertThat(uitzondering.getDiagnose()).isEqualTo("Te veel gelijktijdige bevragingen");
     }
@@ -108,15 +108,15 @@ class RepertoriumTest extends MockTestBase {
     @SneakyThrows
     void registreerInschrijvingv0201Lukt() {
         var request = RegistreerInschrijving0201Request.builder()
-                .type(TypeInschrijving.PERSOON)
+                .type(RegistrationType.PERSON)
                 .insz(INSZ_REPERTORIUM_OK)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
@@ -124,9 +124,9 @@ class RepertoriumTest extends MockTestBase {
 
         assertThatResponseContainsAnswerNoError(antwoord);
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
 
         var doc = antwoord.getDocument();
@@ -142,15 +142,15 @@ class RepertoriumTest extends MockTestBase {
     @SneakyThrows
     void registreerInschrijvingv0201OndernemingLukt() {
         var request = RegistreerInschrijving0201Request.builder()
-                .type(TypeInschrijving.PERSOON)
+                .type(RegistrationType.PERSON)
                 .insz("123456789012")
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
@@ -158,9 +158,9 @@ class RepertoriumTest extends MockTestBase {
 
         assertThatResponseContainsAnswerNoError(antwoord);
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
 
         var doc = antwoord.getDocument();
@@ -176,24 +176,24 @@ class RepertoriumTest extends MockTestBase {
     @SneakyThrows
     void registreerInschrijvingv0201LuktNietWegensInhoudelijkProbleem() {
         var request = RegistreerInschrijving0201Request.builder()
-                .type(TypeInschrijving.PERSOON)
+                .type(RegistrationType.PERSON)
                 .insz(INSZ_REPERTORIUM_FOUT)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), RepertoriumTest.ANTWOORD_REFERTE, request.getRequestId().toString());
 
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
 
         var doc = antwoord.getDocument();
@@ -208,27 +208,27 @@ class RepertoriumTest extends MockTestBase {
     @SneakyThrows
     void registreerInschrijvingv0201LuktNietOmdatMagdaOverbelastIs() {
         var request = RegistreerInschrijving0201Request.builder()
-                .type(TypeInschrijving.PERSOON)
+                .type(RegistrationType.PERSON)
                 .insz(INSZ_MAGDA_OVERBELAST)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
 
         assertThatAnswerContainsUitzondering(antwoord);
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isZero();
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
 
         var uitzondering = antwoord.getUitzonderingen().get(0);
-        assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT);
+        assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
         assertThat(uitzondering.getIdentificatie()).isEqualTo("99996");
         assertThat(uitzondering.getDiagnose()).isEqualTo("Te veel gelijktijdige bevragingen");
     }
@@ -242,9 +242,9 @@ class RepertoriumTest extends MockTestBase {
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
@@ -253,9 +253,9 @@ class RepertoriumTest extends MockTestBase {
         assertThatTechnicalFieldsInResponseMatchRequest(antwoord, request);
         assertThatResponseContainsAnswerNoError(antwoord);
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -275,7 +275,7 @@ class RepertoriumTest extends MockTestBase {
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new ClientLogServiceMock();
 
         var connector = makeMagdaConnector(afnemerLogService);
 
@@ -304,7 +304,7 @@ class RepertoriumTest extends MockTestBase {
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var afnemerLogService = new ClientLogServiceMock();
 
         var connector = makeMagdaConnector(afnemerLogService);
 
@@ -318,7 +318,7 @@ class RepertoriumTest extends MockTestBase {
         assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
 
         var uitzondering = antwoord.getUitzonderingen().get(0);
-        assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT);
+        assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
         assertThat(uitzondering.getIdentificatie()).isEqualTo("99996");
         assertThat(uitzondering.getDiagnose()).isEqualTo("Te veel gelijktijdige bevragingen");
     }

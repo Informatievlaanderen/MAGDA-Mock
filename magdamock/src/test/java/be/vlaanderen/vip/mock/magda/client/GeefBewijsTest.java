@@ -1,8 +1,8 @@
 package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.diensten.GeefBewijsRequest;
-import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
-import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import be.vlaanderen.vip.magda.legallogging.model.UitzonderingType;
+import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -19,9 +19,9 @@ class GeefBewijsTest extends MockTestBase {
                 .insz(requestInsz)
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
@@ -31,9 +31,9 @@ class GeefBewijsTest extends MockTestBase {
         assertThat(antwoord.getUitzonderingen()).isEmpty();
         assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -61,9 +61,9 @@ class GeefBewijsTest extends MockTestBase {
                 .insz(requestInsz)
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
@@ -73,9 +73,9 @@ class GeefBewijsTest extends MockTestBase {
         assertThat(antwoord.getAntwoordUitzonderingen()).hasSize(1);
         assertThat(antwoord.getUitzonderingen()).isEmpty();
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -83,7 +83,7 @@ class GeefBewijsTest extends MockTestBase {
         assertThat(referte).isEqualTo(request.getRequestId().toString());
 
         var uitzondering = antwoord.getAntwoordUitzonderingen().get(0);
-        assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT);
+        assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
         assertThat(uitzondering.getIdentificatie()).isEqualTo("40000");
         assertThat(uitzondering.getOorsprong()).isEqualTo("LED");
         assertThat(uitzondering.getDiagnose()).isEqualTo("Geen gegevens gevonden.");

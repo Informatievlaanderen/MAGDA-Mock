@@ -4,7 +4,7 @@ import be.vlaanderen.vip.magda.client.*;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
-import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
@@ -31,7 +31,7 @@ public abstract class MockTestBase {
         finder = ResourceFinders.magdaSimulator();
     }
 
-    protected MagdaConnectorImpl makeMagdaConnector(AfnemerLogServiceMock afnemerLogService) {
+    protected MagdaConnectorImpl makeMagdaConnector(ClientLogServiceMock clientLogService) {
         var mockConnection = mockConnection();
         var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
@@ -39,11 +39,11 @@ public abstract class MockTestBase {
                 .build();
         var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
 
-        return new MagdaConnectorImpl(mockConnection, afnemerLogService, magdaHoedanigheidService);
+        return new MagdaConnectorImpl(mockConnection, clientLogService, magdaHoedanigheidService);
     }
 
     protected MagdaConnectorImpl makeSignedMagdaConnector(
-            AfnemerLogServiceMock afnemerLogService,
+            ClientLogServiceMock clientLogService,
             TwoWaySslProperties signedConnectionRequestSignerKeystore,
             TwoWaySslProperties signedConnectionResponseVerifierKeystore,
             TwoWaySslProperties mockConnectionRequestVerifierKeystore,
@@ -58,7 +58,7 @@ public abstract class MockTestBase {
                 .build();
         var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
 
-        return new MagdaConnectorImpl(signedConnection, afnemerLogService, magdaHoedanigheidService);
+        return new MagdaConnectorImpl(signedConnection, clientLogService, magdaHoedanigheidService);
     }
     
     private MagdaMockConnection mockConnection() {

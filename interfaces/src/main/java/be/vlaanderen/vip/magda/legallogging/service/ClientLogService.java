@@ -6,7 +6,7 @@ import be.vlaanderen.vip.magda.legallogging.model.SucceededLoggedRequest;
 import be.vlaanderen.vip.magda.legallogging.model.MagdaLoggedRequest;
 import be.vlaanderen.vip.magda.legallogging.model.UnansweredLoggedRequest;
 
-public interface AfnemerLogService {
+public interface ClientLogService {
 
     void logMagdaRequest(MagdaLoggedRequest magdaLoggedRequest);
 

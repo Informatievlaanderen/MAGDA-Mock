@@ -1,8 +1,8 @@
 package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.diensten.GeefAanslagbiljetPersonenbelastingRequest;
-import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
-import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import be.vlaanderen.vip.magda.legallogging.model.UitzonderingType;
+import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
@@ -24,9 +24,9 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
                 .insz(INSZ_GEENDATA)
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
@@ -34,9 +34,9 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
 
         assertThatResponseContainsAnswerNoError(antwoord);
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
@@ -54,17 +54,17 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
                 .insz(INSZ_DATA_NA2000)
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), GeefAanslagbiljetPersonenBelastingTest.ANTWOORD_REFERTE, request.getRequestId().toString());
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
         assertNotNull(doc);
@@ -91,17 +91,17 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
                 .insz(INSZ_DATA_VOOR2000)
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), GeefAanslagbiljetPersonenBelastingTest.ANTWOORD_REFERTE, request.getRequestId().toString());
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
         assertNotNull(doc);
@@ -128,21 +128,21 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
                 .insz(INSZ_MAGDA_OVERBELAST)
                 .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
 
         assertThatAnswerContainsUitzondering(antwoord);
 
-        assertThat(afnemerLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
-        assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isZero();
-        assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
 
         var uitzondering = antwoord.getUitzonderingen().get(0);
-        assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT);
+        assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
         assertThat(uitzondering.getIdentificatie()).isEqualTo("99996");
         assertThat(uitzondering.getDiagnose()).isEqualTo("Te veel gelijktijdige bevragingen");
     }

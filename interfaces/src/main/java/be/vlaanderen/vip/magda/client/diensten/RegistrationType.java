@@ -1,12 +1,12 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
-public enum TypeInschrijving {
-    PERSOON("PERS"),
-    ONDERNEMING("OND");
+public enum RegistrationType {
+    PERSON("PERS"),
+    BUSINESS("OND");
 
     private final String typeString;
 
-    TypeInschrijving(String typeString) {
+    RegistrationType(String typeString) {
         this.typeString = typeString;
     }
 

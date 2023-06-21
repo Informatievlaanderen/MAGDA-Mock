@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.magda.client;
 
 
-import be.vlaanderen.vip.magda.legallogging.model.Uitzondering;
+import be.vlaanderen.vip.magda.legallogging.model.UitzonderingEntry;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,8 +17,8 @@ import java.util.UUID;
 public class MagdaAntwoord {
     private final UUID correlationId;
     private final UUID requestId;
-    private List<Uitzondering> uitzonderingen;
-    private List<Uitzondering> antwoordUitzonderingen;
+    private List<UitzonderingEntry> uitzonderingen;
+    private List<UitzonderingEntry> antwoordUitzonderingen;
     private final Node body;
     private final MagdaDocument document;
     private final boolean heeftInhoud;

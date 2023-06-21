@@ -18,14 +18,14 @@ public class RegistreerInschrijving0201Request extends MagdaRequest {
     public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
 
         @Getter(AccessLevel.PROTECTED)
-        private TypeInschrijving type;
+        private RegistrationType type;
         @Getter(AccessLevel.PROTECTED)
         private LocalDate start;
         @Getter(AccessLevel.PROTECTED)
         private LocalDate einde;
 
         @SuppressWarnings("unchecked")
-        public SELF type(TypeInschrijving type) {
+        public SELF type(RegistrationType type) {
             this.type = type;
             return (SELF) this;
         }
@@ -58,11 +58,11 @@ public class RegistreerInschrijving0201Request extends MagdaRequest {
         return new Builder();
     }
 
-    private final TypeInschrijving type;
+    private final RegistrationType type;
     private final LocalDate start;
     private final LocalDate einde;
 
-    private RegistreerInschrijving0201Request(String insz, String overWie, String registratie, TypeInschrijving type, LocalDate start, LocalDate einde) {
+    private RegistreerInschrijving0201Request(String insz, String overWie, String registratie, RegistrationType type, LocalDate start, LocalDate einde) {
         super(insz, overWie, registratie);
         this.type = type;
         this.start = start;

@@ -10,7 +10,7 @@ import java.util.UUID;
  * De server heeft geen antwoord geleverd.
  */
 @Getter
-public class GeenAntwoordException extends BronException {
+public class NoResponseException extends ServerException {
     @Serial
     private static final long serialVersionUID = 4914331924177455934L;
     
@@ -18,7 +18,7 @@ public class GeenAntwoordException extends BronException {
     private final UUID localTransactieID;
     private final String dienst;
 
-    public GeenAntwoordException(String bericht, Throwable oorzaak, MagdaRequest magdaRequest) {
+    public NoResponseException(String bericht, Throwable oorzaak, MagdaRequest magdaRequest) {
         super(bericht, oorzaak);
         this.transactieID = magdaRequest.getCorrelationId();
         this.localTransactieID = magdaRequest.getRequestId();

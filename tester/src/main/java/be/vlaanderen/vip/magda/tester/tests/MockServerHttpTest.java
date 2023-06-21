@@ -6,10 +6,10 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceImpl
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.config.MagdaRegistrationConfigDto;
-import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
+import be.vlaanderen.vip.magda.legallogging.model.UitzonderingType;
 import be.vlaanderen.vip.magda.tester.config.MockMagdaEndpoints;
 import be.vlaanderen.vip.magda.tester.config.WssConfig;
-import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
@@ -58,7 +58,7 @@ public class MockServerHttpTest extends MockServerTest {
     @BeforeEach
     @SneakyThrows
     void setup() {
-        var afnemerLog = new AfnemerLogServiceMock();
+        var afnemerLog = new ClientLogServiceMock();
         var magdaConfigDto = configureMagdaParameters();
         var magdaEndpoints = makeMockEndpoints();
         var hoedanigheid = new MagdaHoedanigheidServiceImpl(magdaConfigDto);
@@ -120,7 +120,7 @@ public class MockServerHttpTest extends MockServerTest {
         var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
-        assertResponsBevatUitzondering(antwoord, TypeUitzondering.FOUT, "99996", "Te veel gelijktijdige bevragingen");
+        assertResponsBevatUitzondering(antwoord, UitzonderingType.FOUT, "99996", "Te veel gelijktijdige bevragingen");
     }
 
     @Test
@@ -155,7 +155,7 @@ public class MockServerHttpTest extends MockServerTest {
         var antwoord = connector.send(request);
         logMagdaAntwoord(antwoord);
 
-        assertResponsBevatUitzondering(antwoord, TypeUitzondering.FOUT, "99996", "Te veel gelijktijdige bevragingen");
+        assertResponsBevatUitzondering(antwoord, UitzonderingType.FOUT, "99996", "Te veel gelijktijdige bevragingen");
     }
 
     @Test
@@ -242,7 +242,7 @@ public class MockServerHttpTest extends MockServerTest {
         assertThat(antwoord.getUitzonderingen()).isEmpty();
     }
 
-    private void assertResponsBevatUitzondering(MagdaAntwoord antwoord, TypeUitzondering exptectedType, String expectedFoutCode, String expectedDiagnose) {
+    private void assertResponsBevatUitzondering(MagdaAntwoord antwoord, UitzonderingType exptectedType, String expectedFoutCode, String expectedDiagnose) {
         assertThat(antwoord.isBodyIngevuld()).isFalse();
         assertThat(antwoord.isHeeftInhoud()).isFalse();
         assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();

@@ -4,10 +4,10 @@ import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.diensten.GeefBewijsRequest;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
-import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
-import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
+import be.vlaanderen.vip.magda.exception.UitzonderingenSectionInResponseException;
+import be.vlaanderen.vip.magda.exception.NoResponseException;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
-import be.vlaanderen.vip.magda.legallogging.service.AfnemerLogService;
+import be.vlaanderen.vip.magda.legallogging.service.ClientLogService;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -31,7 +31,7 @@ class MagdaConnectorImplTest {
 	@Mock
 	private MagdaHoedanigheidService identityService;
 	@Mock
-	private AfnemerLogService logService;
+	private ClientLogService logService;
 	
 	@BeforeEach
 	void prepare() {
@@ -63,7 +63,7 @@ class MagdaConnectorImplTest {
 					.insz("test-insz")
 					.build();
 
-			assertThrows(GeenAntwoordException.class, () -> connector.send(req));
+			assertThrows(NoResponseException.class, () -> connector.send(req));
 		}
 
 		@Test
@@ -74,7 +74,7 @@ class MagdaConnectorImplTest {
 					.insz("test-insz")
 					.build();
 
-			assertThrows(GeenAntwoordException.class, () -> connector.send(req));
+			assertThrows(NoResponseException.class, () -> connector.send(req));
 			verify(logService).logMagdaRequest(any());
 		}
 
@@ -86,7 +86,7 @@ class MagdaConnectorImplTest {
 					.insz("test-insz")
 					.build();
 
-			assertThrows(GeenAntwoordException.class, () -> connector.send(req));
+			assertThrows(NoResponseException.class, () -> connector.send(req));
 			verify(logService).logUnansweredRequest(any());
 		}
 	}
@@ -108,7 +108,7 @@ class MagdaConnectorImplTest {
 					.insz("test-insz")
 					.build();
 
-			assertThrows(BackendUitzonderingenException.class, () -> connector.send(req));
+			assertThrows(UitzonderingenSectionInResponseException.class, () -> connector.send(req));
 		}
 
 		@Test
@@ -117,7 +117,7 @@ class MagdaConnectorImplTest {
 					.insz("test-insz")
 					.build();
 
-			assertThrows(BackendUitzonderingenException.class, () -> connector.send(req));
+			assertThrows(UitzonderingenSectionInResponseException.class, () -> connector.send(req));
 			verify(logService).logMagdaRequest(any());
 		}
 	}

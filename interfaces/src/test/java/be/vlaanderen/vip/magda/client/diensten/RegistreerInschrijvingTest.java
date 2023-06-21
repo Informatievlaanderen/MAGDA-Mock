@@ -48,7 +48,7 @@ class RegistreerInschrijvingTest extends TestBase {
     @Test
     void fillsInRequestRegistreerInschrijving0201() {
         var request = RegistreerInschrijving0201Request.builder()
-                .type(TypeInschrijving.PERSOON)
+                .type(RegistrationType.PERSON)
                 .insz(INSZ)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plusDays(5))
@@ -104,7 +104,7 @@ class RegistreerInschrijvingTest extends TestBase {
         @Test
         void fillsInRequestRegistreerInschrijving0201() {
             var request = RegistreerInschrijving0201Request.builder()
-                    .type(TypeInschrijving.PERSOON)
+                    .type(RegistrationType.PERSON)
                     .insz(INSZ)
                     .start(LocalDate.now())
                     .einde(LocalDate.now().plusDays(5))

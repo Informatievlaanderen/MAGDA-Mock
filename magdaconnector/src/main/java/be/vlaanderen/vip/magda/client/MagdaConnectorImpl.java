@@ -3,11 +3,11 @@ package be.vlaanderen.vip.magda.client;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 import be.vlaanderen.vip.magda.client.util.XmlUtils;
-import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
-import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
+import be.vlaanderen.vip.magda.exception.UitzonderingenSectionInResponseException;
+import be.vlaanderen.vip.magda.exception.NoResponseException;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import be.vlaanderen.vip.magda.legallogging.model.*;
-import be.vlaanderen.vip.magda.legallogging.service.AfnemerLogService;
+import be.vlaanderen.vip.magda.legallogging.service.ClientLogService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.event.Level;
@@ -30,7 +30,7 @@ import static java.util.stream.Collectors.joining;
 @RequiredArgsConstructor
 public class MagdaConnectorImpl implements MagdaConnector {
     private final MagdaConnection connection;
-    private final AfnemerLogService afnemerLogService;
+    private final ClientLogService clientLogService;
     private final MagdaHoedanigheidService magdaHoedanigheidService;
 
     @Override
@@ -67,23 +67,23 @@ public class MagdaConnectorImpl implements MagdaConnector {
                     .log("Result of request to MAGDA service with reference [{}] ({} ms): {}", magdaRequest.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
 
             if(!antwoord.isHeeftInhoud() && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
-                throw new BackendUitzonderingenException(magdaRequest.getInsz(), getNiveau1Uitzondering(response));
+                throw new UitzonderingenSectionInResponseException(magdaRequest.getInsz(), getNiveau1Uitzondering(response));
             }
 
             return antwoord;
         } catch (MagdaConnectionException e) {
-            logGeenAntwoord(magdaRequest);
+            logNoResponse(magdaRequest);
 
-            throw new GeenAntwoordException("No response", e, magdaRequest);
+            throw new NoResponseException("No response", e, magdaRequest);
         }
     }
 
-    private List<Uitzondering> getNiveau1Uitzondering(MagdaDocument response) {
-        var niveau1 = Uitzondering.builder()
+    private List<UitzonderingEntry> getNiveau1Uitzondering(MagdaDocument response) {
+        var niveau1 = UitzonderingEntry.builder()
                 .identificatie("SOAP FAULT")
                 .oorsprong("MAGDA")
                 .diagnose(getSoap(response))
-                .uitzonderingType(TypeUitzondering.FOUT)
+                .uitzonderingType(UitzonderingType.FOUT)
                 .build();
         return Collections.singletonList(niveau1);
     }
@@ -102,8 +102,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
         }
     }
 
-    private void logGeenAntwoord(MagdaRequest magdaRequest) {
-        afnemerLogService.logUnansweredRequest(new UnansweredLoggedRequest(magdaRequest.getInsz(),
+    private void logNoResponse(MagdaRequest magdaRequest) {
+        clientLogService.logUnansweredRequest(new UnansweredLoggedRequest(magdaRequest.getInsz(),
                 magdaRequest.getOverWie(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
@@ -113,7 +113,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
     private void logRequest(MagdaRequest magdaRequest) {
-        afnemerLogService.logMagdaRequest(new MagdaLoggedRequest(magdaRequest.getInsz(),
+        clientLogService.logMagdaRequest(new MagdaLoggedRequest(magdaRequest.getInsz(),
                 magdaRequest.getOverWie(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
@@ -124,7 +124,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
     private void logAlleInszGeslaagd(MagdaRequest magdaRequest, Duration duration, Set<String> inszs) {
-        afnemerLogService.logSucceededRequest(new SucceededLoggedRequest(magdaRequest.getInsz(),
+        clientLogService.logSucceededRequest(new SucceededLoggedRequest(magdaRequest.getInsz(),
                 new ArrayList<>(inszs),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
@@ -134,8 +134,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
     }
 
-    private void logAlleUitzonderingen(MagdaRequest magdaRequest, Duration duration, List<Uitzondering> uitzonderingen) {
-        afnemerLogService.logFailedRequest(new FailedLoggedRequest(magdaRequest.getInsz(),
+    private void logAlleUitzonderingen(MagdaRequest magdaRequest, Duration duration, List<UitzonderingEntry> uitzonderingen) {
+        clientLogService.logFailedRequest(new FailedLoggedRequest(magdaRequest.getInsz(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 duration,
@@ -146,7 +146,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
 
-    private String uitzonderingenMessage(List<Uitzondering> uitzonderingen, List<Uitzondering> antwoordUitzonderingen) {
+    private String uitzonderingenMessage(List<UitzonderingEntry> uitzonderingen, List<UitzonderingEntry> antwoordUitzonderingen) {
         var uitzonderingenMessage1 = "Ok";
         if (!antwoordUitzonderingen.isEmpty() || !uitzonderingen.isEmpty()) {
             uitzonderingenMessage1 = formatUitzonderingen("Level 2: ", uitzonderingen) + formatUitzonderingen("Level 3: ", antwoordUitzonderingen);
@@ -154,7 +154,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return uitzonderingenMessage1;
     }
 
-    private void legalLogging(MagdaRequest magdaRequest, Duration duration, List<Uitzondering> uitzonderingen, Set<String> alleInsz) {
+    private void legalLogging(MagdaRequest magdaRequest, Duration duration, List<UitzonderingEntry> uitzonderingen, Set<String> alleInsz) {
         if (uitzonderingen.isEmpty()) {
             logAlleInszGeslaagd(magdaRequest, duration, alleInsz);
         } else {
@@ -183,15 +183,15 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return null;
     }
 
-    private List<Uitzondering> level1Uitzonderingen(MagdaDocument response) {
+    private List<UitzonderingEntry> level1Uitzonderingen(MagdaDocument response) {
         return parseUitzonderingen(response, "//Repliek/Uitzonderingen");
     }
 
-    private List<Uitzondering> level2Uitzonderingen(MagdaDocument response) {
+    private List<UitzonderingEntry> level2Uitzonderingen(MagdaDocument response) {
         return parseUitzonderingen(response, "//Repliek/Antwoorden/Antwoord/Uitzonderingen");
     }
 
-    private List<Uitzondering> parseUitzonderingen(MagdaDocument response, String expression) {
+    private List<UitzonderingEntry> parseUitzonderingen(MagdaDocument response, String expression) {
         var uitzonderingen = response.xpath(expression);
         if (uitzonderingen.getLength() == 1) {
             return alleUitzonderingenIn(uitzonderingen.item(0).getChildNodes());
@@ -216,12 +216,12 @@ public class MagdaConnectorImpl implements MagdaConnector {
     }
 
 
-    private String formatUitzonderingen(String title, List<Uitzondering> uitzonderingen) {
+    private String formatUitzonderingen(String title, List<UitzonderingEntry> uitzonderingen) {
         if (uitzonderingen.isEmpty()) {
             return "";
         }
         final var collect = uitzonderingen.stream()
-                .map(uitzondering -> String.format("{%s %s %s '%s'}", uitzondering.getOorsprong(), uitzondering.getUitzonderingType().toString(), uitzondering.getIdentificatie(), uitzondering.getDiagnose()))
+                .map(uitzonderingEntry -> String.format("{%s %s %s '%s'}", uitzonderingEntry.getOorsprong(), uitzonderingEntry.getUitzonderingType().toString(), uitzonderingEntry.getIdentificatie(), uitzonderingEntry.getDiagnose()))
                 .collect(joining(", "));
         return title + collect;
     }
@@ -239,8 +239,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return inszs;
     }
 
-    private List<Uitzondering> alleUitzonderingenIn(NodeList nodes) {
-        final var uitzonderingen = new ArrayList<Uitzondering>();
+    private List<UitzonderingEntry> alleUitzonderingenIn(NodeList nodes) {
+        final var uitzonderingen = new ArrayList<UitzonderingEntry>();
         for (var pos = 0; pos < nodes.getLength(); pos++) {
             final var uitzondering = nodes.item(pos);
             if ("Uitzondering".equalsIgnoreCase(uitzondering.getLocalName())) {
@@ -250,8 +250,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return uitzonderingen;
     }
 
-    private Uitzondering parseUitzondering(Node item) {
-        final var builder = Uitzondering.builder();
+    private UitzonderingEntry parseUitzondering(Node item) {
+        final var builder = UitzonderingEntry.builder();
         builder.annotaties(Collections.emptyList());
 
         final var nodes = item.getChildNodes();
@@ -265,7 +265,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 } else if ("Oorsprong".equalsIgnoreCase(name)) {
                     builder.oorsprong(value);
                 } else if ("Type".equalsIgnoreCase(name)) {
-                    builder.uitzonderingType(TypeUitzondering.valueOf(value));
+                    builder.uitzonderingType(UitzonderingType.valueOf(value));
                 } else if ("Diagnose".equalsIgnoreCase(name)) {
                     builder.diagnose(value);
                 } else if ("Annotaties".equalsIgnoreCase(name)) {
@@ -278,8 +278,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return builder.build();
     }
 
-    private List<Annotatie> parseAnnotaties(Node item) {
-        List<Annotatie> annotaties = new ArrayList<>();
+    private List<AnnotatieField> parseAnnotaties(Node item) {
+        List<AnnotatieField> annotaties = new ArrayList<>();
 
         final var nodes = item.getChildNodes();
         for (var pos = 0; pos < nodes.getLength(); pos++) {
@@ -292,8 +292,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return annotaties;
     }
 
-    private Annotatie parseAnnotatie(Node item) {
-        final var builder = Annotatie.builder();
+    private AnnotatieField parseAnnotatie(Node item) {
+        final var builder = AnnotatieField.builder();
         var nodes = item.getChildNodes();
         for (var pos = 0; pos < nodes.getLength(); pos++) {
             var child = nodes.item(pos);

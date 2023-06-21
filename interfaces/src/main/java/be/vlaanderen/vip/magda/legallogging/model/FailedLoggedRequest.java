@@ -9,23 +9,23 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * MAGDA heeft een respons gestuurd, maar deze bevat {@link Uitzondering}.
+ * MAGDA heeft een respons gestuurd, maar deze bevat {@link UitzonderingEntry}.
  * Voegt de volgende velden toe aan {@link LoggedRequest}:
  * <ul>
  * <li>duratie tijd voor respons, met nanoseconden precisie</li>
- * <li>Lijst van {@link Uitzondering} die MAGDA antwoordde</li>
+ * <li>Lijst van {@link UitzonderingEntry} die MAGDA antwoordde</li>
  * </ul>
  */
 @Getter
 public class FailedLoggedRequest extends LoggedRequest {
-    private final List<Uitzondering> uitzonderingen;
+    private final List<UitzonderingEntry> uitzonderingen;
     private final Duration duratie;
 
     public FailedLoggedRequest(String insz,
                                UUID transactieID,
                                UUID localTransactieID,
                                Duration duratie,
-                               List<Uitzondering> uitzonderingen,
+                               List<UitzonderingEntry> uitzonderingen,
                                String dienst,
                                String dienstVersie,
                                MagdaRegistrationInfo registratie) {

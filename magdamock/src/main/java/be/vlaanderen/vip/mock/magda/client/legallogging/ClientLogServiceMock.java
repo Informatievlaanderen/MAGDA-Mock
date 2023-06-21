@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client.legallogging;
 
 import be.vlaanderen.vip.magda.legallogging.model.*;
-import be.vlaanderen.vip.magda.legallogging.service.AfnemerLogService;
+import be.vlaanderen.vip.magda.legallogging.service.ClientLogService;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 @Slf4j
-public class AfnemerLogServiceMock implements AfnemerLogService {
+public class ClientLogServiceMock implements ClientLogService {
 
     private final List<MagdaLoggedRequest> magdaLoggedRequests = new ArrayList<>();
     private final List<SucceededLoggedRequest> succeededLoggedRequests = new ArrayList<>();
@@ -77,10 +77,10 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
     }
 
     private void assertReferteIsNietTransactie() {
-        magdaLoggedRequests.forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
-        succeededLoggedRequests.forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
-        failedLoggedRequests.forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
-        unansweredLoggedRequests.forEach(AfnemerLogServiceMock::assertReferentieverschillendVanTransactie);
+        magdaLoggedRequests.forEach(ClientLogServiceMock::assertReferentieverschillendVanTransactie);
+        succeededLoggedRequests.forEach(ClientLogServiceMock::assertReferentieverschillendVanTransactie);
+        failedLoggedRequests.forEach(ClientLogServiceMock::assertReferentieverschillendVanTransactie);
+        unansweredLoggedRequests.forEach(ClientLogServiceMock::assertReferentieverschillendVanTransactie);
     }
 
     private static void assertReferentieverschillendVanTransactie(LoggedRequest antwoord) {
@@ -139,7 +139,7 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
             var matchingOnbeantwoord = matchVoorOnbeantwoord(request);
             var matchGefaald = matchVoorGefaald(request);
             if (!matchingGeslaagd.isEmpty() && !matchingOnbeantwoord.isEmpty() && !matchGefaald.isEmpty()) {
-                log.error("Illegal AfnemerLogServiceMock state");
+                log.error("Illegal ClientLogServiceMock state");
                 logState();
                 throw new IllegalStateException(String.format("Request with reference %s for service %s by INSZ %s for INSZ %s has responses, as well as unanswered requests and errors",
                         request.getLocalTransactieID().toString(),
@@ -148,7 +148,7 @@ public class AfnemerLogServiceMock implements AfnemerLogService {
                         request.getOverWie()));
             }
             if (matchingGeslaagd.isEmpty() && matchingOnbeantwoord.isEmpty() && matchGefaald.isEmpty()) {
-                log.error("Illegal AfnemerLogServiceMock state");
+                log.error("Illegal ClientLogServiceMock state");
                 logState();
                 throw new IllegalStateException(String.format("Request with reference %s for service %s by INSZ %s for INSZ %s has neither responses, nor unanswered requests, nor errors",
                         request.getLocalTransactieID().toString(),

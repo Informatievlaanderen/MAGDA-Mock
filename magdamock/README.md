@@ -4,7 +4,7 @@ The magda connector is an abstraction that can be used to connect to magda servi
 
 ## MagdaConnectorImpl
 
-The implementation of the abstraction requires 3 components: `MagdaConnection`, `AfnemerLogService` & `MagdaHoedanigheidService`.
+The implementation of the abstraction requires 3 components: `MagdaConnection`, `clientLogService` & `MagdaHoedanigheidService`.
 
 ### MagdaConnection
 
@@ -69,7 +69,7 @@ var endpoints = MagdaEndpoints.builder()
 var connection = new MagdaSoapConnection(endpoints, config);
 ```
 
-### AfnemerLogService
+### ClientLogService
 
 This interface contains callbacks for certain events:
 
@@ -87,7 +87,7 @@ void logGefaaldeAanvraag(GefaaldeAanvraag failedLoggedRequest);
 void logOnbeantwoordeAanvraag(OnbeantwoordeAanvraag unansweredLoggedRequest);
 ```
 
-The `magdamock` library contains a implementation of this class: `AfnemerLogServiceMock`. This class retains all the data from the callbacks and logs it to the info log. This class should NOT be used in an production environment because it logs sensitive information to info logs and as data is contained in lists, at some point this will cause out of memory exceptions.
+The `magdamock` library contains a implementation of this class: `ClientLogServiceMock`. This class retains all the data from the callbacks and logs it to the info log. This class should NOT be used in an production environment because it logs sensitive information to info logs and as data is contained in lists, at some point this will cause out of memory exceptions.
 
 It is strongly recommend to create your own implementation for this class.
 
@@ -129,7 +129,7 @@ var service =  new MagdaHoedanigheidServiceMock(MagdaRegistrationInfo.builder()
 ```java
 MagdaRegistrationInfo registrationInfo = ...
 
-var logService = new AfnemerLogServiceMock();
+var logService = new ClientLogServiceMock();
 var hoedanigheidSerivce = new MagdaHoedanigheidServiceMock(registrationInfo);
 var connection = MagdaMockConnection.create();
 
@@ -142,7 +142,7 @@ var connector = new MagdaConnectorImpl(connection, logService, hoedanigheidServi
 MagdaConfigDto magdaConfig = ...
 MagdaEndpoints endpoints = ...
 
-var logService = new AfnemerLogServiceMock(); // suggested a custom implementation here
+var logService = new ClientLogServiceMock(); // suggested a custom implementation here
 var hoedanigheidSerivce = new MagdaHoedanigheidServiceImpl(magdaConfig);
 var soapConnection = new MagdaSoapConnection(endpoints, magdaConfig);
 var signedConnection = new MagdaSignedConnection(soapConnection, magdaConfig);
