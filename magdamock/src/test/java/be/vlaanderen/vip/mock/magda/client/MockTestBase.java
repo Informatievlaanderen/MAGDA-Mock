@@ -87,8 +87,8 @@ public abstract class MockTestBase {
         return new MagdaMockConnection(simulatorBuilder.build());
     }
 
-    protected void assertThatTechnicalFieldsInResponseMatchRequest(MagdaAntwoord antwoord, MagdaRequest magdaRequest) {
-        var doc = antwoord.getDocument();
+    protected void assertThatTechnicalFieldsInResponseMatchRequest(MagdaResponse magdaResponse, MagdaRequest magdaRequest) {
+        var doc = magdaResponse.getDocument();
         assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_REFERTE, magdaRequest.getRequestId().toString());
         assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_IDENTIFICATIE, TEST_SERVICE_URI);
         assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_HOEDANIGHEID, TEST_SERVICE_HOEDANIGHEID);
@@ -100,23 +100,23 @@ public abstract class MockTestBase {
         assertThat(value).isEqualTo(expected);
     }
 
-    protected void assertThatResponseContainsAnswerNoError(MagdaAntwoord antwoord) {
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
+    protected void assertThatResponseContainsAnswerNoError(MagdaResponse magdaResponse) {
+        assertThat(magdaResponse.isBodyIngevuld()).isTrue();
+        assertThat(magdaResponse.isHeeftInhoud()).isTrue();
+        assertThat(magdaResponse.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(magdaResponse.getUitzonderingen()).isEmpty();
     }
 
-    protected void assertThatAnswerContainsUitzondering(MagdaAntwoord antwoord) {
-        assertThat(antwoord.isBodyIngevuld()).isFalse();
-        assertThat(antwoord.isHeeftInhoud()).isFalse();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).hasSize(1);
+    protected void assertThatAnswerContainsUitzondering(MagdaResponse magdaResponse) {
+        assertThat(magdaResponse.isBodyIngevuld()).isFalse();
+        assertThat(magdaResponse.isHeeftInhoud()).isFalse();
+        assertThat(magdaResponse.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(magdaResponse.getUitzonderingen()).hasSize(1);
     }
 
-    protected void assertThatTechnicalFieldsAreFilledInCorrectly(MagdaAntwoord antwoord, MagdaRequest magdaRequest) {
-        log.debug("Response: {}", antwoord.getDocument().toString());
+    protected void assertThatTechnicalFieldsAreFilledInCorrectly(MagdaResponse magdaResponse, MagdaRequest magdaRequest) {
+        log.debug("Response: {}", magdaResponse.getDocument().toString());
 
-        assertThatTechnicalFieldsInResponseMatchRequest(antwoord, magdaRequest);
+        assertThatTechnicalFieldsInResponseMatchRequest(magdaResponse, magdaRequest);
     }
 }

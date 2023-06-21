@@ -36,9 +36,9 @@ public class MagdaMockController {
         //TODO: handle request parsing errors and return Magda Uitzondering error
         var requestDocument = MagdaDocument.fromString(request);
 
-        var antwoord = mockConnection.sendDocument(requestDocument.getXml());
-        if (antwoord != null) {
-            return parseInputstream(MagdaDocument.fromDocument(antwoord));
+        var magdaResponse = mockConnection.sendDocument(requestDocument.getXml());
+        if (magdaResponse != null) {
+            return parseInputstream(MagdaDocument.fromDocument(magdaResponse));
 
         } else {
             return ResponseEntity.notFound().build();

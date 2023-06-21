@@ -2,7 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 public enum RegistrationType {
     PERSON("PERS"),
-    BUSINESS("OND");
+    ENTERPRISE("OND");
 
     private final String typeString;
 

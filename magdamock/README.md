@@ -4,7 +4,7 @@ The magda connector is an abstraction that can be used to connect to magda servi
 
 ## MagdaConnectorImpl
 
-The implementation of the abstraction requires 3 components: `MagdaConnection`, `clientLogService` & `MagdaHoedanigheidService`.
+The implementation of the abstraction requires 3 components: `MagdaConnection`, `ClientLogService` & `MagdaHoedanigheidService`.
 
 ### MagdaConnection
 
@@ -75,16 +75,16 @@ This interface contains callbacks for certain events:
 
 ```java
 // triggered before a request is sent
-void logAanvraag(MagdaAanvraag magdaRequest);
+void logMagdaRequest(MagdaLoggedRequest magdaLoggedRequest);
 
 // triggered after a response has been received that does not contain errors
-void logGeslaagdeAanvraag(GeslaagdeAanvraag magdaRequest);
+void logSucceededRequest(SucceededLoggedRequest succeededLoggedRequest);
 
 // triggered after a response has been received that contains errors
-void logGefaaldeAanvraag(GefaaldeAanvraag failedLoggedRequest);
+void logFailedRequest(FailedLoggedRequest failedLoggedRequest);
 
-// triggered when the connection.send throws MagdaSendFailed
-void logOnbeantwoordeAanvraag(OnbeantwoordeAanvraag unansweredLoggedRequest);
+// triggered when the connection fails to obtain a (valid) response document
+void logUnansweredRequest(UnansweredLoggedRequest unansweredLoggedRequest);
 ```
 
 The `magdamock` library contains a implementation of this class: `ClientLogServiceMock`. This class retains all the data from the callbacks and logs it to the info log. This class should NOT be used in an production environment because it logs sensitive information to info logs and as data is contained in lists, at some point this will cause out of memory exceptions.
@@ -93,7 +93,7 @@ It is strongly recommend to create your own implementation for this class.
 
 ### MagdaHoedanigheidService
 
-This class is responsible for supply requester information for request. Every `Aanvraag` sent through the `MagdaConnector` contains a `registratie` field (with default value `default`). The `MagdaHoedanigheidService` will be queried with this `registratie` and should return a correlating `identification` and `hoedanigheidcode`.
+This class is responsible for supply requester information for request. Every `MagdaRequest` sent through the `MagdaConnector` contains a `registration` field (with default value `default`). The `MagdaHoedanigheidService` will be queried with this `registration` and should return a correlating `identification` and `hoedanigheidcode`.
 
 #### MagdaHoedanigheidServiceImpl
 
@@ -109,7 +109,7 @@ var config = MagdaConfigDto.builder()
 var service = new MagdaHoedanigheidServiceImpl(config);
 ```
 
-For every expected value of `registratie` in the `Aanvraag` objects, a registration entry should be present.
+For every expected value of `registration` in the `MagdaRequest` objects, a registration entry should be present.
 
 #### MagdaHoedanigheidServiceMock
 
@@ -155,9 +155,11 @@ var connector = new MagdaConnectorImpl(signedConnection, logService, hoedanighei
 ```java
 MagdaConnector connector = ...
 
-var magdaAntwoord = connector.send(new GeefBewijsAanvraag("insz"));
+var magdaResponse = connector.send(GeefBewijsRequest.builder()
+        .insz("insz")
+        .build());
 
-var document = magdaAntwoord.getDocument();
+var document = magdaResponse.getDocument();
 var xml = document.getXml(); // org.w3c.dom.Document
 ```
 
@@ -183,7 +185,15 @@ var connection = MagdaMockConnection.create(simulator);
 The resource finder is responsible for the xml response for the request. The default resource finder contains response that are present in the classpath of the `magdamock` library: `ResourceFinders.magdaSimulator()`. But it is possible to register your own resources as source for a resource finder: `ResourceFinders.directory(String/File directory)`. The directory is expected to have a certain structure for it to be able to return responses for request.
 
 E.g:
-Consider the following request : `new GeefBewijsAanvraag("01234567891")`. This request wil will attempt to return data for the `GeefBewijs` service for version `02.00.0000` and the citizen with a insz number `01234567891`. The type of this request is `Persoon`. So a following directory structure is expected:
+Consider the following request :
+
+```java
+GeefBewijsRequest.builder()
+        .insz("01234567891")
+        .build()
+```
+
+This request wil will attempt to return data for the `GeefBewijs` service for version `02.00.0000` and the citizen with a insz number `01234567891`. The type of this request is `Persoon`. So a following directory structure is expected:
 
 ```
 Persoon

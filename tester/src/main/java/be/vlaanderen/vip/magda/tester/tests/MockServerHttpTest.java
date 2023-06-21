@@ -74,12 +74,12 @@ public class MockServerHttpTest extends MockServerTest {
                 .insz(CORRECT_INSZ)
                 .build();
 
-        var antwoord = connector.send(request);
-        logMagdaAntwoord(antwoord);
+        var magdaResponse = connector.send(request);
+        logMagdaResponse(magdaResponse);
 
-        assertResponsBevatAntwoord(antwoord);
+        assertResponsBevatAntwoord(magdaResponse);
 
-        var doc = antwoord.getDocument();
+        var doc = magdaResponse.getDocument();
 
         assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
 
@@ -96,12 +96,12 @@ public class MockServerHttpTest extends MockServerTest {
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
-        var antwoord = connector.send(request);
-        logMagdaAntwoord(antwoord);
+        var magdaResponse = connector.send(request);
+        logMagdaResponse(magdaResponse);
 
-        assertResponsBevatAntwoord(antwoord);
+        assertResponsBevatAntwoord(magdaResponse);
 
-        var doc = antwoord.getDocument();
+        var doc = magdaResponse.getDocument();
 
         assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
 
@@ -117,10 +117,10 @@ public class MockServerHttpTest extends MockServerTest {
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
-        var antwoord = connector.send(request);
-        logMagdaAntwoord(antwoord);
+        var magdaResponse = connector.send(request);
+        logMagdaResponse(magdaResponse);
 
-        assertResponsBevatUitzondering(antwoord, UitzonderingType.FOUT, "99996", "Te veel gelijktijdige bevragingen");
+        assertResponsBevatUitzondering(magdaResponse, UitzonderingType.FOUT, "99996", "Te veel gelijktijdige bevragingen");
     }
 
     @Test
@@ -131,12 +131,12 @@ public class MockServerHttpTest extends MockServerTest {
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
-        var antwoord = connector.send(request);
-        logMagdaAntwoord(antwoord);
+        var magdaResponse = connector.send(request);
+        logMagdaResponse(magdaResponse);
 
-        assertResponsBevatAntwoord(antwoord);
+        assertResponsBevatAntwoord(magdaResponse);
 
-        var doc = antwoord.getDocument();
+        var doc = magdaResponse.getDocument();
 
         assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
 
@@ -152,10 +152,10 @@ public class MockServerHttpTest extends MockServerTest {
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
-        var antwoord = connector.send(request);
-        logMagdaAntwoord(antwoord);
+        var magdaResponse = connector.send(request);
+        logMagdaResponse(magdaResponse);
 
-        assertResponsBevatUitzondering(antwoord, UitzonderingType.FOUT, "99996", "Te veel gelijktijdige bevragingen");
+        assertResponsBevatUitzondering(magdaResponse, UitzonderingType.FOUT, "99996", "Te veel gelijktijdige bevragingen");
     }
 
     @Test
@@ -164,21 +164,21 @@ public class MockServerHttpTest extends MockServerTest {
         var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
                 .insz("82102108114")
                 .build();
-        var antwoord = connector.send(request);
-        logMagdaAntwoord(antwoord);
+        var magdaResponse = connector.send(request);
+        logMagdaResponse(magdaResponse);
 
-        assertResponsBevatAntwoord(antwoord);
+        assertResponsBevatAntwoord(magdaResponse);
 
-        var doc = antwoord.getDocument();
+        var doc = magdaResponse.getDocument();
 
         assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
 
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
+        assertThatXmlFieldIsEqualTo(magdaResponse.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
+        assertThatXmlFieldIsEqualTo(magdaResponse.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
+        assertThatXmlFieldIsEqualTo(magdaResponse.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
 
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2011");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
+        assertThatXmlFieldIsEqualTo(magdaResponse.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2011");
+        assertThatXmlFieldIsEqualTo(magdaResponse.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
     }
 
     @Test
@@ -216,12 +216,12 @@ public class MockServerHttpTest extends MockServerTest {
                 .insz(requestInsz)
                 .build();
 
-        var antwoord = connector.send(request);
-        logMagdaAntwoord(antwoord);
+        var magdaResponse = connector.send(request);
+        logMagdaResponse(magdaResponse);
 
-        assertResponsBevatAntwoord(antwoord);
+        assertResponsBevatAntwoord(magdaResponse);
 
-        var doc = antwoord.getDocument();
+        var doc = magdaResponse.getDocument();
 
         assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
 
@@ -235,14 +235,14 @@ public class MockServerHttpTest extends MockServerTest {
         storeImage(decoded);
     }
 
-    private void assertResponsBevatAntwoord(MagdaAntwoord antwoord) {
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
+    private void assertResponsBevatAntwoord(MagdaResponse magdaResponse) {
+        assertThat(magdaResponse.isBodyIngevuld()).isTrue();
+        assertThat(magdaResponse.isHeeftInhoud()).isTrue();
+        assertThat(magdaResponse.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(magdaResponse.getUitzonderingen()).isEmpty();
     }
 
-    private void assertResponsBevatUitzondering(MagdaAntwoord antwoord, UitzonderingType exptectedType, String expectedFoutCode, String expectedDiagnose) {
+    private void assertResponsBevatUitzondering(MagdaResponse antwoord, UitzonderingType exptectedType, String expectedFoutCode, String expectedDiagnose) {
         assertThat(antwoord.isBodyIngevuld()).isFalse();
         assertThat(antwoord.isHeeftInhoud()).isFalse();
         assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
@@ -296,7 +296,7 @@ public class MockServerHttpTest extends MockServerTest {
         return magdaConfigDto;
     }
 
-    private void logMagdaAntwoord(MagdaAntwoord antwoord) {
+    private void logMagdaResponse(MagdaResponse antwoord) {
         log.debug("Response : {}", antwoord.getDocument());
     }
 }

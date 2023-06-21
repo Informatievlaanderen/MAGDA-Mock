@@ -14,7 +14,7 @@ import java.util.UUID;
 @Getter
 @Builder
 @AllArgsConstructor
-public class MagdaAntwoord {
+public class MagdaResponse {
     private final UUID correlationId;
     private final UUID requestId;
     private List<UitzonderingEntry> uitzonderingen;

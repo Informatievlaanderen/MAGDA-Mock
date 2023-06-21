@@ -34,12 +34,12 @@ public class MagdaConnectorImpl implements MagdaConnector {
     private final MagdaHoedanigheidService magdaHoedanigheidService;
 
     @Override
-    public MagdaAntwoord send(MagdaRequest magdaRequest) {
+    public MagdaResponse send(MagdaRequest magdaRequest) {
         var start = System.nanoTime();
 
         logRequest(magdaRequest);
 
-        var magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie());
+        var magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration());
         var requestDocument = magdaRequest.toMagdaDocument(magdaRegistrationInfo);
 
         magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
@@ -109,7 +109,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 magdaRequest.getRequestId(),
                 magdaRequest.magdaServiceIdentification().getName(),
                 magdaRequest.magdaServiceIdentification().getVersion(),
-                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
+                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration())));
     }
 
     private void logRequest(MagdaRequest magdaRequest) {
@@ -119,7 +119,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 magdaRequest.getRequestId(),
                 magdaRequest.magdaServiceIdentification().getName(),
                 magdaRequest.magdaServiceIdentification().getVersion(),
-                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
+                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration())));
 
     }
 
@@ -131,7 +131,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 duration,
                 magdaRequest.magdaServiceIdentification().getName(),
                 magdaRequest.magdaServiceIdentification().getVersion(),
-                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
+                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration())));
     }
 
     private void logAlleUitzonderingen(MagdaRequest magdaRequest, Duration duration, List<UitzonderingEntry> uitzonderingen) {
@@ -142,7 +142,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 uitzonderingen,
                 magdaRequest.magdaServiceIdentification().getName(),
                 magdaRequest.magdaServiceIdentification().getVersion(),
-                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistratie())));
+                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration())));
     }
 
 
@@ -162,8 +162,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
         }
     }
 
-    private MagdaAntwoord maakAntwoord(MagdaRequest magdaRequest, MagdaDocument response) {
-        return MagdaAntwoord.builder()
+    private MagdaResponse maakAntwoord(MagdaRequest magdaRequest, MagdaDocument response) {
+        return MagdaResponse.builder()
                 .correlationId(magdaRequest.getCorrelationId())
                 .requestId(magdaRequest.getRequestId())
                 .uitzonderingen(level1Uitzonderingen(response))

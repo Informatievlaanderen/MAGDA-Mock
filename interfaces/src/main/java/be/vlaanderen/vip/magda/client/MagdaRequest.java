@@ -17,7 +17,7 @@ public abstract class MagdaRequest { // XXX make the attributes english
     protected abstract static class Builder<SELF extends Builder<SELF>> {
         private String insz;
         private String overWie;
-        private String registratie;
+        private String registration;
 
         @SuppressWarnings("unchecked")
         public SELF insz(String insz) {
@@ -32,8 +32,8 @@ public abstract class MagdaRequest { // XXX make the attributes english
         }
 
         @SuppressWarnings("unchecked")
-        public SELF registratie(String registratie) {
-            this.registratie = registratie;
+        public SELF registration(String registration) {
+            this.registration = registration;
             return (SELF) this;
         }
 
@@ -46,7 +46,7 @@ public abstract class MagdaRequest { // XXX make the attributes english
         }
 
         protected String getRegistratie() {
-            return StringUtils.defaultString(registratie, "default");
+            return StringUtils.defaultString(registration, "default");
         }
     }
 
@@ -57,12 +57,12 @@ public abstract class MagdaRequest { // XXX make the attributes english
     @NotNull
     private final String overWie; // XXX remove overWie and replace it entirely with INSZ?
     @NotNull
-    private final String registratie;
+    private final String registration;
 
-    protected MagdaRequest(@NotNull String insz, @NotNull String overWie, @NotNull String registratie) {
+    protected MagdaRequest(@NotNull String insz, @NotNull String overWie, @NotNull String registration) {
         this.insz = insz;
         this.overWie = overWie;
-        this.registratie = registratie;
+        this.registration = registration;
     }
 
     public abstract MagdaServiceIdentification magdaServiceIdentification();
