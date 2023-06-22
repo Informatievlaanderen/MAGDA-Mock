@@ -7,9 +7,10 @@ import org.springframework.util.Assert;
 import java.util.Optional;
 
 /**
- * A DTO to configure the RegistrationInfo.
+ * A DTO to configure the MagdaHoedanigheidsService.
  *
  * @see be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo
+ * @see be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService
  */
 @Getter
 public class MagdaRegistrationConfigDto {
