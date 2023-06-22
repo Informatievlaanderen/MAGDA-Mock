@@ -155,7 +155,7 @@ class MagdaConnectorImplTest {
 			mockReply(buildReplyDocument(buildException("test-exception"), ""));
 
 			var reply = connector.send(req);
-			assertEquals(1, reply.getUitzonderingen().size());
+			assertEquals(1, reply.getUitzonderingEntries().size());
 		}
 
 		@Test
@@ -166,7 +166,7 @@ class MagdaConnectorImplTest {
 			mockReply(buildReplyDocument("", buildException("test-exception")));
 
 			var reply = connector.send(req);
-			assertEquals(1, reply.getAntwoordUitzonderingen().size());
+			assertEquals(1, reply.getResponseUitzonderingEntries().size());
 		}
 	}
 

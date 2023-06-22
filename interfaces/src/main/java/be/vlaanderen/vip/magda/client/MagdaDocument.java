@@ -28,6 +28,9 @@ import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 
+/**
+ * A wrapper around a DOM Document with some utility methods to retrieve and manipulate MAGDA XML document data.
+ */
 @Slf4j
 public class MagdaDocument {
     private final Document xml;

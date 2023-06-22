@@ -93,7 +93,7 @@ It is strongly recommend to create your own implementation for this class.
 
 ### MagdaHoedanigheidService
 
-This class is responsible for supply requester information for request. Every `MagdaRequest` sent through the `MagdaConnector` contains a `registration` field (with default value `default`). The `MagdaHoedanigheidService` will be queried with this `registration` and should return a correlating `identification` and `hoedanigheidcode`.
+This class is responsible for supply requester information for request. Every `MagdaRequest` sent through the `MagdaConnector` contains a `registration` field (with default value `default`). The `MagdaHoedanigheidService` will be queried with this `registration` and should return a correlating `identification` and `hoedanigheidscode`.
 
 #### MagdaHoedanigheidServiceImpl
 
@@ -113,7 +113,7 @@ For every expected value of `registration` in the `MagdaRequest` objects, a regi
 
 #### MagdaHoedanigheidServiceMock
 
-When using a mock environment, the `identification` and `hoedanigheidcode` are not relevant to the service receiving the request, so then `MagdaHoedanigheidServiceMock` can be used:
+When using a mock environment, the `identification` and `hoedanigheidscode` are not relevant to the service receiving the request, so then `MagdaHoedanigheidServiceMock` can be used:
 
 ```java
 var service =  new MagdaHoedanigheidServiceMock(MagdaRegistrationInfo.builder()

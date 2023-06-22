@@ -11,6 +11,14 @@ import lombok.ToString;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * A request to a "RegistreerInschrijving" MAGDA service, which files registrations.
+ * Adds the following fields to the {@link MagdaRequest}:
+ * <ul>
+ * <li>start: the start date of the registration</li>
+ * <li>end: the end date of the registration</li>
+ * </ul>
+ */
 @Getter
 @ToString
 public class RegistreerInschrijvingRequest extends MagdaRequest {

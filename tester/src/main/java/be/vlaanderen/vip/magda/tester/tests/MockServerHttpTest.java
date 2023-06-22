@@ -237,18 +237,18 @@ public class MockServerHttpTest extends MockServerTest {
 
     private void assertResponsBevatAntwoord(MagdaResponse magdaResponse) {
         assertThat(magdaResponse.isBodyIngevuld()).isTrue();
-        assertThat(magdaResponse.isHeeftInhoud()).isTrue();
-        assertThat(magdaResponse.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(magdaResponse.getUitzonderingen()).isEmpty();
+        assertThat(magdaResponse.isHasContents()).isTrue();
+        assertThat(magdaResponse.getResponseUitzonderingEntries()).isEmpty();
+        assertThat(magdaResponse.getUitzonderingEntries()).isEmpty();
     }
 
     private void assertResponsBevatUitzondering(MagdaResponse antwoord, UitzonderingType exptectedType, String expectedFoutCode, String expectedDiagnose) {
         assertThat(antwoord.isBodyIngevuld()).isFalse();
-        assertThat(antwoord.isHeeftInhoud()).isFalse();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).hasSize(1);
+        assertThat(antwoord.isHasContents()).isFalse();
+        assertThat(antwoord.getResponseUitzonderingEntries()).isEmpty();
+        assertThat(antwoord.getUitzonderingEntries()).hasSize(1);
 
-        var uitzondering = antwoord.getUitzonderingen().get(0);
+        var uitzondering = antwoord.getUitzonderingEntries().get(0);
         assertThat(uitzondering.getUitzonderingType()).isEqualTo(exptectedType);
         assertThat(uitzondering.getIdentification()).isEqualTo(expectedFoutCode);
         assertThat(uitzondering.getDiagnosis()).isEqualTo(expectedDiagnose);

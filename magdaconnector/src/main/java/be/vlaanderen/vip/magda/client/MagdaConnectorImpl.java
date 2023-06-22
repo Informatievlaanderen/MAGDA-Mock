@@ -3,6 +3,7 @@ package be.vlaanderen.vip.magda.client;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 import be.vlaanderen.vip.magda.client.util.XmlUtils;
+import be.vlaanderen.vip.magda.exception.ServerException;
 import be.vlaanderen.vip.magda.exception.UitzonderingenSectionInResponseException;
 import be.vlaanderen.vip.magda.exception.NoResponseException;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
@@ -34,7 +35,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
     private final MagdaHoedanigheidService magdaHoedanigheidService;
 
     @Override
-    public MagdaResponse send(MagdaRequest magdaRequest) {
+    public MagdaResponse send(MagdaRequest magdaRequest) throws ServerException {
         var start = System.nanoTime();
 
         logRequest(magdaRequest);
@@ -57,16 +58,16 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             var antwoord = buildResponse(magdaRequest, response);
 
-            final var uitzonderingen = antwoord.getUitzonderingen();
+            final var uitzonderingen = antwoord.getUitzonderingEntries();
             legalLogging(magdaRequest, duration, uitzonderingen, antwoord.getInsz());
 
-            final var antwoordUitzonderingen = antwoord.getAntwoordUitzonderingen();
+            final var antwoordUitzonderingen = antwoord.getResponseUitzonderingEntries();
             var uitzonderingenMessage1 = messageForUitzonderingEntries(uitzonderingen, antwoordUitzonderingen);
 
             magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
                     .log("Result of request to MAGDA service with reference [{}] ({} ms): {}", magdaRequest.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
 
-            if(!antwoord.isHeeftInhoud() && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
+            if(!antwoord.isHasContents() && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
                 throw new UitzonderingenSectionInResponseException(magdaRequest.getInsz(), getLevel1UitzonderingEntry(response));
             }
 
@@ -170,11 +171,11 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return MagdaResponse.builder()
                 .correlationId(magdaRequest.getCorrelationId())
                 .requestId(magdaRequest.getRequestId())
-                .uitzonderingen(level1UitzonderingEntries(responseDocument))
-                .antwoordUitzonderingen(level2UitzonderingEntries(responseDocument))
+                .uitzonderingEntries(level1UitzonderingEntries(responseDocument))
+                .responseUitzonderingEntries(level2UitzonderingEntries(responseDocument))
                 .body(getBody(responseDocument))
                 .document(responseDocument)
-                .heeftInhoud(responseHasContents(responseDocument))
+                .hasContents(responseHasContents(responseDocument))
                 .insz(findAllINSZsIn(magdaRequest, responseDocument))
                 .build();
     }

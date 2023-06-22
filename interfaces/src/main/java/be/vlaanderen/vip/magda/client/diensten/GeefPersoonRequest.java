@@ -7,6 +7,13 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.Getter;
 import lombok.ToString;
 
+/**
+ * A request to a "GeefPersoon" MAGDA service, which provides personal information.
+ * Adds the following fields to the {@link MagdaRequest}:
+ * <ul>
+ * <li>none</li>
+ * </ul>
+ */
 @Getter
 @ToString
 public class GeefPersoonRequest extends MagdaRequest {

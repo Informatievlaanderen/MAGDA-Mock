@@ -56,9 +56,9 @@ public class GeefPasfotoTest extends MockTestBase {
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.isHasContents()).isTrue();
+        assertThat(antwoord.getUitzonderingEntries()).isEmpty();
+        assertThat(antwoord.getResponseUitzonderingEntries()).isEmpty();
 
         assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
         assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
@@ -109,7 +109,7 @@ public class GeefPasfotoTest extends MockTestBase {
         assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isZero();
         assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
 
-        var uitzondering = antwoord.getUitzonderingen().get(0);
+        var uitzondering = antwoord.getUitzonderingEntries().get(0);
         assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
         assertThat(uitzondering.getIdentification()).isEqualTo("99996");
         assertThat(uitzondering.getDiagnosis()).isEqualTo("Te veel gelijktijdige bevragingen");

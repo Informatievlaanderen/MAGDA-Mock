@@ -102,16 +102,16 @@ public abstract class MockTestBase {
 
     protected void assertThatResponseContainsAnswerNoError(MagdaResponse magdaResponse) {
         assertThat(magdaResponse.isBodyIngevuld()).isTrue();
-        assertThat(magdaResponse.isHeeftInhoud()).isTrue();
-        assertThat(magdaResponse.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(magdaResponse.getUitzonderingen()).isEmpty();
+        assertThat(magdaResponse.isHasContents()).isTrue();
+        assertThat(magdaResponse.getResponseUitzonderingEntries()).isEmpty();
+        assertThat(magdaResponse.getUitzonderingEntries()).isEmpty();
     }
 
     protected void assertThatAnswerContainsUitzondering(MagdaResponse magdaResponse) {
         assertThat(magdaResponse.isBodyIngevuld()).isFalse();
-        assertThat(magdaResponse.isHeeftInhoud()).isFalse();
-        assertThat(magdaResponse.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(magdaResponse.getUitzonderingen()).hasSize(1);
+        assertThat(magdaResponse.isHasContents()).isFalse();
+        assertThat(magdaResponse.getResponseUitzonderingEntries()).isEmpty();
+        assertThat(magdaResponse.getUitzonderingEntries()).hasSize(1);
     }
 
     protected void assertThatTechnicalFieldsAreFilledInCorrectly(MagdaResponse magdaResponse, MagdaRequest magdaRequest) {

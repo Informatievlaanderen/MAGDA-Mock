@@ -27,9 +27,9 @@ class GeefBewijsTest extends MockTestBase {
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.isHasContents()).isTrue();
+        assertThat(antwoord.getUitzonderingEntries()).isEmpty();
+        assertThat(antwoord.getResponseUitzonderingEntries()).isEmpty();
 
         assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
         assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
@@ -69,9 +69,9 @@ class GeefBewijsTest extends MockTestBase {
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isFalse();
-        assertThat(antwoord.isHeeftInhoud()).isFalse();
-        assertThat(antwoord.getAntwoordUitzonderingen()).hasSize(1);
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
+        assertThat(antwoord.isHasContents()).isFalse();
+        assertThat(antwoord.getResponseUitzonderingEntries()).hasSize(1);
+        assertThat(antwoord.getUitzonderingEntries()).isEmpty();
 
         assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
         assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
@@ -82,7 +82,7 @@ class GeefBewijsTest extends MockTestBase {
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
         assertThat(referte).isEqualTo(request.getRequestId().toString());
 
-        var uitzondering = antwoord.getAntwoordUitzonderingen().get(0);
+        var uitzondering = antwoord.getResponseUitzonderingEntries().get(0);
         assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
         assertThat(uitzondering.getIdentification()).isEqualTo("40000");
         assertThat(uitzondering.getOrigin()).isEqualTo("LED");

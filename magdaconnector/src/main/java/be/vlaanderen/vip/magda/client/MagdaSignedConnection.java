@@ -44,7 +44,7 @@ public class MagdaSignedConnection implements MagdaConnection {
                 requestSigner.signDocument(xml);
             }
         } catch(WSSecurityException e) {
-            throw new MagdaConnectionException("MAGDA request kon niet worden gesigned", e);
+            throw new MagdaConnectionException("MAGDA request could not be signed", e);
         }
 
         var response = magdaConnection.sendDocument(xml);
@@ -55,7 +55,7 @@ public class MagdaSignedConnection implements MagdaConnection {
                 responseVerifier.verifyDocument(response);
             }
         } catch(InvalidSignatureException e) {
-            throw new MagdaConnectionException("MAGDA antwoord niet correct gesigned", e);
+            throw new MagdaConnectionException("MAGDA response could not be verified", e);
         }
 
         return response;

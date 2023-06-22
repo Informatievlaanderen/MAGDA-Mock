@@ -25,9 +25,9 @@ class GeefPersoonTest extends MockTestBase {
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.isHasContents()).isTrue();
+        assertThat(antwoord.getUitzonderingEntries()).isEmpty();
+        assertThat(antwoord.getResponseUitzonderingEntries()).isEmpty();
 
         assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
         assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);

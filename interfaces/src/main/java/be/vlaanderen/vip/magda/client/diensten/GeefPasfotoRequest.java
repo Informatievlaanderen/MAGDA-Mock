@@ -7,6 +7,13 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.Getter;
 import lombok.ToString;
 
+/**
+ * A request to a "GeefPasfoto" MAGDA service, which provides passport photos.
+ * Adds the following fields to the {@link MagdaRequest}:
+ * <ul>
+ * <li>none</li>
+ * </ul>
+ */
 @Getter
 @ToString
 public class GeefPasfotoRequest extends MagdaRequest {

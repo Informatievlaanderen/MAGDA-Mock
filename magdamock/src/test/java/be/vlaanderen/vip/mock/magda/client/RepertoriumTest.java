@@ -98,7 +98,7 @@ class RepertoriumTest extends MockTestBase {
         assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isZero();
         assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
 
-        var uitzondering = antwoord.getUitzonderingen().get(0);
+        var uitzondering = antwoord.getUitzonderingEntries().get(0);
         assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
         assertThat(uitzondering.getIdentification()).isEqualTo("99996");
         assertThat(uitzondering.getDiagnosis()).isEqualTo("Te veel gelijktijdige bevragingen");
@@ -227,7 +227,7 @@ class RepertoriumTest extends MockTestBase {
         assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isZero();
         assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
 
-        var uitzondering = antwoord.getUitzonderingen().get(0);
+        var uitzondering = antwoord.getUitzonderingEntries().get(0);
         assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
         assertThat(uitzondering.getIdentification()).isEqualTo("99996");
         assertThat(uitzondering.getDiagnosis()).isEqualTo("Te veel gelijktijdige bevragingen");
@@ -317,7 +317,7 @@ class RepertoriumTest extends MockTestBase {
         assertThat(afnemerLogService.getNumberOfSucceededLoggedRequests()).isZero();
         assertThat(afnemerLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
 
-        var uitzondering = antwoord.getUitzonderingen().get(0);
+        var uitzondering = antwoord.getUitzonderingEntries().get(0);
         assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
         assertThat(uitzondering.getIdentification()).isEqualTo("99996");
         assertThat(uitzondering.getDiagnosis()).isEqualTo("Te veel gelijktijdige bevragingen");

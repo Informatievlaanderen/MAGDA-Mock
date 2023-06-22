@@ -7,6 +7,13 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.Getter;
 import lombok.ToString;
 
+/**
+ * A request to a "GeefAanslagBiljet" MAGDA service, which provides tax bills.
+ * Adds the following fields to the {@link MagdaRequest}:
+ * <ul>
+ * <li>none</li>
+ * </ul>
+ */
 @Getter
 @ToString
 public class GeefAanslagbiljetPersonenbelastingRequest extends MagdaRequest {

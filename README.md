@@ -171,5 +171,5 @@ _Source of the XSD files:_ https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/
 
 A great deal of this code has a history of having been written in Dutch, due to its origin as an internal project of the Flemish government. Since it is now open source, translation efforts are in progress, and the intention should be to write as much as of it as possible in English.
 
-The exception to this rule is when a word is a reference to another word (conform the grammatical concept of the "use-mention distinction"); in other words, when a word could be written between quotation marks because for instance it occurs as an element in an XML file (e.g., UitzonderingEntry can be read as: "Uitzondering" entry).
+The exception to this rule is when a word is a reference to another word (in accordance with the "use-mention distinction" in grammar); in other words, when a word could be written between quotation marks because for instance it occurs as an element in an XML file (e.g., UitzonderingEntry can be read as: "Uitzondering" entry).
 Wherever this is the case, the documentation ought to explain what the referent of that word means.

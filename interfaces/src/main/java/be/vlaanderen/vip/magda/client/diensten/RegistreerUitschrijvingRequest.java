@@ -11,6 +11,14 @@ import lombok.ToString;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * A request to a "RegistreerUitschrijving" MAGDA service, which files deregistrations.
+ * Adds the following fields to the {@link MagdaRequest}:
+ * <ul>
+ * <li>start: the start date of the deregistration</li>
+ * <li>end: the end date of the deregistration</li>
+ * </ul>
+ */
 @Getter
 @ToString
 public class RegistreerUitschrijvingRequest extends MagdaRequest {

@@ -11,8 +11,20 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
+/**
+ * The common part of a request to a MAGDA service. Has subclasses for specific service/versions.
+ * <p>
+ * Contains:
+ * <ul>
+ * <li>correlationId: unique correlation ID of the request</li>
+ * <li>requestId: unique ID of the request</li>
+ * <li>insz: the INSZ number of the party about which the information is requested</li>
+ * <li>aboutWhom: XXX</li>
+ * <li>registration: registration code that can be resolved by a MagdaHoedanigService to obtain registration info</li>
+ * </ul>
+ */
 @Getter
-public abstract class MagdaRequest { // XXX make the attributes english
+public abstract class MagdaRequest {
 
     protected abstract static class Builder<SELF extends Builder<SELF>> {
         private String insz;

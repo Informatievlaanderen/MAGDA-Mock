@@ -11,20 +11,23 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+/**
+ * The contents of a response from a MAGDA service.
+ */
 @Getter
 @Builder
 @AllArgsConstructor
 public class MagdaResponse {
     private final UUID correlationId;
     private final UUID requestId;
-    private List<UitzonderingEntry> uitzonderingen;
-    private List<UitzonderingEntry> antwoordUitzonderingen;
+    private List<UitzonderingEntry> uitzonderingEntries;
+    private List<UitzonderingEntry> responseUitzonderingEntries;
     private final Node body;
     private final MagdaDocument document;
-    private final boolean heeftInhoud;
+    private final boolean hasContents;
     private final Set<String> insz;
 
     public boolean isBodyIngevuld() {
-        return uitzonderingen.isEmpty() && heeftInhoud && body != null;
+        return uitzonderingEntries.isEmpty() && hasContents && body != null;
     }
 }
