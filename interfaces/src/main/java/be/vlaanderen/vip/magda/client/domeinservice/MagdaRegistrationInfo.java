@@ -17,7 +17,7 @@ import java.util.Optional;
  * Note that "hoedanigheidscodes" are presently undergoing a process of deprecation in the MAGDA service.
  * MAGDA Mock supports the use of these codes, but as far as it is concerned, they are optional. Whether they should be used or not depends on the MAGDA service.
  *
- * XXX refer to hoedanigheidscode documentation
+ * @see <a href="https://vlaamseoverheid.atlassian.net/wiki/spaces/MA/pages/391119396/Hoedanigheidscodes">Documentation on hoedanigheidscodes</a> (link to internal wiki)
  */
 @Getter
 @ToString
