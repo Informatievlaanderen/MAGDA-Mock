@@ -62,7 +62,7 @@
 		<xs:attribute name="DatumModificatie" type="generiek:DatumType"/>
 		<xs:attribute name="Bron" type="generiek:BronType"/>
 	</xs:complexType>
-	<!-- PseudoniemPersoonLijstType werd hier verwijderd en verplaatst naar PersoonGemeenschappelijk-v3. De name werd ook veranderd naar PseudoniemLijstType. -->
+	<!-- PseudoniemPersoonLijstType werd hier verwijderd en verplaatst naar PersoonGemeenschappelijk-v3. De naam werd ook veranderd naar PseudoniemLijstType. -->
 	<xs:complexType name="AdellijkeTitelLijstType">
 		<xs:sequence>
 			<xs:element name="AdellijkeTitel" type="AdellijkeTitelPersoonType" maxOccurs="unbounded"/>
