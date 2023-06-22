@@ -16,7 +16,7 @@ import java.util.UUID;
 @Getter
 public class MagdaLoggedRequest extends LoggedRequest {
 
-    public MagdaLoggedRequest(String insz, String aboutWhom, UUID transactionID, UUID localTransactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
-        super(insz, Collections.singletonList(aboutWhom), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
+    public MagdaLoggedRequest(String requestingPartyInsz, String subjectInsz, UUID transactionID, UUID localTransactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
+        super(requestingPartyInsz, Collections.singletonList(subjectInsz), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
     }
 }

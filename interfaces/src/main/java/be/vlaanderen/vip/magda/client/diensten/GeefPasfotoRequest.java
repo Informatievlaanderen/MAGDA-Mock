@@ -24,8 +24,8 @@ public class GeefPasfotoRequest extends MagdaRequest {
 
         public GeefPasfotoRequest build() {
             return new GeefPasfotoRequest(
-                    getInsz(),
-                    getAboutWhom(),
+                    getRequestingPartyInsz(),
+                    getSubjectInsz(),
                     getRegistratie()
             );
         }
@@ -35,8 +35,8 @@ public class GeefPasfotoRequest extends MagdaRequest {
         return new Builder();
     }
 
-    private GeefPasfotoRequest(String insz, String aboutWhom, String registratie) {
-        super(insz, aboutWhom, registratie);
+    private GeefPasfotoRequest(String requestingPartyInsz, String subjectInsz, String registratie) {
+        super(requestingPartyInsz, subjectInsz, registratie);
     }
 
     @Override

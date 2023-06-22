@@ -46,8 +46,8 @@ public class RegistreerInschrijvingRequest extends MagdaRequest {
 
         public RegistreerInschrijvingRequest build() {
             return new RegistreerInschrijvingRequest(
-                    getInsz(),
-                    getAboutWhom(),
+                    getRequestingPartyInsz(),
+                    getSubjectInsz(),
                     getRegistratie(),
                     getStart(),
                     getEinde()
@@ -62,8 +62,8 @@ public class RegistreerInschrijvingRequest extends MagdaRequest {
     private final LocalDate start;
     private final LocalDate einde;
 
-    private RegistreerInschrijvingRequest(String insz, String aboutWhom, String registratie, LocalDate start, LocalDate einde) {
-        super(insz, aboutWhom, registratie);
+    private RegistreerInschrijvingRequest(String requestingPartyInsz, String subjectInsz, String registratie, LocalDate start, LocalDate einde) {
+        super(requestingPartyInsz, subjectInsz, registratie);
         this.start = start;
         this.einde = einde;
     }

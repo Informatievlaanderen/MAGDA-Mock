@@ -46,7 +46,7 @@ public class GeefPasfotoTest extends MockTestBase {
 
     private void assertPasfotoCorrect(String requestInsz, int expected) throws IOException {
         var request = GeefPasfotoRequest.builder()
-                .insz(requestInsz)
+                .requestingPartyInsz(requestInsz)
                 .build();
         var clientLogService = new ClientLogServiceMock();
 
@@ -93,7 +93,7 @@ public class GeefPasfotoTest extends MockTestBase {
     @SneakyThrows
     void geefPasfotov0200LuktNietOmdatMagdaOverbelastIs() {
         var request = GeefPasfotoRequest.builder()
-                .insz(INSZ_MAGDA_OVERBELAST)
+                .requestingPartyInsz(INSZ_MAGDA_OVERBELAST)
                 .build();
 
         var clientLogService = new ClientLogServiceMock();

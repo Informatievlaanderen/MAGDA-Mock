@@ -99,7 +99,7 @@ class ClientLogServiceMockTest {
 		@Test
 		void successWhenAllForSameInsz() {
 			var request = generateRequest();
-			var insz = request.getInsz();
+			var insz = request.getRequestingPartyInsz();
 			
 			service.logMagdaRequest(request);
 			service.logSucceededRequest(successRequest(request));
@@ -113,17 +113,17 @@ class ClientLogServiceMockTest {
 	}
 	
 	private SucceededLoggedRequest successRequest(MagdaLoggedRequest req) {
-		return new SucceededLoggedRequest(req.getInsz(), req.getAboutWhom(), req.getTransactionID(), req.getLocalTransactionID(),
+		return new SucceededLoggedRequest(req.getRequestingPartyInsz(), req.getSubjectInsz(), req.getTransactionID(), req.getLocalTransactionID(),
 				Duration.ofSeconds(1), req.getServiceName(), req.getServiceVersion(), req.getRegistrationInfo());
 	}
 	
 	private FailedLoggedRequest failedRequest(MagdaLoggedRequest req) {
-		return new FailedLoggedRequest(req.getInsz(), req.getTransactionID(), req.getLocalTransactionID(),
+		return new FailedLoggedRequest(req.getRequestingPartyInsz(), req.getTransactionID(), req.getLocalTransactionID(),
 				Duration.ofSeconds(1), Collections.emptyList(), req.getServiceName(), req.getServiceVersion(), req.getRegistrationInfo());
 	}
 	
 	private UnansweredLoggedRequest unansweredRequest(MagdaLoggedRequest req) {
-		return new UnansweredLoggedRequest(req.getInsz(), null, req.getTransactionID(), req.getLocalTransactionID(),
+		return new UnansweredLoggedRequest(req.getRequestingPartyInsz(), null, req.getTransactionID(), req.getLocalTransactionID(),
 				req.getServiceName(), req.getServiceVersion(), req.getRegistrationInfo());
 	}
 }

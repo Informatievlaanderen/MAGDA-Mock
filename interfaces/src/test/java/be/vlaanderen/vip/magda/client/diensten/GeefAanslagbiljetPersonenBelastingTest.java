@@ -16,7 +16,7 @@ class GeefAanslagbiljetPersonenBelastingTest extends TestBase {
 
         var insz = RandomStringUtils.randomNumeric(11);
         var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
-                .insz(insz)
+                .requestingPartyInsz(insz)
                 .build();
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
@@ -48,7 +48,7 @@ class GeefAanslagbiljetPersonenBelastingTest extends TestBase {
 
             var insz = RandomStringUtils.randomNumeric(11) ;
             var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
-                    .insz(insz)
+                    .requestingPartyInsz(insz)
                     .build();
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()

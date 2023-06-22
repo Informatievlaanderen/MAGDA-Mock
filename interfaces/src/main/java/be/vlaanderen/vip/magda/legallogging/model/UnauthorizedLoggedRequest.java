@@ -13,11 +13,11 @@ import java.util.UUID;
  * </ul>
  */
 public class UnauthorizedLoggedRequest extends LoggedRequest {
-    public UnauthorizedLoggedRequest(String insz, UUID transactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
-        super(insz, null, transactionID, null, serviceName, serviceVersion, registrationInfo);
+    public UnauthorizedLoggedRequest(String requestingPartyInsz, UUID transactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
+        super(requestingPartyInsz, null, transactionID, null, serviceName, serviceVersion, registrationInfo);
     }
 
-    public UnauthorizedLoggedRequest(String insz, UUID transactionID, UUID localTransactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
-        super(insz, null, transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
+    public UnauthorizedLoggedRequest(String requestingPartyInsz, UUID transactionID, UUID localTransactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
+        super(requestingPartyInsz, null, transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
     }
 }

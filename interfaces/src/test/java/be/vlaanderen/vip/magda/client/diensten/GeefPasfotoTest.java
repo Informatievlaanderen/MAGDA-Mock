@@ -14,7 +14,7 @@ class GeefPasfotoTest extends TestBase {
     @Test
     void fillsInRequestGeefPasfoto0200() {
         var request = GeefPasfotoRequest.builder()
-                .insz(INSZ)
+                .requestingPartyInsz(INSZ)
                 .build();
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
@@ -36,7 +36,7 @@ class GeefPasfotoTest extends TestBase {
         @Test
         void fillsInRequestGeefPasfoto0200() {
             var request = GeefPasfotoRequest.builder()
-                    .insz(INSZ)
+                    .requestingPartyInsz(INSZ)
                     .build();
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
