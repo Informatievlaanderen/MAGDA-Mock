@@ -13,6 +13,8 @@ import lombok.ToString;
  * <ul>
  * <li>none</li>
  * </ul>
+ *
+ * @see <a href="file:resources/templates/GeefAanslagbiljetPersonenbelasting/02.00.0000/template.xml">XML template for this request type</a>
  */
 @Getter
 @ToString

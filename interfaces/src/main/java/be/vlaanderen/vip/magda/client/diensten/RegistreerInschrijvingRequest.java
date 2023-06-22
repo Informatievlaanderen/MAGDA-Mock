@@ -18,6 +18,8 @@ import java.time.format.DateTimeFormatter;
  * <li>start: the start date of the registration</li>
  * <li>end: the end date of the registration</li>
  * </ul>
+ *
+ * @see <a href="file:resources/templates/RegistreerInschrijving/02.00.0000/template.xml">XML template for this request type</a>
  */
 @Getter
 @ToString

@@ -12,13 +12,15 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- * A request to a "RegistreerInschrijving" (legacy version 02.01) MAGDA service, which files registrations.
+ * A request to a "RegistreerInschrijving" (specifically version 02.01) MAGDA service, which files registrations.
  * Adds the following fields to the {@link MagdaRequest}:
  * <ul>
  * <li>type: the type of registration (person or enterprise)</li>
  * <li>start: the start date of the registration</li>
  * <li>end: the end date of the registration</li>
  * </ul>
+ *
+ * @see <a href="file:resources/templates/RegistreerInschrijving/02.01.0000/template.xml">XML template for this request type</a>
  */
 @Getter
 @ToString
