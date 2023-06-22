@@ -19,8 +19,8 @@ import java.util.UUID;
 @Getter
 @AllArgsConstructor
 public class LoggedRequest {
-    private final String requestingPartyInsz;
-    private final List<String> subjectInsz;
+    private final String subjectInsz;
+    private final List<String> insz;
     private final UUID transactionID;
     private final UUID localTransactionID;
     private final String serviceName;

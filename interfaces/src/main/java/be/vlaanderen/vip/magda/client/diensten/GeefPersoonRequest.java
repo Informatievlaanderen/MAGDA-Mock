@@ -24,8 +24,8 @@ public class GeefPersoonRequest extends MagdaRequest {
 
         public GeefPersoonRequest build() {
             return new GeefPersoonRequest(
-                    getRequestingPartyInsz(),
                     getSubjectInsz(),
+                    getInsz(),
                     getRegistratie()
             );
         }
@@ -35,8 +35,8 @@ public class GeefPersoonRequest extends MagdaRequest {
         return new Builder();
     }
 
-    private GeefPersoonRequest(String requestingPartyInsz, String subjectInsz, String registratie) {
-        super(requestingPartyInsz, subjectInsz, registratie);
+    private GeefPersoonRequest(String subjectInsz, String insz, String registratie) {
+        super(subjectInsz, insz, registratie);
     }
 
     @Override

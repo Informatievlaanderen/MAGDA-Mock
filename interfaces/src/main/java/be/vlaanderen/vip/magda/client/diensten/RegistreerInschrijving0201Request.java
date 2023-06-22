@@ -55,8 +55,8 @@ public class RegistreerInschrijving0201Request extends MagdaRequest {
 
         public RegistreerInschrijving0201Request build() {
             return new RegistreerInschrijving0201Request(
-                    getRequestingPartyInsz(),
                     getSubjectInsz(),
+                    getInsz(),
                     getRegistratie(),
                     getType(),
                     getStart(),
@@ -73,8 +73,8 @@ public class RegistreerInschrijving0201Request extends MagdaRequest {
     private final LocalDate start;
     private final LocalDate einde;
 
-    private RegistreerInschrijving0201Request(String requestingPartyInsz, String subjectInsz, String registratie, RegistrationType type, LocalDate start, LocalDate einde) {
-        super(requestingPartyInsz, subjectInsz, registratie);
+    private RegistreerInschrijving0201Request(String subjectInsz, String insz, String registratie, RegistrationType type, LocalDate start, LocalDate einde) {
+        super(subjectInsz, insz, registratie);
         this.type = type;
         this.start = start;
         this.einde = einde;
@@ -94,7 +94,7 @@ public class RegistreerInschrijving0201Request extends MagdaRequest {
         request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEinde().format(dateFormatter));
         request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Type", getType().getTypeString());
         request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Type", getType().getTypeString());
-        request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Sleutel", getRequestingPartyInsz()); // XXX why insz here?
+        request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Sleutel", getSubjectInsz());
         request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", magdaRegistrationInfo.getIdentification());
 
         var hoedanigheidscode = magdaRegistrationInfo.getHoedanigheidscode();

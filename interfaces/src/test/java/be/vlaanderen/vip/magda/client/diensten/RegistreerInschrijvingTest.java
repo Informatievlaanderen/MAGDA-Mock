@@ -23,7 +23,7 @@ class RegistreerInschrijvingTest extends TestBase {
         var end = LocalDate.of(2021, 9, 20);
 
         var request = RegistreerInschrijvingRequest.builder()
-                .requestingPartyInsz(INSZ)
+                .subjectInsz(INSZ)
                 .start(start)
                 .einde(end)
                 .build();
@@ -49,7 +49,7 @@ class RegistreerInschrijvingTest extends TestBase {
     void fillsInRequestRegistreerInschrijving0201() {
         var request = RegistreerInschrijving0201Request.builder()
                 .type(RegistrationType.PERSON)
-                .requestingPartyInsz(INSZ)
+                .subjectInsz(INSZ)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plusDays(5))
                 .build();
@@ -76,7 +76,7 @@ class RegistreerInschrijvingTest extends TestBase {
             var end = LocalDate.of(2021, 9, 20);
 
             var request = RegistreerInschrijvingRequest.builder()
-                    .requestingPartyInsz(INSZ)
+                    .subjectInsz(INSZ)
                     .start(start)
                     .einde(end)
                     .build();
@@ -105,7 +105,7 @@ class RegistreerInschrijvingTest extends TestBase {
         void fillsInRequestRegistreerInschrijving0201() {
             var request = RegistreerInschrijving0201Request.builder()
                     .type(RegistrationType.PERSON)
-                    .requestingPartyInsz(INSZ)
+                    .subjectInsz(INSZ)
                     .start(LocalDate.now())
                     .einde(LocalDate.now().plusDays(5))
                     .build();

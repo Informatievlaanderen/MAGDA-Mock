@@ -24,8 +24,8 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends MagdaRequest {
 
         public GeefAanslagbiljetPersonenbelastingRequest build() {
             return new GeefAanslagbiljetPersonenbelastingRequest(
-                    getRequestingPartyInsz(),
                     getSubjectInsz(),
+                    getInsz(),
                     getRegistratie()
             );
         }
@@ -35,8 +35,8 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends MagdaRequest {
         return new Builder();
     }
 
-    private GeefAanslagbiljetPersonenbelastingRequest(String requestingPartyInsz, String subjectInsz, String registratie) {
-        super(requestingPartyInsz, subjectInsz, registratie);
+    private GeefAanslagbiljetPersonenbelastingRequest(String subjectInsz, String insz, String registratie) {
+        super(subjectInsz, insz, registratie);
     }
 
     @Override

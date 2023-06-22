@@ -21,7 +21,7 @@ public class FailedLoggedRequest extends LoggedRequest {
     private final Duration duration;
     private final List<UitzonderingEntry> uitzonderingEntries;
 
-    public FailedLoggedRequest(String requestingPartyInsz,
+    public FailedLoggedRequest(String subjectInsz,
                                UUID transactionID,
                                UUID localTransactionID,
                                Duration duration,
@@ -29,7 +29,7 @@ public class FailedLoggedRequest extends LoggedRequest {
                                String serviceName,
                                String serviceVersion,
                                MagdaRegistrationInfo registrationInfo) {
-        super(requestingPartyInsz, new ArrayList<>(), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
+        super(subjectInsz, new ArrayList<>(), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
         this.uitzonderingEntries = uitzonderingEntries;
         this.duration = duration;
     }

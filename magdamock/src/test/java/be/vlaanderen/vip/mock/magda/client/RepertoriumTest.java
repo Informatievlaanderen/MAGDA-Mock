@@ -24,7 +24,7 @@ class RepertoriumTest extends MockTestBase {
     @SneakyThrows
     void registreerInschrijvingv0200Lukt() {
         var request = RegistreerInschrijvingRequest.builder()
-                .requestingPartyInsz(INSZ_REPERTORIUM_OK)
+                .subjectInsz(INSZ_REPERTORIUM_OK)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -51,7 +51,7 @@ class RepertoriumTest extends MockTestBase {
     @SneakyThrows
     void registreerInschrijvingv0200LuktNietWegensInhoudelijkProbleem() {
         var request = RegistreerInschrijvingRequest.builder()
-                .requestingPartyInsz(INSZ_REPERTORIUM_FOUT)
+                .subjectInsz(INSZ_REPERTORIUM_FOUT)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -80,7 +80,7 @@ class RepertoriumTest extends MockTestBase {
     @SneakyThrows
     void registreerInschrijvingv0200LuktNietOmdatMagdaOverbelastIs() {
         var request = RegistreerInschrijvingRequest.builder()
-                .requestingPartyInsz(INSZ_MAGDA_OVERBELAST)
+                .subjectInsz(INSZ_MAGDA_OVERBELAST)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -109,7 +109,7 @@ class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0201Lukt() {
         var request = RegistreerInschrijving0201Request.builder()
                 .type(RegistrationType.PERSON)
-                .requestingPartyInsz(INSZ_REPERTORIUM_OK)
+                .subjectInsz(INSZ_REPERTORIUM_OK)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -143,7 +143,7 @@ class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0201OndernemingLukt() {
         var request = RegistreerInschrijving0201Request.builder()
                 .type(RegistrationType.PERSON)
-                .requestingPartyInsz("123456789012")
+                .subjectInsz("123456789012")
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -177,7 +177,7 @@ class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0201LuktNietWegensInhoudelijkProbleem() {
         var request = RegistreerInschrijving0201Request.builder()
                 .type(RegistrationType.PERSON)
-                .requestingPartyInsz(INSZ_REPERTORIUM_FOUT)
+                .subjectInsz(INSZ_REPERTORIUM_FOUT)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -209,7 +209,7 @@ class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0201LuktNietOmdatMagdaOverbelastIs() {
         var request = RegistreerInschrijving0201Request.builder()
                 .type(RegistrationType.PERSON)
-                .requestingPartyInsz(INSZ_MAGDA_OVERBELAST)
+                .subjectInsz(INSZ_MAGDA_OVERBELAST)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -237,7 +237,7 @@ class RepertoriumTest extends MockTestBase {
     @SneakyThrows
     void registreerUitschrijvingv0200Lukt() {
         var request = RegistreerUitschrijvingRequest.builder()
-                .requestingPartyInsz(INSZ_REPERTORIUM_OK)
+                .subjectInsz(INSZ_REPERTORIUM_OK)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -270,7 +270,7 @@ class RepertoriumTest extends MockTestBase {
     @SneakyThrows
     void registreerUitschrijvingv0200LuktNietWegensInhoudelijkProbleem() {
         var request = RegistreerUitschrijvingRequest.builder()
-                .requestingPartyInsz(INSZ_REPERTORIUM_FOUT)
+                .subjectInsz(INSZ_REPERTORIUM_FOUT)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -299,7 +299,7 @@ class RepertoriumTest extends MockTestBase {
     @SneakyThrows
     void registreerUitschrijvingv0200LuktNietOmdatMagdaOverbelastIs() {
         var request = RegistreerUitschrijvingRequest.builder()
-                .requestingPartyInsz(INSZ_MAGDA_OVERBELAST)
+                .subjectInsz(INSZ_MAGDA_OVERBELAST)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();

@@ -18,8 +18,8 @@ import java.util.UUID;
  * <ul>
  * <li>correlationId: unique correlation ID of the request</li>
  * <li>requestId: unique ID of the request</li>
- * <li>requestingPartyInsz: the INSZ number of the requesting party</li>
- * <li>subjectInsz: the INSZ number of the party about which the information is requested (defaults to the requesting party if not specified)</li>
+ * <li>subjectInsz: the INSZ number of the requesting party</li>
+ * <li>insz: the INSZ number of the party about which the information is requested (defaults to the requesting party if not specified)</li>
  * <li>registration: registration code that can be resolved by a MagdaHoedanigService to obtain registration info (defaults to code "default" if not specified)</li>
  * </ul>
  */
@@ -27,19 +27,19 @@ import java.util.UUID;
 public abstract class MagdaRequest {
 
     protected abstract static class Builder<SELF extends Builder<SELF>> {
-        private String requestingPartyInsz;
         private String subjectInsz;
+        private String insz;
         private String registration;
-
-        @SuppressWarnings("unchecked")
-        public SELF requestingPartyInsz(String requestingPartyInsz) {
-            this.requestingPartyInsz = requestingPartyInsz;
-            return (SELF) this;
-        }
 
         @SuppressWarnings("unchecked")
         public SELF subjectInsz(String subjectInsz) {
             this.subjectInsz = subjectInsz;
+            return (SELF) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public SELF insz(String insz) {
+            this.insz = insz;
             return (SELF) this;
         }
 
@@ -49,12 +49,12 @@ public abstract class MagdaRequest {
             return (SELF) this;
         }
 
-        protected String getRequestingPartyInsz() {
-            return requestingPartyInsz;
+        protected String getSubjectInsz() {
+            return subjectInsz;
         }
 
-        protected String getSubjectInsz() {
-            return StringUtils.defaultString(subjectInsz, requestingPartyInsz);
+        protected String getInsz() {
+            return StringUtils.defaultString(insz, subjectInsz);
         }
 
         protected String getRegistratie() {
@@ -65,15 +65,15 @@ public abstract class MagdaRequest {
     private final UUID correlationId = CorrelationId.get();
     private final UUID requestId = UUID.randomUUID();
     @NotNull
-    private final String requestingPartyInsz;
-    @NotNull
     private final String subjectInsz;
+    @NotNull
+    private final String insz;
     @NotNull
     private final String registration;
 
-    protected MagdaRequest(@NotNull String requestingPartyInsz, @NotNull String subjectInsz, @NotNull String registration) {
-        this.requestingPartyInsz = requestingPartyInsz;
+    protected MagdaRequest(@NotNull String subjectInsz, @NotNull String insz, @NotNull String registration) {
         this.subjectInsz = subjectInsz;
+        this.insz = insz;
         this.registration = registration;
     }
 
@@ -89,7 +89,7 @@ public abstract class MagdaRequest {
 
     protected void fillInCommonFields(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         request.setValue("//Referte", getRequestId().toString());
-        request.setValue("//INSZ", getSubjectInsz());
+        request.setValue("//INSZ", getInsz());
 
         final var now = Instant.now();
         var ldt = LocalDateTime.ofInstant(now, ZoneId.of("Europe/Brussels"));

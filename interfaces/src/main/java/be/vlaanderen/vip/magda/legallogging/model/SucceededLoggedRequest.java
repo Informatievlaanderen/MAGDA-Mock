@@ -18,15 +18,15 @@ import java.util.UUID;
 public class SucceededLoggedRequest extends LoggedRequest {
     private final Duration duration;
 
-    public SucceededLoggedRequest(String requestingPartyInsz,
-                                  List<String> subjectInszs,
+    public SucceededLoggedRequest(String subjectInsz,
+                                  List<String> inszs,
                                   UUID transactionID,
                                   UUID localTransactionID,
                                   Duration duration,
                                   String serviceName,
                                   String serviceVersion,
                                   MagdaRegistrationInfo registrationInfo) {
-        super(requestingPartyInsz, subjectInszs, transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
+        super(subjectInsz, inszs, transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
         this.duration = duration;
     }
 }

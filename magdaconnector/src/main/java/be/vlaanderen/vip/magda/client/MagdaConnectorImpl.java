@@ -68,7 +68,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                     .log("Result of request to MAGDA service with reference [{}] ({} ms): {}", magdaRequest.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
 
             if(!antwoord.isHasContents() && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
-                throw new UitzonderingenSectionInResponseException(magdaRequest.getRequestingPartyInsz(), getLevel1UitzonderingEntry(response));
+                throw new UitzonderingenSectionInResponseException(magdaRequest.getSubjectInsz(), getLevel1UitzonderingEntry(response));
             }
 
             return antwoord;
@@ -105,8 +105,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private void logNoResponse(MagdaRequest magdaRequest) {
         clientLogService.logUnansweredRequest(new UnansweredLoggedRequest(
-                magdaRequest.getRequestingPartyInsz(),
                 magdaRequest.getSubjectInsz(),
+                magdaRequest.getInsz(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 magdaRequest.magdaServiceIdentification().getName(),
@@ -116,8 +116,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private void logRequest(MagdaRequest magdaRequest) {
         clientLogService.logMagdaRequest(new MagdaLoggedRequest(
-                magdaRequest.getRequestingPartyInsz(),
                 magdaRequest.getSubjectInsz(),
+                magdaRequest.getInsz(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 magdaRequest.magdaServiceIdentification().getName(),
@@ -128,7 +128,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private void logAllINSZsSucceeded(MagdaRequest magdaRequest, Duration duration, Set<String> inszs) {
         clientLogService.logSucceededRequest(new SucceededLoggedRequest(
-                magdaRequest.getRequestingPartyInsz(),
+                magdaRequest.getSubjectInsz(),
                 new ArrayList<>(inszs),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
@@ -140,7 +140,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private void logAllUitzonderingEntries(MagdaRequest magdaRequest, Duration duration, List<UitzonderingEntry> uitzonderingEntries) {
         clientLogService.logFailedRequest(new FailedLoggedRequest(
-                magdaRequest.getRequestingPartyInsz(),
+                magdaRequest.getSubjectInsz(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 duration,
@@ -234,7 +234,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private Set<String> findAllINSZsIn(MagdaRequest magdaRequest, MagdaDocument responseDocument) {
         Set<String> inszs = new HashSet<>();
-        inszs.add(magdaRequest.getSubjectInsz());
+        inszs.add(magdaRequest.getInsz());
         var nodes = responseDocument.xpath("//INSZ");
         if (nodes.getLength() > 0) {
             for (var pos = 0; pos < nodes.getLength(); pos++) {

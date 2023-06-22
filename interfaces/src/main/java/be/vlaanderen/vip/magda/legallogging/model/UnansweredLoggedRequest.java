@@ -14,7 +14,7 @@ import java.util.UUID;
  * </ul>
  */
 public class UnansweredLoggedRequest extends LoggedRequest {
-    public UnansweredLoggedRequest(String requestingPartyInsz, String subjectInsz, UUID transactionID, UUID localTransactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
-        super(requestingPartyInsz, Collections.singletonList(subjectInsz), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
+    public UnansweredLoggedRequest(String subjectInsz, String insz, UUID transactionID, UUID localTransactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
+        super(subjectInsz, Collections.singletonList(insz), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
     }
 }

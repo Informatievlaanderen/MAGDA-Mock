@@ -71,7 +71,7 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void callGeefBewijs() {
         var request = GeefBewijsRequest.builder()
-                .requestingPartyInsz(CORRECT_INSZ)
+                .subjectInsz(CORRECT_INSZ)
                 .build();
 
         var magdaResponse = connector.send(request);
@@ -91,7 +91,7 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void callRegistreerInschrijving() {
         var request = RegistreerInschrijvingRequest.builder()
-                .requestingPartyInsz(CORRECT_INSZ)
+                .subjectInsz(CORRECT_INSZ)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -113,7 +113,7 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void callRegistreerInschrijvingFaaltMagdaOverbelast() {
         var request = RegistreerInschrijvingRequest.builder()
-                .requestingPartyInsz(INSZ_MAGDA_OVERBELAST)
+                .subjectInsz(INSZ_MAGDA_OVERBELAST)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -127,7 +127,7 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void callRegistreerUitschrijving() {
         var request = RegistreerUitschrijvingRequest.builder()
-                .requestingPartyInsz(CORRECT_INSZ)
+                .subjectInsz(CORRECT_INSZ)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -148,7 +148,7 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void callRegistreerUitschrijvingFaaltMagdaOverbelast() {
         var request = RegistreerUitschrijvingRequest.builder()
-                .requestingPartyInsz(INSZ_MAGDA_OVERBELAST)
+                .subjectInsz(INSZ_MAGDA_OVERBELAST)
                 .start(LocalDate.now())
                 .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
@@ -162,7 +162,7 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void callGeefAanslagbiljetPersonenbelasting() {
         var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
-                .requestingPartyInsz("82102108114")
+                .subjectInsz("82102108114")
                 .build();
         var magdaResponse = connector.send(request);
         logMagdaResponse(magdaResponse);
@@ -203,7 +203,7 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void multipleCalls() {
         var request = GeefBewijsRequest.builder()
-                .requestingPartyInsz(CORRECT_INSZ)
+                .subjectInsz(CORRECT_INSZ)
                 .build();
 
         assertDoesNotThrow(() -> connector.send(request));
@@ -213,7 +213,7 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     private void assertPasfotoCorrect(String requestInsz, int expected) {
         var request = GeefPasfotoRequest.builder()
-                .requestingPartyInsz(requestInsz)
+                .subjectInsz(requestInsz)
                 .build();
 
         var magdaResponse = connector.send(request);

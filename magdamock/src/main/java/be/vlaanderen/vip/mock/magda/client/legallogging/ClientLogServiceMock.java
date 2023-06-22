@@ -88,8 +88,8 @@ public class ClientLogServiceMock implements ClientLogService {
             throw new IllegalStateException(String.format("Response with reference %s for service %s by INSZ %s for INSZ %s reference equals transaction",
                     antwoord.getLocalTransactionID().toString(),
                     antwoord.getServiceName(),
-                    antwoord.getRequestingPartyInsz(),
-                    antwoord.getSubjectInsz()));
+                    antwoord.getSubjectInsz(),
+                    antwoord.getInsz()));
         }
     }
 
@@ -101,8 +101,8 @@ public class ClientLogServiceMock implements ClientLogService {
                 throw new IllegalStateException(String.format("Response with reference %s for service %s by INSZ %s for INSZ %s has multiple occurrences",
                         antwoord.getLocalTransactionID().toString(),
                         antwoord.getServiceName(),
-                        antwoord.getRequestingPartyInsz(),
-                        antwoord.getSubjectInsz()));
+                        antwoord.getSubjectInsz(),
+                        antwoord.getInsz()));
             }
             antwoorden.add(content);
         }
@@ -117,8 +117,8 @@ public class ClientLogServiceMock implements ClientLogService {
                 throw new IllegalStateException(String.format("Unanswered requests with reference %s for service %s by INSZ %s for INSZ %s has multiple occurrences",
                         antwoord.getLocalTransactionID().toString(),
                         antwoord.getServiceName(),
-                        antwoord.getRequestingPartyInsz(),
-                        antwoord.getSubjectInsz()));
+                        antwoord.getSubjectInsz(),
+                        antwoord.getInsz()));
             }
             antwoorden.add(content);
         }
@@ -129,8 +129,8 @@ public class ClientLogServiceMock implements ClientLogService {
         return antwoord.getServiceName() + "/" +
                 antwoord.getTransactionID().toString() + "/" +
                 antwoord.getLocalTransactionID().toString() + "/" +
-                antwoord.getRequestingPartyInsz() + "/" +
-                antwoord.getSubjectInsz();
+                antwoord.getSubjectInsz() + "/" +
+                antwoord.getInsz();
     }
 
     private void assertEachRequestHasAntwoord() {
@@ -144,8 +144,8 @@ public class ClientLogServiceMock implements ClientLogService {
                 throw new IllegalStateException(String.format("Request with reference %s for service %s by INSZ %s for INSZ %s has responses, as well as unanswered requests and errors",
                         request.getLocalTransactionID().toString(),
                         request.getServiceName(),
-                        request.getRequestingPartyInsz(),
-                        request.getSubjectInsz()));
+                        request.getSubjectInsz(),
+                        request.getInsz()));
             }
             if (matchingGeslaagd.isEmpty() && matchingOnbeantwoord.isEmpty() && matchGefaald.isEmpty()) {
                 log.error("Illegal ClientLogServiceMock state");
@@ -153,8 +153,8 @@ public class ClientLogServiceMock implements ClientLogService {
                 throw new IllegalStateException(String.format("Request with reference %s for service %s by INSZ %s for INSZ %s has neither responses, nor unanswered requests, nor errors",
                         request.getLocalTransactionID().toString(),
                         request.getServiceName(),
-                        request.getRequestingPartyInsz(),
-                        request.getSubjectInsz()));
+                        request.getSubjectInsz(),
+                        request.getInsz()));
             }
         }
     }
@@ -171,8 +171,8 @@ public class ClientLogServiceMock implements ClientLogService {
         for (LoggedRequest loggedRequest : loggedRequests) {
             log.debug("Request {} {} {} {} {}",
                     loggedRequest.getServiceName(),
-                    loggedRequest.getRequestingPartyInsz(),
                     loggedRequest.getSubjectInsz(),
+                    loggedRequest.getInsz(),
                     loggedRequest.getTransactionID(),
                     loggedRequest.getLocalTransactionID());
         }
@@ -199,11 +199,11 @@ public class ClientLogServiceMock implements ClientLogService {
     private boolean match(LoggedRequest request, LoggedRequest antwoord) {
         return request.getLocalTransactionID().equals(antwoord.getLocalTransactionID()) &&
                 request.getTransactionID().equals(antwoord.getTransactionID()) &&
-                request.getRequestingPartyInsz().equals(antwoord.getRequestingPartyInsz());
+                request.getSubjectInsz().equals(antwoord.getSubjectInsz());
     }
 
     private void assertLogFor(LoggedRequest log, String insz) {
-        assert insz.equals(log.getRequestingPartyInsz()) : String.format("Log for service %s doesn't contain the expected INSZ of the requesting party", log.getServiceName());
+        assert insz.equals(log.getSubjectInsz()) : String.format("Log for service %s doesn't contain the expected INSZ of the requesting party", log.getServiceName());
     }
 
     public void assertAlleVragenEnAntwoordenVoor(String insz) {
