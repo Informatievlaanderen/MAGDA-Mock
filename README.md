@@ -169,7 +169,7 @@ _Source of the XSD files:_ https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/
 
 ### Note on the use of language within the project
 
-A great deal of this code has a history of having been written in Dutch, due to its origin as an internal project of the Flemish government. Since it is now open source, translation efforts are in progress, and the intention is to write as much as of it as possible in English.
+Given the technical nature of this project and its documentation, we have chosen to use the English language whenever possible. As the efforts on this started within the Flemish government, Dutch language comments, naming and documentation are still present, and will in due course be replaced by English language equivalents.
 
 The exception to this rule is when a word is a reference to another word (in accordance with the "use-mention distinction" in grammar); in other words, when a word could be written between quotation marks because for instance it occurs as an element in an XML file (e.g., UitzonderingEntry can be read as: "Uitzondering" entry), or some domain-specific concept without a real English name (e.g., "hoedanigheidscode").
 Wherever this is the case, the documentation ought to explain what the referent of that word means.
