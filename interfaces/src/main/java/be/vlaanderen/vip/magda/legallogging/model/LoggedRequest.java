@@ -18,9 +18,8 @@ import java.util.UUID;
  */
 @Getter
 @AllArgsConstructor
-public class LoggedRequest {
-    private final String subjectInsz;
-    private final List<String> insz;
+public class LoggedRequest { // XXX update javadocs in requests and loggedrequests!
+    private final List<String> inszs;
     private final UUID transactionID;
     private final UUID localTransactionID;
     private final String serviceName;

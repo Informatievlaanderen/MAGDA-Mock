@@ -25,7 +25,7 @@ public class MagdaResponse {
     private final Node body;
     private final MagdaDocument document;
     private final boolean hasContents;
-    private final Set<String> insz;
+    private final Set<String> insz; // XXX -> subjects?
 
     public boolean isBodyIngevuld() {
         return uitzonderingEntries.isEmpty() && hasContents && body != null;

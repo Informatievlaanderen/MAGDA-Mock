@@ -84,7 +84,7 @@ class ClientLogServiceMockTest {
 		@Test
 		void failsWhenRequestHasSameLocalAsTransactionId() {
 			var uuid = UUID.randomUUID();
-			var invalidRequest = new MagdaLoggedRequest("test-insz", null, uuid, uuid, null, null, null);
+			var invalidRequest = new MagdaLoggedRequest("test-insz", uuid, uuid, null, null, null);
 			
 			service.logMagdaRequest(invalidRequest);
 			service.logSucceededRequest(successRequest(invalidRequest));
@@ -99,7 +99,7 @@ class ClientLogServiceMockTest {
 		@Test
 		void successWhenAllForSameInsz() {
 			var request = generateRequest();
-			var insz = request.getSubjectInsz();
+			var insz = request.getInszs();
 			
 			service.logMagdaRequest(request);
 			service.logSucceededRequest(successRequest(request));
@@ -109,21 +109,21 @@ class ClientLogServiceMockTest {
 	}
 	
 	private MagdaLoggedRequest generateRequest() {
-		return new MagdaLoggedRequest("test-insz", null, UUID.randomUUID(), UUID.randomUUID(), null, null, null);
+		return new MagdaLoggedRequest("test-insz", UUID.randomUUID(), UUID.randomUUID(), null, null, null);
 	}
 	
 	private SucceededLoggedRequest successRequest(MagdaLoggedRequest req) {
-		return new SucceededLoggedRequest(req.getSubjectInsz(), req.getInsz(), req.getTransactionID(), req.getLocalTransactionID(),
+		return new SucceededLoggedRequest(req.getInszs(), req.getTransactionID(), req.getLocalTransactionID(),
 				Duration.ofSeconds(1), req.getServiceName(), req.getServiceVersion(), req.getRegistrationInfo());
 	}
 	
 	private FailedLoggedRequest failedRequest(MagdaLoggedRequest req) {
-		return new FailedLoggedRequest(req.getSubjectInsz(), req.getTransactionID(), req.getLocalTransactionID(),
+		return new FailedLoggedRequest(req.getTransactionID(), req.getLocalTransactionID(),
 				Duration.ofSeconds(1), Collections.emptyList(), req.getServiceName(), req.getServiceVersion(), req.getRegistrationInfo());
 	}
 	
 	private UnansweredLoggedRequest unansweredRequest(MagdaLoggedRequest req) {
-		return new UnansweredLoggedRequest(req.getSubjectInsz(), null, req.getTransactionID(), req.getLocalTransactionID(),
+		return new UnansweredLoggedRequest(null, req.getTransactionID(), req.getLocalTransactionID(),
 				req.getServiceName(), req.getServiceVersion(), req.getRegistrationInfo());
 	}
 }

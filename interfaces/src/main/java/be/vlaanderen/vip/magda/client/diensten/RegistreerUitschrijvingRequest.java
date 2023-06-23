@@ -3,7 +3,10 @@ package be.vlaanderen.vip.magda.client.diensten;
 import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
+import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.ToString;
@@ -25,12 +28,24 @@ import java.time.format.DateTimeFormatter;
 @ToString
 public class RegistreerUitschrijvingRequest extends MagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
+    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> { // XXX test
 
+        @Getter(AccessLevel.PROTECTED)
+        private INSZNumber insz;
         @Getter(AccessLevel.PROTECTED)
         private LocalDate start;
         @Getter(AccessLevel.PROTECTED)
         private LocalDate einde;
+
+        @SuppressWarnings("unchecked")
+        public SELF insz(INSZNumber insz) {
+            this.insz = insz;
+            return (SELF) this;
+        }
+
+        public SELF insz(String insz) {
+            return insz(INSZNumber.of(insz));
+        }
 
         @SuppressWarnings("unchecked")
         public SELF start(LocalDate start) {
@@ -46,9 +61,8 @@ public class RegistreerUitschrijvingRequest extends MagdaRequest {
 
         public RegistreerUitschrijvingRequest build() {
             return new RegistreerUitschrijvingRequest(
-                    getSubjectInsz(),
                     getInsz(),
-                    getRegistratie(),
+                    getRegistration(),
                     getStart(),
                     getEinde()
             );
@@ -59,11 +73,20 @@ public class RegistreerUitschrijvingRequest extends MagdaRequest {
         return new Builder();
     }
 
+    @NotNull
+    private final INSZNumber insz;
+    @NotNull
     private final LocalDate start;
+    @NotNull
     private final LocalDate einde;
 
-    private RegistreerUitschrijvingRequest(String subjectInsz, String insz, String registratie, LocalDate start, LocalDate einde) {
-        super(subjectInsz, insz, registratie);
+    private RegistreerUitschrijvingRequest(
+            @NotNull INSZNumber insz,
+            @NotNull String registratie,
+            @NotNull LocalDate start,
+            @NotNull LocalDate einde) {
+        super(registratie);
+        this.insz = insz;
         this.start = start;
         this.einde = einde;
     }
@@ -74,8 +97,15 @@ public class RegistreerUitschrijvingRequest extends MagdaRequest {
     }
 
     @Override
+    public SubjectIdentificationNumber getSubject() {
+        return insz;
+    }
+
+    @Override
     protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         fillInCommonFields(request, magdaRegistrationInfo);
+
+        request.setValue("//INSZ", getInsz().getValue());
 
         setDateFields(request);
         request.setValue("//Vraag/Inhoud/Uitschrijving/Identificatie", magdaRegistrationInfo.getIdentification());

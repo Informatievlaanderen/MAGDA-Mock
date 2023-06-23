@@ -48,7 +48,7 @@ class MagdaConnectorImplTest {
 		@Test
 		void sendDocumentReturnsNull() {
 			var req = GeefBewijsRequest.builder()
-					.subjectInsz("test-insz")
+					.insz("test-insz")
 					.build();
 
 			// if this occurs, we ought to treat it as a bug in the code
@@ -60,7 +60,7 @@ class MagdaConnectorImplTest {
 			when(connection.sendDocument(any())).thenThrow(new MagdaConnectionException("something went wrong"));
 
 			var req = GeefBewijsRequest.builder()
-					.subjectInsz("test-insz")
+					.insz("test-insz")
 					.build();
 
 			assertThrows(NoResponseException.class, () -> connector.send(req));
@@ -71,7 +71,7 @@ class MagdaConnectorImplTest {
 			when(connection.sendDocument(any())).thenThrow(new MagdaConnectionException("something went wrong"));
 
 			var req = GeefBewijsRequest.builder()
-					.subjectInsz("test-insz")
+					.insz("test-insz")
 					.build();
 
 			assertThrows(NoResponseException.class, () -> connector.send(req));
@@ -83,7 +83,7 @@ class MagdaConnectorImplTest {
 			when(connection.sendDocument(any())).thenThrow(new MagdaConnectionException("something went wrong"));
 
 			var req = GeefBewijsRequest.builder()
-					.subjectInsz("test-insz")
+					.insz("test-insz")
 					.build();
 
 			assertThrows(NoResponseException.class, () -> connector.send(req));
@@ -105,7 +105,7 @@ class MagdaConnectorImplTest {
 		@Test
 		void requestFails() {
 			var req = GeefBewijsRequest.builder()
-					.subjectInsz("test-insz")
+					.insz("test-insz")
 					.build();
 
 			assertThrows(UitzonderingenSectionInResponseException.class, () -> connector.send(req));
@@ -114,7 +114,7 @@ class MagdaConnectorImplTest {
 		@Test
 		void logsRequest() {
 			var req = GeefBewijsRequest.builder()
-					.subjectInsz("test-insz")
+					.insz("test-insz")
 					.build();
 
 			assertThrows(UitzonderingenSectionInResponseException.class, () -> connector.send(req));
@@ -128,7 +128,7 @@ class MagdaConnectorImplTest {
 		@Test
 		void returnsReply() {
 			var req = GeefBewijsRequest.builder()
-					.subjectInsz("test-insz")
+					.insz("test-insz")
 					.build();
 			mockReply(buildReplyDocument());
 
@@ -139,7 +139,7 @@ class MagdaConnectorImplTest {
 		@Test
 		void logsRequest() {
 			var req = GeefBewijsRequest.builder()
-					.subjectInsz("test-insz")
+					.insz("test-insz")
 					.build();
 			mockReply(buildReplyDocument());
 
@@ -150,7 +150,7 @@ class MagdaConnectorImplTest {
 		@Test
 		void returnsGeneralExceptions() {
 			var req = GeefBewijsRequest.builder()
-					.subjectInsz("test-insz")
+					.insz("test-insz")
 					.build();
 			mockReply(buildReplyDocument(buildException("test-exception"), ""));
 
@@ -161,7 +161,7 @@ class MagdaConnectorImplTest {
 		@Test
 		void returnsReplyExceptions() {
 			var req = GeefBewijsRequest.builder()
-					.subjectInsz("test-insz")
+					.insz("test-insz")
 					.build();
 			mockReply(buildReplyDocument("", buildException("test-exception")));
 

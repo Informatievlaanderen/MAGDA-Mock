@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client;
 
+import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -18,8 +19,7 @@ import java.util.UUID;
  * <ul>
  * <li>correlationId: unique correlation ID of the request</li>
  * <li>requestId: unique ID of the request</li>
- * <li>subjectInsz: the INSZ number of the requesting party</li>
- * <li>insz: the INSZ number of the party about which the information is requested (defaults to the requesting party if not specified)</li>
+ * <li>insz: the INSZ number of the party about which the information is requested</li>
  * <li>registration: registration code that can be resolved by a MagdaHoedanigService to obtain registration info (defaults to code "default" if not specified)</li>
  * </ul>
  */
@@ -27,21 +27,7 @@ import java.util.UUID;
 public abstract class MagdaRequest {
 
     protected abstract static class Builder<SELF extends Builder<SELF>> {
-        private String subjectInsz;
-        private String insz;
         private String registration;
-
-        @SuppressWarnings("unchecked")
-        public SELF subjectInsz(String subjectInsz) {
-            this.subjectInsz = subjectInsz;
-            return (SELF) this;
-        }
-
-        @SuppressWarnings("unchecked")
-        public SELF insz(String insz) {
-            this.insz = insz;
-            return (SELF) this;
-        }
 
         @SuppressWarnings("unchecked")
         public SELF registration(String registration) {
@@ -49,15 +35,7 @@ public abstract class MagdaRequest {
             return (SELF) this;
         }
 
-        protected String getSubjectInsz() {
-            return subjectInsz;
-        }
-
-        protected String getInsz() {
-            return StringUtils.defaultString(insz, subjectInsz);
-        }
-
-        protected String getRegistratie() {
+        protected String getRegistration() {
             return StringUtils.defaultString(registration, "default");
         }
     }
@@ -65,19 +43,15 @@ public abstract class MagdaRequest {
     private final UUID correlationId = CorrelationId.get();
     private final UUID requestId = UUID.randomUUID();
     @NotNull
-    private final String subjectInsz;
-    @NotNull
-    private final String insz;
-    @NotNull
     private final String registration;
 
-    protected MagdaRequest(@NotNull String subjectInsz, @NotNull String insz, @NotNull String registration) {
-        this.subjectInsz = subjectInsz;
-        this.insz = insz;
+    protected MagdaRequest(@NotNull String registration) {
         this.registration = registration;
     }
 
     public abstract MagdaServiceIdentification magdaServiceIdentification();
+
+    public abstract SubjectIdentificationNumber getSubject();
 
     public MagdaDocument toMagdaDocument(MagdaRegistrationInfo magdaRegistrationInfo) {
         var serviceId = magdaServiceIdentification();
@@ -89,7 +63,6 @@ public abstract class MagdaRequest {
 
     protected void fillInCommonFields(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         request.setValue("//Referte", getRequestId().toString());
-        request.setValue("//INSZ", getInsz());
 
         final var now = Instant.now();
         var ldt = LocalDateTime.ofInstant(now, ZoneId.of("Europe/Brussels"));

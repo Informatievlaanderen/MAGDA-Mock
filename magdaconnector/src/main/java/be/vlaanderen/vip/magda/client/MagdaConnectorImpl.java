@@ -1,12 +1,13 @@
 package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
+import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 import be.vlaanderen.vip.magda.client.util.XmlUtils;
+import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
+import be.vlaanderen.vip.magda.exception.NoResponseException;
 import be.vlaanderen.vip.magda.exception.ServerException;
 import be.vlaanderen.vip.magda.exception.UitzonderingenSectionInResponseException;
-import be.vlaanderen.vip.magda.exception.NoResponseException;
-import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import be.vlaanderen.vip.magda.legallogging.model.*;
 import be.vlaanderen.vip.magda.legallogging.service.ClientLogService;
 import lombok.RequiredArgsConstructor;
@@ -68,7 +69,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                     .log("Result of request to MAGDA service with reference [{}] ({} ms): {}", magdaRequest.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
 
             if(!antwoord.isHasContents() && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
-                throw new UitzonderingenSectionInResponseException(magdaRequest.getSubjectInsz(), getLevel1UitzonderingEntry(response));
+                throw new UitzonderingenSectionInResponseException(magdaRequest.getSubject(), getLevel1UitzonderingEntry(response));
             }
 
             return antwoord;
@@ -105,8 +106,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private void logNoResponse(MagdaRequest magdaRequest) {
         clientLogService.logUnansweredRequest(new UnansweredLoggedRequest(
-                magdaRequest.getSubjectInsz(),
-                magdaRequest.getInsz(),
+                magdaRequest.getSubject().getValue(), // XXX this can be an INSZ or a KBO number
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 magdaRequest.magdaServiceIdentification().getName(),
@@ -116,8 +116,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private void logRequest(MagdaRequest magdaRequest) {
         clientLogService.logMagdaRequest(new MagdaLoggedRequest(
-                magdaRequest.getSubjectInsz(),
-                magdaRequest.getInsz(),
+                magdaRequest.getSubject().getValue(), // XXX this can be an INSZ or a KBO number
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 magdaRequest.magdaServiceIdentification().getName(),
@@ -128,7 +127,6 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private void logAllINSZsSucceeded(MagdaRequest magdaRequest, Duration duration, Set<String> inszs) {
         clientLogService.logSucceededRequest(new SucceededLoggedRequest(
-                magdaRequest.getSubjectInsz(),
                 new ArrayList<>(inszs),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
@@ -140,7 +138,6 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private void logAllUitzonderingEntries(MagdaRequest magdaRequest, Duration duration, List<UitzonderingEntry> uitzonderingEntries) {
         clientLogService.logFailedRequest(new FailedLoggedRequest(
-                magdaRequest.getSubjectInsz(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 duration,
@@ -234,7 +231,9 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private Set<String> findAllINSZsIn(MagdaRequest magdaRequest, MagdaDocument responseDocument) {
         Set<String> inszs = new HashSet<>();
-        inszs.add(magdaRequest.getInsz());
+        if(magdaRequest.getSubject() instanceof INSZNumber insz) {
+            inszs.add(insz.getValue());
+        }
         var nodes = responseDocument.xpath("//INSZ");
         if (nodes.getLength() > 0) {
             for (var pos = 0; pos < nodes.getLength(); pos++) {
