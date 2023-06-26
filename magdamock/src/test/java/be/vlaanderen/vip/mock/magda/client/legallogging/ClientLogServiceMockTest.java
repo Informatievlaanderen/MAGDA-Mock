@@ -134,7 +134,7 @@ class ClientLogServiceMockTest {
 	}
 	
 	private UnansweredLoggedRequest unansweredRequest(MagdaLoggedRequest req) {
-		return new UnansweredLoggedRequest(null, req.getTransactionID(), req.getLocalTransactionID(),
+		return new UnansweredLoggedRequest(INSZNumber.of("test-insz"), req.getTransactionID(), req.getLocalTransactionID(),
 				req.getServiceName(), req.getServiceVersion(), req.getRegistrationInfo());
 	}
 }

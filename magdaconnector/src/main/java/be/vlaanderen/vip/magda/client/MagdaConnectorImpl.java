@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
+import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 import be.vlaanderen.vip.magda.client.util.XmlUtils;
@@ -165,7 +166,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         }
     }
 
-    private MagdaResponse buildResponse(MagdaRequest magdaRequest, MagdaDocument responseDocument) { // XXX test
+    MagdaResponse buildResponse(MagdaRequest magdaRequest, MagdaDocument responseDocument) {
         return MagdaResponse.builder()
                 .correlationId(magdaRequest.getCorrelationId())
                 .requestId(magdaRequest.getRequestId())
@@ -231,15 +232,10 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private Set<SubjectIdentificationNumber> findAllSubjectsIn(MagdaRequest magdaRequest, MagdaDocument responseDocument) {
         Set<SubjectIdentificationNumber> subjects = new HashSet<>();
-        subjects.add(magdaRequest.getSubject());
 
-        // XXX move the following to a method in the MagdaDocument class
-        var nodes = responseDocument.xpath("//INSZ"); // XXX what about KBO numbers (and subjects in general)?
-        if (nodes.getLength() > 0) {
-            for (var pos = 0; pos < nodes.getLength(); pos++) {
-                subjects.add(INSZNumber.of(nodes.item(pos).getTextContent())); // XXX map this
-            }
-        }
+        subjects.add(magdaRequest.getSubject());
+        subjects.addAll(responseDocument.getValues("//INSZ").stream().map(INSZNumber::of).toList());
+        subjects.addAll(responseDocument.getValues("//Ondernemingsnummer").stream().map(KBONumber::of).toList());
 
         return subjects;
     }

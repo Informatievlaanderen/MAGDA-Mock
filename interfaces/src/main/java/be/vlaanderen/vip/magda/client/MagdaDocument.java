@@ -26,7 +26,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * A wrapper around a DOM Document with some utility methods to retrieve and manipulate MAGDA XML document data.
@@ -97,6 +99,16 @@ public class MagdaDocument {
             return null;
         }
         return nodes.item(0).getTextContent();
+    }
+
+    public List<String> getValues(String expression) {
+        var values = new ArrayList<String>();
+        var nodes = xpath(expression);
+        for(var pos = 0; pos < nodes.getLength(); pos++) {
+            values.add(nodes.item(pos).getTextContent());
+        }
+
+        return values;
     }
 
     public NodeList xpath(String expression, String defaultNamespace) {
