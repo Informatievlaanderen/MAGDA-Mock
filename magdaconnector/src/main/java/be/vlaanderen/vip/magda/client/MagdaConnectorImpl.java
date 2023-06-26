@@ -127,7 +127,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private void logAllINSZsSucceeded(MagdaRequest magdaRequest, Duration duration, Set<String> inszs) {
         clientLogService.logSucceededRequest(new SucceededLoggedRequest(
-                new ArrayList<>(inszs),
+                new ArrayList<>(inszs), // XXX this can be an INSZ or a KBO number
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 duration,
@@ -173,7 +173,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 .body(getBody(responseDocument))
                 .document(responseDocument)
                 .hasContents(responseHasContents(responseDocument))
-                .insz(findAllINSZsIn(magdaRequest, responseDocument))
+                .insz(findAllINSZsIn(magdaRequest, responseDocument)) // XXX these can be INSZ or KBO numbers
                 .build();
     }
 
@@ -234,7 +234,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         if(magdaRequest.getSubject() instanceof INSZNumber insz) {
             inszs.add(insz.getValue());
         }
-        var nodes = responseDocument.xpath("//INSZ");
+        var nodes = responseDocument.xpath("//INSZ"); // XXX what about KBO numbers (and subjects in general)?
         if (nodes.getLength() > 0) {
             for (var pos = 0; pos < nodes.getLength(); pos++) {
                 inszs.add(nodes.item(pos).getTextContent());
