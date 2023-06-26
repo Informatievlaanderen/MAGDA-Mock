@@ -18,8 +18,9 @@ import java.time.format.DateTimeFormatter;
  * A request to a "RegistreerUitschrijving" MAGDA service, which files deregistrations.
  * Adds the following fields to the {@link MagdaRequest}:
  * <ul>
- * <li>start: the start date of the deregistration</li>
- * <li>end: the end date of the deregistration</li>
+ * <li>insz: the INSZ number of the party about which the information is requested</li>
+ * <li>startDate: the start date of the deregistration</li>
+ * <li>endDate: the end date of the deregistration</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/RegistreerUitschrijving/02.00.0000/template.xml">XML template for this request type</a>
@@ -28,14 +29,14 @@ import java.time.format.DateTimeFormatter;
 @ToString
 public class RegistreerUitschrijvingRequest extends MagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> { // XXX test
+    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
 
         @Getter(AccessLevel.PROTECTED)
         private INSZNumber insz;
         @Getter(AccessLevel.PROTECTED)
-        private LocalDate start;
+        private LocalDate startDate;
         @Getter(AccessLevel.PROTECTED)
-        private LocalDate einde;
+        private LocalDate endDate;
 
         @SuppressWarnings("unchecked")
         public SELF insz(INSZNumber insz) {
@@ -48,23 +49,25 @@ public class RegistreerUitschrijvingRequest extends MagdaRequest {
         }
 
         @SuppressWarnings("unchecked")
-        public SELF start(LocalDate start) {
-            this.start = start;
+        public SELF startDate(LocalDate startDate) {
+            this.startDate = startDate;
             return (SELF) this;
         }
 
         @SuppressWarnings("unchecked")
-        public SELF einde(LocalDate einde) {
-            this.einde = einde;
+        public SELF endDate(LocalDate endDate) {
+            this.endDate = endDate;
             return (SELF) this;
         }
 
         public RegistreerUitschrijvingRequest build() {
+            if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
+
             return new RegistreerUitschrijvingRequest(
                     getInsz(),
                     getRegistration(),
-                    getStart(),
-                    getEinde()
+                    getStartDate(),
+                    getEndDate()
             );
         }
     }
@@ -75,20 +78,18 @@ public class RegistreerUitschrijvingRequest extends MagdaRequest {
 
     @NotNull
     private final INSZNumber insz;
-    @NotNull
-    private final LocalDate start;
-    @NotNull
-    private final LocalDate einde;
+    private final LocalDate startDate;
+    private final LocalDate endDate;
 
     private RegistreerUitschrijvingRequest(
             @NotNull INSZNumber insz,
             @NotNull String registratie,
-            @NotNull LocalDate start,
-            @NotNull LocalDate einde) {
+            LocalDate startDate,
+            LocalDate endDate) {
         super(registratie);
         this.insz = insz;
-        this.start = start;
-        this.einde = einde;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     @Override
@@ -119,17 +120,17 @@ public class RegistreerUitschrijvingRequest extends MagdaRequest {
     }
     
     private void setDateFields(MagdaDocument request) {
-        if(getStart() != null || getEinde() != null) {
+        if(getStartDate() != null || getEndDate() != null) {
             request.createNode("//Vragen/Vraag/Inhoud/Uitschrijving", "Periode");
 
             var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
 
-            if(getStart() != null) {
-                request.createTextNode("//Vraag/Inhoud/Uitschrijving/Periode", "Begin", getStart().format(dateFormatter));
+            if(getStartDate() != null) {
+                request.createTextNode("//Vraag/Inhoud/Uitschrijving/Periode", "Begin", getStartDate().format(dateFormatter));
             }
 
-            if(getEinde() != null) {
-                request.createTextNode("//Vraag/Inhoud/Uitschrijving/Periode", "Einde", getEinde().format(dateFormatter));
+            if(getEndDate() != null) {
+                request.createTextNode("//Vraag/Inhoud/Uitschrijving/Periode", "Einde", getEndDate().format(dateFormatter));
             }
         }
     }

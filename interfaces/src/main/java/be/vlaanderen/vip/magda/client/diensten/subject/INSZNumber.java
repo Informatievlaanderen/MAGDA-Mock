@@ -1,11 +1,17 @@
 package be.vlaanderen.vip.magda.client.diensten.subject;
 
 import be.vlaanderen.vip.magda.client.diensten.SubjectType;
+import lombok.EqualsAndHashCode;
 
-public class INSZNumber implements SubjectIdentificationNumber { // XXX test
+@EqualsAndHashCode
+public class INSZNumber implements SubjectIdentificationNumber {
 
     public static INSZNumber of(String value) {
-        return new INSZNumber(value);
+        if(value != null) {
+            return new INSZNumber(value);
+        } else {
+            throw new IllegalArgumentException("INSZNumber value cannot be null");
+        }
     }
 
     private final String value;

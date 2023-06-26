@@ -19,7 +19,6 @@ import java.util.UUID;
  * <ul>
  * <li>correlationId: unique correlation ID of the request</li>
  * <li>requestId: unique ID of the request</li>
- * <li>insz: the INSZ number of the party about which the information is requested</li>
  * <li>registration: registration code that can be resolved by a MagdaHoedanigService to obtain registration info (defaults to code "default" if not specified)</li>
  * </ul>
  */
@@ -36,9 +35,11 @@ public abstract class MagdaRequest {
         }
 
         protected String getRegistration() {
-            return StringUtils.defaultString(registration, "default");
+            return StringUtils.defaultString(registration, DEFAULT_REGISTRATION);
         }
     }
+
+    public static final String DEFAULT_REGISTRATION = "default";
 
     private final UUID correlationId = CorrelationId.get();
     private final UUID requestId = UUID.randomUUID();

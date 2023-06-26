@@ -92,8 +92,8 @@ public class MockServerHttpTest extends MockServerTest {
     void callRegistreerInschrijving() {
         var request = RegistreerInschrijvingRequest.builder()
                 .insz(CORRECT_INSZ)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
         var magdaResponse = connector.send(request);
@@ -114,8 +114,8 @@ public class MockServerHttpTest extends MockServerTest {
     void callRegistreerInschrijvingFaaltMagdaOverbelast() {
         var request = RegistreerInschrijvingRequest.builder()
                 .insz(INSZ_MAGDA_OVERBELAST)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
         var magdaResponse = connector.send(request);
         logMagdaResponse(magdaResponse);
@@ -128,8 +128,8 @@ public class MockServerHttpTest extends MockServerTest {
     void callRegistreerUitschrijving() {
         var request = RegistreerUitschrijvingRequest.builder()
                 .insz(CORRECT_INSZ)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
         var magdaResponse = connector.send(request);
         logMagdaResponse(magdaResponse);
@@ -149,8 +149,8 @@ public class MockServerHttpTest extends MockServerTest {
     void callRegistreerUitschrijvingFaaltMagdaOverbelast() {
         var request = RegistreerUitschrijvingRequest.builder()
                 .insz(INSZ_MAGDA_OVERBELAST)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
         var magdaResponse = connector.send(request);
         logMagdaResponse(magdaResponse);

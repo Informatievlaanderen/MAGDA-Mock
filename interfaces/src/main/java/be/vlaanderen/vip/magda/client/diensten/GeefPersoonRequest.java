@@ -15,7 +15,7 @@ import lombok.ToString;
  * A request to a "GeefPersoon" MAGDA service, which provides personal information.
  * Adds the following fields to the {@link MagdaRequest}:
  * <ul>
- * <li>none</li>
+ * <li>insz: the INSZ number of the party about which the information is requested</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefPersoon/02.02.0000/template.xml">XML template for this request type</a>
@@ -24,7 +24,7 @@ import lombok.ToString;
 @ToString
 public class GeefPersoonRequest extends MagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> { // XXX test
+    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
 
         @Getter(AccessLevel.PROTECTED)
         private INSZNumber insz;
@@ -40,6 +40,8 @@ public class GeefPersoonRequest extends MagdaRequest {
         }
 
         public GeefPersoonRequest build() {
+            if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
+
             return new GeefPersoonRequest(
                     getInsz(),
                     getRegistration()

@@ -18,7 +18,7 @@ import java.util.UUID;
  */
 @Getter
 @AllArgsConstructor
-public class LoggedRequest { // XXX update javadocs in requests and loggedrequests!
+public class LoggedRequest {
     private final List<String> inszs;
     private final UUID transactionID;
     private final UUID localTransactionID;

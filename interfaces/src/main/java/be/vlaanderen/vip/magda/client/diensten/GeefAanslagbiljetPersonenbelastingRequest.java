@@ -15,7 +15,7 @@ import lombok.ToString;
  * A request to a "GeefAanslagBiljet" MAGDA service, which provides tax bills.
  * Adds the following fields to the {@link MagdaRequest}:
  * <ul>
- * <li>none</li>
+ * <li>insz: the INSZ number of the party about which the information is requested</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefAanslagbiljetPersonenbelasting/02.00.0000/template.xml">XML template for this request type</a>
@@ -24,7 +24,7 @@ import lombok.ToString;
 @ToString
 public class GeefAanslagbiljetPersonenbelastingRequest extends MagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> { // XXX test
+    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
 
         @Getter(AccessLevel.PROTECTED)
         private INSZNumber insz;
@@ -40,6 +40,8 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends MagdaRequest {
         }
 
         public GeefAanslagbiljetPersonenbelastingRequest build() {
+            if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
+
             return new GeefAanslagbiljetPersonenbelastingRequest(
                     getInsz(),
                     getRegistration()

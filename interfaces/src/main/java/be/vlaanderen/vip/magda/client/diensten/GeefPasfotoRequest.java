@@ -15,7 +15,7 @@ import lombok.ToString;
  * A request to a "GeefPasfoto" MAGDA service, which provides passport photos.
  * Adds the following fields to the {@link MagdaRequest}:
  * <ul>
- * <li>none</li>
+ * <li>insz: the INSZ number of the party about which the information is requested</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefPasfoto/02.00.0000/template.xml">XML template for this request type</a>
@@ -24,7 +24,7 @@ import lombok.ToString;
 @ToString
 public class GeefPasfotoRequest extends MagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> { // XXX test
+    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
 
         @Getter(AccessLevel.PROTECTED)
         private INSZNumber insz;
@@ -40,6 +40,8 @@ public class GeefPasfotoRequest extends MagdaRequest {
         }
 
         public GeefPasfotoRequest build() {
+            if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
+
             return new GeefPasfotoRequest(
                     getInsz(),
                     getRegistration()

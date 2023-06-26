@@ -24,8 +24,8 @@ class RegistreerInschrijvingTest extends TestBase {
 
         var request = RegistreerInschrijvingRequest.builder()
                 .insz(INSZ)
-                .start(start)
-                .einde(end)
+                .startDate(start)
+                .endDate(end)
                 .build();
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
@@ -49,8 +49,8 @@ class RegistreerInschrijvingTest extends TestBase {
     void fillsInRequestRegistreerInschrijving0201() {
         var request = RegistreerInschrijving0201Request.builder()
                 .insz(INSZ)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plusDays(5))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plusDays(5))
                 .build();
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
@@ -76,8 +76,8 @@ class RegistreerInschrijvingTest extends TestBase {
 
             var request = RegistreerInschrijvingRequest.builder()
                     .insz(INSZ)
-                    .start(start)
-                    .einde(end)
+                    .startDate(start)
+                    .endDate(end)
                     .build();
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
@@ -104,8 +104,8 @@ class RegistreerInschrijvingTest extends TestBase {
         void fillsInRequestRegistreerInschrijving0201() {
             var request = RegistreerInschrijving0201Request.builder()
                     .insz(INSZ)
-                    .start(LocalDate.now())
-                    .einde(LocalDate.now().plusDays(5))
+                    .startDate(LocalDate.now())
+                    .endDate(LocalDate.now().plusDays(5))
                     .build();
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()

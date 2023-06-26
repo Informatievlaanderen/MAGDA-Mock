@@ -18,8 +18,9 @@ import java.time.format.DateTimeFormatter;
  * A request to a "RegistreerInschrijving" MAGDA service, which files registrations.
  * Adds the following fields to the {@link MagdaRequest}:
  * <ul>
- * <li>start: the start date of the registration</li>
- * <li>end: the end date of the registration</li>
+ * <li>insz: the INSZ number of the party about which the information is requested</li>
+ * <li>startDate: the start date of the registration</li>
+ * <li>endDate: the end date of the registration</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/RegistreerInschrijving/02.00.0000/template.xml">XML template for this request type</a>
@@ -28,14 +29,14 @@ import java.time.format.DateTimeFormatter;
 @ToString
 public class RegistreerInschrijvingRequest extends MagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> { // XXX test
+    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
 
         @Getter(AccessLevel.PROTECTED)
         private INSZNumber insz;
         @Getter(AccessLevel.PROTECTED)
-        private LocalDate start;
+        private LocalDate startDate;
         @Getter(AccessLevel.PROTECTED)
-        private LocalDate einde;
+        private LocalDate endDate;
 
         @SuppressWarnings("unchecked")
         public SELF insz(INSZNumber insz) {
@@ -48,23 +49,27 @@ public class RegistreerInschrijvingRequest extends MagdaRequest {
         }
 
         @SuppressWarnings("unchecked")
-        public SELF start(LocalDate start) {
-            this.start = start;
+        public SELF startDate(LocalDate startDate) {
+            this.startDate = startDate;
             return (SELF) this;
         }
 
         @SuppressWarnings("unchecked")
-        public SELF einde(LocalDate einde) {
-            this.einde = einde;
+        public SELF endDate(LocalDate endDate) {
+            this.endDate = endDate;
             return (SELF) this;
         }
 
         public RegistreerInschrijvingRequest build() {
+            if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
+            if(getStartDate() == null) { throw new IllegalStateException("Start date must be given"); }
+            if(getEndDate() == null) { throw new IllegalStateException("End date must be given"); }
+
             return new RegistreerInschrijvingRequest(
                     getInsz(),
                     getRegistration(),
-                    getStart(),
-                    getEinde()
+                    getStartDate(),
+                    getEndDate()
             );
         }
     }
@@ -76,19 +81,19 @@ public class RegistreerInschrijvingRequest extends MagdaRequest {
     @NotNull
     private final INSZNumber insz;
     @NotNull
-    private final LocalDate start;
+    private final LocalDate startDate;
     @NotNull
-    private final LocalDate einde;
+    private final LocalDate endDate;
 
     private RegistreerInschrijvingRequest(
             @NotNull INSZNumber insz,
             @NotNull String registratie,
-            @NotNull LocalDate start,
-            @NotNull LocalDate einde) {
+            @NotNull LocalDate startDate,
+            @NotNull LocalDate endDate) {
         super(registratie);
         this.insz = insz;
-        this.start = start;
-        this.einde = einde;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     @Override
@@ -108,8 +113,8 @@ public class RegistreerInschrijvingRequest extends MagdaRequest {
         request.setValue("//INSZ", getInsz().getValue());
 
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Begin", getStart().format(dateFormatter));
-        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEinde().format(dateFormatter));
+        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Begin", getStartDate().format(dateFormatter));
+        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEndDate().format(dateFormatter));
         request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", magdaRegistrationInfo.getIdentification());
 
         var hoedanigheidscode = magdaRegistrationInfo.getHoedanigheidscode();

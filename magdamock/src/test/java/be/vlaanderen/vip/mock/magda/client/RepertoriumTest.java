@@ -24,8 +24,8 @@ class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0200Lukt() {
         var request = RegistreerInschrijvingRequest.builder()
                 .insz(INSZ_REPERTORIUM_OK)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -51,8 +51,8 @@ class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0200LuktNietWegensInhoudelijkProbleem() {
         var request = RegistreerInschrijvingRequest.builder()
                 .insz(INSZ_REPERTORIUM_FOUT)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -80,8 +80,8 @@ class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0200LuktNietOmdatMagdaOverbelastIs() {
         var request = RegistreerInschrijvingRequest.builder()
                 .insz(INSZ_MAGDA_OVERBELAST)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -108,8 +108,8 @@ class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0201Lukt() {
         var request = RegistreerInschrijving0201Request.builder()
                 .insz(INSZ_REPERTORIUM_OK)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -141,8 +141,8 @@ class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0201OndernemingLukt() {
         var request = RegistreerInschrijving0201Request.builder()
                 .insz("123456789012")
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -174,8 +174,8 @@ class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0201LuktNietWegensInhoudelijkProbleem() {
         var request = RegistreerInschrijving0201Request.builder()
                 .insz(INSZ_REPERTORIUM_FOUT)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -205,8 +205,8 @@ class RepertoriumTest extends MockTestBase {
     void registreerInschrijvingv0201LuktNietOmdatMagdaOverbelastIs() {
         var request = RegistreerInschrijving0201Request.builder()
                 .insz(INSZ_MAGDA_OVERBELAST)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -233,8 +233,8 @@ class RepertoriumTest extends MockTestBase {
     void registreerUitschrijvingv0200Lukt() {
         var request = RegistreerUitschrijvingRequest.builder()
                 .insz(INSZ_REPERTORIUM_OK)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -266,8 +266,8 @@ class RepertoriumTest extends MockTestBase {
     void registreerUitschrijvingv0200LuktNietWegensInhoudelijkProbleem() {
         var request = RegistreerUitschrijvingRequest.builder()
                 .insz(INSZ_REPERTORIUM_FOUT)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
         var afnemerLogService = new ClientLogServiceMock();
@@ -295,8 +295,8 @@ class RepertoriumTest extends MockTestBase {
     void registreerUitschrijvingv0200LuktNietOmdatMagdaOverbelastIs() {
         var request = RegistreerUitschrijvingRequest.builder()
                 .insz(INSZ_MAGDA_OVERBELAST)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plus(7, ChronoUnit.DAYS))
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
         var afnemerLogService = new ClientLogServiceMock();

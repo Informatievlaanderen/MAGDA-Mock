@@ -19,8 +19,8 @@ class RegistreerUitschrijvingTest extends TestBase {
         
         var request = RegistreerUitschrijvingRequest.builder()
                 .insz("67021546719")
-                .start(start)
-                .einde(end)
+                .startDate(start)
+                .endDate(end)
                 .build();
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
@@ -69,8 +69,8 @@ class RegistreerUitschrijvingTest extends TestBase {
 
             var request = RegistreerUitschrijvingRequest.builder()
                     .insz("67021546719")
-                    .start(start)
-                    .einde(end)
+                    .startDate(start)
+                    .endDate(end)
                     .build();
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()

@@ -1,11 +1,17 @@
 package be.vlaanderen.vip.magda.client.diensten.subject;
 
 import be.vlaanderen.vip.magda.client.diensten.SubjectType;
+import lombok.EqualsAndHashCode;
 
-public class KBONumber implements SubjectIdentificationNumber { // XXX test
+@EqualsAndHashCode
+public class KBONumber implements SubjectIdentificationNumber {
 
     public static KBONumber of(String value) {
-        return new KBONumber(value);
+        if(value != null) {
+            return new KBONumber(value);
+        } else {
+            throw new IllegalArgumentException("KBONumber value cannot be null");
+        }
     }
 
     private final String value;

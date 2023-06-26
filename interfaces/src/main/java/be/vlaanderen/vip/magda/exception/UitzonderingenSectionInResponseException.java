@@ -17,7 +17,7 @@ public class UitzonderingenSectionInResponseException extends ServerException {
     @Serial
     private static final long serialVersionUID = 2478927288540376650L;
     
-    private final SubjectIdentificationNumber subject; // XXX why doesn't sonar consider this serializable yet?
+    private final SubjectIdentificationNumber subject;
     private final transient List<UitzonderingEntry> uitzonderingEntries;
 
     public UitzonderingenSectionInResponseException(SubjectIdentificationNumber subject, List<UitzonderingEntry> uitzonderingEntries) {
