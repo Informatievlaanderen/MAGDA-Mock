@@ -88,7 +88,7 @@ public class ClientLogServiceMock implements ClientLogService {
             throw new IllegalStateException(String.format("Response with reference %s for service %s for INSZs %s reference equals transaction",
                     antwoord.getLocalTransactionID().toString(),
                     antwoord.getServiceName(),
-                    antwoord.getInszs()));
+                    antwoord.getSubjectsInLogFormat()));
         }
     }
 
@@ -100,7 +100,7 @@ public class ClientLogServiceMock implements ClientLogService {
                 throw new IllegalStateException(String.format("Response with reference %s for service %s for INSZs %s has multiple occurrences",
                         antwoord.getLocalTransactionID().toString(),
                         antwoord.getServiceName(),
-                        antwoord.getInszs()));
+                        antwoord.getSubjectsInLogFormat()));
             }
             antwoorden.add(content);
         }
@@ -115,7 +115,7 @@ public class ClientLogServiceMock implements ClientLogService {
                 throw new IllegalStateException(String.format("Unanswered requests with reference %s for service %s for INSZs %s has multiple occurrences",
                         antwoord.getLocalTransactionID().toString(),
                         antwoord.getServiceName(),
-                        antwoord.getInszs()));
+                        antwoord.getSubjectsInLogFormat()));
             }
             antwoorden.add(content);
         }
@@ -127,7 +127,7 @@ public class ClientLogServiceMock implements ClientLogService {
                 antwoord.getServiceName(),
                 antwoord.getTransactionID().toString(),
                 antwoord.getLocalTransactionID().toString(),
-                antwoord.getInszs().toString());
+                antwoord.getSubjectsInLogFormat());
     }
 
     private void assertEachRequestHasAntwoord() {
@@ -141,7 +141,7 @@ public class ClientLogServiceMock implements ClientLogService {
                 throw new IllegalStateException(String.format("Request with reference %s for service %s for INSZs %s has responses, as well as unanswered requests and errors",
                         request.getLocalTransactionID().toString(),
                         request.getServiceName(),
-                        request.getInszs()));
+                        request.getSubjectsInLogFormat()));
             }
             if (matchingGeslaagd.isEmpty() && matchingOnbeantwoord.isEmpty() && matchGefaald.isEmpty()) {
                 log.error("Illegal ClientLogServiceMock state");
@@ -149,7 +149,7 @@ public class ClientLogServiceMock implements ClientLogService {
                 throw new IllegalStateException(String.format("Request with reference %s for service %s for INSZs %s has neither responses, nor unanswered requests, nor errors",
                         request.getLocalTransactionID().toString(),
                         request.getServiceName(),
-                        request.getInszs()));
+                        request.getSubjectsInLogFormat()));
             }
         }
     }
@@ -166,7 +166,7 @@ public class ClientLogServiceMock implements ClientLogService {
         for (LoggedRequest loggedRequest : loggedRequests) {
             log.debug("Request {} {} {} {}",
                     loggedRequest.getServiceName(),
-                    loggedRequest.getInszs(),
+                    loggedRequest.getSubjectsInLogFormat(),
                     loggedRequest.getTransactionID(),
                     loggedRequest.getLocalTransactionID());
         }
@@ -193,16 +193,5 @@ public class ClientLogServiceMock implements ClientLogService {
     private boolean match(LoggedRequest request, LoggedRequest antwoord) {
         return request.getLocalTransactionID().equals(antwoord.getLocalTransactionID()) &&
                 request.getTransactionID().equals(antwoord.getTransactionID());
-    }
-
-    private void assertLogFor(LoggedRequest log, List<String> inszs) {
-        assert inszs.equals(log.getInszs()) : String.format("Log for service %s doesn't contain the expected INSZ of the requesting party", log.getServiceName());
-    }
-
-    public void assertAlleVragenEnAntwoordenVoor(List<String> inszs) {
-        magdaLoggedRequests.forEach(log -> assertLogFor(log, inszs));
-        succeededLoggedRequests.forEach(log -> assertLogFor(log, inszs));
-        failedLoggedRequests.forEach(log -> assertLogFor(log, inszs));
-        unansweredLoggedRequests.forEach(log -> assertLogFor(log, inszs));
     }
 }

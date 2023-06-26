@@ -27,6 +27,11 @@ class INSZNumberTest {
     }
 
     @Test
+    void getValueInLogFormat_givesValueInExpectedFormat() {
+        assertEquals("123 (INSZ)", INSZNumber.of("123").getValueInLogFormat());
+    }
+
+    @Test
     void canBeComparedToEachOther() {
         assertEquals(INSZNumber.of("123"), INSZNumber.of("123"));
         assertNotEquals(INSZNumber.of("456"), INSZNumber.of("123"));

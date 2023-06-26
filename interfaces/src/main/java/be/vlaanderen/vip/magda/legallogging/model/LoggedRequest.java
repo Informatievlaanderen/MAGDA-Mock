@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.legallogging.model;
 
+import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,10 +20,18 @@ import java.util.UUID;
 @Getter
 @AllArgsConstructor
 public class LoggedRequest {
-    private final List<String> inszs;
+    private final List<SubjectIdentificationNumber> subjects;
     private final UUID transactionID;
     private final UUID localTransactionID;
     private final String serviceName;
     private final String serviceVersion;
     private final MagdaRegistrationInfo registrationInfo;
+
+    public String getSubjectsInLogFormat() {
+        if(getSubjects().isEmpty()) {
+            return "(none)";
+        } else {
+            return String.join(", ", getSubjects().stream().map(SubjectIdentificationNumber::getValueInLogFormat).toList());
+        }
+    }
 }

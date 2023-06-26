@@ -27,6 +27,11 @@ class KBONumberTest {
     }
 
     @Test
+    void getValueInLogFormat_givesValueInExpectedFormat() {
+        assertEquals("123 (KBO)", KBONumber.of("123").getValueInLogFormat());
+    }
+
+    @Test
     void canBeComparedToEachOther() {
         assertEquals(KBONumber.of("123"), KBONumber.of("123"));
         assertNotEquals(KBONumber.of("456"), KBONumber.of("123"));

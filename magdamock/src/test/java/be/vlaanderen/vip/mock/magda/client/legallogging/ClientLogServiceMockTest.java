@@ -1,15 +1,15 @@
 package be.vlaanderen.vip.mock.magda.client.legallogging;
 
-import be.vlaanderen.vip.magda.legallogging.model.FailedLoggedRequest;
-import be.vlaanderen.vip.magda.legallogging.model.MagdaLoggedRequest;
-import be.vlaanderen.vip.magda.legallogging.model.UnansweredLoggedRequest;
-import be.vlaanderen.vip.magda.legallogging.model.SucceededLoggedRequest;
+import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
+import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
+import be.vlaanderen.vip.magda.legallogging.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -84,7 +84,7 @@ class ClientLogServiceMockTest {
 		@Test
 		void failsWhenRequestHasSameLocalAsTransactionId() {
 			var uuid = UUID.randomUUID();
-			var invalidRequest = new MagdaLoggedRequest("test-insz", uuid, uuid, null, null, null);
+			var invalidRequest = new MagdaLoggedRequest(INSZNumber.of("test-insz"), uuid, uuid, null, null, null);
 			
 			service.logMagdaRequest(invalidRequest);
 			service.logSucceededRequest(successRequest(invalidRequest));
@@ -97,23 +97,34 @@ class ClientLogServiceMockTest {
 	class AssertAllRequestsFor {
 
 		@Test
-		void successWhenAllForSameInsz() {
+		void successWhenAllForSameSubjects() {
 			var request = generateRequest();
-			var insz = request.getInszs();
+			var subjects = request.getSubjects();
 			
 			service.logMagdaRequest(request);
 			service.logSucceededRequest(successRequest(request));
 
-			service.assertAlleVragenEnAntwoordenVoor(insz);
+			assertAlleVragenEnAntwoordenVoor(service, subjects);
+		}
+
+		private void assertAlleVragenEnAntwoordenVoor(ClientLogServiceMock serviceMock, List<SubjectIdentificationNumber> subjects) {
+			serviceMock.getMagdaLoggedRequests().forEach(log -> assertLogFor(log, subjects));
+			serviceMock.getSucceededLoggedRequests().forEach(log -> assertLogFor(log, subjects));
+			serviceMock.getFailedLoggedRequests().forEach(log -> assertLogFor(log, subjects));
+			serviceMock.getUnansweredLoggedRequests().forEach(log -> assertLogFor(log, subjects));
+		}
+
+		private void assertLogFor(LoggedRequest log, List<SubjectIdentificationNumber> subjects) {
+			assert subjects.equals(log.getSubjects()) : String.format("Log for service %s doesn't contain the expected INSZ of the requesting party", log.getServiceName());
 		}
 	}
 	
 	private MagdaLoggedRequest generateRequest() {
-		return new MagdaLoggedRequest("test-insz", UUID.randomUUID(), UUID.randomUUID(), null, null, null);
+		return new MagdaLoggedRequest(INSZNumber.of("test-insz"), UUID.randomUUID(), UUID.randomUUID(), null, null, null);
 	}
 	
 	private SucceededLoggedRequest successRequest(MagdaLoggedRequest req) {
-		return new SucceededLoggedRequest(req.getInszs(), req.getTransactionID(), req.getLocalTransactionID(),
+		return new SucceededLoggedRequest(req.getSubjects(), req.getTransactionID(), req.getLocalTransactionID(),
 				Duration.ofSeconds(1), req.getServiceName(), req.getServiceVersion(), req.getRegistrationInfo());
 	}
 	

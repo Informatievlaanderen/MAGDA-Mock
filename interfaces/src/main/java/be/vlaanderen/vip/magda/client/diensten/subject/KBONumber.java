@@ -29,4 +29,9 @@ public class KBONumber implements SubjectIdentificationNumber {
     public SubjectType getSubjectType() {
         return SubjectType.ENTERPRISE;
     }
+
+    @Override
+    public String getValueInLogFormat() {
+        return "%s (KBO)".formatted(getValue());
+    }
 }

@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.legallogging.model;
 
+import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.Getter;
 
@@ -16,7 +17,7 @@ import java.util.UUID;
 @Getter
 public class MagdaLoggedRequest extends LoggedRequest {
 
-    public MagdaLoggedRequest(String insz, UUID transactionID, UUID localTransactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
-        super(Collections.singletonList(insz), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
+    public MagdaLoggedRequest(SubjectIdentificationNumber subject, UUID transactionID, UUID localTransactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
+        super(Collections.singletonList(subject), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
     }
 }

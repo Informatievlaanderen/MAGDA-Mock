@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
+import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 import be.vlaanderen.vip.magda.client.util.XmlUtils;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
@@ -60,7 +61,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
             var antwoord = buildResponse(magdaRequest, response);
 
             final var uitzonderingen = antwoord.getUitzonderingEntries();
-            legalLogging(magdaRequest, duration, uitzonderingen, antwoord.getInsz());
+            legalLogging(magdaRequest, duration, uitzonderingen, antwoord.getSubjects());
 
             final var antwoordUitzonderingen = antwoord.getResponseUitzonderingEntries();
             var uitzonderingenMessage1 = messageForUitzonderingEntries(uitzonderingen, antwoordUitzonderingen);
@@ -106,7 +107,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private void logNoResponse(MagdaRequest magdaRequest) {
         clientLogService.logUnansweredRequest(new UnansweredLoggedRequest(
-                magdaRequest.getSubject().getValue(), // XXX this can be an INSZ or a KBO number
+                magdaRequest.getSubject(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 magdaRequest.magdaServiceIdentification().getName(),
@@ -116,7 +117,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     private void logRequest(MagdaRequest magdaRequest) {
         clientLogService.logMagdaRequest(new MagdaLoggedRequest(
-                magdaRequest.getSubject().getValue(), // XXX this can be an INSZ or a KBO number
+                magdaRequest.getSubject(),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 magdaRequest.magdaServiceIdentification().getName(),
@@ -125,9 +126,9 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     }
 
-    private void logAllINSZsSucceeded(MagdaRequest magdaRequest, Duration duration, Set<String> inszs) {
+    private void logAllSubjectsSucceeded(MagdaRequest magdaRequest, Duration duration, Set<SubjectIdentificationNumber> subjects) {
         clientLogService.logSucceededRequest(new SucceededLoggedRequest(
-                new ArrayList<>(inszs), // XXX this can be an INSZ or a KBO number
+                new ArrayList<>(subjects),
                 magdaRequest.getCorrelationId(),
                 magdaRequest.getRequestId(),
                 duration,
@@ -156,15 +157,15 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return uitzonderingenMessage1;
     }
 
-    private void legalLogging(MagdaRequest magdaRequest, Duration duration, List<UitzonderingEntry> uitzonderingEntries, Set<String> inszs) {
+    private void legalLogging(MagdaRequest magdaRequest, Duration duration, List<UitzonderingEntry> uitzonderingEntries, Set<SubjectIdentificationNumber> subjects) {
         if (uitzonderingEntries.isEmpty()) {
-            logAllINSZsSucceeded(magdaRequest, duration, inszs);
+            logAllSubjectsSucceeded(magdaRequest, duration, subjects);
         } else {
             logAllUitzonderingEntries(magdaRequest, duration, uitzonderingEntries);
         }
     }
 
-    private MagdaResponse buildResponse(MagdaRequest magdaRequest, MagdaDocument responseDocument) {
+    private MagdaResponse buildResponse(MagdaRequest magdaRequest, MagdaDocument responseDocument) { // XXX test
         return MagdaResponse.builder()
                 .correlationId(magdaRequest.getCorrelationId())
                 .requestId(magdaRequest.getRequestId())
@@ -173,7 +174,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 .body(getBody(responseDocument))
                 .document(responseDocument)
                 .hasContents(responseHasContents(responseDocument))
-                .insz(findAllINSZsIn(magdaRequest, responseDocument)) // XXX these can be INSZ or KBO numbers
+                .subjects(findAllSubjectsIn(magdaRequest, responseDocument))
                 .build();
     }
 
@@ -228,19 +229,19 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return title + collect;
     }
 
+    private Set<SubjectIdentificationNumber> findAllSubjectsIn(MagdaRequest magdaRequest, MagdaDocument responseDocument) {
+        Set<SubjectIdentificationNumber> subjects = new HashSet<>();
+        subjects.add(magdaRequest.getSubject());
 
-    private Set<String> findAllINSZsIn(MagdaRequest magdaRequest, MagdaDocument responseDocument) {
-        Set<String> inszs = new HashSet<>();
-        if(magdaRequest.getSubject() instanceof INSZNumber insz) {
-            inszs.add(insz.getValue());
-        }
+        // XXX move the following to a method in the MagdaDocument class
         var nodes = responseDocument.xpath("//INSZ"); // XXX what about KBO numbers (and subjects in general)?
         if (nodes.getLength() > 0) {
             for (var pos = 0; pos < nodes.getLength(); pos++) {
-                inszs.add(nodes.item(pos).getTextContent());
+                subjects.add(INSZNumber.of(nodes.item(pos).getTextContent())); // XXX map this
             }
         }
-        return inszs;
+
+        return subjects;
     }
 
     private List<UitzonderingEntry> allUitzonderingEntriesIn(NodeList nodes) {

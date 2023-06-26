@@ -29,4 +29,9 @@ public class INSZNumber implements SubjectIdentificationNumber {
     public SubjectType getSubjectType() {
         return SubjectType.PERSON;
     }
+
+    @Override
+    public String getValueInLogFormat() {
+        return "%s (INSZ)".formatted(getValue());
+    }
 }

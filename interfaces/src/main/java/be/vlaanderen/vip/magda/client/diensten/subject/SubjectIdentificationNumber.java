@@ -9,4 +9,6 @@ public interface SubjectIdentificationNumber extends Serializable {
     String getValue();
 
     SubjectType getSubjectType();
+
+    String getValueInLogFormat();
 }
