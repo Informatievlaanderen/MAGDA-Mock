@@ -31,7 +31,7 @@ class StaticResponseSimulatorTest {
     private static final Map<Object, Object> GIVE_PROOF_CONTEXT = Map.of("Naam", "GeefBewijs",
                                                                          "Versie", "02.00.0000");
 
-    private MagdaDocument makeBewijsAanvraagRequest(String insz) {
+    private MagdaDocument makeGeefBewijsRequest(String insz) {
         return MagdaDocumentBuilder.request(Map.of("Context", GIVE_PROOF_CONTEXT,
                                                    "Vragen", questionInsz(insz)));
     }
@@ -44,7 +44,7 @@ class StaticResponseSimulatorTest {
     @SneakyThrows
     void respondsWithStaticResource() {
         var simulator = new StaticResponseSimulator(ResourceFinders.magdaSimulator(), PERSOON, KEY_INSZ);
-        var request = makeBewijsAanvraagRequest("00671031647");
+        var request = makeGeefBewijsRequest("00671031647");
 
         var response = simulator.send(request);
 
@@ -72,7 +72,7 @@ class StaticResponseSimulatorTest {
 
             var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
-            var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
+            var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
             assertNotNull(response);
             assertEquals("foo", response.getValue("//prop"));
@@ -89,7 +89,7 @@ class StaticResponseSimulatorTest {
 
             var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
-            var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
+            var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
             assertNotNull(response);
             assertEquals("foo", response.getValue("//prop"));
@@ -105,7 +105,7 @@ class StaticResponseSimulatorTest {
 
             var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
-            var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
+            var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
             assertNotNull(response);
             assertEquals("foo", response.getValue("//prop"));
@@ -123,7 +123,7 @@ class StaticResponseSimulatorTest {
 
             var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
-            var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
+            var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
             assertNotNull(response);
             assertEquals("foo", response.getValue("//prop"));
@@ -140,7 +140,7 @@ class StaticResponseSimulatorTest {
 
             var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
-            var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
+            var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
             assertNotNull(response);
             assertEquals("foo", response.getValue("//prop"));
@@ -156,7 +156,7 @@ class StaticResponseSimulatorTest {
 
             var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
-            var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
+            var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
             assertNotNull(response);
             assertEquals("foo", response.getValue("//prop"));
@@ -199,7 +199,7 @@ class StaticResponseSimulatorTest {
 
             var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
-            var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
+            var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
             assertNotNull(response);
             assertEquals("foo", response.getValue("//prop"));
@@ -219,7 +219,7 @@ class StaticResponseSimulatorTest {
 
             var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
-            var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
+            var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
             assertNotNull(response);
             assertEquals("foo", response.getValue("//prop"));
@@ -238,7 +238,7 @@ class StaticResponseSimulatorTest {
 
             var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
-            var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
+            var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
             assertNotNull(response);
             assertEquals("foo", response.getValue("//prop"));
@@ -255,7 +255,7 @@ class StaticResponseSimulatorTest {
 
             var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
-            var response = simulator.send(makeBewijsAanvraagRequest("00071031644"));
+            var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
             assertNotNull(response);
             assertEquals("foo", response.getValue("//prop"));
@@ -276,7 +276,8 @@ class StaticResponseSimulatorTest {
 
             var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
-            assertThrows(MagdaMockException.class, () -> simulator.send(makeBewijsAanvraagRequest("00071031644")));
+            var request = makeGeefBewijsRequest("00071031644");
+            assertThrows(MagdaMockException.class, () -> simulator.send(request));
         }
     }
     

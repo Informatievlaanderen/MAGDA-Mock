@@ -24,17 +24,17 @@ public class StaticResponseSimulator extends BaseSOAPSimulator {
 
     @Override
     public MagdaDocument send(MagdaDocument request) throws MagdaMockException {
-        var values = keys.stream().map(request::getValue).toList();
-
-        var dienst = request.getValue("//Verzoek/Context/Naam");
+        var serviceName = request.getValue("//Verzoek/Context/Naam");
         var versie = request.getValue("//Verzoek/Context/Versie");
 
-        var responseBody = loadResource(dienst, versie, values);
+        var values = keys.stream().map(request::getValue).toList();
+
+        var responseBody = loadResource(serviceName, versie, values);
         if (responseBody == null) {
-            responseBody = loadResource(dienst, versie, replaceLastKey(values, "notfound"));
+            responseBody = loadResource(serviceName, versie, replaceLastKey(values, "notfound"));
         }
         if (responseBody == null) {
-            responseBody = loadResource(dienst, versie, replaceLastKey(values, "success"));
+            responseBody = loadResource(serviceName, versie, replaceLastKey(values, "success"));
         }
 
         if (responseBody != null) {
@@ -42,7 +42,7 @@ public class StaticResponseSimulator extends BaseSOAPSimulator {
 
             return wrapInEnvelope(responseBody);
         } else {
-            throw new MagdaMockException("No mock data found for request to %s %s".formatted(dienst, versie));
+            throw new MagdaMockException("No mock data found for request to %s %s".formatted(serviceName, versie));
         }
     }
 
@@ -55,9 +55,9 @@ public class StaticResponseSimulator extends BaseSOAPSimulator {
         return result;
     }
 
-    private MagdaDocument loadResource(String dienst, String versie, List<String> keys) {
+    private MagdaDocument loadResource(String serviceName, String versie, List<String> keys) {
         var dirs = new ArrayList<String>();
-        dirs.add(dienst);
+        dirs.add(serviceName);
         dirs.add(versie);
         if (keys.size() > 1) {
             for (var i = 0; i < keys.size() - 1; i++) {

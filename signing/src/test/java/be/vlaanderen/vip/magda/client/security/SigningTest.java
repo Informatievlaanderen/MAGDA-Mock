@@ -90,7 +90,7 @@ class SigningTest {
 
     @SneakyThrows
     @Test
-    void loadAanvraagZoekPersoonOpAdres() {
+    void loadRequestDocumentZoekPersoonOpAdres() {
         try (var request = Objects.requireNonNull(this.getClass().getResourceAsStream("/requests/ZoekOpAdres.xml"))) {
             var doc = MagdaDocument.fromStream(request);
             var ns = defaultNamespace(doc);
@@ -104,7 +104,7 @@ class SigningTest {
 
     @SneakyThrows
     @Test
-    void loadAanvraagGeefPersoon() {
+    void loadRequestDocumentGeefPersoon() {
         try (var request = Objects.requireNonNull(this.getClass().getResourceAsStream("/requests/GeefPersoon.xml"))) {
             var doc = MagdaDocument.fromStream(request);
             var ns = defaultNamespace(doc);

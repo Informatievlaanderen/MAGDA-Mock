@@ -1,12 +1,12 @@
 package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.diensten.GeefBewijsAanvraag;
-import be.vlaanderen.vip.magda.exception.BackendUitzonderingenException;
-import be.vlaanderen.vip.magda.exception.GeenAntwoordException;
+import be.vlaanderen.vip.magda.client.diensten.GeefBewijsRequest;
+import be.vlaanderen.vip.magda.exception.UitzonderingenSectionInResponseException;
+import be.vlaanderen.vip.magda.exception.NoResponseException;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import be.vlaanderen.vip.mock.magda.TestKeyStores;
-import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -22,26 +22,28 @@ class SignedConnectionTest extends MockTestBase {
     @Test
     @SneakyThrows
     void respondsAsNormal_IfRequestSignatureIsValid() {
-        var aanvraag = new GeefBewijsAanvraag(REQUEST_INSZ);
+        var request = GeefBewijsRequest.builder()
+                .subjectInsz(REQUEST_INSZ)
+                .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
-        var connector = makeSignedMagdaConnector(afnemerLogService,
+        var clientLogService = new ClientLogServiceMock();
+        var connector = makeSignedMagdaConnector(clientLogService,
                 TestKeyStores.mockKeystoreProperties,  // connection request signer
                 TestKeyStores.mockKeystoreProperties,  // connection response verifier
                 TestKeyStores.mockKeystoreProperties,  // simulator request verifier
                 TestKeyStores.mockKeystoreProperties); // simulator response signer
 
-        var antwoord = connector.send(aanvraag);
+        var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.isHasContents()).isTrue();
+        assertThat(antwoord.getUitzonderingEntries()).isEmpty();
+        assertThat(antwoord.getResponseUitzonderingEntries()).isEmpty();
 
-        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -51,26 +53,28 @@ class SignedConnectionTest extends MockTestBase {
     @Test
     @SneakyThrows
     void respondsAsNormal_IfNoKeystoresAreUsedAnywhere() {
-        var aanvraag = new GeefBewijsAanvraag(REQUEST_INSZ);
+        var request = GeefBewijsRequest.builder()
+                .subjectInsz(REQUEST_INSZ)
+                .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
-        var connector = makeSignedMagdaConnector(afnemerLogService,
+        var clientLogService = new ClientLogServiceMock();
+        var connector = makeSignedMagdaConnector(clientLogService,
                 null,  // connection request signer
                 null,  // connection response verifier
                 null,  // simulator request verifier
                 null); // simulator response signer
 
-        var antwoord = connector.send(aanvraag);
+        var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.isHasContents()).isTrue();
+        assertThat(antwoord.getUitzonderingEntries()).isEmpty();
+        assertThat(antwoord.getResponseUitzonderingEntries()).isEmpty();
 
-        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 
@@ -79,28 +83,30 @@ class SignedConnectionTest extends MockTestBase {
 
     @Test
     @SneakyThrows
-    void respondsWithBackendUitzonderingenException_IfRequestSignatureIsUnexpected() {
-        var aanvraag = new GeefBewijsAanvraag(REQUEST_INSZ);
+    void throwsUitzonderingSectionInResponseException_IfRequestSignatureIsUnexpected() {
+        var request = GeefBewijsRequest.builder()
+                .subjectInsz(REQUEST_INSZ)
+                .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
-        var connector = makeSignedMagdaConnector(afnemerLogService,
+        var clientLogService = new ClientLogServiceMock();
+        var connector = makeSignedMagdaConnector(clientLogService,
                 TestKeyStores.mockKeystorePropertiesAlt,  // connection request signer
                 TestKeyStores.mockKeystoreProperties,      // connection response verifier
                 TestKeyStores.mockKeystoreProperties,      // simulator request verifier
                 TestKeyStores.mockKeystoreProperties);     // simulator response signer
 
         try {
-            connector.send(aanvraag);
+            connector.send(request);
             fail("No exception was thrown");
-        } catch(BackendUitzonderingenException e) {
+        } catch(UitzonderingenSectionInResponseException e) {
             assertEquals(REQUEST_INSZ, e.getInsz());
-            assertEquals(1, e.getUitzonderingen().size());
+            assertEquals(1, e.getUitzonderingEntries().size());
 
-            var uitzondering = e.getUitzonderingen().get(0);
-            assertEquals("SOAP FAULT", uitzondering.getIdentificatie());
-            assertEquals("MAGDA", uitzondering.getOorsprong());
+            var uitzondering = e.getUitzonderingEntries().get(0);
+            assertEquals("SOAP FAULT", uitzondering.getIdentification());
+            assertEquals("MAGDA", uitzondering.getOrigin());
 
-            var errorDocument = MagdaDocument.fromString(uitzondering.getDiagnose());
+            var errorDocument = MagdaDocument.fromString(uitzondering.getDiagnosis());
             assertEquals("Server",
                     errorDocument.getValue("//soapenv:Envelope/soapenv:Body/soapenv:Fault/faultcode"));
             assertEquals("ERR_025: Verification Failure: Document signature verification failed",
@@ -112,28 +118,30 @@ class SignedConnectionTest extends MockTestBase {
 
     @Test
     @SneakyThrows
-    void respondsWithBackendUitzonderingenException_IfRequestIsNotSigned() {
-        var aanvraag = new GeefBewijsAanvraag(REQUEST_INSZ);
+    void throwsUitzonderingSectionInResponseException_IfRequestIsNotSigned() {
+        var request = GeefBewijsRequest.builder()
+                .subjectInsz(REQUEST_INSZ)
+                .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
-        var connector = makeSignedMagdaConnector(afnemerLogService,
+        var clientLogService = new ClientLogServiceMock();
+        var connector = makeSignedMagdaConnector(clientLogService,
                 null,  // connection request signer
                 TestKeyStores.mockKeystoreProperties,  // connection response verifier
                 TestKeyStores.mockKeystoreProperties,  // simulator request verifier
                 TestKeyStores.mockKeystoreProperties); // simulator response signer
 
         try {
-            connector.send(aanvraag);
+            connector.send(request);
             fail("No exception was thrown");
-        } catch(BackendUitzonderingenException e) {
+        } catch(UitzonderingenSectionInResponseException e) {
             assertEquals(REQUEST_INSZ, e.getInsz());
-            assertEquals(1, e.getUitzonderingen().size());
+            assertEquals(1, e.getUitzonderingEntries().size());
 
-            var uitzondering = e.getUitzonderingen().get(0);
-            assertEquals("SOAP FAULT", uitzondering.getIdentificatie());
-            assertEquals("MAGDA", uitzondering.getOorsprong());
+            var uitzondering = e.getUitzonderingEntries().get(0);
+            assertEquals("SOAP FAULT", uitzondering.getIdentification());
+            assertEquals("MAGDA", uitzondering.getOrigin());
 
-            var errorDocument = MagdaDocument.fromString(uitzondering.getDiagnose());
+            var errorDocument = MagdaDocument.fromString(uitzondering.getDiagnosis());
             assertEquals("Server",
                     errorDocument.getValue("//soapenv:Envelope/soapenv:Body/soapenv:Fault/faultcode"));
             assertEquals("ERR_025: Verification Failure: Document is not signed",
@@ -145,20 +153,22 @@ class SignedConnectionTest extends MockTestBase {
 
     @Test
     @SneakyThrows
-    void respondsWithGeenAntwoordException_IfResponseSignatureIsUnexpected() {
-        var aanvraag = new GeefBewijsAanvraag(REQUEST_INSZ);
+    void throwsNoResponseException_IfResponseSignatureIsUnexpected() {
+        var request = GeefBewijsRequest.builder()
+                .subjectInsz(REQUEST_INSZ)
+                .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
-        var connector = makeSignedMagdaConnector(afnemerLogService,
+        var clientLogService = new ClientLogServiceMock();
+        var connector = makeSignedMagdaConnector(clientLogService,
                 TestKeyStores.mockKeystoreProperties,      // connection request signer
                 TestKeyStores.mockKeystoreProperties,      // connection response verifier
                 TestKeyStores.mockKeystoreProperties,      // simulator request verifier
                 TestKeyStores.mockKeystorePropertiesAlt); // simulator response signer
 
         try {
-            connector.send(aanvraag);
+            connector.send(request);
             fail("No exception was thrown");
-        } catch(GeenAntwoordException e) {
+        } catch(NoResponseException e) {
             assertInstanceOf(MagdaConnectionException.class, e.getCause());
         } catch(Exception ex) {
             fail("Unexpected exception was thrown: " + ex);
@@ -167,20 +177,22 @@ class SignedConnectionTest extends MockTestBase {
 
     @Test
     @SneakyThrows
-    void respondsWithGeenAntwoordException_IfResponseIsNotSigned() {
-        var aanvraag = new GeefBewijsAanvraag(REQUEST_INSZ);
+    void throwsNoResponseException_IfResponseIsNotSigned() {
+        var request = GeefBewijsRequest.builder()
+                .subjectInsz(REQUEST_INSZ)
+                .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
-        var connector = makeSignedMagdaConnector(afnemerLogService,
+        var clientLogService = new ClientLogServiceMock();
+        var connector = makeSignedMagdaConnector(clientLogService,
                 TestKeyStores.mockKeystoreProperties, // connection request signer
                 TestKeyStores.mockKeystoreProperties, // connection response verifier
                 TestKeyStores.mockKeystoreProperties, // simulator request verifier
                 null);                    // simulator response signer
 
         try {
-            connector.send(aanvraag);
+            connector.send(request);
             fail("No exception was thrown");
-        } catch(GeenAntwoordException e) {
+        } catch(NoResponseException e) {
             assertInstanceOf(MagdaConnectionException.class, e.getCause());
         } catch(Exception ex) {
             fail("Unexpected exception was thrown: " + ex);

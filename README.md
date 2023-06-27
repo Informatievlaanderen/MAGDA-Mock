@@ -85,7 +85,7 @@ The `MagdaMockConnection` responds to requests using a structure of `ISOAPSimula
 This structure is set up in the `constructBuiltInSimulator` method; when developing the mock, this is your entry point.
 `ISOAPSimulator`s are a set of classes which take a request `MagdaDocument` and return a response `MagdaDocument`.
 This response can be a document containing data, or a document reporting an error or the result of an action.
-If something goes wrong during the handling of the request, a `MagdaSendFailed` is thrown.
+If something goes wrong during the handling of the request, a `MagdaMockException` is thrown.
 The simulators are designed to be composable, and each subtype handles a specific aspect of formulating a response.
 Each type of simulator is explained below.
 
@@ -94,7 +94,7 @@ Each type of simulator is explained below.
 These simulators operate on the general SOAP level rather than the specific MAGDA level, and therefore precede the `CombinedSimulator` (see below).
 They are optionally added depending on whether WSS is enabled in the configuration. They will validate the signature in the request and sign the response, respectively, based on the configured keystore.
 If the `SignatureVerifyingSimulator` fails to verify the request, it yields a SOAP error response.
-If the `SigningSimulator` fails to sign the response (for whatever technical reason), `MagdaSendFailed` is thrown.
+If the `SigningSimulator` fails to sign the response (for whatever technical reason), `MagdaMockException` is thrown.
 
 #### CombinedSimulator ####
 
@@ -103,7 +103,7 @@ handle the response for each respective service and version. During the setup of
 under it.
 
 The service and version are extracted from the request document with the respective xpath expressions `//Verzoek/Context/Naam` and `//Verzoek/Context/Versie`.
-The request document will then be passed down to the simulator registered under that pair. If no service is registered, a `MagdaSendFailed` exception is thrown.
+The request document will then be passed down to the simulator registered under that pair. If no service is registered, a `MagdaMockException` exception is thrown.
 
 #### StaticResponseSimulator ####
 
@@ -134,7 +134,7 @@ This is interesting because it permits an arbitrary level of flexibility per ind
 
 If the simulator fails to find the target document anywhere, it will start looking for different documents, using the same hierarchical logic. These documents are `notfound.xml` and `success.xml`, respectively.
 
-If none of the fallback options yield any document, a `MagdaSendFailed` exception is thrown.
+If none of the fallback options yield any document, a `MagdaMockException` exception is thrown.
 
 #### RandomPasfotoSimulator ####
 
@@ -148,7 +148,7 @@ Based on this, a passport photo is pseudo-randomly selected from one of two dire
 The `mannen` directory is expected to contain 6 files: `0.xml`, `1.xml`, ..., `5.xml`.
 The `vrouwen` directory is expected to contain 4 files: `0.xml`, `1.xml`, ..., `3.xml`.
 The number is selected from the date of birth modulo 6 or 4. In this manner, the simulator yields a pseudo-random passport photo document, while remaining idempotent for each INSZ number.
-If none of the possible documents is not found, `MagdaSendFailed` is thrown.
+If none of the possible documents is not found, `MagdaMockException` is thrown.
 
 The document will be looked for at the resource path: `magda_simulator/<type>/<service>/<version>/<gender>/<n>.xml`.
 There is no hierarchical fallback logic, but a `notfound.xml` and a `succes.xml` [sic] file will be looked for on the level of the gender directory.
@@ -166,3 +166,10 @@ Make sure that the document is conformant to the according XSD (otherwise the bu
 To do this, check if the subdirectory falls under any of the subdirectories listed in `SimulatorXmlValidation::XML_FOLDERS_AND_XSDS`, and if not, add one to that list if possible.
 
 _Source of the XSD files:_ https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/487620609/Overzicht+testdata+endpoints+en+XSD+s#Diensten-alle-versies-samen
+
+### Note on the use of language within the project
+
+Given the technical nature of this project and its documentation, we have chosen to use the English language whenever possible. As the efforts on this started within the Flemish government, Dutch language comments, naming and documentation are still present, and will in due course be replaced by English language equivalents.
+
+The exception to this rule is when a word is a reference to another word (in accordance with the "use-mention distinction" in grammar); in other words, when a word could be written between quotation marks because for instance it occurs as an element in an XML file (e.g., UitzonderingEntry can be read as: "Uitzondering" entry), or some domain-specific concept without a real English name (e.g., "hoedanigheidscode").
+Wherever this is the case, the documentation ought to explain what the referent of that word means.

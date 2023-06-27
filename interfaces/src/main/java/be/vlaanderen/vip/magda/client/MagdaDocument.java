@@ -28,6 +28,9 @@ import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 
+/**
+ * A wrapper around a DOM Document with some utility methods to retrieve and manipulate MAGDA XML document data.
+ */
 @Slf4j
 public class MagdaDocument {
     private final Document xml;
@@ -52,10 +55,6 @@ public class MagdaDocument {
         } else {
             return null;
         }
-    }
-
-    public static MagdaDocument fromTemplate(Aanvraag aanvraag) {
-        return fromResource(MagdaDocument.class, "/templates/" + aanvraag.magdaService().getNaam() + "/" + aanvraag.magdaService().getVersie() + "/template.xml");
     }
 
     public static MagdaDocument fromDocument(Document doc) {
@@ -168,8 +167,8 @@ public class MagdaDocument {
         }
     }
 
-    public MagdaServiceIdentificatie getServiceIdentification() {
-        return new MagdaServiceIdentificatie(
+    public MagdaServiceIdentification getServiceIdentification() {
+        return new MagdaServiceIdentification(
                 getValue("//Verzoek/Context/Naam"),
                 getValue("//Verzoek/Context/Versie"));
     }

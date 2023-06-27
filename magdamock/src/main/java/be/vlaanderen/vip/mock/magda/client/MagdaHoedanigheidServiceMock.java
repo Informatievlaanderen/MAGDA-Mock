@@ -11,8 +11,7 @@ public class MagdaHoedanigheidServiceMock implements MagdaHoedanigheidService {
     }
 
     @Override
-    public MagdaRegistrationInfo getDomeinService(String name) {
+    public MagdaRegistrationInfo getDomeinService(String registration) {
         return mockedMagdaRegistrationInfo;
     }
-    
 }

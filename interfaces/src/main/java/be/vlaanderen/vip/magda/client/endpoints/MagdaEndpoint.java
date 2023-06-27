@@ -4,6 +4,10 @@ import lombok.Getter;
 
 import java.net.URI;
 
+/**
+ * The subset of URIs that are valid as MAGDA endpoint URIs.
+ * The only additional criterion for validity is that the URI be absolute.
+ */
 @Getter
 public class MagdaEndpoint {
 
