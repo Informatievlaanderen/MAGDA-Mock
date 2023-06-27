@@ -6,6 +6,13 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 
+/**
+ * A request that pertains to a person, identified by INSZ number.
+ * Adds the following fields to the {@link MagdaRequest}:
+ * <ul>
+ * <li>insz: the INSZ number of the party about which the information is requested</li>
+ * </ul>
+ */
 @Getter
 public abstract class PersonMagdaRequest extends MagdaRequest {
 

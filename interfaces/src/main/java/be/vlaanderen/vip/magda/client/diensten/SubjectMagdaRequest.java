@@ -8,6 +8,13 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 
+/**
+ * A request that pertains to any sort of subject.
+ * Adds the following fields to the {@link MagdaRequest}:
+ * <ul>
+ * <li>subject: the subject identification number of the party about which the information is requested (INSZ number for a person, KBO number for an enterprise)</li>
+ * </ul>
+ */
 public abstract class SubjectMagdaRequest extends MagdaRequest {
 
     protected abstract static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {

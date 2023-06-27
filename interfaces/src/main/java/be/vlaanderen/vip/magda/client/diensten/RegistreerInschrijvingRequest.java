@@ -1,7 +1,6 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
@@ -15,9 +14,8 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * A request to a "RegistreerInschrijving" MAGDA service, which files registrations.
- * Adds the following fields to the {@link MagdaRequest}:
+ * Adds the following fields to the {@link PersonMagdaRequest}:
  * <ul>
- * <li>insz: the INSZ number of the party about which the information is requested</li>
  * <li>startDate: the start date of the registration</li>
  * <li>endDate: the end date of the registration</li>
  * </ul>
