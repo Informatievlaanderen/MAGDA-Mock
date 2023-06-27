@@ -4,10 +4,8 @@ import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
-import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -22,22 +20,9 @@ import lombok.ToString;
  */
 @Getter
 @ToString
-public class GeefPersoonRequest extends MagdaRequest {
+public class GeefPersoonRequest extends PersonMagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
-
-        @Getter(AccessLevel.PROTECTED)
-        private INSZNumber insz;
-
-        @SuppressWarnings("unchecked")
-        public SELF insz(INSZNumber insz) {
-            this.insz = insz;
-            return (SELF) this;
-        }
-
-        public SELF insz(String insz) {
-            return insz(INSZNumber.of(insz));
-        }
+    public static class Builder<SELF extends Builder<SELF>> extends PersonMagdaRequest.Builder<SELF> {
 
         public GeefPersoonRequest build() {
             if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
@@ -53,14 +38,10 @@ public class GeefPersoonRequest extends MagdaRequest {
         return new Builder();
     }
 
-    @NotNull
-    private final INSZNumber insz;
-
     private GeefPersoonRequest(
             @NotNull INSZNumber insz,
             @NotNull String registratie) {
-        super(registratie);
-        this.insz = insz;
+        super(insz, registratie);
     }
 
     @Override
@@ -69,14 +50,7 @@ public class GeefPersoonRequest extends MagdaRequest {
     }
 
     @Override
-    public SubjectIdentificationNumber getSubject() {
-        return insz;
-    }
-
-    @Override
     protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         fillInCommonFields(request, magdaRegistrationInfo);
-
-        request.setValue("//INSZ", getInsz().getValue());
     }
 }
