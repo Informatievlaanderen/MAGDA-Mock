@@ -52,7 +52,15 @@ class DirectoryResourceFinderTest {
             
             assertNull(result);
         }
-        
+
+        @Test
+        void isNull_onPathTraversal() throws IOException {
+            TempDirUtils.createFile(dir, "type/path/to/resource.txt", "content");
+
+            var result = finder.loadSimulatorResource("type", "path/to/../to/resource.txt");
+
+            assertNull(result);
+        }
     }
     
     @Nested
@@ -78,6 +86,17 @@ class DirectoryResourceFinderTest {
 
             var result = finder.listServicesDirectories("other-type");
             
+            assertThat(result, is(empty()));
+        }
+
+        @Test
+        void isEmptyOnPathTraversal() throws IOException {
+            TempDirUtils.createDir(dir, "type/dir1");
+            TempDirUtils.createDir(dir, "type/dir2");
+            TempDirUtils.createFile(dir, "file1.txt", "file1");
+
+            var result = finder.listServicesDirectories("type/..");
+
             assertThat(result, is(empty()));
         }
         

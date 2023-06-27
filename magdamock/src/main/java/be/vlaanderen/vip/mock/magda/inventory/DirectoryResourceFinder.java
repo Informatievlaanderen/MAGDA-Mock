@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.*;
 
-public class DirectoryResourceFinder implements ResourceFinder {
+public class DirectoryResourceFinder extends AbstractResourceFinder {
     private final File dir;
     
     DirectoryResourceFinder(File dir) {
@@ -21,7 +21,12 @@ public class DirectoryResourceFinder implements ResourceFinder {
     @Override
     public InputStream loadSimulatorResource(String type, String resource) {
         try {
-            return new FileInputStream(new File(dir, "%s/%s".formatted(type, resource)));
+            var relativePath = "%s/%s".formatted(type, resource);
+            if(containsPathTraversal(relativePath)) {
+                return null;
+            }
+
+            return new FileInputStream(new File(dir, relativePath));
         } catch (FileNotFoundException e) {
             return null;
         }
@@ -29,6 +34,10 @@ public class DirectoryResourceFinder implements ResourceFinder {
 
     @Override
     public List<ServiceDirectory> listServicesDirectories(String type) {
+        if(containsPathTraversal(type)) {
+            return Collections.emptyList();
+        }
+
         var typeDir = new File(dir, type);
         if(typeDir.exists()) {
             return getServiceDirectories(typeDir);

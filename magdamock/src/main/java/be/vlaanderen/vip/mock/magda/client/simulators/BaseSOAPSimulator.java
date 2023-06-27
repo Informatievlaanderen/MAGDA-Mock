@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockException;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import lombok.extern.slf4j.Slf4j;
 
@@ -70,5 +71,11 @@ public abstract class BaseSOAPSimulator implements SOAPSimulator {
         faultDocument.setValue("//soapenv:Fault/faultstring", faultString);
 
         return wrapInEnvelope(faultDocument);
+    }
+
+    protected void validatePathElement(String value) {
+        if(value.contains("/") || "..".equals(value) || ".".equals(value)) {
+            throw new MagdaMockException("Invalid path element: %s".formatted(value));
+        }
     }
 }

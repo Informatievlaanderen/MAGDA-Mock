@@ -25,16 +25,19 @@ public class StaticResponseSimulator extends BaseSOAPSimulator {
     @Override
     public MagdaDocument send(MagdaDocument request) throws MagdaMockException {
         var serviceName = request.getValue("//Verzoek/Context/Naam");
-        var versie = request.getValue("//Verzoek/Context/Versie");
-
+        var serviceVersion = request.getValue("//Verzoek/Context/Versie");
         var values = keys.stream().map(request::getValue).toList();
 
-        var responseBody = loadResource(serviceName, versie, values);
+        validatePathElement(serviceName);
+        validatePathElement(serviceVersion);
+        values.forEach(this::validatePathElement);
+
+        var responseBody = loadResource(serviceName, serviceVersion, values);
         if (responseBody == null) {
-            responseBody = loadResource(serviceName, versie, replaceLastKey(values, "notfound"));
+            responseBody = loadResource(serviceName, serviceVersion, replaceLastKey(values, "notfound"));
         }
         if (responseBody == null) {
-            responseBody = loadResource(serviceName, versie, replaceLastKey(values, "success"));
+            responseBody = loadResource(serviceName, serviceVersion, replaceLastKey(values, "success"));
         }
 
         if (responseBody != null) {
@@ -42,7 +45,7 @@ public class StaticResponseSimulator extends BaseSOAPSimulator {
 
             return wrapInEnvelope(responseBody);
         } else {
-            throw new MagdaMockException("No mock data found for request to %s %s".formatted(serviceName, versie));
+            throw new MagdaMockException("No mock data found for request to %s %s".formatted(serviceName, serviceVersion));
         }
     }
 
@@ -55,10 +58,10 @@ public class StaticResponseSimulator extends BaseSOAPSimulator {
         return result;
     }
 
-    private MagdaDocument loadResource(String serviceName, String versie, List<String> keys) {
+    private MagdaDocument loadResource(String serviceName, String serviceVersion, List<String> keys) {
         var dirs = new ArrayList<String>();
         dirs.add(serviceName);
-        dirs.add(versie);
+        dirs.add(serviceVersion);
         if (keys.size() > 1) {
             for (var i = 0; i < keys.size() - 1; i++) {
                 if (keys.get(i) != null) {

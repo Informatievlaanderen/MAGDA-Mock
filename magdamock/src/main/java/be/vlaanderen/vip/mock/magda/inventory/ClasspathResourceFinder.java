@@ -15,7 +15,7 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 @Slf4j
-public class ClasspathResourceFinder implements ResourceFinder {
+public class ClasspathResourceFinder extends AbstractResourceFinder {
     private final String root;
     private final ClassLoader loader;
     
@@ -26,11 +26,20 @@ public class ClasspathResourceFinder implements ResourceFinder {
 
     @Override
     public InputStream loadSimulatorResource(String type, String resource) {
-        return loader.getResourceAsStream(root + "/" + type + "/" + resource);
+        var relativePath = "%s/%s".formatted(type, resource);
+        if(containsPathTraversal(relativePath)) {
+            return null;
+        }
+
+        return loader.getResourceAsStream(root + "/" + relativePath);
     }
 
     @Override
     public List<ServiceDirectory> listServicesDirectories(String type) {
+        if(containsPathTraversal(type)) {
+            return Collections.emptyList();
+        }
+
         try(var stream = ClasspathResourceFinder
                 .listDirectories(fromClasspathResource(root + "/" + type))
                 .<ServiceDirectory>map(path -> new ResourceServiceDirectory(loader, path))

@@ -42,19 +42,22 @@ public class RandomPasfotoSimulator extends BaseSOAPSimulator {
     @Override
     public MagdaDocument send(MagdaDocument request) throws MagdaMockException {
         var serviceName = request.getValue("//Verzoek/Context/Naam");
-        var versie = request.getValue("//Verzoek/Context/Versie");
-
+        var serviceVersion = request.getValue("//Verzoek/Context/Versie");
         var insz = request.getValue(keys.get(0));
 
-        var responseBody = loadSimulatorResource(type, exactPasFotoresourcePath(serviceName, versie, insz));
+        validatePathElement(serviceName);
+        validatePathElement(serviceVersion);
+        validatePathElement(insz);
+
+        var responseBody = loadSimulatorResource(type, exactPasFotoresourcePath(serviceName, serviceVersion, insz));
         if (responseBody == null) {
-            responseBody = loadSimulatorResource(type, randomPasFotoResourcePath(serviceName, versie, insz));
+            responseBody = loadSimulatorResource(type, randomPasFotoResourcePath(serviceName, serviceVersion, insz));
         }
         if (responseBody == null) {
-            responseBody = loadSimulatorResource(type, exactPasFotoresourcePath(serviceName, versie, "notfound"));
+            responseBody = loadSimulatorResource(type, exactPasFotoresourcePath(serviceName, serviceVersion, "notfound"));
         }
         if (responseBody == null) {
-            responseBody = loadSimulatorResource(type, exactPasFotoresourcePath(serviceName, versie, "succes"));
+            responseBody = loadSimulatorResource(type, exactPasFotoresourcePath(serviceName, serviceVersion, "succes"));
         }
 
         if (responseBody != null) {
@@ -65,18 +68,18 @@ public class RandomPasfotoSimulator extends BaseSOAPSimulator {
 
             return wrapInEnvelope(responseBody);
         } else {
-            throw new MagdaMockException("No mock data found for request to %s %s".formatted(serviceName, versie));
+            throw new MagdaMockException("No mock data found for request to %s %s".formatted(serviceName, serviceVersion));
         }
     }
 
-    private String randomPasFotoResourcePath(String serviceName, String versie, String insz) {
+    private String randomPasFotoResourcePath(String serviceName, String serviceVersion, String insz) {
         var genderCategory = isMaleINSZ(insz) ? GenderCategory.MALE : GenderCategory.FEMALE;
 
         return String.join("/",
                 serviceName,
-                versie,
+                serviceVersion,
                 genderCategory.directoryName,
-                String.valueOf(insz.hashCode() % genderCategory.numberOfFiles))
+                String.valueOf(Math.abs(insz.hashCode()) % genderCategory.numberOfFiles))
                 + ".xml";
     }
 
@@ -93,7 +96,7 @@ public class RandomPasfotoSimulator extends BaseSOAPSimulator {
                 .orElse(false);
     }
 
-    private String exactPasFotoresourcePath(String serviceName, String versie, String insz) {
-        return String.join("/", serviceName, versie, insz) + ".xml";
+    private String exactPasFotoresourcePath(String serviceName, String serviceVersion, String insz) {
+        return String.join("/", serviceName, serviceVersion, insz) + ".xml";
     }
 }

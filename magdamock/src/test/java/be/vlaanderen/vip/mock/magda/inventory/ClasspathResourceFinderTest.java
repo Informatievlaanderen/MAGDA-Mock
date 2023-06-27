@@ -15,6 +15,7 @@ import java.util.Objects;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ClasspathResourceFinderTest {
     private ClasspathResourceFinder finder;
@@ -39,6 +40,13 @@ class ClasspathResourceFinderTest {
             var result = finder.loadSimulatorResource("not", "existing-resource");
             
             assertThat(result, is(nullValue()));
+        }
+
+        @Test
+        void isNull_onPathTraversal() {
+            var result = finder.loadSimulatorResource("Persoon", "GeefAttest/02.00.0000/../02.00.0000/01010100126.xml");
+
+            assertNull(result);
         }
         
         private String getResourceContent(String resource) {
@@ -67,6 +75,13 @@ class ClasspathResourceFinderTest {
         void isEmptyWhenNoDirForType() {
             var result = finder.listServicesDirectories("Other");
             
+            assertThat(result, is(empty()));
+        }
+
+        @Test
+        void isEmptyOnPathTraversal() {
+            var result = finder.listServicesDirectories("Persoon/..");
+
             assertThat(result, is(empty()));
         }
         
