@@ -19,7 +19,7 @@ class GeefBewijsRequestTest {
                     .registration("456");
             var request = builder.build();
 
-            assertNotNull(request.getCorrelationId());
+            assertNull(request.getCorrelationId());
             assertNotNull(request.getRequestId());
             assertEquals(INSZNumber.of("123"), request.getInsz());
             assertEquals("456", request.getRegistration());

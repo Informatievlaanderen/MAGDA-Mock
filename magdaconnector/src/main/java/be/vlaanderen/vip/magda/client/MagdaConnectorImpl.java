@@ -39,20 +39,22 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     @Override
     public MagdaResponse send(MagdaRequest magdaRequest) throws ServerException {
-        var start = System.nanoTime();
-
-        logRequest(magdaRequest);
-
-        var magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration());
-        var requestDocument = magdaRequest.toMagdaDocument(magdaRegistrationInfo);
-
-        magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
-                .log("Request to MAGDA service with reference [{}]", magdaRequest.getRequestId());
-
-        magdaRequestLoggingEventBuilder(log, Level.DEBUG, magdaRequest)
-                .log("Request: {}", requestDocument);
+        magdaRequest.setCorrelationId(CorrelationId.get());
 
         try {
+            var start = System.nanoTime();
+
+            logRequest(magdaRequest);
+
+            var magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration());
+            var requestDocument = magdaRequest.toMagdaDocument(magdaRegistrationInfo);
+
+            magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
+                    .log("Request to MAGDA service with reference [{}]", magdaRequest.getRequestId());
+
+            magdaRequestLoggingEventBuilder(log, Level.DEBUG, magdaRequest)
+                    .log("Request: {}", requestDocument);
+
             var response = callMagda(requestDocument);
             magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
                     .log("Response: {}", response);
@@ -79,6 +81,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
             logNoResponse(magdaRequest);
 
             throw new NoResponseException("No response", e, magdaRequest);
+        } finally {
+            CorrelationId.clear();
         }
     }
 

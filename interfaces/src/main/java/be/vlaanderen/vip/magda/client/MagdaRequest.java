@@ -4,6 +4,7 @@ import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumb
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
 import java.time.Instant;
@@ -41,7 +42,8 @@ public abstract class MagdaRequest {
 
     public static final String DEFAULT_REGISTRATION = "default";
 
-    private final UUID correlationId = CorrelationId.get();
+    @Setter
+    private UUID correlationId;
     private final UUID requestId = UUID.randomUUID();
     @NotNull
     private final String registration;
