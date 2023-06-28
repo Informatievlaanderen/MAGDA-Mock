@@ -27,6 +27,13 @@ class INSZNumberTest {
     }
 
     @Test
+    void xpathExpression_isAlwaysINSZ() {
+        var insz = INSZNumber.of("123");
+
+        assertEquals("//INSZ", insz.getXPathExpression());
+    }
+
+    @Test
     void getValueInLogFormat_givesValueInExpectedFormat() {
         assertEquals("123 (INSZ)", INSZNumber.of("123").getValueInLogFormat());
     }

@@ -31,6 +31,11 @@ public class INSZNumber implements SubjectIdentificationNumber {
     }
 
     @Override
+    public String getXPathExpression() {
+        return "//INSZ";
+    }
+
+    @Override
     public String getValueInLogFormat() {
         return "%s (INSZ)".formatted(getValue());
     }

@@ -64,6 +64,7 @@ public abstract class MagdaRequest {
 
     protected void fillInCommonFields(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         request.setValue("//Referte", getRequestId().toString());
+        request.setValue(getSubject().getXPathExpression(), getSubject().getValue());
 
         final var now = Instant.now();
         var ldt = LocalDateTime.ofInstant(now, ZoneId.of("Europe/Brussels"));

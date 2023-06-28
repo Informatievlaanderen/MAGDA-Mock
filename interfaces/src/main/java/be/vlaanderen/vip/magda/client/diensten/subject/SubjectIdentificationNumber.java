@@ -10,5 +10,7 @@ public interface SubjectIdentificationNumber extends Serializable {
 
     SubjectType getSubjectType();
 
+    String getXPathExpression();
+
     String getValueInLogFormat();
 }

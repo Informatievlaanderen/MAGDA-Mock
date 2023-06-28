@@ -1,10 +1,7 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
-import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
-import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
@@ -17,9 +14,8 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * A request to a "RegistreerInschrijving" (specifically version 02.01) MAGDA service, which files registrations.
- * Adds the following fields to the {@link MagdaRequest}:
+ * Adds the following fields to the {@link SubjectMagdaRequest}:
  * <ul>
- * <li>subject: the subject identification number of the party about which the information is requested (INSZ number for a person, KBO number for an enterprise)</li>
  * <li>startDate: the start date of the registration</li>
  * <li>endDate: the end date of the registration</li>
  * </ul>
@@ -28,30 +24,14 @@ import java.time.format.DateTimeFormatter;
  */
 @Getter
 @ToString
-public class RegistreerInschrijving0201Request extends MagdaRequest {
+public class RegistreerInschrijving0201Request extends SubjectMagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
+    public static class Builder<SELF extends Builder<SELF>> extends SubjectMagdaRequest.Builder<SELF> {
 
-        @Getter(AccessLevel.PROTECTED)
-        private SubjectIdentificationNumber subject;
         @Getter(AccessLevel.PROTECTED)
         private LocalDate startDate;
         @Getter(AccessLevel.PROTECTED)
         private LocalDate endDate;
-
-        @SuppressWarnings("unchecked")
-        public SELF subject(SubjectIdentificationNumber subject) {
-            this.subject = subject;
-            return (SELF) this;
-        }
-
-        public SELF insz(String insz) {
-            return subject(INSZNumber.of(insz));
-        }
-
-        public SELF kbo(String kbo) {
-            return subject(KBONumber.of(kbo));
-        }
 
         @SuppressWarnings("unchecked")
         public SELF startDate(LocalDate startDate) {
@@ -84,8 +64,6 @@ public class RegistreerInschrijving0201Request extends MagdaRequest {
     }
 
     @NotNull
-    private final SubjectIdentificationNumber subject;
-    @NotNull
     private final LocalDate startDate;
     @NotNull
     private final LocalDate endDate;
@@ -95,8 +73,7 @@ public class RegistreerInschrijving0201Request extends MagdaRequest {
             @NotNull String registratie,
             @NotNull LocalDate startDate,
             @NotNull LocalDate endDate) {
-        super(registratie);
-        this.subject = subject;
+        super(subject, registratie);
         this.startDate = startDate;
         this.endDate = endDate;
     }

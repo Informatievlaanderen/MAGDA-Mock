@@ -31,6 +31,11 @@ public class KBONumber implements SubjectIdentificationNumber {
     }
 
     @Override
+    public String getXPathExpression() {
+        return "//Ondernemingsnummer";
+    }
+
+    @Override
     public String getValueInLogFormat() {
         return "%s (KBO)".formatted(getValue());
     }

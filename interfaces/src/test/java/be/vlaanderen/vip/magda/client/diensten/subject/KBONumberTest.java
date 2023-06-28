@@ -27,6 +27,13 @@ class KBONumberTest {
     }
 
     @Test
+    void xpathExpression_isAlwaysOndernemingsnummer() {
+        var kbo = KBONumber.of("123");
+
+        assertEquals("//Ondernemingsnummer", kbo.getXPathExpression());
+    }
+
+    @Test
     void getValueInLogFormat_givesValueInExpectedFormat() {
         assertEquals("123 (KBO)", KBONumber.of("123").getValueInLogFormat());
     }
