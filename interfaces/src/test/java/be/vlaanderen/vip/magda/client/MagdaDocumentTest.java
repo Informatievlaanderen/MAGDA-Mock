@@ -1,10 +1,13 @@
 package be.vlaanderen.vip.magda.client;
 
 import org.junit.jupiter.api.Test;
-import static org.xmlunit.matchers.CompareMatcher.isIdenticalTo;
+
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.xmlunit.matchers.CompareMatcher.isIdenticalTo;
 
 class MagdaDocumentTest {
 
@@ -95,6 +98,30 @@ class MagdaDocumentTest {
                 </foo>""");
 
         assertNull(magdaDocument.getValue("//foo/qux"));
+    }
+
+    @Test
+    void getValues_getsAllMatchedValues() {
+        var magdaDocument = MagdaDocument.fromString("""
+                <foo>
+                    <bar>donald</bar>
+                    <bar>john</bar>
+                    <baz>trump</baz>
+                </foo>""");
+
+        assertEquals(List.of("donald", "john"), magdaDocument.getValues("//foo/bar"));
+    }
+
+    @Test
+    void getValues_returnEmptyListIfThereIsNoMatch() {
+        var magdaDocument = MagdaDocument.fromString("""
+                <foo>
+                    <bar>donald</bar>
+                    <bar>john</bar>
+                    <baz>trump</baz>
+                </foo>""");
+
+        assertEquals(List.of(), magdaDocument.getValues("//foo/qux"));
     }
 
     @Test

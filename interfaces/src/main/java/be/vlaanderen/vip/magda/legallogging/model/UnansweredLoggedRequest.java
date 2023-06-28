@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.legallogging.model;
 
+import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 
 import java.util.Collections;
@@ -14,7 +15,7 @@ import java.util.UUID;
  * </ul>
  */
 public class UnansweredLoggedRequest extends LoggedRequest {
-    public UnansweredLoggedRequest(String subjectInsz, String insz, UUID transactionID, UUID localTransactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
-        super(subjectInsz, Collections.singletonList(insz), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
+    public UnansweredLoggedRequest(SubjectIdentificationNumber subject, UUID transactionID, UUID localTransactionID, String serviceName, String serviceVersion, MagdaRegistrationInfo registrationInfo) {
+        super(Collections.singletonList(subject), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
     }
 }

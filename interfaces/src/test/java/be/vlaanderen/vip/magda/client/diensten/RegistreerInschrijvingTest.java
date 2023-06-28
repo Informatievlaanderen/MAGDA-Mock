@@ -23,9 +23,9 @@ class RegistreerInschrijvingTest extends TestBase {
         var end = LocalDate.of(2021, 9, 20);
 
         var request = RegistreerInschrijvingRequest.builder()
-                .subjectInsz(INSZ)
-                .start(start)
-                .einde(end)
+                .insz(INSZ)
+                .startDate(start)
+                .endDate(end)
                 .build();
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
@@ -48,10 +48,9 @@ class RegistreerInschrijvingTest extends TestBase {
     @Test
     void fillsInRequestRegistreerInschrijving0201() {
         var request = RegistreerInschrijving0201Request.builder()
-                .type(RegistrationType.PERSON)
-                .subjectInsz(INSZ)
-                .start(LocalDate.now())
-                .einde(LocalDate.now().plusDays(5))
+                .insz(INSZ)
+                .startDate(LocalDate.now())
+                .endDate(LocalDate.now().plusDays(5))
                 .build();
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
@@ -76,9 +75,9 @@ class RegistreerInschrijvingTest extends TestBase {
             var end = LocalDate.of(2021, 9, 20);
 
             var request = RegistreerInschrijvingRequest.builder()
-                    .subjectInsz(INSZ)
-                    .start(start)
-                    .einde(end)
+                    .insz(INSZ)
+                    .startDate(start)
+                    .endDate(end)
                     .build();
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
@@ -104,10 +103,9 @@ class RegistreerInschrijvingTest extends TestBase {
         @Test
         void fillsInRequestRegistreerInschrijving0201() {
             var request = RegistreerInschrijving0201Request.builder()
-                    .type(RegistrationType.PERSON)
-                    .subjectInsz(INSZ)
-                    .start(LocalDate.now())
-                    .einde(LocalDate.now().plusDays(5))
+                    .insz(INSZ)
+                    .startDate(LocalDate.now())
+                    .endDate(LocalDate.now().plusDays(5))
                     .build();
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()

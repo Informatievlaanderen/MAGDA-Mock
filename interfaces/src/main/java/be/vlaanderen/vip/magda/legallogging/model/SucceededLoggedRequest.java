@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.legallogging.model;
 
+import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.Getter;
 
@@ -18,15 +19,14 @@ import java.util.UUID;
 public class SucceededLoggedRequest extends LoggedRequest {
     private final Duration duration;
 
-    public SucceededLoggedRequest(String subjectInsz,
-                                  List<String> inszs,
+    public SucceededLoggedRequest(List<SubjectIdentificationNumber> subjects,
                                   UUID transactionID,
                                   UUID localTransactionID,
                                   Duration duration,
                                   String serviceName,
                                   String serviceVersion,
                                   MagdaRegistrationInfo registrationInfo) {
-        super(subjectInsz, inszs, transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
+        super(subjects, transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
         this.duration = duration;
     }
 }

@@ -4,7 +4,6 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.Getter;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,15 +20,14 @@ public class FailedLoggedRequest extends LoggedRequest {
     private final Duration duration;
     private final List<UitzonderingEntry> uitzonderingEntries;
 
-    public FailedLoggedRequest(String subjectInsz,
-                               UUID transactionID,
+    public FailedLoggedRequest(UUID transactionID,
                                UUID localTransactionID,
                                Duration duration,
                                List<UitzonderingEntry> uitzonderingEntries,
                                String serviceName,
                                String serviceVersion,
                                MagdaRegistrationInfo registrationInfo) {
-        super(subjectInsz, new ArrayList<>(), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
+        super(List.of(), transactionID, localTransactionID, serviceName, serviceVersion, registrationInfo);
         this.uitzonderingEntries = uitzonderingEntries;
         this.duration = duration;
     }

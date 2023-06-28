@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.exception;
 
+import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.legallogging.model.UitzonderingEntry;
 import lombok.Getter;
 
@@ -16,12 +17,12 @@ public class UitzonderingenSectionInResponseException extends ServerException {
     @Serial
     private static final long serialVersionUID = 2478927288540376650L;
     
-    private final String insz;
+    private final SubjectIdentificationNumber subject;
     private final transient List<UitzonderingEntry> uitzonderingEntries;
 
-    public UitzonderingenSectionInResponseException(String insz, List<UitzonderingEntry> uitzonderingEntries) {
+    public UitzonderingenSectionInResponseException(SubjectIdentificationNumber subject, List<UitzonderingEntry> uitzonderingEntries) {
         super("Backend error '" + uitzonderingEntries.get(0).toString() + "'");
-        this.insz = insz;
+        this.subject = subject;
         this.uitzonderingEntries = uitzonderingEntries;
     }
 }

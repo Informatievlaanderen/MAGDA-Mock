@@ -16,7 +16,7 @@ class GeefBewijsTest extends MockTestBase {
     void geefBewijsGeeftAntwoord() {
         final var requestInsz = "67621546751";
         var request = GeefBewijsRequest.builder()
-                .subjectInsz(requestInsz)
+                .insz(requestInsz)
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -58,7 +58,7 @@ class GeefBewijsTest extends MockTestBase {
     void geefBewijsVoorOnbekendePersoonGeeftGeenGegevensGevonden() {
         final var requestInsz = "57021546719";
         var request = GeefBewijsRequest.builder()
-                .subjectInsz(requestInsz)
+                .insz(requestInsz)
                 .build();
 
         var clientLogService = new ClientLogServiceMock();

@@ -1,15 +1,16 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.ToString;
 
 /**
  * A request to a "GeefAanslagBiljet" MAGDA service, which provides tax bills.
- * Adds the following fields to the {@link MagdaRequest}:
+ * Adds the following fields to the {@link PersonMagdaRequest}:
  * <ul>
  * <li>none</li>
  * </ul>
@@ -18,15 +19,16 @@ import lombok.ToString;
  */
 @Getter
 @ToString
-public class GeefAanslagbiljetPersonenbelastingRequest extends MagdaRequest {
+public class GeefAanslagbiljetPersonenbelastingRequest extends PersonMagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
+    public static class Builder<SELF extends Builder<SELF>> extends PersonMagdaRequest.Builder<SELF> {
 
         public GeefAanslagbiljetPersonenbelastingRequest build() {
+            if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
+
             return new GeefAanslagbiljetPersonenbelastingRequest(
-                    getSubjectInsz(),
                     getInsz(),
-                    getRegistratie()
+                    getRegistration()
             );
         }
     }
@@ -35,8 +37,10 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends MagdaRequest {
         return new Builder();
     }
 
-    private GeefAanslagbiljetPersonenbelastingRequest(String subjectInsz, String insz, String registratie) {
-        super(subjectInsz, insz, registratie);
+    private GeefAanslagbiljetPersonenbelastingRequest(
+            @NotNull INSZNumber insz,
+            @NotNull String registratie) {
+        super(insz, registratie);
     }
 
     @Override

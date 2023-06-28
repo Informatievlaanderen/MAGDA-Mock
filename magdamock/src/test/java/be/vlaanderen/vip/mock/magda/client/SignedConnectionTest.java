@@ -23,7 +23,7 @@ class SignedConnectionTest extends MockTestBase {
     @SneakyThrows
     void respondsAsNormal_IfRequestSignatureIsValid() {
         var request = GeefBewijsRequest.builder()
-                .subjectInsz(REQUEST_INSZ)
+                .insz(REQUEST_INSZ)
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -54,7 +54,7 @@ class SignedConnectionTest extends MockTestBase {
     @SneakyThrows
     void respondsAsNormal_IfNoKeystoresAreUsedAnywhere() {
         var request = GeefBewijsRequest.builder()
-                .subjectInsz(REQUEST_INSZ)
+                .insz(REQUEST_INSZ)
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -85,7 +85,7 @@ class SignedConnectionTest extends MockTestBase {
     @SneakyThrows
     void throwsUitzonderingSectionInResponseException_IfRequestSignatureIsUnexpected() {
         var request = GeefBewijsRequest.builder()
-                .subjectInsz(REQUEST_INSZ)
+                .insz(REQUEST_INSZ)
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -99,7 +99,7 @@ class SignedConnectionTest extends MockTestBase {
             connector.send(request);
             fail("No exception was thrown");
         } catch(UitzonderingenSectionInResponseException e) {
-            assertEquals(REQUEST_INSZ, e.getInsz());
+            assertEquals(REQUEST_INSZ, e.getSubject().getValue());
             assertEquals(1, e.getUitzonderingEntries().size());
 
             var uitzondering = e.getUitzonderingEntries().get(0);
@@ -120,7 +120,7 @@ class SignedConnectionTest extends MockTestBase {
     @SneakyThrows
     void throwsUitzonderingSectionInResponseException_IfRequestIsNotSigned() {
         var request = GeefBewijsRequest.builder()
-                .subjectInsz(REQUEST_INSZ)
+                .insz(REQUEST_INSZ)
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -134,7 +134,7 @@ class SignedConnectionTest extends MockTestBase {
             connector.send(request);
             fail("No exception was thrown");
         } catch(UitzonderingenSectionInResponseException e) {
-            assertEquals(REQUEST_INSZ, e.getInsz());
+            assertEquals(REQUEST_INSZ, e.getSubject().getValue());
             assertEquals(1, e.getUitzonderingEntries().size());
 
             var uitzondering = e.getUitzonderingEntries().get(0);
@@ -155,7 +155,7 @@ class SignedConnectionTest extends MockTestBase {
     @SneakyThrows
     void throwsNoResponseException_IfResponseSignatureIsUnexpected() {
         var request = GeefBewijsRequest.builder()
-                .subjectInsz(REQUEST_INSZ)
+                .insz(REQUEST_INSZ)
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -179,7 +179,7 @@ class SignedConnectionTest extends MockTestBase {
     @SneakyThrows
     void throwsNoResponseException_IfResponseIsNotSigned() {
         var request = GeefBewijsRequest.builder()
-                .subjectInsz(REQUEST_INSZ)
+                .insz(REQUEST_INSZ)
                 .build();
 
         var clientLogService = new ClientLogServiceMock();

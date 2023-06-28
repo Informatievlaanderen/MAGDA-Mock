@@ -1,9 +1,10 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
-import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.ToString;
@@ -13,54 +14,47 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * A request to a "RegistreerInschrijving" (specifically version 02.01) MAGDA service, which files registrations.
- * Adds the following fields to the {@link MagdaRequest}:
+ * Adds the following fields to the {@link SubjectMagdaRequest}:
  * <ul>
- * <li>type: the type of registration (person or enterprise)</li>
- * <li>start: the start date of the registration</li>
- * <li>end: the end date of the registration</li>
+ * <li>startDate: the start date of the registration</li>
+ * <li>endDate: the end date of the registration</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/RegistreerInschrijving/02.01.0000/template.xml">XML template for this request type</a>
  */
 @Getter
 @ToString
-public class RegistreerInschrijving0201Request extends MagdaRequest {
+public class RegistreerInschrijving0201Request extends SubjectMagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
+    public static class Builder<SELF extends Builder<SELF>> extends SubjectMagdaRequest.Builder<SELF> {
 
         @Getter(AccessLevel.PROTECTED)
-        private RegistrationType type;
+        private LocalDate startDate;
         @Getter(AccessLevel.PROTECTED)
-        private LocalDate start;
-        @Getter(AccessLevel.PROTECTED)
-        private LocalDate einde;
+        private LocalDate endDate;
 
         @SuppressWarnings("unchecked")
-        public SELF type(RegistrationType type) {
-            this.type = type;
+        public SELF startDate(LocalDate startDate) {
+            this.startDate = startDate;
             return (SELF) this;
         }
 
         @SuppressWarnings("unchecked")
-        public SELF start(LocalDate start) {
-            this.start = start;
-            return (SELF) this;
-        }
-
-        @SuppressWarnings("unchecked")
-        public SELF einde(LocalDate einde) {
-            this.einde = einde;
+        public SELF endDate(LocalDate endDate) {
+            this.endDate = endDate;
             return (SELF) this;
         }
 
         public RegistreerInschrijving0201Request build() {
+            if(getSubject() == null) { throw new IllegalStateException("Subject identification number must be given"); }
+            if(getStartDate() == null) { throw new IllegalStateException("Start date must be given"); }
+            if(getEndDate() == null) { throw new IllegalStateException("End date must be given"); }
+
             return new RegistreerInschrijving0201Request(
-                    getSubjectInsz(),
-                    getInsz(),
-                    getRegistratie(),
-                    getType(),
-                    getStart(),
-                    getEinde()
+                    getSubject(),
+                    getRegistration(),
+                    getStartDate(),
+                    getEndDate()
             );
         }
     }
@@ -69,15 +63,19 @@ public class RegistreerInschrijving0201Request extends MagdaRequest {
         return new Builder();
     }
 
-    private final RegistrationType type;
-    private final LocalDate start;
-    private final LocalDate einde;
+    @NotNull
+    private final LocalDate startDate;
+    @NotNull
+    private final LocalDate endDate;
 
-    private RegistreerInschrijving0201Request(String subjectInsz, String insz, String registratie, RegistrationType type, LocalDate start, LocalDate einde) {
-        super(subjectInsz, insz, registratie);
-        this.type = type;
-        this.start = start;
-        this.einde = einde;
+    private RegistreerInschrijving0201Request(
+            @NotNull SubjectIdentificationNumber subject,
+            @NotNull String registratie,
+            @NotNull LocalDate startDate,
+            @NotNull LocalDate endDate) {
+        super(subject, registratie);
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     @Override
@@ -90,11 +88,11 @@ public class RegistreerInschrijving0201Request extends MagdaRequest {
         fillInCommonFields(request, magdaRegistrationInfo);
 
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Start", getStart().format(dateFormatter));
-        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEinde().format(dateFormatter));
-        request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Type", getType().getTypeString());
-        request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Type", getType().getTypeString());
-        request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Sleutel", getSubjectInsz());
+        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Start", getStartDate().format(dateFormatter));
+        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEndDate().format(dateFormatter));
+        request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Type", getSubject().getSubjectType().getTypeString());
+        request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Type", getSubject().getSubjectType().getTypeString());
+        request.setValue("//Vraag/Inhoud/Inschrijving/BetrokkenSubject/Subjecten/Subject/Sleutel", getSubject().getValue());
         request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", magdaRegistrationInfo.getIdentification());
 
         var hoedanigheidscode = magdaRegistrationInfo.getHoedanigheidscode();

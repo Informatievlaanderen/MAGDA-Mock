@@ -1,15 +1,16 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.ToString;
 
 /**
  * A request to a "GeefPersoon" MAGDA service, which provides personal information.
- * Adds the following fields to the {@link MagdaRequest}:
+ * Adds the following fields to the {@link PersonMagdaRequest}:
  * <ul>
  * <li>none</li>
  * </ul>
@@ -18,15 +19,16 @@ import lombok.ToString;
  */
 @Getter
 @ToString
-public class GeefPersoonRequest extends MagdaRequest {
+public class GeefPersoonRequest extends PersonMagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {
+    public static class Builder<SELF extends Builder<SELF>> extends PersonMagdaRequest.Builder<SELF> {
 
         public GeefPersoonRequest build() {
+            if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
+
             return new GeefPersoonRequest(
-                    getSubjectInsz(),
                     getInsz(),
-                    getRegistratie()
+                    getRegistration()
             );
         }
     }
@@ -35,8 +37,10 @@ public class GeefPersoonRequest extends MagdaRequest {
         return new Builder();
     }
 
-    private GeefPersoonRequest(String subjectInsz, String insz, String registratie) {
-        super(subjectInsz, insz, registratie);
+    private GeefPersoonRequest(
+            @NotNull INSZNumber insz,
+            @NotNull String registratie) {
+        super(insz, registratie);
     }
 
     @Override

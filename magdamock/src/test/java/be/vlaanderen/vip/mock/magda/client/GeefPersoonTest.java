@@ -15,7 +15,7 @@ class GeefPersoonTest extends MockTestBase {
     void geefPersoonGeeftAntwoord() {
         final var requestInsz = "00600099507";
         var request = GeefPersoonRequest.builder()
-                .subjectInsz(requestInsz)
+                .insz(requestInsz)
                 .build();
         var clientLogService = new ClientLogServiceMock();
 

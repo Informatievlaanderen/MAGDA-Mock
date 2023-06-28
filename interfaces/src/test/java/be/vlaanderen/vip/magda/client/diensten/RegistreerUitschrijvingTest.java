@@ -18,9 +18,9 @@ class RegistreerUitschrijvingTest extends TestBase {
         var end = LocalDate.of(2021, 9, 20);
         
         var request = RegistreerUitschrijvingRequest.builder()
-                .subjectInsz("67021546719")
-                .start(start)
-                .einde(end)
+                .insz("67021546719")
+                .startDate(start)
+                .endDate(end)
                 .build();
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
@@ -43,7 +43,7 @@ class RegistreerUitschrijvingTest extends TestBase {
     @Test
     void dateFieldsOptional() {
         var request = RegistreerUitschrijvingRequest.builder()
-                .subjectInsz("67021546719")
+                .insz("67021546719")
                 .build();
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
@@ -68,9 +68,9 @@ class RegistreerUitschrijvingTest extends TestBase {
             var end = LocalDate.of(2021, 9, 20);
 
             var request = RegistreerUitschrijvingRequest.builder()
-                    .subjectInsz("67021546719")
-                    .start(start)
-                    .einde(end)
+                    .insz("67021546719")
+                    .startDate(start)
+                    .endDate(end)
                     .build();
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
