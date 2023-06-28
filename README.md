@@ -144,10 +144,8 @@ As will become evident from the explanation below, the functionality of this cla
 This simulator assumes that the list of keys it's instantiated for is not empty, and that the first in the list of keys is an INSZ number.  The rest of the keys in the list is ignored.
 It will use an algorithm to extract information on the person's (binary) gender and their date of birth from the INSZ number.
 
-Based on this, a passport photo is pseudo-randomly selected from one of two directories, `mannen` or `vrouwen`.
-The `mannen` directory is expected to contain 6 files: `0.xml`, `1.xml`, ..., `5.xml`.
-The `vrouwen` directory is expected to contain 4 files: `0.xml`, `1.xml`, ..., `3.xml`.
-The number is selected from the date of birth modulo 6 or 4. In this manner, the simulator yields a pseudo-random passport photo document, while remaining idempotent for each INSZ number.
+Based on this, a passport photo is pseudo-randomly selected from one of two directories, `mannen` or `vrouwen` (for men and for women, respectively).
+The number is selected from the date of birth modulo the number of files in the gender directory. In this manner, the simulator yields a pseudo-random passport photo document, while remaining idempotent for each INSZ number.
 If none of the possible documents is not found, `MagdaMockException` is thrown.
 
 The document will be looked for at the resource path: `magda_simulator/<type>/<service>/<version>/<gender>/<n>.xml`.

@@ -10,7 +10,9 @@ public interface ResourceFinder {
     InputStream loadSimulatorResource(String type, String resource);
     
     List<ServiceDirectory> listServicesDirectories(String type);
-    
+
+    List<CaseFile> listCaseFiles(String type, String subpath);
+
     interface ServiceDirectory {
         
         String service();

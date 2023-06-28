@@ -3,7 +3,6 @@ package be.vlaanderen.vip.mock.magda.client.simulators;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockException;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
-import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
@@ -11,20 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 public class RandomPasfotoSimulator extends BaseSOAPSimulator {
-
-    // FIXME number of files shouldn't be hardcoded, as the user of magdamock may mount an alternate set of xml files
-    private enum GenderCategory {
-        MALE("mannen", 6),
-        FEMALE("vrouwen", 4);
-
-        @Getter private final String directoryName;
-        @Getter private final int numberOfFiles;
-
-        GenderCategory(String directoryName, int numberOfFiles) {
-            this.directoryName = directoryName;
-            this.numberOfFiles = numberOfFiles;
-        }
-    }
 
     private final String type;
     private final List<String> keys;
@@ -73,14 +58,11 @@ public class RandomPasfotoSimulator extends BaseSOAPSimulator {
     }
 
     private String randomPasFotoResourcePath(String serviceName, String serviceVersion, String insz) {
-        var genderCategory = isMaleINSZ(insz) ? GenderCategory.MALE : GenderCategory.FEMALE;
+        var genderDirectory = isMaleINSZ(insz) ? "mannen" : "vrouwen";
+        var path = String.join("/", serviceName, serviceVersion, genderDirectory);
+        var caseFiles = getFinder().listCaseFiles(type, path);
 
-        return String.join("/",
-                serviceName,
-                serviceVersion,
-                genderCategory.directoryName,
-                String.valueOf(Math.abs(insz.hashCode()) % genderCategory.numberOfFiles))
-                + ".xml";
+        return String.join("/", path, caseFiles.get(Math.abs(insz.hashCode()) % caseFiles.size()).name());
     }
 
     /**

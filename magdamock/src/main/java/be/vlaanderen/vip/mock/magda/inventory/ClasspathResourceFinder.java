@@ -48,6 +48,21 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         }
     }
 
+    @Override
+    public List<CaseFile> listCaseFiles(String type, String subpath) {
+        var relativePath = "%s/%s".formatted(type, subpath);
+        if(containsPathTraversal(relativePath)) {
+            return Collections.emptyList();
+        }
+
+        try(var stream = ClasspathResourceFinder
+                .listFiles(fromClasspathResource(root + "/" + relativePath))
+                .<CaseFile>map(ResourceCaseFile::new)
+                .sorted(Comparator.comparing(CaseFile::name))) {
+            return stream.toList();
+        }
+    }
+
     public static ClasspathResourceFinder create(String root) {
         return create(root, ClasspathResourceFinder.class);
     }

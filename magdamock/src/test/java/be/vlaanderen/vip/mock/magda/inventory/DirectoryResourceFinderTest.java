@@ -117,7 +117,63 @@ class DirectoryResourceFinderTest {
                 }
             };
         }
-        
+    }
+
+    @Nested
+    class ListCaseFiles {
+
+        @Test
+        void returnsServiceDirectory_forTypeAndSubPath() throws IOException {
+            TempDirUtils.createDir(dir, "type/subdir/subdir2");
+            TempDirUtils.createFile(dir, "type/subdir/file1.txt", "content1");
+            TempDirUtils.createFile(dir, "type/subdir/file2.txt", "content2");
+            TempDirUtils.createFile(dir, "type/file3.txt", "content3");
+            TempDirUtils.createFile(dir, "type/subdir/subdir2/file4.txt", "content4");
+
+            var result = finder.listCaseFiles("type", "subdir");
+
+            assertThat(result, contains(
+                    caseFileFor("file1"),
+                    caseFileFor("file2")));
+        }
+
+        @Test
+        void isEmptyWhenNoDirForType() throws IOException {
+            TempDirUtils.createDir(dir, "type/subdir");
+            TempDirUtils.createFile(dir, "type/subdir/file1.txt", "content1");
+
+            var result = finder.listCaseFiles("type", "otherdir");
+
+            assertThat(result, is(empty()));
+        }
+
+        @Test
+        void isEmptyOnPathTraversal() throws IOException {
+            TempDirUtils.createDir(dir, "type/subdir");
+            TempDirUtils.createFile(dir, "type/subdir/file1.txt", "content1");
+
+            var result = finder.listCaseFiles("type", "subdir/../subdir");
+
+            assertThat(result, is(empty()));
+        }
+
+        private Matcher<CaseFile> caseFileFor(String name) {
+            return new BaseMatcher<>() {
+
+                @Override
+                public boolean matches(Object actual) {
+                    if (actual instanceof CaseFile cf) {
+                        return cf.name().equals(name);
+                    }
+                    return false;
+                }
+
+                @Override
+                public void describeTo(Description description) {
+                    description.appendText("no case file for %s".formatted(name));
+                }
+            };
+        }
     }
 
     @Nested

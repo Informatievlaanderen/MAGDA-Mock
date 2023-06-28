@@ -68,7 +68,8 @@ class ClasspathResourceFinderTest {
             
             assertThat(result, contains(serviceDirectoryFor("GeefAanslagbiljetPersonenbelasting"),
                                         serviceDirectoryFor("GeefAttest"),
-                                        serviceDirectoryFor("GeefBewijs")));
+                                        serviceDirectoryFor("GeefBewijs"),
+                                        serviceDirectoryFor("GeefPasfoto")));
         }
         
         @Test
@@ -102,7 +103,56 @@ class ClasspathResourceFinderTest {
                 }
             };
         }
-        
+    }
+
+    @Nested
+    class ListCaseFiles {
+
+        @Test
+        void returnsCaseFiles_forTypeAndSubpath() {
+            var result = finder.listCaseFiles("Persoon", "GeefPasfoto/02.00.0000/mannen");
+
+            assertThat(result, contains(
+                    caseFileFor("0.xml"),
+                    caseFileFor("1.xml"),
+                    caseFileFor("2.xml"),
+                    caseFileFor("3.xml"),
+                    caseFileFor("4.xml"),
+                    caseFileFor("5.xml"),
+                    caseFileFor("6.xml")));
+        }
+
+        @Test
+        void isEmptyWhenNoDirForType() {
+            var result = finder.listCaseFiles("Persoon", "GeefPasfoto/02.00.0000/nonbinair");
+
+            assertThat(result, is(empty()));
+        }
+
+        @Test
+        void isEmptyOnPathTraversal() {
+            var result = finder.listCaseFiles("Persoon", "GeefPasfoto/02.00.0000/../02.00.0000/mannen");
+
+            assertThat(result, is(empty()));
+        }
+
+        private Matcher<CaseFile> caseFileFor(String name) {
+            return new BaseMatcher<>() {
+
+                @Override
+                public boolean matches(Object actual) {
+                    if (actual instanceof CaseFile cf) {
+                        return cf.name().equals(name);
+                    }
+                    return false;
+                }
+
+                @Override
+                public void describeTo(Description description) {
+                    description.appendText("no case file for %s".formatted(name));
+                }
+            };
+        }
     }
     
     @Nested

@@ -3,6 +3,8 @@ package be.vlaanderen.vip.mock.magda.client.simulators;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockException;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.text.SimpleDateFormat;
@@ -13,6 +15,7 @@ import java.util.UUID;
 
 @Slf4j
 public abstract class BaseSOAPSimulator implements SOAPSimulator {
+    @Getter(AccessLevel.PROTECTED)
     private final ResourceFinder finder;
 
     protected BaseSOAPSimulator(ResourceFinder finder) {
