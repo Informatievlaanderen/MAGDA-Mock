@@ -279,7 +279,7 @@ public class MockServerHttpTest extends MockServerTest {
     }
 
     private MockMagdaEndpoints makeMockEndpoints() {
-        return new MockMagdaEndpoints(testerConfig.getServiceUrl().resolve("/Magda-02.00/soap/WebService"));
+        return new MockMagdaEndpoints(testerConfig.getServiceUrl().resolve("/api/Magda-02.00/soap/WebService"));
     }
 
     private MagdaConfigDto configureMagdaParameters() {

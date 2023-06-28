@@ -37,7 +37,7 @@ Pull requests to add additional test data are also appreciated, but will be subj
 _The unit testing in your application can use this module to integrate with a MAGDA mock environment for SOAP services._
 
 #### `magdaservice` module
-The MAGDA service integrates with the `magdamock` module to offer a Spring Boot application which exposes the endpoint `POST Magda-02.00/soap/WebService` that accepts
+The MAGDA service integrates with the `magdamock` module to offer a Spring Boot application which exposes the endpoint `POST /api/Magda-02.00/soap/WebService` that accepts
 a valid SOAP request payload for any MAGDA SOAP service for which test cases have been defined in the `magdamock` module.
 
 For the response a matching will be attempted with the service and its test case for the specified test persona.

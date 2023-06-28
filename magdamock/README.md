@@ -63,7 +63,7 @@ MagdaConfigDto config = ...
 var endpoints = MagdaEndpoints.builder()
                               .addMapping("service", // e.g: GeefBewijs
                                           "version", // e.g: 02.00.0000
-                                          "url") // e.g: https://magda.be/Magda-02.00/soap/WebService
+                                          "url") // e.g: https://magda.be/api/Magda-02.00/soap/WebService
                               .addMapping(...) // more mappings as is required
                               .build();
 var connection = new MagdaSoapConnection(endpoints, config);
