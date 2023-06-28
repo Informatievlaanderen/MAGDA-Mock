@@ -26,7 +26,7 @@ public class MagdaMockController {
         this.mockConnection = mockConnection;
     }
 
-    @PostMapping(value = MAGDA_SOAP_02_00, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
+    @PostMapping(value = {MAGDA_SOAP_02_00, "api/" + MAGDA_SOAP_02_00}, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> magdaSoap0200WebService(@RequestBody String request) throws MagdaConnectionException {
         return processMagdaMockRequest(request);
     }
