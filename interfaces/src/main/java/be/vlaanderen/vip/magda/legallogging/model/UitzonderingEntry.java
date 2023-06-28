@@ -23,6 +23,6 @@ public class UitzonderingEntry {
     private List<AnnotatieField> annotatieFields;
 
     public String toString() {
-        return String.format("%s %s-%s '%s'", uitzonderingType == null ? "null" : uitzonderingType.toString(), origin, identification, diagnosis);
+        return String.format("%s %s-%s '%s'", uitzonderingType, origin, identification, diagnosis);
     }
 }
