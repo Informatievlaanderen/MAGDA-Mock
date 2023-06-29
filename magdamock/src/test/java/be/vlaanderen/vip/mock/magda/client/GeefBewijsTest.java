@@ -26,7 +26,7 @@ class GeefBewijsTest extends MockTestBase {
         var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
+        assertThat(antwoord.isBodyFilledIn()).isTrue();
         assertThat(antwoord.isHasContents()).isTrue();
         assertThat(antwoord.getUitzonderingEntries()).isEmpty();
         assertThat(antwoord.getResponseUitzonderingEntries()).isEmpty();
@@ -68,7 +68,7 @@ class GeefBewijsTest extends MockTestBase {
         var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isFalse();
+        assertThat(antwoord.isBodyFilledIn()).isFalse();
         assertThat(antwoord.isHasContents()).isFalse();
         assertThat(antwoord.getResponseUitzonderingEntries()).hasSize(1);
         assertThat(antwoord.getUitzonderingEntries()).isEmpty();
