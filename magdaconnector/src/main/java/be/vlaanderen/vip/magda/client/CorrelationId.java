@@ -4,7 +4,6 @@ import org.slf4j.MDC;
 
 import java.util.UUID;
 
-// FIXME it looks like the correlation ids don't get unset after a request; fix and maybe rework how this class is used
 public class CorrelationId {
     private static final String LABELS = "labels.correlationId";
     private static final ThreadLocal<UUID> CORRELATION_ID = new ThreadLocal<>();

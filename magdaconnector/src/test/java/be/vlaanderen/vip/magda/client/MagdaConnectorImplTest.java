@@ -51,6 +51,24 @@ class MagdaConnectorImplTest {
 			doReturn(identity).when(identityService).getDomeinService("default");
 		}
 
+		@Test
+		void setsCorrelationIdOnRequest() {
+			CorrelationId.clear();
+			assertFalse(CorrelationId.isPresent());
+
+			var req = GeefBewijsRequest.builder()
+					.insz("test-insz")
+					.build();
+			mockReply(buildReplyDocument());
+
+			assertNull(req.getCorrelationId());
+
+			connector.send(req);
+
+			assertNotNull(req.getCorrelationId());
+			assertFalse(CorrelationId.isPresent());
+		}
+
 		@Nested
 		class NoReply {
 

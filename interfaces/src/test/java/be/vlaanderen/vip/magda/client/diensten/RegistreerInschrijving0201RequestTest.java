@@ -24,7 +24,7 @@ class RegistreerInschrijving0201RequestTest {
                     .endDate(LocalDate.of(2023, 4, 1));
             var request = builder.build();
 
-            assertNotNull(request.getCorrelationId());
+            assertNull(request.getCorrelationId());
             assertNotNull(request.getRequestId());
             assertEquals(INSZNumber.of("123"), request.getSubject());
             assertEquals("456", request.getRegistration());
