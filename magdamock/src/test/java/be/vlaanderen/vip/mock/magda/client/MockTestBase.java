@@ -101,14 +101,14 @@ public abstract class MockTestBase {
     }
 
     protected void assertThatResponseContainsAnswerNoError(MagdaResponse magdaResponse) {
-        assertThat(magdaResponse.isBodyIngevuld()).isTrue();
+        assertThat(magdaResponse.isBodyFilledIn()).isTrue();
         assertThat(magdaResponse.isHasContents()).isTrue();
         assertThat(magdaResponse.getResponseUitzonderingEntries()).isEmpty();
         assertThat(magdaResponse.getUitzonderingEntries()).isEmpty();
     }
 
     protected void assertThatAnswerContainsUitzondering(MagdaResponse magdaResponse) {
-        assertThat(magdaResponse.isBodyIngevuld()).isFalse();
+        assertThat(magdaResponse.isBodyFilledIn()).isFalse();
         assertThat(magdaResponse.isHasContents()).isFalse();
         assertThat(magdaResponse.getResponseUitzonderingEntries()).isEmpty();
         assertThat(magdaResponse.getUitzonderingEntries()).hasSize(1);

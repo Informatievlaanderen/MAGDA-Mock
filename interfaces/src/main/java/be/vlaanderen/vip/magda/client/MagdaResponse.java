@@ -28,7 +28,7 @@ public class MagdaResponse {
     private final boolean hasContents;
     private final Set<SubjectIdentificationNumber> subjects;
 
-    public boolean isBodyIngevuld() {
+    public boolean isBodyFilledIn() {
         return uitzonderingEntries.isEmpty() && hasContents && body != null;
     }
 }

@@ -55,7 +55,7 @@ public class GeefPasfotoTest extends MockTestBase {
         var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
+        assertThat(antwoord.isBodyFilledIn()).isTrue();
         assertThat(antwoord.isHasContents()).isTrue();
         assertThat(antwoord.getUitzonderingEntries()).isEmpty();
         assertThat(antwoord.getResponseUitzonderingEntries()).isEmpty();

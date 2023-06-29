@@ -236,14 +236,14 @@ public class MockServerHttpTest extends MockServerTest {
     }
 
     private void assertResponsBevatAntwoord(MagdaResponse magdaResponse) {
-        assertThat(magdaResponse.isBodyIngevuld()).isTrue();
+        assertThat(magdaResponse.isBodyFilledIn()).isTrue();
         assertThat(magdaResponse.isHasContents()).isTrue();
         assertThat(magdaResponse.getResponseUitzonderingEntries()).isEmpty();
         assertThat(magdaResponse.getUitzonderingEntries()).isEmpty();
     }
 
     private void assertResponsBevatUitzondering(MagdaResponse antwoord, UitzonderingType exptectedType, String expectedFoutCode, String expectedDiagnose) {
-        assertThat(antwoord.isBodyIngevuld()).isFalse();
+        assertThat(antwoord.isBodyFilledIn()).isFalse();
         assertThat(antwoord.isHasContents()).isFalse();
         assertThat(antwoord.getResponseUitzonderingEntries()).isEmpty();
         assertThat(antwoord.getUitzonderingEntries()).hasSize(1);
