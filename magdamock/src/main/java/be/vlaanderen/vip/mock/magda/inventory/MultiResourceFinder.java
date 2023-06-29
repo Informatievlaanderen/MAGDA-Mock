@@ -30,6 +30,14 @@ public class MultiResourceFinder implements ResourceFinder {
                       .flatMap(Collection::stream)
                       .toList();
     }
+
+    @Override
+    public List<CaseFile> listCaseFiles(String type, String subpath) { // XXX test
+        return finders.stream()
+                .map(finder -> finder.listCaseFiles(type, subpath))
+                .flatMap(Collection::stream)
+                .toList();
+    }
     
     public static MultiResourceFinder create(ResourceFinder... finders) {
         return create(Arrays.asList(finders));

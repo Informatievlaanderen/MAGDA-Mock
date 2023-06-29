@@ -15,7 +15,7 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 @Slf4j
-public class ClasspathResourceFinder implements ResourceFinder {
+public class ClasspathResourceFinder extends AbstractResourceFinder {
     private final String root;
     private final ClassLoader loader;
     
@@ -26,15 +26,39 @@ public class ClasspathResourceFinder implements ResourceFinder {
 
     @Override
     public InputStream loadSimulatorResource(String type, String resource) {
-        return loader.getResourceAsStream(root + "/" + type + "/" + resource);
+        var relativePath = "%s/%s".formatted(type, resource);
+        if(containsPathTraversal(relativePath)) {
+            return null;
+        }
+
+        return loader.getResourceAsStream(root + "/" + relativePath);
     }
 
     @Override
     public List<ServiceDirectory> listServicesDirectories(String type) {
+        if(containsPathTraversal(type)) {
+            return Collections.emptyList();
+        }
+
         try(var stream = ClasspathResourceFinder
                 .listDirectories(fromClasspathResource(root + "/" + type))
                 .<ServiceDirectory>map(path -> new ResourceServiceDirectory(loader, path))
                 .sorted(Comparator.comparing(ServiceDirectory::service))) {
+            return stream.toList();
+        }
+    }
+
+    @Override
+    public List<CaseFile> listCaseFiles(String type, String subpath) {
+        var relativePath = "%s/%s".formatted(type, subpath);
+        if(containsPathTraversal(relativePath)) {
+            return Collections.emptyList();
+        }
+
+        try(var stream = ClasspathResourceFinder
+                .listFiles(fromClasspathResource(root + "/" + relativePath))
+                .<CaseFile>map(ResourceCaseFile::new)
+                .sorted(Comparator.comparing(CaseFile::name))) {
             return stream.toList();
         }
     }
