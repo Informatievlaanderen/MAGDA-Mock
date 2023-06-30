@@ -26,7 +26,7 @@ public class MagdaMockController {
         this.mockConnection = mockConnection;
     }
 
-    @PostMapping(value = MAGDA_SOAP_02_00, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
+    @PostMapping(value = {MAGDA_SOAP_02_00, "api/" + MAGDA_SOAP_02_00}, produces = {TEXT_XML_VALUE}, consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     public ResponseEntity<String> magdaSoap0200WebService(@RequestBody String request) throws MagdaConnectionException {
         return processMagdaMockRequest(request);
     }
@@ -34,11 +34,11 @@ public class MagdaMockController {
 
     private ResponseEntity<String> processMagdaMockRequest(String request) throws MagdaConnectionException {
         //TODO: handle request parsing errors and return Magda Uitzondering error
-        var aanvraag = MagdaDocument.fromString(request);
+        var requestDocument = MagdaDocument.fromString(request);
 
-        var antwoord = mockConnection.sendDocument(aanvraag.getXml());
-        if (antwoord != null) {
-            return parseInputstream(MagdaDocument.fromDocument(antwoord));
+        var magdaResponse = mockConnection.sendDocument(requestDocument.getXml());
+        if (magdaResponse != null) {
+            return parseInputstream(MagdaDocument.fromDocument(magdaResponse));
 
         } else {
             return ResponseEntity.notFound().build();

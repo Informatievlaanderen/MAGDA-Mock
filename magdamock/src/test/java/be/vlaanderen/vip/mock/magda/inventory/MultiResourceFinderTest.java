@@ -12,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.io.InputStream;
 import java.util.List;
 
+import static be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.mock;
@@ -63,14 +64,14 @@ class MultiResourceFinderTest {
     }
     
     @Nested
-    class ListServicesDirectories {
+    class ListServiceDirectories {
         
         @Test
         void joinsServiceDirectoriesOfAllFinders() {
-            var dir1 = serivceDir();
-            var dir2 = serivceDir();
-            var dir3 = serivceDir();
-            var dir4 = serivceDir();
+            var dir1 = serviceDir();
+            var dir2 = serviceDir();
+            var dir3 = serviceDir();
+            var dir4 = serviceDir();
 
             when(finder1.listServicesDirectories("type")).thenReturn(List.of(dir1));
             when(finder2.listServicesDirectories("type")).thenReturn(List.of(dir2, dir3));
@@ -81,8 +82,32 @@ class MultiResourceFinderTest {
             assertThat(result, contains(dir1, dir2, dir3, dir4));
         }
         
-        private ServiceDirectory serivceDir() {
+        private ServiceDirectory serviceDir() {
             return mock(ServiceDirectory.class);
+        }
+    }
+
+    @Nested
+    class ListCaseFiles {
+
+        @Test
+        void joinsCaseFilesOfAllFinders() {
+            var file1 = caseFile();
+            var file2 = caseFile();
+            var file3 = caseFile();
+            var file4 = caseFile();
+
+            when(finder1.listCaseFiles("type", "subdir")).thenReturn(List.of(file1));
+            when(finder2.listCaseFiles("type", "subdir")).thenReturn(List.of(file2, file3));
+            when(finder3.listCaseFiles("type", "subdir")).thenReturn(List.of(file4));
+
+            var result = finder.listCaseFiles("type", "subdir");
+
+            assertThat(result, contains(file1, file2, file3, file4));
+        }
+
+        private CaseFile caseFile() {
+            return mock(CaseFile.class);
         }
     }
 }

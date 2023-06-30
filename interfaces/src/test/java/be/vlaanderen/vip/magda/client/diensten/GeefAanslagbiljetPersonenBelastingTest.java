@@ -1,6 +1,5 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
-import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -13,31 +12,31 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 class GeefAanslagbiljetPersonenBelastingTest extends TestBase {
 
     @Test
-    void aanvraagFillsInStandardRequestParameters() {
+    void requestFillsInStandardRequestParameters() {
 
         var insz = RandomStringUtils.randomNumeric(11);
-        var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(insz);
-
-        var request = MagdaDocument.fromTemplate(aanvraag);
+        var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
+                .insz(insz)
+                .build();
 
         var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
                 .build();
 
-        aanvraag.fillIn(request, mockedMagdaRegistrationInfo);
+        var requestDocument = request.toMagdaDocument(mockedMagdaRegistrationInfo);
 
-        log.debug("Request:  {}", request);
+        log.debug("Request:  {}", requestDocument);
 
         assertAll(
-                () -> assertThatTechnicalFieldsInRequestMatchAanvraag(request, aanvraag, mockedMagdaRegistrationInfo),
-                () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Criteria/INSZ", insz),
+                () -> assertThatTechnicalFieldsInRequestMatchRequest(requestDocument, request, mockedMagdaRegistrationInfo),
+                () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/INSZ", insz),
 
-                // TODO: Should these values be passed as inputs in Aanvraag instead of hardcoded in the request template?
-                () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Criteria/Inkomensjaar", "2011"),
-                () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[1]", "7555"),
-                () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[2]", "7557"),
-                () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Bron", "FODFIN"),
-                () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Taal", "nl")
+                // TODO: Should these values be passed as inputs in MagdaRequest instead of hardcoded in the request template?
+                () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/Inkomensjaar", "2011"),
+                () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[1]", "7555"),
+                () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[2]", "7557"),
+                () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Bron", "FODFIN"),
+                () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Taal", "nl")
         );
     }
 
@@ -45,32 +44,32 @@ class GeefAanslagbiljetPersonenBelastingTest extends TestBase {
     class Deprecated {
 
         @Test
-        void aanvraagFillsInStandardRequestParameters() {
+        void requestFillsInStandardRequestParameters() {
 
             var insz = RandomStringUtils.randomNumeric(11) ;
-            var aanvraag = new GeefAanslagbiljetPersonenbelastingAanvraag(insz);
-
-            var request = MagdaDocument.fromTemplate(aanvraag);
+            var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
+                    .insz(insz)
+                    .build();
 
             var mockedMagdaRegistrationInfo = MagdaRegistrationInfo.builder()
                     .identification(TEST_SERVICE_URI)
                     .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();
 
-            aanvraag.fillIn(request, mockedMagdaRegistrationInfo);
+            var requestDocument = request.toMagdaDocument(mockedMagdaRegistrationInfo);
 
-            log.debug("Request:  {}", request);
+            log.debug("Request:  {}", requestDocument);
 
             assertAll(
-                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchAanvraag(request, aanvraag, mockedMagdaRegistrationInfo),
-                    () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Criteria/INSZ", insz),
+                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchRequest(requestDocument, request, mockedMagdaRegistrationInfo),
+                    () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/INSZ", insz),
 
-                    // TODO: Should these values be passed as inputs in Aanvraag instead of hardcoded in the request template?
-                    () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Criteria/Inkomensjaar", "2011"),
-                    () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[1]", "7555"),
-                    () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[2]", "7557"),
-                    () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Bron", "FODFIN"),
-                    () -> assertThatXmlFieldIsEqualTo(request, "//Vragen/Vraag/Inhoud/Taal", "nl")
+                    // TODO: Should these values be passed as inputs in MagdaRequest instead of hardcoded in the request template?
+                    () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/Inkomensjaar", "2011"),
+                    () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[1]", "7555"),
+                    () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[2]", "7557"),
+                    () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Bron", "FODFIN"),
+                    () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Taal", "nl")
             );
         }
     }

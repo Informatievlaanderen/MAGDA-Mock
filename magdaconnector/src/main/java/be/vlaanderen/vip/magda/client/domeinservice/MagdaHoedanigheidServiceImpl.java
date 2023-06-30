@@ -11,16 +11,16 @@ public class MagdaHoedanigheidServiceImpl implements MagdaHoedanigheidService {
     }
 
     @Override
-    public MagdaRegistrationInfo getDomeinService(String name) {
-        if (StringUtils.isEmpty(name)) {
+    public MagdaRegistrationInfo getDomeinService(String registration) {
+        if (StringUtils.isEmpty(registration)) {
             return getDomeinService("default");
         }
 
-        if (!magdaConfigDto.getRegistration().containsKey(name)) {
-            throw new IllegalStateException("No known MAGDA registration in configuration with name '%s'".formatted(name));
+        if (!magdaConfigDto.getRegistration().containsKey(registration)) {
+            throw new IllegalStateException("No known MAGDA registration in configuration with name '%s'".formatted(registration));
         }
 
-        var registrationConfig = magdaConfigDto.getRegistration().get(name);
+        var registrationConfig = magdaConfigDto.getRegistration().get(registration);
 
         return MagdaRegistrationInfo.builder()
                 .identification(registrationConfig.getIdentification())

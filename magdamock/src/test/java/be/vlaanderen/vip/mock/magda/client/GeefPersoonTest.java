@@ -1,8 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
-import be.vlaanderen.vip.magda.client.diensten.GeefPersoonAanvraag;
-import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import be.vlaanderen.vip.magda.client.diensten.GeefPersoonRequest;
+import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -15,27 +14,29 @@ class GeefPersoonTest extends MockTestBase {
     @SneakyThrows
     void geefPersoonGeeftAntwoord() {
         final var requestInsz = "00600099507";
-        var aanvraag = new GeefPersoonAanvraag(requestInsz);
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var request = GeefPersoonRequest.builder()
+                .insz(requestInsz)
+                .build();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
-        var antwoord = connector.send(aanvraag);
+        var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.isBodyFilledIn()).isTrue();
+        assertThat(antwoord.isHasContents()).isTrue();
+        assertThat(antwoord.getUitzonderingEntries()).isEmpty();
+        assertThat(antwoord.getResponseUitzonderingEntries()).isEmpty();
 
-        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(aanvraag.getRequestId().toString());
+        assertThat(referte).isEqualTo(request.getRequestId().toString());
 
         var insz = doc.getValue("//Antwoorden/Antwoord/Inhoud/Persoon/INSZ");
         assertThat(insz).isEqualTo(requestInsz);

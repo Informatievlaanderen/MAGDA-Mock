@@ -1,8 +1,8 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import be.vlaanderen.vip.magda.client.diensten.GeefPasfotoAanvraag;
-import be.vlaanderen.vip.magda.legallogging.model.TypeUitzondering;
-import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import be.vlaanderen.vip.magda.client.diensten.GeefPasfotoRequest;
+import be.vlaanderen.vip.magda.legallogging.model.UitzonderingType;
+import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
@@ -35,7 +35,7 @@ public class GeefPasfotoTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefPasfotoVoorRandomMan() {
-        assertPasfotoCorrect(INSZ_RANDOM_MAN, 30271);
+        assertPasfotoCorrect(INSZ_RANDOM_MAN, 28722);
     }
 
     @Test
@@ -45,27 +45,29 @@ public class GeefPasfotoTest extends MockTestBase {
     }
 
     private void assertPasfotoCorrect(String requestInsz, int expected) throws IOException {
-        var aanvraag = new GeefPasfotoAanvraag(requestInsz);
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var request = GeefPasfotoRequest.builder()
+                .insz(requestInsz)
+                .build();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
-        var antwoord = connector.send(aanvraag);
+        var antwoord = connector.send(request);
         log.info("{}", antwoord.getDocument());
 
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
+        assertThat(antwoord.isBodyFilledIn()).isTrue();
+        assertThat(antwoord.isHasContents()).isTrue();
+        assertThat(antwoord.getUitzonderingEntries()).isEmpty();
+        assertThat(antwoord.getResponseUitzonderingEntries()).isEmpty();
 
-        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isEqualTo(1);
-        assertThat(afnemerLogService.getGefaald()).isZero();
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(aanvraag.getRequestId().toString());
+        assertThat(referte).isEqualTo(request.getRequestId().toString());
 
         var insz = doc.getValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ");
         assertThat(insz).isEqualTo(requestInsz);
@@ -90,24 +92,26 @@ public class GeefPasfotoTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefPasfotov0200LuktNietOmdatMagdaOverbelastIs() {
-        var aanvraag = new GeefPasfotoAanvraag(INSZ_MAGDA_OVERBELAST);
+        var request = GeefPasfotoRequest.builder()
+                .insz(INSZ_MAGDA_OVERBELAST)
+                .build();
 
-        var afnemerLogService = new AfnemerLogServiceMock();
+        var clientLogService = new ClientLogServiceMock();
 
-        var connector = makeMagdaConnector(afnemerLogService);
+        var connector = makeMagdaConnector(clientLogService);
 
-        var antwoord = connector.send(aanvraag);
-        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, aanvraag);
+        var antwoord = connector.send(request);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
 
         assertThatAnswerContainsUitzondering(antwoord);
 
-        assertThat(afnemerLogService.getAanvragen()).isEqualTo(1);
-        assertThat(afnemerLogService.getGeslaagd()).isZero();
-        assertThat(afnemerLogService.getGefaald()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isZero();
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isEqualTo(1);
 
-        var uitzondering = antwoord.getUitzonderingen().get(0);
-        assertThat(uitzondering.getUitzonderingType()).isEqualTo(TypeUitzondering.FOUT);
-        assertThat(uitzondering.getIdentificatie()).isEqualTo("99996");
-        assertThat(uitzondering.getDiagnose()).isEqualTo("Te veel gelijktijdige bevragingen");
+        var uitzondering = antwoord.getUitzonderingEntries().get(0);
+        assertThat(uitzondering.getUitzonderingType()).isEqualTo(UitzonderingType.FOUT);
+        assertThat(uitzondering.getIdentification()).isEqualTo("99996");
+        assertThat(uitzondering.getDiagnosis()).isEqualTo("Te veel gelijktijdige bevragingen");
     }
 }

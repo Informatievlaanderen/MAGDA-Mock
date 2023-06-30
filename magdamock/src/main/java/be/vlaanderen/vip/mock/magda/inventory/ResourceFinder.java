@@ -7,10 +7,12 @@ public interface ResourceFinder {
     List<String> CASE_FILE_EXTENSION = List.of(
             "xml", "json", "pdf", "jpg");
     
-    InputStream loadSimulatorResource(String type, String resource); // TODO refactor so that we use resource locators, which are subclassed by resource type
+    InputStream loadSimulatorResource(String type, String resource);
     
     List<ServiceDirectory> listServicesDirectories(String type);
-    
+
+    List<CaseFile> listCaseFiles(String type, String subpath);
+
     interface ServiceDirectory {
         
         String service();

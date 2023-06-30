@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.*;
 
-public class DirectoryResourceFinder implements ResourceFinder {
+public class DirectoryResourceFinder extends AbstractResourceFinder {
     private final File dir;
     
     DirectoryResourceFinder(File dir) {
@@ -21,7 +21,12 @@ public class DirectoryResourceFinder implements ResourceFinder {
     @Override
     public InputStream loadSimulatorResource(String type, String resource) {
         try {
-            return new FileInputStream(new File(dir, "%s/%s".formatted(type, resource)));
+            var relativePath = "%s/%s".formatted(type, resource);
+            if(containsPathTraversal(relativePath)) {
+                return null;
+            }
+
+            return new FileInputStream(new File(dir, relativePath));
         } catch (FileNotFoundException e) {
             return null;
         }
@@ -29,19 +34,45 @@ public class DirectoryResourceFinder implements ResourceFinder {
 
     @Override
     public List<ServiceDirectory> listServicesDirectories(String type) {
+        if(containsPathTraversal(type)) {
+            return Collections.emptyList();
+        }
+
         var typeDir = new File(dir, type);
         if(typeDir.exists()) {
             return getServiceDirectories(typeDir);
         }
         return Collections.emptyList();
     }
-    
+
+    @Override
+    public List<CaseFile> listCaseFiles(String type, String subpath) {
+        var relativePath = "%s/%s".formatted(type, subpath);
+        if(containsPathTraversal(relativePath)) {
+            return Collections.emptyList();
+        }
+
+        var typeDir = new File(dir, relativePath);
+        if(typeDir.exists()) {
+            return getCaseFiles(typeDir);
+        }
+        return Collections.emptyList();
+    }
+
     private List<ServiceDirectory> getServiceDirectories(File dir) {
         return Arrays.stream(Objects.requireNonNull(dir.listFiles()))
                      .filter(File::isDirectory)
                      .<ServiceDirectory>map(FileServiceDirectory::new)
                      .sorted(Comparator.comparing(ServiceDirectory::service))
                      .toList();
+    }
+
+    private List<CaseFile> getCaseFiles(File dir) {
+        return Arrays.stream(Objects.requireNonNull(dir.listFiles()))
+                .filter(File::isFile)
+                .<CaseFile>map(FileCaseFile::new)
+                .sorted(Comparator.comparing(CaseFile::name))
+                .toList();
     }
     
     public static DirectoryResourceFinder create(File dir) {

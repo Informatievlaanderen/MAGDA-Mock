@@ -4,7 +4,7 @@ import be.vlaanderen.vip.magda.client.*;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
-import be.vlaanderen.vip.mock.magda.client.legallogging.AfnemerLogServiceMock;
+import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
@@ -31,7 +31,7 @@ public abstract class MockTestBase {
         finder = ResourceFinders.magdaSimulator();
     }
 
-    protected MagdaConnectorImpl makeMagdaConnector(AfnemerLogServiceMock afnemerLogService) {
+    protected MagdaConnectorImpl makeMagdaConnector(ClientLogServiceMock clientLogService) {
         var mockConnection = mockConnection();
         var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
@@ -39,11 +39,11 @@ public abstract class MockTestBase {
                 .build();
         var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
 
-        return new MagdaConnectorImpl(mockConnection, afnemerLogService, magdaHoedanigheidService);
+        return new MagdaConnectorImpl(mockConnection, clientLogService, magdaHoedanigheidService);
     }
 
     protected MagdaConnectorImpl makeSignedMagdaConnector(
-            AfnemerLogServiceMock afnemerLogService,
+            ClientLogServiceMock clientLogService,
             TwoWaySslProperties signedConnectionRequestSignerKeystore,
             TwoWaySslProperties signedConnectionResponseVerifierKeystore,
             TwoWaySslProperties mockConnectionRequestVerifierKeystore,
@@ -58,7 +58,7 @@ public abstract class MockTestBase {
                 .build();
         var magdaHoedanigheidService = new MagdaHoedanigheidServiceMock(mockedMagdaHoedanigheid);
 
-        return new MagdaConnectorImpl(signedConnection, afnemerLogService, magdaHoedanigheidService);
+        return new MagdaConnectorImpl(signedConnection, clientLogService, magdaHoedanigheidService);
     }
     
     private MagdaMockConnection mockConnection() {
@@ -87,9 +87,9 @@ public abstract class MockTestBase {
         return new MagdaMockConnection(simulatorBuilder.build());
     }
 
-    protected void assertThatTechnicalFieldsInResponseMatchRequest(MagdaAntwoord antwoord, Aanvraag aanvraag) {
-        var doc = antwoord.getDocument();
-        assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_REFERTE, aanvraag.getRequestId().toString());
+    protected void assertThatTechnicalFieldsInResponseMatchRequest(MagdaResponse magdaResponse, MagdaRequest magdaRequest) {
+        var doc = magdaResponse.getDocument();
+        assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_REFERTE, magdaRequest.getRequestId().toString());
         assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_IDENTIFICATIE, TEST_SERVICE_URI);
         assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_HOEDANIGHEID, TEST_SERVICE_HOEDANIGHEID);
     }
@@ -100,23 +100,23 @@ public abstract class MockTestBase {
         assertThat(value).isEqualTo(expected);
     }
 
-    protected void assertThatResponseContainsAnswerNoError(MagdaAntwoord antwoord) {
-        assertThat(antwoord.isBodyIngevuld()).isTrue();
-        assertThat(antwoord.isHeeftInhoud()).isTrue();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).isEmpty();
+    protected void assertThatResponseContainsAnswerNoError(MagdaResponse magdaResponse) {
+        assertThat(magdaResponse.isBodyFilledIn()).isTrue();
+        assertThat(magdaResponse.isHasContents()).isTrue();
+        assertThat(magdaResponse.getResponseUitzonderingEntries()).isEmpty();
+        assertThat(magdaResponse.getUitzonderingEntries()).isEmpty();
     }
 
-    protected void assertThatAnswerContainsUitzondering(MagdaAntwoord antwoord) {
-        assertThat(antwoord.isBodyIngevuld()).isFalse();
-        assertThat(antwoord.isHeeftInhoud()).isFalse();
-        assertThat(antwoord.getAntwoordUitzonderingen()).isEmpty();
-        assertThat(antwoord.getUitzonderingen()).hasSize(1);
+    protected void assertThatAnswerContainsUitzondering(MagdaResponse magdaResponse) {
+        assertThat(magdaResponse.isBodyFilledIn()).isFalse();
+        assertThat(magdaResponse.isHasContents()).isFalse();
+        assertThat(magdaResponse.getResponseUitzonderingEntries()).isEmpty();
+        assertThat(magdaResponse.getUitzonderingEntries()).hasSize(1);
     }
 
-    protected void assertThatTechnicalFieldsAreFilledInCorrectly(MagdaAntwoord antwoord, Aanvraag aanvraag) {
-        log.debug("Response: {}", antwoord.getDocument().toString());
+    protected void assertThatTechnicalFieldsAreFilledInCorrectly(MagdaResponse magdaResponse, MagdaRequest magdaRequest) {
+        log.debug("Response: {}", magdaResponse.getDocument().toString());
 
-        assertThatTechnicalFieldsInResponseMatchRequest(antwoord, aanvraag);
+        assertThatTechnicalFieldsInResponseMatchRequest(magdaResponse, magdaRequest);
     }
 }
