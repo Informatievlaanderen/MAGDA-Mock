@@ -3,6 +3,7 @@ name: publish-artifacts
 run-name: Publish artifacts to Github packages
 on:
 #  push:
+  create  # Tag or branch
   release:
     types: [created]
 env:
