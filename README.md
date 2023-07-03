@@ -10,6 +10,9 @@ without real personal identifiable information and with stable and consistent te
 The MAGDA Mock is available as a Docker image, library and the project also offers a SOAP and Mock connector which
 can be used to connect to MAGDA Acceptance and Production environments after testing with the mock.
 
+> **Warning**
+> The MAGDA Mock is currently a preview release, it is provided as-is and without warranty or dedicated support.
+
 ### Repository structure ###
 #### `interfaces` module
 Defines the interface to which both a "real" signed MAGDA connection in acceptance (TNI) or production will adhere ([`MagdaSoapConnection`](magdaconnector/src/main/java/be/vlaanderen/vip/magda/client/MagdaSignedConnection.java) and [`MagdaSignedConnection`](magdaconnector/src/main/java/be/vlaanderen/vip/magda/client/MagdaSoapConnection.java)) and which is also
@@ -31,7 +34,7 @@ and [`Onderneming`](magdamock/src/main/resources/magda_simulator/Onderneming) (s
 
 This module stores the test cases used to respond to these requests for personas in its resources, see [`magda_simulator`](magdamock/src/main/resources/magda_simulator).
 
-Not all MAGDA SOAP services currently have test data, MAGDA customers can request for additional test cases through their aansluitingsbeheerder or via the MAGDA Service desk.
+Not all MAGDA SOAP services currently have test data, MAGDA customers can request for additional test cases through their aansluitingsbeheerder.
 Pull requests to add additional test data are also appreciated, but will be subject to approval and availability of the MAGDA Mock team.
 
 _The unit testing in your application can use this module to integrate with a MAGDA mock environment for SOAP services._
@@ -52,7 +55,7 @@ No database or queueing or other infrastructure necessary.
 
 ### Who do I talk to? ###
 
-* **For external users:** Raise a technical issue, i.e. bugs or inconsistencies in test cases, on Github or request for additional test cases or services through the MAGDA Service desk
+* **For external users:** Raise a technical issue, i.e. bugs or inconsistencies in test cases, on Github.
 * **For internal users:** Talk to the MAGDA Solutions Architects.
 
 ### Acknowledgements ###
