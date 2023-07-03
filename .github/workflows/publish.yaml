@@ -2,9 +2,9 @@
 name: publish-artifacts
 run-name: Publish artifacts to Github packages
 on:
-#  push:
-  release:
-    types: [created]
+  push:
+    tags:
+      - '*'
 env:
   REGISTRY: ghcr.io
   # Image name must be lower case
