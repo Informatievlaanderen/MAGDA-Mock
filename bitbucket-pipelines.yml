@@ -1,5 +1,5 @@
 image:
-  name: vlaamseoverheid-magda-docker-public.jfrog.io/magda/magda-base-pipeline:jdk19-latest
+  name: vlaamseoverheid-magda-docker-public.jfrog.io/magda/magda-base-pipeline:jdk20-latest
   username: $ARTIFACTORY_USER
   password: $ARTIFACTORY_PASSWORD
 
@@ -13,9 +13,16 @@ definitions:
         script:
           - export INFRA_REPO='magdamock.service-infra'
           - export IFS=' '
-          - export APPS='magdamock-service'
+          # Allow overwriting applications in deployments
+          - >
+            if [[ "$APPS" == "" ]]; then
+              export APPS='magdamock-service'
+            fi
+          - echo $NAMESPACE > target/namespace  # Necessary for passing namespace to the next steps
           - chmod +x deploy-with-argocd.sh
           - ./deploy-with-argocd.sh
+        artifacts:
+          - target/namespace
     - step: &build
         name: Building
         caches:
@@ -23,18 +30,16 @@ definitions:
         script:
           - export TESTCONTAINERS_RYUK_DISABLED=true
           - export MAVEN_OPTS="-Xmx1024m"
-          - mvn -B -U clean verify -s .m2/settings.xml 
+          - mvn -B -U clean verify -s .m2/settings.xml
         artifacts:
           - "**/*.jar"
-          
     - step: &release
         name: Release
         caches:
           - maven
         script:
           - export TESTCONTAINERS_RYUK_DISABLED=true
-          - chmod +x release-application.sh
-          - ./release-application.sh
+          - /bin/bash ./release-application.sh
     - step: &dockerRebuildFromTag
         name: Rebuild Docker from tag
         caches:
@@ -47,7 +52,31 @@ definitions:
           - prepare_git
           - git checkout $VERSION
           - mvn -B package io.fabric8:docker-maven-plugin:0.31.0:push -s .m2/settings.xml -Pdocker-release
-
+    - step: &newmanTest
+        name: Newman integration test
+        image: postman/newman
+        script:
+          - export NAMESPACE=`cat target/namespace`
+          # No need to proceed if there is no test config found
+          - >
+            if [[ ! -d "newman-test/" ]]; then
+              echo "No newman-test dir found, so not running Postman tests."
+              exit 0
+            fi
+          - npm install -g newman-reporter-junit5
+          - apk add curl jq
+          - sh ./wait-for-deploy.sh
+          - newman run $POSTMAN_URL -e newman-test/$NAMESPACE-config.json -r junit5,cli --reporter-junit5-export test-results/newman-test-results.xml
+    - step: &sigridPublish
+        image: softwareimprovementgroup/sigridci
+        name: Publish to Sigrid
+        script:
+          - timeout 10m sigridci.py --customer vlaamseoverheid --system $(echo "magdamock.service"| sed -e "s/\./-/") --source . --publish
+    - step: &sigridCI
+        image: softwareimprovementgroup/sigridci
+        name: Sigrid CI
+        script:
+          - timeout 10m sigridci.py --customer vlaamseoverheid --system $(echo "magdamock.service"| sed -e "s/\./-/") --source .
     - step: &githubMirror
         name: Sync to Github
         clone:
@@ -56,7 +85,6 @@ definitions:
           - git clone --bare git@bitbucket.org:vlaamseoverheid/magdamock.service.git
           - cd magdamock.service.git
           - git push --mirror git@github.com:Informatievlaanderen/MAGDA-Mock.git
-
 clone:
   depth: full
 
@@ -66,63 +94,67 @@ pipelines:
         <<: *build
   branches:
     master:
-      - step:
-          name: Check
-          caches:
-            - maven
-          script:
-            # Only run for released version
-            - mvn -B -s .m2/settings.xml org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3:enforce -Drules=requireReleaseVersion
-            - mkdir -p target
-            - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
-          artifacts:
-            - target/pom_version
+      - parallel:
+          steps:
+            - step:
+                name: Check
+                caches:
+                  - maven
+                script:
+                  # Only run for released version
+                  - mvn -B -s .m2/settings.xml org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3:enforce -Drules=requireReleaseVersion
+                  - mkdir -p target
+                  - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
+                artifacts:
+                  - target/pom_version
+            - step:
+                <<: *sigridPublish
       - step:
           <<: *deploy
           name: Deploy release to TST
-          trigger: manual
           deployment: TST_SOLID
+      - step:
+          <<: *newmanTest
+          name: Verify deploy to TST
       - step:
           <<: *deploy
           name: Deploy release to TNI
-          trigger: manual
           deployment: TNI_SOLID
+      - step:
+          <<: *newmanTest
+          name: Verify deploy to TNI
       - step:
           <<: *deploy
           name: Deploy release to PRD
           trigger: manual
           deployment: PRD_SOLID
     develop:
-      - step:
-          name: Maven
-          caches:
-            - maven
-            - docker
-          script:
-            - export TESTCONTAINERS_RYUK_DISABLED=true
-            - export MAVEN_OPTS="-Xmx1024m"
-            - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD}
-            - mkdir -p target
-            - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
-          artifacts:
-            - "**/*.jar"
-            - target/pom_version
+      - parallel:
+          steps:
+            - step:
+                name: Maven
+                caches:
+                  - maven
+                  - docker
+                script:
+                  - export TESTCONTAINERS_RYUK_DISABLED=true
+                  - export MAVEN_OPTS="-Xmx1024m"
+                  - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD}
+                  - mkdir -p target
+                  - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
+                artifacts:
+                  - "**/*.jar"
+                  - target/pom_version
+            - step:
+                <<: *sigridPublish
       - step:
           <<: *deploy
           name: Deploy to BETA
           deployment: DEV_SOLID
-    '{feature/**,features/**}':
       - step:
-          name: Maven
-          caches:
-            - maven
-          script:
-            - export TESTCONTAINERS_RYUK_DISABLED=true
-            - export MAVEN_OPTS="-Xmx1024m"
-            - mvn -B -U clean verify sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.name="$BITBUCKET_BRANCH"
-          artifacts:
-            - "**/*.jar"
-            
+          <<: *newmanTest
+          name: Verify deploy to BETA
+
     hotfix/*:
       - step:
           name: Maven
@@ -137,16 +169,37 @@ pipelines:
             - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
           artifacts:
             - "**/*.jar"
-            
             - target/pom_version
       - step:
           <<: *deploy
-          name: Deploy to DEV
+          name: Deploy to BETA
           deployment: DEV_SOLID
+      - step:
+          <<: *newmanTest
+          name: Verify deploy to BETA
       - step:
           <<: *deploy
           name: Deploy to TST
           deployment: TST_SOLID
+      - step:
+          <<: *newmanTest
+          name: Verify deploy to TST
+  pull-requests:
+    '**':
+      - parallel:
+          steps:
+            - step:
+                name: Maven
+                caches:
+                  - maven
+                script:
+                  - export TESTCONTAINERS_RYUK_DISABLED=true
+                  - export MAVEN_OPTS="-Xmx1024m"
+                  - mvn -B -U clean verify sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.name="$BITBUCKET_BRANCH"
+                artifacts:
+                  - "**/*.jar"
+            - step:
+                <<: *sigridCI
   custom:
     update-dependencies:
       - step:
@@ -224,12 +277,19 @@ pipelines:
           name: Deploy release to TST
           deployment: TST_SOLID
       - step:
+          <<: *newmanTest
+          name: Verify release to TST
+      - step:
           <<: *deploy
           name: Deploy release to TNI
           deployment: TNI_SOLID
       - step:
+          <<: *newmanTest
+          name: Verify release to TNI
+      - step:
           <<: *deploy
           name: Deploy release to PRD
+          trigger: manual
           deployment: PRD_SOLID
     owasp-dependencies-check:
       - step:
@@ -238,7 +298,7 @@ pipelines:
             - maven
           script:
             - export MAVEN_OPTS="-Xmx1024m"
-            - mvn -B org.owasp:dependency-check-maven:8.2.1:aggregate -DskipSystemScope=true "-DsuppressionFile=.owasp/owasp-suppression.xml" "-DhintsFile=.owasp/owasp-hints.xml" -DfailBuildOnCVSS=7 -s .m2/settings.xml
+            - mvn -B org.owasp:dependency-check-maven:7.4.4:aggregate -DskipSystemScope=true "-DsuppressionFile=.owasp/owasp-suppression.xml" "-DhintsFile=.owasp/owasp-hints.xml" -DfailBuildOnCVSS=7 -s .m2/settings.xml
           artifacts:
             - target/dependency-check-report.html
           after-script:
@@ -253,7 +313,7 @@ pipelines:
             - ./scheduler-slack-publisher.sh 'stable-develop-check'
     rebuild-docker-from-tag:
       - variables:
-        - name: rebuild_git_tag
+          - name: rebuild_git_tag
       - step: *dockerRebuildFromTag
 options:
   docker: true
