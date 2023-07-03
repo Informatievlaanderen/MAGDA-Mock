@@ -1,0 +1,42 @@
+name: Remove old package versions
+description: Cleanup of old versions of MAGDA Mock artifacts from Github Packages
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # Every day at 1am
+    - cron: '0 1 * * *'
+
+jobs:
+  remove-old-artifacts:
+    steps:
+      - uses: actions/delete-package-versions@v4
+        with:
+          package-name: 'magda-mock'
+          package-type: 'container'
+          min-versions-to-keep: 5
+      - uses: actions/delete-package-versions@v4
+        with:
+          package-name: 'be.vlaanderen.vip.mock.magdamock'
+          package-type: 'maven'
+          min-versions-to-keep: 3
+      - uses: actions/delete-package-versions@v4
+        with:
+          package-name: 'be.vlaanderen.vip.mock.interfaces'
+          package-type: 'maven'
+          min-versions-to-keep: 3
+      - uses: actions/delete-package-versions@v4
+        with:
+          package-name: 'be.vlaanderen.vip.mock.magdaconnector'
+          package-type: 'maven'
+          min-versions-to-keep: 3
+      - uses: actions/delete-package-versions@v4
+        with:
+          package-name: 'be.vlaanderen.vip.mock.magdaservice'
+          package-type: 'maven'
+          min-versions-to-keep: 3
+      - uses: actions/delete-package-versions@v4
+        with:
+          package-name: 'be.vlaanderen.vip.mock.magda'
+          package-type: 'maven'
+          min-versions-to-keep: 3
