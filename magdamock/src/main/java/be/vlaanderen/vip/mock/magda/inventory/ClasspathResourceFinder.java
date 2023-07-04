@@ -5,12 +5,11 @@ import org.apache.commons.io.FilenameUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -44,7 +43,7 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         }
 
         try(var stream = ClasspathResourceFinder
-                .listDirectories(fromClasspathResource(root + "/" + type))
+                .listDirectories(resourceLoader.getResourceAsPath(type))
                 .<ServiceDirectory>map(path -> new ResourceServiceDirectory(loader, path))
                 .sorted(Comparator.comparing(ServiceDirectory::service))) {
             return stream.toList();
@@ -59,7 +58,7 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         }
 
         try(var stream = ClasspathResourceFinder
-                .listFiles(fromClasspathResource(root + "/" + relativePath))
+                .listFiles(resourceLoader.getResourceAsPath(relativePath))
                 .<CaseFile>map(ResourceCaseFile::new)
                 .sorted(Comparator.comparing(CaseFile::name))) {
             return stream.toList();
@@ -129,17 +128,6 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         }
     }
     
-    private Path fromClasspathResource(String resource) { // XXX remove
-        try {
-            var uri = Objects.requireNonNull(loader.getResource(resource)).toURI();
-            return getPath(uri, resource);
-        }
-        catch (Exception e) {
-            log.warn("Failed to get path for '%s'".formatted(resource), e);
-            return Path.of(resource);
-        }
-    }
-    
     private static Stream<Path> listDirectories(Path path) {
         return listFromDirectory(path, Files::isDirectory);
     }
@@ -155,43 +143,5 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
 
     private static boolean isCaseFile(Path path) {
         return CASE_FILE_EXTENSION.contains(FilenameUtils.getExtension(path.getFileName().toString()));
-    }
-
-    // XXX remove getPath stuff
-
-    private static Path getPath(URI uri, String resource) throws IOException {
-        if(uri.getScheme().equals("jar")) {
-            return getPathFromNestedJarUri(uri, resource);
-        } else {
-            return Paths.get(uri);
-        }
-    }
-
-    private static Path getPathFromNestedJarUri(URI nestedJarUri, String resource) throws IOException {
-        var pathParts = nestedJarUri.toString().split("!", 2);
-        var jarUri = URI.create(pathParts[0]);
-
-        try(var jarFileSystem = FileSystems.newFileSystem(jarUri, Collections.<String, Object>emptyMap())) {
-            if(pathParts.length > 1) {
-                var innerPath = pathParts[1];
-                return getPathWithinJar(jarFileSystem, innerPath, resource);
-            } else {
-                return jarFileSystem.getPath(resource);
-            }
-        }
-    }
-
-    private static Path getPathWithinJar(FileSystem jarFileSystem, String path, String resource) throws IOException {
-        var pathParts = path.split("!", 2);
-        var subpath = pathParts[0];
-
-        if(pathParts.length > 1) {
-            try(var innerJarFileSystem = FileSystems.newFileSystem(jarFileSystem.getPath(subpath), Collections.<String, Object>emptyMap())) {
-                var innerPath = pathParts[1];
-                return getPathWithinJar(innerJarFileSystem, innerPath, resource);
-            }
-        } else {
-            return jarFileSystem.getPath(resource);
-        }
     }
 }

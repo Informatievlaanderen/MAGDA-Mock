@@ -57,7 +57,7 @@ class ResourceLoaderTest {
         @Test
         void getsSimpleResourceDirectoryPath() throws IOException {
             try(var loader = ResourceLoader.fromRootUri(composeSimpleDirRootUri(), getClassLoader())) {
-                try(var stream = Files.walk(loader.getResourceAsPath("/baz"), 1)) {
+                try(var stream = Files.walk(loader.getResourceAsPath("baz"), 1)) {
                     assertEquals(5, stream.toList().size());
                 }
             }
@@ -66,7 +66,7 @@ class ResourceLoaderTest {
         @Test
         void getsSimpleJarDirectoryPath() throws IOException {
             try(var loader = ResourceLoader.fromRootUri(composeSimpleJarRootUri(), getClassLoader())) {
-                try(var stream = Files.walk(loader.getResourceAsPath("/baz"), 1)) {
+                try(var stream = Files.walk(loader.getResourceAsPath("baz"), 1)) {
                     assertEquals(5, stream.toList().size());
                 }
             }
@@ -75,7 +75,7 @@ class ResourceLoaderTest {
         @Test
         void getsNestedJarDirectoryPath() throws IOException {
             try(var loader = ResourceLoader.fromRootUri(composeNestedJarRootUri(), getClassLoader())) {
-                try(var stream = Files.walk(loader.getResourceAsPath("/baz"), 1)) {
+                try(var stream = Files.walk(loader.getResourceAsPath("baz"), 1)) {
                     assertEquals(5, stream.toList().size());
                 }
             }
