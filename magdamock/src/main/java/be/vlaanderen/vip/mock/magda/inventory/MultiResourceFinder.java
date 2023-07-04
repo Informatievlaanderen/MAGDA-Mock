@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collection;
@@ -40,7 +41,11 @@ public class MultiResourceFinder implements ResourceFinder {
     }
 
     @Override
-    public void close() {}
+    public void close() throws IOException {
+        for(var finder : finders) {
+            finder.close();
+        }
+    }
     
     public static MultiResourceFinder create(ResourceFinder... finders) {
         return create(Arrays.asList(finders));
