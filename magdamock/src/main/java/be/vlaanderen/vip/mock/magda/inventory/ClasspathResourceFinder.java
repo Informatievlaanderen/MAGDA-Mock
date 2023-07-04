@@ -16,12 +16,10 @@ import java.util.stream.Stream;
 
 @Slf4j
 public class ClasspathResourceFinder extends AbstractResourceFinder {
-    private final ClassLoader loader; // XXX should get rid of this one
     private final ResourceLoader resourceLoader;
 
     ClasspathResourceFinder(String root, Class<?> cls) throws URISyntaxException, IOException {
-        this.loader = cls.getClassLoader();
-        this.resourceLoader = ResourceLoader.fromResource(root, loader);
+        this.resourceLoader = ResourceLoader.fromResource(root, cls.getClassLoader());
     }
 
     @Override
@@ -42,7 +40,7 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
 
         try(var stream = ClasspathResourceFinder
                 .listDirectories(resourceLoader.getResourceAsPath(type))
-                .<ServiceDirectory>map(path -> new ResourceServiceDirectory(loader, path))
+                .<ServiceDirectory>map(ResourceServiceDirectory::new)
                 .sorted(Comparator.comparing(ServiceDirectory::service))) {
             return stream.toList();
         }
@@ -76,7 +74,7 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         resourceLoader.close();
     }
 
-    private record ResourceServiceDirectory(ClassLoader loader, Path path) implements ServiceDirectory { 
+    private record ResourceServiceDirectory(Path path) implements ServiceDirectory {
         
         public String service() {
             return path.getFileName().toString();
@@ -84,14 +82,14 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         
         public List<VersionDirectory> versions() {
             try(var stream = ClasspathResourceFinder.listDirectories(path)
-                    .<VersionDirectory>map(path -> new ResourceVersionDirectory(loader, path))
+                    .<VersionDirectory>map(ResourceVersionDirectory::new)
                     .sorted(Comparator.comparing(VersionDirectory::version))) {
                 return stream.toList();
             }
         }
     }
     
-    public record ResourceVersionDirectory(ClassLoader loader, Path path) implements VersionDirectory {
+    public record ResourceVersionDirectory(Path path) implements VersionDirectory {
         
         public String version() {
             return path.getFileName().toString();
