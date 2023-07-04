@@ -80,6 +80,17 @@ class ResourceLoaderTest {
                 }
             }
         }
+
+        @Test
+        void getsNestedJarDirectoryPathMoreThanOnce() throws IOException { // makes sure that the FileSystems get closed...
+            for(var i = 0; i < 2; i++) {
+                try(var loader = ResourceLoader.fromRootUri(composeNestedJarRootUri())) {
+                    try(var stream = Files.walk(loader.getResourceAsPath("baz"), 1)) {
+                        assertEquals(5, stream.toList().size());
+                    }
+                }
+            }
+        }
     }
 
     private URI composeSimpleDirRootUri() {
