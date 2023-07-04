@@ -15,11 +15,12 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 @Slf4j
-public class ClasspathResourceFinder extends AbstractResourceFinder {
+public class ClasspathResourceFinder extends AbstractResourceFinder { // XXX should be closeable
     private final String root;
     private final ClassLoader loader;
     
     ClasspathResourceFinder(String root, Class<?> cls) {
+        // XXX ensure that the ResourceLoader gets constructed with the root and subpaths properly split
         this.root = root;
         this.loader = cls.getClassLoader();
     }
@@ -31,7 +32,7 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
             return null;
         }
 
-        return loader.getResourceAsStream(root + "/" + relativePath);
+        return loader.getResourceAsStream(root + "/" + relativePath); // XXX call the ResourceLoader
     }
 
     @Override
@@ -121,7 +122,7 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         }
     }
     
-    private Path fromClasspathResource(String resource) {
+    private Path fromClasspathResource(String resource) { // XXX remove
         try {
             var uri = Objects.requireNonNull(loader.getResource(resource)).toURI();
             return getPath(uri, resource);
@@ -144,12 +145,18 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         return getChildPaths(path)
                 .filter(fileFilter);
     }
-    
+
+    private static boolean isCaseFile(Path path) {
+        return CASE_FILE_EXTENSION.contains(FilenameUtils.getExtension(path.getFileName().toString()));
+    }
+
+    // XXX remove getPath stuff
+
     /**
      * Stuff gets weird when you get resources from a jar within a jar
      * Using FilesSystems fixes that (e.g: magdamock.jar/magda_simulator from inside magdaservice.jar)
-     */
-    static Path getPath(URI uri, String resource) throws IOException {
+     */ // XXX move this notification
+    private static Path getPath(URI uri, String resource) throws IOException {
         if(uri.getScheme().equals("jar")) {
             return getPathFromNestedJarUri(uri, resource);
         } else {
@@ -183,9 +190,5 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         } else {
             return jarFileSystem.getPath(resource);
         }
-    }
-    
-    private static boolean isCaseFile(Path path) {
-        return CASE_FILE_EXTENSION.contains(FilenameUtils.getExtension(path.getFileName().toString()));
     }
 }
