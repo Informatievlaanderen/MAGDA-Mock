@@ -82,7 +82,7 @@ class JarResourceLoader implements ResourceLoader {
 
     @Override
     public Path getResourceAsPath(String resource) {
-        return nestedFileSystem.getFileSystem().getPath(rootDir + resource);
+        return nestedFileSystem.getFileSystem().getPath(rootDir + "/" + resource);
     }
 
     @Override

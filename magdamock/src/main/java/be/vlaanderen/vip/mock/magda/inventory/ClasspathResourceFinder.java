@@ -5,6 +5,7 @@ import org.apache.commons.io.FilenameUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collections;
@@ -20,7 +21,7 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
     private final ClassLoader loader;
     private final ResourceLoader resourceLoader;
     
-    ClasspathResourceFinder(String root, Class<?> cls) {
+    ClasspathResourceFinder(String root, Class<?> cls) throws URISyntaxException, IOException {
         this.root = root;
         this.loader = cls.getClassLoader();
         this.resourceLoader = ResourceLoader.fromResource(root, loader);
@@ -65,11 +66,11 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         }
     }
 
-    public static ClasspathResourceFinder create(String root) {
+    public static ClasspathResourceFinder create(String root) throws URISyntaxException, IOException {
         return create(root, ClasspathResourceFinder.class);
     }
 
-    public static ClasspathResourceFinder create(String root, Class<?> cls) {
+    public static ClasspathResourceFinder create(String root, Class<?> cls) throws URISyntaxException, IOException {
         return new ClasspathResourceFinder(root, cls);
     }
 

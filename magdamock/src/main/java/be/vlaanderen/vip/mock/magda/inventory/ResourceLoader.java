@@ -20,12 +20,8 @@ public interface ResourceLoader extends Closeable, AutoCloseable {
         }
     }
 
-    static ResourceLoader fromResource(String rootPath, ClassLoader classLoader) { // XXX test?
-        try {
-            return fromRootUri(Objects.requireNonNull(classLoader.getResource(rootPath)).toURI(), classLoader);
-        } catch(URISyntaxException | IOException e) {
-            return null; // XXX what to do in this case?
-        }
+    static ResourceLoader fromResource(String rootPath, ClassLoader classLoader) throws URISyntaxException, IOException {
+        return fromRootUri(Objects.requireNonNull(classLoader.getResource(rootPath)).toURI(), classLoader);
     }
 
     InputStream getResourceAsStream(String resource);

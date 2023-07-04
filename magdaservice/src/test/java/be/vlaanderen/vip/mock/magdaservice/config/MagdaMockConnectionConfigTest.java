@@ -8,6 +8,7 @@ import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.util.Objects;
 
@@ -34,7 +35,7 @@ class MagdaMockConnectionConfigTest {
             private ResourceFinder finder;
             
             @BeforeEach
-            void setup() {
+            void setup() throws URISyntaxException, IOException {
                 finder = config.resourceFinder();
             }
             
@@ -52,7 +53,7 @@ class MagdaMockConnectionConfigTest {
             private ResourceFinder finder;
             
             @BeforeEach
-            void setup() {
+            void setup() throws URISyntaxException, IOException {
                 config.setMockTestcasePath(dir.getAbsolutePath());
                 finder = config.resourceFinder();
             }

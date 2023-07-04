@@ -11,6 +11,9 @@ import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
@@ -27,7 +30,7 @@ public abstract class MockTestBase {
     private ResourceFinder finder;
     
     @BeforeEach
-    void setup() {
+    void setup() throws URISyntaxException, IOException {
         finder = ResourceFinders.magdaSimulator();
     }
 

@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Objects;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,7 +22,7 @@ class ClasspathResourceFinderTest {
     private ClasspathResourceFinder finder;
     
     @BeforeEach
-    void setup() {
+    void setup() throws URISyntaxException, IOException {
         finder = ClasspathResourceFinder.create("simulator_test", getClass());
     }
     
