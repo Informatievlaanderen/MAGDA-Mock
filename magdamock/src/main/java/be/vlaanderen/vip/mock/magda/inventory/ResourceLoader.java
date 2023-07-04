@@ -10,18 +10,18 @@ import java.util.Objects;
 
 public interface ResourceLoader extends Closeable, AutoCloseable {
 
-    static ResourceLoader fromRootUri(URI rootUri, ClassLoader classLoader) throws IOException {
+    static ResourceLoader fromRootUri(URI rootUri) throws IOException {
         if(rootUri.getScheme().equals("jar")) {
-            return JarResourceLoader.fromJarUri(rootUri, classLoader);
+            return JarResourceLoader.fromJarUri(rootUri);
         } else if(rootUri.getScheme().equals("file")) {
-            return DirectoryResourceLoader.fromPath(rootUri.toString(), classLoader);
+            return DirectoryResourceLoader.fromFileUri(rootUri);
         } else {
             throw new IllegalArgumentException("Can't create ResourceLoader from root URI with unsupported scheme: " + rootUri);
         }
     }
 
     static ResourceLoader fromResource(String rootPath, ClassLoader classLoader) throws URISyntaxException, IOException {
-        return fromRootUri(Objects.requireNonNull(classLoader.getResource(rootPath)).toURI(), classLoader);
+        return fromRootUri(Objects.requireNonNull(classLoader.getResource(rootPath)).toURI());
     }
 
     InputStream getResourceAsStream(String resource);

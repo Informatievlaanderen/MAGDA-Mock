@@ -16,13 +16,10 @@ import java.util.stream.Stream;
 
 @Slf4j
 public class ClasspathResourceFinder extends AbstractResourceFinder {
-    // XXX check which attrs are necessary
-    private final String root;
-    private final ClassLoader loader;
+    private final ClassLoader loader; // XXX should get rid of this one
     private final ResourceLoader resourceLoader;
-    
+
     ClasspathResourceFinder(String root, Class<?> cls) throws URISyntaxException, IOException {
-        this.root = root;
         this.loader = cls.getClassLoader();
         this.resourceLoader = ResourceLoader.fromResource(root, loader);
     }

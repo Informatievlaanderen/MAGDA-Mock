@@ -6,17 +6,14 @@ import java.nio.file.Path;
 
 class DirectoryResourceLoader implements ResourceLoader {
 
-    static ResourceLoader fromPath(String rootPath, ClassLoader classLoader) {
-        return new DirectoryResourceLoader(rootPath, classLoader);
+    static ResourceLoader fromFileUri(URI rootUri) {
+        return new DirectoryResourceLoader(rootUri);
     }
 
-    // XXX check which attrs are needed
-    private final String rootPath; // XXX it's actually a rootUri
-    private final ClassLoader classLoader;
+    private final URI rootUri;
 
-    private DirectoryResourceLoader(String rootPath, ClassLoader classLoader) {
-        this.rootPath = rootPath;
-        this.classLoader = classLoader;
+    private DirectoryResourceLoader(URI rootUri) {
+        this.rootUri = rootUri;
     }
 
     @Override
@@ -34,11 +31,9 @@ class DirectoryResourceLoader implements ResourceLoader {
     }
 
     private File resourceAsFile(String resource) {
-        return new File(URI.create(rootPath + "/" + resource));
+        return new File(URI.create(rootUri.toString() + "/" + resource));
     }
 
     @Override
-    public void close() throws IOException {
-        // XXX
-    }
+    public void close() {}
 }

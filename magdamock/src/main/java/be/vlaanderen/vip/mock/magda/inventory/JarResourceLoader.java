@@ -1,15 +1,17 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
+import jakarta.annotation.Nullable;
 import lombok.Getter;
 
-import java.io.*;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collections;
-import java.util.Optional;
 
 /**
  * Stuff gets weird when you get resources from a jar within a jar
@@ -20,53 +22,53 @@ class JarResourceLoader implements ResourceLoader {
     private static class NestedFileSystem implements Closeable, AutoCloseable {
 
         @Getter
-        private FileSystem fileSystem;
-        private Optional<NestedFileSystem> parent;
+        private final FileSystem fileSystem;
+        @Nullable
+        private final NestedFileSystem parent;
 
-        NestedFileSystem(FileSystem fileSystem, NestedFileSystem parent) {
+        NestedFileSystem(FileSystem fileSystem, @Nullable NestedFileSystem parent) {
             this.fileSystem = fileSystem;
-            this.parent = Optional.of(parent);
+            this.parent = parent;
         }
 
         NestedFileSystem(FileSystem fileSystem) {
-            this.fileSystem = fileSystem;
-            this.parent = Optional.empty();
+            this(fileSystem, null);
         }
 
         @Override
         public void close() throws IOException {
             fileSystem.close();
-            if(parent.isPresent()) {
-                parent.get().close();
+            if(parent != null) {
+                parent.close();
             }
         }
     }
 
-    static ResourceLoader fromJarUri(URI rootUri, ClassLoader classLoader) throws IOException {
-        // XXX close the WIP nestedfilesystem if an exception occurs
-
+    static ResourceLoader fromJarUri(URI rootUri) throws IOException {
         var uriParts = rootUri.toString().split("!");
         var jarFileSystem = FileSystems.newFileSystem(URI.create(uriParts[0]), Collections.<String, Object>emptyMap());
         var nestedFileSystem = new NestedFileSystem(jarFileSystem);
-        for(var i = 1; i < uriParts.length - 1; i++) {
-            // XXX check that it ends on jar
-            jarFileSystem = FileSystems.newFileSystem(jarFileSystem.getPath(uriParts[i]), Collections.<String, Object>emptyMap());
-            nestedFileSystem = new NestedFileSystem(jarFileSystem, nestedFileSystem);
-        }
-        var rootDir = uriParts[uriParts.length - 1];
 
-        return new JarResourceLoader(rootUri, classLoader, nestedFileSystem, rootDir);
+        try {
+            for(var i = 1; i < uriParts.length - 1; i++) {
+                jarFileSystem = FileSystems.newFileSystem(jarFileSystem.getPath(uriParts[i]), Collections.<String, Object>emptyMap());
+                nestedFileSystem = new NestedFileSystem(jarFileSystem, nestedFileSystem);
+            }
+            var rootDir = uriParts[uriParts.length - 1];
+
+            return new JarResourceLoader(nestedFileSystem, rootDir);
+        } catch(Exception e) {
+            jarFileSystem.close();
+            nestedFileSystem.close();
+
+            throw e;
+        }
     }
 
-    // XXX check which attrs are needed
-    private final URI rootUri;
-    private final ClassLoader classLoader;
     private final NestedFileSystem nestedFileSystem;
     private final String rootDir;
 
-    private JarResourceLoader(URI rootUri, ClassLoader classLoader, NestedFileSystem nestedFileSystem, String rootDir) {
-        this.rootUri = rootUri;
-        this.classLoader = classLoader;
+    private JarResourceLoader(NestedFileSystem nestedFileSystem, String rootDir) {
         this.nestedFileSystem = nestedFileSystem;
         this.rootDir = rootDir;
     }
