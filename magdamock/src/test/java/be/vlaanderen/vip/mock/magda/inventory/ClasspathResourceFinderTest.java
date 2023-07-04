@@ -120,7 +120,8 @@ class ClasspathResourceFinderTest {
                     caseFileFor("3.xml"),
                     caseFileFor("4.xml"),
                     caseFileFor("5.xml"),
-                    caseFileFor("6.xml")));
+                    caseFileFor("6.xml"),
+                    caseFileFor("7.xml")));
         }
 
         @Test
