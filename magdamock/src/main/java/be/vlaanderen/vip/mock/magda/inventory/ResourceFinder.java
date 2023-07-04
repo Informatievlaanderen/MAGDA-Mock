@@ -1,9 +1,10 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
+import java.io.Closeable;
 import java.io.InputStream;
 import java.util.List;
 
-public interface ResourceFinder {
+public interface ResourceFinder extends Closeable, AutoCloseable {
     List<String> CASE_FILE_EXTENSION = List.of(
             "xml", "json", "pdf", "jpg");
     

@@ -15,7 +15,7 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 @Slf4j
-public class ClasspathResourceFinder extends AbstractResourceFinder { // XXX should be closeable
+public class ClasspathResourceFinder extends AbstractResourceFinder {
     // XXX check which attrs are necessary
     private final String root;
     private final ClassLoader loader;
@@ -73,7 +73,12 @@ public class ClasspathResourceFinder extends AbstractResourceFinder { // XXX sho
     public static ClasspathResourceFinder create(String root, Class<?> cls) {
         return new ClasspathResourceFinder(root, cls);
     }
-    
+
+    @Override
+    public void close() throws IOException {
+        resourceLoader.close();
+    }
+
     private record ResourceServiceDirectory(ClassLoader loader, Path path) implements ServiceDirectory { 
         
         public String service() {
