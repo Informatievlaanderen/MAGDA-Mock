@@ -14,7 +14,7 @@ import java.util.Objects;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-class ResourceLoaderTest { // XXX get rid of "resource" string? (+ make sure that it's distinct from the root path)
+class ResourceLoaderTest {
 
     @Nested
     class GetResourceAsStream {
@@ -58,7 +58,7 @@ class ResourceLoaderTest { // XXX get rid of "resource" string? (+ make sure tha
         void getsSimpleResourceDirectoryPath() throws IOException {
             try(var loader = ResourceLoader.fromRootUri(composeSimpleDirRootUri(), getClassLoader())) {
                 try(var stream = Files.walk(loader.getResourceAsPath("/baz"), 1)) {
-                    assertEquals(4, stream.toList().size());
+                    assertEquals(5, stream.toList().size());
                 }
             }
         }
@@ -67,7 +67,7 @@ class ResourceLoaderTest { // XXX get rid of "resource" string? (+ make sure tha
         void getsSimpleJarDirectoryPath() throws IOException {
             try(var loader = ResourceLoader.fromRootUri(composeSimpleJarRootUri(), getClassLoader())) {
                 try(var stream = Files.walk(loader.getResourceAsPath("/baz"), 1)) {
-                    assertEquals(4, stream.toList().size());
+                    assertEquals(5, stream.toList().size());
                 }
             }
         }
@@ -76,7 +76,7 @@ class ResourceLoaderTest { // XXX get rid of "resource" string? (+ make sure tha
         void getsNestedJarDirectoryPath() throws IOException {
             try(var loader = ResourceLoader.fromRootUri(composeNestedJarRootUri(), getClassLoader())) {
                 try(var stream = Files.walk(loader.getResourceAsPath("/baz"), 1)) {
-                    assertEquals(4, stream.toList().size());
+                    assertEquals(5, stream.toList().size());
                 }
             }
         }

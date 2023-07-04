@@ -10,6 +10,7 @@ class DirectoryResourceLoader implements ResourceLoader {
         return new DirectoryResourceLoader(rootPath, classLoader);
     }
 
+    // XXX check which attrs are needed
     private final String rootPath; // XXX it's actually a rootUri
     private final ClassLoader classLoader;
 
@@ -21,7 +22,7 @@ class DirectoryResourceLoader implements ResourceLoader {
     @Override
     public InputStream getResourceAsStream(String resource) {
         try {
-            return new FileInputStream(new File(URI.create(rootPath + "/" + resource)));
+            return new FileInputStream(resourceAsFile(resource));
         } catch (FileNotFoundException e) {
             return null;
         }
@@ -29,7 +30,11 @@ class DirectoryResourceLoader implements ResourceLoader {
 
     @Override
     public Path getResourceAsPath(String resource) {
-        return null; // XXX
+        return resourceAsFile(resource).toPath();
+    }
+
+    private File resourceAsFile(String resource) {
+        return new File(URI.create(rootPath + "/" + resource));
     }
 
     @Override

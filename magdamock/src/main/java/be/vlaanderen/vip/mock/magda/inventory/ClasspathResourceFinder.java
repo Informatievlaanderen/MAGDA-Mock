@@ -152,10 +152,6 @@ public class ClasspathResourceFinder extends AbstractResourceFinder { // XXX sho
 
     // XXX remove getPath stuff
 
-    /**
-     * Stuff gets weird when you get resources from a jar within a jar
-     * Using FilesSystems fixes that (e.g: magdamock.jar/magda_simulator from inside magdaservice.jar)
-     */ // XXX move this notification
     private static Path getPath(URI uri, String resource) throws IOException {
         if(uri.getScheme().equals("jar")) {
             return getPathFromNestedJarUri(uri, resource);
