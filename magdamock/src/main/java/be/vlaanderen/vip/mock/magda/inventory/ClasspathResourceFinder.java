@@ -16,13 +16,15 @@ import java.util.stream.Stream;
 
 @Slf4j
 public class ClasspathResourceFinder extends AbstractResourceFinder { // XXX should be closeable
+    // XXX check which attrs are necessary
     private final String root;
     private final ClassLoader loader;
+    private final ResourceLoader resourceLoader;
     
     ClasspathResourceFinder(String root, Class<?> cls) {
-        // XXX ensure that the ResourceLoader gets constructed with the root and subpaths properly split
         this.root = root;
         this.loader = cls.getClassLoader();
+        this.resourceLoader = ResourceLoader.fromResource(root, loader);
     }
 
     @Override
@@ -32,7 +34,7 @@ public class ClasspathResourceFinder extends AbstractResourceFinder { // XXX sho
             return null;
         }
 
-        return loader.getResourceAsStream(root + "/" + relativePath); // XXX call the ResourceLoader
+        return resourceLoader.getResourceAsStream(relativePath);
     }
 
     @Override
