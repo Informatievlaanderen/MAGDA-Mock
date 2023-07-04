@@ -149,13 +149,40 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
      * Stuff gets weird when you get resources from a jar within a jar
      * Using FilesSystems fixes that (e.g: magdamock.jar/magda_simulator from inside magdaservice.jar)
      */
-    private static Path getPath(URI uri, String resource) throws IOException {
+    static Path getPath(URI uri, String resource) throws IOException {
         if(uri.getScheme().equals("jar")) {
-            try(var fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap())) {
-                return fileSystem.getPath(resource);
+            return getPathFromNestedJarUri(uri, resource);
+        } else {
+            return Paths.get(uri);
+        }
+    }
+
+    private static Path getPathFromNestedJarUri(URI nestedJarUri, String resource) throws IOException {
+        var pathParts = nestedJarUri.toString().split("!", 2);
+        var jarUri = URI.create(pathParts[0]);
+
+        try(var jarFileSystem = FileSystems.newFileSystem(jarUri, Collections.<String, Object>emptyMap())) {
+            if(pathParts.length > 1) {
+                var innerPath = pathParts[1];
+                return getPathWithinJar(jarFileSystem, innerPath, resource);
+            } else {
+                return jarFileSystem.getPath(resource);
             }
         }
-        return Paths.get(uri);
+    }
+
+    private static Path getPathWithinJar(FileSystem jarFileSystem, String path, String resource) throws IOException {
+        var pathParts = path.split("!", 2);
+        var subpath = pathParts[0];
+
+        if(pathParts.length > 1) {
+            try(var innerJarFileSystem = FileSystems.newFileSystem(jarFileSystem.getPath(subpath), Collections.<String, Object>emptyMap())) {
+                var innerPath = pathParts[1];
+                return getPathWithinJar(innerJarFileSystem, innerPath, resource);
+            }
+        } else {
+            return jarFileSystem.getPath(resource);
+        }
     }
     
     private static boolean isCaseFile(Path path) {

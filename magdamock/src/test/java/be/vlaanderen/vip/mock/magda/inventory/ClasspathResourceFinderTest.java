@@ -11,10 +11,13 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Files;
 import java.util.Objects;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ClasspathResourceFinderTest {
@@ -23,6 +26,49 @@ class ClasspathResourceFinderTest {
     @BeforeEach
     void setup() {
         finder = ClasspathResourceFinder.create("simulator_test", getClass());
+    }
+
+    @Nested
+    class ResourcePaths {
+
+        @Test
+        void getsSimpleResourceDirectoryPath() throws IOException {
+            var uri = URI.create("%s/bar"
+                    .formatted(Objects.requireNonNull(getClass().getClassLoader().getResource("resourcefinder/simpledir"))));
+            var resource = "/bar";
+
+            var path = ClasspathResourceFinder.getPath(uri, resource);
+
+            try(var stream = Files.walk(path, 1)) {
+                assertEquals(4, stream.toList().size());
+            }
+        }
+
+        @Test
+        void getsSimpleJarDirectoryPath() throws IOException {
+            var uri = URI.create("jar:%s!/bar"
+                    .formatted(Objects.requireNonNull(getClass().getClassLoader().getResource("resourcefinder/simple.jar"))));
+            var resource = "/bar";
+
+            var path = ClasspathResourceFinder.getPath(uri, resource);
+
+            try(var stream = Files.walk(path, 1)) {
+                assertEquals(4, stream.toList().size());
+            }
+        }
+
+        @Test
+        void getsNestedJarDirectoryPath() throws IOException {
+            var uri = URI.create("jar:%s!/foo/inner.jar!/bar"
+                    .formatted(Objects.requireNonNull(getClass().getClassLoader().getResource("resourcefinder/outer.jar"))));
+            var resource = "/bar";
+
+            var path = ClasspathResourceFinder.getPath(uri, resource);
+
+            try(var stream = Files.walk(path, 1)) {
+                assertEquals(4, stream.toList().size());
+            }
+        }
     }
     
     @Nested
