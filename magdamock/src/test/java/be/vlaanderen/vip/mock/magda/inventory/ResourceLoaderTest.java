@@ -24,6 +24,7 @@ class ResourceLoaderTest {
             try(var loader = ResourceLoader.fromRootUri(composeSimpleDirRootUri())) {
                 assertEquals("content2\n", streamToString(loader.getResourceAsStream("file2.txt")));
                 assertEquals("content4\n", streamToString(loader.getResourceAsStream("baz/file4.txt")));
+                assertEquals("content10\n", streamToString(loader.getResourceAsStream("baz/qux/file with spaces.txt")));
                 assertNull(loader.getResourceAsStream("nonexistent.txt"));
             }
         }
@@ -33,6 +34,7 @@ class ResourceLoaderTest {
             try(var loader = ResourceLoader.fromRootUri(composeSimpleJarRootUri())) {
                 assertEquals("content2\n", streamToString(loader.getResourceAsStream("file2.txt")));
                 assertEquals("content4\n", streamToString(loader.getResourceAsStream("baz/file4.txt")));
+                assertEquals("content10\n", streamToString(loader.getResourceAsStream("baz/qux/file with spaces.txt")));
                 assertNull(loader.getResourceAsStream("nonexistent.txt"));
             }
         }
@@ -42,6 +44,7 @@ class ResourceLoaderTest {
             try(var loader = ResourceLoader.fromRootUri(composeNestedJarRootUri())) {
                 assertEquals("content2\n", streamToString(loader.getResourceAsStream("file2.txt")));
                 assertEquals("content4\n", streamToString(loader.getResourceAsStream("baz/file4.txt")));
+                assertEquals("content10\n", streamToString(loader.getResourceAsStream("baz/qux/file with spaces.txt")));
                 assertNull(loader.getResourceAsStream("nonexistent.txt"));
             }
         }

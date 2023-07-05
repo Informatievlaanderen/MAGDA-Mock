@@ -54,7 +54,7 @@ class JarResourceLoader implements ResourceLoader {
                 jarFileSystem = FileSystems.newFileSystem(jarFileSystem.getPath(uriParts[i]), Collections.<String, Object>emptyMap());
                 nestedFileSystem = new NestedFileSystem(jarFileSystem, nestedFileSystem);
             }
-            var rootDir = uriParts[uriParts.length - 1];
+            var rootDir = uriParts[uriParts.length - 1] + "/";
 
             return new JarResourceLoader(nestedFileSystem, rootDir);
         } catch(Exception e) {
@@ -76,7 +76,7 @@ class JarResourceLoader implements ResourceLoader {
     @Override
     public InputStream getResourceAsStream(String resource) {
         try {
-            return Files.newInputStream(nestedFileSystem.getFileSystem().getPath(rootDir + "/" + resource));
+            return Files.newInputStream(nestedFileSystem.getFileSystem().getPath(rootDir + resource));
         } catch (IOException e) {
             return null;
         }
@@ -84,7 +84,7 @@ class JarResourceLoader implements ResourceLoader {
 
     @Override
     public Path getResourceAsPath(String resource) {
-        return nestedFileSystem.getFileSystem().getPath(rootDir + "/" + resource);
+        return nestedFileSystem.getFileSystem().getPath(rootDir + resource);
     }
 
     @Override
