@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-06-01</Datum>
+					<Tijd>12:21:11.858</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>089dc0cd-6326-4297-b842-a7737b236976</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+					<Referte>XE:420:11815:1419</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>6048</Referte>
+				<Inhoud>
+					<Persoon DatumCreatie="2007-08-23" DatumModificatie="2007-08-23">
+						<INSZ>00640499838</INSZ>
+						<Naam DatumBegin="2000-04-04">
+							<Achternamen>
+								<Achternaam>Janssens</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Nicole</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+							<Omschrijving>Vrouwelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="2000-04-04">
+							<Plaats>
+								<Gemeente>
+									<NISCode>46021</NISCode>
+									<Naam>Sint-Niklaas</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>2</Code>								
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register>
+							<Code>3</Code>
+							<Omschrijving>Ambtenaar Europese Unie (omzendbrief 13 maart 1989)</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="2000-04-04">
+								<Code>150</Code>
+								<Omschrijving>Belg</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="2000-04-04">								
+								<Straatnaam>
+									<String>Gladiolenstraat</String>
+									<Taal>nl</Taal>
+								</Straatnaam>
+								<Huisnummer>405</Huisnummer>
+								<Gemeentenaam>
+									<String>Sint-Niklaas</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>BELGIE</String>
+									<Taal>nl</Taal>
+								</Land>
+								<Postcode>9100</Postcode>
+								<NISCodeGemeente>46021</NISCodeGemeente>                                                               
+							</Hoofdverblijfplaats>
+
+						</Adressen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>
