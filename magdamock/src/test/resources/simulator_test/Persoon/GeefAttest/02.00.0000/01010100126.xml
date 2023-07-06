@@ -6,31 +6,32 @@
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
-                    <Datum>2018-06-15</Datum>
-                    <Tijd>10:02:13.070</Tijd>
+                    <Datum>2018-05-29</Datum>
+                    <Tijd>09:04:21.120</Tijd>
                 </Tijdstip>
                 <Afzender>
                     <Identificatie>vip.vlaanderen.be</Identificatie>
                     <Naam>MagdaGateway</Naam>
-                    <Referte>24e44b13-4f20-4042-9c30-d3e870a669e3</Referte>
+                    <Referte>c93de064-d012-43e6-b506-3c979fe9bafd</Referte>
                 </Afzender>
                 <Ontvanger>
                     <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-aip</Identificatie>
-                    <Referte>9084C4F9-31F8-45E8-A9CE-C1E628C59417</Referte>
+                    <Referte>5E492874-2BE9-4D19-B178-F382C1397897</Referte>
                     <Hoedanigheid>1300</Hoedanigheid>
                 </Ontvanger>
             </Bericht>
         </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>9084C4F9-31F8-45E8-A9CE-C1E628C59417</Referte>
-                <Inhoud>
-                    <Attest>
-                        <INSZ>14021699823</INSZ>
-                        <Document>aW0gY29ycnVwdCBqbwo=</Document>
-                    </Attest>
-                </Inhoud>
-            </Antwoord>
-        </Antwoorden>
+        <Uitzonderingen>
+            <Uitzondering>
+                <Identificatie>60007</Identificatie>
+                <Oorsprong>MAGDA</Oorsprong>
+                <Type>FOUT</Type>
+                <Tijdstip>
+                    <Datum>2018-05-29</Datum>
+                    <Tijd>09:04:21.121</Tijd>
+                </Tijdstip>
+                <Diagnose>Kan antwoord bron niet interpreteren</Diagnose>
+            </Uitzondering>
+        </Uitzonderingen>
     </Repliek>
 </web:GeefAttestResponse>
