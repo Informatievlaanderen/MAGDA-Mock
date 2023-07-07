@@ -5,6 +5,11 @@ spring:
 logging:
   pattern.level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
 
+server:
+  error:
+    whitelabel:
+      enabled: false
+
 management:
   endpoints:
     web:

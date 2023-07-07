@@ -6,12 +6,15 @@ import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.client.util.XmlUtils;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
+import brave.Tracing;
+import brave.httpclient5.HttpClient5Tracing;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
 import org.apache.hc.client5.http.ssl.DefaultHostnameVerifier;
@@ -40,9 +43,18 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
     private final MagdaEndpoints magdaEndpoints;
     private final CloseableHttpClient httpClient;
 
-    public MagdaSoapConnection(MagdaEndpoints magdaEndpoints, MagdaConfigDto config) throws TwoWaySslException {
+    private MagdaSoapConnection(MagdaEndpoints magdaEndpoints, CloseableHttpClient httpClient) {
         this.magdaEndpoints = magdaEndpoints;
-        this.httpClient = buildHttpClient(buildSslConnectionFactoryFromConfig(config));
+        this.httpClient = httpClient;
+    }
+
+    public MagdaSoapConnection(MagdaEndpoints magdaEndpoints, MagdaConfigDto config) throws TwoWaySslException {
+        this(magdaEndpoints, buildHttpClient(buildHttpClientBuilder(buildSslConnectionFactoryFromConfig(config))));
+
+    }
+
+    public MagdaSoapConnection(MagdaEndpoints magdaEndpoints, MagdaConfigDto config, Tracing tracing) throws TwoWaySslException {
+        this(magdaEndpoints, buildHttpClient(buildHttpClientBuilder(buildSslConnectionFactoryFromConfig(config)), tracing));
     }
 
     @Override
@@ -62,7 +74,7 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
         }
     }
 
-    private static CloseableHttpClient buildHttpClient(SSLConnectionSocketFactory sslConnectionSocketFactory) {
+    private static HttpClientBuilder buildHttpClientBuilder(SSLConnectionSocketFactory sslConnectionSocketFactory) {
         var connectionConfig = ConnectionConfig.custom()
                 .setConnectTimeout(Timeout.ofSeconds(15))
                 .setSocketTimeout(Timeout.ofSeconds(30))
@@ -73,8 +85,16 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
                 .build();
 
         return HttpClients.custom()
-                .setConnectionManager(connectionManager)
-                .build();
+                .setConnectionManager(connectionManager);
+    }
+
+    private static CloseableHttpClient buildHttpClient(HttpClientBuilder httpClientBuilder) {
+        return httpClientBuilder.build();
+    }
+
+    private static CloseableHttpClient buildHttpClient(HttpClientBuilder httpClientBuilder, Tracing tracing) {
+        return HttpClient5Tracing.newBuilder(tracing)
+                .build(httpClientBuilder);
     }
 
     private static SSLConnectionSocketFactory sslConnectionSocketFactory(SSLContext sslContext) {

@@ -2,10 +2,7 @@ package be.vlaanderen.vip.mock.magda.inventory;
 
 import org.apache.commons.io.FilenameUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.*;
 
 public class DirectoryResourceFinder extends AbstractResourceFinder {
@@ -58,6 +55,9 @@ public class DirectoryResourceFinder extends AbstractResourceFinder {
         }
         return Collections.emptyList();
     }
+
+    @Override
+    public void close() {}
 
     private List<ServiceDirectory> getServiceDirectories(File dir) {
         return Arrays.stream(Objects.requireNonNull(dir.listFiles()))
