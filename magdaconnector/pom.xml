@@ -37,6 +37,22 @@
         <artifactId>httpclient5</artifactId>
         <version>${apache.httpcomponents.version}</version>
       </dependency>
+
+      <dependency>
+          <groupId>io.zipkin.brave</groupId>
+          <artifactId>brave</artifactId>
+          <version>${brave.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>io.zipkin.brave</groupId>
+          <artifactId>brave-context-slf4j</artifactId>
+          <version>${brave.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>io.zipkin.brave</groupId>
+          <artifactId>brave-instrumentation-httpclient5</artifactId>
+          <version>${brave.version}</version>
+      </dependency>
   </dependencies>
 
   <build>
