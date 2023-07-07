@@ -35,7 +35,7 @@ public class GeefPasfotoTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefPasfotoVoorRandomMan() {
-        assertPasfotoCorrect(INSZ_RANDOM_MAN, 28722);
+        assertPasfotoCorrect(INSZ_RANDOM_MAN, 30271);
     }
 
     @Test
