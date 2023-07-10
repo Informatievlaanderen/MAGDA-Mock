@@ -42,6 +42,10 @@ class JarResourceLoader implements ResourceLoader {
                 parent.close();
             }
         }
+
+        public boolean isOpen() {
+            return fileSystem.isOpen() || (parent != null && parent.isOpen());
+        }
     }
 
     static ResourceLoader fromJarUri(URI rootUri) throws IOException {
@@ -85,6 +89,11 @@ class JarResourceLoader implements ResourceLoader {
     @Override
     public Path getResourceAsPath(String resource) {
         return nestedFileSystem.getFileSystem().getPath(rootDir + resource);
+    }
+
+    @Override
+    public boolean isOpen() {
+        return nestedFileSystem.isOpen();
     }
 
     @Override

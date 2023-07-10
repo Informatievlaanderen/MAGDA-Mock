@@ -27,4 +27,6 @@ public interface ResourceLoader extends Closeable, AutoCloseable {
     InputStream getResourceAsStream(String resource);
 
     Path getResourceAsPath(String resource);
+
+    boolean isOpen();
 }

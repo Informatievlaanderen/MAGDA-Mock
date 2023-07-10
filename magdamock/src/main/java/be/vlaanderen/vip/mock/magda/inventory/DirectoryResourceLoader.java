@@ -16,6 +16,7 @@ class DirectoryResourceLoader implements ResourceLoader {
         return new DirectoryResourceLoader(URI.create(rootUri.toString() + "/"));
     }
 
+    private boolean open = true;
     private final URI rootUri;
 
     private DirectoryResourceLoader(URI rootUri) {
@@ -41,5 +42,12 @@ class DirectoryResourceLoader implements ResourceLoader {
     }
 
     @Override
-    public void close() {}
+    public boolean isOpen() {
+        return open;
+    }
+
+    @Override
+    public void close() {
+        open = false; // emulate the closing behavior to satisfy what's expected by the interface
+    }
 }
