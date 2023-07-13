@@ -41,8 +41,8 @@ class MagdaMockConnectionConfigTest {
             
             @Test
             void returnsValueFromMagdaSimulator() throws IOException {
-                try(var result = finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00671031647.xml")) {
-                    assertThat(new String(result.readAllBytes()), is(equalTo(getResourceContent("magda_simulator/Persoon/GeefBewijs/02.00.0000/00671031647.xml"))));
+                try(var result = finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00671031676.xml")) {
+                    assertThat(new String(result.readAllBytes()), is(equalTo(getResourceContent("magda_simulator/Persoon/GeefBewijs/02.00.0000/00671031676.xml"))));
                 }
             }
             
@@ -72,8 +72,8 @@ class MagdaMockConnectionConfigTest {
             
             @Test
             void fallsbackToMagdaSimulator() throws IOException {
-                try(var result = finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00671031647.xml")) {
-                    assertThat(new String(result.readAllBytes()), is(equalTo(getResourceContent("magda_simulator/Persoon/GeefBewijs/02.00.0000/00671031647.xml"))));
+                try(var result = finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00671031676.xml")) {
+                    assertThat(new String(result.readAllBytes()), is(equalTo(getResourceContent("magda_simulator/Persoon/GeefBewijs/02.00.0000/00671031676.xml"))));
                 }
             }
 
