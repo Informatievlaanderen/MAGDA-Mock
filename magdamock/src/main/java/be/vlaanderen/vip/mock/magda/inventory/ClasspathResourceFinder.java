@@ -69,6 +69,10 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         return new ClasspathResourceFinder(root, cls);
     }
 
+    public boolean isOpen() {
+        return resourceLoader.isOpen();
+    }
+
     @Override
     public void close() throws IOException {
         resourceLoader.close();
