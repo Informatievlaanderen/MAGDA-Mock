@@ -13,7 +13,7 @@ class GeefPersoonTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefPersoonGeeftAntwoord() {
-        final var requestInsz = "00600099507";
+        final var requestInsz = "00600099536";
         var request = GeefPersoonRequest.builder()
                 .insz(requestInsz)
                 .build();
