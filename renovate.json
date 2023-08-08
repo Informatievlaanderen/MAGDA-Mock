@@ -1,5 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "timezone": "Europe/Brussels",
-  "schedule": ["after 5pm every weekday"]
+  "schedule": ["after 5pm every weekday"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
+    }
+  ]
 }
