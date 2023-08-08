@@ -48,7 +48,7 @@ class StaticResponseSimulatorTest {
     @SneakyThrows
     void respondsWithStaticResource() {
         var simulator = new StaticResponseSimulator(ResourceFinders.magdaSimulator(), PERSOON, KEY_INSZ);
-        var request = makeGeefBewijsRequest("00671031647");
+        var request = makeGeefBewijsRequest("00671031676");
 
         var response = simulator.send(request);
 

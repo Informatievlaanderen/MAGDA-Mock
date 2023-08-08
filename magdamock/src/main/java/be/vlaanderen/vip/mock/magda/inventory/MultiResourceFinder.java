@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collection;
@@ -32,11 +33,18 @@ public class MultiResourceFinder implements ResourceFinder {
     }
 
     @Override
-    public List<CaseFile> listCaseFiles(String type, String subpath) { // XXX test
+    public List<CaseFile> listCaseFiles(String type, String subpath) {
         return finders.stream()
                 .map(finder -> finder.listCaseFiles(type, subpath))
                 .flatMap(Collection::stream)
                 .toList();
+    }
+
+    @Override
+    public void close() throws IOException {
+        for(var finder : finders) {
+            finder.close();
+        }
     }
     
     public static MultiResourceFinder create(ResourceFinder... finders) {

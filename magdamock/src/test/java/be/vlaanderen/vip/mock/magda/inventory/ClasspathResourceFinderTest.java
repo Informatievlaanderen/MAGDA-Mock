@@ -11,23 +11,34 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Objects;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ClasspathResourceFinderTest {
-    private ClasspathResourceFinder finder;
-    
-    @BeforeEach
-    void setup() {
-        finder = ClasspathResourceFinder.create("simulator_test", getClass());
+
+    @Test
+    void isNotOpenAfterClosing() throws URISyntaxException, IOException {
+        var finder = ClasspathResourceFinder.create("simulator_test", getClass());
+
+        assertTrue(finder.isOpen());
+        finder.close();
+        assertFalse(finder.isOpen());
     }
     
     @Nested
     class LoadSimulatorResource {
-        
+
+        private ClasspathResourceFinder finder;
+
+        @BeforeEach
+        void setup() throws URISyntaxException, IOException {
+            finder = ClasspathResourceFinder.create("simulator_test", getClass());
+        }
+
         @Test
         void returnsFileAsInputStream() throws IOException {
             try(var result = finder.loadSimulatorResource("Persoon", "GeefAttest/02.00.0000/01010100126.xml")) {
@@ -61,7 +72,14 @@ class ClasspathResourceFinderTest {
     
     @Nested
     class ListServicesDirectories {
-        
+
+        private ClasspathResourceFinder finder;
+
+        @BeforeEach
+        void setup() throws URISyntaxException, IOException {
+            finder = ClasspathResourceFinder.create("simulator_test", getClass());
+        }
+
         @Test
         void returnsServiceDirectory_forType() {
             var result = finder.listServicesDirectories("Persoon");
@@ -108,6 +126,13 @@ class ClasspathResourceFinderTest {
     @Nested
     class ListCaseFiles {
 
+        private ClasspathResourceFinder finder;
+
+        @BeforeEach
+        void setup() throws URISyntaxException, IOException {
+            finder = ClasspathResourceFinder.create("simulator_test", getClass());
+        }
+
         @Test
         void returnsCaseFiles_forTypeAndSubpath() {
             var result = finder.listCaseFiles("Persoon", "GeefPasfoto/02.00.0000/mannen");
@@ -119,7 +144,8 @@ class ClasspathResourceFinderTest {
                     caseFileFor("3.xml"),
                     caseFileFor("4.xml"),
                     caseFileFor("5.xml"),
-                    caseFileFor("6.xml")));
+                    caseFileFor("6.xml"),
+                    caseFileFor("7.xml")));
         }
 
         @Test
@@ -157,10 +183,12 @@ class ClasspathResourceFinderTest {
     
     @Nested
     class ServiceDirectoryTests {
+
         private ServiceDirectory sd;
-        
+
         @BeforeEach
-        void setup() {
+        void setup() throws URISyntaxException, IOException {
+            var finder = ClasspathResourceFinder.create("simulator_test", getClass());
             sd = finder.listServicesDirectories("Persoon")
                        .get(0);
         }
@@ -177,7 +205,7 @@ class ClasspathResourceFinderTest {
         
         @Nested
         class Versions {
-            
+
             @Test
             void isAListOfFoldersInDir() {
                 assertThat(sd.versions(), contains(versionDir("02.00.0000")));

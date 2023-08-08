@@ -8,6 +8,7 @@ import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.util.Objects;
 
@@ -34,14 +35,14 @@ class MagdaMockConnectionConfigTest {
             private ResourceFinder finder;
             
             @BeforeEach
-            void setup() {
+            void setup() throws URISyntaxException, IOException {
                 finder = config.resourceFinder();
             }
             
             @Test
             void returnsValueFromMagdaSimulator() throws IOException {
-                try(var result = finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00671031647.xml")) {
-                    assertThat(new String(result.readAllBytes()), is(equalTo(getResourceContent("magda_simulator/Persoon/GeefBewijs/02.00.0000/00671031647.xml"))));
+                try(var result = finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00671031676.xml")) {
+                    assertThat(new String(result.readAllBytes()), is(equalTo(getResourceContent("magda_simulator/Persoon/GeefBewijs/02.00.0000/00671031676.xml"))));
                 }
             }
             
@@ -52,7 +53,7 @@ class MagdaMockConnectionConfigTest {
             private ResourceFinder finder;
             
             @BeforeEach
-            void setup() {
+            void setup() throws URISyntaxException, IOException {
                 config.setMockTestcasePath(dir.getAbsolutePath());
                 finder = config.resourceFinder();
             }
@@ -71,8 +72,8 @@ class MagdaMockConnectionConfigTest {
             
             @Test
             void fallsbackToMagdaSimulator() throws IOException {
-                try(var result = finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00671031647.xml")) {
-                    assertThat(new String(result.readAllBytes()), is(equalTo(getResourceContent("magda_simulator/Persoon/GeefBewijs/02.00.0000/00671031647.xml"))));
+                try(var result = finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00671031676.xml")) {
+                    assertThat(new String(result.readAllBytes()), is(equalTo(getResourceContent("magda_simulator/Persoon/GeefBewijs/02.00.0000/00671031676.xml"))));
                 }
             }
 

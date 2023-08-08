@@ -8,6 +8,9 @@ import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 @Slf4j
 public class MagdaMockConnection implements MagdaConnection {
 
@@ -40,7 +43,7 @@ public class MagdaMockConnection implements MagdaConnection {
         defaultResponse = xml;
     }
     
-    public static MagdaConnection create() {
+    public static MagdaConnection create() throws URISyntaxException, IOException {
         return create(SOAPSimulatorBuilder.builder(ResourceFinders.magdaSimulator())
                                           .magdaMockSimulator()
                                           .build());

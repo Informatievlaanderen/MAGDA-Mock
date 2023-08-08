@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-06-01</Datum>
+					<Tijd>12:21:23.110</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>b7f52ea6-0e6d-4d71-8de7-830355fc348e</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+					<Referte>XE:420:11815:1419</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>6048</Referte>
+				<Inhoud>
+					<Persoon DatumCreatie="2003-03-18" DatumModificatie="2013-04-30">
+						<INSZ>13700199756</INSZ>
+						<Naam DatumBegin="1913-10-01">
+							<Achternamen>
+								<Achternaam>Janssens</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Franz</Voornaam>
+								<Voornaam>Jules</Voornaam>
+								<Voornaam>Fernand</Voornaam>
+								<Voornaam>Léon</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Omschrijving>Mannelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="1913-10-01">
+							<Plaats>
+								<Land>
+									<NISCode>513</NISCode>
+									<ISOCode>BRA</ISOCode>
+									<Naam>Brazilië</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>Code</Code>
+								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>2</Code>
+								<Omschrijving Taal="nl">Frans</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register>
+							<Code>02</Code>
+							<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1913-10-01">
+								<Code>150</Code>
+								<Omschrijving>Belg</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1913-10-01">
+							<Datum>1913-10-01</Datum>
+							<Plaats>
+								<Gemeente>
+									<NISCode>24055</NISCode>
+									<Naam>Kortenberg</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer>00325</Aktenummer>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="1958-11-06">
+								<Code>20</Code>
+								<Omschrijving>Gehuwd</Omschrijving>
+								<Partner>
+									<INSZ>00600100002</INSZ>
+									<Naam>
+										<Achternamen>
+											<Achternaam>Dubois</Achternaam>
+										</Achternamen>
+										<Voornamen>
+											<Voornaam>Maria</Voornaam>
+											<Voornaam>de</Voornaam>
+											<Voornaam>Lurdes</Voornaam>
+										</Voornamen>
+									</Naam>
+									<Geslacht>
+										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+										<Omschrijving>Vrouwelijk</Omschrijving>
+									</Geslacht>
+									<Geboortedatum>1900-01-01</Geboortedatum>
+								</Partner>
+								<Plaats>
+									<Gemeente>
+										<Naam>Riemst</Naam>
+									</Gemeente>
+									<Land>
+										<NISCode>416</NISCode>
+										<ISOCode>MEX</ISOCode>
+										<Naam>Mexico</Naam>
+									</Land>
+								</Plaats>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<VerblijfplaatsBuitenland DatumBegin="2013-04-30">
+								<DiplomatiekePost>
+									<Code>5112</Code>
+									<Omschrijving>Brasília</Omschrijving>
+									<Land>
+										<NISCode>513</NISCode>
+										<ISOCode>BRA</ISOCode>
+										<Naam>Brazilië</Naam>
+									</Land>
+								</DiplomatiekePost>
+								<Land>
+									<NISCode>513</NISCode>
+									<ISOCode>BRA</ISOCode>
+									<Naam>Brazilië</Naam>
+								</Land>
+								<Teksten>
+									<Tekst>Brasilia</Tekst>
+									<Tekst>Distrito Federal</Tekst>
+								</Teksten>
+							</VerblijfplaatsBuitenland>
+						</Adressen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>

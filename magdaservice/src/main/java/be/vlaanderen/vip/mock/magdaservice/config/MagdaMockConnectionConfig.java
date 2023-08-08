@@ -14,6 +14,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 @Data
 @Configuration
 @ConfigurationProperties("magdamock")
@@ -21,7 +24,7 @@ public class MagdaMockConnectionConfig {
     private String mockTestcasePath;
 
     @Bean
-    public ResourceFinder resourceFinder() {
+    public ResourceFinder resourceFinder() throws URISyntaxException, IOException {
         if(StringUtils.isNotBlank(mockTestcasePath)) {
             return ResourceFinders.combined(mockTestcasePath(mockTestcasePath),
                                             magdaSimulator());
@@ -33,7 +36,7 @@ public class MagdaMockConnectionConfig {
         return ResourceFinders.directory(path);
     }
     
-    private ResourceFinder magdaSimulator() {
+    private ResourceFinder magdaSimulator() throws URISyntaxException, IOException {
         return ResourceFinders.magdaSimulator();
     }
     

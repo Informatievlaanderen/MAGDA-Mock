@@ -5,23 +5,21 @@ import org.apache.commons.io.FilenameUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
-import java.nio.file.*;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 @Slf4j
 public class ClasspathResourceFinder extends AbstractResourceFinder {
-    private final String root;
-    private final ClassLoader loader;
-    
-    ClasspathResourceFinder(String root, Class<?> cls) {
-        this.root = root;
-        this.loader = cls.getClassLoader();
+    private final ResourceLoader resourceLoader;
+
+    ClasspathResourceFinder(String root, Class<?> cls) throws URISyntaxException, IOException {
+        this.resourceLoader = ResourceLoader.fromResource(root, cls.getClassLoader());
     }
 
     @Override
@@ -31,7 +29,7 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
             return null;
         }
 
-        return loader.getResourceAsStream(root + "/" + relativePath);
+        return resourceLoader.getResourceAsStream(relativePath);
     }
 
     @Override
@@ -41,8 +39,8 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         }
 
         try(var stream = ClasspathResourceFinder
-                .listDirectories(fromClasspathResource(root + "/" + type))
-                .<ServiceDirectory>map(path -> new ResourceServiceDirectory(loader, path))
+                .listDirectories(resourceLoader.getResourceAsPath(type))
+                .<ServiceDirectory>map(ResourceServiceDirectory::new)
                 .sorted(Comparator.comparing(ServiceDirectory::service))) {
             return stream.toList();
         }
@@ -56,22 +54,31 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         }
 
         try(var stream = ClasspathResourceFinder
-                .listFiles(fromClasspathResource(root + "/" + relativePath))
+                .listFiles(resourceLoader.getResourceAsPath(relativePath))
                 .<CaseFile>map(ResourceCaseFile::new)
                 .sorted(Comparator.comparing(CaseFile::name))) {
             return stream.toList();
         }
     }
 
-    public static ClasspathResourceFinder create(String root) {
+    public static ClasspathResourceFinder create(String root) throws URISyntaxException, IOException {
         return create(root, ClasspathResourceFinder.class);
     }
 
-    public static ClasspathResourceFinder create(String root, Class<?> cls) {
+    public static ClasspathResourceFinder create(String root, Class<?> cls) throws URISyntaxException, IOException {
         return new ClasspathResourceFinder(root, cls);
     }
-    
-    private record ResourceServiceDirectory(ClassLoader loader, Path path) implements ServiceDirectory { 
+
+    public boolean isOpen() {
+        return resourceLoader.isOpen();
+    }
+
+    @Override
+    public void close() throws IOException {
+        resourceLoader.close();
+    }
+
+    private record ResourceServiceDirectory(Path path) implements ServiceDirectory {
         
         public String service() {
             return path.getFileName().toString();
@@ -79,14 +86,14 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         
         public List<VersionDirectory> versions() {
             try(var stream = ClasspathResourceFinder.listDirectories(path)
-                    .<VersionDirectory>map(path -> new ResourceVersionDirectory(loader, path))
+                    .<VersionDirectory>map(ResourceVersionDirectory::new)
                     .sorted(Comparator.comparing(VersionDirectory::version))) {
                 return stream.toList();
             }
         }
     }
     
-    public record ResourceVersionDirectory(ClassLoader loader, Path path) implements VersionDirectory {
+    public record ResourceVersionDirectory(Path path) implements VersionDirectory {
         
         public String version() {
             return path.getFileName().toString();
@@ -121,17 +128,6 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         }
     }
     
-    private Path fromClasspathResource(String resource) {
-        try {
-            var uri = Objects.requireNonNull(loader.getResource(resource)).toURI();
-            return getPath(uri, resource);
-        }
-        catch (Exception e) {
-            log.warn("Failed to get path for '%s'".formatted(resource), e);
-            return Path.of(resource);
-        }
-    }
-    
     private static Stream<Path> listDirectories(Path path) {
         return listFromDirectory(path, Files::isDirectory);
     }
@@ -144,20 +140,7 @@ public class ClasspathResourceFinder extends AbstractResourceFinder {
         return getChildPaths(path)
                 .filter(fileFilter);
     }
-    
-    /**
-     * Stuff gets weird when you get resources from a jar within a jar
-     * Using FilesSystems fixes that (e.g: magdamock.jar/magda_simulator from inside magdaservice.jar)
-     */
-    private static Path getPath(URI uri, String resource) throws IOException {
-        if(uri.getScheme().equals("jar")) {
-            try(var fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap())) {
-                return fileSystem.getPath(resource);
-            }
-        }
-        return Paths.get(uri);
-    }
-    
+
     private static boolean isCaseFile(Path path) {
         return CASE_FILE_EXTENSION.contains(FilenameUtils.getExtension(path.getFileName().toString()));
     }
