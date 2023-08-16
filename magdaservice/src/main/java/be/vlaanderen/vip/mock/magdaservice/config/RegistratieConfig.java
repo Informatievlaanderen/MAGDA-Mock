@@ -11,9 +11,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(value = "registratie")
 public class RegistratieConfig {
-    private String hoedanigheid;
-    private String identificatie;
-    private String service;
     private String certPath;
     private String keyAlias;
     private String keyPassword;
