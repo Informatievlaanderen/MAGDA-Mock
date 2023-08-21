@@ -2,7 +2,7 @@
 
 ## MagdaConnector
 
-The `MagdaConnector` simplifies sending request to magda soap endpoints. The connector can send `MagdaRequest`-s and returns a `MagdaResponse`.
+The `MagdaConnector` simplifies sending requests to magda soap endpoints. The connector can send `MagdaRequest`-s and returns a `MagdaResponse`.
 
 ```java
 MagdaConnector connector = ... // more on instantiation later
@@ -19,7 +19,7 @@ var response = connector.send(request); // more on MagdaResponse later
 A connector takes 3 parameters:
  - `MagdaConnection`: defines a connection type, this can be a mock connection or a soap connnection
  - `ClientLogService`: interface with callback methods for the lifecycle of magda requests
- - `MagdaHoedanigHeidService`: allows for configuration of what *hoedanigheids code* is used for requests and what endpoints should be used for what services.
+ - `MagdaHoedanigHeidService`: allows for configuration of what *hoedanigheids code* is used for requests
  
 #### MagdaConnection
 
@@ -71,7 +71,7 @@ var config = MagdaConfigDto.builder()
 
 ##### ClientLogService
 
-The client log service is an interface that can be implemented to handle certains request lifecycle callbacks. The library supplies an implementation: `DebugLogService`. This logs callback parameters to the debug log.
+The client log service is an interface that can be implemented to handle certain request lifecycle callbacks. The library supplies an implementation: `DebugLogService`. This logs callback parameters to the debug log.
 
 ##### MagdaHoedanigHeidService
 

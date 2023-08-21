@@ -1,6 +1,6 @@
 # How to use the image
 
-The `magdamock` images comes in the following format: `vlaamseoverheid-magda-docker-public.jfrog.io/magda/magdamock.service:${tag}`. Where tag matches the desired release version of the `magdamock`.
+The `magdamock` images come in the following format: `vlaamseoverheid-magda-docker-public.jfrog.io/magda/magdamock.service:${tag}`. Where tag matches the desired release version of the `magdamock`.
 
 Lets kick it off with an example:
 *docker-compose:*
@@ -69,34 +69,34 @@ magdamock:
   mockTestcasePath: /test-cases
 ```
 
-When run like the, in addition to it's default test cases, the `magdamock` will also search inside the */test-cases* folder for responses. The folder structure inside the configured folder is expected to be `{type}/{service}/{version}/{search-key}.xml`. Search key depends on the service being called, but usually is the INSZ number of the person the data is being request for. As for type/service/version, the following options are available:
- - Persoon/RegistreerInschrijving/02.00.0000	
- - Persoon/RegistreerInschrijving/02.01.0000
- - Persoon/RegistreerUitschrijving/02.00.0000	
- - Persoon/GeefBewijs/02.00.0000	
- - Persoon/GeefHistoriekInschrijving/02.01.0000	
- - Persoon/RaadpleegLeerkredietsaldo/01.00.0000	
- - Persoon/GeefLoopbaanOnderbrekingen/02.00.0000	
- - Persoon/GeefStatusRechtOndersteuningen/02.00.0000	
- - Persoon/GeefFuncties/02.00.0000	
- - Persoon/GeefDossiers/02.00.0000	
- - Persoon/GeefKindVoordelen/02.00.0000	
- - Persoon/GeefVolledigDossierHandicap/03.00.0000	
- - Persoon/GeefPersoon/02.02.0000	
- - Persoon/GeefHistoriekPersoon/02.00.0000	
- - Persoon/GeefHistoriekPersoon/02.02.0000	
- - Persoon/GeefGezinssamenstelling/02.00.0000	
- - Persoon/GeefGezinssamenstelling/02.02.0000	
- - Persoon/GeefDossierKBI/01.00.0000	
- - Persoon/GeefAanslagbiljetPersonenbelasting/02.00.0000	
- - Persoon/ZoekEigendomstoestanden/02.00.0000	
- - Persoon/ZoekPersoonOpAdres/02.02.0000	
- - Persoon/GeefAttest/02.00.0000	
- - Persoon/GeefPasfoto/02.00.0000	
- - Onderneming/GeefOnderneming/02.00.0000
- - Onderneming/GeefOndernemingVKBO/02.00.0000
- - Vastgoed/GeefEpc/02.00.0000
- - Vastgoed/GeefEpc/02.01.0000
+When run like this, in addition to it's default test cases, the `magdamock` will also search inside the */test-cases* folder for responses. The folder structure inside the configured folder is expected to be `{type}/{service}/{version}/{search-key}.xml`. Search key depends on the service being called, but usually is the INSZ number of the person the data is being request for. As for type/service/version, the following options are available:
+ - Persoon/RegistreerInschrijving/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/RegistreerInschrijving/02.01.0000 - filenames {INSZ}.xml
+ - Persoon/RegistreerUitschrijving/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/GeefBewijs/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/GeefHistoriekInschrijving/02.01.0000 - filenames {INSZ}.xml
+ - Persoon/RaadpleegLeerkredietsaldo/01.00.0000 - filenames {INSZ}.xml
+ - Persoon/GeefLoopbaanOnderbrekingen/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/GeefStatusRechtOndersteuningen/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/GeefFuncties/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/GeefDossiers/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/GeefKindVoordelen/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/GeefVolledigDossierHandicap/03.00.0000 - filenames {RRNR}.xml
+ - Persoon/GeefPersoon/02.02.0000 - filenames {INSZ}.xml
+ - Persoon/GeefHistoriekPersoon/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/GeefHistoriekPersoon/02.02.0000 - filenames {INSZ}.xml
+ - Persoon/GeefGezinssamenstelling/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/GeefGezinssamenstelling/02.02.0000 - filenames {INSZ}.xml
+ - Persoon/GeefDossierKBI/01.00.0000 - filenames {INSZ}.xml
+ - Persoon/GeefAanslagbiljetPersonenbelasting/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/ZoekEigendomstoestanden/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/ZoekPersoonOpAdres/02.02.0000/{source}/{PostalCode}/{StreatCode}/{HouseNumber} - filenames {ReferencePerson}.xml
+ - Persoon/GeefAttest/02.00.0000 - filenames {INSZ}.xml
+ - Persoon/GeefPasfoto/02.00.0000 - filenames {INSZ}.xml
+ - Onderneming/GeefOnderneming/02.00.0000 - filenames {VentureNumber}.xml
+ - Onderneming/GeefOndernemingVKBO/02.00.0000 - filenames {VentureNumber}.xml
+ - Vastgoed/GeefEpc/02.00.0000/{Certificate} - filenames {BuildingUnitId}.xml
+ - Vastgoed/GeefEpc/02.01.0000/{Certificate}/{BuildingUnitId}/{PostalCode}/{Street} - filenames {HouseNumber}.xml
 
 If the following folder structure is mounted for the magdamock:
 ```
@@ -133,4 +133,4 @@ registratie:
   keystorePassword: keystore-password
 ```
 
-This in turn will look for a keystore in */certifcates/keystore* and use it so verify requests and sign responses.
+This in turn will look for a keystore in */certifcates/keystore* and use it so verifies requests and signs responses.
