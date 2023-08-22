@@ -15,7 +15,6 @@ import be.vlaanderen.vip.magda.legallogging.service.ClientLogService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.event.Level;
-import org.springframework.util.CollectionUtils;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -72,7 +71,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
             magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
                     .log("Result of request to MAGDA service with reference [{}] ({} ms): {}", magdaRequest.getRequestId(), duration.toMillis(), uitzonderingenMessage1);
 
-            if(!antwoord.isHasContents() && CollectionUtils.isEmpty(antwoordUitzonderingen) && CollectionUtils.isEmpty(uitzonderingen)) {
+            if(!antwoord.isHasContents() && antwoordUitzonderingen.isEmpty() && uitzonderingen.isEmpty()) {
                 throw new UitzonderingenSectionInResponseException(magdaRequest.getSubject(), getLevel1UitzonderingEntry(response));
             }
 

@@ -3,7 +3,6 @@ package be.vlaanderen.vip.magda.client.domeinservice;
 import jakarta.annotation.Nullable;
 import lombok.Getter;
 import lombok.ToString;
-import org.springframework.util.Assert;
 
 import java.util.Optional;
 
@@ -48,7 +47,9 @@ public class MagdaRegistrationInfo {
         }
 
         public MagdaRegistrationInfo build() {
-            Assert.notNull(inst.identification, "identification cannot be null.");
+            if(inst.identification == null) {
+                throw new IllegalArgumentException("identification cannot be null.");
+            }
             // hoedanigheidscode is optional
 
             return inst;

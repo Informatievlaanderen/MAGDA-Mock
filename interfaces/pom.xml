@@ -19,9 +19,9 @@
         <artifactId>lombok</artifactId>
       </dependency>
       <dependency>
-        <groupId>net.logstash.logback</groupId>
-        <artifactId>logstash-logback-encoder</artifactId>
-        <version>${logstash.logback.version}</version>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>${slf4j.version}</version>
       </dependency>
 
       <dependency>
@@ -37,8 +37,8 @@
         <version>${dom4j.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
+          <groupId>jakarta.annotation</groupId>
+          <artifactId>jakarta.annotation-api</artifactId>
       </dependency>
       <dependency>
         <groupId>jakarta.validation</groupId>
