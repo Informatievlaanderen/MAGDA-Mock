@@ -1,6 +1,6 @@
 # How to use the image
 
-The `magdamock` images come in the following format: `vlaamseoverheid-magda-docker-public.jfrog.io/magda/magdamock.service:${tag}`. Where tag matches the desired release version of the `magdamock`.
+The `magdamock` images come in the following format: `ghcr.io/informatievlaanderen/magda-mock:${tag}`. Where tag matches the desired release version of the `magdamock`.
 
 Lets kick it off with an example:
 *docker-compose:*
@@ -8,7 +8,7 @@ Lets kick it off with an example:
 version: '3'
 services:
   magda-mock:
-    image: "vlaamseoverheid-magda-docker-public.jfrog.io/magda/magdamock.service:latest"
+    image: "ghcr.io/informatievlaanderen/magda-mock:latest"
     ports:
       - "8080:8080"
     command: java -jar /app.jar
@@ -34,7 +34,7 @@ This means an `application.yml` can be added in a volume which allows for additi
 version: '3'
 services:
   magda-mock:
-    image: "vlaamseoverheid-magda-docker-public.jfrog.io/magda/magdamock.service:latest"
+    image: "ghcr.io/informatievlaanderen/magda-mock:latest"
     ports:
       - "8080:8081"
     volumes:
@@ -55,7 +55,7 @@ It's possible to extend the test-cases supplied by the application through confi
 version: '3'
 services:
   magda-mock:
-    image: "vlaamseoverheid-magda-docker-public.jfrog.io/magda/magdamock.service:latest"
+    image: "ghcr.io/informatievlaanderen/magda-mock:latest"
     ports:
       - "8080:8080"
     volumes:
@@ -106,7 +106,7 @@ test-cases
       0123456789.xml
       4567980123.xml
 ```
-and a `GeefBewijs` request has been made with INSZ number `012345679.xml`, the contents of */test-cases/Persoon/GeefBewijs/0123456789.xml* will be returned.
+and a `GeefBewijs` request has been made with INSZ number `0123456789`, the contents of */test-cases/Persoon/GeefBewijs/0123456789.xml* will be returned.
 
 ### Signing
 
@@ -116,7 +116,7 @@ It's possible to have request signature validation and response signature signin
 version: '3'
 services:
   magda-mock:
-    image: "vlaamseoverheid-magda-docker-public.jfrog.io/magda/magdamock.service:latest"
+    image: "ghcr.io/informatievlaanderen/magda-mock:latest"
     ports:
       - "8080:8080"
     volumes:
