@@ -21,7 +21,7 @@ import lombok.ToString;
 @ToString
 public class GeefAanslagbiljetPersonenbelastingRequest extends PersonMagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends PersonMagdaRequest.Builder<SELF> {
+    public static class Builder extends PersonMagdaRequest.Builder<Builder> {
 
         public GeefAanslagbiljetPersonenbelastingRequest build() {
             if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
@@ -33,7 +33,7 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends PersonMagdaReques
         }
     }
 
-    public static Builder<? extends Builder<?>> builder() {
+    public static Builder builder() {
         return new Builder();
     }
 

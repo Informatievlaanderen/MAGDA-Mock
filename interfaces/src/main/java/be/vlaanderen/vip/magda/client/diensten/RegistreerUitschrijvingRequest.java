@@ -26,23 +26,21 @@ import java.time.format.DateTimeFormatter;
 @ToString
 public class RegistreerUitschrijvingRequest extends PersonMagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends PersonMagdaRequest.Builder<SELF> {
+    public static class Builder extends PersonMagdaRequest.Builder<Builder> {
 
         @Getter(AccessLevel.PROTECTED)
         private LocalDate startDate;
         @Getter(AccessLevel.PROTECTED)
         private LocalDate endDate;
 
-        @SuppressWarnings("unchecked")
-        public SELF startDate(LocalDate startDate) {
+        public Builder startDate(LocalDate startDate) {
             this.startDate = startDate;
-            return (SELF) this;
+            return this;
         }
 
-        @SuppressWarnings("unchecked")
-        public SELF endDate(LocalDate endDate) {
+        public Builder endDate(LocalDate endDate) {
             this.endDate = endDate;
-            return (SELF) this;
+            return this;
         }
 
         public RegistreerUitschrijvingRequest build() {
@@ -57,7 +55,7 @@ public class RegistreerUitschrijvingRequest extends PersonMagdaRequest {
         }
     }
 
-    public static Builder<? extends Builder<?>> builder() {
+    public static Builder builder() {
         return new Builder();
     }
 
