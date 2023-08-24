@@ -71,12 +71,12 @@ definitions:
         image: softwareimprovementgroup/sigridci
         name: Publish to Sigrid
         script:
-          - timeout 10m sigridci.py --customer vlaamseoverheid --system $(echo "magdamock.service"| sed -e "s/\./-/") --source . --publish
+          - timeout 10m sigridci.py --customer $SIGRID_CI_ACCOUNT --system $(echo "magdamock.service"| sed -e "s/\./-/") --source . --publish
     - step: &sigridCI
         image: softwareimprovementgroup/sigridci
         name: Sigrid CI
         script:
-          - timeout 10m sigridci.py --customer vlaamseoverheid --system $(echo "magdamock.service"| sed -e "s/\./-/") --source .
+          - timeout 10m sigridci.py --customer $SIGRID_CI_ACCOUNT --system $(echo "magdamock.service"| sed -e "s/\./-/") --source .
     - step: &githubMirror
         name: Sync to Github
         clone:
