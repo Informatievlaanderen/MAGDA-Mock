@@ -1,14 +1,28 @@
 package be.vlaanderen.vip.magda.client;
 
-import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
-import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
-import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
-import be.vlaanderen.vip.magda.client.util.XmlUtils;
-import be.vlaanderen.vip.magda.config.MagdaConfigDto;
-import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
-import brave.Tracing;
-import brave.httpclient5.HttpClient5Tracing;
-import lombok.extern.slf4j.Slf4j;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
+import java.util.Optional;
+
+import javax.net.ssl.SSLContext;
+import javax.xml.transform.Result;
+import javax.xml.transform.Source;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
@@ -26,17 +40,16 @@ import org.apache.hc.core5.ssl.SSLContextBuilder;
 import org.apache.hc.core5.util.Timeout;
 import org.w3c.dom.Document;
 
-import javax.net.ssl.SSLContext;
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.security.*;
-import java.security.cert.CertificateException;
+import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
+import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
+import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
+import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
+import be.vlaanderen.vip.magda.client.util.XmlUtils;
+import be.vlaanderen.vip.magda.config.MagdaConfigDto;
+import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
+import brave.Tracing;
+import brave.httpclient5.HttpClient5Tracing;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class MagdaSoapConnection implements MagdaConnection, Closeable {
@@ -63,7 +76,10 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
     }
 
     private static SSLConnectionSocketFactory buildSslConnectionFactoryFromConfig(MagdaConfigDto config) throws TwoWaySslException {
-        if (StringUtils.isNotEmpty(config.getKeystore().getKeyStoreLocation())) {
+        if(Optional.ofNullable(config.getKeystore())
+                   .map(TwoWaySslProperties::getKeyStoreLocation)
+                   .map(StringUtils::isNotBlank)
+                   .orElse(false)) {
 
             var keystore = getKeystore(config.getKeystore().getKeyStoreType(), config.getKeystore().getKeyStoreLocation(), config.getKeystore().getKeyStorePassword().toCharArray());
             var sslContext = sslContext(keystore, config.getKeystore().getKeyAlias(), config.getKeystore().getKeyPassword().toCharArray());
