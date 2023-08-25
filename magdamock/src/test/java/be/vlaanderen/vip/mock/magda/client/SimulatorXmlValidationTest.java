@@ -28,7 +28,7 @@ class SimulatorXmlValidationTest {
     private final List<String> EXCLUSIONS = Stream.of(
             "Vastgoed/GeefEpc/02.01.0000/9470/Leeuwbrugstraat/21.xml",                 // contains SOAP-ENV:Fault, which is not covered by the xsd
             "Persoon/GeefAanslagbiljetPersonenbelasting/02.00.0000/70021500155.xml"    // contains SOAP-ENV:Fault, which is not covered by the xsd
-            ).map(exclusion -> exclusion.replaceAll("/", File.separator)).toList();
+            ).map(exclusion -> exclusion.replaceAll("//", File.separator)).toList();
 
     private static final String baseXsd = "simulator_xsd/";
     private static final String baseXml = "magda_simulator/";
@@ -53,6 +53,7 @@ class SimulatorXmlValidationTest {
             "Persoon/GeefLoopbaanonderbrekingen/02.00.0000",          "Werk.GeefLoopbaanonderbrekingenDienst-02.00/WebService/GeefLoopbaanonderbrekingenResponse.xsd",
             "Persoon/GeefPasfoto/02.00.0000",                         "Persoon.GeefPasfotoDienst-02.00/WebService/GeefPasfotoResponse.xsd",
             "Persoon/GeefPersoon/02.02.0000",                         "Persoon.GeefPersoonDienst-02.02/WebService/GeefPersoonResponse.xsd",
+            "Persoon/GeefSociaalStatuut/03.00.0000",                  "SocZek.GeefSociaalStatuutDienst-03.00/WebService/GeefSociaalStatuutResponse.xsd",
             "Persoon/GeefVolledigDossierHandicap/03.00.0000",         "SocZek.GeefVolledigDossierHandicapDienst-03.00/WebService/GeefVolledigDossierHandicapResponse.xsd",
             "Persoon/RegistreerInschrijving/02.00.0000",              "Repertorium.RegistreerInschrijvingDienst-02.00/WebService/RegistreerInschrijvingResponse.xsd",
             "Persoon/RegistreerInschrijving/02.01.0000",              "Repertorium.RegistreerInschrijvingDienst-02.01/WebService/RegistreerInschrijvingResponse.xsd",
