@@ -4,6 +4,7 @@ import lombok.SneakyThrows;
 import org.junit.jupiter.api.DynamicContainer;
 import org.junit.jupiter.api.DynamicNode;
 import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
@@ -28,7 +29,7 @@ class SimulatorXmlValidationTest {
     private final List<String> EXCLUSIONS = Stream.of(
             "Vastgoed/GeefEpc/02.01.0000/9470/Leeuwbrugstraat/21.xml",                 // contains SOAP-ENV:Fault, which is not covered by the xsd
             "Persoon/GeefAanslagbiljetPersonenbelasting/02.00.0000/70021500155.xml"    // contains SOAP-ENV:Fault, which is not covered by the xsd
-            ).map(exclusion -> exclusion.replaceAll("//", File.separator)).toList();
+            ).map(exclusion -> exclusion.replace("/", File.separator)).toList();
 
     private static final String baseXsd = "simulator_xsd/";
     private static final String baseXml = "magda_simulator/";
@@ -64,6 +65,10 @@ class SimulatorXmlValidationTest {
             "Onderneming/GeefOndernemingVKBO/02.00.0000",             "Onderneming.GeefOndernemingVKBODienst-02.00/WebService/GeefOndernemingVKBOResponse.xsd",
             "Persoon/GeefStatusRechtOndersteuningen/02.00.0000",      "SocEcon.GeefStatusRechtOndersteuningenDienst-02.00/WebService/GeefStatusRechtOndersteuningenResponse.xsd");
 
+    @Test
+    void send() {
+        System.out.println("foo/bar".replaceAll("\\/", "-"));
+    }
     
     @TestFactory
     Stream<DynamicNode> validateXmls() {
