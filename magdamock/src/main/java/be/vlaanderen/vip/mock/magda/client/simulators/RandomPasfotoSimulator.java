@@ -62,7 +62,7 @@ public class RandomPasfotoSimulator extends BaseSOAPSimulator {
         var path = String.join("/", serviceName, serviceVersion, genderDirectory);
         var caseFiles = getFinder().listCaseFiles(type, path);
 
-        return String.join("/", path, caseFiles.get(Math.abs(insz.hashCode()) % caseFiles.size()).name());
+        return String.join("/", path, caseFiles.get(Math.abs(insz.hashCode() % caseFiles.size())).name());
     }
 
     /**
