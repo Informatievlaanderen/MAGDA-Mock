@@ -15,7 +15,7 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-public class GeefPasfotoTest extends MockTestBase {
+class GeefPasfotoTest extends MockTestBase {
     private static final String INSZ_MAGDA_OVERBELAST = "91610100176";
     private static final String INSZ_ECHTE_PASFOTO = "67621546751";
     private static final String INSZ_RANDOM_MAN = "67021400130";
