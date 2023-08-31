@@ -1,19 +1,18 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
+import be.vlaanderen.vip.magda.client.diensten.GeefSociaalStatuutRequest.Builder;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+import java.time.OffsetDateTime;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import java.time.OffsetDateTime;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
-import be.vlaanderen.vip.magda.client.diensten.GeefSociaalStatuutRequest.Builder;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 
 class GeefSociaalStatuutRequestTest {
 
@@ -22,29 +21,29 @@ class GeefSociaalStatuutRequestTest {
         
         @Test
         void throwsException_whenInszNull() {
-            assertThrows(IllegalStateException.class, 
-                         () -> GeefSociaalStatuutRequest.builder()
-                                                        .sociaalStatuut("sociaal-statuut")
-                                                        .datum(OffsetDateTime.now())
-                                                        .build());
+            var builder = GeefSociaalStatuutRequest.builder()
+                    .sociaalStatuut("sociaal-statuut")
+                    .datum(OffsetDateTime.now());
+
+            assertThrows(IllegalStateException.class, builder::build);
         }
 
         @Test
         void throwsException_whenSociaalStatuutNull() {
-            assertThrows(IllegalStateException.class, 
-                         () -> GeefSociaalStatuutRequest.builder()
-                                                        .insz("insz")
-                                                        .datum(OffsetDateTime.now())
-                                                        .build());
+            var builder = GeefSociaalStatuutRequest.builder()
+                    .insz("insz")
+                    .datum(OffsetDateTime.now());
+
+            assertThrows(IllegalStateException.class, builder::build);
         }
 
         @Test
         void throwsException_whenDatumNull() {
-            assertThrows(IllegalStateException.class, 
-                         () -> GeefSociaalStatuutRequest.builder()
-                                                        .insz("insz")
-                                                        .sociaalStatuut("sociaal-statuut")
-                                                        .build());
+            var builder = GeefSociaalStatuutRequest.builder()
+                    .insz("insz")
+                    .sociaalStatuut("sociaal-statuut");
+
+            assertThrows(IllegalStateException.class, builder::build);
         }
         
         @Test

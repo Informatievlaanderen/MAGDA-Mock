@@ -1,14 +1,14 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
+
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Getter
 public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
@@ -45,8 +45,8 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
         return new Builder();
     }
     
-    private String sociaalStatuut;
-    private OffsetDateTime datum;
+    private final String sociaalStatuut;
+    private final OffsetDateTime datum;
 
     protected GeefSociaalStatuutRequest(
             @NotNull INSZNumber insz,
