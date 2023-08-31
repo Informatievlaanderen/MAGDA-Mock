@@ -46,7 +46,6 @@ public class RegistreerInschrijvingRequest extends PersonMagdaRequest {
         public RegistreerInschrijvingRequest build() {
             if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
             if(getStartDate() == null) { throw new IllegalStateException("Start date must be given"); }
-            if(getEndDate() == null) { throw new IllegalStateException("End date must be given"); }
 
             return new RegistreerInschrijvingRequest(
                     getInsz(),
@@ -87,8 +86,14 @@ public class RegistreerInschrijvingRequest extends PersonMagdaRequest {
 
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Begin", getStartDate().format(dateFormatter));
-        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEndDate().format(dateFormatter));
         request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", magdaRegistrationInfo.getIdentification());
+        
+        if(endDate != null) {
+            request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEndDate().format(dateFormatter));
+        }
+        else {
+            request.removeNode("//Vraag/Inhoud/Inschrijving/Periode/Einde");
+        }
 
         var hoedanigheidscode = magdaRegistrationInfo.getHoedanigheidscode();
         if(hoedanigheidscode.isEmpty()) {
