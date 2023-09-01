@@ -6,22 +6,24 @@ import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
+import java.time.Year;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
+class GeefAanslagbiljetPersonenbelastingTest extends MockTestBase {
 
     private static final String INSZ_MAGDA_OVERBELAST = "91610100176";
     private static final String INSZ_GEENDATA = "67021546719";
     private static final String INSZ_DATA_NA2000 = "00610122309";
     private static final String INSZ_DATA_VOOR2000 = "82702108146";
 
-
     @Test
     @SneakyThrows
     void defaultAanslagBiljet() {
-        var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
+        var request = GeefAanslagbiljetPersonenbelastingRequest.builder2()
                 .insz(INSZ_GEENDATA)
+                .incomeYear(Year.of(2021))
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -30,7 +32,7 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), GeefAanslagbiljetPersonenBelastingTest.ANTWOORD_REFERTE, request.getRequestId().toString());
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), GeefAanslagbiljetPersonenbelastingTest.ANTWOORD_REFERTE, request.getRequestId().toString());
 
         assertThatResponseContainsAnswerNoError(antwoord);
 
@@ -42,16 +44,16 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
 
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2011");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2021");
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
-
     }
 
     @Test
     @SneakyThrows
     void aanslagBiljetMet2Codes() {
-        var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
+        var request = GeefAanslagbiljetPersonenbelastingRequest.builder2()
                 .insz(INSZ_DATA_NA2000)
+                .incomeYear(Year.of(2021))
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -60,7 +62,7 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), GeefAanslagbiljetPersonenBelastingTest.ANTWOORD_REFERTE, request.getRequestId().toString());
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), GeefAanslagbiljetPersonenbelastingTest.ANTWOORD_REFERTE, request.getRequestId().toString());
 
         assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
         assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
@@ -75,7 +77,7 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
 
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2011");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2021");
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
 
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Items/Item[1]/Code", "A7270");
@@ -87,8 +89,9 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     @Test
     @SneakyThrows
     void aanslagBiljetMet2CodesVoor2000() {
-        var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
+        var request = GeefAanslagbiljetPersonenbelastingRequest.builder2()
                 .insz(INSZ_DATA_VOOR2000)
+                .incomeYear(Year.of(2021))
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -97,7 +100,7 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
 
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), GeefAanslagbiljetPersonenBelastingTest.ANTWOORD_REFERTE, request.getRequestId().toString());
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), GeefAanslagbiljetPersonenbelastingTest.ANTWOORD_REFERTE, request.getRequestId().toString());
 
         assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
         assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
@@ -112,7 +115,7 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
 
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2011");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2021");
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
 
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Items/Item[1]/Code", "A7270");
@@ -124,8 +127,9 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefAanslagbiljetPersonenBelasting0200LuktNietOmdatMagdaOverbelastIs() {
-        var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
+        var request = GeefAanslagbiljetPersonenbelastingRequest.builder2()
                 .insz(INSZ_MAGDA_OVERBELAST)
+                .incomeYear(Year.of(2021))
                 .build();
 
         var clientLogService = new ClientLogServiceMock();
@@ -146,7 +150,4 @@ class GeefAanslagbiljetPersonenBelastingTest extends MockTestBase {
         assertThat(uitzondering.getIdentification()).isEqualTo("99996");
         assertThat(uitzondering.getDiagnosis()).isEqualTo("Te veel gelijktijdige bevragingen");
     }
-
-
-
 }

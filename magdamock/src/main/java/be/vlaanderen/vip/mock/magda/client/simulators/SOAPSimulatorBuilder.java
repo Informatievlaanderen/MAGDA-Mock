@@ -57,7 +57,7 @@ public class SOAPSimulatorBuilder {
 
         simulator.register("GeefDossierKBI", VERSION_01_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
-        simulator.register("GeefAanslagbiljetPersonenbelasting", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefAanslagbiljetPersonenbelasting", VERSION_02_00, new GeefAanslagbiljetPersonenbelastingSimulator(finder, PERSOON, KEY_INSZ));
 
         simulator.register("ZoekEigendomstoestanden", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
