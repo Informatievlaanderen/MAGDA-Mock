@@ -31,6 +31,9 @@
                                         <Datum>
                                             <Datum>Datum</Datum>
                                         </Datum>
+                                        <Locatie>
+                                            <Name>Locatie</Name>
+                                        </Locatie>
                                     </SociaalStatuut>
                                 </SocialeStatuten>
                             </Criteria>
