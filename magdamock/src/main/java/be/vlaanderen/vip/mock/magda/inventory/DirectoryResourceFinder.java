@@ -57,7 +57,9 @@ public class DirectoryResourceFinder extends AbstractResourceFinder {
     }
 
     @Override
-    public void close() {}
+    public void close() {
+        // nothing to actually close here
+    }
 
     private List<ServiceDirectory> getServiceDirectories(File dir) {
         return Arrays.stream(Objects.requireNonNull(dir.listFiles()))

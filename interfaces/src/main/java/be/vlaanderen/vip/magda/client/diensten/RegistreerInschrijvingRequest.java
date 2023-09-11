@@ -26,29 +26,26 @@ import java.time.format.DateTimeFormatter;
 @ToString
 public class RegistreerInschrijvingRequest extends PersonMagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends PersonMagdaRequest.Builder<SELF> {
+    public static class Builder extends PersonMagdaRequest.Builder<Builder> {
 
         @Getter(AccessLevel.PROTECTED)
         private LocalDate startDate;
         @Getter(AccessLevel.PROTECTED)
         private LocalDate endDate;
 
-        @SuppressWarnings("unchecked")
-        public SELF startDate(LocalDate startDate) {
+        public Builder startDate(LocalDate startDate) {
             this.startDate = startDate;
-            return (SELF) this;
+            return this;
         }
 
-        @SuppressWarnings("unchecked")
-        public SELF endDate(LocalDate endDate) {
+        public Builder endDate(LocalDate endDate) {
             this.endDate = endDate;
-            return (SELF) this;
+            return this;
         }
 
         public RegistreerInschrijvingRequest build() {
             if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
             if(getStartDate() == null) { throw new IllegalStateException("Start date must be given"); }
-            if(getEndDate() == null) { throw new IllegalStateException("End date must be given"); }
 
             return new RegistreerInschrijvingRequest(
                     getInsz(),
@@ -59,7 +56,7 @@ public class RegistreerInschrijvingRequest extends PersonMagdaRequest {
         }
     }
 
-    public static Builder<? extends Builder<?>> builder() {
+    public static Builder builder() {
         return new Builder();
     }
 
@@ -89,8 +86,14 @@ public class RegistreerInschrijvingRequest extends PersonMagdaRequest {
 
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Begin", getStartDate().format(dateFormatter));
-        request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEndDate().format(dateFormatter));
         request.setValue("//Vragen/Vraag/Inhoud/Inschrijving/Identificatie", magdaRegistrationInfo.getIdentification());
+        
+        if(endDate != null) {
+            request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Einde", getEndDate().format(dateFormatter));
+        }
+        else {
+            request.removeNode("//Vraag/Inhoud/Inschrijving/Periode/Einde");
+        }
 
         var hoedanigheidscode = magdaRegistrationInfo.getHoedanigheidscode();
         if(hoedanigheidscode.isEmpty()) {

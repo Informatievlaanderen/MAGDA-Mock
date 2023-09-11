@@ -4,43 +4,89 @@ import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.ToString;
+
+import java.time.Year;
+import java.util.List;
 
 /**
  * A request to a "GeefAanslagBiljet" MAGDA service, which provides tax bills.
  * Adds the following fields to the {@link PersonMagdaRequest}:
  * <ul>
- * <li>none</li>
+ * <li>incomeYear: the income year to which the tax bill pertains</li>
+ * <li>ipcalCodes: the list of IPCAL codes for the tax bill (optional)</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefAanslagbiljetPersonenbelasting/02.00.0000/template.xml">XML template for this request type</a>
+ * @see <a href="https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/499974512/Codetabellen+GeefAanslagbiljetPersonenbelasting-02.00">More information on IPCAL codes</a>
  */
 @Getter
 @ToString
 public class GeefAanslagbiljetPersonenbelastingRequest extends PersonMagdaRequest {
 
-    public static class Builder<SELF extends Builder<SELF>> extends PersonMagdaRequest.Builder<SELF> {
+    public static class Builder extends PersonMagdaRequest.Builder<Builder> {
+
+        @Getter(AccessLevel.PROTECTED)
+        private Year incomeYear;
+        @Getter(AccessLevel.PROTECTED)
+        private List<String> ipcalCodes;
+
+        public Builder incomeYear(Year incomeYear) {
+            this.incomeYear = incomeYear;
+            return this;
+        }
+
+        public Builder ipcalCodes(List<String> ipcalCodes) {
+            this.ipcalCodes = ipcalCodes;
+            return this;
+        }
 
         public GeefAanslagbiljetPersonenbelastingRequest build() {
             if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
+            if(getIncomeYear() == null) { throw new IllegalStateException("Income year must be given"); }
 
             return new GeefAanslagbiljetPersonenbelastingRequest(
                     getInsz(),
-                    getRegistration()
+                    getRegistration(),
+                    getIncomeYear(),
+                    getIpcalCodes()
             );
         }
     }
 
-    public static Builder<? extends Builder<?>> builder() {
+    /**
+     * @deprecated use 'builder2' instead
+     */
+    @Deprecated
+    public static Builder builder() {
+        return new Builder()
+                // these are the values in the template.xml file that accords to this request.
+                // to retain backward compatibility with the fact that these fields used to be static constant values, we provide them here.
+                .incomeYear(Year.of(2011))
+                .ipcalCodes(List.of("7555", "7557"));
+    }
+
+    public static Builder builder2() {
         return new Builder();
     }
 
+    @NotNull
+    private final Year incomeYear;
+    @Nullable
+    private final List<String> ipcalCodes;
+
     private GeefAanslagbiljetPersonenbelastingRequest(
             @NotNull INSZNumber insz,
-            @NotNull String registratie) {
+            @NotNull String registratie,
+            @NotNull Year incomeYear,
+            @Nullable List<String> ipcalCodes) {
         super(insz, registratie);
+        this.incomeYear = incomeYear;
+        this.ipcalCodes = ipcalCodes;
     }
 
     @Override
@@ -51,5 +97,15 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends PersonMagdaReques
     @Override
     protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         fillInCommonFields(request, magdaRegistrationInfo);
+
+        request.setValue("//Vragen/Vraag/Inhoud/Criteria/Inkomensjaar", incomeYear.toString());
+
+        request.removeNode("//Vragen/Vraag/Inhoud/Criteria/IPCALCodes");
+        if(ipcalCodes != null) {
+            request.createNode("//Vragen/Vraag/Inhoud/Criteria", "IPCALCodes");
+            for(var ipcalCode : ipcalCodes) {
+                request.createTextNode("//Vragen/Vraag/Inhoud/Criteria/IPCALCodes", "IPCALCode", ipcalCode);
+            }
+        }
     }
 }

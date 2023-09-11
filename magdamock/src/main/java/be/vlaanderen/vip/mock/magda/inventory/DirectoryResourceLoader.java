@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
-import org.springframework.web.util.UriUtils;
+import be.vlaanderen.vip.mock.magda.util.UriUtils;
 
 import java.io.File;
 import java.io.FileInputStream;

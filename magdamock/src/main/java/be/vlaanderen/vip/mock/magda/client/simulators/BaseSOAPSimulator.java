@@ -22,7 +22,7 @@ public abstract class BaseSOAPSimulator implements SOAPSimulator {
         this.finder = finder;
     }
 
-    protected static void patchResponse(MagdaDocument request, MagdaDocument response) {
+    protected void patchResponse(MagdaDocument request, MagdaDocument response) {
         response.setValue("//Referte", request.getValue("//Afzender/Referte"));
         response.setValue("//Ontvanger/Identificatie", request.getValue("//Afzender/Identificatie"));
         response.setValue("//Ontvanger/Hoedanigheid", request.getValue("//Afzender/Hoedanigheid"));

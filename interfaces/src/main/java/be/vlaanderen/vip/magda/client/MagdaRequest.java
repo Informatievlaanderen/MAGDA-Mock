@@ -1,17 +1,17 @@
 package be.vlaanderen.vip.magda.client;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
+import java.util.UUID;
+
 import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.commons.lang3.StringUtils;
-
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.UUID;
 
 /**
  * The common part of a request to a MAGDA service. Has subclasses for specific service/versions.
@@ -36,7 +36,7 @@ public abstract class MagdaRequest {
         }
 
         protected String getRegistration() {
-            return StringUtils.defaultString(registration, DEFAULT_REGISTRATION);
+            return Objects.toString(registration, DEFAULT_REGISTRATION);
         }
     }
 
