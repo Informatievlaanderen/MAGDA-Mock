@@ -2,7 +2,7 @@
 
 This is a starter project that contains an `AutoConfiguration` for the `MagdaConnector` interface. Included in this project are the starters for `org.springframework.vault.core.VaultTemplate` and `brave.Tracing`. So make sure to exclude the auto configurations for this project or disable them in configuration if you don't want these to be included in your `MagdaConnector`:
 
-```yaml application.yaml
+```
 spring:
   cloud.vault:
     enabled: false
@@ -39,7 +39,7 @@ magda:
 
 This kind of connection will execute soap request to a service that can handle these kind of `MagdaRequests`. For this we need to configure the `endpoints`, which is in charge of deciding how each request will be routed; and `registrations`, which will decide what `hoedanigheidscode` and `identification` will be sent with request based on the optional registration property of `MagdaRequest`. If no registration is given with request, the value `default` will be used.
 
-```yaml application.yaml
+```
 magda:
   connector:
     magda-mock: https://magda-mock-base.url/api/Magda-02.00/soap/WebService
@@ -65,7 +65,9 @@ magda:
 
 Its also possible to configure a keystore that should be used to sign request, this can either be done by including a keystore in your deployment or be making a reference using the `Vault`.
 
-```yaml application.yaml: security with local file
+#### Security with local file
+
+```
 magda:
   connector:
     wss:
@@ -75,7 +77,9 @@ magda:
       key-password: password-of-the-key
 ```
 
-```yaml application.yaml: security with vault
+#### Security with vault
+
+```
 magda:
   connector:
     vault:
