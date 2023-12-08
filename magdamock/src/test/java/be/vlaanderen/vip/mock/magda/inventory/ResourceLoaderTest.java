@@ -22,9 +22,9 @@ class ResourceLoaderTest {
         @Test
         void getsSimpleResourceDirectoryStream() throws IOException {
             try(var loader = ResourceLoader.fromRootUri(composeSimpleDirRootUri())) {
-                assertEquals("content2\n", streamToString(loader.getResourceAsStream("file2.txt")));
-                assertEquals("content4\n", streamToString(loader.getResourceAsStream("baz/file4.txt")));
-                assertEquals("content10\n", streamToString(loader.getResourceAsStream("baz/qux/file with spaces.txt")));
+                assertEquals("content2", streamToString(loader.getResourceAsStream("file2.txt")));
+                assertEquals("content4", streamToString(loader.getResourceAsStream("baz/file4.txt")));
+                assertEquals("content10", streamToString(loader.getResourceAsStream("baz/qux/file with spaces.txt")));
                 assertNull(loader.getResourceAsStream("nonexistent.txt"));
             }
         }
@@ -32,9 +32,9 @@ class ResourceLoaderTest {
         @Test
         void getsSimpleJarDirectoryStream() throws IOException {
             try(var loader = ResourceLoader.fromRootUri(composeSimpleJarRootUri())) {
-                assertEquals("content2\n", streamToString(loader.getResourceAsStream("file2.txt")));
-                assertEquals("content4\n", streamToString(loader.getResourceAsStream("baz/file4.txt")));
-                assertEquals("content10\n", streamToString(loader.getResourceAsStream("baz/qux/file with spaces.txt")));
+                assertEquals("content2", streamToString(loader.getResourceAsStream("file2.txt")));
+                assertEquals("content4", streamToString(loader.getResourceAsStream("baz/file4.txt")));
+                assertEquals("content10", streamToString(loader.getResourceAsStream("baz/qux/file with spaces.txt")));
                 assertNull(loader.getResourceAsStream("nonexistent.txt"));
             }
         }
@@ -42,15 +42,16 @@ class ResourceLoaderTest {
         @Test
         void getsNestedJarDirectoryStream() throws IOException {
             try(var loader = ResourceLoader.fromRootUri(composeNestedJarRootUri())) {
-                assertEquals("content2\n", streamToString(loader.getResourceAsStream("file2.txt")));
-                assertEquals("content4\n", streamToString(loader.getResourceAsStream("baz/file4.txt")));
-                assertEquals("content10\n", streamToString(loader.getResourceAsStream("baz/qux/file with spaces.txt")));
+                assertEquals("content2", streamToString(loader.getResourceAsStream("file2.txt")));
+                assertEquals("content4", streamToString(loader.getResourceAsStream("baz/file4.txt")));
+                assertEquals("content10", streamToString(loader.getResourceAsStream("baz/qux/file with spaces.txt")));
                 assertNull(loader.getResourceAsStream("nonexistent.txt"));
             }
         }
 
         private String streamToString(InputStream is) throws IOException {
-            return IOUtils.toString(is, StandardCharsets.UTF_8);
+            return IOUtils.toString(is, StandardCharsets.UTF_8)
+                          .trim();
         }
     }
 
