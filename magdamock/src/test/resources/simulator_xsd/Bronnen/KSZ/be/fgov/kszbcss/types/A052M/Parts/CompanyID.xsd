@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:simpleType name="CompanyIDType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Format numero d'entreprise</xs:documentation>
+			<xs:documentation xml:lang="NL">Formaat ondernemingsnummer</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:long">
+			<xs:minExclusive value="0"/>
+			<xs:maxExclusive value="9999999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="CompanyID" type="CompanyIDType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">No d'entreprise BCE</xs:documentation>
+			<xs:documentation xml:lang="NL">KBO ondernemingsnummer</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">121002</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

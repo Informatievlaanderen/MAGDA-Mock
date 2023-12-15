@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by BANQUE CARREFOUR DE LA SECURITE SOCIALE (BANQUE CARREFOUR DE LA SECURITE SOCIALE) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="LanguageType">
+		<xs:annotation>
+			<xs:documentation>Langue</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="EN">French</xs:documentation>
+					<xs:documentation xml:lang="FR">Francais</xs:documentation>
+					<xs:documentation xml:lang="NL">Frans</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="EN">Dutch</xs:documentation>
+					<xs:documentation xml:lang="FR">Neerlandais</xs:documentation>
+					<xs:documentation xml:lang="NL">Nederlands</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation xml:lang="EN">German</xs:documentation>
+					<xs:documentation xml:lang="FR">Allemand</xs:documentation>
+					<xs:documentation xml:lang="NL">Duits</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Language" type="LanguageType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Langue</xs:documentation>
+			<xs:documentation xml:lang="NL">Taalcode</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

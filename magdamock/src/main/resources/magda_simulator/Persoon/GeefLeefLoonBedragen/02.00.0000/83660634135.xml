@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefLeefloonbedragenResponse xmlns:web="http://webservice.geefleefloonbedragendienst-02_00.soczek-02_00.vip.vlaanderen.be">
+	<Repliek>
+		<Context>
+			<Naam>GeefHistoriekGezinssamenstelling</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2023-12-10</Datum>
+					<Tijd>09:22:59.303</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>MagdaGateway</Naam>
+					<Referte>60639483-5f43-49d3-9c28-ed0f1b79e0e8</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+					<Referte>XE:725:25975:8438</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>XE_800101:1721:42667:36848</Referte>
+				<Inhoud>
+					<Leefloonbedragen>
+						<Leefloonbedrag>
+							<Jaar>2021</Jaar>
+							<Uitbetaling Beschrijving="Geen uitbetaling">0</Uitbetaling>
+						</Leefloonbedrag>
+						<Leefloonbedrag>
+							<Jaar>2022</Jaar>
+							<Uitbetaling Beschrijving="Geen uitbetaling">0</Uitbetaling>
+						</Leefloonbedrag>
+						<Leefloonbedrag>
+							<Jaar>2023</Jaar>
+							<Begunstigden>
+								<Begunstigde>83660634135</Begunstigde>
+							</Begunstigden>
+							<Tegemoetkoming>
+								<Maandelijks>
+									<Maand JaarMaand="2023-11">
+										<LeefloonPerPeriode LaatsteUitbetaling="0">
+											<LeefloonPeriode ID="1">
+												<Bedrag>1047.48</Bedrag>
+												<Periode>
+													<Begin>2023-11-01</Begin>
+													<Einde>2023-11-30</Einde>
+												</Periode>
+												<Begunstigde>
+													<INSZ>83660634135</INSZ>
+													<Categorie>Gezinshoofd</Categorie>
+												</Begunstigde>
+												<Partner>
+													<INSZ>85691526006</INSZ>
+												</Partner>
+												<OCMW>
+													<Ondernemingsnummer>0212214125</Ondernemingsnummer>
+													<Bestand>61033054947</Bestand>
+													<Suffix>0</Suffix>
+												</OCMW>
+												<MaximumLeefloonGekregen>1</MaximumLeefloonGekregen>
+											</LeefloonPeriode>
+										</LeefloonPerPeriode>
+									</Maand>
+									<Maand JaarMaand="2023-12">
+										<LeefloonPerPeriode LaatsteUitbetaling="0">
+											<LeefloonPeriode ID="1">
+												<Bedrag>1068.45</Bedrag>
+												<Periode>
+													<Begin>2023-12-01</Begin>
+													<Einde>2023-12-31</Einde>
+												</Periode>
+												<Begunstigde>
+													<INSZ>83660634135</INSZ>
+													<Categorie>Gezinshoofd</Categorie>
+												</Begunstigde>
+												<Partner>
+													<INSZ>85691526006</INSZ>
+												</Partner>
+												<OCMW>
+													<Ondernemingsnummer>0212214125</Ondernemingsnummer>
+													<Bestand>61033054947</Bestand>
+													<Suffix>0</Suffix>
+												</OCMW>
+												<MaximumLeefloonGekregen>1</MaximumLeefloonGekregen>
+											</LeefloonPeriode>
+										</LeefloonPerPeriode>
+									</Maand>
+								</Maandelijks>
+							</Tegemoetkoming>
+						</Leefloonbedrag>
+					</Leefloonbedragen>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefLeefloonbedragenResponse>

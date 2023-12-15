@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================================================================
+         * File Name :               EnterpriseFiscalDebtService.wsdl
+         * Author :                  Matthias De Scheerder
+         * Owner :                   KSZ / CBSS
+         * Creation date :           07-09-11
+         * Last revision date :      07-09-11
+         * Status :                  Planned
+         * Description :             Describes data exchange related to the debt of an enterprise between RVA and CBSS.
+         * Current version :         0.1
+         * Revision History : 
+============================================================================================================= -->
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+name="EnterpriseFiscalDebtService" targetNamespace="http://kszbcss.fgov.be/intf/EnterpriseFiscalDebtService/v2" 
+xmlns:common="http://kszbcss.fgov.be/types/common/v3" 
+xmlns:tns="http://kszbcss.fgov.be/intf/EnterpriseFiscalDebtService/v2" 
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" >
+
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" xmlns:efd="http://kszbcss.fgov.be/types/EnterpriseFiscalDebt/v2" targetNamespace="http://kszbcss.fgov.be/intf/EnterpriseFiscalDebtService/v2" version="2018-06-31">
+			<xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../../types/common/CommonV3.xsd"/>
+			<xsd:import namespace="http://kszbcss.fgov.be/types/EnterpriseFiscalDebt/v2" schemaLocation="../../types/EnterpriseFiscalDebt/EnterpriseFiscalDebtV2.xsd"/>
+			<xsd:element name="checkEnterpriseDebtRequest" type="efd:CheckEnterpriseDebtRequestType"/>
+			<xsd:element name="checkEnterpriseDebtResponse" type="efd:CheckEnterpriseDebtResponseType"/>
+			<xsd:element name="checkEnterpriseDebtFault" type="common:CBSSFaultType"/>
+		</xsd:schema>
+	</wsdl:types>
+	
+<wsdl:message name="checkEnterpriseDebtRequestMsg">
+		<wsdl:part element="tns:checkEnterpriseDebtRequest" name="checkEnterpriseDebtRequestParameters"/>
+	</wsdl:message>
+	<wsdl:message name="checkEnterpriseDebtResponseMsg">
+		<wsdl:part element="tns:checkEnterpriseDebtResponse" name="checkEnterpriseDebtResponseParameters"/>
+	</wsdl:message>
+	<wsdl:message name="checkEnterpriseDebtFaultMsg">
+		<wsdl:part element="tns:checkEnterpriseDebtFault" name="checkEnterpriseDebtFaulParameterst"/>
+	</wsdl:message>
+	<wsdl:portType name="EnterpriseFiscalDebtServicePortType">
+		<wsdl:operation name="checkEnterpriseDebt">
+			<wsdl:input message="tns:checkEnterpriseDebtRequestMsg" name="checkEnterpriseDebtRequest"/>
+			<wsdl:output message="tns:checkEnterpriseDebtResponseMsg" name="checkEnterpriseDebtResponse"/>
+			<wsdl:fault message="tns:checkEnterpriseDebtFaultMsg" name="checkEnterpriseDebtFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="EnterpriseFiscalDebtServiceHTTPBinding" type="tns:EnterpriseFiscalDebtServicePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="checkEnterpriseDebt">
+			<soap:operation soapAction="http://kszbcss.fgov.be/EnterpriseFiscalDebtService/checkEnterpriseDebt"/>
+			<wsdl:input name="checkEnterpriseDebtRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="checkEnterpriseDebtResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="checkEnterpriseDebtFault">
+				<soap:fault name="checkEnterpriseDebtFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="EnterpriseFiscalDebtService">
+		<wsdl:port binding="tns:EnterpriseFiscalDebtServiceHTTPBinding" name="EnterpriseFiscalDebtService">
+			<soap:address location="https://b2b.kszbcss.fgov.be:4520/EnterpriseFiscalDebtService/v2/consult"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

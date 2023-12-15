@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by  (Kruispuntbank van de Sociale Zekerheid) -->
+<!-- ============================================================================================================
+    * Owner:            KSZ / CBSS
+    * Creation date:    2016-09-01
+    * Description:      Common types for DMFA
+    * Revision History:
+          * 2019-01-14: add BATCH_ONLY to ResultsActionType enumeration
+                        remove SsinWithCanceledAndReplacesStatusType (moved to CommonV3)
+                        add ByEmployerCriteriaType
+          * 2022-02-04: add sectorIndicators as optional in BySsinCriteriaType
+                        add sectorIndicators as optional in ByEmployerCriteriaType
+-->
+<xsd:schema xmlns="http://kszbcss.fgov.be/types/dmfa/common/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:common="http://kszbcss.fgov.be/types/common/v3" xmlns:dmfa="http://kszbcss.fgov.be/types/dmfa/attestation/v1"
+  targetNamespace="http://kszbcss.fgov.be/types/dmfa/common/v1" elementFormDefault="unqualified"
+  attributeFormDefault="unqualified" version="2022-02-04">
+  <xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../../common/CommonV3.xsd" />
+  <xsd:import namespace="http://kszbcss.fgov.be/types/dmfa/attestation/v1"
+    schemaLocation="../attestation/DmfaAttestationV1.xsd" />
+  <xsd:complexType name="BySsinCriteriaType">
+    <xsd:sequence>
+      <xsd:element name="ssin" type="common:SsinType" />
+      <xsd:element name="quarterPeriod" type="common:QuarterPeriodType" />
+      <xsd:element name="resultsAction" type="ResultsActionType" />
+      <xsd:element name="latestSituationOnly" type="xsd:boolean" default="true" />
+      <xsd:element name="provincialOrLocalAuthority" type="xsd:boolean" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>true = search PLA's only, false = don't search for PLA's, absent = search both</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="sectorIndicators" type="SectorIndicatorsType" minOccurs="0" />
+      <xsd:choice minOccurs="0">
+        <xsd:sequence>
+          <xsd:element name="attestationId" type="dmfa:AttestationIdentificationType" />
+          <xsd:element name="attestationVersion" type="dmfa:AttestationSituationNbrType" minOccurs="0" />
+        </xsd:sequence>
+        <xsd:sequence>
+          <xsd:choice>
+            <xsd:element name="nssoRegistrationNumber" type="common:NssoRegistrationNumberType" />
+            <xsd:element name="enterpriseNumber" type="common:EnterpriseNumberType" />
+          </xsd:choice>
+          <xsd:element name="employerClass" type="dmfa:EmployerClassType" minOccurs="0" />
+          <xsd:element name="workerCode" type="dmfa:WorkerCodeType" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:choice>
+      <xsd:element name="next" type="NextType" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ByEmployerCriteriaType">
+    <xsd:sequence>
+      <xsd:element name="quarterPeriod" type="common:QuarterPeriodType" />
+      <xsd:element name="resultsAction" type="BatchOnlyResultsActionType" />
+      <xsd:element name="latestSituationOnly" type="xsd:boolean" default="true" />
+      <xsd:element name="provincialOrLocalAuthority" type="xsd:boolean" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>true = search PLA's only, false = don't search for PLA's, absent = search both</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="sectorIndicators" type="SectorIndicatorsType" minOccurs="0" />
+      <xsd:choice>
+        <xsd:element name="nssoRegistrationNumber" type="common:NssoRegistrationNumberType" />
+        <xsd:element name="enterpriseNumber" type="common:EnterpriseNumberType" />
+      </xsd:choice>
+      <xsd:element name="employerClass" type="dmfa:EmployerClassType" minOccurs="0" />
+      <xsd:element name="workerCode" type="dmfa:WorkerCodeType" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="ResultsActionType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="RESULTS_ONLINE_ONLY" />
+      <xsd:enumeration value="RESULTS_BATCH_ONLY" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BatchOnlyResultsActionType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="RESULTS_BATCH_ONLY" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SourceType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="RSZ_ONSS" />
+      <xsd:enumeration value="DIBISS_ORPSS" />
+      <xsd:enumeration value="ALL" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SectorIndicatorType">
+    <xsd:annotation>
+      <xsd:documentation>01242 - New v020 20221</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="PRI">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="FR">Données des employeurs du secteur privé</xsd:documentation>
+          <xsd:documentation xml:lang="NL">Gegevens van werkgevers in de particuliere sector</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="PFR">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="FR">Données des employeurs du secteur public fédéral</xsd:documentation>
+          <xsd:documentation xml:lang="NL">Gegevens van werkgevers in de federale publieke sector</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="PLP">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="FR">Données des employeurs du secteur public provincial et local</xsd:documentation>
+          <xsd:documentation xml:lang="NL">Gegevens van werkgevers in de provinciale en lokale publieke
+            sector</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="SectorIndicatorsType">
+    <xsd:sequence>
+      <xsd:element name="sectorIndicator" type="SectorIndicatorType" minOccurs="1" maxOccurs="2" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UnsupportedDataType">
+    <xsd:sequence>
+      <xsd:element name="unsupportedElement" type="xsd:string" maxOccurs="100" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="NextType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="64" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

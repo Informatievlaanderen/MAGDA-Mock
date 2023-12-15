@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================================================================
+    * Description:      Wrapper xsd used for validation
+    					The request ans response elements are declared here for validation purpose
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:an="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/v1"
+            targetNamespace="http://kszbcss.fgov.be/intf/HdiIndemnityAllowanceService/v1"
+            elementFormDefault="unqualified"
+            attributeFormDefault="unqualified"
+            version="2022-06-01">
+    <xsd:import namespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/v1" schemaLocation="HdiIndemnityAllowanceV1.xsd"/>
+    <!--========= xsd:element ===========-->
+    <xsd:element name="consultAttestRequest" type="an:ConsultAttestRequestType" />
+    <xsd:element name="consultAttestResponse" type="an:ConsultAttestResponseType" />
+</xsd:schema>

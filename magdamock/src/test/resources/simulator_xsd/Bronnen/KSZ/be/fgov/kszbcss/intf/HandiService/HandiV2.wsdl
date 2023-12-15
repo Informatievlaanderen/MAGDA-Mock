@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ========================================================================
+   * Owner :					KSZ / CBSS
+   * Creation date :			09/01/2017
+   * Description :			HandiV2
+   * Revision History : 		2017-09-01 : version 2.0 DGPH, VSB
+                2019-01-21 : version 2.1 DGPH, VSB, KENG
+                2020-11-12 : version 2.2 DGPH, VSB, KENG, IRISCARE, NICCIN, AVIQ, DSL
+        24/04/2023 : Remove default=false for FilePartsType, HandicapAuthenticSourcesType and HandicapAuthenticSourcesPaymentsType
+-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="HandiService" targetNamespace="http://kszbcss.fgov.be/intf/HandiService/v2" xmlns:Handi="http://kszbcss.fgov.be/types/Handi/v2" xmlns:tns="http://kszbcss.fgov.be/intf/HandiService/v2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <!--========= wsdl:types ===========-->
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:handi="http://kszbcss.fgov.be/types/Handi/v2" xmlns:common="http://kszbcss.fgov.be/types/common/v3" xmlns:tns="http://kszbcss.fgov.be/intf/HandiService/v2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://kszbcss.fgov.be/intf/HandiService/v2" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2023-04-24">
+      <xsd:import namespace="http://kszbcss.fgov.be/types/Handi/v2" schemaLocation="../../types/Handi/HandiV2.xsd"/>
+      <xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../../types/common/CommonV3.xsd"/>
+      <!--========= xsd element ===========-->
+      <xsd:element name="consultFilesByDateRequest" type="handi:ConsultFilesByDateRequestType"/>
+      <xsd:element name="consultFilesByDateResponse" type="handi:ConsultFilesByDateResponseType"/>
+      <xsd:element name="consultFilesByDateFault" type="common:CBSSFaultType"/>
+      <xsd:element name="consultFilesByPeriodRequest" type="handi:ConsultFilesByPeriodRequestType"/>
+      <xsd:element name="consultFilesByPeriodResponse" type="handi:ConsultFilesByPeriodResponseType"/>
+      <xsd:element name="consultFilesByPeriodFault" type="common:CBSSFaultType"/>
+      <xsd:element name="consultPaymentsRequest" type="handi:ConsultPaymentsRequestType"/>
+      <xsd:element name="consultPaymentsResponse" type="handi:ConsultPaymentsResponseType"/>
+      <xsd:element name="consultPaymentsFault" type="common:CBSSFaultType"/>
+    </xsd:schema>
+  </wsdl:types>
+  <!--========= wsdl:message ===========-->
+  <wsdl:message name="consultFilesByDateRequestMsg">
+    <wsdl:part name="consultFilesByDateRequestParameters" element="tns:consultFilesByDateRequest"/>
+  </wsdl:message>
+  <wsdl:message name="consultFilesByDateResponseMsg">
+    <wsdl:part name="consultFilesByDateResponseParameters" element="tns:consultFilesByDateResponse"/>
+  </wsdl:message>
+  <wsdl:message name="consultFilesByDateFaultMsg">
+    <wsdl:part name="consultFilesByDateFaultParameters" element="tns:consultFilesByDateFault"/>
+  </wsdl:message>
+  <wsdl:message name="consultFilesByPeriodRequestMsg">
+    <wsdl:part name="consultFilesByPeriodRequestParameters" element="tns:consultFilesByPeriodRequest"/>
+  </wsdl:message>
+  <wsdl:message name="consultFilesByPeriodResponseMsg">
+    <wsdl:part name="consultFilesByPeriodResponseParameters" element="tns:consultFilesByPeriodResponse"/>
+  </wsdl:message>
+  <wsdl:message name="consultFilesByPeriodFaultMsg">
+    <wsdl:part name="consultFilesByPeriodFaultParameters" element="tns:consultFilesByPeriodFault"/>
+  </wsdl:message>
+  <wsdl:message name="consultPaymentsRequestMsg">
+    <wsdl:part name="consultPaymentsRequestParameters" element="tns:consultPaymentsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="consultPaymentsResponseMsg">
+    <wsdl:part name="consultPaymentsResponseParameters" element="tns:consultPaymentsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="consultPaymentsFaultMsg">
+    <wsdl:part name="consultPaymentsFaultParameters" element="tns:consultPaymentsFault"/>
+  </wsdl:message>
+  <!--========= wsdl:portType ===========-->
+  <wsdl:portType name="HandiPortType">
+    <wsdl:operation name="consultFilesByDate">
+      <wsdl:input name="consultFilesByDateRequest" message="tns:consultFilesByDateRequestMsg"/>
+      <wsdl:output name="consultFilesByDateResponse" message="tns:consultFilesByDateResponseMsg"/>
+      <wsdl:fault name="consultFilesByDateFault" message="tns:consultFilesByDateFaultMsg"/>
+    </wsdl:operation>
+    <wsdl:operation name="consultFilesByPeriod">
+      <wsdl:input name="consultFilesByPeriodRequest" message="tns:consultFilesByPeriodRequestMsg"/>
+      <wsdl:output name="consultFilesByPeriodResponse" message="tns:consultFilesByPeriodResponseMsg"/>
+      <wsdl:fault name="consultFilesByPeriodFault" message="tns:consultFilesByPeriodFaultMsg"/>
+    </wsdl:operation>
+    <wsdl:operation name="consultPayments">
+      <wsdl:input name="consultPaymentsRequest" message="tns:consultPaymentsRequestMsg"/>
+      <wsdl:output name="consultPaymentsResponse" message="tns:consultPaymentsResponseMsg"/>
+      <wsdl:fault name="consultPaymentsFault" message="tns:consultPaymentsFaultMsg"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--========= wsdl:binding ===========-->
+  <wsdl:binding name="HandiHTTPBinding" type="tns:HandiPortType">
+    <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="consultFilesByDate">
+      <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://kszbcss.fgov.be/HandiService/consultFilesByDate"/>
+      <wsdl:input>
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="consultFilesByDateFault">
+        <soap:fault xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="consultFilesByDateFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultFilesByPeriod">
+      <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://kszbcss.fgov.be/HandiService/consultFilesByPeriod"/>
+      <wsdl:input>
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="consultFilesByPeriodFault">
+        <soap:fault xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="consultFilesByPeriodFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultPayments">
+      <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://kszbcss.fgov.be/HandiService/consultPayments"/>
+      <wsdl:input>
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="consultPaymentsFault">
+        <soap:fault xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="consultPaymentsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--========= wsdl:service ===========-->
+  <wsdl:service name="HandiService">
+    <wsdl:port name="HandiPull" binding="tns:HandiHTTPBinding">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="https://b2b-test.ksz-bcss.fgov.be:4520/HandiService/v2/consult"/>
+      <!--Environnement de developpement : https://b2b-test.ksz-bcss.fgov.be:4520/HandiService/v2/consult-->
+      <!--Environnement d'acceptation : https://b2b-acpt.ksz-bcss.fgov.be:4520/HandiService/v2/consult-->
+      <!--Environnement de production : https://b2b.ksz-bcss.fgov.be:4520/HandiService/v2/consult-->
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

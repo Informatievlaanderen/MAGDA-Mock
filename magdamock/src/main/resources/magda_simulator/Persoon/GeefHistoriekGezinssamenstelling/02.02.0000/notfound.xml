@@ -1,23 +1,23 @@
-<web:GeefGezinssamenstellingResponse
-        xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefgezinssamenstelling/v02_02">
+<web:GeefHistoriekGezinssamenstellingResponse
+        xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefhistoriekgezinssamenstelling/v02_02">
     <Repliek>
         <Context>
-            <Naam>GeefGezinssamenstelling</Naam>
+            <Naam>GeefHistoriekGezinssamenstelling</Naam>
             <Versie>02.02.0000</Versie>
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
-                    <Datum>2017-07-17</Datum>
+                    <Datum>2023-12-12</Datum>
                     <Tijd>15:11:26.938</Tijd>
                 </Tijdstip>
                 <Afzender>
-                    <Identificatie/>
-                    <Naam>VIP</Naam>
-                    <Referte>0eacce49-6036-4dc6-b940-b0103cbbba45</Referte>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>60639483-5f43-49d3-9c28-ed0f1b79e0e8</Referte>
                 </Afzender>
                 <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
-                    <Referte>XE:1096:25725:8364</Referte>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>XE:725:25975:8438</Referte>
                     <Hoedanigheid>101</Hoedanigheid>
                 </Ontvanger>
             </Bericht>
@@ -31,8 +31,8 @@
                         <Oorsprong>MAGDA</Oorsprong>
                         <Type>FOUT</Type>
                         <Tijdstip>
-                            <Datum>2015-05-06</Datum>
-                            <Tijd>17:29:51.106</Tijd>
+                            <Datum>2023-12-12</Datum>
+                            <Tijd>15:11:27.938</Tijd>
                         </Tijdstip>
                         <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
                     </Uitzondering>
@@ -40,4 +40,4 @@
             </Antwoord>
         </Antwoorden>
     </Repliek>
-</web:GeefGezinssamenstellingResponse>
+</web:GeefHistoriekGezinssamenstellingResponse>
