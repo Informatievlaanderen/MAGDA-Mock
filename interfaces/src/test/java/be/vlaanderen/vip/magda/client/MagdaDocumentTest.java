@@ -250,4 +250,74 @@ class MagdaDocumentTest {
                     <baz>trump</baz>
                 </foo>""").ignoreWhitespace());
     }
+
+    @Test
+    void createAttribute_createsAttribute() {
+        var magdaDocument = MagdaDocument.fromString("""
+                <foo>
+                    <bar>donald</bar>
+                    <baz>trump</baz>
+                </foo>""");
+
+        magdaDocument.createAttribute("//bar", "att", "J");
+
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
+                <foo>
+                    <bar att="J">donald</bar>
+                    <baz>trump</baz>
+                </foo>""").ignoreWhitespace());
+    }
+
+    @Test
+    void removeAttribute_removesAttribute() {
+        var magdaDocument = MagdaDocument.fromString("""
+                <foo>
+                    <bar att="J">donald</bar>
+                    <baz>trump</baz>
+                </foo>""");
+
+        magdaDocument.removeAttribute("//bar/@att");
+
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
+                <foo>
+                    <bar>donald</bar>
+                    <baz>trump</baz>
+                </foo>""").ignoreWhitespace());
+    }
+
+    @Test
+    void removeAttribute_removesAttributesForAllMatches() {
+        var magdaDocument = MagdaDocument.fromString("""
+                <foo>
+                    <bar att="J">donald</bar>
+                    <bar att="D">john</bar>
+                    <baz att="Z">trump</baz>
+                </foo>""");
+
+        magdaDocument.removeAttribute("//bar/@att");
+
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
+                <foo>
+                    <bar>donald</bar>
+                    <bar>john</bar>
+                    <baz att="Z">trump</baz>
+                </foo>""").ignoreWhitespace());
+    }
+
+    @Test
+    void removeAttribute_doesNothingIfThereIsNoSuchAttribute() {
+        var magdaDocument = MagdaDocument.fromString("""
+                <foo>
+                    <bar>donald</bar>
+                    <baz>trump</baz>
+                </foo>""");
+
+        magdaDocument.removeAttribute("//bar/@att");
+
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
+                <foo>
+                    <bar>donald</bar>
+                    <baz>trump</baz>
+                </foo>""").ignoreWhitespace());
+    }
 }
