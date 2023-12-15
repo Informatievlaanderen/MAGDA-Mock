@@ -15,6 +15,7 @@ public class SOAPSimulatorBuilder {
     public static final String KEY_INSZ = "//INSZ";
     public static final String KEY_ONDERNEMINGSNUMMER = "//Ondernemingsnummer";
     public static final String KEY_RRNR = "//rrnr";
+    public static final String KEY_SSIN = "//ssin";
 
     private static final String VERSION_01_00 = "01.00.0000";
     private static final String VERSION_02_00 = "02.00.0000";
@@ -54,6 +55,9 @@ public class SOAPSimulatorBuilder {
         simulator.register("GeefHistoriekPersoon", VERSION_02_02, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefGezinssamenstelling", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefGezinssamenstelling", VERSION_02_02, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefHistoriekGezinssamenstelling", VERSION_02_02, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefBetalingenHandicap", VERSION_03_00, new StaticResponseSimulator(finder, PERSOON, KEY_SSIN));
+        simulator.register("GeefLeefLoonBedragen", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
         simulator.register("GeefDossierKBI", VERSION_01_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 

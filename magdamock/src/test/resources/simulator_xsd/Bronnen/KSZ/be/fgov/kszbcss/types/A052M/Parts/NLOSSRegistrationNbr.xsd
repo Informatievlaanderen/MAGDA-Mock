@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 2 U (http://www.xmlspy.com) by leo (leo) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:element name="NLOSSRegistrationNbr">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100042 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100042 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Numero d'immatriculation employeur (ONSS ou ONSS-APL), temporaire ou définitif</xs:documentation>
+			<xs:documentation xml:lang="NL">Werkgever stamnummer (RSZ - RSZPPO), tijdelijkse of definitief</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="10"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:complexType name="NameType">
+		<xs:sequence>
+			<xs:element name="FirstName" nillable="true">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">Prenom 1</xs:documentation>
+					<xs:documentation xml:lang="NL">Voornaam 1</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SecondName" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">Prenom 2</xs:documentation>
+					<xs:documentation xml:lang="NL">Voornaam 2</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="12"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="LastName" nillable="false">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">Nom de famille</xs:documentation>
+					<xs:documentation xml:lang="NL">Familienaam</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="48"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

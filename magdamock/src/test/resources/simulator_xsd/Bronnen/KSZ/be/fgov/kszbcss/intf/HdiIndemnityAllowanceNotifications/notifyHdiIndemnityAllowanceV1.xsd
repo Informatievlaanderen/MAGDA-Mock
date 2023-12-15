@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:hia="http://kszbcss.fgov.be/types/HdiIndemnityAllowanceNotifications/v1"
+  xmlns:tns="http://kszbcss.fgov.be/intf/HdiIndemnityAllowanceNotifications/v1"
+  targetNamespace="http://kszbcss.fgov.be/intf/HdiIndemnityAllowanceNotifications/v1" elementFormDefault="unqualified"
+  attributeFormDefault="unqualified" version="20220422">
+  <!--========= imports ===========-->
+  <xs:import namespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowanceNotifications/v1"
+    schemaLocation="../../types/HdiIndemnityAllowanceNotifications/HdiIndemnityAllowanceNotificationsV1.xsd" />
+  <!--========= xsd elements ===========-->
+  <xs:element name="notifyHdiIndemnityAllowanceAttest" type="hia:NotifyHdiIndemnityAllowanceAttestType" />
+  <xs:element name="notifyHdiIndemnityAllowancePeriod" type="hia:NotifyHdiIndemnityAllowancePeriodType" />
+</xs:schema>

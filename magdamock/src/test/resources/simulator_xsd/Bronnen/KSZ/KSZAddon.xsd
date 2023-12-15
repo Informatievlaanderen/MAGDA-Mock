@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://kszbcss.fgov.be/types" 
+	xmlns:emplcontr="http://kszbcss.fgov.be/types/EmployeeContribution/notify/v1" 
+	xmlns:common="http://kszbcss.fgov.be/types/common/v3" 
+	xmlns:handi="http://kszbcss.fgov.be/types/Handi/v2" 
+	xmlns:nissecommon="http://rsvz-inasti.fgov.be/types/common/SelfEmployed/v1" 
+	xmlns:ssdncommon="http://www.ksz-bcss.fgov.be/XmlSchema" 
+	xmlns:jobseeker="http://kszbcss.fgov.be/types/JobSeeker/v1" 
+	xmlns:hiaCommon="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/common/v1"
+	targetNamespace="http://kszbcss.fgov.be/types" 
+	elementFormDefault="unqualified" 
+	attributeFormDefault="unqualified">
+	<xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="be/fgov/kszbcss/types/common/CommonV3.xsd"/>
+	<xsd:import namespace="http://kszbcss.fgov.be/types/Handi/v2" schemaLocation="be/fgov/kszbcss/types/Handi/HandiV2.xsd"/>
+	<xsd:import namespace="http://kszbcss.fgov.be/types/EmployeeContribution/notify/v1" schemaLocation="be/fgov/kszbcss/types/EmployeeContribution/notify/EmployeeContributionDeductionNotificationsV1.xsd"/>
+	<xsd:import namespace="http://rsvz-inasti.fgov.be/types/common/SelfEmployed/v1" schemaLocation="be/fgov/rsvz-inasti/types/SelfEmployed/common/SelfEmployedCommonTypesV1.xsd"/>
+	<xsd:import namespace="http://www.ksz-bcss.fgov.be/XmlSchema" schemaLocation="be/fgov/kszbcss/LightXmlSchema/A011v001.xsd"/>
+	<xsd:import namespace="http://ksz-bcss.fgov.be/connectors/WebServiceConnector" schemaLocation="KSZSSDN.xsd"/>
+	<xsd:import namespace="http://kszbcss.fgov.be/types/JobSeeker/v1" schemaLocation="be/fgov/kszbcss/types/JobSeeker/JobSeekerTypesV1.xsd"/>
+	<xsd:import namespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/common/v1" schemaLocation="be/fgov/kszbcss/types/HdiIndemnityAllowance/common/HdiIndemnityAllowanceCommonV1.xsd"/>
+<!--
+	<xsd:import namespace="http://kszbcss.fgov.be/types/DmfaConsultation/v1" schemaLocation="be/fgov/kszbcss/types/DmfaConsultation/DmfaConsultationV1.xsd"/>
+	<xsd:import namespace="http://kszbcss.fgov.be/types/EnterpriseFiscalDebt/v2" schemaLocation="be/fgov/kszbcss/types/EnterpriseFiscalDebt/EnterpriseFiscalDebtV2.xsd"/>
+-->
+	<!--Magda types-->
+	<xsd:complexType name="GlobalStatusMagdaType">
+		<xsd:sequence>
+			<xsd:element name="value">
+				<xsd:annotation>
+					<xsd:documentation>global status of the result</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="DATA_FOUND"/>
+						<xsd:enumeration value="NO_DATA_FOUND"/>
+						<xsd:enumeration value="NO_RESULT"/>
+						<xsd:enumeration value="INCOMPLETE_DATA"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="code">
+				<xsd:annotation>
+					<xsd:documentation>the code of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="description" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the description of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="256"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="information" type="common:InformationType" minOccurs="0" maxOccurs="15"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SsinWithCanceledAndReplacedByStatusMagdaType">
+		<xsd:simpleContent>
+			<xsd:extension base="common:SsinType">
+				<xsd:attribute name="canceled" type="xsd:boolean"/>
+				<xsd:attribute name="replacedBy" type="common:SsinType"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultFilesByDateMagdaAntwoordInhoudType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:GlobalStatusMagdaType"/>
+			<xsd:element name="ssin" type="tns:SsinWithCanceledAndReplacedByStatusMagdaType" minOccurs="0"/>
+			<xsd:element name="dataFilters" type="common:DataFiltersType" minOccurs="0"/>
+			<xsd:element name="results" type="tns:FileResultsMagdaType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FileResultsMagdaType">
+		<xsd:sequence>
+			<xsd:element name="dgphResult" type="handi:DgphFileResultType" minOccurs="0"/>
+			<xsd:element name="vsbResult" type="handi:VsbFileResultType" minOccurs="0"/>
+			<xsd:element name="irisCareResult" type="handi:IrisCareFileResultType" minOccurs="0"/>
+			<xsd:element name="nicCinResult" type="handi:NicCinFileResultType" minOccurs="0"/>
+			<xsd:element name="aviqResult" type="handi:AviqFileResultType" minOccurs="0"/>
+			<xsd:element name="dslResult" type="handi:DslFileResultType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultFilesByPeriodMagdaAntwoordInhoudType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:GlobalStatusMagdaType"/>
+			<xsd:element name="ssin" type="tns:SsinWithCanceledAndReplacedByStatusMagdaType" minOccurs="0"/>
+			<xsd:element name="dataFilters" type="common:DataFiltersType" minOccurs="0"/>
+			<xsd:element name="results" type="tns:FileByPeriodResultsMagdaType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FileByPeriodResultsMagdaType">
+		<xsd:sequence>
+			<xsd:element name="dgphResult" type="handi:DgphFileByPeriodResultType" minOccurs="0"/>
+			<xsd:element name="vsbResult" type="handi:VsbFileByPeriodResultType" minOccurs="0"/>
+			<xsd:element name="irisCareResult" type="handi:IrisCareFileByPeriodResultType" minOccurs="0"/>
+			<xsd:element name="nicCinResult" type="handi:NicCinFileByPeriodResultType" minOccurs="0"/>
+			<xsd:element name="aviqResult" type="handi:AviqFileByPeriodResultType" minOccurs="0"/>
+			<xsd:element name="dslResult" type="handi:DslFileByPeriodResultType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultPaymentsMagdaAntwoordInhoudType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:GlobalStatusMagdaType"/>
+			<xsd:element name="ssin" type="tns:SsinWithCanceledAndReplacedByStatusMagdaType" minOccurs="0"/>
+			<xsd:element name="results" type="handi:PaymentsResultsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="notifyDeduction">
+		<xsd:sequence>
+			<xsd:element name="sequenceNumber" type="common:SequenceNumberType"/>
+			<xsd:element name="quarter" type="common:YearQuarterType"/>
+			<xsd:element name="version" type="emplcontr:VersionType"/>
+			<xsd:element name="contributionDeductions" type="emplcontr:GrantedDeductionsType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultContributionsMagdaAntwoordInhoudType">
+		<xsd:sequence>
+			<xsd:element name="status" type="common:StatusType"/>
+			<xsd:element name="ssin" type="common:SsinWithCanceledAndReplacesStatusType" minOccurs="0"/>
+			<xsd:element name="contributions" type="nissecommon:ContributionsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- HANDI Service elements -->
+	<xsd:complexType name="ConsultFilesByDateCriteriaMagdaType">
+		<xsd:sequence>
+			<xsd:element name="ssin" type="common:SsinType"/>
+			<xsd:element name="handicapAuthenticSources" type="tns:HandicapAuthenticSourcesMagdaType"/>
+			<xsd:element name="referenceDate" type="xsd:date"/>
+			<xsd:element name="parts" type="handi:FilePartsType"/>
+			<xsd:element name="decisionStatus" type="xsd:boolean" default="false" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>If true, the service will return the decisionStatus in the results for those authentic sources having already implemented this new feature.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="enrichedRecognition" type="xsd:boolean" default="false" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>If true, the service will return the legislation and the booleans isRecognizedBeforePensionAge in the handicaprecognition results for those authentic sources having already implemented this new feature.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultFilesByPeriodCriteriaMagdaType">
+		<xsd:sequence>
+			<xsd:element name="ssin" type="common:SsinType"/>
+			<xsd:element name="handicapAuthenticSources" type="tns:HandicapAuthenticSourcesMagdaType"/>
+			<xsd:element name="period" type="common:PeriodType"/>
+			<xsd:element name="parts" type="handi:FilePartsType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultPaymentsCriteriaMagdaType">
+		<xsd:sequence>
+			<xsd:element name="ssin" type="common:SsinType"/>
+			<xsd:element name="handicapAuthenticSources" type="handi:HandicapAuthenticSourcesPaymentsType"/>
+			<xsd:element name="period" type="common:PeriodType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultAttestCriteriaMagdaType">
+		<xsd:sequence>
+			<xsd:element name="ssin" type="common:SsinType"/>
+			<xsd:element name="yearQuarter" type="common:YearQuarterType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultAttestMagdaAntwoordInhoudType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:GlobalStatusMagdaType"/>
+			<xsd:element name="ssin" type="tns:SsinWithCanceledAndReplacedByStatusMagdaType" minOccurs="0"/>
+			<xsd:element name="attest" type="hiaCommon:AllowanceAttestationType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HandicapAuthenticSourcesMagdaType">
+		<xsd:sequence>
+			<xsd:element name="DGPH" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="VSB" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="IrisCare" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="NicCin" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="AVIQ" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="DSL" type="xsd:boolean" default="false" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultA011SourcesMagdaType">
+		<xsd:sequence>
+			<xsd:element name="INSS" type="ssdncommon:INSSType"/>
+			<xsd:element name="SearchPeriod">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="BeginDate" type="xsd:date">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="FR">Date de debut</xsd:documentation>
+								<xsd:documentation xml:lang="NL">Begindatum</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="EndDate" type="xsd:date">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="FR">Date de fin</xsd:documentation>
+								<xsd:documentation xml:lang="NL">Eindedatum</xsd:documentation>
+								<xsd:documentation source="KszBcssGlossary">000022</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="A011_POIndicatorMagdaType">
+		<xsd:annotation>
+			<xsd:documentation>Only for consultations</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice>
+			<xsd:element name="Attestation" type="ssdncommon:A011AttestationType" maxOccurs="10"/>
+			<xsd:element name="Result">
+				<xsd:annotation>
+					<xsd:documentation>No Answer Code</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element ref="ssdncommon:ReturnCode"/>
+						<xsd:element name="Codelist" fixed="003">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="FR">Liste de code</xsd:documentation>
+								<xsd:documentation xml:lang="NL">Codelijst</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string"/>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="A011_X001MagdaType">
+		<xsd:choice>
+			<xsd:element ref="ssdncommon:PossibleAddressees"/>
+			<xsd:element name="Result">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element ref="ssdncommon:ReturnCode"/>
+						<xsd:element ref="ssdncommon:Codelist" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CompleteResult">
+				<xsd:annotation>
+					<xsd:documentation>version BGM/DTM/ERC/FTX</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element ref="ssdncommon:OriginalMessageIdentification"/>
+						<xsd:element name="Result">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="ResultDate" type="xsd:date" minOccurs="0"/>
+									<xsd:element ref="ssdncommon:ReturnCode"/>
+									<xsd:element ref="ssdncommon:Codelist" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="ExtraData" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation xml:lang="FR">Informations supplémentaires</xsd:documentation>
+								<xsd:documentation xml:lang="NL">Bijvoegende informaties</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="350"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="consultContactAndInscriptionRequestMagdaType">
+		<xsd:sequence>
+			<xsd:element name="ssin" type="common:SsinType"/>
+			<xsd:element name="period" type="common:OpenPeriodType" minOccurs="0"/>
+			<xsd:element name="publicEmploymentServices" type="jobseeker:PublicEmploymentServicesType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="consultContactAndInscriptionResponseMagdaType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:GlobalStatusMagdaType"/>
+			<xsd:element name="ssin" type="tns:SsinWithCanceledAndReplacesStatusMagdaType" minOccurs="0"/>
+			<xsd:element name="results" type="jobseeker:ConsultContactAndInscriptionResultType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SsinWithCanceledAndReplacesStatusMagdaType">
+		<xsd:simpleContent>
+			<xsd:extension base="common:SsinType">
+				<xsd:attribute name="canceled" type="xsd:boolean"/>
+				<xsd:attribute name="replaces" type="common:SsinType"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+</xsd:schema>

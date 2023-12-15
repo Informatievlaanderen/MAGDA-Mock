@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by CIN (I.M. VZW) -->
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by BANQUE CARREFOUR DE LA SECURITE SOCIALE (BANQUE CARREFOUR DE LA SECURITE SOCIALE) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<!--In release of 22/05/2003 : Define NLOSSRegistrationNbr, PLAIndicator in separate schemas-->
+	<!--In release of 08/05/2003 : Create a complex type FirmIDType-->
+	<!--In release of 28/04/2003 : Create EmployerRegistrationNbr, that will replace RegistrationNbr and probably in the future, NOSSRegistrationNbr in association with PLAIndicator-->
+	<!--In release of 26/02/2003 :
+		Remove element Employer. That was causing problems for Castor in case of usion this global definition and another local one.-->
+	<xs:include schemaLocation="CompanyID.xsd"/>
+	<xs:include schemaLocation="NLOSSRegistrationNbr.xsd"/>
+	<xs:include schemaLocation="PLAIndicator.xsd"/>
+	<xs:complexType name="EmployerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Employeur</xs:documentation>
+			<xs:documentation xml:lang="NL">Werkgever</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="EmployerID"/>
+			<xs:element ref="EmployerClass" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="NOSSRegistrationNbr" type="xs:long">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">No d'employeur ONSS</xs:documentation>
+			<xs:documentation xml:lang="NL">RSZ werkgevernummer</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">121001</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="EmployerIDType">
+		<xs:sequence>
+			<xs:element ref="NOSSRegistrationNbr" minOccurs="0"/>
+			<xs:element ref="CompanyID" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="EmployerID">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Identification de l'employeur</xs:documentation>
+			<xs:documentation xml:lang="NL">Identificatie van het werkgever</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">121000</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:restriction base="EmployerIDType">
+					<xs:sequence>
+						<xs:element ref="NOSSRegistrationNbr" minOccurs="0"/>
+						<xs:element ref="CompanyID" minOccurs="0"/>
+					</xs:sequence>
+				</xs:restriction>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EmployerClass">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Categorie de l'employeur</xs:documentation>
+			<xs:documentation xml:lang="NL">Werkgevercategorie</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">120001</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="9999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="RszOnssEmployerTemporaryID">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Numero ONSS temporaire de l'employeur</xs:documentation>
+			<xs:documentation xml:lang="NL">RSZ tijdelijksewerkgevernummer</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">121003</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="10"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="PLANOSSRegistrationNbr">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Numero d'employeur ONSSAPL</xs:documentation>
+			<xs:documentation xml:lang="NL">RSZPPO werkgevernummer</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">121004</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="10"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SubEntity">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Sous-entite</xs:documentation>
+			<xs:documentation xml:lang="NL">Deelentiteit</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">121006</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:long">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="9999999999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="LocalUnitID">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">numero de l'unite locale</xs:documentation>
+			<xs:documentation xml:lang="NL">Vestigingseenheidsnummer</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">121007</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:long">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="9999999999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="RegistrationNbr">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Numero d'immatriculation employeur (ONSS ou ONSS-APL)</xs:documentation>
+			<xs:documentation xml:lang="NL">Nummer (RSZ - RSZPPO)</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="9"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="EmployerRegistrationNbr">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Numero d'immatriculation employeur (ONSS ou ONSS-APL)</xs:documentation>
+			<xs:documentation xml:lang="NL">Werkgever stamnummer (RSZ - RSZPPO)</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="9"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:complexType name="FirmIDType">
+		<xs:sequence>
+			<xs:element ref="NLOSSRegistrationNbr" minOccurs="0"/>
+			<xs:element ref="CompanyID" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="FirmID" type="FirmIDType">
+		<xs:annotation>
+			<xs:documentation>Identification de l'entreprise</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

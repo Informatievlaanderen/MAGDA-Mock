@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefHistoriekGezinssamenstellingResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefhistoriekgezinssamenstelling/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefHistoriekGezinssamenstelling</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2023-12-10</Datum>
+                    <Tijd>09:22:59.303</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>60639483-5f43-49d3-9c28-ed0f1b79e0e8</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>XE:725:25975:8438</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>XE_800101:1721:42667:36848</Referte>
+                <Inhoud>
+                    <HistoriekGezinssamenstelling>
+                        <Gezinssamenstelling>
+                            <Gezinsleden>
+                                <Gezinslid>
+                                    <INSZ>67722499797</INSZ>
+                                    <Naam>
+                                        <Achternamen>
+                                            <Achternaam>Janssens</Achternaam>
+                                        </Achternamen>
+                                        <Voornamen>
+                                            <Voornaam>Luc</Voornaam>
+                                            <Voornaam>Léon</Voornaam>
+                                            <Voornaam>François</Voornaam>
+                                        </Voornamen>
+                                    </Naam>
+                                    <Geslacht>
+                                        <Code>1</Code>
+                                        <Omschrijving Taal="nl">Mannelijk</Omschrijving>
+                                    </Geslacht>
+                                    <Geboortedatum>1967-12-24</Geboortedatum>
+                                    <Positie>
+                                        <Code>1</Code>
+                                        <Omschrijving Taal="nl">gezinshoofd</Omschrijving>
+                                    </Positie>
+                                    <Bron>
+                                        <Code>RR</Code>
+                                        <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                                    </Bron>
+                                </Gezinslid>
+                                <Gezinslid DatumBegin="1997-07-09">
+                                    <INSZ>71690499880</INSZ>
+                                    <Naam>
+                                        <Achternamen>
+                                            <Achternaam>Dubois</Achternaam>
+                                        </Achternamen>
+                                        <Voornamen>
+                                            <Voornaam>Isabelle</Voornaam>
+                                            <Voornaam>Giovanna</Voornaam>
+                                            <Voornaam>Mariette</Voornaam>
+                                        </Voornamen>
+                                    </Naam>
+                                    <Geslacht>
+                                        <Code>2</Code>
+                                        <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+                                    </Geslacht>
+                                    <Geboortedatum>1971-09-04</Geboortedatum>
+                                    <Positie>
+                                        <Code>2</Code>
+                                        <Omschrijving Taal="nl">echtgenoot/echtgenote</Omschrijving>
+                                    </Positie>
+                                    <Bron>
+                                        <Code>RR</Code>
+                                        <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                                    </Bron>
+                                </Gezinslid>
+                                <Gezinslid DatumBegin="2001-05-18">
+                                    <INSZ>01651899805</INSZ>
+                                    <Naam>
+                                        <Achternamen>
+                                            <Achternaam>Janssens</Achternaam>
+                                        </Achternamen>
+                                        <Voornamen>
+                                            <Voornaam>Laura</Voornaam>
+                                            <Voornaam>Maryvonne</Voornaam>
+                                        </Voornamen>
+                                    </Naam>
+                                    <Geslacht>
+                                        <Code>2</Code>
+                                        <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+                                    </Geslacht>
+                                    <Geboortedatum>2001-05-18</Geboortedatum>
+                                    <Positie>
+                                        <Code>3</Code>
+                                        <Omschrijving Taal="nl">zoon/dochter</Omschrijving>
+                                    </Positie>
+                                    <Bron>
+                                        <Code>RR</Code>
+                                        <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                                    </Bron>
+                                </Gezinslid>
+                                <Gezinslid DatumBegin="2005-09-11">
+                                    <INSZ>05691199737</INSZ>
+                                    <Naam>
+                                        <Achternamen>
+                                            <Achternaam>Janssens</Achternaam>
+                                        </Achternamen>
+                                        <Voornamen>
+                                            <Voornaam>Alexis</Voornaam>
+                                            <Voornaam>Naedgy</Voornaam>
+                                        </Voornamen>
+                                    </Naam>
+                                    <Geslacht>
+                                        <Code>1</Code>
+                                        <Omschrijving Taal="nl">Mannelijk</Omschrijving>
+                                    </Geslacht>
+                                    <Geboortedatum>2005-09-11</Geboortedatum>
+                                    <Positie>
+                                        <Code>3</Code>
+                                        <Omschrijving Taal="nl">zoon/dochter</Omschrijving>
+                                    </Positie>
+                                    <Bron>
+                                        <Code>RR</Code>
+                                        <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                                    </Bron>
+                                </Gezinslid>
+                            </Gezinsleden>
+                        </Gezinssamenstelling>
+                    </HistoriekGezinssamenstelling>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefHistoriekGezinssamenstellingResponse>

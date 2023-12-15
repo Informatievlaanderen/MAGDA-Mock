@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:element name="INSS" type="INSSType">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100000 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100000 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">NISS Numero d'identification de la securite social</xs:documentation>
+			<xs:documentation xml:lang="NL">INSZ - identificatienummer bij sociale zekerheid</xs:documentation>
+			<xs:documentation source="MvmSmalsGlossary">00024</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:simpleType name="INSSType">
+		<xs:annotation>
+			<xs:documentation>Format du NISS</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:long">
+			<xs:pattern value="[0-9][0-9](([0][0-9])|([1][0-2]))(([0-2][0-9])|([3][0-1]))[0-9]{3}(([0-8][0-9])|([9][0-7]))">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">Registre National</xs:documentation>
+					<xs:documentation xml:lang="NL">Rijksregister</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+			<xs:pattern value="[0-9][0-9](([2][0-9])|([3][0-2]))(([0-2][0-9])|([3][0-1]))[0-9]{3}(([0-8][0-9])|([9][0-7]))">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">Registre Bis : numero Bis</xs:documentation>
+					<xs:documentation xml:lang="NL">Bis register : Bisnummer</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+			<xs:pattern value="[0-9][0-9](([4][0-9])|([5][0-2]))(([0-2][0-9])|([3][0-1]))[0-9]{3}(([0-8][0-9])|([9][0-7]))">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">Registre Bis : numero TER</xs:documentation>
+					<xs:documentation xml:lang="NL">Bisregister : Ternummer</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RrRnINSSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Registre National</xs:documentation>
+			<xs:documentation xml:lang="NL">Rijksregister</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:long">
+			<xs:pattern value="[0-9][0-9](([0][0-9])|([1][0-2]))(([0-2][0-9])|([3][0-1]))[0-9]{3}(([0-8][0-9])|([9][0-7]))"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BisINSSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Registre Bis : numero Bis</xs:documentation>
+			<xs:documentation xml:lang="NL">Bis register : Bisnummer</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:long">
+			<xs:pattern value="[0-9][0-9](([2][0-9])|([3][0-2]))(([0-2][0-9])|([3][0-1]))[0-9]{3}(([0-8][0-9])|([9][0-7]))"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TerINSSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Registre Bis : numero TER</xs:documentation>
+			<xs:documentation xml:lang="NL">Bisregister : Ternummer</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:long">
+			<xs:pattern value="[0-9][0-9](([4][0-9])|([5][0-2]))(([0-2][0-9])|([3][0-1]))[0-9]{3}(([0-8][0-9])|([9][0-7]))"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

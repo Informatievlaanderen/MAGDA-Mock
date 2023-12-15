@@ -46,6 +46,7 @@ class SimulatorXmlValidationTest {
             "Persoon/GeefFuncties/02.00.0000",                        "Onderneming.GeefFunctiesDienst-02.00/WebService/GeefFunctiesResponse.xsd",
             "Persoon/GeefGezinssamenstelling/02.00.0000",             "Persoon.GeefGezinssamenstellingDienst-02.00/WebService/GeefGezinssamenstellingResponse.xsd",
             "Persoon/GeefGezinssamenstelling/02.02.0000",             "Persoon.GeefGezinssamenstellingDienst-02.02/WebService/GeefGezinssamenstellingResponse.xsd",
+            "Persoon/GeefHistoriekGezinssamenstelling/02.02.0000",    "Persoon.GeefHistoriekGezinssamenstellingDienst-02.02/WebService/GeefHistoriekGezinssamenstellingResponse.xsd",
             "Persoon/GeefHistoriekInschrijving/02.01.0000",           "Onderwijs.GeefHistoriekInschrijvingDienst-02.01/WebService/GeefHistoriekInschrijvingResponse.xsd",
             "Persoon/GeefHistoriekPersoon/02.00.0000",                "Persoon.GeefHistoriekPersoonDienst-02.00/WebService/GeefHistoriekPersoonResponse.xsd",
             "Persoon/GeefHistoriekPersoon/02.02.0000",                "Persoon.GeefHistoriekPersoonDienst-02.02/WebService/GeefHistoriekPersoonResponse.xsd",

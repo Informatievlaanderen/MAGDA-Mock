@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by USER (KSZ-BCSS) -->
+<!-- ============================================================================================================
+         * File Name :               EnterpriseFiscalDebtService.xsd
+         * Author :                  Matthias De Scheerder
+         * Owner :                   KSZ / CBSS
+         * Creation date :           07-09-11
+         * Last revision date :      07-09-11
+         * Status :                  Planned
+         * Description :             Describes data exchange related to the debt of an enterprise between RVA and CBSS.
+         * Current version :         0.1
+         * Revision History : 
+============================================================================================================= -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://kszbcss.fgov.be/types/EnterpriseFiscalDebt/v2" xmlns:com="http://kszbcss.fgov.be/types/common/v3" targetNamespace="http://kszbcss.fgov.be/types/EnterpriseFiscalDebt/v2" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../common/CommonV3.xsd"/>
+	<!--================== Request =========================-->
+	<xsd:complexType name="CheckEnterpriseDebtRequestType">
+		<xsd:complexContent>
+
+			<xsd:extension base="com:BaseRequestType">
+				<xsd:sequence>
+					<xsd:element name="criteria" type="CriteriaType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--================== Search Criteria =========================-->
+	<xsd:complexType name="CriteriaType">
+		<xsd:sequence>
+			<xsd:element name="enterpriseNumber" type="com:EnterpriseNumberType"/>
+			<xsd:element name="includeAmount" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--================== Response =========================-->
+	<xsd:complexType name="CheckEnterpriseDebtResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="com:BaseResponseType">
+				<xsd:sequence>
+					<xsd:element name="criteria" type="CriteriaType"/>
+					<xsd:element name="status" type="com:StatusType"/>
+					<xsd:element name="fiscalDebt" type="FiscalDebtType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--================== Complexe type  =========================-->
+	<xsd:complexType name="FiscalDebtType">
+		<xsd:sequence>
+			<xsd:element name="hasFiscalDebt" type="xsd:boolean"/>
+			<xsd:element name="statusDate" type="xsd:date"/>
+			<xsd:element name="amount" type="com:EuroPositiveAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The amount of fiscal debt in eurocent.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="AccreditationNumberType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================================================================
+    * Description:      Wrapper xsd used for validation
+    					The request and response elements are declared here for validation purpose
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:se2="http://kszbcss.fgov.be/types/SelfEmployed/v2" targetNamespace="http://kszbcss.fgov.be/intf/SelfEmployedService/v2" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2020-06-10">
+    <xs:import namespace="http://kszbcss.fgov.be/types/SelfEmployed/v2" schemaLocation="SelfEmployedTypesV2.xsd"/>
+    <!--========= xsd:element ===========-->
+    <xs:element name="consultCareerRequest" type="se2:ConsultCareerRequestType"/>
+    <xs:element name="consultCareerResponse" type="se2:ConsultCareerResponseType"/>
+    <xs:element name="consultContributionsRequest" type="se2:ConsultContributionsRequestType"/>
+    <xs:element name="consultContributionsResponse" type="se2:ConsultContributionsResponseType"/>
+</xs:schema>

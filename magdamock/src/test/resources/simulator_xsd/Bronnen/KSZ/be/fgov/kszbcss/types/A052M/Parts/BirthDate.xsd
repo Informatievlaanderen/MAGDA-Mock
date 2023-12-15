@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<!--For some cases of radies, if MM equal 0, DD may be different than 00-->
+	<xs:simpleType name="BirthDateType">
+		<xs:annotation>
+			<xs:documentation>Format date de naissance</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[1][8](([6|8][1|2|3|5|6|7|9])|([5|7|9][0|1|3|4|5|7|8|9]))-((([0][0])-([0][0]))|((([0][0|1|3|5|7|8])|([1][0|2]))-(([0-2][0-9])|([3][0-1])))|(([0][2])-([0-2][0-8]))|((([0][4|6|9])|([1][1]))-(([0-2][0-9])|([3][0]))))">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">1850-1899 non bissextile</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+			<xs:pattern value="[1][8](([6|8][0|4|8])|([5|7|9][2|6]))-((([0][0])-([0][0]))|((([0][0|1|3|5|7|8])|([1][0|2]))-(([0-2][0-9])|([3][0-1])))|(([0][2])-([0-2][0-9]))|((([0][4|6|9])|([1][1]))-(([0-2][0-9])|([3][0]))))">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">1850-1899 bissextile</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+			<xs:pattern value="[1][9](([0|2|4|6|8][0|1|2|3|5|6|7|9])|([1|3|5|7|9][0|1|3|4|5|7|8|9]))-((([0][0])-([0][0]))|((([0][0|1|3|5|7|8])|([1][0|2]))-(([0-2][0-9])|([3][0-1])))|(([0][2])-([0-2][0-8]))|((([0][4|6|9])|([1][1]))-(([0-2][0-9])|([3][0]))))">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">1900-1999 non bissextile</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+			<xs:pattern value="[1][9](([0|2|4|6|8][4|8])|([1|3|5|7|9][2|6]))-((([0][0])-([0][0]))|((([0][0|1|3|5|7|8])|([1][0|2]))-(([0-2][0-9])|([3][0-1])))|(([0][2])-([0-2][0-9]))|((([0][4|6|9])|([1][1]))-(([0-2][0-9])|([3][0]))))">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">1900-1999 bissextile</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+			<xs:pattern value="[2][0](([0][1|2|3|5|6|7|9])|([1][0|1|3|4|5|7|8|9]))-((([0][0])-([0][0]))|((([0][0|1|3|5|7|8])|([1][0|2]))-(([0-2][0-9])|([3][0-1])))|(([0][2])-([0-2][0-8]))|((([0][4|6|9])|([1][1]))-(([0-2][0-9])|([3][0]))))">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">2000-2019 non bissextile</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+			<xs:pattern value="[2][0](([0][0|4|8])|([1][2|6]))-((([0][0])-([0][0]))|((([0][0|1|3|5|7|8])|([1][0|2]))-(([0-2][0-9])|([3][0-1])))|(([0][2])-([0-2][0-9]))|((([0][4|6|9])|([1][1]))-(([0-2][0-9])|([3][0]))))">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">2000-2019 bissextile</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="BirthDate" type="BirthDateType">
+		<xs:annotation>
+			<xs:documentation>Date de naissance</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

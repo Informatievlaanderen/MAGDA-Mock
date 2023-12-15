@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 2 U (http://www.xmlspy.com) by leo (leo) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:complexType name="PeriodType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Periode</xs:documentation>
+			<xs:documentation xml:lang="NL">Periode</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">000020</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BeginDate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">Date de debut</xs:documentation>
+					<xs:documentation xml:lang="NL">Begindatum</xs:documentation>
+					<xs:documentation source="KszBcssGlossary">000021</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:date">
+						<xs:minInclusive value="1880-01-01"/>
+						<xs:maxInclusive value="2099-12-31"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="EndDate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">Date de fin</xs:documentation>
+					<xs:documentation xml:lang="NL">Eindedatum</xs:documentation>
+					<xs:documentation source="KszBcssGlossary">000022</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:date">
+						<xs:minInclusive value="1880-01-01"/>
+						<xs:maxInclusive value="2099-12-31"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by  (Kruispuntbank van de Sociale Zekerheid) -->
+<!-- ============================================================================================================
+    * Owner:            KSZ / CBSS
+    * Creation date:    2019-01-15
+    * Description:      Batch response types for DmfaConsultationService
+    * Revision History:
+    2019-04-03: Finalize XSD for consultPersonnelByEmployerBatchResponse:
+      - make enterpriseNumber optional, and trusteeship mandatory in PersonnelListType
+      - use RequestCorrelationType instead of extending from BaseResponseType
+      - add maxOccurs="unbounded" to attestation
+      - remove personnelList wrapper element
+      - remove work-in-progress annotations
+    2022-02-04: add sectorIndicator as optional in EmployerType
+-->
+<xsd:schema xmlns="http://kszbcss.fgov.be/intf/DmfaConsultationService/batch/v1"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://kszbcss.fgov.be/types/common/v3"
+  xmlns:dmfa-cons="http://kszbcss.fgov.be/types/DmfaConsultation/v1"
+  xmlns:dmfa-common="http://kszbcss.fgov.be/types/dmfa/common/v1"
+  xmlns:dmfa-att="http://kszbcss.fgov.be/types/dmfa/attestation/v1"
+  targetNamespace="http://kszbcss.fgov.be/intf/DmfaConsultationService/batch/v1" elementFormDefault="unqualified"
+  attributeFormDefault="unqualified" version="2022-02-04">
+  <xsd:import namespace="http://kszbcss.fgov.be/types/common/v3"
+    schemaLocation="../../../types/common/CommonV3.xsd" />
+  <xsd:import namespace="http://kszbcss.fgov.be/types/DmfaConsultation/v1"
+    schemaLocation="../../../types/DmfaConsultation/DmfaConsultationV1.xsd" />
+  <xsd:import namespace="http://kszbcss.fgov.be/types/dmfa/common/v1"
+    schemaLocation="../../../types/dmfa/common/DmfaCommonV1.xsd" />
+  <xsd:import namespace="http://kszbcss.fgov.be/types/dmfa/attestation/v1"
+    schemaLocation="../../../types/dmfa/attestation/DmfaAttestationV1.xsd" />
+  <xsd:element name="consultDmfaAttestationsBySsinBatchResponse"
+    type="ConsultDmfaAttestationsBySsinBatchResponseType" />
+  <xsd:element name="consultPersonnelByEmployerBatchResponse"
+    type="ConsultPersonnelByEmployerBatchResponseType" />
+  <xsd:complexType name="ConsultDmfaAttestationsBySsinBatchResponseType">
+    <xsd:sequence>
+      <xsd:element name="sender" type="common:SenderReceiverType">
+        <xsd:annotation>
+          <xsd:documentation>Information block that contains information about the sender.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="receiver" type="common:SenderReceiverType">
+        <xsd:annotation>
+          <xsd:documentation>Information block that contains information about the receiver. Timestamp and ticket will
+            not be filled in.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="legalContext" type="common:LegalContextType">
+        <xsd:annotation>
+          <xsd:documentation>The legal context.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="dataFilters" type="common:DataFiltersType" minOccurs="0" />
+      <xsd:element name="responses" type="ConsultDmfaAttestationsBySsinResponsesType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ConsultDmfaAttestationsBySsinResponsesType">
+    <xsd:sequence>
+      <xsd:element name="response" type="ConsultDmfaAttestationsBySsinBatchResponseItemType"
+        maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ConsultDmfaAttestationsBySsinBatchResponseItemType">
+    <xsd:sequence>
+      <xsd:element name="requestCorrelation" type="RequestCorrelationType" />
+      <xsd:element name="criteria" type="dmfa-common:BySsinCriteriaType" />
+      <xsd:element name="status" type="BatchResponseStatusType" />
+      <xsd:element name="ssin" type="SsinWithReplacesStatusType" />
+      <xsd:element name="dmfaAttestations" type="dmfa-att:DmfaAttestationsType" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="RequestCorrelationType">
+    <xsd:annotation>
+      <xsd:documentation>Type defining the data used for the correlation of the batch response with the online request.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="customerTicket" type="common:TicketType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The ticket provided by the client in the informationCustomer/ticket of online request.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="cbssTicket" type="common:UUIDType">
+        <xsd:annotation>
+          <xsd:documentation>The UUID ticket provided by CBSS in the informationCBSS/ticketCBSS of the online response.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="timestamp" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>The timestamp when CBSS processed the online request.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ConsultPersonnelByEmployerBatchResponseType">
+    <xsd:sequence>
+      <xsd:element name="sender" type="common:SenderReceiverType">
+        <xsd:annotation>
+          <xsd:documentation>Information block that contains information about the sender.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="receiver" type="common:SenderReceiverType">
+        <xsd:annotation>
+          <xsd:documentation>Information block that contains information about the receiver. Timestamp and ticket will
+            not be filled in.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="legalContext" type="common:LegalContextType">
+        <xsd:annotation>
+          <xsd:documentation>The legal context.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="responses" type="ConsultPersonnelByEmployerResponsesType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ConsultPersonnelByEmployerResponsesType">
+    <xsd:sequence>
+      <xsd:element name="response" type="ConsultPersonnelByEmployerResponseType" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ConsultPersonnelByEmployerResponseType">
+    <xsd:sequence>
+      <xsd:element name="requestCorrelation" type="RequestCorrelationType" />
+      <xsd:element name="criteria" type="dmfa-common:ByEmployerCriteriaType" />
+      <xsd:element name="status" type="BatchResponseStatusType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="employer" type="EmployerType" />
+        <xsd:element name="attestations" type="AttestationsType" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BatchResponseStatusType">
+    <xsd:sequence>
+      <xsd:element name="value">
+        <xsd:annotation>
+          <xsd:documentation>global status of the result</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="DATA_FOUND" />
+            <xsd:enumeration value="NO_DATA_FOUND" />
+            <xsd:enumeration value="NO_RESULT" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="code">
+        <xsd:annotation>
+          <xsd:documentation>the code of the status</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="16" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="description" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>the description of the status</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="256" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="information" type="common:InformationType" minOccurs="0" maxOccurs="15" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="EmployerType">
+    <xsd:sequence>
+      <xsd:element name="nssoRegistrationNumber" type="common:NssoRegistrationNumberType" />
+      <xsd:element name="enterpriseNumber" type="common:EnterpriseNumberType" minOccurs="0" />
+      <xsd:element name="provincialOrLocalAuthority" type="xsd:boolean" />
+      <xsd:element name="sectorIndicator" type="dmfa-att:SectorIndicatorType" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AttestationsType">
+    <xsd:sequence>
+      <xsd:element name="attestation" type="AttestationType" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AttestationType">
+    <xsd:sequence>
+      <xsd:element name="ssin" type="common:SsinType" />
+      <xsd:element name="oriolusValidationCode" type="dmfa-att:OriolusValidationCodeType" />
+      <xsd:element name="quarter" type="common:YearQuarterType" />
+      <xsd:element name="attestationInformation" type="dmfa-att:AttestationInformationType" />
+      <xsd:element name="employerClass" type="dmfa-att:EmployerClassType" />
+      <xsd:element name="workerCode" type="dmfa-att:WorkerCodeType" />
+      <xsd:element name="trusteeship" type="dmfa-att:TrusteeshipType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SsinWithReplacesStatusType">
+    <xsd:simpleContent>
+      <xsd:extension base="common:SsinType">
+        <xsd:attribute name="replaces" type="common:SsinType" />
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+</xsd:schema>
