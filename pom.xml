@@ -39,7 +39,7 @@
 		<springfox-swagger2.version>3.0.0</springfox-swagger2.version>
 		<testrunner.version>0.2.0</testrunner.version>
 		<apache.httpcomponents.version>5.2.1</apache.httpcomponents.version>
-		<brave.version>5.16.0</brave.version>
+		<brave.version>5.17.0</brave.version>
 		<sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco-aggregated/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 		<sonar.language>java</sonar.language>
 	</properties>
