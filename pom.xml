@@ -34,7 +34,7 @@
 		<mapstruct-lombok.version>0.2.0</mapstruct-lombok.version>
 		<mockito.version>5.3.1</mockito.version>
 		<org.apache.wss4j.version>2.4.1</org.apache.wss4j.version>
-		<spring-cloud.version>2022.0.4</spring-cloud.version>
+		<spring-cloud.version>2023.0.0</spring-cloud.version>
 		<springdoc.api>1.7.0</springdoc.api>
 		<springfox-swagger2.version>3.0.0</springfox-swagger2.version>
 		<testrunner.version>0.2.0</testrunner.version>
