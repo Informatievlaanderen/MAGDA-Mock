@@ -5,7 +5,7 @@ import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
-import be.vlaanderen.vip.magda.client.util.XmlUtils;
+import be.vlaanderen.vip.magda.client.xml.XmlUtils;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import be.vlaanderen.vip.magda.exception.NoResponseException;
 import be.vlaanderen.vip.magda.exception.ServerException;

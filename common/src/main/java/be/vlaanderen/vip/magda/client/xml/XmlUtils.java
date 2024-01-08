@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.magda.client.util;
+package be.vlaanderen.vip.magda.client.xml;
 
 import javax.xml.XMLConstants;
 import javax.xml.transform.Transformer;
