@@ -69,6 +69,8 @@ public class SOAPSimulatorBuilder {
         
         simulator.register("GeefSociaalStatuut", VERSION_03_00, new StaticResponseSimulator(finder, PERSOON, "//SociaalStatuut/Naam", KEY_INSZ));
 
+        simulator.register("GeefLoopbaanARZA", VERSION_02_01, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+
         // PERSOON Custom
         simulator.register("GeefAttest", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefPasfoto", VERSION_02_00, new RandomPasfotoSimulator(finder, PERSOON, KEY_INSZ));

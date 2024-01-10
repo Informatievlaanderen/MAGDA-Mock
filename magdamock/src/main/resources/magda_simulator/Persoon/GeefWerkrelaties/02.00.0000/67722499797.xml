@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefWerkrelatiesResponse xmlns:web="http://webservice.geefwerkrelatiesdienst-02_00.werk-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefWerkrelaties</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2023-12-10</Datum>
+                    <Tijd>13:22:14.967</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>73e2683a-9620-4a06-993b-97bf6ab98e48</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>9e317c0c-918e-4cfb-a20c-a0250765501f</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>4e67e385-a450-4f58-a127-e33c0e68f073</Referte>
+                <Inhoud>
+                    <Contracten>
+                        <Contract>
+                            <Relatie>
+                                <Werkgever>
+                                    <RSZNummer>0123456789</RSZNummer>
+                                    <Ondernemingsnummer>0123456789</Ondernemingsnummer>
+                                </Werkgever>
+                                <Werknemer>
+                                    <INSZ>67722499797</INSZ>
+                                    <IdentificatiePersoonGevalideerd Beschrijving="Identificatie persoon OK">1</IdentificatiePersoonGevalideerd>
+                                </Werknemer>
+                            </Relatie>
+                            <Bron Beschrijving="Rijksdienst voor sociale zekerheid">RSZ</Bron>
+                            <Aangifte>
+                                <DimonaNummer>7765432182</DimonaNummer>
+                                <PeriodeTijdstip>
+                                    <Begin>
+                                        <Datum>2007-09-08</Datum>
+                                    </Begin>
+                                    <Einde>
+                                        <Datum>2019-12-31</Datum>
+                                    </Einde>
+                                </PeriodeTijdstip>
+                                <ParitairComite>118</ParitairComite>
+                                <AardWerknemer>OTH</AardWerknemer>
+                                <Geannuleerd>0</Geannuleerd>
+                                <LaatsteDimonaActie Beschrijving="Uitdienst">O</LaatsteDimonaActie>
+                            </Aangifte>
+                        </Contract>
+                        <Contract>
+                            <Relatie>
+                                <Werkgever>
+                                    <RSZNummer>0123456789</RSZNummer>
+                                    <Ondernemingsnummer>0123456789</Ondernemingsnummer>
+                                </Werkgever>
+                                <Werknemer>
+                                    <INSZ>67722499797</INSZ>
+                                    <IdentificatiePersoonGevalideerd Beschrijving="Identificatie persoon OK">1</IdentificatiePersoonGevalideerd>
+                                </Werknemer>
+                            </Relatie>
+                            <Bron Beschrijving="Rijksdienst voor sociale zekerheid">RSZ</Bron>
+                            <Aangifte>
+                                <DimonaNummer>7765433105</DimonaNummer>
+                                <PeriodeTijdstip>
+                                    <Begin>
+                                        <Datum>2024-01-08</Datum>
+                                    </Begin>
+                                </PeriodeTijdstip>
+                                <ParitairComite>118</ParitairComite>
+                                <AardWerknemer>OTH</AardWerknemer>
+                                <Geannuleerd>0</Geannuleerd>
+                                <LaatsteDimonaActie Beschrijving="Indienst">I</LaatsteDimonaActie>
+                            </Aangifte>
+                        </Contract>
+                    </Contracten>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefWerkrelatiesResponse>
