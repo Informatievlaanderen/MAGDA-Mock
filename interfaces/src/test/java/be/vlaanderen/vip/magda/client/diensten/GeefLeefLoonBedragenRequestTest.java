@@ -19,18 +19,30 @@ class GeefLeefLoonBedragenRequestTest {
     class GeefLeefLoonBedragenRequestBuilder {
 
         @Test
-        void buildsRequest() {
+        void buildsRequestWhenCurrentYearIsGiven() {
             var year = Year.of(2023);
             var request = GeefLeefLoonBedragenRequest.builder()
                     .insz(TestBase.TEST_INSZ)
-                    .year(year)
-                    .currentYear(true)
+                    .currentYear(year)
                     .numberOfYearsAgo(2)
                     .build();
 
             assertEquals(INSZNumber.of(TestBase.TEST_INSZ), request.getInsz());
-            assertEquals(year, request.getYear());
-            assertEquals(true, request.getCurrentYear());
+            assertEquals(year, request.getCurrentYear());
+            assertEquals(2, request.getNumberOfYearsAgo());
+        }
+
+        @Test
+        void buildsRequestWhenReferenceYearIsGiven() {
+            var year = Year.of(2023);
+            var request = GeefLeefLoonBedragenRequest.builder()
+                    .insz(TestBase.TEST_INSZ)
+                    .referenceYear(year)
+                    .numberOfYearsAgo(2)
+                    .build();
+
+            assertEquals(INSZNumber.of(TestBase.TEST_INSZ), request.getInsz());
+            assertEquals(year, request.getReferenceYear());
             assertEquals(2, request.getNumberOfYearsAgo());
         }
 
@@ -39,42 +51,40 @@ class GeefLeefLoonBedragenRequestTest {
 
             var request = GeefLeefLoonBedragenRequest.builder()
                     .insz(TestBase.TEST_INSZ)
-                    .year(Year.of(2023))
-                    .currentYear(true)
+                    .currentYear(Year.of(2023))
                     .build();
 
             assertNull(request.getNumberOfYearsAgo());
         }
 
         @Test
-        void throwsException_whenInszNull() {
+        void throwsException_whenInszIsNull() {
 
             var year = Year.of(2023);
             var builder = GeefLeefLoonBedragenRequest.builder()
-                    .year(year)
-                    .currentYear(true)
+                    .currentYear(year)
                     .numberOfYearsAgo(2);
 
             assertThrows(IllegalStateException.class, builder::build);
         }
 
         @Test
-        void throwsException_whenYearNull() {
+        void throwsException_whenCurrentYearAndReferenceYearIsNull() {
             var builder = GeefLeefLoonBedragenRequest.builder()
                     .insz(TestBase.TEST_INSZ)
-                    .currentYear(true)
                     .numberOfYearsAgo(2);
 
             assertThrows(IllegalStateException.class, builder::build);
         }
 
         @Test
-        void throwsException_whenCurrentYearNull() {
+        void throwsException_whenCurrentYearAndReferenceYearIsNotNull() {
 
             var year = Year.of(2023);
             var builder = GeefLeefLoonBedragenRequest.builder()
                     .insz(TestBase.TEST_INSZ)
-                    .year(year)
+                    .currentYear(year)
+                    .referenceYear(year)
                     .numberOfYearsAgo(2);
 
             assertThrows(IllegalStateException.class, builder::build);
@@ -99,11 +109,10 @@ class GeefLeefLoonBedragenRequestTest {
         }
 
         @Test
-        void setsFields() {
+        void setsFieldsWithCurrentYearSpecified() {
             var year = Year.of(2023);
             var request = builder
-                    .year(year)
-                    .currentYear(true)
+                    .currentYear(year)
                     .numberOfYearsAgo(2)
                     .build()
                     .toMagdaDocument(info);
@@ -114,11 +123,24 @@ class GeefLeefLoonBedragenRequestTest {
         }
 
         @Test
+        void setsFieldsWithReferenceYearSpecified() {
+            var year = Year.of(2023);
+            var request = builder
+                    .referenceYear(year)
+                    .numberOfYearsAgo(2)
+                    .build()
+                    .toMagdaDocument(info);
+
+            assertThat(request.getValue("//Criteria/Jaar"), is(equalTo(year.toString())));
+            assertThat(request.getValue("//Criteria/Jaar/@Huidig"), is(equalTo("0")));
+            assertThat(request.getValue("//Criteria/AantalJaarTerug"), is(equalTo("2")));
+        }
+
+        @Test
         void doesNotSetNumberOfYearsAgoIfNotSpecified() {
             var year = Year.of(2023);
             var request = builder
-                    .year(year)
-                    .currentYear(true)
+                    .currentYear(year)
                     .build()
                     .toMagdaDocument(info);
 

@@ -17,14 +17,14 @@
                 </Afzender>
                 <Ontvanger>
                     <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
-                    <Referte>XE:725:25975:8438</Referte>
+                    <Referte>885fb6a4-bd96-467b-a016-9a83a0c3fcad</Referte>
                     <Hoedanigheid>101</Hoedanigheid>
                 </Ontvanger>
             </Bericht>
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>XE_800101:1721:42667:36848</Referte>
+                <Referte>95ca99a7-8a50-4bf8-95ae-5190ad1a3c3e</Referte>
                 <Inhoud>
                     <ConsultPaymentsResponse>
                         <status>

@@ -18,44 +18,55 @@ class GeefHistoriekGezinssamenstellingRequestTest {
     class GeefHistoriekGezinssamenstellingRequestBuilder {
 
         @Test
-        void buildsRequest() {
+        void buildsRequestWhenFromDateIsGiven() {
             var date = LocalDate.now();
 
             var request = GeefHistoriekGezinssamenstellingRequest.builder()
                     .insz(TestBase.TEST_INSZ)
-                    .date(date)
-                    .dateOp(true)
+                    .fromDate(date)
                     .build();
 
             assertEquals(INSZNumber.of(TestBase.TEST_INSZ), request.getInsz());
-            assertEquals(date, request.getDate());
-            assertEquals(true, request.getDateOp());
+            assertEquals(date, request.getFromDate());
         }
 
         @Test
-        void dateOpIsOptional() {
+        void buildsRequestWhenOnDateIsGiven() {
+            var date = LocalDate.now();
 
             var request = GeefHistoriekGezinssamenstellingRequest.builder()
                     .insz(TestBase.TEST_INSZ)
-                    .date(LocalDate.now())
+                    .onDate(date)
                     .build();
 
-            assertNull(request.getDateOp());
+            assertEquals(INSZNumber.of(TestBase.TEST_INSZ), request.getInsz());
+            assertEquals(date, request.getOnDate());
         }
 
+
         @Test
-        void throwsException_whenInszNull() {
+        void throwsException_whenInszIsNull() {
 
             var builder = GeefHistoriekGezinssamenstellingRequest.builder()
-                    .date(LocalDate.now());
+                    .fromDate(LocalDate.now());
 
             assertThrows(IllegalStateException.class, builder::build);
         }
 
         @Test
-        void throwsException_whenDateNull() {
+        void throwsException_whenFromDateAndOnDateIsNull() {
             var builder = GeefHistoriekGezinssamenstellingRequest.builder()
                     .insz(TestBase.TEST_INSZ);
+
+            assertThrows(IllegalStateException.class, builder::build);
+        }
+
+        @Test
+        void throwsException_whenFromDateAndOnDateIsNotNull() {
+            var builder = GeefHistoriekGezinssamenstellingRequest.builder()
+                    .insz(TestBase.TEST_INSZ)
+                    .fromDate(LocalDate.now())
+                    .onDate(LocalDate.now());
 
             assertThrows(IllegalStateException.class, builder::build);
         }
@@ -75,15 +86,13 @@ class GeefHistoriekGezinssamenstellingRequestTest {
                     .build();
 
             builder = GeefHistoriekGezinssamenstellingRequest.builder()
-                    .insz(TestBase.TEST_INSZ)
-                    .date(LocalDate.now().minusYears(1));
+                    .insz(TestBase.TEST_INSZ);
         }
 
         @Test
-        void setsFields() {
+        void setsFieldsWithFromDateSpecified() {
             var request = builder
-                    .date(LocalDate.of(2023, 01, 22))
-                    .dateOp(true)
+                    .fromDate(LocalDate.of(2023, 01, 22))
                     .build()
                     .toMagdaDocument(info);
 
@@ -92,12 +101,14 @@ class GeefHistoriekGezinssamenstellingRequestTest {
         }
 
         @Test
-        void doesNotSetDateOpIfNotSpecified() {
+        void setsFieldsWithOnDateSpecified() {
             var request = builder
+                    .onDate(LocalDate.of(2023, 01, 22))
                     .build()
                     .toMagdaDocument(info);
 
-            assertThat(request.getValue("//Vragen/Vraag/Inhoud/Criteria/Datum/@Op"), is(nullValue()));
+            assertThat(request.getValue("//Vragen/Vraag/Inhoud/Criteria/Datum"), is(equalTo("2023-01-22")));
+            assertThat(request.getValue("//Vragen/Vraag/Inhoud/Criteria/Datum/@Op"), is(equalTo("0")));
         }
     }
 }

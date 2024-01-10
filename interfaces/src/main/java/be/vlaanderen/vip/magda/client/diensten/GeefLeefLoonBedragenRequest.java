@@ -16,12 +16,12 @@ import java.time.Year;
  * A request to a "GeefBetalingenHandicap" MAGDA service allows you to consult the periods and amounts paid out in the context of the living wage for an INSZ.
  * Adds the following fields to the {@link PersonMagdaRequest}:
  * <ul>
- * <li>year: Year in 'YYYY' format. This date cannot be in the future.</li>
- * <li>currentYear: false when specified year is the reference year for the consultation; true when specified year is the current year for the consultation</li>
+ * <li>currentYear: Search by current year. Year in 'YYYY' format. This date cannot be in the future.</li>
+ * <li>referenceYear: Search by reference year. Year in 'YYYY' format. This date cannot be in the future.</li>
  * <li>numberOfYearsAgo: total number of years back in time. Values: 2 or 3. (Optional)</li>
  * </ul>
- *
- * @see <a href="file:resources/templates/GeefLeefLoonBedragen/02.00.0000/template.xml">XML template for this request type</a>
+ * The service can be consulted by providing 'currentYear' or 'referenceYear', at least one field must contain a value, both fields are not allowed.
+ * @see <a href="file:resources/templates/GeefLeefloonbedragen/02.00.0000/template.xml">XML template for this request type</a>
  * @see <a href="https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/1207599973/SocZek.GeefLeefLoonBedragen-02.00">More information on this request type</a>
  */
 @Getter
@@ -31,19 +31,19 @@ public class GeefLeefLoonBedragenRequest extends PersonMagdaRequest {
     public static class Builder extends PersonMagdaRequest.Builder<Builder> {
 
         @Getter(AccessLevel.PROTECTED)
-        private Year year;
+        private Year currentYear;
         @Getter(AccessLevel.PROTECTED)
-        private Boolean currentYear;
+        private Year referenceYear;
         @Getter(AccessLevel.PROTECTED)
         private Integer numberOfYearsAgo;
 
-        public Builder year(Year year) {
-            this.year = year;
+        public Builder currentYear(Year currentYear) {
+            this.currentYear = currentYear;
             return this;
         }
 
-        public Builder currentYear(Boolean currentYear) {
-            this.currentYear = currentYear;
+        public Builder referenceYear(Year referenceYear) {
+            this.referenceYear = referenceYear;
             return this;
         }
 
@@ -54,14 +54,14 @@ public class GeefLeefLoonBedragenRequest extends PersonMagdaRequest {
 
         public GeefLeefLoonBedragenRequest build() {
             if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
-            if(year == null) { throw new IllegalStateException("Year must be given"); }
-            if(currentYear == null) { throw new IllegalStateException("CurrentYear must be given"); }
+            if(getCurrentYear() == null && getReferenceYear() == null) { throw new IllegalStateException("Current year or reference year must be given"); }
+            if(getCurrentYear() != null && getReferenceYear() != null) { throw new IllegalStateException("Current year and reference year cannot be given at the same time."); }
 
             return new GeefLeefLoonBedragenRequest(
                     getInsz(),
                     getRegistration(),
-                    getYear(),
                     getCurrentYear(),
+                    getReferenceYear(),
                     getNumberOfYearsAgo()
             );
         }
@@ -71,11 +71,11 @@ public class GeefLeefLoonBedragenRequest extends PersonMagdaRequest {
         return new Builder();
     }
 
-    @NotNull
-    private final Year year;
+    @Nullable
+    private final Year currentYear;
 
-    @NotNull
-    private final Boolean currentYear;
+    @Nullable
+    private final Year referenceYear;
 
     @Nullable
     private final Integer numberOfYearsAgo;
@@ -83,25 +83,25 @@ public class GeefLeefLoonBedragenRequest extends PersonMagdaRequest {
     public GeefLeefLoonBedragenRequest(
             @NotNull INSZNumber insz,
             @NotNull String registration,
-            @NotNull Year year,
-            @NotNull Boolean currentYear,
+            @Nullable Year currentYear,
+            @Nullable Year referenceYear,
             @Nullable Integer numberOfYearsAgo) {
         super(insz, registration);
-        this.year = year;
         this.currentYear = currentYear;
+        this.referenceYear = referenceYear;
         this.numberOfYearsAgo = numberOfYearsAgo;
     }
 
     @Override
     public MagdaServiceIdentification magdaServiceIdentification() {
-        return new MagdaServiceIdentification("GeefLeefLoonBedragen", "02.00.0000");
+        return new MagdaServiceIdentification("GeefLeefloonbedragen", "02.00.0000");
     }
 
     @Override
     protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         fillInCommonFields(request, magdaRegistrationInfo);
-        request.setValue("//Criteria/Jaar", getYear().toString());
-        request.setValue("//Criteria/Jaar/@Huidig", getCurrentYear() ? "1" : "0" );
+        request.setValue("//Criteria/Jaar", getCurrentYear() != null ? getCurrentYear().toString() : getReferenceYear().toString());
+        request.setValue("//Criteria/Jaar/@Huidig", getCurrentYear() == null ? "0" : "1" );
         request.removeNode("//Criteria/AantalJaarTerug");
         if(getNumberOfYearsAgo() != null)
         {

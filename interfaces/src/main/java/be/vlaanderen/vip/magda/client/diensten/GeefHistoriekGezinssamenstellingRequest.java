@@ -18,8 +18,8 @@ import java.time.format.DateTimeFormatter;
  * A request to a "GeefHistoriekGezinssamenstelling" MAGDA service, which provides information on the history of family composition for an INSZ.
  * Adds the following fields to the {@link PersonMagdaRequest}:
  * <ul>
- * <li>date: the date on which the information on the social status was in effect</li>
- * <li>dateOp: the date operation: false when history from this date; true when history on this date</li>
+ * <li>onDate: search family composition on this date</li>
+ * <li>fromDate: search family composition history from this date</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefHistoriekGezinssamenstelling/02.02.0000/template.xml">XML template for this request type</a>
@@ -32,29 +32,30 @@ public class GeefHistoriekGezinssamenstellingRequest extends PersonMagdaRequest 
     public static class Builder extends PersonMagdaRequest.Builder<Builder> {
 
         @Getter(AccessLevel.PROTECTED)
-        private LocalDate date;
+        private LocalDate fromDate;
         @Getter(AccessLevel.PROTECTED)
-        private Boolean dateOp;
+        private LocalDate onDate;
 
-        public Builder date(LocalDate date) {
-            this.date = date;
+        public Builder fromDate(LocalDate fromDate) {
+            this.fromDate = fromDate;
             return this;
         }
 
-        public Builder dateOp(Boolean dateOp) {
-            this.dateOp = dateOp;
+        public Builder onDate(LocalDate onDate) {
+            this.onDate = onDate;
             return this;
         }
 
         public GeefHistoriekGezinssamenstellingRequest build() {
             if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
-            if(date == null) { throw new IllegalStateException("Date must be given"); }
+            if(getFromDate() == null && getOnDate() == null) { throw new IllegalStateException("FromDate or OnDate must be given"); }
+            if(getFromDate() != null && getOnDate() != null) { throw new IllegalStateException("FromDate or OnDate cannot be given at the same time."); }
 
             return new GeefHistoriekGezinssamenstellingRequest(
                     getInsz(),
                     getRegistration(),
-                    getDate(),
-                    getDateOp()
+                    getFromDate(),
+                    getOnDate()
             );
         }
     }
@@ -63,17 +64,17 @@ public class GeefHistoriekGezinssamenstellingRequest extends PersonMagdaRequest 
         return new Builder();
     }
 
-    private final LocalDate date;
-    private final Boolean dateOp;
+    private final LocalDate fromDate;
+    private final LocalDate onDate;
 
     public GeefHistoriekGezinssamenstellingRequest(
             @NotNull INSZNumber insz,
             @NotNull String registration,
-            @NotNull LocalDate date,
-            @Nullable Boolean dateOp) {
+            @NotNull LocalDate fromDate,
+            @Nullable LocalDate onDate) {
         super(insz, registration);
-        this.date = date;
-        this.dateOp = dateOp;
+        this.fromDate = fromDate;
+        this.onDate = onDate;
     }
 
     @Override
@@ -85,11 +86,8 @@ public class GeefHistoriekGezinssamenstellingRequest extends PersonMagdaRequest 
     protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         fillInCommonFields(request, magdaRegistrationInfo);
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        request.setValue("//Vragen/Vraag/Inhoud/Criteria/Datum", getDate().format(dateFormatter));
+        request.setValue("//Vragen/Vraag/Inhoud/Criteria/Datum", getFromDate() != null ? getFromDate().format(dateFormatter) : getOnDate().format(dateFormatter));
         request.removeAttribute("//Vragen/Vraag/Inhoud/Criteria/Datum/@Op");
-        if(getDateOp() != null)
-        {
-            request.createAttribute("//Vragen/Vraag/Inhoud/Criteria/Datum", "Op", getDateOp() ? "1" : "0");
-        }
+        request.createAttribute("//Vragen/Vraag/Inhoud/Criteria/Datum", "Op", getOnDate() != null ? "0" : "1");
     }
 }
