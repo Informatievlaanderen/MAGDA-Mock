@@ -9,4 +9,8 @@ public class MagdaDocumentException extends RuntimeException {
     public MagdaDocumentException(String message, Throwable cause) {
         super(message, cause);
     }
+
+    public MagdaDocumentException(String message) {
+        super(message);
+    }
 }

@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client.domain.giveperson;
 
+import be.vlaanderen.vip.magda.MalformedMagdaResponseException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
 import be.vlaanderen.vip.magda.client.xml.node.Node;
 
@@ -17,7 +18,7 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
     public DetailedRelatedPerson self() {
         return response.getNode("//Persoon")
                        .map(NodeDetailedRelatedPerson::new)
-                       .orElse(null);
+                       .orElseThrow(() -> new MalformedMagdaResponseException("Magda response document misses an expected 'Persoon' node"));
     }
 
     @Override
@@ -81,7 +82,7 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
         public String insz() {
             return node.get("INSZ")
                        .flatMap(Node::getValue)
-                       .orElse(null);
+                       .orElseThrow(() -> new MalformedMagdaResponseException("Magda response document misses an expected 'INSZ' node"));
         }
 
         @Override

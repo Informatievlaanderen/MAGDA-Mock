@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client.domain.taxrecord;
 
+import be.vlaanderen.vip.magda.MalformedMagdaResponseException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
 import be.vlaanderen.vip.magda.client.xml.node.Node;
 
@@ -18,10 +19,10 @@ public record MagdaResponseTaxRecordList(MagdaResponseWrapper response) implemen
         return new TaxRecord(
                 itemMode.get("Code")
                         .flatMap(Node::getValue)
-                        .orElse(""),
+                        .orElseThrow(() -> new MalformedMagdaResponseException("Magda response document misses an expected 'Code' node in a tax record entry")),
                 itemMode.get("Waarde")
                         .flatMap(Node::getValue)
                         .map(Double::parseDouble)
-                        .orElse(0.0));
+                        .orElseThrow(() -> new MalformedMagdaResponseException("Magda response document misses an expected 'Waarde' node in a tax record entry")));
     }
 }

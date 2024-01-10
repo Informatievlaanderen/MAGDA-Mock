@@ -19,13 +19,31 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 public class MagdaResponse {
+
     private final UUID correlationId;
+
     private final UUID requestId;
+
+    /**
+     * Uitzondering entries in the response's reply, also referred to as "level 2" uitzondering entries.
+     *
+     * @see <a href="https://vlaamseoverheid.atlassian.net/wiki/spaces/MAGDA/pages/190939419/Overzicht+Uitzonderingen+Codes">...</a>
+     */
     private List<UitzonderingEntry> uitzonderingEntries;
+
+    /**
+     * Uitzondering entries in the response's subject matter, also referred to as "level 3" uitzondering entries.
+     *
+     * @see <a href="https://vlaamseoverheid.atlassian.net/wiki/spaces/MAGDA/pages/190939419/Overzicht+Uitzonderingen+Codes">...</a>
+     */
     private List<UitzonderingEntry> responseUitzonderingEntries;
+
     private final Node body;
+
     private final MagdaDocument document;
+
     private final boolean hasContents;
+
     private final Set<SubjectIdentificationNumber> subjects;
 
     public boolean isBodyFilledIn() {

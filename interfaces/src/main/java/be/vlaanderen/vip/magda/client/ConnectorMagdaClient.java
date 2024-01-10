@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.exception.ServerException;
+import be.vlaanderen.vip.magda.exception.UitzonderingenSectionInResponseException;
 
 public class ConnectorMagdaClient implements MagdaClient {
     private MagdaConnector connector;
@@ -15,7 +16,7 @@ public class ConnectorMagdaClient implements MagdaClient {
         try {
             var response = connector.send(request);
             
-            validateMagdaResponse(response);
+            validateMagdaResponse(response, request);
             
             return new MagdaResponseWrapper(response);
         }
@@ -24,12 +25,12 @@ public class ConnectorMagdaClient implements MagdaClient {
         }
     }
     
-    private void validateMagdaResponse(MagdaResponse response) throws MagdaClientException {
+    private void validateMagdaResponse(MagdaResponse response, MagdaRequest request) throws MagdaClientException {
         if(!response.getUitzonderingEntries().isEmpty()) {
-            throw new MagdaClientException("Level 1 exception occurred while calling magda service");
+            throw new MagdaClientException("Level 2 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getUitzonderingEntries()));
         }
         if(!response.getResponseUitzonderingEntries().isEmpty()) {
-            throw new MagdaClientException("Level 2 exception occured while calling magda service");
+            throw new MagdaClientException("Level 3 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getResponseUitzonderingEntries()));
         }
     }
     

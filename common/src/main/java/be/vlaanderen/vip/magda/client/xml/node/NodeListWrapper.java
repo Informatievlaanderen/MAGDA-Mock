@@ -17,7 +17,7 @@ public class NodeListWrapper implements Node {
     
     @Override
     public Optional<String> getValue() {
-        return Optional.of(nodeList)
+        return Optional.ofNullable(nodeList)
                        .filter(list -> list.getLength() == 1)
                        .map(list -> list.item(0))
                        .map(org.w3c.dom.Node::getTextContent);
