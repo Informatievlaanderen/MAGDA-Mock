@@ -18,7 +18,7 @@ class GeefHistoriekGezinssamenstellingTest extends MockTestBase {
         final var requestInsz = "67722499797";
         var request = GeefHistoriekGezinssamenstellingRequest.builder()
                 .insz(requestInsz)
-                .date(LocalDate.of(2023, 12, 1))
+                .onDate(LocalDate.of(2023, 12, 1))
                 .build();
         var clientLogService = new ClientLogServiceMock();
 

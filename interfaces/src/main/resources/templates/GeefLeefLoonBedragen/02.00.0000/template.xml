@@ -2,10 +2,10 @@
                   xmlns:web="http://webservice.geefleefloonbedragendienst-02_00.soczek-02_00.vip.vlaanderen.be">
     <soapenv:Header/>
     <soapenv:Body>
-        <web:GeefLeefLoonBedragen>
+        <web:GeefLeefloonbedragen>
             <Verzoek>
                 <Context>
-                    <Naam>GeefLeefLoonBedragen</Naam>
+                    <Naam>GeefLeefloonbedragen</Naam>
                     <Versie>02.00.0000</Versie>
                     <Bericht>
                         <Type>VRAAG</Type>
@@ -33,6 +33,6 @@
                     </Vraag>
                 </Vragen>
             </Verzoek>
-        </web:GeefLeefLoonBedragen>
+        </web:GeefLeefloonbedragen>
     </soapenv:Body>
 </soapenv:Envelope>

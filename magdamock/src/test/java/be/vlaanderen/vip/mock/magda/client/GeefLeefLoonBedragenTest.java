@@ -18,8 +18,7 @@ class GeefLeefLoonBedragenTest extends MockTestBase {
         final var requestInsz = "83660634135";
         var request = GeefLeefLoonBedragenRequest.builder()
                 .insz(requestInsz)
-                .year(Year.of(2023))
-                .currentYear(true)
+                .currentYear(Year.of(2023))
                 .numberOfYearsAgo(2)
                 .build();
 
