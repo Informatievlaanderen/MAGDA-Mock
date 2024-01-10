@@ -15,12 +15,12 @@ public record MagdaResponseTaxRecordList(MagdaResponseWrapper response) implemen
                 .toList();
     }
 
-    private TaxRecord toTaxRecord(Node itemMode) {
+    private TaxRecord toTaxRecord(Node itemNode) {
         return new TaxRecord(
-                itemMode.get("Code")
+                itemNode.get("Code")
                         .flatMap(Node::getValue)
                         .orElseThrow(() -> new MalformedMagdaResponseException("Magda response document misses an expected 'Code' node in a tax record entry")),
-                itemMode.get("Waarde")
+                itemNode.get("Waarde")
                         .flatMap(Node::getValue)
                         .map(Double::parseDouble)
                         .orElseThrow(() -> new MalformedMagdaResponseException("Magda response document misses an expected 'Waarde' node in a tax record entry")));
