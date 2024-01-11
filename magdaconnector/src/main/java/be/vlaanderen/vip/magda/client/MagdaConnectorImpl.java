@@ -5,7 +5,7 @@ import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
-import be.vlaanderen.vip.magda.client.util.XmlUtils;
+import be.vlaanderen.vip.magda.client.xml.XmlUtils;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import be.vlaanderen.vip.magda.exception.NoResponseException;
 import be.vlaanderen.vip.magda.exception.ServerException;
@@ -173,8 +173,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return MagdaResponse.builder()
                 .correlationId(magdaRequest.getCorrelationId())
                 .requestId(magdaRequest.getRequestId())
-                .uitzonderingEntries(level1UitzonderingEntries(responseDocument))
-                .responseUitzonderingEntries(level2UitzonderingEntries(responseDocument))
+                .uitzonderingEntries(level2UitzonderingEntries(responseDocument))
+                .responseUitzonderingEntries(level3UitzonderingEntries(responseDocument))
                 .body(getBody(responseDocument))
                 .document(responseDocument)
                 .hasContents(responseHasContents(responseDocument))
@@ -190,11 +190,11 @@ public class MagdaConnectorImpl implements MagdaConnector {
         return null;
     }
 
-    private List<UitzonderingEntry> level1UitzonderingEntries(MagdaDocument response) {
+    private List<UitzonderingEntry> level2UitzonderingEntries(MagdaDocument response) {
         return parseUitzonderingenSection(response, "//Repliek/Uitzonderingen");
     }
 
-    private List<UitzonderingEntry> level2UitzonderingEntries(MagdaDocument response) {
+    private List<UitzonderingEntry> level3UitzonderingEntries(MagdaDocument response) {
         return parseUitzonderingenSection(response, "//Repliek/Antwoorden/Antwoord/Uitzonderingen");
     }
 
