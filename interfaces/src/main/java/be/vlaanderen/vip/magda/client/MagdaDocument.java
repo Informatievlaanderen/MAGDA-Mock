@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.magda.client;
 
-import be.vlaanderen.vip.magda.client.util.XmlUtils;
+import be.vlaanderen.vip.magda.client.xml.XmlUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.dom4j.dom.DOMNodeHelper;

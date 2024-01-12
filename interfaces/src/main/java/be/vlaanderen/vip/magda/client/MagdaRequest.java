@@ -3,6 +3,7 @@ package be.vlaanderen.vip.magda.client;
 import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,6 +25,7 @@ import java.util.UUID;
  * </ul>
  */
 @Getter
+@EqualsAndHashCode
 public abstract class MagdaRequest {
 
     protected abstract static class Builder<SELF extends Builder<SELF>> {

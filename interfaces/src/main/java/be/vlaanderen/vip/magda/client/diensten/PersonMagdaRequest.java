@@ -4,6 +4,7 @@ import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 /**
@@ -14,6 +15,7 @@ import lombok.Getter;
  * </ul>
  */
 @Getter
+@EqualsAndHashCode(callSuper = true)
 public abstract class PersonMagdaRequest extends MagdaRequest {
 
     protected abstract static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {

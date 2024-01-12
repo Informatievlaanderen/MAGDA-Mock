@@ -6,6 +6,7 @@ import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.time.OffsetDateTime;
@@ -24,6 +25,7 @@ import java.time.format.DateTimeFormatter;
  * @see <a href="https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/1243022119/SocZek.GeefSociaalStatuut-03.00">More information on this request type</a>
  */
 @Getter
+@EqualsAndHashCode(callSuper = true)
 public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
     
     public static class Builder extends PersonMagdaRequest.Builder<Builder> {
