@@ -24,23 +24,23 @@
 		</Context>
 		<Antwoorden>
 			<Antwoord>
-				<Referte>65349ed7-0448-4079-9eb7-fd4298b28491</Referte>
+				<Referte>f2dcb273-e917-444f-86f6-47123e5ebdd1</Referte>
 				<Inhoud>
-					<Persoon Bron="RR" DatumCreatie="1978-08-06" DatumModificatie="2014-01-28">
-						<INSZ>78680699764</INSZ>
-						<Naam DatumBegin="1978-08-06">
+					<Persoon Bron="RR" DatumCreatie="1979-03-01" DatumModificatie="2015-06-23">
+						<INSZ>79630199805</INSZ>
+						<Naam DatumBegin="1979-03-01">
 							<Achternamen>
-								<Achternaam>Dauwe</Achternaam>
+								<Achternaam>Duchamp</Achternaam>
 							</Achternamen>
 							<Voornamen>
-								<Voornaam>Bart</Voornaam>
+								<Voornaam>Veronique</Voornaam>
 							</Voornamen>
 						</Naam>
 						<Geslacht>
-							<Code>1</Code>
-							<Omschrijving Taal="nl">Mannelijk</Omschrijving>
+							<Code>2</Code>
+							<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
 						</Geslacht>
-						<Beheerder DatumBegin="2008-12-23">
+						<Beheerder DatumBegin="2009-08-13">
 							<Plaats>
 								<Gemeente>
 									<NISCode>43005</NISCode>
@@ -61,22 +61,22 @@
 								<Omschrijving Taal="nl">Nederlands</Omschrijving>
 							</Taalregime>
 						</Beheerder>
-						<Register DatumBegin="1978-08-06">
+						<Register DatumBegin="1979-03-01">
 							<Code>RR</Code>
 							<Omschrijving Taal="nl">Rijksregister</Omschrijving>
 						</Register>
 						<Nationaliteiten>
-							<Nationaliteit DatumBegin="1978-08-06">
+							<Nationaliteit DatumBegin="1979-03-01">
 								<Code>150</Code>
 								<Omschrijving>Belg</Omschrijving>
 							</Nationaliteit>
 						</Nationaliteiten>
-						<Geboorte DatumBegin="1978-08-06">
-							<Datum>1978-08-06</Datum>
+						<Geboorte DatumBegin="1979-03-01">
+							<Datum>1979-03-01</Datum>
 							<Plaats>
 								<Gemeente>
-									<NISCode>43007</NISCode>
-									<Naam>Kaprijke</Naam>
+									<NISCode>34022</NISCode>
+									<Naam>Kortrijk</Naam>
 								</Gemeente>
 								<Land>
 									<NISCode>150</NISCode>
@@ -84,7 +84,7 @@
 									<Naam>BELGIE</Naam>
 								</Land>
 							</Plaats>
-							<Aktenummer>00592</Aktenummer>
+							<Aktenummer>12384</Aktenummer>
 						</Geboorte>
 						<BurgerlijkeStaten>
 							<BurgerlijkeStaat DatumBegin="2011-03-17">
@@ -113,25 +113,49 @@
 								<NISCodeGemeente>43005</NISCodeGemeente>
 							</Hoofdverblijfplaats>
 						</Adressen>
+						<Referentiepersoon DatumBegin="2011-03-17">
+							<INSZ>78680699764</INSZ>
+							<Naam>
+								<Achternamen>
+									<Achternaam>Dauwe</Achternaam>
+								</Achternamen>
+								<Voornamen>
+									<Voornaam>Bart</Voornaam>
+								</Voornamen>
+							</Naam>
+							<Geslacht>
+								<Code>1</Code>
+								<Omschrijving Taal="nl">Mannelijk</Omschrijving>
+							</Geslacht>
+							<Geboortedatum>1978-08-06</Geboortedatum>
+							<Positie>
+								<Code>02</Code>
+								<Omschrijving Taal="nl">Echtgenoot</Omschrijving>
+							</Positie>
+							<Woonvorm>
+								<Code>00</Code>
+								<Omschrijving>Gezin niet collectief wonen</Omschrijving>
+							</Woonvorm>
+						</Referentiepersoon>
 						<Gezinsleden>
 							<Gezinslid DatumBegin="2011-03-17">
-								<INSZ>79630199805</INSZ>
+								<INSZ>78680699764</INSZ>
 								<Naam>
 									<Achternamen>
-										<Achternaam>Duchamp</Achternaam>
+										<Achternaam>Dauwe</Achternaam>
 									</Achternamen>
 									<Voornamen>
-										<Voornaam>Veronique</Voornaam>
+										<Voornaam>Bart</Voornaam>
 									</Voornamen>
 								</Naam>
 								<Geslacht>
-									<Code>2</Code>
-									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+									<Code>1</Code>
+									<Omschrijving Taal="nl">Mannelijk</Omschrijving>
 								</Geslacht>
-								<Geboortedatum>1979-03-01</Geboortedatum>
+								<Geboortedatum>1978-08-06</Geboortedatum>
 								<Positie>
 									<Code>02</Code>
-									<Omschrijving Taal="nl">Echtgenote</Omschrijving>
+									<Omschrijving Taal="nl">Echtgenoot</Omschrijving>
 								</Positie>
 								<Woonvorm>
 									<Code>00</Code>
@@ -164,20 +188,20 @@
 						<WettelijkeSamenwoning DatumBegin="2011-03-17">
 							<Datum>2011-03-17</Datum>
 							<Partner>
-								<INSZ>79630199805</INSZ>
+								<INSZ>78680699764</INSZ>
 								<Naam>
 									<Achternamen>
-										<Achternaam>Duchamp</Achternaam>
+										<Achternaam>Dauwe</Achternaam>
 									</Achternamen>
 									<Voornamen>
-										<Voornaam>Veronique</Voornaam>
+										<Voornaam>Bart</Voornaam>
 									</Voornamen>
 								</Naam>
 								<Geslacht>
-									<Code>2</Code>
-									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+									<Code>1</Code>
+									<Omschrijving Taal="nl">Mannelijk</Omschrijving>
 								</Geslacht>
-								<Geboortedatum>1979-03-01</Geboortedatum>
+								<Geboortedatum>1978-08-06</Geboortedatum>
 							</Partner>
 							<Plaats>
 								<Gemeente>
@@ -192,12 +216,12 @@
 							</Plaats>
 						</WettelijkeSamenwoning>
 						<Identiteitsbewijzen>
-							<Identiteitsbewijs DatumBegin="2014-01-28">
+							<Identiteitsbewijs DatumBegin="2015-04-16">
 								<Type>
 									<Code>0000</Code>
 									<Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
 								</Type>
-								<Nummer>615367434675</Nummer>
+								<Nummer>636067845675</Nummer>
 								<Plaats>
 									<Gemeente>
 										<NISCode>43005</NISCode>

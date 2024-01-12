@@ -24,23 +24,23 @@
 		</Context>
 		<Antwoorden>
 			<Antwoord>
-				<Referte>8393</Referte>
+				<Referte>12e00969-9ee9-46e3-b975-360d96de054a</Referte>
 				<Inhoud>
-					<Persoon Bron="RR" DatumCreatie="1989-05-11" DatumModificatie="2015-10-27">
-						<INSZ>89651174486</INSZ>
-						<Naam DatumBegin="1989-05-11">
+					<Persoon Bron="RR" DatumCreatie="2020-05-26">
+						<INSZ>20652674825</INSZ>
+						<Naam DatumBegin="2020-05-26">
 							<Achternamen>
 								<Achternaam>Jacobs</Achternaam>
 							</Achternamen>
 							<Voornamen>
-								<Voornaam>Eva</Voornaam>
+								<Voornaam>Kim</Voornaam>
 							</Voornamen>
 						</Naam>
 						<Geslacht>
 							<Code>2</Code>
 							<Omschrijving>Vrouwelijk</Omschrijving>
 						</Geslacht>
-						<Beheerder DatumBegin="2010-09-01">
+						<Beheerder DatumBegin="2020-05-26">
 							<Plaats>
 								<Gemeente>
 									<NISCode>35013</NISCode>
@@ -66,13 +66,13 @@
 							<Omschrijving Taal="nl">Rijksregister</Omschrijving>
 						</Register>
 						<Nationaliteiten>
-							<Nationaliteit DatumBegin="1989-05-11">
+							<Nationaliteit DatumBegin="2020-05-26">
 								<Code>RR</Code>
 								<Omschrijving Taal="nl">Rijksregister</Omschrijving>
 							</Nationaliteit>
 						</Nationaliteiten>
-						<Geboorte DatumBegin="1989-05-11">
-							<Datum>1989-05-11</Datum>
+						<Geboorte DatumBegin="2020-05-26">
+							<Datum>2020-05-26</Datum>
 							<Plaats>
 								<Gemeente>
 									<NISCode>35013</NISCode>
@@ -84,20 +84,20 @@
 									<Naam>BELGIE</Naam>
 								</Land>
 							</Plaats>
-							<Aktenummer>06363</Aktenummer>
+							<Aktenummer>94524</Aktenummer>
 							<Bewijsstuk>
 								<Code>00</Code>
 								<Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
 							</Bewijsstuk>
 						</Geboorte>
 						<BurgerlijkeStaten>
-							<BurgerlijkeStaat DatumBegin="2000-05-11">
+							<BurgerlijkeStaat DatumBegin="2020-05-26">
 								<Code>10</Code>
 								<Omschrijving Taal="nl">Ongehuwd</Omschrijving>
 							</BurgerlijkeStaat>
 						</BurgerlijkeStaten>
 						<Adressen>
-							<Hoofdverblijfplaats DatumBegin="2014-05-23">								
+							<Hoofdverblijfplaats DatumBegin="2020-05-26">
 								<Straatnaam>
 									<String>Kairostraat</String>
 									<Taal>nl</Taal>
@@ -118,49 +118,75 @@
 								<NISCodeGemeente>35013</NISCodeGemeente>
 							</Hoofdverblijfplaats>
 						</Adressen>
-						<AfstammingenDalendeLijn>
-							<AfstammingDalendeLijn DatumBegin="2020-05-26">
+						<Afstammingen>
+							<Afstamming DatumBegin="2020-05-26">
 								<Type>
-									<Code>10</Code>
-									<Omschrijving>Kind</Omschrijving>
+									<Code>00</Code>
+									<Omschrijving Taal="nl">Kind</Omschrijving>
 								</Type>
-								<Kind>
-									<INSZ>20652674825</INSZ>
-									<Naam>
-										<Achternamen>
-											<Achternaam>Jacobs</Achternaam>
-										</Achternamen>
-										<Voornamen>
-											<Voornaam>Kim</Voornaam>
-										</Voornamen>
-									</Naam>
-									<Geslacht>
-										<Code>2</Code>
-										<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
-									</Geslacht>
-									<Geboortedatum>2020-05-26</Geboortedatum>
-								</Kind>
-							</AfstammingDalendeLijn>
-						</AfstammingenDalendeLijn>
+								<Ouders>
+									<Ouder>
+										<INSZ>89651174486</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Jacobs</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Eva</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code>2</Code>
+											<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>2020-05-26</Geboortedatum>
+									</Ouder>
+								</Ouders>
+							</Afstamming>
+						</Afstammingen>
+						<Referentiepersoon DatumBegin="2020-05-26">
+							<INSZ>89651174486</INSZ>
+							<Naam>
+								<Achternamen>
+									<Achternaam>Jacobs</Achternaam>
+								</Achternamen>
+								<Voornamen>
+									<Voornaam>Eva</Voornaam>
+								</Voornamen>
+							</Naam>
+							<Geslacht>
+								<Code>2</Code>
+								<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+							</Geslacht>
+							<Geboortedatum>1989-05-11</Geboortedatum>
+							<Positie>
+								<Code>06</Code>
+								<Omschrijving Taal="nl">Moeder</Omschrijving>
+							</Positie>
+							<Woonvorm>
+								<Code>00</Code>
+								<Omschrijving Taal="nl">Gezin niet collectief wonen </Omschrijving>
+							</Woonvorm>
+						</Referentiepersoon>
 						<Gezinsleden>
-							<Gezinslid DatumBegin="2020-05-26">
-								<INSZ>20652674825</INSZ>
+							<Gezinslid DatumBegin="2014-05-23">
+								<INSZ>89651174486</INSZ>
 								<Naam>
 									<Achternamen>
 										<Achternaam>Jacobs</Achternaam>
 									</Achternamen>
 									<Voornamen>
-										<Voornaam>Kim</Voornaam>
+										<Voornaam>Eva</Voornaam>
 									</Voornamen>
 								</Naam>
 								<Geslacht>
 									<Code>2</Code>
 									<Omschrijving>Vrouwelijk</Omschrijving>
 								</Geslacht>
-								<Geboortedatum>2020-05-26</Geboortedatum>
+								<Geboortedatum>1989-05-11</Geboortedatum>
 								<Positie>
-									<Code>03</Code>
-									<Omschrijving>Dochter</Omschrijving>
+									<Code>06</Code>
+									<Omschrijving>Moeder</Omschrijving>
 								</Positie>
 								<Woonvorm>
 									<Code>00</Code>

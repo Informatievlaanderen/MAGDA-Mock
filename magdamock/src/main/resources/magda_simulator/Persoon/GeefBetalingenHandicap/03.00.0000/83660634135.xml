@@ -39,6 +39,51 @@
                                 </status>
                                 <payments>
                                     <payment>
+                                        <yearMonth>2023-01</yearMonth>
+                                        <amount>1047.48</amount>
+                                        <cancelledPayment>0</cancelledPayment>
+                                    </payment>
+                                    <payment>
+                                        <yearMonth>2023-02</yearMonth>
+                                        <amount>1046.44</amount>
+                                        <cancelledPayment>0</cancelledPayment>
+                                    </payment>
+                                    <payment>
+                                        <yearMonth>2023-03</yearMonth>
+                                        <amount>1041.58</amount>
+                                        <cancelledPayment>0</cancelledPayment>
+                                    </payment>
+                                    <payment>
+                                        <yearMonth>2023-04</yearMonth>
+                                        <amount>1047.48</amount>
+                                        <cancelledPayment>0</cancelledPayment>
+                                    </payment>
+                                    <payment>
+                                        <yearMonth>2023-05</yearMonth>
+                                        <amount>1046.44</amount>
+                                        <cancelledPayment>0</cancelledPayment>
+                                    </payment>
+                                    <payment>
+                                        <yearMonth>2023-06</yearMonth>
+                                        <amount>1041.58</amount>
+                                        <cancelledPayment>0</cancelledPayment>
+                                    </payment>
+                                    <payment>
+                                        <yearMonth>2023-07</yearMonth>
+                                        <amount>1047.48</amount>
+                                        <cancelledPayment>0</cancelledPayment>
+                                    </payment>
+                                    <payment>
+                                        <yearMonth>2023-08</yearMonth>
+                                        <amount>1046.44</amount>
+                                        <cancelledPayment>0</cancelledPayment>
+                                    </payment>
+                                    <payment>
+                                        <yearMonth>2023-09</yearMonth>
+                                        <amount>1041.58</amount>
+                                        <cancelledPayment>0</cancelledPayment>
+                                    </payment>
+                                    <payment>
                                         <yearMonth>2023-10</yearMonth>
                                         <amount>1047.48</amount>
                                         <cancelledPayment>0</cancelledPayment>

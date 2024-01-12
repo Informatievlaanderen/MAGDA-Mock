@@ -26,24 +26,21 @@
 			<Antwoord>
 				<Referte>7ef87c67-0724-4879-8a47-eed2b0d926ed</Referte>
 				<Inhoud>
-					<Persoon Bron="RR" DatumCreatie="1971-09-04" DatumModificatie="1996-05-11">
-						<INSZ>71690499880</INSZ>
-						<Naam DatumBegin="1971-09-04">
+					<Persoon Bron="RR" DatumCreatie="2005-09-11" DatumModificatie="2008-12-04">
+						<INSZ>05691199737</INSZ>
+						<Naam DatumBegin="2005-09-11">
 							<Achternamen>
-								<Achternaam>Janssens</Achternaam>
+								<Achternaam>Peeters</Achternaam>
 							</Achternamen>
 							<Voornamen>
-								<Voornaam>Isabelle</Voornaam>
-								<Voornaam>Giovanna</Voornaam>
-								<Voornaam>Mariette</Voornaam>
-								<Voornaam>Elio</Voornaam>
+								<Voornaam>Alex</Voornaam>
 							</Voornamen>
 						</Naam>
 						<Geslacht>
-							<Code>2</Code>
-							<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+							<Code>1</Code>
+							<Omschrijving Taal="nl">Mannelijk</Omschrijving>
 						</Geslacht>
-						<Beheerder DatumBegin="1996-05-11">
+						<Beheerder DatumBegin="2005-09-11">
 							<Plaats>
 								<Gemeente>
 									<NISCode>44021</NISCode>
@@ -69,17 +66,17 @@
 							<Omschrijving Taal="nl">Rijksregister</Omschrijving>
 						</Register>
 						<Nationaliteiten>
-							<Nationaliteit DatumBegin="1971-09-04">
+							<Nationaliteit DatumBegin="2005-09-11">
 								<Code>150</Code>
 								<Omschrijving>Belg</Omschrijving>
 							</Nationaliteit>
 						</Nationaliteiten>
-						<Geboorte DatumBegin="1971-09-04">
-							<Datum>1971-09-04</Datum>
+						<Geboorte DatumBegin="2005-09-11">
+							<Datum>2005-09-11</Datum>
 							<Plaats>
 								<Gemeente>
-									<NISCode>42025</NISCode>
-									<Naam>Wetteren</Naam>
+									<NISCode>44021</NISCode>
+									<Naam>Gent</Naam>
 								</Gemeente>
 								<Land>
 									<NISCode>150</NISCode>
@@ -90,13 +87,13 @@
 							<Aktenummer>00000</Aktenummer>
 						</Geboorte>
 						<BurgerlijkeStaten>
-							<BurgerlijkeStaat DatumBegin="1996-05-11">
-								<Code>20</Code>
-								<Omschrijving Taal="nl">Gehuwd</Omschrijving>
+							<BurgerlijkeStaat DatumBegin="2005-09-11">
+								<Code>10</Code>
+								<Omschrijving Taal="nl">Ongehuwd</Omschrijving>
 							</BurgerlijkeStaat>
 						</BurgerlijkeStaten>
 						<Adressen>
-							<Hoofdverblijfplaats DatumBegin="1996-05-11">
+							<Hoofdverblijfplaats DatumBegin="2005-09-11">
 								<Straatnaam>
 									<String>Hoogstraat</String>
 									<Taal>nl</Taal>
@@ -117,75 +114,54 @@
 								<NISCodeGemeente>44021</NISCodeGemeente>
 							</Hoofdverblijfplaats>
 						</Adressen>
-						<AfstammingenDalendeLijn>
-							<AfstammingDalendeLijn DatumBegin="1997-07-09">
+						<Afstammingen>
+							<Afstamming DatumBegin="1971-09-04">
 								<Type>
-									<Code>10</Code>
-									<Omschrijving>Kind</Omschrijving>
+									<Code>00</Code>
+									<Omschrijving Taal="nl">Kind</Omschrijving>
 								</Type>
-								<Kind>
-									<INSZ>97670999874</INSZ>
-									<Naam>
-										<Achternamen>
-											<Achternaam>Peeters</Achternaam>
-										</Achternamen>
-										<Voornamen>
-											<Voornaam>Jessica</Voornaam>
-										</Voornamen>
-									</Naam>
-									<Geslacht>
-										<Code>2</Code>
-										<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
-									</Geslacht>
-									<Geboortedatum>1997-07-09</Geboortedatum>
-								</Kind>
-							</AfstammingDalendeLijn>
-							<AfstammingDalendeLijn DatumBegin="2001-05-18">
-								<Type>
-									<Code>10</Code>
-									<Omschrijving>Kind</Omschrijving>
-								</Type>
-								<Kind>
-									<INSZ>01651899805</INSZ>
-									<Naam>
-										<Achternamen>
-											<Achternaam>Peeters</Achternaam>
-										</Achternamen>
-										<Voornamen>
-											<Voornaam>Laura</Voornaam>
-										</Voornamen>
-									</Naam>
-									<Geslacht>
-										<Code>2</Code>
-										<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
-									</Geslacht>
-									<Geboortedatum>2001-05-18</Geboortedatum>
-								</Kind>
-							</AfstammingDalendeLijn>
-							<AfstammingDalendeLijn DatumBegin="2005-09-11">
-								<Type>
-									<Code>10</Code>
-									<Omschrijving>Kind</Omschrijving>
-								</Type>
-								<Kind>
-									<INSZ>05691199737</INSZ>
-									<Naam>
-										<Achternamen>
-											<Achternaam>Peeters</Achternaam>
-										</Achternamen>
-										<Voornamen>
-											<Voornaam>Alex</Voornaam>
-										</Voornamen>
-									</Naam>
-									<Geslacht>
-										<Code>1</Code>
-										<Omschrijving Taal="nl">Mannelijk</Omschrijving>
-									</Geslacht>
-									<Geboortedatum>2005-09-11</Geboortedatum>
-								</Kind>
-							</AfstammingDalendeLijn>
-						</AfstammingenDalendeLijn>
-						<Referentiepersoon DatumBegin="1996-05-11">
+								<Ouders>
+									<Ouder>
+										<INSZ>67722499797</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Peeters</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Luc</Voornaam>
+												<Voornaam>Léon</Voornaam>
+												<Voornaam>François</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code>1</Code>
+											<Omschrijving Taal="nl">Mannelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>1943-01-01</Geboortedatum>
+									</Ouder>
+									<Ouder>
+										<INSZ>71690499880</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Janssens</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Isabelle</Voornaam>
+												<Voornaam>Giovanna</Voornaam>
+												<Voornaam>Mariette</Voornaam>
+												<Voornaam>Elio</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code>2</Code>
+											<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>1971-09-04</Geboortedatum>
+									</Ouder>
+								</Ouders>
+							</Afstamming>
+						</Afstammingen>
+						<Referentiepersoon DatumBegin="1997-07-09">
 							<INSZ>67722499797</INSZ>
 							<Naam>
 								<Achternamen>
@@ -203,12 +179,12 @@
 							</Geslacht>
 							<Geboortedatum>1967-12-24</Geboortedatum>
 							<Positie>
-								<Code>02</Code>
-								<Omschrijving Taal="nl">Echtgenoot</Omschrijving>
+								<Code>06</Code>
+								<Omschrijving Taal="nl">Vader</Omschrijving>
 							</Positie>
 							<Woonvorm>
 								<Code>00</Code>
-								<Omschrijving>Gezin niet collectief wonen</Omschrijving>
+								<Omschrijving>Gezin niet collectief wonen </Omschrijving>
 							</Woonvorm>
 						</Referentiepersoon>
 						<Gezinsleden>
@@ -230,8 +206,34 @@
 								</Geslacht>
 								<Geboortedatum>1967-12-24</Geboortedatum>
 								<Positie>
-									<Code>02</Code>
-									<Omschrijving Taal="nl">Echtgenoot</Omschrijving>
+									<Code>06</Code>
+									<Omschrijving Taal="nl">Vader</Omschrijving>
+								</Positie>
+								<Woonvorm>
+									<Code>00</Code>
+								</Woonvorm>
+							</Gezinslid>
+							<Gezinslid DatumBegin="1996-05-11">
+								<INSZ>71690499880</INSZ>
+								<Naam>
+									<Achternamen>
+										<Achternaam>Janssens</Achternaam>
+									</Achternamen>
+									<Voornamen>
+										<Voornaam>Isabelle</Voornaam>
+										<Voornaam>Giovanna</Voornaam>
+										<Voornaam>Mariette</Voornaam>
+										<Voornaam>Elio</Voornaam>
+									</Voornamen>
+								</Naam>
+								<Geslacht>
+									<Code>2</Code>
+									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+								</Geslacht>
+								<Geboortedatum>1971-09-04</Geboortedatum>
+								<Positie>
+									<Code>06</Code>
+									<Omschrijving Taal="nl">Moeder</Omschrijving>
 								</Positie>
 								<Woonvorm>
 									<Code>00</Code>
@@ -253,8 +255,8 @@
 								</Geslacht>
 								<Geboortedatum>1997-07-09</Geboortedatum>
 								<Positie>
-									<Code>03</Code>
-									<Omschrijving Taal="nl">Dochter</Omschrijving>
+									<Code>09</Code>
+									<Omschrijving Taal="nl">Zuster</Omschrijving>
 								</Positie>
 								<Woonvorm>
 									<Code>00</Code>
@@ -276,31 +278,8 @@
 								</Geslacht>
 								<Geboortedatum>2001-05-18</Geboortedatum>
 								<Positie>
-									<Code>03</Code>
-									<Omschrijving Taal="nl">Dochter</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-								</Woonvorm>
-							</Gezinslid>
-							<Gezinslid DatumBegin="2005-09-11">
-								<INSZ>05691199737</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Peeters</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Alex</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code>1</Code>
-									<Omschrijving Taal="nl">Mannelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>2005-09-11</Geboortedatum>
-								<Positie>
-									<Code>03</Code>
-									<Omschrijving Taal="nl">Zoon</Omschrijving>
+									<Code>09</Code>
+									<Omschrijving Taal="nl">Zuster</Omschrijving>
 								</Positie>
 								<Woonvorm>
 									<Code>00</Code>
@@ -313,7 +292,7 @@
 									<Code>0000</Code>
 									<Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
 								</Type>
-								<Nummer>655134737486</Nummer>
+								<Nummer>655789123456</Nummer>
 							</Identiteitsbewijs>
 						</Identiteitsbewijzen>
 					</Persoon>

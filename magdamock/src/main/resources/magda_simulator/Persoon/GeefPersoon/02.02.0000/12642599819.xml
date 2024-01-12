@@ -24,23 +24,23 @@
 		</Context>
 		<Antwoorden>
 			<Antwoord>
-				<Referte>65349ed7-0448-4079-9eb7-fd4298b28491</Referte>
+				<Referte>20b427d4-51bf-4038-9fd7-0acac14e229e</Referte>
 				<Inhoud>
-					<Persoon Bron="RR" DatumCreatie="1978-08-06" DatumModificatie="2014-01-28">
-						<INSZ>78680699764</INSZ>
-						<Naam DatumBegin="1978-08-06">
+					<Persoon Bron="RR" DatumCreatie="2012-04-25">
+						<INSZ>12642599819</INSZ>
+						<Naam DatumBegin="2012-04-25">
 							<Achternamen>
 								<Achternaam>Dauwe</Achternaam>
 							</Achternamen>
 							<Voornamen>
-								<Voornaam>Bart</Voornaam>
+								<Voornaam>Chloë</Voornaam>
 							</Voornamen>
 						</Naam>
 						<Geslacht>
-							<Code>1</Code>
-							<Omschrijving Taal="nl">Mannelijk</Omschrijving>
+							<Code>2</Code>
+							<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
 						</Geslacht>
-						<Beheerder DatumBegin="2008-12-23">
+						<Beheerder DatumBegin="2012-04-25">
 							<Plaats>
 								<Gemeente>
 									<NISCode>43005</NISCode>
@@ -61,22 +61,22 @@
 								<Omschrijving Taal="nl">Nederlands</Omschrijving>
 							</Taalregime>
 						</Beheerder>
-						<Register DatumBegin="1978-08-06">
+						<Register DatumBegin="2012-04-25">
 							<Code>RR</Code>
 							<Omschrijving Taal="nl">Rijksregister</Omschrijving>
 						</Register>
 						<Nationaliteiten>
-							<Nationaliteit DatumBegin="1978-08-06">
+							<Nationaliteit DatumBegin="2012-04-25">
 								<Code>150</Code>
 								<Omschrijving>Belg</Omschrijving>
 							</Nationaliteit>
 						</Nationaliteiten>
-						<Geboorte DatumBegin="1978-08-06">
-							<Datum>1978-08-06</Datum>
+						<Geboorte DatumBegin="2012-04-25">
+							<Datum>2012-04-25</Datum>
 							<Plaats>
 								<Gemeente>
-									<NISCode>43007</NISCode>
-									<Naam>Kaprijke</Naam>
+									<NISCode>34022</NISCode>
+									<Naam>Kortrijk</Naam>
 								</Gemeente>
 								<Land>
 									<NISCode>150</NISCode>
@@ -84,16 +84,16 @@
 									<Naam>BELGIE</Naam>
 								</Land>
 							</Plaats>
-							<Aktenummer>00592</Aktenummer>
+							<Aktenummer>45876</Aktenummer>
 						</Geboorte>
 						<BurgerlijkeStaten>
-							<BurgerlijkeStaat DatumBegin="2011-03-17">
-								<Code>20</Code>
-								<Omschrijving Taal="nl">Gehuwd</Omschrijving>
+							<BurgerlijkeStaat DatumBegin="2012-04-25">
+								<Code>10</Code>
+								<Omschrijving Taal="nl">Ongehuwd</Omschrijving>
 							</BurgerlijkeStaat>
 						</BurgerlijkeStaten>
 						<Adressen>
-							<Hoofdverblijfplaats DatumBegin="2014-05-23">								
+							<Hoofdverblijfplaats DatumBegin="2012-04-25">
 								<Straatnaam>
 									<String>Prinsenhofstraat</String>
 									<Taal>nl</Taal>
@@ -113,7 +113,54 @@
 								<NISCodeGemeente>43005</NISCodeGemeente>
 							</Hoofdverblijfplaats>
 						</Adressen>
+						<Referentiepersoon DatumBegin="2012-04-25">
+							<INSZ>78680699764</INSZ>
+							<Naam>
+								<Achternamen>
+									<Achternaam>Dauwe</Achternaam>
+								</Achternamen>
+								<Voornamen>
+									<Voornaam>Bart</Voornaam>
+								</Voornamen>
+							</Naam>
+							<Geslacht>
+								<Code>1</Code>
+								<Omschrijving Taal="nl">Mannelijk</Omschrijving>
+							</Geslacht>
+							<Geboortedatum>1978-08-06</Geboortedatum>
+							<Positie>
+								<Code>06</Code>
+								<Omschrijving Taal="nl">Vader</Omschrijving>
+							</Positie>
+							<Woonvorm>
+								<Code>00</Code>
+								<Omschrijving>Gezin niet collectief wonen</Omschrijving>
+							</Woonvorm>
+						</Referentiepersoon>
 						<Gezinsleden>
+							<Gezinslid DatumBegin="2011-03-17">
+								<INSZ>78680699764</INSZ>
+								<Naam>
+									<Achternamen>
+										<Achternaam>Dauwe</Achternaam>
+									</Achternamen>
+									<Voornamen>
+										<Voornaam>Bart</Voornaam>
+									</Voornamen>
+								</Naam>
+								<Geslacht>
+									<Code>1</Code>
+									<Omschrijving Taal="nl">Mannelijk</Omschrijving>
+								</Geslacht>
+								<Geboortedatum>1978-08-06</Geboortedatum>
+								<Positie>
+									<Code>06</Code>
+									<Omschrijving Taal="nl">Vader</Omschrijving>
+								</Positie>
+								<Woonvorm>
+									<Code>00</Code>
+								</Woonvorm>
+							</Gezinslid>
 							<Gezinslid DatumBegin="2011-03-17">
 								<INSZ>79630199805</INSZ>
 								<Naam>
@@ -130,74 +177,21 @@
 								</Geslacht>
 								<Geboortedatum>1979-03-01</Geboortedatum>
 								<Positie>
-									<Code>02</Code>
-									<Omschrijving Taal="nl">Echtgenote</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-								</Woonvorm>
-							</Gezinslid>
-							<Gezinslid DatumBegin="2012-04-25">
-								<INSZ>12642599819</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Dauwe</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Chloë</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code>2</Code>
-									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>2012-04-25</Geboortedatum>
-								<Positie>
-									<Code>03</Code>
-									<Omschrijving Taal="nl">Dochter</Omschrijving>
+									<Code>06</Code>
+									<Omschrijving Taal="nl">Moeder</Omschrijving>
 								</Positie>
 								<Woonvorm>
 									<Code>00</Code>
 								</Woonvorm>
 							</Gezinslid>
 						</Gezinsleden>
-						<WettelijkeSamenwoning DatumBegin="2011-03-17">
-							<Datum>2011-03-17</Datum>
-							<Partner>
-								<INSZ>79630199805</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Duchamp</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Veronique</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code>2</Code>
-									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>1979-03-01</Geboortedatum>
-							</Partner>
-							<Plaats>
-								<Gemeente>
-									<NISCode>43005</NISCode>
-									<Naam>Eeklo</Naam>
-								</Gemeente>
-								<Land>
-									<NISCode>150</NISCode>
-									<ISOCode>BEL</ISOCode>
-									<Naam>BELGIE</Naam>
-								</Land>
-							</Plaats>
-						</WettelijkeSamenwoning>
 						<Identiteitsbewijzen>
-							<Identiteitsbewijs DatumBegin="2014-01-28">
+							<Identiteitsbewijs DatumBegin="2019-11-04">
 								<Type>
 									<Code>0000</Code>
 									<Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
 								</Type>
-								<Nummer>615367434675</Nummer>
+								<Nummer>636067849999</Nummer>
 								<Plaats>
 									<Gemeente>
 										<NISCode>43005</NISCode>

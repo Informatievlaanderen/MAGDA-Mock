@@ -24,28 +24,26 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>843bcae3-5726-4e82-818c-579aa48d279b</Referte>
+                <Referte>ce5cca02-1d97-46be-a227-04e8db477230</Referte>
                 <Inhoud>
                     <HistoriekGezinssamenstelling>
                         <Gezinssamenstelling>
                             <Gezinsleden>
-                                <Gezinslid DatumBegin="1996-05-11">
-                                    <INSZ>67722499797</INSZ>
+                                <Gezinslid DatumBegin="2011-03-17">
+                                    <INSZ>78680699764</INSZ>
                                     <Naam>
                                         <Achternamen>
-                                            <Achternaam>Peeters</Achternaam>
+                                            <Achternaam>Dauwe</Achternaam>
                                         </Achternamen>
                                         <Voornamen>
-                                            <Voornaam>Luc</Voornaam>
-                                            <Voornaam>Léon</Voornaam>
-                                            <Voornaam>François</Voornaam>
+                                            <Voornaam>Bart</Voornaam>
                                         </Voornamen>
                                     </Naam>
                                     <Geslacht>
                                         <Code>1</Code>
                                         <Omschrijving Taal="nl">Mannelijk</Omschrijving>
                                     </Geslacht>
-                                    <Geboortedatum>1967-12-24</Geboortedatum>
+                                    <Geboortedatum>1978-08-06</Geboortedatum>
                                     <Positie>
                                         <Code>01</Code>
                                         <Omschrijving Taal="nl">Gezinshoofd</Omschrijving>
@@ -58,24 +56,21 @@
                                         <Omschrijving Taal="nl">Rijksregister</Omschrijving>
                                     </Bron>
                                 </Gezinslid>
-                                <Gezinslid DatumBegin="1996-05-11">
-                                    <INSZ>71690499880</INSZ>
+                                <Gezinslid DatumBegin="2011-03-17">
+                                    <INSZ>79630199805</INSZ>
                                     <Naam>
                                         <Achternamen>
-                                            <Achternaam>Janssens</Achternaam>
+                                            <Achternaam>Duchamp</Achternaam>
                                         </Achternamen>
                                         <Voornamen>
-                                            <Voornaam>Isabelle</Voornaam>
-                                            <Voornaam>Giovanna</Voornaam>
-                                            <Voornaam>Mariette</Voornaam>
-                                            <Voornaam>Elio</Voornaam>
+                                            <Voornaam>Veronique</Voornaam>
                                         </Voornamen>
                                     </Naam>
                                     <Geslacht>
                                         <Code>2</Code>
                                         <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
                                     </Geslacht>
-                                    <Geboortedatum>1971-09-04</Geboortedatum>
+                                    <Geboortedatum>1979-03-01</Geboortedatum>
                                     <Positie>
                                         <Code>02</Code>
                                         <Omschrijving Taal="nl">Echtgenote</Omschrijving>
@@ -88,78 +83,24 @@
                                         <Omschrijving Taal="nl">Rijksregister</Omschrijving>
                                     </Bron>
                                 </Gezinslid>
-                                <Gezinslid DatumBegin="1997-07-09">
-                                    <INSZ>97670999874</INSZ>
+                                <Gezinslid DatumBegin="2012-04-25">
+                                    <INSZ>12642599819</INSZ>
                                     <Naam>
                                         <Achternamen>
-                                            <Achternaam>Peeters</Achternaam>
+                                            <Achternaam>Dauwe</Achternaam>
                                         </Achternamen>
                                         <Voornamen>
-                                            <Voornaam>Jessica</Voornaam>
+                                            <Voornaam>Chloë</Voornaam>
                                         </Voornamen>
                                     </Naam>
                                     <Geslacht>
                                         <Code>2</Code>
                                         <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
                                     </Geslacht>
-                                    <Geboortedatum>1997-07-09</Geboortedatum>
+                                    <Geboortedatum>2012-04-25</Geboortedatum>
                                     <Positie>
                                         <Code>03</Code>
                                         <Omschrijving Taal="nl">Dochter</Omschrijving>
-                                    </Positie>
-                                    <Woonvorm>
-                                        <Code>00</Code>
-                                    </Woonvorm>
-                                    <Bron>
-                                        <Code>RR</Code>
-                                        <Omschrijving Taal="nl">Rijksregister</Omschrijving>
-                                    </Bron>
-                                </Gezinslid>
-                                <Gezinslid DatumBegin="2001-05-18">
-                                    <INSZ>01651899805</INSZ>
-                                    <Naam>
-                                        <Achternamen>
-                                            <Achternaam>Peeters</Achternaam>
-                                        </Achternamen>
-                                        <Voornamen>
-                                            <Voornaam>Laura</Voornaam>
-                                        </Voornamen>
-                                    </Naam>
-                                    <Geslacht>
-                                        <Code>2</Code>
-                                        <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
-                                    </Geslacht>
-                                    <Geboortedatum>2001-05-18</Geboortedatum>
-                                    <Positie>
-                                        <Code>03</Code>
-                                        <Omschrijving Taal="nl">Dochter</Omschrijving>
-                                    </Positie>
-                                    <Woonvorm>
-                                        <Code>00</Code>
-                                    </Woonvorm>
-                                    <Bron>
-                                        <Code>RR</Code>
-                                        <Omschrijving Taal="nl">Rijksregister</Omschrijving>
-                                    </Bron>
-                                </Gezinslid>
-                                <Gezinslid DatumBegin="2005-09-11">
-                                    <INSZ>05691199737</INSZ>
-                                    <Naam>
-                                        <Achternamen>
-                                            <Achternaam>Peeters</Achternaam>
-                                        </Achternamen>
-                                        <Voornamen>
-                                            <Voornaam>Alex</Voornaam>
-                                        </Voornamen>
-                                    </Naam>
-                                    <Geslacht>
-                                        <Code>1</Code>
-                                        <Omschrijving Taal="nl">Mannelijk</Omschrijving>
-                                    </Geslacht>
-                                    <Geboortedatum>2005-09-11</Geboortedatum>
-                                    <Positie>
-                                        <Code>03</Code>
-                                        <Omschrijving Taal="nl">Zoon</Omschrijving>
                                     </Positie>
                                     <Woonvorm>
                                         <Code>00</Code>

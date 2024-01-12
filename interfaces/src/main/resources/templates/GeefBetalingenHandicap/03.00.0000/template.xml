@@ -28,7 +28,6 @@
                                 <ConsultPaymentsCriteria>
                                     <ssin>INSZ</ssin>
                                     <handicapAuthenticSources>
-                                        <DGPH>true</DGPH>
                                     </handicapAuthenticSources>
                                     <period>
                                         <beginDatum>BeginDatum</beginDatum>
