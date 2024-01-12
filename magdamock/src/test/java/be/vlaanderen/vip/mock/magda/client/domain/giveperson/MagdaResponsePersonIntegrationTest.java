@@ -211,7 +211,7 @@ class MagdaResponsePersonIntegrationTest {
         
         @BeforeEach
         void setup() {
-            var members = person("67722499797").unrelatedResidents();
+            var members = person("67722499896").unrelatedResidents();
             assertThat(members, hasSize(3));
 
             member1 = members.get(0);
