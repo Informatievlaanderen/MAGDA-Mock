@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.time.Year;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -22,24 +24,21 @@ class GeefBetalingenHandicapRequestTest {
         void buildsRequest() {
             var startDate = LocalDate.now().minusYears(1);
             var endDate = LocalDate.now();
+            var sources = new HashSet<GeefBetalingenHandicapRequest.HandicapAuthenticSourceType>();
+            sources.add(GeefBetalingenHandicapRequest.HandicapAuthenticSourceType.DGPH);
+            sources.add(GeefBetalingenHandicapRequest.HandicapAuthenticSourceType.VSB);
 
             var request = GeefBetalingenHandicapRequest.builder()
                     .insz(TestBase.TEST_INSZ)
                     .startDate(startDate)
                     .endDate(endDate)
-                    .consultDGPH(true)
-                    .consultVSB(true)
-                    .consultIrisCare(false)
-                    .consultNicCin(false)
+                    .sources(sources)
                     .build();
 
             assertEquals(INSZNumber.of(TestBase.TEST_INSZ), request.getInsz());
             assertEquals(startDate, request.getStartDate());
             assertEquals(endDate, request.getEndDate());
-            assertEquals(true, request.getConsultDGPH());
-            assertEquals(true, request.getConsultVSB());
-            assertEquals(false, request.getConsultIrisCare());
-            assertEquals(false, request.getConsultNicCin());
+            assertEquals(sources, request.getSources());
         }
 
         @Test
@@ -75,7 +74,7 @@ class GeefBetalingenHandicapRequestTest {
         }
 
         @Test
-        void consultSourcesIsOptional() {
+        void sourcesIsOptional() {
             var startDate = LocalDate.now().minusYears(1);
             var endDate = LocalDate.now();
 
@@ -85,10 +84,7 @@ class GeefBetalingenHandicapRequestTest {
                     .endDate(endDate)
                     .build();
 
-            assertNull(request.getConsultDGPH());
-            assertNull(request.getConsultVSB());
-            assertNull(request.getConsultIrisCare());
-            assertNull(request.getConsultNicCin());
+            assertNull(request.getSources());
         }
     }
 
@@ -113,15 +109,15 @@ class GeefBetalingenHandicapRequestTest {
 
         @Test
         void setsFields() {
+            var sources = new HashSet<GeefBetalingenHandicapRequest.HandicapAuthenticSourceType>();
+            sources.add(GeefBetalingenHandicapRequest.HandicapAuthenticSourceType.DGPH);
+            sources.add(GeefBetalingenHandicapRequest.HandicapAuthenticSourceType.VSB);
 
             var request = builder
                     .insz(TestBase.TEST_INSZ)
                     .startDate(LocalDate.of(2022, 01, 22))
                     .endDate(LocalDate.of(2023, 05, 16))
-                    .consultDGPH(true)
-                    .consultVSB(true)
-                    .consultIrisCare(false)
-                    .consultNicCin(false)
+                    .sources(sources)
                     .build()
                     .toMagdaDocument(info);
 
@@ -144,10 +140,10 @@ class GeefBetalingenHandicapRequestTest {
                     .build()
                     .toMagdaDocument(info);
 
-            assertThat(request.getValue("//ConsultPaymentsCriteria/handicapAuthenticSources/DGPH"), is(nullValue()));
-            assertThat(request.getValue("//ConsultPaymentsCriteria/handicapAuthenticSources/VSB"), is(nullValue()));
-            assertThat(request.getValue("//ConsultPaymentsCriteria/handicapAuthenticSources/IrisCare"), is(nullValue()));
-            assertThat(request.getValue("//ConsultPaymentsCriteria/handicapAuthenticSources/NicCin"), is(nullValue()));
+            assertThat(request.getValue("//ConsultPaymentsCriteria/handicapAuthenticSources/DGPH"), is(equalTo("false")));
+            assertThat(request.getValue("//ConsultPaymentsCriteria/handicapAuthenticSources/VSB"), is(equalTo("false")));
+            assertThat(request.getValue("//ConsultPaymentsCriteria/handicapAuthenticSources/IrisCare"), is(equalTo("false")));
+            assertThat(request.getValue("//ConsultPaymentsCriteria/handicapAuthenticSources/NicCin"), is(equalTo("false")));
         }
     }
 }

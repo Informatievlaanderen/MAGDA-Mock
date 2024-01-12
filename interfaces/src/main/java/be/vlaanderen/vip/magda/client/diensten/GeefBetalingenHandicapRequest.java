@@ -14,6 +14,8 @@ import lombok.ToString;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Set;
 
 /**
  * A request to a "GeefBetalingenHandicap" MAGDA service, which provides information regarding disability payments for an INSZ.
@@ -21,10 +23,7 @@ import java.util.ArrayList;
  * <ul>
  * <li>startDate: the start date of the period</li>
  * <li>endDate: the end date of the period</li>
- * <li>consultDGPH: consult the source DGPH</li>
- * <li>consultVSB: consult the source VSB</li>
- * <li>consultIrisCare: consult the source IrisCare</li>
- * <li>consultNicCin: consult the NicCin</li>
+ * <li>sources: include the sources to consult</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefBetalingenHandicap/03.00.0000/template.xml">XML template for this request type</a>
@@ -41,13 +40,7 @@ public class GeefBetalingenHandicapRequest extends PersonMagdaRequest {
         @Getter(AccessLevel.PROTECTED)
         private LocalDate endDate;
         @Getter(AccessLevel.PROTECTED)
-        private Boolean consultDGPH;
-        @Getter(AccessLevel.PROTECTED)
-        private Boolean consultVSB;
-        @Getter(AccessLevel.PROTECTED)
-        private Boolean consultIrisCare;
-        @Getter(AccessLevel.PROTECTED)
-        private Boolean consultNicCin;
+        private Set<HandicapAuthenticSourceType> sources;
 
         public Builder startDate(LocalDate date) {
             this.startDate = date;
@@ -59,23 +52,8 @@ public class GeefBetalingenHandicapRequest extends PersonMagdaRequest {
             return this;
         }
 
-        public Builder consultDGPH(Boolean value) {
-            this.consultDGPH = value;
-            return this;
-        }
-
-        public Builder consultVSB(Boolean value) {
-            this.consultVSB = value;
-            return this;
-        }
-
-        public Builder consultIrisCare(Boolean value) {
-            this.consultIrisCare = value;
-            return this;
-        }
-
-        public Builder consultNicCin(Boolean value) {
-            this.consultNicCin = value;
+        public Builder sources(Set<HandicapAuthenticSourceType> sources) {
+            this.sources = sources;
             return this;
         }
 
@@ -89,10 +67,7 @@ public class GeefBetalingenHandicapRequest extends PersonMagdaRequest {
                     getRegistration(),
                     getStartDate(),
                     getEndDate(),
-                    getConsultDGPH(),
-                    getConsultVSB(),
-                    getConsultIrisCare(),
-                    getConsultNicCin()
+                    getSources()
             );
         }
     }
@@ -106,30 +81,18 @@ public class GeefBetalingenHandicapRequest extends PersonMagdaRequest {
     @NotNull
     private final LocalDate endDate;
     @Nullable
-    private final Boolean consultDGPH;
-    @Nullable
-    private final Boolean consultVSB;
-    @Nullable
-    private final Boolean consultIrisCare;
-    @Nullable
-    private final Boolean consultNicCin;
+    private final Set<HandicapAuthenticSourceType> sources;
 
     public GeefBetalingenHandicapRequest(
             @NotNull INSZNumber insz,
             @NotNull String registration,
             @NotNull LocalDate startDate,
             @NotNull LocalDate endDate,
-            @Nullable Boolean consultDGPH,
-            @Nullable Boolean consultVSB,
-            @Nullable Boolean consultIrisCare,
-            @Nullable Boolean consultNicCin) {
+            @Nullable Set<HandicapAuthenticSourceType> sources) {
         super(insz, registration);
         this.startDate = startDate;
         this.endDate = endDate;
-        this.consultDGPH = consultDGPH;
-        this.consultVSB = consultVSB;
-        this.consultIrisCare = consultIrisCare;
-        this.consultNicCin = consultNicCin;
+        this.sources = sources;
     }
 
     @Override
@@ -145,21 +108,27 @@ public class GeefBetalingenHandicapRequest extends PersonMagdaRequest {
         request.setValue("//ConsultPaymentsCriteria/ssin", getInsz().getValue());
         request.setValue("//ConsultPaymentsCriteria/period/beginDatum", getStartDate().format(dateFormatter));
         request.setValue("//ConsultPaymentsCriteria/period/eindDatum", getEndDate().format(dateFormatter));
-        if(getConsultDGPH() != null) {
-            request.createTextNode("//ConsultPaymentsCriteria/handicapAuthenticSources", "DGPH", getBooleanTextValue(getConsultDGPH()));
-        }
-        if(getConsultVSB() != null) {
-            request.createTextNode("//ConsultPaymentsCriteria/handicapAuthenticSources", "VSB", getBooleanTextValue(getConsultVSB()));
-        }
-        if(getConsultIrisCare() != null) {
-            request.createTextNode("//ConsultPaymentsCriteria/handicapAuthenticSources", "IrisCare", getBooleanTextValue(getConsultIrisCare()));
-        }
-        if(getConsultNicCin() != null) {
-            request.createTextNode("//ConsultPaymentsCriteria/handicapAuthenticSources", "NicCin", getBooleanTextValue(getConsultNicCin()));
-        }
+        Arrays.stream(HandicapAuthenticSourceType.values()).forEach(x -> {
+            request.createTextNode("//ConsultPaymentsCriteria/handicapAuthenticSources", x.getTypeString(), getSources() != null && getSources().contains(x) ? "true" : "false");
+        });
     }
 
-    private String getBooleanTextValue(Boolean value) {
-        return value ? "true" : "false";
+    public enum HandicapAuthenticSourceType {
+        DGPH("DGPH"),
+        VSB("VSB"),
+        IRISCARE("IrisCare"),
+        NICCIN("NicCin");
+
+        private final String typeString;
+
+        HandicapAuthenticSourceType(String typeString) {
+            this.typeString = typeString;
+        }
+
+        public String getTypeString() {
+            return typeString;
+        }
+
+
     }
 }
