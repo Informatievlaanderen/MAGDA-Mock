@@ -15,7 +15,7 @@ class GeefBetalingenHandicapTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefBetalingenHandicapGeeftAntwoord() {
-        final var requestInsz = "00630300287";
+        final var requestInsz = "83660634135";
         var request = GeefBetalingenHandicapRequest.builder()
                 .insz(requestInsz)
                 .startDate(LocalDate.of(2023, 1, 1))

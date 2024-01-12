@@ -15,7 +15,7 @@ class GeefLeefLoonBedragenTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefLeefLoonBedragenGeeftAntwoord() {
-        final var requestInsz = "83660634135";
+        final var requestInsz = "67722499797";
         var request = GeefLeefLoonBedragenRequest.builder()
                 .insz(requestInsz)
                 .currentYear(Year.of(2023))
@@ -43,7 +43,7 @@ class GeefLeefLoonBedragenTest extends MockTestBase {
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
         assertThat(referte).isEqualTo(request.getRequestId().toString());
 
-        var inszNumbers = doc.getValues("//Antwoorden/Antwoord/Inhoud/Leefloonbedragen/Leefloonbedrag/Begunstigden/Begunstigde");
+        var inszNumbers = doc.getValues("//LeefloonPeriode/Begunstigde/INSZ");
         assertThat(inszNumbers).contains(requestInsz);
     }
 
