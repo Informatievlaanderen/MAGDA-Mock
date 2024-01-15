@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:simpleType name="SexType">
+		<xs:annotation>
+			<xs:documentation>Sexe</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="EN">Male</xs:documentation>
+					<xs:documentation xml:lang="FR">Masculin</xs:documentation>
+					<xs:documentation xml:lang="NL">Man</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation xml:lang="EN">Female</xs:documentation>
+					<xs:documentation xml:lang="FR">Feminin</xs:documentation>
+					<xs:documentation xml:lang="NL">Vrouw</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Sex" type="SexType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Sexe</xs:documentation>
+			<xs:documentation xml:lang="NL">Geslacht</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

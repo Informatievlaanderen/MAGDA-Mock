@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 2 U (http://www.xmlspy.com) by leo (leo) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:include schemaLocation="INSS.xsd"/>
+	<xs:complexType name="AttestationIdentificationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Identification de l'attestation</xs:documentation>
+			<xs:documentation xml:lang="NL">Attest identificatie</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="INSS"/>
+			<xs:element ref="AttestationID"/>
+			<xs:choice>
+				<xs:element ref="SituationNbr"/>
+				<xs:element ref="SituationID"/>
+			</xs:choice>
+			<xs:element ref="AttestationStatus"/>
+			<xs:element ref="CreationDate"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="AttestationID">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100001 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100001 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Numero d'identification de l'attestation</xs:documentation>
+			<xs:documentation xml:lang="NL">Identificatienummer van het attest</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:long">
+				<xs:maxInclusive value="999999999999999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AttestationStatus">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100003 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100003 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Nature de l'attestation</xs:documentation>
+			<xs:documentation xml:lang="NL">Aard van attest</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="5"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CreationDate">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100004 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100004 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Date de creation de l'attestation</xs:documentation>
+			<xs:documentation xml:lang="NL">Aanmaakdatum van het attest</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:date">
+				<xs:minInclusive value="2002-04-01"/>
+				<xs:maxInclusive value="2099-12-31"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SituationID">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Identification de la situation</xs:documentation>
+			<xs:documentation xml:lang="NL">Situatiesidentificatie</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:long">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="99999999999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SituationNbr">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100002 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100002 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Numero de situation</xs:documentation>
+			<xs:documentation xml:lang="NL">Situatienummer</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="99"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

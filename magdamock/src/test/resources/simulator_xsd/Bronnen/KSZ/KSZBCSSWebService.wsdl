@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="KSZBCSSWebServiceConnector"
+                  targetNamespace="http://ksz-bcss.fgov.be/connectors/WebServiceConnector"
+                  xmlns:tns="http://ksz-bcss.fgov.be/connectors/WebServiceConnector"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ksz-bcss.fgov.be/connectors/WebServiceConnector"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                elementFormDefault="qualified">
+      <xsd:include schemaLocation="KSZSSDN.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  
+  <wsdl:message name="SendXMLRequest">
+    <wsdl:part name="Request" element="tns:xmlString"/>
+  </wsdl:message>
+  <wsdl:message name="SendXMLResponse">
+    <wsdl:part name="Response" element="tns:xmlString"/>
+  </wsdl:message>
+  
+  <wsdl:portType name="KSZBCSSWebServicePortType">
+    <wsdl:operation name="SendXML">
+      <wsdl:input name="SendXMLRequest" message="tns:SendXMLRequest"/>
+      <wsdl:output name="SendXMLResponse" message="tns:SendXMLResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  
+  <wsdl:binding name="KSZBCSSWebServiceHttpBinding" type="tns:KSZBCSSWebServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SendXML">
+      <soap:operation soapAction="http://ksz-bcss.fgov.be/connectors/WebServiceConnector/sendXML"/>
+      <wsdl:input name="SendXMLRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SendXMLResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  <wsdl:service name="KSZBCSSWebService">
+    <wsdl:port binding="tns:KSZBCSSWebServiceHttpBinding" name="KSZBCSSWebServiceHttpPort">
+      <soap:address location="http://localhost:8080/WebServiceConnectorWeb/services/KSZBCSSWebServiceConnectorPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

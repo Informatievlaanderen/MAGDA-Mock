@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ========================================================================
+      * Owner :               KSZ / CBSS
+     * Creation date :       2022-03-17
+     * Description :         Interface for the HdiIndemnityAllowance web service.
+     * Revision History : 	 2022-03-17: Initial version
+======================================================================== -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:common="http://kszbcss.fgov.be/types/common/v3"
+  xmlns:tns="http://kszbcss.fgov.be/intf/HdiIndemnityAllowanceService/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:an="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/v1" name="HdiIndemnityAllowanceService"
+  targetNamespace="http://kszbcss.fgov.be/intf/HdiIndemnityAllowanceService/v1">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified"
+      xmlns:an="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/v1"
+      targetNamespace="http://kszbcss.fgov.be/intf/HdiIndemnityAllowanceService/v1" version="20220317">
+      <xsd:import namespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/v1"
+        schemaLocation="../../types/HdiIndemnityAllowance/HdiIndemnityAllowanceV1.xsd" />
+      <xsd:import namespace="http://kszbcss.fgov.be/types/common/v3"
+        schemaLocation="../../types/common/CommonV3.xsd" />
+      <xsd:element name="consultAttestRequest" type="an:ConsultAttestRequestType" />
+      <xsd:element name="consultAttestResponse" type="an:ConsultAttestResponseType" />
+      <xsd:element name="consultAttestFault" type="common:CBSSFaultType" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="consultAttestRequestMsg">
+    <wsdl:part element="tns:consultAttestRequest" name="consultAttestRequestParameters" />
+  </wsdl:message>
+  <wsdl:message name="consultAttestResponseMsg">
+    <wsdl:part element="tns:consultAttestResponse" name="consultAttestResponseParameters" />
+  </wsdl:message>
+  <wsdl:message name="consultAttestFaultMsg">
+    <wsdl:part element="tns:consultAttestFault" name="consultAttestFaultParameters" />
+  </wsdl:message>
+  <wsdl:portType name="HdiIndemnityAllowancePortType">
+    <wsdl:operation name="consultAttest">
+      <wsdl:input message="tns:consultAttestRequestMsg" name="consultAttestRequest" />
+      <wsdl:output message="tns:consultAttestResponseMsg" name="consultAttestResponse" />
+      <wsdl:fault message="tns:consultAttestFaultMsg" name="consultAttestFault" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HdiIndemnityAllowanceServiceHTTPBinding" type="tns:HdiIndemnityAllowancePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="consultAttest">
+      <soap:operation soapAction="http://kszbcss.fgov.be/HdiIndemnityAllowanceService/consultAttest" />
+      <wsdl:input name="consultAttestRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="consultAttestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="consultAttestFault">
+        <soap:fault name="consultAttestFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HdiIndemnityAllowanceServiceV1">
+    <wsdl:port binding="tns:HdiIndemnityAllowanceServiceHTTPBinding" name="HdiIndemnityAllowanceService">
+      <soap:address location="https://b2b.ksz-bcss.fgov.be:4520/HdiIndemnityAllowanceService/v1/consult" />
+      <!-- dvlp  https://b2b-test.ksz-bcss.fgov.be  -->
+      <!-- acpt  https://b2b-acpt.ksz-bcss.fgov.be  -->
+      <!-- prod  https://b2b.ksz-bcss.fgov.be  -->
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

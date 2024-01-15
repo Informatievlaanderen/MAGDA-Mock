@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by USER (KSZ-BCSS) -->
+<!-- ========================================================================
+       	 * Owner :               KSZ / CBSS
+         * Creation date :       2018-04-27
+         * Description :         Type definitions for the JobSeeker web service.
+         * Revision History : 	 2018-11-21: Initial version
+======================================================================== -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://kszbcss.fgov.be/types/common/v3" xmlns:puo="http://kszbcss.fgov.be/types/JobSeeker/v1" xmlns:tns="http://kszbcss.fgov.be/intf/JobSeekerService/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://kszbcss.fgov.be/intf/JobSeekerService/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2015-03-11">
+	<!--========= xsd imports ===========-->
+	<xsd:import namespace="http://kszbcss.fgov.be/types/JobSeeker/v1" schemaLocation="JobSeekerTypesV1.xsd"/>
+	<xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../common/CommonV3.xsd"/>
+	
+	<!--========= xsd element ===========-->
+	<xsd:element name="consultContactAndInscriptionRequest" type="puo:ConsultContactAndInscriptionRequestType"/>
+	<xsd:element name="consultContactAndInscriptionResponse" type="puo:ConsultContactAndInscriptionResponseType"/>
+	<xsd:element name="consultContactAndInscriptionFault" type="common:CBSSFaultType"/>
+</xsd:schema>

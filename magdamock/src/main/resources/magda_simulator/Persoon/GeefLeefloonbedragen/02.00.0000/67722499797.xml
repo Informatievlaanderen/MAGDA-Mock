@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefLeefloonbedragenResponse xmlns:web="http://webservice.geefleefloonbedragendienst-02_00.soczek-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefLeefloonbedragen</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2023-12-10</Datum>
+                    <Tijd>09:22:59.303</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>60639483-5f43-49d3-9c28-ed0f1b79e0e8</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>885fb6a4-bd96-467b-a016-9a83a0c3fcad</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>7226aa7c-2339-4e95-bce5-80dca9cde126</Referte>
+                <Inhoud>
+                    <Leefloonbedragen>
+                        <Leefloonbedrag>
+                            <Jaar>2021</Jaar>
+                            <Uitbetaling Beschrijving="Geen uitbetaling">0</Uitbetaling>
+                        </Leefloonbedrag>
+                        <Leefloonbedrag>
+                            <Jaar>2022</Jaar>
+                            <Tegemoetkoming>
+                                <Jaarlijks Jaar="2022">
+                                    <Leefloon>
+                                        <Bedrag>5052.72</Bedrag>
+                                        <TweedeGerechtigde>0</TweedeGerechtigde>
+                                        <AantalMaandenZonderToelage>6</AantalMaandenZonderToelage>
+                                        <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                    </Leefloon>
+                                </Jaarlijks>
+                                <Maandelijks>
+                                    <Maand JaarMaand="2022-07">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20220701">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2022-07-01</Begin>
+                                                    <Einde>2022-07-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20220701</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2022-08">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20220801">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2022-08-01</Begin>
+                                                    <Einde>2022-08-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20220801</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2022-09">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20220901">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2022-09-01</Begin>
+                                                    <Einde>2022-09-30</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20220901</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2022-10">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20221001">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2022-10-01</Begin>
+                                                    <Einde>2022-10-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20221001</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2022-11">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20221101">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2022-11-01</Begin>
+                                                    <Einde>2022-11-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20221101</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2022-12">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20221201">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2022-12-01</Begin>
+                                                    <Einde>2022-12-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20221201</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                </Maandelijks>
+                            </Tegemoetkoming>
+                        </Leefloonbedrag>
+                        <Leefloonbedrag>
+                            <Jaar>2023</Jaar>
+                            <Tegemoetkoming>
+                                <Jaarlijks Jaar="2023">
+                                    <Leefloon>
+                                        <Bedrag>10105.44</Bedrag>
+                                        <TweedeGerechtigde>0</TweedeGerechtigde>
+                                        <AantalMaandenZonderToelage>0</AantalMaandenZonderToelage>
+                                        <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                    </Leefloon>
+                                </Jaarlijks>
+                                <Maandelijks>
+                                    <Maand JaarMaand="2023-01">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20230101">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2023-07-01</Begin>
+                                                    <Einde>2023-07-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20230101</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2023-02">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20230201">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2023-08-01</Begin>
+                                                    <Einde>2023-08-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20230201</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2023-03">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20230301">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2023-09-01</Begin>
+                                                    <Einde>2023-09-30</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20230301</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2023-04">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20230401">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2023-10-01</Begin>
+                                                    <Einde>2023-10-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20230401</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2023-05">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20230501">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2023-11-01</Begin>
+                                                    <Einde>2023-11-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20230501</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2023-06">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20230601">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2023-12-01</Begin>
+                                                    <Einde>2023-12-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20230601</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2023-07">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20230701">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2023-07-01</Begin>
+                                                    <Einde>2023-07-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20230701</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2023-08">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20230801">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2023-08-01</Begin>
+                                                    <Einde>2023-08-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20230801</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2023-09">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20230901">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2023-09-01</Begin>
+                                                    <Einde>2023-09-30</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20230901</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2023-10">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20231001">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2023-10-01</Begin>
+                                                    <Einde>2023-10-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20231001</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2023-11">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20231101">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2023-11-01</Begin>
+                                                    <Einde>2023-11-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20231101</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                    <Maand JaarMaand="2023-12">
+                                        <LeefloonPerPeriode LaatsteUitbetaling="1">
+                                            <LeefloonPeriode ID="20231201">
+                                                <Bedrag>842.12</Bedrag>
+                                                <Periode>
+                                                    <Begin>2023-12-01</Begin>
+                                                    <Einde>2023-12-31</Einde>
+                                                </Periode>
+                                                <Begunstigde>
+                                                    <INSZ>67722499797</INSZ>
+                                                </Begunstigde>
+                                                <Partner>
+                                                    <INSZ>71690499880</INSZ>
+                                                </Partner>
+                                                <OCMW>
+                                                    <Ondernemingsnummer>0212189676</Ondernemingsnummer>
+                                                    <Bestand>20231201</Bestand>
+                                                    <Suffix>0</Suffix>
+                                                </OCMW>
+                                                <MaximumLeefloonGekregen>0</MaximumLeefloonGekregen>
+                                            </LeefloonPeriode>
+                                        </LeefloonPerPeriode>
+                                    </Maand>
+                                </Maandelijks>
+                            </Tegemoetkoming>
+                        </Leefloonbedrag>
+                    </Leefloonbedragen>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefLeefloonbedragenResponse>

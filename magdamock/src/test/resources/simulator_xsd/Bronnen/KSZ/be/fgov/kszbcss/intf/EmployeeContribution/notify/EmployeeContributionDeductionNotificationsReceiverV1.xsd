@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://kszbcss.fgov.be/intf/EmployeeContribution/notify/v1" xmlns:common="http://kszbcss.fgov.be/types/common/v3" xmlns:cont="http://kszbcss.fgov.be/types/EmployeeContribution/notify/v1" targetNamespace="http://kszbcss.fgov.be/intf/EmployeeContribution/notify/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../../../types/common/CommonV3.xsd"/>
+	<xs:import namespace="http://kszbcss.fgov.be/types/EmployeeContribution/notify/v1" schemaLocation="../../../types/EmployeeContribution/notify/EmployeeContributionDeductionNotificationsV1.xsd"/>
+	<!--=========== Elements ===========-->
+	<xs:element name="notifyDeduction" type="tns:GrantedDeductionsType"/>
+	<!--=========== Types ===========-->
+	<xs:complexType name="GrantedDeductionsType">
+		<xs:sequence>
+			<xs:element name="sender" type="common:SenderReceiverType"/>
+			<xs:element name="receiver" type="common:SenderReceiverType"/>
+			<xs:element name="legalContext" type="common:LegalContextType">
+				<xs:annotation>
+					<xs:documentation>legal context under which the request was made</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sequenceNumber" type="common:SequenceNumberType"/>
+			<xs:element name="quarter" type="common:YearQuarterType"/>
+			<xs:element name="version" type="cont:VersionType"/>
+			<xs:element name="contributionDeductions" type="cont:GrantedDeductionsType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+	<xs:include schemaLocation="Period.xsd"/>
+	<xs:element name="SearchPeriod">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 900001 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 900001 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Periode de recherche</xs:documentation>
+			<xs:documentation xml:lang="NL">Beschouwde periode</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+
+					<xs:sequence>
+						<xs:element name="BeginDate" minOccurs="0">
+							<xs:annotation>
+								<xs:appinfo>BeginGlossaryDetailFr 100032 EndGlossaryDetailFr</xs:appinfo>
+								<xs:appinfo>BeginGlossaryDetailNl 100032 EndGlossaryDetailNl</xs:appinfo>
+								<xs:documentation xml:lang="FR">Date de debut</xs:documentation>
+								<xs:documentation xml:lang="NL">Begindatum</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:date">
+									<xs:minInclusive value="1880-01-01"/>
+									<xs:maxInclusive value="2099-12-31"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="EndDate" minOccurs="0">
+							<xs:annotation>
+								<xs:appinfo>BeginGlossaryDetailFr 100033 EndGlossaryDetailFr</xs:appinfo>
+								<xs:appinfo>BeginGlossaryDetailNl 100033 EndGlossaryDetailNl</xs:appinfo>
+								<xs:documentation xml:lang="FR">Date de fin</xs:documentation>
+								<xs:documentation xml:lang="NL">Eindedatum</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:date">
+									<xs:minInclusive value="1880-01-01"/>
+									<xs:maxInclusive value="2099-12-31"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefLeefloonbedragenResponse xmlns:web="http://webservice.geefleefloonbedragendienst-02_00.soczek-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefLeefloonbedragen</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2023-12-10</Datum>
+                    <Tijd>13:22:14.967</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>73e2683a-9620-4a06-993b-97bf6ab98e48</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>885fb6a4-bd96-467b-a016-9a83a0c3fcad</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Uitzonderingen>
+            <Uitzondering>
+                <Identificatie>99995</Identificatie>
+                <Oorsprong>MAGDA</Oorsprong>
+                <Type>FOUT</Type>
+                <Tijdstip>
+                    <Datum>2023-12-10</Datum>
+                    <Tijd>13:22:15.756</Tijd>
+                </Tijdstip>
+                <Diagnose>Te veel gelijktijdige bevragingen</Diagnose>
+            </Uitzondering>
+        </Uitzonderingen>
+    </Repliek>
+</web:GeefLeefloonbedragenResponse>

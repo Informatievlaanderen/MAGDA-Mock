@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by USER (KSZ-BCSS) -->
+<!-- ========================================================================
+   * Owner :				KSZ / CBSS
+   * Creation date :		01/02/2019
+   * Description :
+   * Revision History :
+    05/02/2019 : evolutionofrequest mandatory in filetype
+-->
+<xsd:schema xmlns:tns="http://kszbcss.fgov.be/types/Handi/kindengezin/common/v1"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:commonhandi="http://kszbcss.fgov.be/types/Handi/common/v1"
+  targetNamespace="http://kszbcss.fgov.be/types/Handi/kindengezin/common/v1" elementFormDefault="unqualified"
+  attributeFormDefault="unqualified" version="2019-02-01">
+  <xsd:import namespace="http://kszbcss.fgov.be/types/Handi/common/v1"
+    schemaLocation="../../common/HandiCommonV1.xsd" />
+  <xsd:complexType name="FileType">
+    <xsd:sequence>
+      <xsd:element name="evolutionOfRequest" type="tns:EvolutionOfRequestType" minOccurs="0" />
+      <xsd:element name="handicapRecognitions" type="tns:HandicapRecognitionsType" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FileByPeriodType">
+    <xsd:sequence>
+      <xsd:element name="evolutionOfRequest" type="tns:EvolutionOfRequestType" minOccurs="0" />
+      <xsd:element name="handicapRecognitions" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="handicapRecognition" type="tns:HandicapRecognitionType" maxOccurs="50" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Types for the evolution of the request -->
+  <xsd:complexType name="EvolutionOfRequestType">
+    <xsd:sequence>
+      <xsd:element name="legislation" type="commonhandi:EORLegislationType" />
+      <xsd:element name="requestDate" type="xsd:date" minOccurs="0" />
+      <xsd:element name="handicapRecognitionPending" type="xsd:boolean" />
+      <xsd:element name="fileCompletionDate" type="xsd:date" minOccurs="0" />
+      <xsd:element name="appeal" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Types for the handicap recognition -->
+  <xsd:complexType name="HandicapRecognitionsType">
+    <xsd:sequence>
+      <xsd:element name="handicapRecognition" type="tns:HandicapRecognitionType" maxOccurs="10" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="HandicapRecognitionType">
+    <xsd:sequence>
+      <xsd:element name="recognitionStatus" type="commonhandi:RecognitionStatusType" minOccurs="0" />
+      <xsd:element name="legislation" type="commonhandi:HandicapRecognitionLegislationType" minOccurs="0" />
+      <xsd:element name="resultRecognitionChild" type="tns:ResultRecognitionChildType" minOccurs="0" />
+      <xsd:element name="decisionStatus" type="commonhandi:DecisionStatusType" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ResultRecognitionChildType">
+    <xsd:sequence>
+      <xsd:element name="pillars" type="commonhandi:PillarsType" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

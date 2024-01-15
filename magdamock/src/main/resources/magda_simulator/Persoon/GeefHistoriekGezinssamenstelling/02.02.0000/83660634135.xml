@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefHistoriekGezinssamenstellingResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefhistoriekgezinssamenstelling/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefHistoriekGezinssamenstelling</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2023-12-10</Datum>
+                    <Tijd>09:22:59.303</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>60639483-5f43-49d3-9c28-ed0f1b79e0e8</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>885fb6a4-bd96-467b-a016-9a83a0c3fcad</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>e23228a9-3239-4d3d-8af3-18606e335c20</Referte>
+                <Inhoud>
+                    <HistoriekGezinssamenstelling>
+                        <Gezinssamenstelling>
+                            <Gezinsleden>
+                                <Gezinslid DatumBegin="2000-07-23">
+                                    <INSZ>83660634135</INSZ>
+                                    <Naam>
+                                        <Achternamen>
+                                            <Achternaam>Depaepe</Achternaam>
+                                        </Achternamen>
+                                        <Voornamen>
+                                            <Voornaam>Bjorn</Voornaam>
+                                        </Voornamen>
+                                    </Naam>
+                                    <Geslacht>
+                                        <Code>1</Code>
+                                        <Omschrijving Taal="nl">Mannelijk</Omschrijving>
+                                    </Geslacht>
+                                    <Geboortedatum>1986-03-01</Geboortedatum>
+                                    <Positie>
+                                        <Code>01</Code>
+                                        <Omschrijving Taal="nl">Gezinshoofd</Omschrijving>
+                                    </Positie>
+                                    <Woonvorm>
+                                        <Code>00</Code>
+                                    </Woonvorm>
+                                    <Bron>
+                                        <Code>RR</Code>
+                                        <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                                    </Bron>
+                                </Gezinslid>
+                            </Gezinsleden>
+                        </Gezinssamenstelling>
+                    </HistoriekGezinssamenstelling>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefHistoriekGezinssamenstellingResponse>
