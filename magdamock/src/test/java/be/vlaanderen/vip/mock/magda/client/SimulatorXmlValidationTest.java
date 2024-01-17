@@ -58,7 +58,7 @@ class SimulatorXmlValidationTest {
             "Persoon/GeefPasfoto/02.00.0000",                         "Persoon.GeefPasfotoDienst-02.00/WebService/GeefPasfotoResponse.xsd",
             "Persoon/GeefPersoon/02.02.0000",                         "Persoon.GeefPersoonDienst-02.02/WebService/GeefPersoonResponse.xsd",
             "Persoon/GeefSociaalStatuut/03.00.0000",                  "SocZek.GeefSociaalStatuutDienst-03.00/WebService/GeefSociaalStatuutResponse.xsd",
-            "Persoon/GeefWerkrelaties/02.00.0000",                    "Werk.GeefWerkrelatiesDienst-02.00/Webservice/GeefWerkrelatiesResponse.xsd",
+            "Persoon/GeefWerkrelaties/02.00.0000",                    "Werk.GeefWerkrelatiesDienst-02.00/WebService/GeefWerkrelatiesResponse.xsd",
             "Persoon/GeefVolledigDossierHandicap/03.00.0000",         "SocZek.GeefVolledigDossierHandicapDienst-03.00/WebService/GeefVolledigDossierHandicapResponse.xsd",
             "Persoon/RegistreerInschrijving/02.00.0000",              "Repertorium.RegistreerInschrijvingDienst-02.00/WebService/RegistreerInschrijvingResponse.xsd",
             "Persoon/RegistreerInschrijving/02.01.0000",              "Repertorium.RegistreerInschrijvingDienst-02.01/WebService/RegistreerInschrijvingResponse.xsd",
