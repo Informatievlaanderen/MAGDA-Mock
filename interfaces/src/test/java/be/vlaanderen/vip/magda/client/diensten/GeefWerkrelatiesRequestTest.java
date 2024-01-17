@@ -23,6 +23,7 @@ class GeefWerkrelatiesRequestTest {
             var endDate = LocalDate.of(2023,12,31);
             var request = GeefWerkrelatiesRequest.builder()
                     .insz(TestBase.TEST_INSZ)
+                    .source(GeefWerkrelatiesRequest.SourceType.RSZ)
                     .startDate(startDate)
                     .endDate(endDate)
                     .startedOrEndedType(GeefWerkrelatiesRequest.StartedOrEndedType.STARTED_OR_ENDED_ONLY)
@@ -30,6 +31,7 @@ class GeefWerkrelatiesRequestTest {
                     .interimIndicationType(GeefWerkrelatiesRequest.InterimIndicationType.NON_INTERIM_ONLY)
                     .build();
             assertEquals(INSZNumber.of(TestBase.TEST_INSZ), request.getInsz());
+            assertEquals(GeefWerkrelatiesRequest.SourceType.RSZ, request.getSource());
             assertEquals(startDate, request.getStartDate());
             assertEquals(endDate, request.getEndDate());
             assertEquals(GeefWerkrelatiesRequest.StartedOrEndedType.STARTED_OR_ENDED_ONLY, request.getStartedOrEndedType());
@@ -73,6 +75,21 @@ class GeefWerkrelatiesRequestTest {
                     .startedOrEndedType(GeefWerkrelatiesRequest.StartedOrEndedType.ALL)
                     .interimIndicationType(GeefWerkrelatiesRequest.InterimIndicationType.ALL);
             assertThrows(IllegalStateException.class, builder::build);
+        }
+
+        @Test
+        void sourceIsOptional() {
+            var startDate = LocalDate.of(2023, 1,1);
+            var endDate = LocalDate.of(2023,12,31);
+            var request = GeefWerkrelatiesRequest.builder()
+                    .insz(TestBase.TEST_INSZ)
+                    .startDate(startDate)
+                    .endDate(endDate)
+                    .startedOrEndedType(GeefWerkrelatiesRequest.StartedOrEndedType.STARTED_OR_ENDED_ONLY)
+                    .deletionIndicationType(GeefWerkrelatiesRequest.DeletionIndicationType.NON_DELETED)
+                    .interimIndicationType(GeefWerkrelatiesRequest.InterimIndicationType.NON_INTERIM_ONLY)
+                    .build();
+            assertNull(request.getSource());
         }
 
         @Test
@@ -137,6 +154,7 @@ class GeefWerkrelatiesRequestTest {
 
             var request = builder
                     .insz(TestBase.TEST_INSZ)
+                    .source(GeefWerkrelatiesRequest.SourceType.RSZ)
                     .startDate(LocalDate.of(2023, 1,1))
                     .endDate(LocalDate.of(2023,12,31))
                     .startedOrEndedType(GeefWerkrelatiesRequest.StartedOrEndedType.STARTED_OR_ENDED_ONLY)
@@ -145,11 +163,24 @@ class GeefWerkrelatiesRequestTest {
                     .build()
                     .toMagdaDocument(info);
             assertThat(request.getValue("//Criteria/Relatie/Werknemer/INSZ"), is(equalTo(TestBase.TEST_INSZ)));
+            assertThat(request.getValue("//Criteria/Bron"), is(equalTo(GeefWerkrelatiesRequest.SourceType.RSZ.getTypeString())));
             assertThat(request.getValue("//Criteria/Periode/Begin"), is(equalTo("2023-01-01")));
             assertThat(request.getValue("//Criteria/Periode/Einde"), is(equalTo("2023-12-31")));
-            assertThat(request.getValue("//Criteria/EnkelGestartOfBeeindigd"), is(equalTo(GeefWerkrelatiesRequest.StartedOrEndedType.STARTED_OR_ENDED_ONLY.toString())));
-            assertThat(request.getValue("//Criteria/SchrappingsIndicatie"), is(equalTo(GeefWerkrelatiesRequest.DeletionIndicationType.NON_DELETED.toString())));
-            assertThat(request.getValue("//Criteria/InterimIndicatie"), is(equalTo(GeefWerkrelatiesRequest.InterimIndicationType.NON_INTERIM_ONLY.toString())));
+            assertThat(request.getValue("//Criteria/EnkelGestartOfBeeindigd"), is(equalTo(GeefWerkrelatiesRequest.StartedOrEndedType.STARTED_OR_ENDED_ONLY.getTypeString())));
+            assertThat(request.getValue("//Criteria/SchrappingsIndicatie"), is(equalTo(GeefWerkrelatiesRequest.DeletionIndicationType.NON_DELETED.getTypeString())));
+            assertThat(request.getValue("//Criteria/InterimIndicatie"), is(equalTo(GeefWerkrelatiesRequest.InterimIndicationType.NON_INTERIM_ONLY.getTypeString())));
+        }
+
+        @Test
+        void doesNotSetSourceIfNotSpecified() {
+            var request = builder
+                    .insz(TestBase.TEST_INSZ)
+                    .startDate(LocalDate.of(2023, 1,1))
+                    .deletionIndicationType(GeefWerkrelatiesRequest.DeletionIndicationType.ALL)
+                    .build()
+                    .toMagdaDocument(info);
+
+            assertThat(request.xpath("//Criteria/Bron").getLength(), is(0));
         }
 
         @Test

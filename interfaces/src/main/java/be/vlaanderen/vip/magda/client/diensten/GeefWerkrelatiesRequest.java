@@ -2,9 +2,11 @@ package be.vlaanderen.vip.magda.client.diensten;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
+import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.ToString;
@@ -32,6 +34,8 @@ public class GeefWerkrelatiesRequest  extends PersonMagdaRequest{
 
     public static class Builder extends PersonMagdaRequest.Builder<Builder> {
         @Getter(AccessLevel.PROTECTED)
+        private SourceType source;
+        @Getter(AccessLevel.PROTECTED)
         private LocalDate startDate;
         @Getter(AccessLevel.PROTECTED)
         private LocalDate endDate;
@@ -41,6 +45,11 @@ public class GeefWerkrelatiesRequest  extends PersonMagdaRequest{
         private DeletionIndicationType deletionIndicationType;
         @Getter(AccessLevel.PROTECTED)
         private InterimIndicationType interimIndicationType;
+
+        public Builder source(SourceType source) {
+            this.source = source;
+            return this;
+        }
 
         public Builder startDate(LocalDate date) {
             this.startDate = date;
@@ -74,6 +83,7 @@ public class GeefWerkrelatiesRequest  extends PersonMagdaRequest{
             return new GeefWerkrelatiesRequest(
                     getInsz(),
                     getRegistration(),
+                    getSource(),
                     getStartDate(),
                     getEndDate(),
                     getStartedOrEndedType(),
@@ -86,7 +96,8 @@ public class GeefWerkrelatiesRequest  extends PersonMagdaRequest{
     public static Builder builder() {
         return new Builder();
     }
-
+    @Nullable
+    private final SourceType source;
     @NotNull
     private final LocalDate startDate;
     @Nullable
@@ -101,12 +112,14 @@ public class GeefWerkrelatiesRequest  extends PersonMagdaRequest{
     public GeefWerkrelatiesRequest(
             @NotNull INSZNumber insz,
             @NotNull String registration,
+            @Nullable SourceType source,
             @NotNull LocalDate startDate,
             @Nullable LocalDate endDate,
             @Nullable StartedOrEndedType startedOrEndedType,
             @NotNull DeletionIndicationType deletionIndicationType,
             @Nullable InterimIndicationType interimIndicationType) {
         super(insz, registration);
+        this.source = source;
         this.startDate = startDate;
         this.endDate = endDate;
         this.startedOrEndedType = startedOrEndedType;
@@ -124,19 +137,27 @@ public class GeefWerkrelatiesRequest  extends PersonMagdaRequest{
         fillInCommonFields(request, magdaRegistrationInfo);
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//Criteria/Relatie/Werknemer/INSZ", getInsz().getValue());
+        if (getSource() != null) {
+            request.setValue("//Criteria/Bron", getSource().getTypeString());
+        } else {
+            request.removeNode("//Criteria/Bron");
+        }
         request.setValue("//Criteria/Periode/Begin", getStartDate().format(dateFormatter));
-        request.removeNode("//Criteria/Periode/Einde");
-        if(getEndDate() != null) {
-            request.createTextNode("//Criteria/Periode", "Einde", getEndDate().format(dateFormatter));
+        if (getEndDate() != null) {
+            request.setValue("//Criteria/Periode/Einde", getEndDate().format(dateFormatter));
+        } else {
+            request.removeNode("//Criteria/Periode/Einde");
         }
-        request.removeNode("//Criteria/EnkelGestartOfBeeindigd");
-        if(getStartedOrEndedType() != null) {
-            request.createTextNode("//Criteria", "EnkelGestartOfBeeindigd", getStartedOrEndedType().toString());
+        if (getStartedOrEndedType() != null) {
+            request.setValue("//Criteria/EnkelGestartOfBeeindigd", getStartedOrEndedType().getTypeString());
+        } else {
+            request.removeNode("//Criteria/EnkelGestartOfBeeindigd");
         }
-        request.setValue("//Criteria/SchrappingsIndicatie", getDeletionIndicationType().toString());
-        request.removeNode("//Criteria/InterimIndicatie");
-        if(getInterimIndicationType() != null) {
-            request.createTextNode("//Criteria", "InterimIndicatie", getInterimIndicationType().toString());
+        request.setValue("//Criteria/SchrappingsIndicatie", getDeletionIndicationType().getTypeString());
+        if (getInterimIndicationType() != null) {
+            request.setValue("//Criteria/InterimIndicatie", getInterimIndicationType().getTypeString());
+        } else {
+            request.removeNode("//Criteria/InterimIndicatie");
         }
     }
 
@@ -211,4 +232,18 @@ public class GeefWerkrelatiesRequest  extends PersonMagdaRequest{
         }
     }
 
+    public enum SourceType {
+        RSZ("RSZ"),
+        DIBISS("DIBISS");
+
+        private final String typeString;
+
+        SourceType(String typeString) {
+            this.typeString = typeString;
+        }
+
+        public String getTypeString() {
+            return typeString;
+        }
+    }
 }

@@ -1,11 +1,11 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-                  xmlns:web="http://webservice.geefwerkrelatiesdienst-02_00.werk-02_00.vip.vlaanderen.be">
+                  xmlns:web="http://webservice.geeffunctiesdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
     <soapenv:Header/>
     <soapenv:Body>
-        <web:GeefWerkrelaties>
+        <web:GeefFuncties>
             <Verzoek>
                 <Context>
-                    <Naam>GeefWerkrelaties</Naam>
+                    <Naam>GeefFuncties</Naam>
                     <Versie>02.00.0000</Versie>
                     <Bericht>
                         <Type>VRAAG</Type>
@@ -25,24 +25,19 @@
                         <Referte>Referte</Referte>
                         <Inhoud>
                             <Criteria>
-                                <Relatie>
-                                    <Werknemer>
-                                        <INSZ>INSZ</INSZ>
-                                    </Werknemer>
-                                </Relatie>
-                                <Bron>BRON</Bron>
-                                <Periode>
-                                    <Begin>BeginDatum</Begin>
-                                    <Einde>EindDatum</Einde>
-                                </Periode>
-                                <EnkelGestartOfBeeindigd>0</EnkelGestartOfBeeindigd>
-                                <SchrappingsIndicatie>0</SchrappingsIndicatie>
-                                <InterimIndicatie>0</InterimIndicatie>
+                                <Persoon>
+                                    <INSZ>INSZ</INSZ>
+                                    <Ondernemingsnummer>Ondernemingsnummer</Ondernemingsnummer>
+                                </Persoon>
+                                <AardFuncties>
+                                    <AardFunctie>AardFunctie1</AardFunctie>
+                                    <AardFunctie>AardFunctie2</AardFunctie>
+                                </AardFuncties>
                             </Criteria>
                         </Inhoud>
                     </Vraag>
                 </Vragen>
             </Verzoek>
-        </web:GeefWerkrelaties>
+        </web:GeefFuncties>
     </soapenv:Body>
 </soapenv:Envelope>

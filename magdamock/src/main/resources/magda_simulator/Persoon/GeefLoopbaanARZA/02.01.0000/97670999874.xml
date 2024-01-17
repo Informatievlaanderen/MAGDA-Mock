@@ -27,7 +27,7 @@
                 <Referte>93128622-15b6-4b33-b44b-38d180873575</Referte>
                 <Inhoud>
                     <Zelfstandige>
-                        <INSZ>00630300287</INSZ>
+                        <INSZ>97670999874</INSZ>
                         <Aansluitingen>
                             <Aansluiting>
                                 <SociaalVerzekeringsfonds>
@@ -42,17 +42,17 @@
                                             <Omschrijving Oorsprong="KSZ">Hoofdberoep</Omschrijving>
                                         </Bijdragereeks>
                                         <Periode>
-                                            <Begin>2023-04-01</Begin>
+                                            <Begin>2023-06-01</Begin>
                                         </Periode>
                                         <Beroep>
-                                            <Code>102103</Code>
-                                            <Omschrijving Oorsprong="KSZ">Tuinbouwer</Omschrijving>
+                                            <Code>102104</Code>
+                                            <Omschrijving Oorsprong="KSZ">Bloemkweker</Omschrijving>
                                         </Beroep>
                                         <Hoedanigheid>
                                             <Code>100</Code>
                                             <Omschrijving Oorsprong="KSZ">Activiteit in eigen naam</Omschrijving>
                                         </Hoedanigheid>
-                                        <DatumOndertekening>2023-04-01</DatumOndertekening>
+                                        <DatumOndertekening>2023-06-01</DatumOndertekening>
                                     </Loopbaan>
                                 </Loopbanen>
                             </Aansluiting>

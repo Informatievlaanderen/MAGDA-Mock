@@ -24,10 +24,10 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>93128622-15b6-4b33-b44b-38d180873575</Referte>
+                <Referte>0ebb4fef-6d1a-4d97-96cd-79e8af53a423</Referte>
                 <Inhoud>
                     <Zelfstandige>
-                        <INSZ>00630300287</INSZ>
+                        <INSZ>95631218548</INSZ>
                         <Aansluitingen>
                             <Aansluiting>
                                 <SociaalVerzekeringsfonds>
@@ -42,11 +42,11 @@
                                             <Omschrijving Oorsprong="KSZ">Hoofdberoep</Omschrijving>
                                         </Bijdragereeks>
                                         <Periode>
-                                            <Begin>2023-04-01</Begin>
+                                            <Begin>2023-08-01</Begin>
                                         </Periode>
                                         <Beroep>
-                                            <Code>102103</Code>
-                                            <Omschrijving Oorsprong="KSZ">Tuinbouwer</Omschrijving>
+                                            <Code>307107</Code>
+                                            <Omschrijving Oorsprong="KSZ">Bakker</Omschrijving>
                                         </Beroep>
                                         <Hoedanigheid>
                                             <Code>100</Code>

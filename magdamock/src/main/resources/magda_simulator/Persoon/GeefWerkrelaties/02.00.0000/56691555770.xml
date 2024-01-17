@@ -24,32 +24,32 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>93128622-15b6-4b33-b44b-38d180873575</Referte>
+                <Referte>fe294f1a-2477-4516-918d-ad478051367c</Referte>
                 <Inhoud>
                     <Contracten>
                         <Contract>
                             <Relatie>
                                 <Werkgever>
-                                    <RSZNummer>0456123791</RSZNummer>
-                                    <Ondernemingsnummer>0456123791</Ondernemingsnummer>
+                                    <RSZNummer>0484123733</RSZNummer>
+                                    <Ondernemingsnummer>0484123733</Ondernemingsnummer>
                                 </Werkgever>
                                 <Werknemer>
-                                    <INSZ>00630300287</INSZ>
+                                    <INSZ>56691555770</INSZ>
                                     <IdentificatiePersoonGevalideerd Beschrijving="Identificatie persoon OK">1</IdentificatiePersoonGevalideerd>
                                 </Werknemer>
                             </Relatie>
                             <Bron Beschrijving="Rijksdienst voor sociale zekerheid">RSZ</Bron>
                             <Aangifte>
-                                <DimonaNummer>7765432178</DimonaNummer>
+                                <DimonaNummer>7765436998</DimonaNummer>
                                 <PeriodeTijdstip>
                                     <Begin>
-                                        <Datum>2019-09-08</Datum>
+                                        <Datum>2001-05-01</Datum>
                                     </Begin>
                                     <Einde>
-                                        <Datum>2023-02-28</Datum>
+                                        <Datum>2023-05-08</Datum>
                                     </Einde>
                                 </PeriodeTijdstip>
-                                <ParitairComite>145</ParitairComite>
+                                <ParitairComite>112</ParitairComite>
                                 <Geannuleerd>0</Geannuleerd>
                                 <LaatsteDimonaActie Beschrijving="Uitdienst">O</LaatsteDimonaActie>
                             </Aangifte>
