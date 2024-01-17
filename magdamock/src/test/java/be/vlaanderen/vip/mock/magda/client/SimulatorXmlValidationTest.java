@@ -53,7 +53,7 @@ class SimulatorXmlValidationTest {
             "Persoon/GeefHistoriekPersoon/02.02.0000",                "Persoon.GeefHistoriekPersoonDienst-02.02/WebService/GeefHistoriekPersoonResponse.xsd",
             "Persoon/GeefKindVoordelen/02.00.0000",                   "Gezin.GeefKindVoordelenDienst-02.00/WebService/GeefKindVoordelenResponse.xsd",
             "Persoon/GeefLeefloonbedragen/02.00.0000",                "SocZek.GeefLeefloonbedragenDienst-02.00/WebService/GeefLeefloonbedragenResponse.xsd",
-            "Persoon/GeefLoopbaanARZA/02.01.0000",                    "Werk.GeefLoopbaanARZADienst-02.01/Webservice/GeefLoopbaanARZAResponse.xsd",
+            "Persoon/GeefLoopbaanARZA/02.01.0000",                    "Werk.GeefLoopbaanARZADienst-02.01/WebService/GeefLoopbaanARZAResponse.xsd",
             "Persoon/GeefLoopbaanonderbrekingen/02.00.0000",          "Werk.GeefLoopbaanonderbrekingenDienst-02.00/WebService/GeefLoopbaanonderbrekingenResponse.xsd",
             "Persoon/GeefPasfoto/02.00.0000",                         "Persoon.GeefPasfotoDienst-02.00/WebService/GeefPasfotoResponse.xsd",
             "Persoon/GeefPersoon/02.02.0000",                         "Persoon.GeefPersoonDienst-02.02/WebService/GeefPersoonResponse.xsd",
