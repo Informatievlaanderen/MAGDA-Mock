@@ -29,7 +29,7 @@
                                 <Basisgegevens>IncludeBasicData</Basisgegevens>
                                 <Rechtstoestanden>IncludeJuridicalSituations</Rechtstoestanden>
                                 <Vestigingen>
-                                    <Aanduiding>IncludeEstablishmentsIndication</Aanduiding>
+                                    <Aanduiding>IncludeEstablishments</Aanduiding>
                                     <Details>IncludeEstablishmentsDetails</Details>
                                 </Vestigingen>
                                 <Omschrijvingen>

@@ -160,6 +160,14 @@ public class MagdaDocument {
         }
     }
 
+    public void setValueOrRemoveNode(String expression, String value) {
+        if(value != null) {
+            setValue(expression, value);
+        } else {
+            removeNode(expression);
+        }
+    }
+
     public void createNode(String expression, String nodeName) {
         var node = xml.createElement(nodeName);
         xpath(expression).item(0).appendChild(node);

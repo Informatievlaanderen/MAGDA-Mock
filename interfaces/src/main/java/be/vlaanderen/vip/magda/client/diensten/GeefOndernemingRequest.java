@@ -159,57 +159,40 @@ public class GeefOndernemingRequest extends CompanyMagdaRequest {
     @Override
     protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         fillInCommonFields(request, magdaRegistrationInfo);
-        var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
 
-        if(getIncludeBasicData() != null){
-            request.setValue("//Criteria/Basisgegevens", getIncludeBasicData() ? "1" : "0");
-        } else {
-            request.removeNode("//Criteria/Basisgegevens");
-        }
 
-        if(getIncludeJuridicalSituations() != null){
-            request.setValue("//Criteria/Rechtstoestanden", getIncludeJuridicalSituations() ? "1" : "0");
-        } else {
-            request.removeNode("//Criteria/Rechtstoestanden");
-        }
+        request.setValueOrRemoveNode("//Criteria/Basisgegevens", getStringValue(getIncludeBasicData()));
+        request.setValueOrRemoveNode("//Criteria/Rechtstoestanden", getStringValue(getIncludeJuridicalSituations()));
 
         if(getIncludeEstablishments() != null || getIncludeEstablishmentsDetails() != null)
         {
-            if(getIncludeEstablishments() != null){
-                request.setValue("//Criteria/Vestigingen/Aanduiding", getIncludeEstablishments() ? "1" : "0");
-            } else {
-                request.removeNode("//Criteria/Vestigingen/Aanduiding");
-            }
-            if(getIncludeEstablishmentsDetails() != null){
-                request.setValue("//Criteria/Vestigingen/Details", getIncludeEstablishmentsDetails() ? "1" : "0");
-            } else {
-                request.removeNode("//Criteria/Vestigingen/Details");
-            }
+            request.setValueOrRemoveNode("//Criteria/Vestigingen/Aanduiding", getStringValue(getIncludeEstablishments()));
+            request.setValueOrRemoveNode("//Criteria/Vestigingen/Details", getStringValue(getIncludeEstablishmentsDetails()));
         } else {
             request.removeNode("//Criteria/Vestigingen");
         }
 
-        if(getIncludeDescriptions() != null){
-            request.setValue("//Criteria/Omschrijvingen/Aanduiding", getIncludeDescriptions() ? "1" : "0");
+        if(getIncludeDescriptions() != null) {
+            request.setValueOrRemoveNode("//Criteria/Omschrijvingen/Aanduiding", getStringValue(getIncludeDescriptions()));
         } else {
             request.removeNode("//Criteria/Omschrijvingen");
         }
 
         if(getStartDate() != null || getEndDate() != null)
         {
-            if(getStartDate() != null){
-                request.setValue("//Criteria/Datums/Periode/Begin", getStartDate().format(dateFormatter));
-            } else {
-                request.removeNode("//Criteria/Datums/Periode/Begin");
-            }
-            if(getEndDate() != null){
-                request.setValue("//Criteria/Datums/Periode/Einde", getEndDate().format(dateFormatter));
-            } else {
-                request.removeNode("//Criteria/Datums/Periode/Einde");
-            }
+            request.setValueOrRemoveNode("//Criteria/Datums/Periode/Begin", getStringValue(getStartDate()));
+            request.setValueOrRemoveNode("//Criteria/Datums/Periode/Einde", getStringValue(getEndDate()));
         } else {
             request.removeNode("//Criteria/Datums");
         }
 
+    }
+
+    private String getStringValue(Boolean value) {
+        return value != null ? value ? "1" : "0" : null;
+    }
+
+    private String getStringValue(LocalDate value) {
+        return value != null ? value.format(DateTimeFormatter.ISO_LOCAL_DATE) : null;
     }
 }
