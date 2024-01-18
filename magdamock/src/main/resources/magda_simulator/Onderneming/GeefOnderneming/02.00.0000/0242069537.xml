@@ -17,13 +17,13 @@
                 </Afzender>
                 <Ontvanger>
                     <Identificatie>vip.vlaanderen.be/vkbo-aip-bo</Identificatie>
-                    <Referte>XE:840:24976:8145</Referte>
+                    <Referte>3b53e1f7-f55b-47e7-9b71-866fb1302dc5</Referte>
                 </Ontvanger>
             </Bericht>
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>8145</Referte>
+                <Referte>f2183876-d467-476a-ab1b-28804c8791ed</Referte>
                 <Inhoud>
                     <Onderneming>
                         <Ondernemingsnummer>0242069537</Ondernemingsnummer>
