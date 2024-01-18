@@ -84,8 +84,6 @@ public class GeefFunctiesByPersonRequest extends PersonMagdaRequest{
     @Override
     protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         fillInCommonFields(request, magdaRegistrationInfo);
-        var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        request.setValue("//Criteria/Persoon/INSZ", getInsz().getValue());
         request.removeNode("//Criteria/Persoon/Ondernemingsnummer");
         if(getKboNumber() != null)
         {

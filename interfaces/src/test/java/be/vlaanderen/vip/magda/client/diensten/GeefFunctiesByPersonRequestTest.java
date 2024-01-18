@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -22,9 +23,7 @@ class GeefFunctiesByPersonRequestTest {
         @Test
         void buildsRequest() {
             var kboNumber = KBONumber.of(TestBase.TEST_KBO_NUMBER);
-            var functionTypes = new HashSet<String>();
-            functionTypes.add("10006"); //Zaakvoerder
-            functionTypes.add("10010"); //Voorzitter
+            var functionTypes = Set.of("10006", "10010");
             var request = GeefFunctiesByPersonRequest.builder()
                     .insz(TestBase.TEST_INSZ)
                     .kboNumber(kboNumber)
@@ -38,9 +37,7 @@ class GeefFunctiesByPersonRequestTest {
         @Test
         void throwsException_whenInszNull() {
             var kboNumber = KBONumber.of(TestBase.TEST_KBO_NUMBER);
-            var functionTypes = new HashSet<String>();
-            functionTypes.add("10006"); //Zaakvoerder
-            functionTypes.add("10010"); //Voorzitter
+            var functionTypes = Set.of("10006", "10010");
             var builder = GeefFunctiesByPersonRequest.builder()
                     .kboNumber(kboNumber)
                     .functionTypes(functionTypes);
@@ -49,9 +46,7 @@ class GeefFunctiesByPersonRequestTest {
 
         @Test
         void kboNumberIsOptional() {
-            var functionTypes = new HashSet<String>();
-            functionTypes.add("10006"); //Zaakvoerder
-            functionTypes.add("10010"); //Voorzitter
+            var functionTypes = Set.of("10006", "10010");
             var request = GeefFunctiesByPersonRequest.builder()
                     .insz(TestBase.TEST_INSZ)
                     .functionTypes(functionTypes)
@@ -88,9 +83,7 @@ class GeefFunctiesByPersonRequestTest {
         @Test
         void setsFields() {
             var kboNumber = KBONumber.of(TestBase.TEST_KBO_NUMBER);
-            var functionTypes = new HashSet<String>();
-            functionTypes.add("10006"); //Zaakvoerder
-            functionTypes.add("10010"); //Voorzitter
+            var functionTypes = Set.of("10006", "10010");
 
             var request = builder
                     .insz(TestBase.TEST_INSZ)

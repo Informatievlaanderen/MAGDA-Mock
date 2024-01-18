@@ -18,11 +18,12 @@ import java.time.format.DateTimeFormatter;
  * A request to a "GeefWerkrelaties" MAGDA service allows you to consult the work relations for an INSZ.
  * Adds the following fields to the {@link PersonMagdaRequest}:
  * <ul>
- * <li>startDate: the start date of the period</li>
- * <li>endDate: the end date of the period</li>
- * <li>startedOrEndedType: indication to include all periods or only the periods that started or ended within the requested period in the response.</li>
- * <li>deletionIndicationType: indication to include all contracts or only deleted contracts or only non-deleted contracts in the response.</li>
- * <li>interimIndicationType: indication to include interim & non-interim, interim only or non-interim only in the response.</li>
+ * <li>source: optional, search in specific source.</li>
+ * <li>startDate: required, the start date of the period</li>
+ * <li>endDate: optional, the end date of the period</li>
+ * <li>startedOrEndedType: optional, indication to include all periods overlapping with the requested period or only the periods that started or ended within the requested period in the response.</li>
+ * <li>deletionIndicationType: required, indication to include all contracts or only deleted contracts or only non-deleted contracts in the response.</li>
+ * <li>interimIndicationType: optional, indication to include interim & non-interim, interim only or non-interim only in the response.</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefWerkrelaties/02.00.0000/template.xml">XML template for this request type</a>
@@ -136,7 +137,6 @@ public class GeefWerkrelatiesRequest  extends PersonMagdaRequest{
     protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
         fillInCommonFields(request, magdaRegistrationInfo);
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        request.setValue("//Criteria/Relatie/Werknemer/INSZ", getInsz().getValue());
         if (getSource() != null) {
             request.setValue("//Criteria/Bron", getSource().getTypeString());
         } else {
@@ -163,7 +163,7 @@ public class GeefWerkrelatiesRequest  extends PersonMagdaRequest{
 
     public enum StartedOrEndedType {
         /**
-         * Include all periods.
+         * Include all periods that overlaps with the requested period.
          */
         ALL("0"),
         /**

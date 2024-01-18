@@ -24,9 +24,10 @@ class GeefBetalingenHandicapRequestTest {
         void buildsRequest() {
             var startDate = LocalDate.now().minusYears(1);
             var endDate = LocalDate.now();
-            var sources = new HashSet<GeefBetalingenHandicapRequest.HandicapAuthenticSourceType>();
-            sources.add(GeefBetalingenHandicapRequest.HandicapAuthenticSourceType.DGPH);
-            sources.add(GeefBetalingenHandicapRequest.HandicapAuthenticSourceType.VSB);
+            var sources = Set.of(
+                    GeefBetalingenHandicapRequest.HandicapAuthenticSourceType.DGPH,
+                    GeefBetalingenHandicapRequest.HandicapAuthenticSourceType.VSB
+            );
 
             var request = GeefBetalingenHandicapRequest.builder()
                     .insz(TestBase.TEST_INSZ)
@@ -109,9 +110,10 @@ class GeefBetalingenHandicapRequestTest {
 
         @Test
         void setsFields() {
-            var sources = new HashSet<GeefBetalingenHandicapRequest.HandicapAuthenticSourceType>();
-            sources.add(GeefBetalingenHandicapRequest.HandicapAuthenticSourceType.DGPH);
-            sources.add(GeefBetalingenHandicapRequest.HandicapAuthenticSourceType.VSB);
+            var sources = Set.of(
+                    GeefBetalingenHandicapRequest.HandicapAuthenticSourceType.DGPH,
+                    GeefBetalingenHandicapRequest.HandicapAuthenticSourceType.VSB
+            );
 
             var request = builder
                     .insz(TestBase.TEST_INSZ)

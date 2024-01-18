@@ -14,8 +14,8 @@ import java.time.format.DateTimeFormatter;
  * A request to a "GeefLoopbaanARZA" MAGDA service, which provides information regarding self-employment for an INSZ.
  * Adds the following fields to the {@link PersonMagdaRequest}:
  * <ul>
- * <li>startDate: the start date of the period</li>
- * <li>endDate: the end date of the period</li>
+ * <li>startDate: required, the start date of the period</li>
+ * <li>endDate: optional, the end date of the period</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefLoopbaanARZA/02.01.0000/template.xml">XML template for this request type</a>
@@ -60,7 +60,7 @@ public class GeefLoopbaanARZARequest extends PersonMagdaRequest {
     @NotNull
     private final LocalDate startDate;
 
-    @NotNull
+    @Nullable
     private final LocalDate endDate;
 
     public GeefLoopbaanARZARequest(
