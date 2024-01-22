@@ -67,6 +67,41 @@ class MagdaDocumentTest {
     }
 
     @Test
+    void setValueOrRemoveNode_setsValueIfSpecified() {
+        var magdaDocument = MagdaDocument.fromString("""
+                <foo>
+                    <bar>Donald</bar>
+                    <baz>Trump</baz>
+                </foo>""");
+
+        magdaDocument.setValueOrRemoveNode("//foo/bar", "Stormy Daniels");
+
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
+                <foo>
+                    <bar>Stormy Daniels</bar>
+                    <baz>Trump</baz>
+                </foo>
+                """).ignoreWhitespace());
+    }
+
+    @Test
+    void setValueOrRemoveNode_removesNodeIfValueNotSpecified() {
+        var magdaDocument = MagdaDocument.fromString("""
+                <foo>
+                    <bar>Donald</bar>
+                    <baz>Trump</baz>
+                </foo>""");
+
+        magdaDocument.setValueOrRemoveNode("//foo/bar", null);
+
+        assertThat(magdaDocument.toString(), isIdenticalTo("""
+                <foo>
+                    <baz>Trump</baz>
+                </foo>
+                """).ignoreWhitespace());
+    }
+
+    @Test
     void getValue_readsValue() {
         var magdaDocument = MagdaDocument.fromString("""
                 <foo>
