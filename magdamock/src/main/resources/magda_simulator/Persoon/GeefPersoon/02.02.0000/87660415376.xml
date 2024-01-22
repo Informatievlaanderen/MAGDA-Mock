@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-06-01</Datum>
+					<Tijd>12:21:40.797</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+					<Referte>4226311d-16f4-44bb-a141-2a1f83cd0401</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>993857a6-9ca8-49fa-ae27-a2845da5faf3</Referte>
+				<Inhoud>
+					<Persoon Bron="RR" DatumCreatie="1987-06-04" DatumModificatie="2002-10-02">
+						<INSZ>87660415376</INSZ>
+						<Naam DatumBegin="1987-06-04">
+							<Achternamen>
+								<Achternaam>De Baere</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Davy</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code>1</Code>
+							<Omschrijving Taal="nl">Mannelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="1987-06-04">
+							<Plaats>
+								<Gemeente>
+									<NISCode>31005</NISCode>
+									<Naam>Brugge</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>0</Code>
+								<Omschrijving Taal="nl">NEEN</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>2</Code>
+								<Omschrijving Taal="nl">Nederlands</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register>
+							<Code>RR</Code>
+							<Omschrijving Taal="nl">Rijksregister</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1987-06-04">
+								<Code>150</Code>
+								<Omschrijving>Belg</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="2002-10-02">
+							<Datum>1987-06-04</Datum>
+							<Plaats>
+								<Gemeente>
+									<NISCode>44021</NISCode>
+									<Naam>Gent</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer>85241</Aktenummer>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="1987-06-04">
+								<Code>10</Code>
+								<Omschrijving Taal="nl">Ongehuwd</Omschrijving>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="1997-07-09">
+								<Straatnaam>
+									<String>Boterbekeweg</String>
+									<Taal>nl</Taal>
+								</Straatnaam>
+								<Huisnummer>13</Huisnummer>
+								<Gemeentenaam>
+									<String>Brugge</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>BELGIE</String>
+									<Taal>nl</Taal>
+								</Land>
+								<Postcode>8200</Postcode>
+								<NISCodeLand>150</NISCodeLand>
+								<ISOCodeLand>BEL</ISOCodeLand>
+								<NISCodeGemeente>31005</NISCodeGemeente>
+							</Hoofdverblijfplaats>
+						</Adressen>
+						<Identiteitsbewijzen>
+							<Identiteitsbewijs DatumBegin="2016-04-05">
+								<Type>
+									<Code>0000</Code>
+									<Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
+								</Type>
+								<Nummer>655654889977</Nummer>
+							</Identiteitsbewijs>
+						</Identiteitsbewijzen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>

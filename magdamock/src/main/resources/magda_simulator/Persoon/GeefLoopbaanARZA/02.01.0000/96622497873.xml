@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<web:GeefFunctiesResponse xmlns:web="http://webservice.geeffunctiesdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+<web:GeefLoopbaanARZAResponse xmlns:web="http://webservice.geefloopbaanarzadienst-02_01.werk-02_01.vip.vlaanderen.be">
     <Repliek>
         <Context>
-            <Naam>GeefFuncties</Naam>
-            <Versie>02.00.0000</Versie>
+            <Naam>GeefLoopbaanARZA</Naam>
+            <Versie>02.01.0000</Versie>
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
-                    <Datum>2024-01-16</Datum>
-                    <Tijd>12:12</Tijd>
+                    <Datum>2023-12-10</Datum>
+                    <Tijd>13:22:14.967</Tijd>
                 </Tijdstip>
                 <Afzender>
                     <Identificatie>vip.vlaanderen.be</Identificatie>
                     <Naam>MagdaGateway</Naam>
-                    <Referte>5285d56c-5e38-4d93-91bc-438da82285e9</Referte>
+                    <Referte>73e2683a-9620-4a06-993b-97bf6ab98e48</Referte>
                 </Afzender>
                 <Ontvanger>
-                    <Identificatie>rwo.vlaanderen.be/vmsw/kbi-dossiers-p-aip-bo</Identificatie>
-                    <Referte>a63dc513-7a97-4d21-8164-c1bfad015bc0</Referte>
-                    <Hoedanigheid>3003</Hoedanigheid>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>9e317c0c-918e-4cfb-a20c-a0250765501f</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
                 </Ontvanger>
             </Bericht>
         </Context>
@@ -28,12 +28,11 @@
                 <Oorsprong>MAGDA</Oorsprong>
                 <Type>FOUT</Type>
                 <Tijdstip>
-                    <Datum>2024-01-16</Datum>
-                    <Tijd>12:12:00.000</Tijd>
+                    <Datum>2023-12-10</Datum>
+                    <Tijd>13:22:15.756</Tijd>
                 </Tijdstip>
-                <Diagnose>Te veel gelijktijdige bevragingen</Diagnose>
+                <Diagnose>Bron is tijdelijk niet beschikbaar</Diagnose>
             </Uitzondering>
         </Uitzonderingen>
     </Repliek>
-</web:GeefFunctiesResponse>
-
+</web:GeefLoopbaanARZAResponse>

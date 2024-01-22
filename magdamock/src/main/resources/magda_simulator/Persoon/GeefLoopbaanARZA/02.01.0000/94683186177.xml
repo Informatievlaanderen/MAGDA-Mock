@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefLoopbaanARZAResponse xmlns:web="http://webservice.geefloopbaanarzadienst-02_01.werk-02_01.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefLoopbaanARZA</Naam>
+            <Versie>02.01.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2023-12-10</Datum>
+                    <Tijd>13:22:14.967</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>73e2683a-9620-4a06-993b-97bf6ab98e48</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>9e317c0c-918e-4cfb-a20c-a0250765501f</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Uitzonderingen>
+            <Uitzondering>
+                <Identificatie>99994</Identificatie>
+                <Oorsprong>MAGDA</Oorsprong>
+                <Type>FOUT</Type>
+                <Tijdstip>
+                    <Datum>2023-12-10</Datum>
+                    <Tijd>13:22:15.756</Tijd>
+                </Tijdstip>
+                <Diagnose>Onverwachte fout bij de bron</Diagnose>
+            </Uitzondering>
+        </Uitzonderingen>
+    </Repliek>
+</web:GeefLoopbaanARZAResponse>
