@@ -137,54 +137,6 @@
 								<Omschrijving>Gezin niet collectief wonen</Omschrijving>
 							</Woonvorm>
 						</Referentiepersoon>
-						<Gezinsleden>
-							<Gezinslid DatumBegin="2011-03-17">
-								<INSZ>78680699764</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Dauwe</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Bart</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code>1</Code>
-									<Omschrijving Taal="nl">Mannelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>1978-08-06</Geboortedatum>
-								<Positie>
-									<Code>06</Code>
-									<Omschrijving Taal="nl">Vader</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-								</Woonvorm>
-							</Gezinslid>
-							<Gezinslid DatumBegin="2011-03-17">
-								<INSZ>79630199805</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Duchamp</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Veronique</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code>2</Code>
-									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>1979-03-01</Geboortedatum>
-								<Positie>
-									<Code>06</Code>
-									<Omschrijving Taal="nl">Moeder</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-								</Woonvorm>
-							</Gezinslid>
-						</Gezinsleden>
 						<Identiteitsbewijzen>
 							<Identiteitsbewijs DatumBegin="2019-11-04">
 								<Type>

@@ -137,54 +137,6 @@
 								<Omschrijving>Gezin niet collectief wonen</Omschrijving>
 							</Woonvorm>
 						</Referentiepersoon>
-						<Gezinsleden>
-							<Gezinslid DatumBegin="2011-03-17">
-								<INSZ>78680699764</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Dauwe</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Bart</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code>1</Code>
-									<Omschrijving Taal="nl">Mannelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>1978-08-06</Geboortedatum>
-								<Positie>
-									<Code>02</Code>
-									<Omschrijving Taal="nl">Echtgenoot</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-								</Woonvorm>
-							</Gezinslid>
-							<Gezinslid DatumBegin="2012-04-25">
-								<INSZ>12642599819</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Dauwe</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Chloë</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code>2</Code>
-									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>2012-04-25</Geboortedatum>
-								<Positie>
-									<Code>03</Code>
-									<Omschrijving Taal="nl">Dochter</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-								</Woonvorm>
-							</Gezinslid>
-						</Gezinsleden>
 						<WettelijkeSamenwoning DatumBegin="2011-03-17">
 							<Datum>2011-03-17</Datum>
 							<Partner>

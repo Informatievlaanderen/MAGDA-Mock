@@ -168,32 +168,6 @@
 								<Omschrijving Taal="nl">Gezin niet collectief wonen </Omschrijving>
 							</Woonvorm>
 						</Referentiepersoon>
-						<Gezinsleden>
-							<Gezinslid DatumBegin="2014-05-23">
-								<INSZ>89651174486</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Jacobs</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Eva</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code>2</Code>
-									<Omschrijving>Vrouwelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>1989-05-11</Geboortedatum>
-								<Positie>
-									<Code>06</Code>
-									<Omschrijving>Moeder</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-									<Omschrijving Taal="nl">Gezin niet collectief wonen</Omschrijving>
-								</Woonvorm>
-							</Gezinslid>
-						</Gezinsleden>
 					</Persoon>
 				</Inhoud>
 			</Antwoord>
