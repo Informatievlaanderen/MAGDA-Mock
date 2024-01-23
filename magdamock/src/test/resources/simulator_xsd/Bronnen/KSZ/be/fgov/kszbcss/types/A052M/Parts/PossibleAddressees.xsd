@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 2 U (http://www.xmlspy.com) by leo (leo) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<!--In release of 17/03/2004 : introduction of Glossary references-->
+	<xs:include schemaLocation="RC.xsd"/>
+	<xs:complexType name="PossibleAddresseesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Destinataires potentiels</xs:documentation>
+			<xs:documentation xml:lang="NL">Mogelijke bestemmelingen</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0" maxOccurs="99">
+			<xs:element name="Addressee">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="MatrixID"/>
+						<xs:element ref="MatrixSubID"/>
+						<xs:element ref="KnowledgeLevel"/>
+						<xs:element ref="DefaultVariant" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:choice>
+				<xs:annotation>
+					<xs:documentation>result</xs:documentation>
+				</xs:annotation>
+				<xs:element name="OK">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="KszBcssReference" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="KO">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Result" minOccurs="0">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:restriction base="ResultType">
+											<xs:sequence>
+												<xs:element ref="ReturnCode">
+													<xs:annotation>
+														<xs:appinfo>BeginGlossaryDetailFr 100030 EndGlossaryDetailFr</xs:appinfo>
+														<xs:appinfo>BeginGlossaryDetailNl 100030 EndGlossaryDetailNl</xs:appinfo>
+														<xs:documentation xml:lang="FR">Code retour</xs:documentation>
+														<xs:documentation xml:lang="NL">Returncode</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element ref="Codelist" minOccurs="0">
+													<xs:annotation>
+														<xs:appinfo>BeginGlossaryDetailFr 100031 EndGlossaryDetailFr</xs:appinfo>
+														<xs:appinfo>BeginGlossaryDetailNl 100031 EndGlossaryDetailNl</xs:appinfo>
+														<xs:documentation xml:lang="FR">Liste de code</xs:documentation>
+														<xs:documentation xml:lang="NL">Codelijst</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:restriction>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="PossibleAddressees" type="PossibleAddresseesType"/>
+	<xs:element name="KszBcssReference">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100029 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100029 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Reference BCSS</xs:documentation>
+			<xs:documentation xml:lang="NL">KSZ referentie</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="15"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="MatrixID">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100025 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100025 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Secteur</xs:documentation>
+			<xs:documentation xml:lang="NL"/>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="MatrixSubID">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100026 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100026 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Type institution</xs:documentation>
+			<xs:documentation xml:lang="NL">Type instelling</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="KnowledgeLevel">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100027 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100027 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Code qualite</xs:documentation>
+			<xs:documentation xml:lang="NL">Hoedanigheidscode</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="3"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DefaultVariant" default="0000">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100028 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100028 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Variante par défaut</xs:documentation>
+			<xs:documentation xml:lang="NL">Defaut variant</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="4"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

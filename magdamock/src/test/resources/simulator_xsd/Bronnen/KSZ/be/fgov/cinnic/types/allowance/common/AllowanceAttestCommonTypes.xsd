@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://cinnic.fgov.be/types/allowance/commonTypes/v1"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:common="http://kszbcss.fgov.be/types/common/v3"
+  xmlns:commonA="http://cinnic.fgov.be/types/allowance/commonTypes/v1"
+  targetNamespace="http://cinnic.fgov.be/types/allowance/commonTypes/v1" elementFormDefault="qualified"
+  attributeFormDefault="unqualified" version="001">
+  <xs:import namespace="http://kszbcss.fgov.be/types/common/v3"
+    schemaLocation="../../../../kszbcss/types/common/CommonV3.xsd" />
+  <xs:element name="AllowanceAttest" type="AllowanceAttestationType">
+    <xs:annotation>
+      <xs:documentation xml:lang="FR">A052 - DRS CIN - Maladie
+      </xs:documentation>
+      <xs:documentation xml:lang="NL">A052 - DRS NIC - Ziekte
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="RiskType">
+    <xs:sequence>
+      <xs:annotation>
+        <xs:documentation>A risk is composed of 2 parts :
+          - the information about the risk
+          - the payments done by the
+          mutuality in the context of the risk</xs:documentation>
+      </xs:annotation>
+      <xs:choice>
+        <xs:element name="GeneralIncapacityForWork" type="GeneralIncapacityForWorkType" />
+        <xs:element name="IndependentIncapacityForWork" type="IndependentIncapacityForWorkType" />
+        <xs:element name="GeneralPregnancy" type="GeneralPregnancyType" />
+        <xs:element name="IndependentPregnancy" type="IndependentPregnancyType" />
+        <xs:element name="GeneralBreastFeeding" type="GeneralBreastFeedingType" />
+        <xs:element name="GeneralPaternity" type="GeneralPaternityType" />
+        <xs:element name="GeneralAdoption" type="AdoptionType" />
+        <xs:element name="IndependentAdoption" type="AdoptionType" />
+        <xs:element name="GeneralFosterCare" type="GeneralFosterCareType" />
+        <xs:element name="IndependentFosterCare" type="GeneralFosterCareType" />
+      </xs:choice>
+      <xs:element name="Payment" minOccurs="0" maxOccurs="100">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Document" type="DocumentType" />
+            <xs:element name="IncapacityCategory" type="IncapacityCategoryType" />
+            <xs:element name="FamilySituation" type="FamilySituationType" />
+            <xs:element name="AllowanceType" type="AllowanceTypeType" />
+            <xs:element name="AllowanceCode" type="AllowanceCodeType" />
+            <xs:element name="Period" type="commonA:PeriodType" />
+            <xs:element name="Amount" type="common:EuroAmountType" />
+            <xs:choice>
+              <xs:element name="Days" type="xs:integer" />
+              <xs:element name="Hours" type="xs:decimal" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RiskDetailAbstractType">
+    <xs:sequence>
+      <xs:element name="SocialStatus" type="SocialStatusType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IndependentIncapacityForWorkType">
+    <xs:complexContent>
+      <xs:extension base="RiskDetailAbstractType">
+        <xs:sequence>
+          <xs:element name="Period" type="commonA:PeriodType" />
+          <xs:element name="ExitCode" type="ExitCodeType" />
+          <xs:element name="Invalidity" type="InvalidityComplexType" minOccurs="0" />
+          <xs:element name="InitialStartDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GeneralIncapacityForWorkType">
+    <xs:complexContent>
+      <xs:extension base="IndependentIncapacityForWorkType">
+        <xs:sequence>
+          <xs:element name="ActivityCode" type="ActivityCodeType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IndependentPregnancyType">
+    <xs:complexContent>
+      <xs:extension base="RiskDetailAbstractType">
+        <xs:sequence>
+          <xs:element name="Period" type="commonA:PeriodType" />
+          <xs:element name="ExitCode" type="ExitCodeType" />
+          <xs:element name="InitialStartDate" type="xs:date" />
+          <xs:element name="DeliveryDate" type="xs:date" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GeneralPregnancyType">
+    <xs:complexContent>
+      <xs:extension base="IndependentPregnancyType">
+        <xs:sequence>
+          <xs:element name="SupposedDeliveryDate" type="xs:date" minOccurs="0" />
+          <xs:element name="ActivityCode" type="ActivityCodeType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GeneralFosterCareType">
+    <xs:complexContent>
+      <xs:extension base="RiskDetailAbstractType">
+        <xs:sequence>
+          <xs:element name="FosterCareDate" type="xs:date" />
+          <xs:element name="InitialStartDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GeneralBreastFeedingType">
+    <xs:complexContent>
+      <xs:extension base="RiskDetailAbstractType">
+        <xs:sequence>
+          <xs:element name="DeliveryDate" type="xs:date" />
+          <xs:element name="InitialStartDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GeneralPaternityType">
+    <xs:complexContent>
+      <xs:extension base="RiskDetailAbstractType">
+        <xs:sequence>
+          <xs:element name="DeliveryDate" type="xs:date" />
+          <xs:element name="InitialStartDate" type="xs:date" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AdoptionType">
+    <xs:complexContent>
+      <xs:extension base="RiskDetailAbstractType">
+        <xs:sequence>
+          <xs:element name="AdoptionDate" type="xs:date" />
+          <xs:element name="InitialStartDate" type="xs:date" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AllowanceAttestationType">
+    <xs:sequence>
+      <xs:element name="AttestationIdentification" type="AllowanceAttestIdentificationType" />
+      <xs:element name="Risk" type="RiskType" minOccurs="0" maxOccurs="100">
+        <xs:annotation>
+          <xs:documentation>the risks covered by this attest</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AllowanceAttestIdentificationType">
+    <xs:sequence>
+      <xs:element name="Ssin" type="common:SsinType" />
+      <xs:element name="Quarter" type="QuarterType" />
+      <xs:element name="CreationDate" type="xs:date" />
+      <xs:choice>
+        <xs:annotation>
+          <xs:documentation>for closed quarters, attestation are definitive and are identified by attestationId,
+            SituationNbr and AttestatusStatus, following CBSS standards.
+
+            In case of request relates to the current
+            quarter, attests are provisory and do not contains AttestationId,
+            AttestationStatus and SituationNbr but
+            contains a marker tag "TemporaryAttest"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="AttestationId" type="common:UUIDType" />
+          <xs:element name="AttestationVersion" type="xs:unsignedInt">
+            <xs:annotation>
+              <xs:documentation>start sequence with 0.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="AttestationStatus">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="CREATION" />
+                <xs:enumeration value="MODIFICATION" />
+                <xs:enumeration value="CANCELLATION" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+        <xs:element name="TemporaryAttest" type="xs:string" fixed="" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AllowancePeriodAttestIdentificationType">
+    <xs:sequence>
+      <xs:element name="Ssin" type="common:SsinType" />
+      <xs:element name="CreationDate" type="xs:date" />
+      <xs:element name="AttestationId" type="common:UUIDType" />
+      <xs:element name="AttestationVersion" type="xs:unsignedInt">
+        <xs:annotation>
+          <xs:documentation>start sequence with 0.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AttestationStatus">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="CREATION" />
+            <xs:enumeration value="MODIFICATION" />
+            <xs:enumeration value="CANCELLATION" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvalidityComplexType">
+    <xs:sequence>
+      <xs:element name="StartDate" type="xs:date" minOccurs="0" />
+      <xs:element name="InvalidityType" type="InvalidityTypeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ActivityCodeType">
+    <xs:restriction base="xs:unsignedShort">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Actief</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Werkloos</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>Werkloos met behoud van rechten (van toepassing
+            vanaf gegevens van 1ste kwartaal 2012)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ExitCodeType">
+    <xs:restriction base="xs:unsignedShort">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation>no exit</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Werkhervatting of werkloos</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Overlijden</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>Pensionering</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>Uitsluiting door een beslissing van een
+            adviserend geneesheer of een sociaal inspecteur
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation>Fin d’une période de maternité directement suivie
+            d’une période d’incapacité.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="6">
+        <xs:annotation>
+          <xs:documentation>Fin de maternité pour autre raison (aucun autre
+            code ne convient)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="7">
+        <xs:annotation>
+          <xs:documentation>Suspension d’une période d’incapacité primaire
+            pour cause de maternité (code à usage
+            facultatif)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="8">
+        <xs:annotation>
+          <xs:documentation>Transfert ou Mutation (50 : PeriodEndDate = jour
+            antérieur au transfert ou à la mutation)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation>Suspension suite à une absence lors d’un contrôle
+            (50 : PerioEndDate = jour du contrôle
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="InvalidityTypeType">
+    <xs:restriction base="xs:unsignedShort">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Cas normal d'invalidité</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="8">
+        <xs:annotation>
+          <xs:documentation>Invalides dont le droit aux indemnités a été
+            examiné dans le cadre des règlements de l’UE ou
+            d'une convention
+            bilatérale (incapacité débutée lorsque le titulaire ressortissait
+            de la législation belge).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation>Invalides dont le droit aux indemnités a été
+            examiné dans le cadre des règlements de l’UE ou
+            d'une convention
+            bilatérale (incapacité débutée lorsque le titulaire ressortissait
+            de la législation
+            étrangère).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DocumentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="C21">
+        <xs:annotation>
+          <xs:documentation>Primaire arbeidsongeschiktheid – algemene
+            regeling
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="C23">
+        <xs:annotation>
+          <xs:documentation>Moederschapsbescherming – algemene regeling
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="B23">
+        <xs:annotation>
+          <xs:documentation>Borstvoedingsverlof – algemene regeling
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="C421">
+        <xs:annotation>
+          <xs:documentation>Primaire arbeidsongeschiktheid –regeling der
+            zelfstandigen
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="C423">
+        <xs:annotation>
+          <xs:documentation>Moederschapsbescherming – regeling der
+            zelfstandigen
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PI0">
+        <xs:annotation>
+          <xs:documentation>Invaliditeit – algemene regeling
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PI23">
+        <xs:annotation>
+          <xs:documentation>Moederschapsbescherming voor invalide – algemene
+            regeling
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PI41">
+        <xs:annotation>
+          <xs:documentation>Invaliditeit – regeling der zelfstandigen
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PI423">
+        <xs:annotation>
+          <xs:documentation>Moederschapsbescherming voor invalide – regeling
+            der zelfstandigen
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PI3">
+        <xs:annotation>
+          <xs:documentation>Begrafeniskosten - algemene regeling
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IncapacityCategoryType">
+    <xs:restriction base="xs:unsignedShort">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation>Onbekend (Categorie niet opgevraagd)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Regelmatig werknemer (Algemene regeling)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Niet regelmatig werknemer (Algemene regeling)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>Met stopzetting van het bedrijf (Regeling der
+            zelfstandigen)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>Zonder stopzetting van het bedrijf (Regeling der
+            zelfstandigen)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation>Niet van toepassing</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FamilySituationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="00">
+        <xs:annotation>
+          <xs:documentation>Situation de famille non recherchée
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="01">
+        <xs:annotation>
+          <xs:documentation>Titulaire avec charge de famille (charge créée
+            par
+            conjoint de droit ou de fait)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="02">
+        <xs:annotation>
+          <xs:documentation>Titulaire avec charge de famille (charge créée
+            par
+            enfant)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="03">
+        <xs:annotation>
+          <xs:documentation>Titulaire avec charge de famille (charge créée
+            par
+            ascendant, parent ou allié jusqu'au 3ème
+            degré)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="04">
+        <xs:annotation>
+          <xs:documentation>Titulaire isolé</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="05">
+        <xs:annotation>
+          <xs:documentation>Titulaire cohabitant</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="06">
+        <xs:annotation>
+          <xs:documentation>Titulaire indemnisé en tant qu’isolé étant donné
+            que le cohabitant bénéficie de revenus
+            professionnels compris
+            entre
+            le 1er et le 2ème plafond de revenu autorisé (à partir du
+            1.7.2004)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="07">
+        <xs:annotation>
+          <xs:documentation>Titulaire indemnisé en tant qu’isolé étant donné
+            que le cohabitant bénéficie de revenus de
+            remplacement compris
+            entre le 1er et le 3ème plafond de revenu autorisé (à partir du
+            1.1.2010)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="08">
+        <xs:annotation>
+          <xs:documentation>Titulaire isolé indemnisé en tant que titulaire
+            avec charge de famille suite au versement
+            d’une pension
+            alimentaire
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="99">
+        <xs:annotation>
+          <xs:documentation>Pas d’application (PI3)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AllowanceTypeType">
+    <xs:restriction base="xs:unsignedShort">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation>Indemnité ordinaire</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Allocation forfaitaire(ou majorée) pour aide de
+            tiers
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Régularisation suite à une reprise d’une dépense
+            par le FMP (écartement)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>Régularisation suite à une reprise d’une dépense
+            autre que par le FMP (FAT, droit commun,
+            etc.)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation>Pas d’application (PI3)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AllowanceCodeType">
+    <xs:restriction base="xs:string">
+      <xs:length value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SocialStatusType">
+    <xs:restriction base="xs:unsignedShort">
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Bediende</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>Arbeider</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>Zelfstandige</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation>Meewerkende echtgenoot</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="6">
+        <xs:annotation>
+          <xs:documentation>Zeevaarder</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="QuarterType">
+    <xs:annotation>
+      <xs:documentation>Format trimestre CCYYQT</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[2][0](([0][2-9])|([1-9][0-9]))Q[1-4]">
+        <xs:annotation>
+          <xs:documentation>
+            Valid from 2002Q1 to 2099Q4
+          </xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="OpenPeriodType">
+    <xs:annotation>
+      <xs:documentation>Period containining a begin date and an optional end date.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="StartDate" type="xs:date" />
+      <xs:element name="EndDate" type="xs:date" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PeriodType">
+    <xs:annotation>
+      <xs:documentation>Period containining a begin date and an end date.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="StartDate" type="xs:date" />
+      <xs:element name="EndDate" type="xs:date" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

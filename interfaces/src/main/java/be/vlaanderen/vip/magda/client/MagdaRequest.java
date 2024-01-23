@@ -1,17 +1,18 @@
 package be.vlaanderen.vip.magda.client;
 
+import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import jakarta.validation.constraints.NotNull;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.UUID;
-
-import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
-import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
-import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * The common part of a request to a MAGDA service. Has subclasses for specific service/versions.
@@ -24,6 +25,7 @@ import lombok.Setter;
  * </ul>
  */
 @Getter
+@EqualsAndHashCode
 public abstract class MagdaRequest {
 
     protected abstract static class Builder<SELF extends Builder<SELF>> {
@@ -58,7 +60,7 @@ public abstract class MagdaRequest {
 
     public MagdaDocument toMagdaDocument(MagdaRegistrationInfo magdaRegistrationInfo) {
         var serviceId = magdaServiceIdentification();
-        var document = MagdaDocument.fromResource(MagdaDocument.class, "/templates/" + serviceId.getName() + "/" + serviceId.getVersion() + "/template.xml");
+        var document = Objects.requireNonNull(MagdaDocument.fromResource(MagdaDocument.class, "/templates/" + serviceId.getName() + "/" + serviceId.getVersion() + "/template.xml"));
         fillIn(document, magdaRegistrationInfo);
 
         return document;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:simpleType name="QuarterType">
+		<xs:annotation>
+			<xs:documentation>Format trimestre CCYYT</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="5"/>
+			<xs:pattern value="[2][0](([0][2-9])|([1-2][0-9]))[1-4]">
+				<xs:annotation>
+					<xs:documentation>Valid from 20021 to 20294</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Quarter" type="QuarterType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Trimestre</xs:documentation>
+			<xs:documentation xml:lang="NL">Kwartaal</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

@@ -9,6 +9,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestBase {
 
+    public static final String TEST_INSZ = "67722499797";
+    public static final String TEST_KBO_NUMBER = "0456123791";
     public static final String TEST_SERVICE_URI = "be.vlaanderen/magda/mock.service";
     public static final String TEST_SERVICE_HOEDANIGHEID = "123";
 

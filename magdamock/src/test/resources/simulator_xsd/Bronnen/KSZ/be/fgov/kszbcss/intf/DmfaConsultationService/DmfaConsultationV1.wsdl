@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================================================================
+    * Owner:            KSZ / CBSS
+    * Creation date:    2016-09-01
+    * Description:      Request and response types for DmfaConsultationService
+    * Revision History:
+          * 2019-01-15: add consultPersonnelByEmployer operation
+-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://kszbcss.fgov.be/intf/DmfaConsultationService/v1"
+  name="DmfaConsultationService" targetNamespace="http://kszbcss.fgov.be/intf/DmfaConsultationService/v1"
+  xmlns:common="http://kszbcss.fgov.be/types/common/v3">
+  <!--========= wsdl:types ===========-->
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+      elementFormDefault="unqualified" xmlns:dc="http://kszbcss.fgov.be/types/DmfaConsultation/v1"
+      targetNamespace="http://kszbcss.fgov.be/intf/DmfaConsultationService/v1" version="2019-01-15">
+      <xsd:import namespace="http://kszbcss.fgov.be/types/DmfaConsultation/v1"
+        schemaLocation="../../types/DmfaConsultation/DmfaConsultationV1.xsd" />
+      <xsd:import namespace="http://kszbcss.fgov.be/types/common/v3"
+        schemaLocation="../../types/common/CommonV3.xsd" />
+      <!--========= xsd:element ===========-->
+      <xsd:element name="consultDmfaAttestationsBySsinRequest"
+        type="dc:ConsultDmfaAttestationsBySsinRequestType" />
+      <xsd:element name="consultDmfaAttestationsBySsinResponse"
+        type="dc:ConsultDmfaAttestationsBySsinResponseType" />
+      <xsd:element name="consultDmfaAttestationsBySsinFault" type="common:CBSSFaultType" />
+      <xsd:element name="consultPersonnelByEmployerRequest" type="dc:ConsultPersonnelByEmployerRequestType" />
+      <xsd:element name="consultPersonnelByEmployerResponse"
+        type="dc:ConsultPersonnelByEmployerResponseType" />
+      <xsd:element name="consultPersonnelByEmployerFault" type="common:CBSSFaultType" />
+    </xsd:schema>
+  </wsdl:types>
+  <!--========= wsdl:message ===========-->
+  <wsdl:message name="consultDmfaAttestationsBySsinRequestMsg">
+    <wsdl:part element="tns:consultDmfaAttestationsBySsinRequest"
+      name="consultDmfaAttestationsBySsinRequestParameters" />
+  </wsdl:message>
+  <wsdl:message name="consultDmfaAttestationsBySsinResponseMsg">
+    <wsdl:part element="tns:consultDmfaAttestationsBySsinResponse"
+      name="consultDmfaAttestationsBySsinResponseParameters" />
+  </wsdl:message>
+  <wsdl:message name="consultDmfaAttestationsBySsinFaultMsg">
+    <wsdl:part element="tns:consultDmfaAttestationsBySsinFault"
+      name="consultDmfaAttestationsBySsinFaultParameters" />
+  </wsdl:message>
+  <wsdl:message name="consultPersonnelByEmployerRequestMsg">
+    <wsdl:part element="tns:consultPersonnelByEmployerRequest"
+      name="consultPersonnelByEmployerRequestParameters" />
+  </wsdl:message>
+  <wsdl:message name="consultPersonnelByEmployerResponseMsg">
+    <wsdl:part element="tns:consultPersonnelByEmployerResponse"
+      name="consultPersonnelByEmployerResponseParameters" />
+  </wsdl:message>
+  <wsdl:message name="consultPersonnelByEmployerFaultMsg">
+    <wsdl:part element="tns:consultPersonnelByEmployerFault" name="consultPersonnelByEmployerFaultParameters" />
+  </wsdl:message>
+  <!--========= wsdl:portType ===========-->
+  <wsdl:portType name="DmfaConsultationPortType">
+    <wsdl:operation name="consultDmfaAttestationsBySsin">
+      <wsdl:input message="tns:consultDmfaAttestationsBySsinRequestMsg"
+        name="consultDmfaAttestationsBySsinRequest" />
+      <wsdl:output message="tns:consultDmfaAttestationsBySsinResponseMsg"
+        name="consultDmfaAttestationsBySsinResponse" />
+      <wsdl:fault message="tns:consultDmfaAttestationsBySsinFaultMsg"
+        name="consultDmfaAttestationsBySsinFault" />
+    </wsdl:operation>
+    <wsdl:operation name="consultPersonnelByEmployer">
+      <wsdl:input message="tns:consultPersonnelByEmployerRequestMsg" name="consultPersonnelByEmployerRequest" />
+      <wsdl:output message="tns:consultPersonnelByEmployerResponseMsg"
+        name="consultPersonnelByEmployerResponse" />
+      <wsdl:fault message="tns:consultPersonnelByEmployerFaultMsg" name="consultPersonnelByEmployerFault" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--========= wsdl:binding ===========-->
+  <wsdl:binding name="DmfaConsultationServiceHTTPBinding" type="tns:DmfaConsultationPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="consultDmfaAttestationsBySsin">
+      <soap:operation
+        soapAction="http://kszbcss.fgov.be/DmfaConsultationService/consultDmfaAttestationsBySsin" />
+      <wsdl:input name="consultDmfaAttestationsBySsinRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="consultDmfaAttestationsBySsinResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="consultDmfaAttestationsBySsinFault">
+        <soap:fault name="consultDmfaAttestationsBySsinFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultPersonnelByEmployer">
+      <soap:operation
+        soapAction="http://kszbcss.fgov.be/DmfaConsultationService/consultPersonnelByEmployer" />
+      <wsdl:input name="consultPersonnelByEmployerRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="consultPersonnelByEmployerResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="consultPersonnelByEmployerFault">
+        <soap:fault name="consultPersonnelByEmployerFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--========= wsdl:service ===========-->
+  <wsdl:service name="DmfaConsultationService">
+    <wsdl:port binding="tns:DmfaConsultationServiceHTTPBinding" name="DmfaConsultationService">
+      <soap:address location="https://b2b-test.ksz-bcss.fgov.be:4520/DmfaConsultationService/consult" />
+      <!--Development Environment: https://b2b-test.ksz-bcss.fgov.be:4520/DmfaConsultationService/consult-->
+      <!--Acceptation Environment: https://b2b-acpt.ksz-bcss.fgov.be:4520/DmfaConsultationService/consult-->
+      <!--Production Environment: https://b2b.ksz-bcss.fgov.be:4520/DmfaConsultationService/consult-->
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

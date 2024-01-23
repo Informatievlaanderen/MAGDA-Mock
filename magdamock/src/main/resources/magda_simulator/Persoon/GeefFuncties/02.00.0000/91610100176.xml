@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <web:GeefFunctiesResponse xmlns:web="http://webservice.geeffunctiesdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
     <Repliek>
         <Context>
@@ -6,7 +7,7 @@
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
-                    <Datum>2017-03-30</Datum>
+                    <Datum>2024-01-16</Datum>
                     <Tijd>12:12</Tijd>
                 </Tijdstip>
                 <Afzender>
@@ -16,7 +17,7 @@
                 </Afzender>
                 <Ontvanger>
                     <Identificatie>rwo.vlaanderen.be/vmsw/kbi-dossiers-p-aip-bo</Identificatie>
-                    <Referte>XE:1044:24661:8102</Referte>
+                    <Referte>a63dc513-7a97-4d21-8164-c1bfad015bc0</Referte>
                     <Hoedanigheid>3003</Hoedanigheid>
                 </Ontvanger>
             </Bericht>
@@ -27,8 +28,8 @@
                 <Oorsprong>MAGDA</Oorsprong>
                 <Type>FOUT</Type>
                 <Tijdstip>
-                    <Datum>2017-03-08</Datum>
-                    <Tijd>10:05:00.000</Tijd>
+                    <Datum>2024-01-16</Datum>
+                    <Tijd>12:12:00.000</Tijd>
                 </Tijdstip>
                 <Diagnose>Te veel gelijktijdige bevragingen</Diagnose>
             </Uitzondering>

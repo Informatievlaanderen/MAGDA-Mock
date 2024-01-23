@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2017-08-03</Datum>
+					<Tijd>10:01:52.652</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>6c36ef03-5873-48e3-8d4e-f309764e7a4d</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>vip.vlaanderen.be/rrdev-aip-bo</Identificatie>
+					<Referte>6f917669-5600-44ea-9e57-4f6cf203322d</Referte>
+					<Hoedanigheid>101</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>12e00969-9ee9-46e3-b975-360d96de054a</Referte>
+				<Inhoud>
+					<Persoon Bron="RR" DatumCreatie="2020-05-26">
+						<INSZ>20652674825</INSZ>
+						<Naam DatumBegin="2020-05-26">
+							<Achternamen>
+								<Achternaam>Jacobs</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Kim</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code>2</Code>
+							<Omschrijving>Vrouwelijk</Omschrijving>
+						</Geslacht>
+						<Beheerder DatumBegin="2020-05-26">
+							<Plaats>
+								<Gemeente>
+									<NISCode>35013</NISCode>
+									<Naam>Oostende</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Fusie>
+								<Code>0</Code>
+								<Omschrijving Taal="nl">NEEN</Omschrijving>
+							</Fusie>
+							<Taalregime>
+								<Code>2</Code>
+								<Omschrijving Taal="nl">Nederlands</Omschrijving>
+							</Taalregime>
+						</Beheerder>
+						<Register>
+							<Code>RR</Code>
+							<Omschrijving Taal="nl">Rijksregister</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="2020-05-26">
+								<Code>RR</Code>
+								<Omschrijving Taal="nl">Rijksregister</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="2020-05-26">
+							<Datum>2020-05-26</Datum>
+							<Plaats>
+								<Gemeente>
+									<NISCode>35013</NISCode>
+									<Naam>Oostende</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Plaats>
+							<Aktenummer>94524</Aktenummer>
+							<Bewijsstuk>
+								<Code>00</Code>
+								<Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
+							</Bewijsstuk>
+						</Geboorte>
+						<BurgerlijkeStaten>
+							<BurgerlijkeStaat DatumBegin="2020-05-26">
+								<Code>10</Code>
+								<Omschrijving Taal="nl">Ongehuwd</Omschrijving>
+							</BurgerlijkeStaat>
+						</BurgerlijkeStaten>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="2020-05-26">
+								<Straatnaam>
+									<String>Kairostraat</String>
+									<Taal>nl</Taal>
+								</Straatnaam>
+								<Huisnummer>711</Huisnummer>
+								<Busnummer>D</Busnummer>
+								<Gemeentenaam>
+									<String>Oostende</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>BELGIE</String>
+									<Taal>nl</Taal>
+								</Land>
+								<Postcode>8400</Postcode>
+								<NISCodeLand>150</NISCodeLand>
+								<ISOCodeLand>BEL</ISOCodeLand>
+								<NISCodeGemeente>35013</NISCodeGemeente>
+							</Hoofdverblijfplaats>
+						</Adressen>
+						<Afstammingen>
+							<Afstamming DatumBegin="2020-05-26">
+								<Type>
+									<Code>00</Code>
+									<Omschrijving Taal="nl">Kind</Omschrijving>
+								</Type>
+								<Ouders>
+									<Ouder>
+										<INSZ>89651174486</INSZ>
+										<Naam>
+											<Achternamen>
+												<Achternaam>Jacobs</Achternaam>
+											</Achternamen>
+											<Voornamen>
+												<Voornaam>Eva</Voornaam>
+											</Voornamen>
+										</Naam>
+										<Geslacht>
+											<Code>2</Code>
+											<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+										</Geslacht>
+										<Geboortedatum>2020-05-26</Geboortedatum>
+									</Ouder>
+								</Ouders>
+							</Afstamming>
+						</Afstammingen>
+						<Referentiepersoon DatumBegin="2020-05-26">
+							<INSZ>89651174486</INSZ>
+							<Naam>
+								<Achternamen>
+									<Achternaam>Jacobs</Achternaam>
+								</Achternamen>
+								<Voornamen>
+									<Voornaam>Eva</Voornaam>
+								</Voornamen>
+							</Naam>
+							<Geslacht>
+								<Code>2</Code>
+								<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+							</Geslacht>
+							<Geboortedatum>1989-05-11</Geboortedatum>
+							<Positie>
+								<Code>06</Code>
+								<Omschrijving Taal="nl">Moeder</Omschrijving>
+							</Positie>
+							<Woonvorm>
+								<Code>00</Code>
+								<Omschrijving Taal="nl">Gezin niet collectief wonen </Omschrijving>
+							</Woonvorm>
+						</Referentiepersoon>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>
+

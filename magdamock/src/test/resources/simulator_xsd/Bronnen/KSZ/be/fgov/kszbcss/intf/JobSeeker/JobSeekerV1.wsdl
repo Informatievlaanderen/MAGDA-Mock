@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by USER (KSZ-BCSS) -->
+<!-- ========================================================================
+         * Owner :               KSZ / CBSS
+         * Creation date :       2018-11-21
+         * Description :         WSDL definition for the JobSeeker web service.
+         * Revision History :
+2018-11-21 : Initial version
+2023-01-09 : (WDE) add datafilters to all responseTypes + add NO_RESULT to source status
+2023-03-28 : (JHO) increase limits for HouseNumber and BoxNumber
+======================================================================== -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="JobSeekerService"
+  targetNamespace="http://kszbcss.fgov.be/intf/JobSeekerService/v1"
+  xmlns:common="http://kszbcss.fgov.be/types/common/v3" xmlns:puo="http://kszbcss.fgov.be/types/JobSeeker/v1"
+  xmlns:tns="http://kszbcss.fgov.be/intf/JobSeekerService/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <!--========= wsdl:types ===========-->
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+      elementFormDefault="unqualified" targetNamespace="http://kszbcss.fgov.be/intf/JobSeekerService/v1"
+      xmlns:common="http://kszbcss.fgov.be/types/common/v3" xmlns:puo="http://kszbcss.fgov.be/types/JobSeeker/v1"
+      xmlns:tns="http://kszbcss.fgov.be/intf/JobSeekerService/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+      version="2023-03-28">
+      <xsd:import schemaLocation="../../types/JobSeeker/JobSeekerTypesV1.xsd"
+        namespace="http://kszbcss.fgov.be/types/JobSeeker/v1" />
+      <xsd:import schemaLocation="../../types/common/CommonV3.xsd"
+        namespace="http://kszbcss.fgov.be/types/common/v3" />
+      <!--========= xsd element ===========-->
+      <xsd:element name="consultContactAndInscriptionRequest"
+        type="puo:ConsultContactAndInscriptionRequestType" />
+      <xsd:element name="consultContactAndInscriptionResponse"
+        type="puo:ConsultContactAndInscriptionResponseType" />
+      <xsd:element name="consultContactAndInscriptionFault" type="common:CBSSFaultType" />
+    </xsd:schema>
+  </wsdl:types>
+  <!--========= wsdl:message ===========-->
+  <wsdl:message name="consultContactAndInscriptionRequestMsg">
+    <wsdl:part name="consultContactAndInscriptionRequestParameters"
+      element="tns:consultContactAndInscriptionRequest" />
+  </wsdl:message>
+  <wsdl:message name="consultContactAndInscriptionResponseMsg">
+    <wsdl:part name="consultContactAndInscriptionResponseParameters"
+      element="tns:consultContactAndInscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultContactAndInscriptionFaultMsg">
+    <wsdl:part name="consultContactAndInscriptionFaultParameters"
+      element="tns:consultContactAndInscriptionFault" />
+  </wsdl:message>
+  <!--========= wsdl:portType ===========-->
+  <wsdl:portType name="JobSeekerPortType">
+    <wsdl:operation name="consultContactAndInscription">
+      <wsdl:input name="consultContactAndInscriptionRequest"
+        message="tns:consultContactAndInscriptionRequestMsg" />
+      <wsdl:output name="consultContactAndInscriptionResponse"
+        message="tns:consultContactAndInscriptionResponseMsg" />
+      <wsdl:fault name="consultContactAndInscriptionFault" message="tns:consultContactAndInscriptionFaultMsg" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--========= wsdl:binding ===========-->
+  <wsdl:binding name="JobSeekerHTTPBinding" type="tns:JobSeekerPortType">
+    <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document"
+      transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="consultContactAndInscription">
+      <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        soapAction="http://kszbcss.fgov.be/JobSeekerService/consultContactAndInscription" />
+      <wsdl:input>
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="consultContactAndInscriptionFault">
+        <soap:fault xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+          name="consultContactAndInscriptionFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--========= wsdl:service ===========-->
+  <wsdl:service name="JobSeekerService">
+    <wsdl:port name="JobSeekerPull" binding="tns:JobSeekerHTTPBinding">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        location="https://b2b-test.ksz-bcss.fgov.be:4520/JobSeekerService/consult" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

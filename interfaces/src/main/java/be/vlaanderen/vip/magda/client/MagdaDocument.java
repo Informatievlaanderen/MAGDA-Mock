@@ -1,12 +1,10 @@
 package be.vlaanderen.vip.magda.client;
 
-import be.vlaanderen.vip.magda.client.util.XmlUtils;
+import be.vlaanderen.vip.magda.client.xml.XmlUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.dom4j.dom.DOMNodeHelper;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
@@ -159,6 +157,14 @@ public class MagdaDocument {
         }
     }
 
+    public void setValueOrRemoveNode(String expression, String value) {
+        if(value != null) {
+            setValue(expression, value);
+        } else {
+            removeNode(expression);
+        }
+    }
+
     public void createNode(String expression, String nodeName) {
         var node = xml.createElement(nodeName);
         xpath(expression).item(0).appendChild(node);
@@ -174,8 +180,26 @@ public class MagdaDocument {
     public void removeNode(String expression) {
         var nodes = xpath(expression);
         for(var pos = nodes.getLength() - 1; pos >= 0; pos--) { // traverse the list in reverse, because this is going to be messing with the indices
-            var elm = (Element)nodes.item(pos);
+            var elm = (Element) nodes.item(pos);
             elm.getParentNode().removeChild(elm);
+        }
+    }
+
+    public void createAttribute(String expression, String attributeName, String value)
+    {
+        var nodes = xpath(expression);
+        for (var pos = 0; pos < nodes.getLength(); pos++) {
+            var elm = (Element) nodes.item(pos);
+            elm.setAttribute(attributeName, value);
+        }
+    }
+
+    public void removeAttribute(String expression)
+    {
+        var nodes = xpath(expression);
+        for(var pos = nodes.getLength() - 1; pos >= 0; pos--) { // traverse the list in reverse, because this is going to be messing with the indices
+            var attr = (Attr) nodes.item(pos);
+            attr.getOwnerElement().removeAttributeNode(attr);
         }
     }
 

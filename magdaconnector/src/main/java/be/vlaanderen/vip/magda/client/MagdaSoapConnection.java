@@ -44,7 +44,7 @@ import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
-import be.vlaanderen.vip.magda.client.util.XmlUtils;
+import be.vlaanderen.vip.magda.client.xml.XmlUtils;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import brave.Tracing;

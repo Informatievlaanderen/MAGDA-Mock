@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefBetalingenHandicapResponse xmlns:web="http://magda.vlaanderen.be/soczek/file/geefbetalingenhandicap/v03_00">
+    <Repliek>
+        <Context>
+            <Naam>GeefBetalingenHandicap</Naam>
+            <Versie>03.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2023-12-12</Datum>
+                    <Tijd>15:11:26.938</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>60639483-5f43-49d3-9c28-ed0f1b79e0e8</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>885fb6a4-bd96-467b-a016-9a83a0c3fcad</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>5800</Referte>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>30001</Identificatie>
+                        <Oorsprong>MAGDA</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2023-12-12</Datum>
+                            <Tijd>15:11:27.938</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefBetalingenHandicapResponse>

@@ -6,6 +6,7 @@ import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 /**
@@ -15,6 +16,7 @@ import lombok.Getter;
  * <li>subject: the subject identification number of the party about which the information is requested (INSZ number for a person, KBO number for an enterprise)</li>
  * </ul>
  */
+@EqualsAndHashCode(callSuper = true)
 public abstract class SubjectMagdaRequest extends MagdaRequest {
 
     protected abstract static class Builder<SELF extends Builder<SELF>> extends MagdaRequest.Builder<SELF> {

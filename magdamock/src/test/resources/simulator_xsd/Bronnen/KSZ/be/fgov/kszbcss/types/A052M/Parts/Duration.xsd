@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by CIN (I.M. VZW) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:complexType name="DurationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Duree</xs:documentation>
+			<xs:documentation xml:lang="NL">Duur</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">000010</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Unit">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">Unite de temps</xs:documentation>
+					<xs:documentation xml:lang="NL">Tijdeenheid</xs:documentation>
+					<xs:documentation source="KszBcssGlossary">000011</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="1">
+							<xs:annotation>
+								<xs:documentation xml:lang="FR">Heure</xs:documentation>
+								<xs:documentation xml:lang="NL">uur</xs:documentation>
+								<xs:documentation xml:lang="EN">Hour</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="2">
+							<xs:annotation>
+								<xs:documentation xml:lang="FR">Jour</xs:documentation>
+								<xs:documentation xml:lang="NL">Dag</xs:documentation>
+								<xs:documentation xml:lang="EN">Day</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="3">
+							<xs:annotation>
+								<xs:documentation xml:lang="FR">Semaine</xs:documentation>
+								<xs:documentation xml:lang="NL">Week</xs:documentation>
+								<xs:documentation xml:lang="EN">Week</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="4">
+							<xs:annotation>
+								<xs:documentation xml:lang="FR">Mois</xs:documentation>
+								<xs:documentation xml:lang="NL">Maand</xs:documentation>
+								<xs:documentation xml:lang="EN">Month</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="5">
+							<xs:annotation>
+								<xs:documentation xml:lang="FR">Trimestre</xs:documentation>
+								<xs:documentation xml:lang="NL">Kwartaal</xs:documentation>
+								<xs:documentation xml:lang="EN">Quarter</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="6">
+							<xs:annotation>
+								<xs:documentation xml:lang="FR">Annee</xs:documentation>
+								<xs:documentation xml:lang="NL">Jaar</xs:documentation>
+								<xs:documentation xml:lang="EN">Year</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="Minute"/>
+						<xs:enumeration value="Hour"/>
+						<xs:enumeration value="Day"/>
+						<xs:enumeration value="Week"/>
+						<xs:enumeration value="Month"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Value">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">Valeur</xs:documentation>
+					<xs:documentation xml:lang="NL">Waarde</xs:documentation>
+					<xs:documentation source="KszBcssGlossary">000012</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="99999.99"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Duration" type="DurationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Duree</xs:documentation>
+			<xs:documentation xml:lang="NL">Duur</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">000010</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

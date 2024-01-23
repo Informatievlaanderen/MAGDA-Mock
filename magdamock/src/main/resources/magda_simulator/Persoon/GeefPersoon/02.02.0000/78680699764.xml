@@ -17,34 +17,34 @@
 				</Afzender>
 				<Ontvanger>
 					<Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
-					<Referte>XE:420:11815:1419</Referte>
+					<Referte>4226311d-16f4-44bb-a141-2a1f83cd0401</Referte>
 					<Hoedanigheid>101</Hoedanigheid>
 				</Ontvanger>
 			</Bericht>
 		</Context>
 		<Antwoorden>
 			<Antwoord>
-				<Referte>6048</Referte>
+				<Referte>65349ed7-0448-4079-9eb7-fd4298b28491</Referte>
 				<Inhoud>
-					<Persoon DatumCreatie="1978-04-05" DatumModificatie="2014-01-28">
+					<Persoon Bron="RR" DatumCreatie="1978-08-06" DatumModificatie="2014-01-28">
 						<INSZ>78680699764</INSZ>
-						<Naam DatumBegin="1982-03-30">
+						<Naam DatumBegin="1978-08-06">
 							<Achternamen>
-								<Achternaam>Janssens</Achternaam>
+								<Achternaam>Dauwe</Achternaam>
 							</Achternamen>
 							<Voornamen>
-								<Voornaam>Rudy</Voornaam>
+								<Voornaam>Bart</Voornaam>
 							</Voornamen>
 						</Naam>
 						<Geslacht>
-							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
-							<Omschrijving>Mannelijk</Omschrijving>
+							<Code>1</Code>
+							<Omschrijving Taal="nl">Mannelijk</Omschrijving>
 						</Geslacht>
 						<Beheerder DatumBegin="2008-12-23">
 							<Plaats>
 								<Gemeente>
-									<NISCode>24055</NISCode>
-									<Naam>Kortenberg</Naam>
+									<NISCode>43005</NISCode>
+									<Naam>Eeklo</Naam>
 								</Gemeente>
 								<Land>
 									<NISCode>150</NISCode>
@@ -53,17 +53,17 @@
 								</Land>
 							</Plaats>
 							<Fusie>
-								<Code>Code</Code>
-								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+								<Code>0</Code>
+								<Omschrijving Taal="nl">NEEN</Omschrijving>
 							</Fusie>
 							<Taalregime>
 								<Code>2</Code>
-								<Omschrijving>Frans</Omschrijving>
+								<Omschrijving Taal="nl">Nederlands</Omschrijving>
 							</Taalregime>
 						</Beheerder>
-						<Register>
-							<Code>02</Code>
-							<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+						<Register DatumBegin="1978-08-06">
+							<Code>RR</Code>
+							<Omschrijving Taal="nl">Rijksregister</Omschrijving>
 						</Register>
 						<Nationaliteiten>
 							<Nationaliteit DatumBegin="1978-08-06">
@@ -75,8 +75,8 @@
 							<Datum>1978-08-06</Datum>
 							<Plaats>
 								<Gemeente>
-									<NISCode>73066</NISCode>
-									<Naam>Riemst</Naam>
+									<NISCode>43007</NISCode>
+									<Naam>Kaprijke</Naam>
 								</Gemeente>
 								<Land>
 									<NISCode>150</NISCode>
@@ -87,276 +87,102 @@
 							<Aktenummer>00592</Aktenummer>
 						</Geboorte>
 						<BurgerlijkeStaten>
-							<BurgerlijkeStaat DatumBegin="1978-08-06">
-								<Code>10</Code>
-								<Omschrijving>Ongehuwd</Omschrijving>
+							<BurgerlijkeStaat DatumBegin="2011-03-17">
+								<Code>20</Code>
+								<Omschrijving Taal="nl">Gehuwd</Omschrijving>
 							</BurgerlijkeStaat>
 						</BurgerlijkeStaten>
 						<Adressen>
 							<Hoofdverblijfplaats DatumBegin="2014-05-23">								
 								<Straatnaam>
-									<String>Dorpsstraat</String>
+									<String>Prinsenhofstraat</String>
 									<Taal>nl</Taal>
 								</Straatnaam>
-								<Huisnummer>405</Huisnummer>
+								<Huisnummer>7</Huisnummer>
 								<Gemeentenaam>
-									<String>Kortenberg</String>
+									<String>Eeklo</String>
 									<Taal>nl</Taal>
 								</Gemeentenaam>
 								<Land>
 									<String>BELGIE</String>
 									<Taal>nl</Taal>
 								</Land>
-								<Postcode>2340</Postcode>
+								<Postcode>9900</Postcode>
 								<NISCodeLand>150</NISCodeLand>
 								<ISOCodeLand>BEL</ISOCodeLand>
-								<NISCodeGemeente>24055</NISCodeGemeente>
+								<NISCodeGemeente>43005</NISCodeGemeente>
 							</Hoofdverblijfplaats>
 						</Adressen>
-						<Afstammingen>
-							<Afstamming DatumBegin="1982-03-30">
-								<Type>
-									<Code>05</Code>
-									<Omschrijving>Kind gewettigd door adoptie</Omschrijving>
-								</Type>
-								<Plaats>
-									<Gemeente>
-										<NISCode>23025</NISCode>
-										<Naam>Oud-Riemst</Naam>
-									</Gemeente>
-									<Land>
-										<NISCode>150</NISCode>
-										<ISOCode>BEL</ISOCode>
-										<Naam>BELGIE</Naam>
-									</Land>
-								</Plaats>
-								<Aktenummer>00003</Aktenummer>
-								<Ouders>
-									<Ouder>
-										<INSZ>48650499755</INSZ>
-										<Naam>
-											<Achternamen>
-												<Achternaam>Janssens</Achternaam>
-											</Achternamen>
-											<Voornamen>
-												<Voornaam>Joannes</Voornaam>
-												<Voornaam>Baptista</Voornaam>
-											</Voornamen>
-										</Naam>
-										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
-											<Omschrijving>Mannelijk</Omschrijving>
-										</Geslacht>
-										<Geboortedatum>1948-05-04</Geboortedatum>
-									</Ouder>
-									<Ouder>
-										<INSZ>52632299869</INSZ>
-										<Naam>
-											<Achternamen>
-												<Achternaam>Dubois</Achternaam>
-											</Achternamen>
-											<Voornamen>
-												<Voornaam>Louisa</Voornaam>
-												<Voornaam>Albertina</Voornaam>
-											</Voornamen>
-										</Naam>
-										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-											<Omschrijving>Vrouwelijk</Omschrijving>
-										</Geslacht>
-										<Geboortedatum>1952-03-22</Geboortedatum>
-									</Ouder>
-								</Ouders>
-
-							</Afstamming>
-						</Afstammingen>
-						<Referentiepersoon DatumBegin="2004-07-15" DatumEinde="2007-07-12">
-							<INSZ>48650499755</INSZ>
-							<Naam>
-								<Achternamen>
-									<Achternaam>Janssens</Achternaam>
-								</Achternamen>
-								<Voornamen>
-									<Voornaam>Joannes</Voornaam>
-									<Voornaam>Baptista</Voornaam>
-								</Voornamen>
-							</Naam>
-							<Geslacht>
-								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
-								<Omschrijving>Mannelijk</Omschrijving>
-							</Geslacht>
-							<Geboortedatum>1948-05-04</Geboortedatum>
-							<Positie>
-								<Code>03</Code>
-								<Omschrijving>Zoon</Omschrijving>
-							</Positie>
-						</Referentiepersoon>
 						<Gezinsleden>
+							<Gezinslid DatumBegin="2011-03-17">
+								<INSZ>79630199805</INSZ>
+								<Naam>
+									<Achternamen>
+										<Achternaam>Duchamp</Achternaam>
+									</Achternamen>
+									<Voornamen>
+										<Voornaam>Veronique</Voornaam>
+									</Voornamen>
+								</Naam>
+								<Geslacht>
+									<Code>2</Code>
+									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+								</Geslacht>
+								<Geboortedatum>1979-03-01</Geboortedatum>
+								<Positie>
+									<Code>02</Code>
+									<Omschrijving Taal="nl">Echtgenote</Omschrijving>
+								</Positie>
+								<Woonvorm>
+									<Code>00</Code>
+								</Woonvorm>
+							</Gezinslid>
 							<Gezinslid DatumBegin="2012-04-25">
 								<INSZ>12642599819</INSZ>
 								<Naam>
 									<Achternamen>
-										<Achternaam>Janssens</Achternaam>
+										<Achternaam>Dauwe</Achternaam>
 									</Achternamen>
 									<Voornamen>
 										<Voornaam>Chloë</Voornaam>
 									</Voornamen>
 								</Naam>
 								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-									<Omschrijving>Vrouwelijk</Omschrijving>
+									<Code>2</Code>
+									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
 								</Geslacht>
-								<Geboortedatum>1912-10-31</Geboortedatum>
+								<Geboortedatum>2012-04-25</Geboortedatum>
 								<Positie>
 									<Code>03</Code>
-									<Omschrijving>Dochter</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-								</Woonvorm>
-							</Gezinslid>
-							<Gezinslid DatumBegin="2011-03-17">
-								<INSZ>79630199805</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Peeters</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Jeannine</Voornaam>
-										<Voornaam>Willy</Voornaam>
-										<Voornaam>Joannes</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-									<Omschrijving>Vrouwelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>1979-03-01</Geboortedatum>
-								<Positie>
-									<Code>12</Code>
-									<Omschrijving>Niet verwante</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-								</Woonvorm>
-							</Gezinslid>
-							<Gezinslid DatumBegin="2011-03-17">
-								<INSZ>03611299805</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Duchamp</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Amber</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-									<Omschrijving>Vrouwelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>1903-08-21</Geboortedatum>
-								<Positie>
-									<Code>12</Code>
-									<Omschrijving>Niet verwante</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-								</Woonvorm>
-							</Gezinslid>
-							<Gezinslid DatumBegin="2011-03-17">
-								<INSZ>04631199771</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Duchamp</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Brent</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
-									<Omschrijving>Mannelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>1904-10-28</Geboortedatum>
-								<Positie>
-									<Code>12</Code>
-									<Omschrijving>Niet verwant</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-								</Woonvorm>
-							</Gezinslid>
-							<Gezinslid DatumBegin="2011-03-17">
-								<INSZ>06701099795</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Duchamp</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Jason</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
-									<Omschrijving>Mannelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>1908-11-24</Geboortedatum>
-								<Positie>
-									<Code>12</Code>
-									<Omschrijving>Niet verwant</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-								</Woonvorm>
-							</Gezinslid>
-							<Gezinslid DatumBegin="2011-03-17">
-								<INSZ>08641699811</INSZ>
-								<Naam>
-									<Achternamen>
-										<Achternaam>Duchamp</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Kaylee</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-									<Omschrijving>Vrouwelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>1908-11-24</Geboortedatum>
-								<Positie>
-									<Code>12</Code>
-									<Omschrijving>Niet verwante</Omschrijving>
+									<Omschrijving Taal="nl">Dochter</Omschrijving>
 								</Positie>
 								<Woonvorm>
 									<Code>00</Code>
 								</Woonvorm>
 							</Gezinslid>
 						</Gezinsleden>
-						<WettelijkeSamenwoning DatumBegin="2011-08-22">
-							<Datum>2011-08-22</Datum>
+						<WettelijkeSamenwoning DatumBegin="2011-03-17">
+							<Datum>2011-03-17</Datum>
 							<Partner>
 								<INSZ>79630199805</INSZ>
 								<Naam>
 									<Achternamen>
-										<Achternaam>Peeters</Achternaam>
+										<Achternaam>Duchamp</Achternaam>
 									</Achternamen>
 									<Voornamen>
-										<Voornaam GebruikelijkeVoornaam="1">Jeannine</Voornaam>
-										<Voornaam>Willy</Voornaam>
-										<Voornaam>Joannes</Voornaam>
+										<Voornaam>Veronique</Voornaam>
 									</Voornamen>
 								</Naam>
 								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-									<Omschrijving>Vrouwelijk</Omschrijving>
+									<Code>2</Code>
+									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
 								</Geslacht>
 								<Geboortedatum>1979-03-01</Geboortedatum>
 							</Partner>
 							<Plaats>
 								<Gemeente>
-									<NISCode>24055</NISCode>
-									<Naam>Kortenberg</Naam>
+									<NISCode>43005</NISCode>
+									<Naam>Eeklo</Naam>
 								</Gemeente>
 								<Land>
 									<NISCode>150</NISCode>
@@ -371,11 +197,11 @@
 									<Code>0000</Code>
 									<Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
 								</Type>
-								<Nummer>636067434675</Nummer>
+								<Nummer>615367434675</Nummer>
 								<Plaats>
 									<Gemeente>
-										<NISCode>24055</NISCode>
-										<Naam>Kortenberg</Naam>
+										<NISCode>43005</NISCode>
+										<Naam>Eeklo</Naam>
 									</Gemeente>
 									<Land>
 										<NISCode>150</NISCode>

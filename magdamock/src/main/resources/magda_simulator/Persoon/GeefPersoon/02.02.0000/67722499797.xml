@@ -17,16 +17,16 @@
 				</Afzender>
 				<Ontvanger>
 					<Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
-					<Referte>XE:420:11815:1419</Referte>
+					<Referte>4226311d-16f4-44bb-a141-2a1f83cd0401</Referte>
 					<Hoedanigheid>101</Hoedanigheid>
 				</Ontvanger>
 			</Bericht>
 		</Context>
 		<Antwoorden>
 			<Antwoord>
-				<Referte>6048</Referte>
+				<Referte>c8897bc2-18d2-43e1-b14f-c1575b51907d</Referte>
 				<Inhoud>
-					<Persoon DatumCreatie="1967-12-24" DatumModificatie="2002-10-02">
+					<Persoon Bron="RR" DatumCreatie="1967-12-24" DatumModificatie="1994-09-12">
 						<INSZ>67722499797</INSZ>
 						<Naam DatumBegin="1967-12-24">
 							<Achternamen>
@@ -39,14 +39,14 @@
 							</Voornamen>
 						</Naam>
 						<Geslacht>
-							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Code>1</Code>
 							<Omschrijving>Mannelijk</Omschrijving>
 						</Geslacht>
-						<Beheerder DatumBegin="1997-08-13">
+						<Beheerder DatumBegin="1994-09-12">
 							<Plaats>
 								<Gemeente>
-									<NISCode>24055</NISCode>
-									<Naam>Kortenberg</Naam>
+									<NISCode>44021</NISCode>
+									<Naam>Gent</Naam>
 								</Gemeente>
 								<Land>
 									<NISCode>150</NISCode>
@@ -55,17 +55,17 @@
 								</Land>
 							</Plaats>
 							<Fusie>
-								<Code>Code</Code>
-								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+								<Code>0</Code>
+								<Omschrijving Taal="nl">NEEN</Omschrijving>
 							</Fusie>
 							<Taalregime>
-								<Code>Code</Code>
-								<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+								<Code>2</Code>
+								<Omschrijving Taal="nl">Nederlands</Omschrijving>
 							</Taalregime>
 						</Beheerder>
-						<Register>
-							<Code>02</Code>
-							<Omschrijving Taal="nl">Omschrijving</Omschrijving>
+						<Register DatumBegin="1967-12-24">
+							<Code>RR</Code>
+							<Omschrijving Taal="nl">Rijksregister</Omschrijving>
 						</Register>
 						<Nationaliteiten>
 							<Nationaliteit DatumBegin="1967-12-24">
@@ -86,126 +86,42 @@
 									<Naam>BELGIE</Naam>
 								</Land>
 							</Plaats>
-							<Aktenummer>00000</Aktenummer>
+							<Aktenummer>78985</Aktenummer>
+							<Bewijsstuk>
+								<Code>00</Code>
+								<Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
+							</Bewijsstuk>
 						</Geboorte>
 						<BurgerlijkeStaten>
-							<BurgerlijkeStaat DatumBegin="1967-12-24">
-								<Code>10</Code>
-								<Omschrijving>Ongehuwd</Omschrijving>
+							<BurgerlijkeStaat DatumBegin="1996-05-11">
+								<Code>20</Code>
+								<Omschrijving Taal="nl">Gehuwd</Omschrijving>
 							</BurgerlijkeStaat>
 						</BurgerlijkeStaten>
 						<Adressen>
-							<Hoofdverblijfplaats DatumBegin="1997-08-13">					
+							<Hoofdverblijfplaats DatumBegin="1994-09-12">
 								<Straatnaam>
-									<String>Dorpsstraat</String>
+									<String>Hoogstraat</String>
 									<Taal>nl</Taal>
 								</Straatnaam>
-								<Huisnummer>405</Huisnummer>
+								<Huisnummer>63</Huisnummer>
+								<Busnummer>A</Busnummer>
 								<Gemeentenaam>
-									<String>Kortenberg</String>
+									<String>Gent</String>
 									<Taal>nl</Taal>
 								</Gemeentenaam>
 								<Land>
 									<String>BELGIE</String>
 									<Taal>nl</Taal>
 								</Land>
-								<Postcode>2340</Postcode>
+								<Postcode>9000</Postcode>
 								<NISCodeLand>150</NISCodeLand>
 								<ISOCodeLand>BEL</ISOCodeLand>
-								<NISCodeGemeente>24055</NISCodeGemeente>
+								<NISCodeGemeente>44021</NISCodeGemeente>
 							</Hoofdverblijfplaats>
 						</Adressen>
-						<Afstammingen>
-							<Afstamming DatumBegin="1967-12-24">
-								<Type>
-									<Code>00</Code>
-									<Omschrijving>Kind</Omschrijving>
-								</Type>
-								<Ouders>
-									<Ouder>
-										<INSZ>43610199712</INSZ>
-										<Naam>
-											<Achternamen>
-												<Achternaam>Peeters</Achternaam>
-											</Achternamen>
-											<Voornamen>
-												<Voornaam>Elio</Voornaam>
-												<Voornaam>Franco</Voornaam>
-											</Voornamen>
-										</Naam>
-										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
-											<Omschrijving>Mannelijk</Omschrijving>
-										</Geslacht>
-										<Geboortedatum>1943-01-01</Geboortedatum>
-									</Ouder>
-									<Ouder>
-										<INSZ>44671999819</INSZ>
-										<Naam>
-											<Achternamen>
-												<Achternaam>Dubois</Achternaam>
-											</Achternamen>
-											<Voornamen>
-												<Voornaam>Claudine</Voornaam>
-												<Voornaam>Marie</Voornaam>
-												<Voornaam>Ghislaine</Voornaam>
-											</Voornamen>
-										</Naam>
-										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-											<Omschrijving>Vrouwelijk</Omschrijving>
-										</Geslacht>
-										<Geboortedatum>1944-07-19</Geboortedatum>
-									</Ouder>
-								</Ouders>
-							</Afstamming>
-						</Afstammingen>
 						<AfstammingenDalendeLijn>
-							<AfstammingDalendeLijn DatumBegin="2001-03-14">
-								<Type>
-									<Code>11</Code>
-									<Omschrijving>Kind</Omschrijving>
-								</Type>
-								<Kind>
-									<INSZ>05691199737</INSZ>
-									<Naam>
-										<Achternamen>
-											<Achternaam>Peeters</Achternaam>
-										</Achternamen>
-										<Voornamen>
-											<Voornaam>Alexis</Voornaam>
-										</Voornamen>
-									</Naam>
-									<Geslacht>
-										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
-										<Omschrijving>Mannelijk</Omschrijving>
-									</Geslacht>
-									<Geboortedatum>2005-09-11</Geboortedatum>
-								</Kind>
-							</AfstammingDalendeLijn>
-							<AfstammingDalendeLijn DatumBegin="2002-02-15">
-								<Type>
-									<Code>10</Code>
-									<Omschrijving>Kind</Omschrijving>
-								</Type>
-								<Kind>
-									<INSZ>01651899805</INSZ>
-									<Naam>
-										<Achternamen>
-											<Achternaam>Peeters</Achternaam>
-										</Achternamen>
-										<Voornamen>
-											<Voornaam>Laura</Voornaam>
-										</Voornamen>
-									</Naam>
-									<Geslacht>
-										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-										<Omschrijving>Vrouwelijk</Omschrijving>
-									</Geslacht>
-									<Geboortedatum>2001-05-18</Geboortedatum>
-								</Kind>
-							</AfstammingDalendeLijn>
-							<AfstammingDalendeLijn DatumBegin="2002-02-15">
+							<AfstammingDalendeLijn DatumBegin="1997-07-09">
 								<Type>
 									<Code>10</Code>
 									<Omschrijving>Kind</Omschrijving>
@@ -221,158 +137,60 @@
 										</Voornamen>
 									</Naam>
 									<Geslacht>
-										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-										<Omschrijving>Vrouwelijk</Omschrijving>
+										<Code>2</Code>
+										<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
 									</Geslacht>
 									<Geboortedatum>1997-07-09</Geboortedatum>
 								</Kind>
 							</AfstammingDalendeLijn>
+							<AfstammingDalendeLijn DatumBegin="2001-05-18">
+								<Type>
+									<Code>10</Code>
+									<Omschrijving Taal="nl">Kind</Omschrijving>
+								</Type>
+								<Kind>
+									<INSZ>01651899805</INSZ>
+									<Naam>
+										<Achternamen>
+											<Achternaam>Peeters</Achternaam>
+										</Achternamen>
+										<Voornamen>
+											<Voornaam>Laura</Voornaam>
+										</Voornamen>
+									</Naam>
+									<Geslacht>
+										<Code>2</Code>
+										<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+									</Geslacht>
+									<Geboortedatum>2001-05-18</Geboortedatum>
+								</Kind>
+							</AfstammingDalendeLijn>
+							<AfstammingDalendeLijn DatumBegin="2005-09-11">
+								<Type>
+									<Code>10</Code>
+									<Omschrijving Taal="nl">Kind</Omschrijving>
+								</Type>
+								<Kind>
+									<INSZ>05691199737</INSZ>
+									<Naam>
+										<Achternamen>
+											<Achternaam>Peeters</Achternaam>
+										</Achternamen>
+										<Voornamen>
+											<Voornaam>Alex</Voornaam>
+										</Voornamen>
+									</Naam>
+									<Geslacht>
+										<Code>1</Code>
+										<Omschrijving Taal="nl">Mannelijk</Omschrijving>
+									</Geslacht>
+									<Geboortedatum>2005-09-11</Geboortedatum>
+								</Kind>
+							</AfstammingDalendeLijn>
 						</AfstammingenDalendeLijn>
-
 						<Gezinsleden>
-							<Gezinslid DatumBegin="2011-11-04">
-								<INSZ>97670999874</INSZ>
-								<Naam DatumBegin="1997-07-09">
-									<Achternamen>
-										<Achternaam>Peeters</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Jessica</Voornaam>
-										<Voornaam>Sandrine</Voornaam>
-										<Voornaam>Solange</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-									<Omschrijving>Vrouwelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>1997-07-09</Geboortedatum>
-								<Positie>
-									<Code>03</Code>
-									<Omschrijving  Taal="nl">zoon/dochter</Omschrijving>
-								</Positie>
-								<Woonvorm>
-									<Code>00</Code>
-								</Woonvorm>
-
-							</Gezinslid>
-							<Gezinslid DatumBegin="2001-05-18">
-
-								<INSZ>01651899805</INSZ>
-								<Naam DatumBegin="2001-05-18">
-									<Achternamen>
-										<Achternaam>Peeters</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Laura</Voornaam>
-										<Voornaam>Maryvonne</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-									<Omschrijving>Vrouwelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>2001-05-18</Geboortedatum>
-								<Positie>
-									<Code>03</Code>
-									<Omschrijving  Taal="nl">zoon/dochter</Omschrijving>
-								</Positie>
-							</Gezinslid>
-							<Gezinslid DatumBegin="2005-09-11">
-
-								<INSZ>05691199737</INSZ>
-								<Naam DatumBegin="2005-09-11">
-									<Achternamen>
-										<Achternaam>Peeters</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Alexis</Voornaam>
-										<Voornaam>Naedgy</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
-									<Omschrijving>Mannelijk</Omschrijving>
-								</Geslacht>
-
-								<Geboortedatum>2005-09-11</Geboortedatum>
-
-								<Positie>
-									<Code>03</Code>
-									<Omschrijving  Taal="nl">zoon/dochter</Omschrijving>
-								</Positie>
-							</Gezinslid>
-							<Gezinslid DatumBegin="1995-03-03">
-
-								<INSZ>71690999827</INSZ>
-								<Naam DatumBegin="1971-09-04">
-									<Achternamen>
-										<Achternaam>Janssens</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Isabelle</Voornaam>
-										<Voornaam>Giovanna</Voornaam>
-										<Voornaam>Mariette</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-									<Omschrijving>Vrouwelijk</Omschrijving>
-								</Geslacht>
-
-								<Geboortedatum>1971-07-09</Geboortedatum>
-								<Positie>
-									<Code>12</Code>
-									<Omschrijving  Taal="nl">zonder familieverband</Omschrijving>
-								</Positie>
-							</Gezinslid>
-							<Gezinslid DatumBegin="1995-03-03">
-
-								<INSZ>00631499791</INSZ>
-								<Naam DatumBegin="1971-09-04">
-									<Achternamen>
-										<Achternaam>Janssens</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Hans</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
-									<Omschrijving>Mannelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>2000-07-09</Geboortedatum>
-								<Positie>
-									<Code>12</Code>
-									<Omschrijving  Taal="nl">zonder familieverband</Omschrijving>
-								</Positie>
-							</Gezinslid>
-							<Gezinslid DatumBegin="1995-03-03">
-
-								<INSZ>02621599895</INSZ>
-								<Naam DatumBegin="1971-09-04">
-									<Achternamen>
-										<Achternaam>Janssens</Achternaam>
-									</Achternamen>
-									<Voornamen>
-										<Voornaam>Patricia</Voornaam>
-									</Voornamen>
-								</Naam>
-								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-									<Omschrijving>Vrouwelijk</Omschrijving>
-								</Geslacht>
-								<Geboortedatum>2002-07-09</Geboortedatum>
-								<Positie>
-									<Code>12</Code>
-									<Omschrijving  Taal="nl">zonder familieverband</Omschrijving>
-								</Positie>
-							</Gezinslid>
-						</Gezinsleden>
-						<WettelijkeSamenwoning DatumBegin="2011-08-22">
-							<Datum>2011-08-22</Datum>
-							<Partner>
-								<INSZ>71690999827</INSZ>
+							<Gezinslid DatumBegin="1996-05-11">
+								<INSZ>71690499880</INSZ>
 								<Naam>
 									<Achternamen>
 										<Achternaam>Janssens</Achternaam>
@@ -381,18 +199,117 @@
 										<Voornaam>Isabelle</Voornaam>
 										<Voornaam>Giovanna</Voornaam>
 										<Voornaam>Mariette</Voornaam>
+										<Voornaam>Elio</Voornaam>
 									</Voornamen>
 								</Naam>
 								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
-									<Omschrijving>Vrouwelijk</Omschrijving>
+									<Code>2</Code>
+									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
 								</Geslacht>
-								<Geboortedatum>1971-09-09</Geboortedatum>
+								<Geboortedatum>1971-09-04</Geboortedatum>
+								<Positie>
+									<Code>02</Code>
+									<Omschrijving Taal="nl">Echtgenote</Omschrijving>
+								</Positie>
+								<Woonvorm>
+									<Code>00</Code>
+								</Woonvorm>
+							</Gezinslid>
+							<Gezinslid DatumBegin="1997-07-09">
+								<INSZ>97670999874</INSZ>
+								<Naam>
+									<Achternamen>
+										<Achternaam>Peeters</Achternaam>
+									</Achternamen>
+									<Voornamen>
+										<Voornaam>Jessica</Voornaam>
+									</Voornamen>
+								</Naam>
+								<Geslacht>
+									<Code>2</Code>
+									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+								</Geslacht>
+								<Geboortedatum>1997-07-09</Geboortedatum>
+								<Positie>
+									<Code>03</Code>
+									<Omschrijving Taal="nl">Dochter</Omschrijving>
+								</Positie>
+								<Woonvorm>
+									<Code>00</Code>
+								</Woonvorm>
+							</Gezinslid>
+							<Gezinslid DatumBegin="2001-05-18">
+								<INSZ>01651899805</INSZ>
+								<Naam>
+									<Achternamen>
+										<Achternaam>Peeters</Achternaam>
+									</Achternamen>
+									<Voornamen>
+										<Voornaam>Laura</Voornaam>
+									</Voornamen>
+								</Naam>
+								<Geslacht>
+									<Code>2</Code>
+									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+								</Geslacht>
+								<Geboortedatum>2001-05-18</Geboortedatum>
+								<Positie>
+									<Code>03</Code>
+									<Omschrijving Taal="nl">Dochter</Omschrijving>
+								</Positie>
+								<Woonvorm>
+									<Code>00</Code>
+								</Woonvorm>
+							</Gezinslid>
+							<Gezinslid DatumBegin="2005-09-11">
+								<INSZ>05691199737</INSZ>
+								<Naam>
+									<Achternamen>
+										<Achternaam>Peeters</Achternaam>
+									</Achternamen>
+									<Voornamen>
+										<Voornaam>Alex</Voornaam>
+									</Voornamen>
+								</Naam>
+								<Geslacht>
+									<Code>1</Code>
+									<Omschrijving Taal="nl">Mannelijk</Omschrijving>
+								</Geslacht>
+								<Geboortedatum>2005-09-11</Geboortedatum>
+								<Positie>
+									<Code>03</Code>
+									<Omschrijving Taal="nl">Zoon</Omschrijving>
+								</Positie>
+								<Woonvorm>
+									<Code>00</Code>
+								</Woonvorm>
+							</Gezinslid>
+						</Gezinsleden>
+						<WettelijkeSamenwoning DatumBegin="1996-05-11">
+							<Datum>1996-05-11</Datum>
+							<Partner>
+								<INSZ>71690499880</INSZ>
+								<Naam>
+									<Achternamen>
+										<Achternaam>Janssens</Achternaam>
+									</Achternamen>
+									<Voornamen>
+										<Voornaam>Isabelle</Voornaam>
+										<Voornaam>Giovanna</Voornaam>
+										<Voornaam>Mariette</Voornaam>
+										<Voornaam>Elio</Voornaam>
+									</Voornamen>
+								</Naam>
+								<Geslacht>
+									<Code>2</Code>
+									<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+								</Geslacht>
+								<Geboortedatum>1971-09-04</Geboortedatum>
 							</Partner>
 							<Plaats>
 								<Gemeente>
-									<NISCode>24055</NISCode>
-									<Naam>Kortenberg</Naam>
+									<NISCode>44021</NISCode>
+									<Naam>Gent</Naam>
 								</Gemeente>
 								<Land>
 									<NISCode>150</NISCode>
@@ -402,16 +319,12 @@
 							</Plaats>
 						</WettelijkeSamenwoning>
 						<Identiteitsbewijzen>
-							<Identiteitsbewijs DatumBegin="2000-01-01">
+							<Identiteitsbewijs DatumBegin="2020-03-01">
 								<Type>
 									<Code>0000</Code>
 									<Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
 								</Type>
 								<Nummer>655134735662</Nummer>
-								<Vervalgegevens>
-									<Vervaldatum>2018-03-14</Vervaldatum>
-									<Tekst>Tekst</Tekst>
-								</Vervalgegevens>
 							</Identiteitsbewijs>
 						</Identiteitsbewijzen>
 					</Persoon>

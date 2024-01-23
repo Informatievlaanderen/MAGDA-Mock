@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by BANQUE CARREFOUR DE LA SECURITE SOCIALE (BANQUE CARREFOUR DE LA SECURITE SOCIALE) -->
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by tbu (EMBRACE) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XSD/Message" elementFormDefault="qualified" attributeFormDefault="unqualified" version="20060619" xmlns="http://www.ksz-bcss.fgov.be/XSD/Message" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Header">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element name="ClassicPrefix" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Classic A1 prefix. Can contain all types of A1 prefixes as a simple string. Older A0 prefixes are not supported.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Data" minOccurs="0">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element name="IHN" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Inhouse data part as a string</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="XML">
+								<xs:annotation>
+									<xs:documentation>XML data part. Can contain both flux data parts and service bodies</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:any namespace="##any" processContents="lax">
+											<xs:annotation>
+												<xs:documentation>Replaced by the actual message body</xs:documentation>
+											</xs:annotation>
+										</xs:any>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

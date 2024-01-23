@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ========================================================================
+   * Owner :				KSZ / CBSS
+   * Creation date :		01/02/2019
+   * Description :			HandiCommonV1
+   * Revision History :
+-->
+<xsd:schema xmlns:tns="http://kszbcss.fgov.be/types/Handi/common/v1"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kszbcss.fgov.be/types/Handi/common/v1"
+  elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2019-02-01">
+  <xsd:complexType name="RecognitionStatusType">
+    <xsd:sequence>
+      <xsd:element name="dateOfDecision" type="xsd:date" />
+      <xsd:element name="startDateRecognition" type="xsd:date" />
+      <xsd:element name="endDateRecognition" type="xsd:date" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PillarsType">
+    <xsd:sequence>
+      <xsd:element name="pillar1" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:minInclusive value="0" />
+            <xsd:maxInclusive value="6" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="pillar2" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:minInclusive value="0" />
+            <xsd:maxInclusive value="12" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="pillar3" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:minInclusive value="0" />
+            <xsd:maxInclusive value="18" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="pillarsTotal" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:minInclusive value="0" />
+            <xsd:maxInclusive value="36" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="DecisionStatusType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="100" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="EORLegislationType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="20" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="HandicapRecognitionLegislationType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="1" />
+      <xsd:maxInclusive value="100" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RightsLegislationType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="3" />
+      <xsd:maxInclusive value="9" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MoneyAmountType">
+    <xsd:annotation>
+      <xsd:documentation>An amount of money (max 999999999.99, with 2 decimals)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:decimal">
+      <xsd:fractionDigits value="2" />
+      <xsd:totalDigits value="9" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="OpenPeriodType">
+    <xsd:annotation>
+      <xsd:documentation>Period containining a begin date and an optional end date.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="beginDate" type="xsd:date" />
+      <xsd:element name="endDate" type="xsd:date" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PaymentType">
+    <xsd:sequence>
+      <xsd:element name="yearMonth" type="xsd:gYearMonth" />
+      <xsd:element name="amount" type="tns:MoneyAmountType" />
+      <xsd:element name="cancelledPayment" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

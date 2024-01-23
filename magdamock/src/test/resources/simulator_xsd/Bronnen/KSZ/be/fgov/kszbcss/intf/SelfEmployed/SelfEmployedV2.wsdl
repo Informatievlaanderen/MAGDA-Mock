@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================================================================
+         * File Name :			SelfEmployedV2.wsdl
+         * Author :					Cerberus Team
+         * Owner :					KSZ / CBSS
+         * Creation date :		2016-07-01
+         * Last revision date :	
+         * Status :					Planned
+         * Description :			This service supplies the information for a self employed
+         * Current version :		0.1
+         * Revision History :	
+=============================================================================================================-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="SelfEmployedService" targetNamespace="http://kszbcss.fgov.be/intf/SelfEmployedService/v2" xmlns:selfemployed="http://kszbcss.fgov.be/types/SelfEmployed/v2" xmlns:tns="http://kszbcss.fgov.be/intf/SelfEmployedService/v2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<!--========= wsdl:types ===========-->
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:selfemployed="http://kszbcss.fgov.be/types/SelfEmployed/v2" xmlns:common="http://kszbcss.fgov.be/types/common/v3" xmlns:tns="http://kszbcss.fgov.be/intf/SelfEmployedService/v2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://kszbcss.fgov.be/intf/SelfEmployedService/v2" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2016-11-08">
+			<xsd:import namespace="http://kszbcss.fgov.be/types/SelfEmployed/v2" schemaLocation="../../types/SelfEmployed/SelfEmployedTypesV2.xsd"/>
+			<xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../../types/common/CommonV3.xsd"/>
+			<!--========= xsd element ===========-->
+			<xsd:element name="consultCareerRequest" type="selfemployed:ConsultCareerRequestType"/>
+			<xsd:element name="consultCareerResponse" type="selfemployed:ConsultCareerResponseType"/>
+			<xsd:element name="consultCareerFault" type="common:CBSSFaultType"/>
+			<xsd:element name="consultContributionsRequest" type="selfemployed:ConsultContributionsRequestType"/>
+			<xsd:element name="consultContributionsResponse" type="selfemployed:ConsultContributionsResponseType"/>
+			<xsd:element name="consultContributionsFault" type="common:CBSSFaultType"/>
+		</xsd:schema>
+	</wsdl:types>
+	<!--========= wsdl:message ===========-->
+	<wsdl:message name="consultCareerRequestMsg">
+		<wsdl:part name="consultCareerRequestParameters" element="tns:consultCareerRequest"/>
+	</wsdl:message>
+	<wsdl:message name="consultCareerResponseMsg">
+		<wsdl:part name="consultCareerResponseParameters" element="tns:consultCareerResponse"/>
+	</wsdl:message>
+	<wsdl:message name="consultCareerFaultMsg">
+		<wsdl:part name="consultCareerFaultParameters" element="tns:consultCareerFault"/>
+	</wsdl:message>
+	<wsdl:message name="consultContributionsRequestMsg">
+		<wsdl:part name="consultContributionsRequestParameters" element="tns:consultContributionsRequest"/>
+	</wsdl:message>
+	<wsdl:message name="consultContributionsResponseMsg">
+		<wsdl:part name="consultContributionsResponseParameters" element="tns:consultContributionsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="consultContributionsFaultMsg">
+		<wsdl:part name="consultContributionsFaultParameters" element="tns:consultContributionsFault"/>
+	</wsdl:message>
+	<!--========= wsdl:portType ===========-->
+	<wsdl:portType name="SelfEmployedPortType">
+		<wsdl:operation name="consultCareer">
+			<wsdl:input name="consultCareerRequest" message="tns:consultCareerRequestMsg"/>
+			<wsdl:output name="consultCareerResponse" message="tns:consultCareerResponseMsg"/>
+			<wsdl:fault name="consultCareerFault" message="tns:consultCareerFaultMsg"/>
+		</wsdl:operation>
+		<wsdl:operation name="consultContributions">
+			<wsdl:input name="consultContributionsRequest" message="tns:consultContributionsRequestMsg"/>
+			<wsdl:output name="consultContributionsResponse" message="tns:consultContributionsResponseMsg"/>
+			<wsdl:fault name="consultContributionsFault" message="tns:consultContributionsFaultMsg"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<!--========= wsdl:binding ===========-->
+	<wsdl:binding name="SelfEmployedHTTPBinding" type="tns:SelfEmployedPortType">
+		<soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="consultCareer">
+			<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://kszbcss.fgov.be/SelfEmployedService/consultCareer"/>
+			<wsdl:input>
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="consultCareerFault">
+				<soap:fault xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="consultCareerFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="consultContributions">
+			<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://kszbcss.fgov.be/SelfEmployedService/consultContributions"/>
+			<wsdl:input>
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="consultContributionsFault">
+				<soap:fault xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="consultContributionsFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<!--========= wsdl:service ===========-->
+	<wsdl:service name="SelfEmployedService">
+		<wsdl:port name="SelfEmployedPull" binding="tns:SelfEmployedHTTPBinding">
+			<soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="https://b2b-test.ksz-bcss.fgov.be:4520/SelfEmployedService/v2/consult"/>
+			<!--Environnement de developpement : https://b2b-test.ksz-bcss.fgov.be:4520/SelfEmployedService/v2/consult-->
+			<!--Environnement d'acceptation : https://b2b-acpt.ksz-bcss.fgov.be:4520/SelfEmployedService/v2/consult-->
+			<!--Environnement de production : https://b2b.ksz-bcss.fgov.be:4520/SelfEmployedService/v2/consult-->
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

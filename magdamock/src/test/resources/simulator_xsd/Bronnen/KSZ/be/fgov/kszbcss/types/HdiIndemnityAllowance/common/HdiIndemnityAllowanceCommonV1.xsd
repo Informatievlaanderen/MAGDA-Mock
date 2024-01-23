@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by  (Kruispuntbank van de Sociale Zekerheid) -->
+<xs:schema xmlns="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/common/v1"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:common="http://kszbcss.fgov.be/types/common/v3"
+  xmlns:commonA="http://cinnic.fgov.be/types/allowance/commonTypes/v1"
+  targetNamespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/common/v1" elementFormDefault="unqualified"
+  attributeFormDefault="unqualified" version="20220422">
+  <!--========= imports ===========-->
+  <xs:import namespace="http://kszbcss.fgov.be/types/common/v3"
+    schemaLocation="../../../../kszbcss/types/common/CommonV3.xsd" />
+  <xs:import namespace="http://cinnic.fgov.be/types/allowance/commonTypes/v1"
+    schemaLocation="../../../../cinnic/types/allowance/common/AllowanceAttestCommonTypes.xsd" />
+  <!--========= Period ===========-->
+  <xs:complexType name="PeriodAttestationIdentificationType">
+    <xs:sequence>
+      <xs:element name="creationDate" type="xs:date" />
+      <xs:element name="attestationId" type="common:UUIDType" />
+      <xs:element name="attestationVersion" type="AttestationVersionType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Start sequence with 0 to maximum 9999999999. Each update of the
+            attest increments this number by one.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="attestationStatus" type="AttestationStatusType" />
+    </xs:sequence>
+  </xs:complexType>
+  <!--========= AllowanceAttestation ===========-->
+  <xs:complexType name="AllowanceAttestationType">
+    <xs:sequence>
+      <xs:element name="attestationIdentification" type="AttestationIdentificationType" />
+      <xs:element name="allowances" type="AllowancesType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">the social risks covered by this attest</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AttestationIdentificationType">
+    <xs:sequence>
+      <xs:element name="yearQuarter" type="common:YearQuarterType" />
+      <xs:element name="creationDate" type="xs:date" />
+      <xs:choice>
+        <xs:annotation>
+          <xs:documentation xml:lang="en">For closed quarters, attestations are definitive and are
+            identified by attestationId, attestationVersion and attestationStatus, following CBSS standards.
+            In case a
+            request relates to the current quarter, attests are provisory and do not contain attestationId,
+            attestationVersion and attestationStatus but contain a marker tag "temporaryAttest"</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="attestationId" type="common:UUIDType" />
+          <xs:element name="attestationVersion" type="AttestationVersionType">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Start sequence with 0 to maximum 9999999999. Each update of
+                the attest increments this number by one.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="attestationStatus" type="AttestationStatusType" />
+        </xs:sequence>
+        <xs:element name="temporaryAttest" type="TemporaryAttestType" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AttestationVersionType">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0" />
+      <xs:maxExclusive value="9999999999" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AttestationStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CREATION" />
+      <xs:enumeration value="MODIFICATION" />
+      <xs:enumeration value="CANCELLATION" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TemporaryAttestType">
+    <xs:restriction base="xs:string">
+      <xs:length value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AllowancesType">
+    <xs:sequence>
+      <xs:element name="allowance" type="AllowanceType" maxOccurs="100" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AllowanceType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A hdiIndemnityAllowance is composed of 2 parts :
+        - the information
+        about the social Risk
+        - the payments done by the mutuality in the context of the social Risk</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="socialRisk" type="SocialRiskType" />
+      <xs:element name="payments" type="PaymentsType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <!--========= SocialRiskType ===========-->
+  <xs:complexType name="SocialRiskBaseType">
+    <xs:sequence>
+      <xs:element name="socialRiskCategory" type="SocialRiskCategoryType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SocialRiskPeriodType">
+    <xs:complexContent>
+      <xs:extension base="SocialRiskBaseType">
+        <xs:sequence>
+          <xs:element name="period" type="common:OpenPeriodType" />
+          <xs:element name="exitCode" type="commonA:ExitCodeType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SocialRiskType">
+    <xs:complexContent>
+      <xs:extension base="SocialRiskBaseType">
+        <xs:sequence>
+          <xs:choice minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Optional in order to filter out the details</xs:documentation>
+            </xs:annotation>
+            <xs:element name="generalIncapacityForWork" type="GeneralIncapacityForWorkType" />
+            <xs:element name="independentIncapacityForWork" type="IndependentIncapacityForWorkType" />
+            <xs:element name="generalPregnancy" type="GeneralPregnancyType" />
+            <xs:element name="independentPregnancy" type="IndependentPregnancyType" />
+            <xs:element name="generalBreastFeeding" type="GeneralBreastFeedingType" />
+            <xs:element name="generalPaternity" type="GeneralPaternityType" />
+            <xs:element name="generalAdoption" type="AdoptionType" />
+            <xs:element name="independentAdoption" type="AdoptionType" />
+            <xs:element name="generalFosterCare" type="GeneralFosterCareType" />
+            <xs:element name="independentFosterCare" type="GeneralFosterCareType" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SocialRiskDetailBaseType">
+    <xs:sequence>
+      <xs:element name="socialStatus" type="commonA:SocialStatusType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IndependentIncapacityForWorkType">
+    <xs:complexContent>
+      <xs:extension base="SocialRiskDetailBaseType">
+        <xs:sequence>
+          <xs:element name="period" type="common:PeriodType" />
+          <xs:element name="exitCode" type="commonA:ExitCodeType" />
+          <xs:element name="invalidity" type="InvalidityType" minOccurs="0" />
+          <xs:element name="initialStartDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="InvalidityType">
+    <xs:sequence>
+      <xs:element name="startDate" type="xs:date" minOccurs="0" />
+      <xs:element name="invalidityCategory" type="commonA:InvalidityTypeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GeneralIncapacityForWorkType">
+    <xs:complexContent>
+      <xs:extension base="IndependentIncapacityForWorkType">
+        <xs:sequence>
+          <xs:element name="activityCode" type="commonA:ActivityCodeType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IndependentPregnancyType">
+    <xs:complexContent>
+      <xs:extension base="SocialRiskDetailBaseType">
+        <xs:sequence>
+          <xs:element name="period" type="common:PeriodType" />
+          <xs:element name="exitCode" type="commonA:ExitCodeType" />
+          <xs:element name="initialStartDate" type="xs:date" />
+          <xs:element name="deliveryDate" type="xs:date" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GeneralPregnancyType">
+    <xs:complexContent>
+      <xs:extension base="IndependentPregnancyType">
+        <xs:sequence>
+          <xs:element name="supposedDeliveryDate" type="xs:date" minOccurs="0" />
+          <xs:element name="activityCode" type="commonA:ActivityCodeType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GeneralFosterCareType">
+    <xs:complexContent>
+      <xs:extension base="SocialRiskDetailBaseType">
+        <xs:sequence>
+          <xs:element name="fosterCareDate" type="xs:date" />
+          <xs:element name="initialStartDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GeneralBreastFeedingType">
+    <xs:complexContent>
+      <xs:extension base="SocialRiskDetailBaseType">
+        <xs:sequence>
+          <xs:element name="deliveryDate" type="xs:date" />
+          <xs:element name="initialStartDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GeneralPaternityType">
+    <xs:complexContent>
+      <xs:extension base="SocialRiskDetailBaseType">
+        <xs:sequence>
+          <xs:element name="deliveryDate" type="xs:date" />
+          <xs:element name="initialStartDate" type="xs:date" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AdoptionType">
+    <xs:complexContent>
+      <xs:extension base="SocialRiskDetailBaseType">
+        <xs:sequence>
+          <xs:element name="adoptionDate" type="xs:date" />
+          <xs:element name="initialStartDate" type="xs:date" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="SocialRiskCategoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GeneralIncapacityForWorkAllowance">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Risk type 10</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IndependentIncapacityForWorkAllowance">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Risk type 11</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GeneralPregnancy">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Risk type 12</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IndependentPregnancy">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Risk type 13</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GeneralBreastFeeding">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Risk type 14</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GeneralPaternity">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Risk type 15</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GeneralAdoption">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Risk type 16</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IndependentAdoption">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Risk type 17</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GeneralFosterCare">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Risk type 18</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IndependentFosterCare">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Risk type 19</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--========= PaymentsType ===========-->
+  <xs:complexType name="PaymentsType">
+    <xs:sequence>
+      <xs:element name="payment" type="PaymentType" maxOccurs="100" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PaymentType">
+    <xs:sequence>
+      <xs:element name="document" type="commonA:DocumentType" />
+      <xs:element name="incapacityCategory" type="commonA:IncapacityCategoryType" />
+      <xs:element name="familySituation" type="commonA:FamilySituationType" />
+      <xs:element name="allowanceCategory" type="commonA:AllowanceTypeType" />
+      <xs:element name="allowanceCode" type="commonA:AllowanceCodeType" />
+      <xs:element name="period" type="common:PeriodType" />
+      <xs:element name="amount" type="common:EuroAmountType" />
+      <xs:choice>
+        <xs:element name="days" type="xs:integer" />
+        <xs:element name="hours" type="xs:decimal" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

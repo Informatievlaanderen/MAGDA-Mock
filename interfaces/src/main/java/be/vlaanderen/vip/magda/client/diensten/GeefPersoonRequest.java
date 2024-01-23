@@ -5,6 +5,7 @@ import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -19,6 +20,7 @@ import lombok.ToString;
  */
 @Getter
 @ToString
+@EqualsAndHashCode(callSuper = true)
 public class GeefPersoonRequest extends PersonMagdaRequest {
 
     public static class Builder extends PersonMagdaRequest.Builder<Builder> {
