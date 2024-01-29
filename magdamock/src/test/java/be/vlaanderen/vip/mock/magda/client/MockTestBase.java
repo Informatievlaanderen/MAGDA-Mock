@@ -34,8 +34,12 @@ public abstract class MockTestBase {
         finder = ResourceFinders.magdaSimulator();
     }
 
-    protected MagdaConnectorImpl makeMagdaConnector(ClientLogServiceMock clientLogService) {
-        var mockConnection = mockConnection();
+    protected MagdaConnectorImpl makeMagdaConnector(ClientLogServiceMock clientLogServiceMock){
+        return makeMagdaConnector(clientLogServiceMock, true);
+    }
+
+    protected MagdaConnectorImpl makeMagdaConnector(ClientLogServiceMock clientLogService, boolean copyPropertiesFromRequest) {
+        var mockConnection = mockConnection(copyPropertiesFromRequest);
         var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
                 .identification(TEST_SERVICE_URI)
                 .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
@@ -63,17 +67,17 @@ public abstract class MockTestBase {
 
         return new MagdaConnectorImpl(signedConnection, clientLogService, magdaHoedanigheidService);
     }
-    
-    private MagdaMockConnection mockConnection() {
-        return mockConnection(null, null, true);
+
+    private MagdaMockConnection mockConnection(boolean copyPropertiesFromRequest){
+        return mockConnection(null, null, copyPropertiesFromRequest);
     }
     
     private MagdaMockConnection mockConnection(
             TwoWaySslProperties mockConnectionRequestVerifierKeystore,
             TwoWaySslProperties mockConnectionResponseSignerKeystore,
-            boolean copyTimeFromRequest) {
+            boolean copyPropertiesFromRequest) {
         var simulatorBuilder = SOAPSimulatorBuilder.builder(finder)
-                .magdaMockSimulator(copyTimeFromRequest);
+                .magdaMockSimulator(copyPropertiesFromRequest);
         if(mockConnectionRequestVerifierKeystore != null) {
             try {
                 simulatorBuilder = simulatorBuilder.requestVerifierProperties(mockConnectionRequestVerifierKeystore);

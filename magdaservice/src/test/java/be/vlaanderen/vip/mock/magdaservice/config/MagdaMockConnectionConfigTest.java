@@ -1,6 +1,10 @@
 package be.vlaanderen.vip.mock.magdaservice.config;
 
+import be.vlaanderen.vip.magda.client.diensten.GeefAanslagbiljetPersonenbelastingRequest;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -10,11 +14,13 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
+import java.time.Year;
 import java.util.Objects;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MagdaMockConnectionConfigTest {
     @TempDir
@@ -82,6 +88,50 @@ class MagdaMockConnectionConfigTest {
                     throw new IOException("Failed to make parent directories for file %s".formatted(file.toPath().toString()));
                 }
             }
+        }
+    }
+
+    @Nested
+    class SimulatorBean {
+        @Test
+        @SneakyThrows
+        void simulatorBeanWithCopyPropertiesHasProperBehaviour() {
+            config.setCopyPropertiesFromRequest(true);
+            var simulator = config.simulator(config.resourceFinder(), new RegistratieConfig());
+
+            var request = GeefAanslagbiljetPersonenbelastingRequest.builder2()
+                    .insz("00610122309")
+                    .incomeYear(Year.of(2021))
+                    .build()
+                    .toMagdaDocument(
+                            MagdaRegistrationInfo.builder()
+                            .identification("identification")
+                            .build()
+                    );
+
+            var response = simulator.send(request);
+
+            assertEquals(response.getValue("//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar"), "2021");
+        }
+
+        @Test
+        @SneakyThrows
+        void simulatorBeanWithoutCopyPropertiesHasProperBehaviour() {
+            config.setCopyPropertiesFromRequest(false);
+            var simulator = config.simulator(config.resourceFinder(), new RegistratieConfig());
+
+            var request = GeefAanslagbiljetPersonenbelastingRequest.builder2()
+                    .insz("00610122309")
+                    .incomeYear(Year.of(2021))
+                    .build()
+                    .toMagdaDocument(
+                            MagdaRegistrationInfo.builder()
+                                    .identification("identification")
+                                    .build()
+                    );
+
+            var response = simulator.send(request);
+            assertEquals(response.getValue("//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar"), "2011");
         }
     }
     
