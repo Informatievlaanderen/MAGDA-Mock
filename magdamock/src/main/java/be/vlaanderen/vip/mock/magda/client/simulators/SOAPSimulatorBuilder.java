@@ -34,10 +34,8 @@ public class SOAPSimulatorBuilder {
     }
 
     /**
-     * Builds a magdaMockSimulator, which will return static responses based on the request
-     * not modifying any dates based on the current date of the request.
+     * Builds a magdaMockSimulator, which will return static responses based on the request.
      *
-     * @deprecated Use {@link #magdaMockSimulator(boolean copyTimeFromRequest)} instead
      * @return The builder
      */
     public SOAPSimulatorBuilder magdaMockSimulator() {
@@ -45,15 +43,15 @@ public class SOAPSimulatorBuilder {
     }
 
     /**
-     * Builds a magdaMockSimulator, which will return static responses based on the request.
-     * Through the copyTimeFromRequest parameter, the simulator can be configured to copy the
-     * current date from the request to the response. This is useful for testing services
-     * that use the current date to determine the response.
+     * Builds a magdaMockSimulator, which will return mocked responses based on the request.
+     * Through the copyPropertiesFromRequest parameter, the simulator can be configured to copy properties
+     * from the request to the response. Currently, this behaviour is only implemented for the
+     * GeefAanslagbiljetPersonenbelasting service.
      *
-     * @param copyTimeFromRequest Whether to copy the current date from the request to the response
+     * @param copyPropertiesFromRequest Whether to copy certain properties from the request to the response
      * @return The builder
      */
-    public SOAPSimulatorBuilder magdaMockSimulator(boolean copyTimeFromRequest) {
+    public SOAPSimulatorBuilder magdaMockSimulator(boolean copyPropertiesFromRequest) {
         // PERSOON Standaard
         simulator.register("RegistreerInschrijving", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("RegistreerInschrijving", VERSION_02_01, new StaticResponseSimulator(finder, PERSOON, "//Subject/Type", "//Subject/Sleutel"));
@@ -93,7 +91,7 @@ public class SOAPSimulatorBuilder {
         // PERSOON Custom
         simulator.register("GeefAttest", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefPasfoto", VERSION_02_00, new RandomPasfotoSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefAanslagbiljetPersonenbelasting", VERSION_02_00, copyTimeFromRequest ? new GeefAanslagbiljetPersonenbelastingSimulator(finder, PERSOON, KEY_INSZ) : new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefAanslagbiljetPersonenbelasting", VERSION_02_00, new GeefAanslagbiljetPersonenbelastingSimulator(finder, PERSOON, copyPropertiesFromRequest, KEY_INSZ));
 
         // ONDERNEMING
         simulator.register("GeefOnderneming", VERSION_02_00, new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
