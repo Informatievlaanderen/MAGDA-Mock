@@ -52,7 +52,7 @@ public abstract class MockTestBase {
             TwoWaySslProperties mockConnectionRequestVerifierKeystore,
             TwoWaySslProperties mockConnectionResponseSignerKeystore)
             throws TwoWaySslException {
-        var mockConnection = mockConnection(mockConnectionRequestVerifierKeystore, mockConnectionResponseSignerKeystore);
+        var mockConnection = mockConnection(mockConnectionRequestVerifierKeystore, mockConnectionResponseSignerKeystore, true);
         var signedConnection = new MagdaSignedConnection(mockConnection, signedConnectionRequestSignerKeystore, signedConnectionResponseVerifierKeystore);
 
         var mockedMagdaHoedanigheid = MagdaRegistrationInfo.builder()
@@ -65,14 +65,15 @@ public abstract class MockTestBase {
     }
     
     private MagdaMockConnection mockConnection() {
-        return mockConnection(null, null);
+        return mockConnection(null, null, true);
     }
     
     private MagdaMockConnection mockConnection(
             TwoWaySslProperties mockConnectionRequestVerifierKeystore,
-            TwoWaySslProperties mockConnectionResponseSignerKeystore) {
+            TwoWaySslProperties mockConnectionResponseSignerKeystore,
+            boolean copyTimeFromRequest) {
         var simulatorBuilder = SOAPSimulatorBuilder.builder(finder)
-                .magdaMockSimulator();
+                .magdaMockSimulator(copyTimeFromRequest);
         if(mockConnectionRequestVerifierKeystore != null) {
             try {
                 simulatorBuilder = simulatorBuilder.requestVerifierProperties(mockConnectionRequestVerifierKeystore);
