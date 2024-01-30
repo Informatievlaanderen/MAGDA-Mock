@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 @ConfigurationProperties("magdamock")
 public class MagdaMockConnectionConfig {
     private String mockTestcasePath;
+    private boolean copyPropertiesFromRequest;
 
     @Bean
     public ResourceFinder resourceFinder() throws URISyntaxException, IOException {
@@ -45,7 +46,7 @@ public class MagdaMockConnectionConfig {
         var properties = config.getKeystoreProperties();
         
         var builder = SOAPSimulatorBuilder.builder(finder)
-                                          .magdaMockSimulator();
+                                          .magdaMockSimulator(copyPropertiesFromRequest);
 
         if(properties != null) {
             try {

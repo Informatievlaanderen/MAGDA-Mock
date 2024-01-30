@@ -159,6 +159,11 @@ The passport photo is not an actual image file, but a regular MAGDA document con
 The substitution logic in `SOAPSimulator::PatchResponse` will be performed on the found document, as in the `StaticResourceSimulator`.
 Beside that, the INSZ number (in field `//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ`) will also be substituted, by reading it out of the request field corresponding to the xpath expression that the key represents.
 
+#### GeefAanslagbiljetPersonenbelastingSimulator ####
+For the GeefAanslagbiljetPersonenbelasting-02.00 service a specific simulator was introduced, which returns an `Inkomensjaar` in the response based on the request. This simulator
+is not active by default, and can be enabled through the property `MOCK_COPY_PROPERTIES_FROM_REQUEST`. In the future, this property may also be used to enable other simulators to
+retain the values of certain fields in the request in the response which simplifies maintenance of testcases for certain services.
+
 ### XSD validations ###
 
 When adding a new instance of a resource simulator, xml files will need to be added to the `magda_simulator` directory.
