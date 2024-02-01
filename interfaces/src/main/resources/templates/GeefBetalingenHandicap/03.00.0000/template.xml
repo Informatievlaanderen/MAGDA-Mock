@@ -1,5 +1,5 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-                  xmlns:web="http://magda.vlaanderen.be/soczek/file/geefbetalingenhandicap/v03_00">
+                  xmlns:web="http://magda.vlaanderen.be/soczek/soap/geefbetalingenhandicap/v03_00">
     <soapenv:Header/>
     <soapenv:Body>
         <web:GeefBetalingenHandicap>
