@@ -32,8 +32,26 @@ public class SOAPSimulatorBuilder {
         this.simulator = new CombinedSimulator();
         this.result = simulator;
     }
-    
+
+    /**
+     * Builds a magdaMockSimulator, which will return static responses based on the request.
+     *
+     * @return The builder
+     */
     public SOAPSimulatorBuilder magdaMockSimulator() {
+        return magdaMockSimulator(false);
+    }
+
+    /**
+     * Builds a magdaMockSimulator, which will return mocked responses based on the request.
+     * Through the copyPropertiesFromRequest parameter, the simulator can be configured to copy properties
+     * from the request to the response. Currently, this behaviour is only implemented for the
+     * GeefAanslagbiljetPersonenbelasting service.
+     *
+     * @param copyPropertiesFromRequest Whether to copy certain properties from the request to the response
+     * @return The builder
+     */
+    public SOAPSimulatorBuilder magdaMockSimulator(boolean copyPropertiesFromRequest) {
         // PERSOON Standaard
         simulator.register("RegistreerInschrijving", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("RegistreerInschrijving", VERSION_02_01, new StaticResponseSimulator(finder, PERSOON, "//Subject/Type", "//Subject/Sleutel"));
@@ -61,8 +79,6 @@ public class SOAPSimulatorBuilder {
 
         simulator.register("GeefDossierKBI", VERSION_01_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
-        simulator.register("GeefAanslagbiljetPersonenbelasting", VERSION_02_00, new GeefAanslagbiljetPersonenbelastingSimulator(finder, PERSOON, KEY_INSZ));
-
         simulator.register("ZoekEigendomstoestanden", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
         simulator.register("ZoekPersoonOpAdres", VERSION_02_02, new StaticResponseSimulator(finder, PERSOON, "//Inhoud/Bron","//Criteria/Adres/PostCode", "//Criteria/Adres/Straatcode", "//Criteria/Adres/Huisnummer", "//Criteria/EnkelReferentiepersoon"));
@@ -75,6 +91,7 @@ public class SOAPSimulatorBuilder {
         // PERSOON Custom
         simulator.register("GeefAttest", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefPasfoto", VERSION_02_00, new RandomPasfotoSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefAanslagbiljetPersonenbelasting", VERSION_02_00, new GeefAanslagbiljetPersonenbelastingSimulator(finder, PERSOON, copyPropertiesFromRequest, KEY_INSZ));
 
         // ONDERNEMING
         simulator.register("GeefOnderneming", VERSION_02_00, new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));

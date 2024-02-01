@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<web:GeefBetalingenHandicapResponse xmlns:web="http://magda.vlaanderen.be/soczek/file/geefbetalingenhandicap/v03_00">
+<web:GeefBetalingenHandicapResponse xmlns:web="http://magda.vlaanderen.be/soczek/soap/geefbetalingenhandicap/v03_00">
     <Repliek>
         <Context>
             <Naam>GeefBetalingenHandicap</Naam>

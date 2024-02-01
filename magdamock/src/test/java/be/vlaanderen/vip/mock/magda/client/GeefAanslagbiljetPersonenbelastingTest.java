@@ -50,6 +50,36 @@ class GeefAanslagbiljetPersonenbelastingTest extends MockTestBase {
 
     @Test
     @SneakyThrows
+    void defaultAanslagBiljetWithStaticSimulatorShouldRetainInkomensjaar() {
+        var request = GeefAanslagbiljetPersonenbelastingRequest.builder2()
+                .insz(INSZ_GEENDATA)
+                .incomeYear(Year.of(2021))
+                .build();
+
+        var clientLogService = new ClientLogServiceMock();
+
+        var connector = makeMagdaConnector(clientLogService, false);
+
+        var antwoord = connector.send(request);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), GeefAanslagbiljetPersonenbelastingTest.ANTWOORD_REFERTE, request.getRequestId().toString());
+
+        assertThatResponseContainsAnswerNoError(antwoord);
+
+        assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
+        assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
+
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
+
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2011");
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
+    }
+
+    @Test
+    @SneakyThrows
     void aanslagBiljetMet2Codes() {
         var request = GeefAanslagbiljetPersonenbelastingRequest.builder2()
                 .insz(INSZ_DATA_NA2000)

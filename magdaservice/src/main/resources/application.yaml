@@ -29,6 +29,7 @@ management:
 magdamock:
   defaultresponsetime: 0
   mockTestcasePath: ${MOCK_TESTCASE_PATH:}
+  copy-properties-from-request: ${MOCK_COPY_PROPERTIES_FROM_REQUEST:false}
 
 registratie:
   hoedanigheid:  ${MAGDA_HOEDANIGHEID:1300}
