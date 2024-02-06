@@ -26,12 +26,12 @@
                 <Referte>c40e8d8c-909b-4555-90b2-2f015a93b119</Referte>
                 <Inhoud>
                     <Functies>
-                        <Functie DatumModificatie="2023-04-01">
+                        <Functie DatumModificatie="2022-04-01">
                             <AuthentiekeBron>
                                 <Code>03</Code>
                                 <Omschrijving>KBO</Omschrijving>
                             </AuthentiekeBron>
-                            <FunctiehouderVan>0456123791</FunctiehouderVan>
+                            <FunctiehouderVan>0464123719</FunctiehouderVan>
                             <AanduidingPersoonOnderneming>
                                 <Code>1</Code>
                                 <Omschrijving>Vertegenwoordiging door natuurlijke persoon</Omschrijving>
@@ -43,7 +43,7 @@
                                 <Omschrijving TaalCode="nl">Zaakvoerder</Omschrijving>
                             </AardFunctie>
                             <Periode>
-                                <Begin>2023-04-01</Begin>
+                                <Begin>2022-04-01</Begin>
                             </Periode>
                             <AanduidingVrijstelling>
                                 <Code>N</Code>

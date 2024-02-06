@@ -42,7 +42,7 @@
                                             <Omschrijving Oorsprong="KSZ">Hoofdberoep</Omschrijving>
                                         </Bijdragereeks>
                                         <Periode>
-                                            <Begin>2023-08-01</Begin>
+                                            <Begin>2022-08-01</Begin>
                                         </Periode>
                                         <Beroep>
                                             <Code>307107</Code>
@@ -52,7 +52,7 @@
                                             <Code>100</Code>
                                             <Omschrijving Oorsprong="KSZ">Activiteit in eigen naam</Omschrijving>
                                         </Hoedanigheid>
-                                        <DatumOndertekening>2023-04-01</DatumOndertekening>
+                                        <DatumOndertekening>2022-08-01</DatumOndertekening>
                                     </Loopbaan>
                                 </Loopbanen>
                             </Aansluiting>
