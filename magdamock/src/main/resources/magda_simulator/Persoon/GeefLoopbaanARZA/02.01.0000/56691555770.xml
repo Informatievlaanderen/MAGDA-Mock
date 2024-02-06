@@ -43,7 +43,7 @@
                                             <Omschrijving Oorsprong="KSZ">Pensioen toegekend, +65, onbeperkte bezigheid</Omschrijving>
                                         </Bijdragereeks>
                                         <Periode>
-                                            <Begin>2023-06-01</Begin>
+                                            <Begin>2022-06-01</Begin>
                                         </Periode>
                                         <Beroep>
                                             <Code>106106</Code>
@@ -53,7 +53,7 @@
                                             <Code>100</Code>
                                             <Omschrijving Oorsprong="KSZ">Activiteit in eigen naam</Omschrijving>
                                         </Hoedanigheid>
-                                        <DatumOndertekening>2023-06-01</DatumOndertekening>
+                                        <DatumOndertekening>2022-06-01</DatumOndertekening>
                                     </Loopbaan>
                                 </Loopbanen>
                             </Aansluiting>

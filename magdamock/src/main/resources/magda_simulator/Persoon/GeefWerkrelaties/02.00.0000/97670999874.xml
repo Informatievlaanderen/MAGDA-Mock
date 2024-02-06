@@ -30,8 +30,8 @@
                         <Contract>
                             <Relatie>
                                 <Werkgever>
-                                    <RSZNummer>0472123744</RSZNummer>
-                                    <Ondernemingsnummer>0472123744</Ondernemingsnummer>
+                                    <RSZNummer>0460123755</RSZNummer>
+                                    <Ondernemingsnummer>0460123755</Ondernemingsnummer>
                                 </Werkgever>
                                 <Werknemer>
                                     <INSZ>97670999874</INSZ>
@@ -46,7 +46,7 @@
                                         <Datum>2020-05-23</Datum>
                                     </Begin>
                                     <Einde>
-                                        <Datum>2023-05-31</Datum>
+                                        <Datum>2022-05-31</Datum>
                                     </Einde>
                                 </PeriodeTijdstip>
                                 <ParitairComite>201</ParitairComite>
