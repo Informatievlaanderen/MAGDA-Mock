@@ -8,6 +8,6 @@ class RegisteredINSZTest {
 
     @Test
     void toString_returnsInszValue() {
-        assertEquals("46061400105", new RegisteredINSZ<>(new INSZ("46061400105")).toString());
+        assertEquals("46061400105", new RegisteredINSZ<>(INSZ.of("46061400105")).toString());
     }
 }
