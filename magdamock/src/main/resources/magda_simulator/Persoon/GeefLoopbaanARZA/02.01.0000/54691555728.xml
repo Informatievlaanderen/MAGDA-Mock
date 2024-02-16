@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefLoopbaanARZAResponse xmlns:web="http://webservice.geefloopbaanarzadienst-02_01.werk-02_01.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefLoopbaanARZA</Naam>
+            <Versie>02.01.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-01-16</Datum>
+                    <Tijd>12:12</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>73e2683a-9620-4a06-993b-97bf6ab98e48</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>9e317c0c-918e-4cfb-a20c-a0250765501f</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>20e4b352-48b1-4907-b633-6b0b7da034a0</Referte>
+                <Inhoud>
+                    <Zelfstandige>
+                        <INSZ>54691555728</INSZ>
+                        <Ondernemingsnummer>0500123783</Ondernemingsnummer>
+                        <Aansluitingen>
+                            <Aansluiting>
+                                <SociaalVerzekeringsfonds>
+                                    <Code>003</Code>
+                                    <Omschrijving Oorsprong="MAGDA" TaalCode="nl">S.V.M.B.</Omschrijving>
+                                    <Ondernemingsnummer>0409088689</Ondernemingsnummer>
+                                </SociaalVerzekeringsfonds>
+                                <Loopbanen>
+                                    <Loopbaan>
+                                        <Bijdragereeks>
+                                            <Code>100</Code>
+                                            <Omschrijving Oorsprong="KSZ" TaalCode="nl">Hoofdberoep</Omschrijving>
+                                        </Bijdragereeks>
+                                        <Periode>
+                                            <Begin>2000-04-01</Begin>
+                                            <Einde>2020-03-31</Einde>
+                                        </Periode>
+                                        <Beroep>
+                                            <Code>102103</Code>
+                                            <Omschrijving Oorsprong="KSZ" TaalCode="nl">Tuinbouwer</Omschrijving>
+                                        </Beroep>
+                                        <Hoedanigheid>
+                                            <Code>100</Code>
+                                            <Omschrijving Oorsprong="KSZ" TaalCode="nl">Activiteit in eigen naam</Omschrijving>
+                                        </Hoedanigheid>
+                                        <DatumOndertekening>2022-04-01</DatumOndertekening>
+                                    </Loopbaan>
+                                    <Loopbaan>
+                                        <Bijdragereeks>
+                                            <Code>510</Code>
+                                            <Omschrijving Oorsprong="KSZ" TaalCode="nl">Pensioen toegekend, +65, onbeperkte bezigheid</Omschrijving>
+                                        </Bijdragereeks>
+                                        <Periode>
+                                            <Begin>2022-06-01</Begin>
+                                        </Periode>
+                                        <PeriodeGelijkgesteld>
+                                            <Code>100</Code>
+                                            <Omschrijving Oorsprong="KSZ" TaalCode="nl">Gelijkstelling ziekte</Omschrijving>
+                                        </PeriodeGelijkgesteld>
+                                        <Beroep>
+                                            <Code>106106</Code>
+                                            <Omschrijving Oorsprong="KSZ" TaalCode="nl">Imker</Omschrijving>
+                                        </Beroep>
+                                        <Hoedanigheid>
+                                            <Code>100</Code>
+                                            <Omschrijving Oorsprong="KSZ" TaalCode="nl">Activiteit in eigen naam</Omschrijving>
+                                        </Hoedanigheid>
+                                        <DatumOndertekening>2022-06-01</DatumOndertekening>
+                                    </Loopbaan>
+                                </Loopbanen>
+                            </Aansluiting>
+                        </Aansluitingen>
+                    </Zelfstandige>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefLoopbaanARZAResponse>
