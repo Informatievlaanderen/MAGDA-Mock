@@ -11,12 +11,11 @@ import java.util.function.Function;
  * A service for interfacing with MAGDA's "RegistreerInschrijving" services for registering INSZ numbers in the Repertorium.
  */
 public interface RepertoriumRegistrationService {
-
     /**
      * Registers an INSZ number in the Repertorium from a RegistreerInschrijving request.
      *
      * @see RegisteredINSZ
      * @see RegistreerInschrijvingRequest
      */
-    RegisteredINSZ register(Function<String, INSZ> inszCtor, RegistreerInschrijvingRequest request) throws MagdaClientException;
+    RegisteredINSZ register(RegistreerInschrijvingRequest request) throws MagdaClientException;
 }
