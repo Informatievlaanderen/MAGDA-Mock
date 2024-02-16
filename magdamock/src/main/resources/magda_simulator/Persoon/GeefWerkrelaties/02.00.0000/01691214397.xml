@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefWerkrelatiesResponse xmlns:web="http://webservice.geefwerkrelatiesdienst-02_00.werk-02_00.vip.vlaanderen.be">
+<Repliek>
+    <Context>
+        <Naam>GeefWerkrelaties</Naam>
+        <Versie>02.00.0000</Versie>
+        <Bericht>
+            <Type>ANTWOORD</Type>
+            <Tijdstip>
+                <Datum>2024-01-16</Datum>
+                <Tijd>12:12</Tijd>
+            </Tijdstip>
+            <Afzender>
+                <Identificatie>vip.vlaanderen.be</Identificatie>
+                <Naam>MagdaGateway</Naam>
+                <Referte>73e2683a-9620-4a06-993b-97bf6ab98e48</Referte>
+            </Afzender>
+            <Ontvanger>
+                <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                <Referte>9e317c0c-918e-4cfb-a20c-a0250765501f</Referte>
+                <Hoedanigheid>101</Hoedanigheid>
+            </Ontvanger>
+        </Bericht>
+    </Context>
+    <Antwoorden>
+        <Antwoord>
+            <Referte>fe68ddd5-b070-48e0-a5f7-33e5a79f6f7f</Referte>
+            <Inhoud>
+                <Contracten>
+                    <Contract>
+                        <Relatie>
+                            <Werkgever>
+                                <RSZNummer>0504123747</RSZNummer>
+                                <Ondernemingsnummer>0504123747</Ondernemingsnummer>
+                                <DeelEntiteit>2414123726</DeelEntiteit>
+                            </Werkgever>
+                            <Werknemer>
+                                <INSZ>01691214397</INSZ>
+                                <IdentificatiePersoonGevalideerd Beschrijving="Identificatie persoon OK">1</IdentificatiePersoonGevalideerd>
+                                <Achternaam>Peeters</Achternaam>
+                                <Voornaam>Bert</Voornaam>
+                            </Werknemer>
+                        </Relatie>
+                        <Bron Beschrijving="Rijksdienst voor sociale zekerheid">RSZ</Bron>
+                        <Aangifte DatumTijdstipCreatie="2017-07-01T09:15:23.458" DatumTijdstipModificatie="2017-07-31T17:05:13.789">
+                            <DimonaNummer>7765436998</DimonaNummer>
+                            <PeriodeTijdstip>
+                                <Begin>
+                                    <Datum>2017-07-01</Datum>
+                                </Begin>
+                                <Einde>
+                                    <Datum>2017-07-31</Datum>
+                                </Einde>
+                            </PeriodeTijdstip>
+                            <ParitairComite>302</ParitairComite>
+                            <AardWerknemer>STU</AardWerknemer>
+                            <ServiceCategorie Beschrijving="Lang">L</ServiceCategorie>
+                            <AantalGeplandeWerkdagen>23</AantalGeplandeWerkdagen>
+                            <Geannuleerd>0</Geannuleerd>
+                            <LaatsteDimonaActie Beschrijving="Uitdienst">O</LaatsteDimonaActie>
+                            <Controlekaarten>
+                                <KaartnummerEersteMaand>7765436998</KaartnummerEersteMaand>
+                                <KaartnummerVolgendeMaand>7765436999</KaartnummerVolgendeMaand>
+                            </Controlekaarten>
+                        </Aangifte>
+                    </Contract>
+                    <Contract>
+                        <Relatie>
+                            <Werkgever>
+                                <RSZNummer>0504123747</RSZNummer>
+                                <Ondernemingsnummer>0504123747</Ondernemingsnummer>
+                                <DeelEntiteit>2414123726</DeelEntiteit>
+                            </Werkgever>
+                            <Werknemer>
+                                <INSZ>01691214397</INSZ>
+                                <IdentificatiePersoonGevalideerd Beschrijving="Identificatie persoon OK">1</IdentificatiePersoonGevalideerd>
+                                <Achternaam>Peeters</Achternaam>
+                                <Voornaam>Bert</Voornaam>
+                            </Werknemer>
+                        </Relatie>
+                        <Bron Beschrijving="Rijksdienst voor sociale zekerheid">RSZ</Bron>
+                        <Aangifte DatumTijdstipCreatie="2017-08-01T09:15:23.458" DatumTijdstipModificatie="2017-08-31T17:05:13.789">
+                            <DimonaNummer>7765437001</DimonaNummer>
+                            <PeriodeTijdstip>
+                                <Begin>
+                                    <Datum>2017-08-01</Datum>
+                                </Begin>
+                                <Einde>
+                                    <Datum>2017-08-31</Datum>
+                                </Einde>
+                            </PeriodeTijdstip>
+                            <ParitairComite>302</ParitairComite>
+                            <AardWerknemer>STU</AardWerknemer>
+                            <ServiceCategorie Beschrijving="Lang">L</ServiceCategorie>
+                            <AantalGeplandeWerkdagen>21</AantalGeplandeWerkdagen>
+                            <Geannuleerd>0</Geannuleerd>
+                            <LaatsteDimonaActie Beschrijving="Uitdienst">O</LaatsteDimonaActie>
+                            <Controlekaarten>
+                                <KaartnummerEersteMaand>7765437001</KaartnummerEersteMaand>
+                                <KaartnummerVolgendeMaand>7765437002</KaartnummerVolgendeMaand>
+                            </Controlekaarten>
+                        </Aangifte>
+                    </Contract>
+                    <Contract>
+                        <Relatie>
+                            <Werkgever>
+                                <Ondernemingsnummer>0496123722</Ondernemingsnummer>
+                            </Werkgever>
+                            <Werknemer>
+                                <INSZ>01691214397</INSZ>
+                                <IdentificatiePersoonGevalideerd Beschrijving="Identificatie persoon OK">1</IdentificatiePersoonGevalideerd>
+                            </Werknemer>
+                        </Relatie>
+                        <Aangifte>
+                            <DimonaNummer>7765431234</DimonaNummer>
+                            <Geannuleerd>1</Geannuleerd>
+                        </Aangifte>
+                        <InterimOnderneming>
+                            <Naam>VDAB</Naam>
+                            <RSZNummer>0887010362</RSZNummer>
+                            <Ondernemingsnummer>0887010362</Ondernemingsnummer>
+                            <ParitairComite>304</ParitairComite>
+                        </InterimOnderneming>
+                    </Contract>
+                    <Contract>
+                        <Relatie>
+                            <Werkgever>
+                                <RSZNummer>0484123733</RSZNummer>
+                                <Ondernemingsnummer>0484123733</Ondernemingsnummer>
+                            </Werkgever>
+                            <Werknemer>
+                                <INSZ>01691214397</INSZ>
+                                <IdentificatiePersoonGevalideerd Beschrijving="Identificatie persoon OK">1</IdentificatiePersoonGevalideerd>
+                                <Achternaam>Peeters</Achternaam>
+                                <Voornaam>Bert</Voornaam>
+                            </Werknemer>
+                        </Relatie>
+                        <Bron Beschrijving="Rijksdienst voor sociale zekerheid">RSZ</Bron>
+                        <Aangifte>
+                            <DimonaNummer>7765436998</DimonaNummer>
+                            <PeriodeTijdstip>
+                                <Begin>
+                                    <Datum>2018-03-01</Datum>
+                                </Begin>
+                            </PeriodeTijdstip>
+                            <ParitairComite>112</ParitairComite>
+                            <AardWerknemer>OTH</AardWerknemer>
+                            <Geannuleerd>0</Geannuleerd>
+                            <LaatsteDimonaActie Beschrijving="Indienst">I</LaatsteDimonaActie>
+                        </Aangifte>
+                        <PlaatsTewerkstelling>
+                            <Naam>Garage Verschoten</Naam>
+                            <Adres>
+                                <Straat>
+                                    <Code>1234</Code>
+                                    <Naam>Statiestraat</Naam>
+                                </Straat>
+                                <Huisnummer>11</Huisnummer>
+                                <Busnummer>A</Busnummer>
+                                <Gemeente>
+                                    <NISCode>24062</NISCode>
+                                    <PostCode>3000</PostCode>
+                                    <Naam>Leuven</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BE</ISOCode>
+                                    <Naam>België</Naam>
+                                </Land>
+                            </Adres>
+                        </PlaatsTewerkstelling>
+                    </Contract>
+                </Contracten>
+            </Inhoud>
+        </Antwoord>
+    </Antwoorden>
+</Repliek>
+</web:GeefWerkrelatiesResponse>
