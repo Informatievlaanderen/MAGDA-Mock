@@ -5,7 +5,7 @@ package be.vlaanderen.vip.magda.client.domain.dto;
  *
  * @see INSZ
  */
-public record RegisteredINSZ<T extends INSZ>(T insz) {
+public record RegisteredINSZ(INSZ insz) {
 
     public String toString() {
         return insz.toString();

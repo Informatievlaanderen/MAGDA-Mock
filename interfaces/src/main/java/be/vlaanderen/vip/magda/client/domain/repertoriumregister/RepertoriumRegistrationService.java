@@ -18,5 +18,5 @@ public interface RepertoriumRegistrationService {
      * @see RegisteredINSZ
      * @see RegistreerInschrijvingRequest
      */
-    <T extends INSZ> RegisteredINSZ<T> register(Function<String, T> inszCtor, RegistreerInschrijvingRequest request) throws MagdaClientException;
+    RegisteredINSZ register(Function<String, INSZ> inszCtor, RegistreerInschrijvingRequest request) throws MagdaClientException;
 }

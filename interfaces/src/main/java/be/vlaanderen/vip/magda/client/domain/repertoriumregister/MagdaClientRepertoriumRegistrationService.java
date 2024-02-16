@@ -25,13 +25,13 @@ public class MagdaClientRepertoriumRegistrationService implements RepertoriumReg
     }
 
     @Override
-    public <T extends INSZ> RegisteredINSZ<T> register(Function<String, T> inszCtor, RegistreerInschrijvingRequest request) throws MagdaClientException {
+    public RegisteredINSZ register(Function<String, INSZ> inszCtor, RegistreerInschrijvingRequest request) throws MagdaClientException {
         correlationHeaderProvider.getXCorrelationId().ifPresent(xCorrelationId -> request.setCorrelationId(UUID.fromString(xCorrelationId)));
 
         var response = service.send(request);
         validateResponse(response);
 
-        return new RegisteredINSZ<>(inszCtor.apply(request.getInsz().getValue()));
+        return new RegisteredINSZ(inszCtor.apply(request.getInsz().getValue()));
     }
     
     private void validateResponse(MagdaResponseWrapper response) throws MagdaClientException {
