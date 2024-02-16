@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  */
 @EqualsAndHashCode
 public class INSZ {
-    private static final Pattern RRNR_PATTERN = Pattern.compile("\\d{11}");
+    private static final Pattern INSZ_PATTERN = Pattern.compile("\\d{11}");
 
     @Getter
     private final String value;
@@ -25,7 +25,7 @@ public class INSZ {
     }
 
     private static void validate(String value) {
-        if(value == null || !RRNR_PATTERN.matcher(value).matches() || !passesModulo97Check(value)) {
+        if(value == null || !INSZ_PATTERN.matcher(value).matches() || !passesModulo97Check(value)) {
             throw new IllegalArgumentException("Invalid RRNR: %s".formatted(value));
         }
     }
