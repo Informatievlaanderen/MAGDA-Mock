@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefWerkrelatiesResponse xmlns:web="http://webservice.geefwerkrelatiesdienst-02_00.werk-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefWerkrelaties</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-01-16</Datum>
+                    <Tijd>12:12</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>73e2683a-9620-4a06-993b-97bf6ab98e48</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>9e317c0c-918e-4cfb-a20c-a0250765501f</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>6f4707ea-5c22-4baa-a7a4-cd335d285762</Referte>
+                <Inhoud>
+                    <Contracten>
+                        <Contract>
+                            <Relatie>
+                                <Werkgever>
+                                    <RSZNummer>0476123708</RSZNummer>
+                                    <Ondernemingsnummer>0476123708</Ondernemingsnummer>
+                                </Werkgever>
+                                <Werknemer>
+                                    <INSZ>98712345651</INSZ>
+                                    <IdentificatiePersoonGevalideerd Beschrijving="Identificatie persoon OK">1</IdentificatiePersoonGevalideerd>
+                                    <Achternaam>De Grote</Achternaam>
+                                    <Voornaam>Annelies</Voornaam>
+                                </Werknemer>
+                            </Relatie>
+                            <Bron Beschrijving="Rijksdienst voor sociale zekerheid">RSZ</Bron>
+                            <Aangifte DatumTijdstipCreatie="2017-02-28T09:15:23.458" DatumTijdstipModificatie="2017-02-28T17:05:13.789">
+                                <DimonaNummer>7765412001</DimonaNummer>
+                                <PeriodeTijdstip>
+                                    <Begin>
+                                        <Datum>2016-11-01</Datum>
+                                    </Begin>
+                                    <Einde>
+                                        <Datum>2017-02-28</Datum>
+                                    </Einde>
+                                </PeriodeTijdstip>
+                                <ParitairComite>118</ParitairComite>
+                                <AardWerknemer>STU</AardWerknemer>
+                                <ServiceCategorie Beschrijving="Lang">L</ServiceCategorie>
+                                <AantalGeplandeWerkdagen>21</AantalGeplandeWerkdagen>
+                                <Geannuleerd>0</Geannuleerd>
+                                <LaatsteDimonaActie Beschrijving="Uitdienst">O</LaatsteDimonaActie>
+                                <Controlekaarten>
+                                    <KaartnummerEersteMaand>7765437001</KaartnummerEersteMaand>
+                                    <KaartnummerVolgendeMaand>7765437002</KaartnummerVolgendeMaand>
+                                </Controlekaarten>
+                            </Aangifte>
+                        </Contract>
+                        <Contract>
+                            <Relatie>
+                                <Werkgever>
+                                    <RSZNummer>0476123708</RSZNummer>
+                                    <Ondernemingsnummer>0476123708</Ondernemingsnummer>
+                                </Werkgever>
+                                <Werknemer>
+                                    <INSZ>98712345651</INSZ>
+                                    <IdentificatiePersoonGevalideerd Beschrijving="Identificatie persoon OK">1</IdentificatiePersoonGevalideerd>
+                                    <Achternaam>De Grote</Achternaam>
+                                    <Voornaam>Annelies</Voornaam>
+                                </Werknemer>
+                            </Relatie>
+                            <Bron Beschrijving="Rijksdienst voor sociale zekerheid">RSZ</Bron>
+                            <Aangifte>
+                                <DimonaNummer>7765436998</DimonaNummer>
+                                <PeriodeTijdstip>
+                                    <Begin>
+                                        <Datum>2017-03-01</Datum>
+                                    </Begin>
+                                    <Einde>
+                                        <Datum>2022-02-28</Datum>
+                                    </Einde>
+                                </PeriodeTijdstip>
+                                <ParitairComite>118</ParitairComite>
+                                <Geannuleerd>0</Geannuleerd>
+                                <LaatsteDimonaActie Beschrijving="Uitdienst">O</LaatsteDimonaActie>
+                            </Aangifte>
+                        </Contract>
+                    </Contracten>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefWerkrelatiesResponse>

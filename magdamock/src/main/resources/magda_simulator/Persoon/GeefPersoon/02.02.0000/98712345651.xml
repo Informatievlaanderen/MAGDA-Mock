@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefPersoon</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2023-06-01</Datum>
+                    <Tijd>12:21:40.797</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+                    <Referte>4226311d-16f4-44bb-a141-2a1f83cd0401</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>8539632f-0e28-401e-9178-bd5aba176861</Referte>
+                <Inhoud>
+                    <Persoon Bron="RR" DatumCreatie="1998-11-23" DatumModificatie="2002-10-02">
+                        <INSZ>98712345651</INSZ>
+                        <Naam DatumBegin="1997-07-12">
+                            <Achternamen>
+                                <Achternaam>De Grote</Achternaam>
+                            </Achternamen>
+                            <Voornamen>
+                                <Voornaam>Annelies</Voornaam>
+                                <Voornaam>Frauke</Voornaam>
+                            </Voornamen>
+                        </Naam>
+                        <Geslacht>
+                            <Code>2</Code>
+                            <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+                        </Geslacht>
+                        <Beheerder DatumBegin="1998-11-23">
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Fusie>
+                                <Code>0</Code>
+                                <Omschrijving Taal="nl">NEEN</Omschrijving>
+                            </Fusie>
+                            <Taalregime>
+                                <Code>2</Code>
+                                <Omschrijving Taal="nl">Nederlands</Omschrijving>
+                            </Taalregime>
+                        </Beheerder>
+                        <Register>
+                            <Code>RR</Code>
+                            <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                        </Register>
+                        <Nationaliteiten>
+                            <Nationaliteit DatumBegin="1998-11-23">
+                                <Code>150</Code>
+                                <Omschrijving>Belg</Omschrijving>
+                            </Nationaliteit>
+                        </Nationaliteiten>
+                        <Geboorte DatumBegin="1998-11-23">
+                            <Datum>1998-11-23</Datum>
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Aktenummer>00000</Aktenummer>
+                        </Geboorte>
+                        <BurgerlijkeStaten>
+                            <BurgerlijkeStaat DatumBegin="2021-07-09">
+                                <Code>20</Code>
+                                <Omschrijving Taal="nl">Gehuwd</Omschrijving>
+                                <Partner>
+                                    <INSZ>97671215650</INSZ>
+                                    <Naam>
+                                        <Achternamen>
+                                            <Achternaam>Mertens</Achternaam>
+                                        </Achternamen>
+                                        <Voornamen>
+                                            <Voornaam>Angelina</Voornaam>
+                                        </Voornamen>
+                                    </Naam>
+                                    <Geslacht>
+                                        <Code>2</Code>
+                                        <Omschrijving>Vrouwelijk</Omschrijving>
+                                    </Geslacht>
+                                    <Geboortedatum>1997-07-12</Geboortedatum>
+                                </Partner>
+                            </BurgerlijkeStaat>
+                        </BurgerlijkeStaten>
+                        <Adressen>
+                            <Hoofdverblijfplaats DatumBegin="2021-07-09">
+                                <Straatnaam>
+                                    <String>Meelstraat</String>
+                                    <Taal>nl</Taal>
+                                </Straatnaam>
+                                <Huisnummer>1</Huisnummer>
+                                <Busnummer>A</Busnummer>
+                                <Gemeentenaam>
+                                    <String>Gent</String>
+                                    <Taal>nl</Taal>
+                                </Gemeentenaam>
+                                <Land>
+                                    <String>BELGIE</String>
+                                    <Taal>nl</Taal>
+                                </Land>
+                                <Postcode>9000</Postcode>
+                                <NISCodeLand>150</NISCodeLand>
+                                <ISOCodeLand>BEL</ISOCodeLand>
+                                <NISCodeGemeente>44021</NISCodeGemeente>
+                            </Hoofdverblijfplaats>
+                        </Adressen>
+                        <Referentiepersoon>
+                            <INSZ>97671215650</INSZ>
+                            <Naam DatumBegin="1997-07-12">
+                                <Achternamen>
+                                    <Achternaam>Mertens</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Angelina</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                            <Geslacht>
+                                <Code>2</Code>
+                                <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+                            </Geslacht>
+                            <Positie>
+                                <Code>02</Code>
+                                <Omschrijving>Echtgenote</Omschrijving>
+                            </Positie>
+                            <Woonvorm>
+                                <Code>00</Code>
+                            </Woonvorm>
+                        </Referentiepersoon>
+                        <Identiteitsbewijzen>
+                            <Identiteitsbewijs DatumBegin="2016-04-05">
+                                <Type>
+                                    <Code>0000</Code>
+                                    <Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
+                                </Type>
+                                <Nummer>655134485965</Nummer>
+                            </Identiteitsbewijs>
+                        </Identiteitsbewijzen>
+                    </Persoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefPersoonResponse>
