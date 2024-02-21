@@ -24,23 +24,23 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>b4fad546-0124-490d-bade-74880859e7b5</Referte>
+                <Referte>1f91b892-a885-4199-a4b8-83e6f6993149</Referte>
                 <Inhoud>
-                    <Persoon Bron="RR" DatumCreatie="1999-09-21" DatumModificatie="2002-10-02">
-                        <INSZ>99692117511</INSZ>
-                        <Naam DatumBegin="1999-09-21">
+                    <Persoon Bron="RR" DatumCreatie="1955-07-15" DatumModificatie="2002-10-02">
+                        <INSZ>55671515945</INSZ>
+                        <Naam DatumBegin="1955-07-15">
                             <Achternamen>
-                                <Achternaam>Verdonck</Achternaam>
+                                <Achternaam>Blondeel</Achternaam>
                             </Achternamen>
                             <Voornamen>
-                                <Voornaam>Willem</Voornaam>
+                                <Voornaam>Jan</Voornaam>
                             </Voornamen>
                         </Naam>
                         <Geslacht>
                             <Code>1</Code>
                             <Omschrijving Taal="nl">Mannelijk</Omschrijving>
                         </Geslacht>
-                        <Beheerder DatumBegin="1999-09-21">
+                        <Beheerder DatumBegin="1955-07-15">
                             <Plaats>
                                 <Gemeente>
                                     <NISCode>44021</NISCode>
@@ -66,13 +66,13 @@
                             <Omschrijving Taal="nl">Rijksregister</Omschrijving>
                         </Register>
                         <Nationaliteiten>
-                            <Nationaliteit DatumBegin="1999-09-21">
+                            <Nationaliteit DatumBegin="1955-07-15">
                                 <Code>150</Code>
                                 <Omschrijving>Belg</Omschrijving>
                             </Nationaliteit>
                         </Nationaliteiten>
-                        <Geboorte DatumBegin="1999-09-21">
-                            <Datum>1999-09-21</Datum>
+                        <Geboorte DatumBegin="1955-07-15">
+                            <Datum>1955-07-15</Datum>
                             <Plaats>
                                 <Gemeente>
                                     <NISCode>44021</NISCode>
@@ -87,7 +87,7 @@
                             <Aktenummer>00000</Aktenummer>
                         </Geboorte>
                         <BurgerlijkeStaten>
-                            <BurgerlijkeStaat DatumBegin="1999-09-21">
+                            <BurgerlijkeStaat DatumBegin="1955-07-15">
                                 <Code>10</Code>
                                 <Omschrijving Taal="nl">Ongehuwd</Omschrijving>
                             </BurgerlijkeStaat>
@@ -95,7 +95,7 @@
                         <Adressen>
                             <Hoofdverblijfplaats DatumBegin="2021-07-09">
                                 <Straatnaam>
-                                    <String>Bijlokestraat</String>
+                                    <String>Citroenstraat</String>
                                     <Taal>nl</Taal>
                                 </Straatnaam>
                                 <Huisnummer>11</Huisnummer>
@@ -120,7 +120,7 @@
                                     <Code>0000</Code>
                                     <Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
                                 </Type>
-                                <Nummer>655133185965</Nummer>
+                                <Nummer>656133185965</Nummer>
                             </Identiteitsbewijs>
                         </Identiteitsbewijzen>
                     </Persoon>
