@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.util.regex.Pattern;
 
 /**
@@ -12,7 +13,7 @@ import java.util.regex.Pattern;
  * @see <a href="https://overheid.vlaanderen.be/personeel/regelgeving/insz-nummer">Information on INSZ numbers</a>
  */
 @EqualsAndHashCode
-public class INSZ {
+public class INSZ implements Serializable {
     private static final Pattern INSZ_PATTERN = Pattern.compile("\\d{11}");
 
     @Getter
