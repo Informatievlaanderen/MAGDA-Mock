@@ -100,7 +100,7 @@
                                     <Code>AC</Code>
                                 </StatusKBO>
                                 <Adressen>
-                                    <Adres>
+                                    <Adres DatumBegin="1998-07-27">
                                         <Straat>
                                             <Naam>Zandstraat</Naam>
                                         </Straat>

@@ -100,7 +100,7 @@
                                     <Code>AC</Code>
                                 </StatusKBO>
                                 <Adressen>
-                                    <Adres>
+                                    <Adres DatumBegin="2004-11-27">
                                         <Straat>
                                             <Naam>Kolvestraat</Naam>
                                         </Straat>
@@ -126,7 +126,7 @@
                                     <Code>AC</Code>
                                 </StatusKBO>
                                 <Adressen>
-                                    <Adres>
+                                    <Adres DatumBegin="2004-11-27">
                                         <Straat>
                                             <Naam>Drie Koningen</Naam>
                                         </Straat>

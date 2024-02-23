@@ -113,7 +113,7 @@
                                     <Omschrijving>Stopgezet</Omschrijving>
                                 </StatusKBO>
                                 <Adressen>
-                                    <Adres>
+                                    <Adres DatumBegin="2022-06-01">
                                         <Straat>
                                             <Naam>Boterbekeweg</Naam>
                                         </Straat>
