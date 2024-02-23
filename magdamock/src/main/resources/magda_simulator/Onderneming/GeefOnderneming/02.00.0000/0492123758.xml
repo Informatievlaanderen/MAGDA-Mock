@@ -100,7 +100,7 @@
                                     <Code>AC</Code>
                                 </StatusKBO>
                                 <Adressen>
-                                    <Adres>
+                                    <Adres DatumBegin="2002-07-23">
                                         <Straat>
                                             <Naam>Gistelse Steenweg</Naam>
                                         </Straat>

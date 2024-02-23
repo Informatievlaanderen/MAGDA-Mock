@@ -106,7 +106,7 @@
                                     <Code>AC</Code>
                                 </StatusKBO>
                                 <Adressen>
-                                    <Adres>
+                                    <Adres DatumBegin="2022-06-01">
                                         <Straat>
                                             <Naam>Eikenlaan</Naam>
                                         </Straat>
