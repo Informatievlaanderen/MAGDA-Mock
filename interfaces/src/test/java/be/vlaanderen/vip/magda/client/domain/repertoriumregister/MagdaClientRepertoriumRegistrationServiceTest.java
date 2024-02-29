@@ -43,10 +43,10 @@ class MagdaClientRepertoriumRegistrationServiceTest {
         @Test
         void callsMagdaService() throws MagdaClientException {
             mockResultResponse("1");
-            var insz = new INSZ("insz");
+            var insz = INSZ.of("00000000097");
             var start = LocalDate.now();
             
-            var registeredInsz = service.register(INSZ::new, RegistreerInschrijvingRequest.builder()
+            var registeredInsz = service.register(RegistreerInschrijvingRequest.builder()
                     .insz(insz.getValue())
                     .startDate(start)
                     .build());
@@ -56,7 +56,7 @@ class MagdaClientRepertoriumRegistrationServiceTest {
 
             verify(magdaClient).send(argThat(r -> {
                 if(r instanceof RegistreerInschrijvingRequest request) {
-                    return request.getInsz().getValue().equals("insz") &&
+                    return request.getInsz().getValue().equals("00000000097") &&
                            request.getStartDate().equals(start) &&
                            request.getCorrelationId().equals(UUID.fromString("6469cd5e-e8ed-43f7-a91e-48fdfbb76e0f"));
                 }
@@ -67,11 +67,11 @@ class MagdaClientRepertoriumRegistrationServiceTest {
         @Test
         void throwsException_whenResultNot1() {
             mockResultResponse("0");
-            var insz = new INSZ("insz");
+            var insz = INSZ.of("00000000097");
             var start = LocalDate.now();
             
             assertThrows(MagdaClientException.class,
-                         () -> service.register(INSZ::new, RegistreerInschrijvingRequest.builder()
+                         () -> service.register(RegistreerInschrijvingRequest.builder()
                                  .insz(insz.getValue())
                                  .startDate(start)
                                  .build()));

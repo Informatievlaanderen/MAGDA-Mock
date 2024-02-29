@@ -26,7 +26,7 @@
                 <Referte>795cf0c5-f817-47b5-aa7a-08d0d46b3f71</Referte>
                 <Inhoud>
                     <Onderneming>
-                        <Ondernemingsnummer>0480123769</Ondernemingsnummer>
+                        <Ondernemingsnummer>0536123750</Ondernemingsnummer>
                         <AuthentiekBron>
                             <Code>03</Code>
                             <Omschrijving>KBO</Omschrijving>
@@ -43,13 +43,13 @@
                         <Namen>
                             <MaatschappelijkeNamen>
                                 <MaatschappelijkeNaam>
-                                    <Naam>De Clercq Filip</Naam>
+                                    <Naam>De Grote Annelies</Naam>
                                     <Taalcode>nl</Taalcode>
                                 </MaatschappelijkeNaam>
                             </MaatschappelijkeNamen>
                             <CommercieleNamen>
                                 <CommercieleNaam>
-                                    <Naam>Dagelijks Brood</Naam>
+                                    <Naam>Bakkerij De Grote</Naam>
                                     <Taalcode>nl</Taalcode>
                                 </CommercieleNaam>
                             </CommercieleNamen>
@@ -57,12 +57,13 @@
                         <Adressen>
                             <Adres>
                                 <Straat>
-                                    <Naam>Zwijnaardsesteenweg</Naam>
+                                    <Naam>Veldstraat</Naam>
                                 </Straat>
                                 <Huisnummer>56</Huisnummer>
                                 <Gemeente>
                                     <NISCode>44021</NISCode>
                                     <PostCode>9000</PostCode>
+                                    <Naam>Gent</Naam>
                                 </Gemeente>
                                 <Land>
                                     <NISCode>150</NISCode>
@@ -76,9 +77,11 @@
                                     <Descriptie>
                                         <Adres>
                                             <Straat>
-                                                <Naam>Zwijnaardsesteenweg</Naam>
+                                                <Naam>Veldstraat</Naam>
                                             </Straat>
                                             <Gemeente>
+                                                <NISCode>44021</NISCode>
+                                                <PostCode>9000</PostCode>
                                                 <Naam>Gent</Naam>
                                             </Gemeente>
                                             <Land>
@@ -91,7 +94,7 @@
                             </Adres>
                         </Adressen>
                         <Inschrijving>
-                            <Datum>2022-08-01</Datum>
+                            <Datum>2022-04-01</Datum>
                         </Inschrijving>
                         <Rechtsvormen>
                             <Rechtsvorm>
@@ -101,14 +104,14 @@
                         </Rechtsvormen>
                         <Vestigingen>
                             <Vestiging>
-                                <Vestigingsnummer>2370123734</Vestigingsnummer>
+                                <Vestigingsnummer>2426123715</Vestigingsnummer>
                                 <StatusKBO>
                                     <Code>AC</Code>
                                 </StatusKBO>
                                 <Adressen>
-                                    <Adres DatumBegin="2022-08-01">
+                                    <Adres DatumBegin="2022-04-01">
                                         <Straat>
-                                            <Naam>Zwijnaardsesteenweg</Naam>
+                                            <Naam>Veldstraat</Naam>
                                         </Straat>
                                         <Huisnummer>56</Huisnummer>
                                         <Gemeente>

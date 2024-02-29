@@ -7,7 +7,7 @@
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
-                    <Datum>2024-01-16</Datum>
+                    <Datum>2024-02-21</Datum>
                     <Tijd>12:12</Tijd>
                 </Tijdstip>
                 <Afzender>
@@ -23,10 +23,10 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>795cf0c5-f817-47b5-aa7a-08d0d46b3f71</Referte>
+                <Referte>924430b4-5251-4141-9abb-b204e641fac9</Referte>
                 <Inhoud>
                     <Onderneming>
-                        <Ondernemingsnummer>0480123769</Ondernemingsnummer>
+                        <Ondernemingsnummer>0540123714</Ondernemingsnummer>
                         <AuthentiekBron>
                             <Code>03</Code>
                             <Omschrijving>KBO</Omschrijving>
@@ -43,13 +43,13 @@
                         <Namen>
                             <MaatschappelijkeNamen>
                                 <MaatschappelijkeNaam>
-                                    <Naam>De Clercq Filip</Naam>
+                                    <Naam>Blondeel Jan</Naam>
                                     <Taalcode>nl</Taalcode>
                                 </MaatschappelijkeNaam>
                             </MaatschappelijkeNamen>
                             <CommercieleNamen>
                                 <CommercieleNaam>
-                                    <Naam>Dagelijks Brood</Naam>
+                                    <Naam>Smidje Jan</Naam>
                                     <Taalcode>nl</Taalcode>
                                 </CommercieleNaam>
                             </CommercieleNamen>
@@ -57,12 +57,14 @@
                         <Adressen>
                             <Adres>
                                 <Straat>
-                                    <Naam>Zwijnaardsesteenweg</Naam>
+                                    <Naam>Citroenstraat</Naam>
                                 </Straat>
-                                <Huisnummer>56</Huisnummer>
+                                <Huisnummer>11</Huisnummer>
+                                <Busnummer>A</Busnummer>
                                 <Gemeente>
                                     <NISCode>44021</NISCode>
                                     <PostCode>9000</PostCode>
+                                    <Naam>Gent</Naam>
                                 </Gemeente>
                                 <Land>
                                     <NISCode>150</NISCode>
@@ -76,14 +78,19 @@
                                     <Descriptie>
                                         <Adres>
                                             <Straat>
-                                                <Naam>Zwijnaardsesteenweg</Naam>
+                                                <Naam>Citroenstraat</Naam>
                                             </Straat>
+                                            <Huisnummer>11</Huisnummer>
+                                            <Busnummer>A</Busnummer>
                                             <Gemeente>
+                                                <NISCode>44021</NISCode>
+                                                <PostCode>9000</PostCode>
                                                 <Naam>Gent</Naam>
                                             </Gemeente>
                                             <Land>
                                                 <NISCode>150</NISCode>
-                                                <Naam>België</Naam>
+                                                <ISOCode>BE</ISOCode>
+                                                <Naam>BELGIE</Naam>
                                             </Land>
                                         </Adres>
                                     </Descriptie>
@@ -91,7 +98,7 @@
                             </Adres>
                         </Adressen>
                         <Inschrijving>
-                            <Datum>2022-08-01</Datum>
+                            <Datum>2022-06-01</Datum>
                         </Inschrijving>
                         <Rechtsvormen>
                             <Rechtsvorm>
@@ -101,19 +108,21 @@
                         </Rechtsvormen>
                         <Vestigingen>
                             <Vestiging>
-                                <Vestigingsnummer>2370123734</Vestigingsnummer>
+                                <Vestigingsnummer>2430123776</Vestigingsnummer>
                                 <StatusKBO>
                                     <Code>AC</Code>
                                 </StatusKBO>
                                 <Adressen>
-                                    <Adres DatumBegin="2022-08-01">
+                                    <Adres DatumBegin="2022-06-01">
                                         <Straat>
-                                            <Naam>Zwijnaardsesteenweg</Naam>
+                                            <Naam>Citroenstraat</Naam>
                                         </Straat>
-                                        <Huisnummer>56</Huisnummer>
+                                        <Huisnummer>11</Huisnummer>
+                                        <Busnummer>A</Busnummer>
                                         <Gemeente>
                                             <NISCode>44021</NISCode>
                                             <PostCode>9000</PostCode>
+                                            <Naam>Gent</Naam>
                                         </Gemeente>
                                         <Land>
                                             <NISCode>150</NISCode>

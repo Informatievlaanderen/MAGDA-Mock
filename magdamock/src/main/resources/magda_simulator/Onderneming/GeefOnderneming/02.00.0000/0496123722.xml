@@ -92,12 +92,12 @@
                             </Adres>
                         </Adressen>
                         <Inschrijving>
-                            <Datum>2023-06-01</Datum>
+                            <Datum>2022-06-01</Datum>
                         </Inschrijving>
                         <Stopzetting>
                             <Code>016</Code>
                             <Omschrijving>Activiteitsstopzetting natuurlijke persoon</Omschrijving>
-                            <Datum>2023-11-30</Datum>
+                            <Datum>2022-11-30</Datum>
                         </Stopzetting>
                         <Rechtsvormen>
                             <Rechtsvorm>
@@ -113,7 +113,7 @@
                                     <Omschrijving>Stopgezet</Omschrijving>
                                 </StatusKBO>
                                 <Adressen>
-                                    <Adres>
+                                    <Adres DatumBegin="2022-06-01">
                                         <Straat>
                                             <Naam>Boterbekeweg</Naam>
                                         </Straat>

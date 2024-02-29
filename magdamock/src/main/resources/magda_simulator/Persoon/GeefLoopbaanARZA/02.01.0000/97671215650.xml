@@ -24,10 +24,11 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>93128622-15b6-4b33-b44b-38d180873575</Referte>
+                <Referte>0ebb4fef-6d1a-4d97-96cd-79e8af53a423</Referte>
                 <Inhoud>
                     <Zelfstandige>
-                        <INSZ>00630300287</INSZ>
+                        <INSZ>97671215650</INSZ>
+                        <Ondernemingsnummer>0536123750</Ondernemingsnummer>
                         <Aansluitingen>
                             <Aansluiting>
                                 <SociaalVerzekeringsfonds>
@@ -38,21 +39,21 @@
                                 <Loopbanen>
                                     <Loopbaan>
                                         <Bijdragereeks>
-                                            <Code>100</Code>
-                                            <Omschrijving Oorsprong="KSZ">Hoofdberoep</Omschrijving>
+                                            <Code>400</Code>
+                                            <Omschrijving Oorsprong="KSZ">Meewerkende echtgenoot - maxi statuut</Omschrijving>
                                         </Bijdragereeks>
                                         <Periode>
-                                            <Begin>2022-04-01</Begin>
+                                            <Begin>2022-09-01</Begin>
                                         </Periode>
                                         <Beroep>
-                                            <Code>102103</Code>
-                                            <Omschrijving Oorsprong="KSZ">Tuinbouwer</Omschrijving>
+                                            <Code>307107</Code>
+                                            <Omschrijving Oorsprong="KSZ">Bakker</Omschrijving>
                                         </Beroep>
                                         <Hoedanigheid>
                                             <Code>100</Code>
                                             <Omschrijving Oorsprong="KSZ">Activiteit in eigen naam</Omschrijving>
                                         </Hoedanigheid>
-                                        <DatumOndertekening>2022-04-01</DatumOndertekening>
+                                        <DatumOndertekening>2022-09-01</DatumOndertekening>
                                     </Loopbaan>
                                 </Loopbanen>
                             </Aansluiting>

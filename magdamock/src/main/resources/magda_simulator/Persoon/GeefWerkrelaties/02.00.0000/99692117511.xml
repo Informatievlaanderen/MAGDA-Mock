@@ -7,7 +7,7 @@
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
-                    <Datum>2024-01-16</Datum>
+                    <Datum>2024-02-20</Datum>
                     <Tijd>12:12</Tijd>
                 </Tijdstip>
                 <Afzender>
@@ -24,7 +24,7 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>fe294f1a-2477-4516-918d-ad478051367c</Referte>
+                <Referte>d152a94f-9ec7-4256-9980-e87c2d833a74</Referte>
                 <Inhoud>
                     <Contracten>
                         <Contract>
@@ -34,8 +34,10 @@
                                     <Ondernemingsnummer>0484123733</Ondernemingsnummer>
                                 </Werkgever>
                                 <Werknemer>
-                                    <INSZ>56691555770</INSZ>
+                                    <INSZ>99692117511</INSZ>
                                     <IdentificatiePersoonGevalideerd Beschrijving="Identificatie persoon OK">1</IdentificatiePersoonGevalideerd>
+                                    <Achternaam>Verdonck</Achternaam>
+                                    <Voornaam>Willem</Voornaam>
                                 </Werknemer>
                             </Relatie>
                             <Bron Beschrijving="Rijksdienst voor sociale zekerheid">RSZ</Bron>
@@ -43,10 +45,10 @@
                                 <DimonaNummer>7765436998</DimonaNummer>
                                 <PeriodeTijdstip>
                                     <Begin>
-                                        <Datum>2001-05-01</Datum>
+                                        <Datum>2019-04-01</Datum>
                                     </Begin>
                                     <Einde>
-                                        <Datum>2022-05-08</Datum>
+                                        <Datum>2022-03-23</Datum>
                                     </Einde>
                                 </PeriodeTijdstip>
                                 <ParitairComite>112</ParitairComite>
