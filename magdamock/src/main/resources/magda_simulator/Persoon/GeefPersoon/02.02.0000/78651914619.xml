@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefPersoon</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-02-29</Datum>
+                    <Tijd>12:21:40.797</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+                    <Referte>4226311d-16f4-44bb-a141-2a1f83cd0401</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>8b5d9412-efb9-4c21-891d-d8fa51d8fe4c</Referte>
+                <Inhoud>
+                    <Persoon Bron="RR" DatumCreatie="1978-05-19" DatumModificatie="2002-10-02">
+                        <INSZ>78651914619</INSZ>
+                        <Naam DatumBegin="1978-05-19">
+                            <Achternamen>
+                                <Achternaam>Minsaert</Achternaam>
+                            </Achternamen>
+                            <Voornamen>
+                                <Voornaam>Karen</Voornaam>
+                            </Voornamen>
+                        </Naam>
+                        <Geslacht>
+                            <Code>2</Code>
+                            <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+                        </Geslacht>
+                        <Beheerder DatumBegin="1978-05-19">
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>45041</NISCode>
+                                    <Naam>Ronse</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Fusie>
+                                <Code>0</Code>
+                                <Omschrijving Taal="nl">NEEN</Omschrijving>
+                            </Fusie>
+                            <Taalregime>
+                                <Code>2</Code>
+                                <Omschrijving Taal="nl">Nederlands</Omschrijving>
+                            </Taalregime>
+                        </Beheerder>
+                        <Register>
+                            <Code>RR</Code>
+                            <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                        </Register>
+                        <Nationaliteiten>
+                            <Nationaliteit DatumBegin="1978-05-19">
+                                <Code>150</Code>
+                                <Omschrijving>Belg</Omschrijving>
+                            </Nationaliteit>
+                        </Nationaliteiten>
+                        <Geboorte DatumBegin="1978-05-19">
+                            <Datum>1978-05-19</Datum>
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Aktenummer>00000</Aktenummer>
+                        </Geboorte>
+                        <BurgerlijkeStaten>
+                            <BurgerlijkeStaat DatumBegin="1978-05-19">
+                                <Code>10</Code>
+                                <Omschrijving Taal="nl">Ongehuwd</Omschrijving>
+                            </BurgerlijkeStaat>
+                        </BurgerlijkeStaten>
+                        <Adressen>
+                            <Hoofdverblijfplaats DatumBegin="2021-07-09">
+                                <Straatnaam>
+                                    <String>Keienberglaan</String>
+                                    <Taal>nl</Taal>
+                                </Straatnaam>
+                                <Huisnummer>175</Huisnummer>
+                                <Gemeentenaam>
+                                    <String>Grimbergen</String>
+                                    <Taal>nl</Taal>
+                                </Gemeentenaam>
+                                <Land>
+                                    <String>BELGIE</String>
+                                    <Taal>nl</Taal>
+                                </Land>
+                                <Postcode>1850</Postcode>
+                                <NISCodeLand>150</NISCodeLand>
+                                <ISOCodeLand>BEL</ISOCodeLand>
+                                <NISCodeGemeente>23025</NISCodeGemeente>
+                            </Hoofdverblijfplaats>
+                        </Adressen>
+                        <Identiteitsbewijzen>
+                            <Identiteitsbewijs DatumBegin="2016-04-05">
+                                <Type>
+                                    <Code>0000</Code>
+                                    <Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
+                                </Type>
+                                <Nummer>655777185965</Nummer>
+                            </Identiteitsbewijs>
+                        </Identiteitsbewijzen>
+                    </Persoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefPersoonResponse>
