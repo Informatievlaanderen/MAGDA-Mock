@@ -7,7 +7,7 @@
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
-                    <Datum>2024-01-16</Datum>
+                    <Datum>2024-02-28</Datum>
                     <Tijd>12:12</Tijd>
                 </Tijdstip>
                 <Afzender>
@@ -23,10 +23,10 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>1e3247be-3987-4c9b-b46e-13098b08d94e</Referte>
+                <Referte>d7248137-761e-4080-beee-6570b0c80360</Referte>
                 <Inhoud>
                     <Onderneming>
-                        <Ondernemingsnummer>0496123722</Ondernemingsnummer>
+                        <Ondernemingsnummer>0556123764</Ondernemingsnummer>
                         <AuthentiekBron>
                             <Code>03</Code>
                             <Omschrijving>KBO</Omschrijving>
@@ -35,8 +35,7 @@
                             <Code Beschrijving="Onderneming">1</Code>
                         </OndernemingOfVestiging>
                         <StatusKBO>
-                            <Code>ST</Code>
-                            <Omschrijving>Stopgezet</Omschrijving>
+                            <Code>AC</Code>
                         </StatusKBO>
                         <SoortOnderneming>
                             <Code Beschrijving="Natuurlijke Persoon">1</Code>
@@ -44,13 +43,13 @@
                         <Namen>
                             <MaatschappelijkeNamen>
                                 <MaatschappelijkeNaam>
-                                    <Naam>De Baere Davy</Naam>
+                                    <Naam>Konincks Nick</Naam>
                                     <Taalcode>nl</Taalcode>
                                 </MaatschappelijkeNaam>
                             </MaatschappelijkeNamen>
                             <CommercieleNamen>
                                 <CommercieleNaam>
-                                    <Naam>Schilderwerken De Baere</Naam>
+                                    <Naam>ICT Konincks</Naam>
                                     <Taalcode>nl</Taalcode>
                                 </CommercieleNaam>
                             </CommercieleNamen>
@@ -58,12 +57,13 @@
                         <Adressen>
                             <Adres>
                                 <Straat>
-                                    <Naam>Boterbekeweg</Naam>
+                                    <Naam>Savaanstraat</Naam>
                                 </Straat>
-                                <Huisnummer>13</Huisnummer>
+                                <Huisnummer>9</Huisnummer>
                                 <Gemeente>
-                                    <NISCode>31005</NISCode>
-                                    <PostCode>8200</PostCode>
+                                    <NISCode>44021</NISCode>
+                                    <PostCode>9000</PostCode>
+                                    <Naam>Gent</Naam>
                                 </Gemeente>
                                 <Land>
                                     <NISCode>150</NISCode>
@@ -77,14 +77,18 @@
                                     <Descriptie>
                                         <Adres>
                                             <Straat>
-                                                <Naam>Zuidveldstraat</Naam>
+                                                <Naam>Savaanstraat</Naam>
                                             </Straat>
+                                            <Huisnummer>9</Huisnummer>
                                             <Gemeente>
-                                                <Naam>Brugge</Naam>
+                                                <NISCode>44021</NISCode>
+                                                <PostCode>9000</PostCode>
+                                                <Naam>Gent</Naam>
                                             </Gemeente>
                                             <Land>
                                                 <NISCode>150</NISCode>
-                                                <Naam>België</Naam>
+                                                <ISOCode>BE</ISOCode>
+                                                <Naam>BELGIE</Naam>
                                             </Land>
                                         </Adres>
                                     </Descriptie>
@@ -92,13 +96,8 @@
                             </Adres>
                         </Adressen>
                         <Inschrijving>
-                            <Datum>2022-06-01</Datum>
+                            <Datum>2022-03-15</Datum>
                         </Inschrijving>
-                        <Stopzetting>
-                            <Code>016</Code>
-                            <Omschrijving>Activiteitsstopzetting natuurlijke persoon</Omschrijving>
-                            <Datum>2022-11-30</Datum>
-                        </Stopzetting>
                         <Rechtsvormen>
                             <Rechtsvorm>
                                 <Code>610</Code>
@@ -106,21 +105,21 @@
                             </Rechtsvorm>
                         </Rechtsvormen>
                         <Vestigingen>
-                            <Vestiging DatumBegin="2022-06-01" DatumEinde="2022-11-30">
-                                <Vestigingsnummer>2378123759</Vestigingsnummer>
+                            <Vestiging>
+                                <Vestigingsnummer>2438123704</Vestigingsnummer>
                                 <StatusKBO>
-                                    <Code>ST</Code>
-                                    <Omschrijving>Stopgezet</Omschrijving>
+                                    <Code>AC</Code>
                                 </StatusKBO>
                                 <Adressen>
-                                    <Adres DatumBegin="2022-06-01">
+                                    <Adres DatumBegin="2022-03-15">
                                         <Straat>
-                                            <Naam>Boterbekeweg</Naam>
+                                            <Naam>Savaanstraat</Naam>
                                         </Straat>
-                                        <Huisnummer>13</Huisnummer>
+                                        <Huisnummer>9</Huisnummer>
                                         <Gemeente>
-                                            <NISCode>31005</NISCode>
-                                            <PostCode>8200</PostCode>
+                                            <NISCode>44021</NISCode>
+                                            <PostCode>9000</PostCode>
+                                            <Naam>Gent</Naam>
                                         </Gemeente>
                                         <Land>
                                             <NISCode>150</NISCode>
