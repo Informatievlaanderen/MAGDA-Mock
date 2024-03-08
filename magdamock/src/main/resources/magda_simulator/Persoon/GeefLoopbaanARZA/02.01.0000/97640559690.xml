@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefLoopbaanARZAResponse xmlns:web="http://webservice.geefloopbaanarzadienst-02_01.werk-02_01.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefLoopbaanARZA</Naam>
+            <Versie>02.01.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-02-29</Datum>
+                    <Tijd>12:12</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>73e2683a-9620-4a06-993b-97bf6ab98e48</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>9e317c0c-918e-4cfb-a20c-a0250765501f</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>f0d69a87-9bb3-47db-a158-4e409bf88750</Referte>
+                <Inhoud>
+                    <Zelfstandige>
+                        <INSZ>97640559690</INSZ>
+                        <Aansluitingen>
+                            <Aansluiting>
+                                <SociaalVerzekeringsfonds>
+                                    <Code>008</Code>
+                                    <Omschrijving Oorsprong="MAGDA" TaalCode="nl">Partena</Omschrijving>
+                                    <Ondernemingsnummer>0409536968</Ondernemingsnummer>
+                                </SociaalVerzekeringsfonds>
+                                <Loopbanen>
+                                    <Loopbaan>
+                                        <Bijdragereeks>
+                                            <Code>100</Code>
+                                            <Omschrijving Oorsprong="KSZ">Hoofdberoep</Omschrijving>
+                                        </Bijdragereeks>
+                                        <Periode>
+                                            <Begin>2022-04-19</Begin>
+                                        </Periode>
+                                        <Beroep>
+                                            <Code>517102</Code>
+                                            <Omschrijving Oorsprong="KSZ">Accountant</Omschrijving>
+                                        </Beroep>
+                                        <Hoedanigheid>
+                                            <Code>100</Code>
+                                            <Omschrijving Oorsprong="KSZ">Activiteit in eigen naam</Omschrijving>
+                                        </Hoedanigheid>
+                                        <DatumOndertekening>2022-04-19</DatumOndertekening>
+                                    </Loopbaan>
+                                </Loopbanen>
+                            </Aansluiting>
+                        </Aansluitingen>
+                    </Zelfstandige>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefLoopbaanARZAResponse>
