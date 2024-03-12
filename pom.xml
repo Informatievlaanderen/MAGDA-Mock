@@ -103,27 +103,4 @@
 		<module>interfaces</module>
 		<module>tester</module>
 	</modules>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.openrewrite.maven</groupId>
-				<artifactId>rewrite-maven-plugin</artifactId>
-				<version>5.23.1</version>
-				<configuration>
-					<activeRecipes>
-						<recipe>org.openrewrite.java.migrate.UpgradeToJava21</recipe>
-					</activeRecipes>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.openrewrite.recipe</groupId>
-						<artifactId>rewrite-migrate-java</artifactId>
-						<version>2.9.0</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-		</plugins>
-	</build>
-
 </project>
