@@ -1,5 +1,5 @@
 image:
-  name: vlaamseoverheid-magda-docker-public.jfrog.io/magda/magda-base-pipeline:jdk20-latest
+  name: vlaamseoverheid-magda-docker-public.jfrog.io/magda/magda-base-pipeline:jdk21-latest
   username: $ARTIFACTORY_USER
   password: $ARTIFACTORY_PASSWORD
 
