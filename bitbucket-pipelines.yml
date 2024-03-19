@@ -71,13 +71,17 @@ definitions:
         image: softwareimprovementgroup/sigridci
         name: Publish to Sigrid
         script:
-          - mvn dependency:tree > maven.tree
           - timeout 10m sigridci.py --customer $SIGRID_CI_ACCOUNT --system "Solid" --subsystem $(echo "magdamock.service"| sed -e "s/\./-/g") --source . --publish --include-history
+    - step: &dependencyTree
+        name: Dependency tree
+        caches:
+            - maven
+        script:
+            - mvn dependency:tree > maven.tree
     - step: &sigridCI
         image: softwareimprovementgroup/sigridci
         name: Sigrid CI
         script:
-          - mvn dependency:tree > maven.tree
           - timeout 10m sigridci.py --customer $SIGRID_CI_ACCOUNT --system "Solid" --subsystem $(echo "magdamock.service"| sed -e "s/\./-/g") --source .
     - step: &githubMirror
         name: Sync to Github
@@ -91,9 +95,6 @@ clone:
   depth: full
 
 pipelines:
-  default:
-    - step:
-        <<: *build
   branches:
     master:
       - parallel:
@@ -109,6 +110,8 @@ pipelines:
                   - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
                 artifacts:
                   - target/pom_version
+            - step:
+                <<: *dependencyTree
             - step:
                 <<: *sigridPublish
       - step:
@@ -147,6 +150,8 @@ pipelines:
                 artifacts:
                   - "**/*.jar"
                   - target/pom_version
+            - step:
+                <<: *dependencyTree
             - step:
                 <<: *sigridPublish
       - step:
@@ -200,6 +205,8 @@ pipelines:
                   - mvn -B -U clean verify sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.name="$BITBUCKET_BRANCH"
                 artifacts:
                   - "**/*.jar"
+            - step:
+                <<: *dependencyTree
             - step:
                 <<: *sigridCI
   custom:
