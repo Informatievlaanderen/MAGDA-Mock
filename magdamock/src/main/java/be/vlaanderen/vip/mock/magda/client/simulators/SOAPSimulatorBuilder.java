@@ -75,6 +75,7 @@ public class SOAPSimulatorBuilder {
         simulator.register("GeefGezinssamenstelling", VERSION_02_02, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefHistoriekGezinssamenstelling", VERSION_02_02, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefBetalingenHandicap", VERSION_03_00, new StaticResponseSimulator(finder, PERSOON, KEY_SSIN));
+        simulator.register("GeefDossierHandicap", VERSION_03_00, new GeefDossierHandicapSimulator(finder, PERSOON, KEY_SSIN));
         simulator.register("GeefLeefloonbedragen", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
         simulator.register("GeefDossierKBI", VERSION_01_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
