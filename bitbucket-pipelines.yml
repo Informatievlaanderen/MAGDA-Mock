@@ -71,11 +71,13 @@ definitions:
         image: softwareimprovementgroup/sigridci
         name: Publish to Sigrid
         script:
+          - mvn dependency:tree > maven.tree
           - timeout 10m sigridci.py --customer $SIGRID_CI_ACCOUNT --system "Solid" --subsystem $(echo "magdamock.service"| sed -e "s/\./-/g") --source . --publish --include-history
     - step: &sigridCI
         image: softwareimprovementgroup/sigridci
         name: Sigrid CI
         script:
+          - mvn dependency:tree > maven.tree
           - timeout 10m sigridci.py --customer $SIGRID_CI_ACCOUNT --system "Solid" --subsystem $(echo "magdamock.service"| sed -e "s/\./-/g") --source .
     - step: &githubMirror
         name: Sync to Github
