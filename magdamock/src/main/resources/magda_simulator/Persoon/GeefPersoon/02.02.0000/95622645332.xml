@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefPersoon</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-03-08</Datum>
+                    <Tijd>12:21:40.797</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+                    <Referte>4226311d-16f4-44bb-a141-2a1f83cd0401</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>ad50b6da-d1f9-46df-9d2a-27db37b909aa</Referte>
+                <Inhoud>
+                    <Persoon Bron="RR" DatumCreatie="1995-02-26" DatumModificatie="2002-10-02">
+                        <INSZ>95622645332</INSZ>
+                        <Naam DatumBegin="1995-02-26">
+                            <Achternamen>
+                                <Achternaam>Wuyts</Achternaam>
+                            </Achternamen>
+                            <Voornamen>
+                                <Voornaam>Jean</Voornaam>
+                            </Voornamen>
+                        </Naam>
+                        <Geslacht>
+                            <Code>1</Code>
+                            <Omschrijving Taal="nl">Mannelijk</Omschrijving>
+                        </Geslacht>
+                        <Beheerder DatumBegin="1995-02-26">
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Fusie>
+                                <Code>0</Code>
+                                <Omschrijving Taal="nl">NEEN</Omschrijving>
+                            </Fusie>
+                            <Taalregime>
+                                <Code>2</Code>
+                                <Omschrijving Taal="nl">Nederlands</Omschrijving>
+                            </Taalregime>
+                        </Beheerder>
+                        <Register>
+                            <Code>RR</Code>
+                            <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                        </Register>
+                        <Nationaliteiten>
+                            <Nationaliteit DatumBegin="1995-02-26">
+                                <Code>150</Code>
+                                <Omschrijving>Belg</Omschrijving>
+                            </Nationaliteit>
+                        </Nationaliteiten>
+                        <Geboorte DatumBegin="1995-02-26">
+                            <Datum>1995-02-26</Datum>
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Aktenummer>00000</Aktenummer>
+                        </Geboorte>
+                        <Adressen>
+                            <Hoofdverblijfplaats DatumBegin="2021-07-09">
+                                <Straatnaam>
+                                    <String>Tarwestraat</String>
+                                    <Taal>nl</Taal>
+                                </Straatnaam>
+                                <Huisnummer>116</Huisnummer>
+                                <Gemeentenaam>
+                                    <String>Gent</String>
+                                    <Taal>nl</Taal>
+                                </Gemeentenaam>
+                                <Land>
+                                    <String>BELGIE</String>
+                                    <Taal>nl</Taal>
+                                </Land>
+                                <Postcode>9000</Postcode>
+                                <NISCodeLand>150</NISCodeLand>
+                                <ISOCodeLand>BEL</ISOCodeLand>
+                                <NISCodeGemeente>44021</NISCodeGemeente>
+                            </Hoofdverblijfplaats>
+                        </Adressen>
+                    </Persoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefPersoonResponse>

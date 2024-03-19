@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefLoopbaanARZAResponse xmlns:web="http://webservice.geefloopbaanarzadienst-02_01.werk-02_01.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefLoopbaanARZA</Naam>
+            <Versie>02.01.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-02-28</Datum>
+                    <Tijd>12:12</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>73e2683a-9620-4a06-993b-97bf6ab98e48</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-ml</Identificatie>
+                    <Referte>9e317c0c-918e-4cfb-a20c-a0250765501f</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>87e1fe4c-33a0-4600-837c-628c874f9ec3</Referte>
+                <Inhoud>
+                    <Zelfstandige>
+                        <INSZ>95622547540</INSZ>
+                        <Aansluitingen>
+                            <Aansluiting>
+                                <SociaalVerzekeringsfonds>
+                                    <Code>003</Code>
+                                    <Omschrijving Oorsprong="MAGDA" TaalCode="nl">S.V.M.B.</Omschrijving>
+                                    <Ondernemingsnummer>0409088689</Ondernemingsnummer>
+                                </SociaalVerzekeringsfonds>
+                                <Loopbanen>
+                                    <Loopbaan>
+                                        <Bijdragereeks>
+                                            <Code>100</Code>
+                                            <Omschrijving Oorsprong="KSZ">Hoofdberoep</Omschrijving>
+                                        </Bijdragereeks>
+                                        <Periode>
+                                            <Begin>2022-02-15</Begin>
+                                            <Einde>2022-05-15</Einde>
+                                        </Periode>
+                                        <Beroep>
+                                            <Code>519308</Code>
+                                            <Omschrijving Oorsprong="KSZ">IT-bedrijfsconsulent</Omschrijving>
+                                        </Beroep>
+                                        <Hoedanigheid>
+                                            <Code>100</Code>
+                                            <Omschrijving Oorsprong="KSZ">Activiteit in eigen naam</Omschrijving>
+                                        </Hoedanigheid>
+                                        <DatumOndertekening>2022-02-15</DatumOndertekening>
+                                    </Loopbaan>
+                                </Loopbanen>
+                            </Aansluiting>
+                            <Aansluiting>
+                                <SociaalVerzekeringsfonds>
+                                    <Code>008</Code>
+                                    <Omschrijving Oorsprong="MAGDA" TaalCode="nl">Partena</Omschrijving>
+                                    <Ondernemingsnummer>0409536968</Ondernemingsnummer>
+                                </SociaalVerzekeringsfonds>
+                                <Loopbanen>
+                                    <Loopbaan>
+                                        <Bijdragereeks>
+                                            <Code>100</Code>
+                                            <Omschrijving Oorsprong="KSZ">Hoofdberoep</Omschrijving>
+                                        </Bijdragereeks>
+                                        <Periode>
+                                            <Begin>2022-06-01</Begin>
+                                            <Einde>2023-08-01</Einde>
+                                        </Periode>
+                                        <Beroep>
+                                            <Code>519308</Code>
+                                            <Omschrijving Oorsprong="KSZ">IT-bedrijfsconsulent</Omschrijving>
+                                        </Beroep>
+                                        <Hoedanigheid>
+                                            <Code>100</Code>
+                                            <Omschrijving Oorsprong="KSZ">Activiteit in eigen naam</Omschrijving>
+                                        </Hoedanigheid>
+                                        <DatumOndertekening>2022-06-01</DatumOndertekening>
+                                    </Loopbaan>
+                                </Loopbanen>
+                            </Aansluiting>
+                        </Aansluitingen>
+                    </Zelfstandige>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefLoopbaanARZAResponse>
