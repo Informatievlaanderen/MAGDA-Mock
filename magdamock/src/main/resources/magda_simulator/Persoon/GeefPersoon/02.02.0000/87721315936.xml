@@ -128,8 +128,8 @@
 								</Geslacht>
 								<Geboortedatum>1989-10-23</Geboortedatum>
 								<Positie>
-									<Code>02</Code>
-									<Omschrijving Taal="nl">Echtgenote</Omschrijving>
+									<Code>22</Code>
+									<Omschrijving Taal="nl">Wettelijke samenwonende</Omschrijving>
 								</Positie>
 								<Woonvorm>
 									<Code>00</Code>

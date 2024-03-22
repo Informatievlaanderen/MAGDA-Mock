@@ -23,7 +23,7 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>70ccd08f-01f7-433f-a632-980d02fc1c79</Referte>
+                <Referte>3e77b552-a04a-4143-92af-b3fc57e5a710</Referte>
                 <Inhoud>
                     <ConsultFilesByDateResponse>
                         <status>
@@ -39,7 +39,7 @@
                                 <fieldValue>fieldValue2</fieldValue>
                             </information>
                         </status>
-                        <ssin>88681575651</ssin>
+                        <ssin>96721418968</ssin>
                         <results>
                             <dgphResult>
                                 <status>
@@ -58,8 +58,8 @@
                                 <file>
                                     <socialCards>
                                         <socialCard>
-                                            <deliveryDate>2022-02-01</deliveryDate>
-                                            <endDate>2030-02-01</endDate>
+                                            <deliveryDate>2023-06-01</deliveryDate>
+                                            <endDate>2030-06-01</endDate>
                                             <cardNumber>1234567890</cardNumber>
                                             <cardCategory>PARKINGCARD</cardCategory>
                                         </socialCard>
