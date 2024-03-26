@@ -84,36 +84,39 @@ class MagdaConnectorImplTest {
 
 			@Test
 			void requestFails() throws MagdaConnectionException {
-				when(connection.sendDocument(any())).thenThrow(new MagdaConnectionException("something went wrong"));
+				when(connection.sendDocument(any())).thenThrow(new MagdaConnectionException("something went wrong", 500));
 
 				var req = GeefBewijsRequest.builder()
 						.insz("test-insz")
 						.build();
 
-				assertThrows(NoResponseException.class, () -> connector.send(req));
+				NoResponseException noResponseException = assertThrows(NoResponseException.class, () -> connector.send(req));
+				assertEquals(noResponseException.getStatusCode(), 500);
 			}
 
 			@Test
 			void logsRequest() throws MagdaConnectionException {
-				when(connection.sendDocument(any())).thenThrow(new MagdaConnectionException("something went wrong"));
+				when(connection.sendDocument(any())).thenThrow(new MagdaConnectionException("something went wrong", 500));
 
 				var req = GeefBewijsRequest.builder()
 						.insz("test-insz")
 						.build();
 
-				assertThrows(NoResponseException.class, () -> connector.send(req));
+				NoResponseException noResponseException = assertThrows(NoResponseException.class, () -> connector.send(req));
+				assertEquals(noResponseException.getStatusCode(), 500);
 				verify(logService).logMagdaRequest(any());
 			}
 
 			@Test
 			void logsNoReply() throws MagdaConnectionException {
-				when(connection.sendDocument(any())).thenThrow(new MagdaConnectionException("something went wrong"));
+				when(connection.sendDocument(any())).thenThrow(new MagdaConnectionException("something went wrong", 500));
 
 				var req = GeefBewijsRequest.builder()
 						.insz("test-insz")
 						.build();
 
-				assertThrows(NoResponseException.class, () -> connector.send(req));
+				NoResponseException noResponseException = assertThrows(NoResponseException.class, () -> connector.send(req));
+				assertEquals(noResponseException.getStatusCode(), 500);
 				verify(logService).logUnansweredRequest(any());
 			}
 		}
