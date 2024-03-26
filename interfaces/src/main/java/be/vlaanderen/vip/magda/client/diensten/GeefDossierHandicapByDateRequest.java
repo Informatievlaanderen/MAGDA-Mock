@@ -7,6 +7,7 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -22,7 +23,6 @@ import java.util.Set;
  * <li>referenceDate: the reference date</li>
  * <li>sources: include the sources to consult</li>
  * <li>parts: include file parts</li>
- * <li></li>
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefDossierHandicap/03.00.0000/template.xml">XML template for this request type</a>
@@ -30,6 +30,7 @@ import java.util.Set;
  */
 @Getter
 @ToString
+@EqualsAndHashCode(callSuper = true)
 public class GeefDossierHandicapByDateRequest extends PersonMagdaRequest {
 
     public static class Builder extends PersonMagdaRequest.Builder<Builder> {

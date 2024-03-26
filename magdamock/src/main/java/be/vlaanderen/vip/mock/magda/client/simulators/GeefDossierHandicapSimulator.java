@@ -18,16 +18,6 @@ public class GeefDossierHandicapSimulator extends StaticResponseSimulator {
     protected void patchResponse(MagdaDocument request, MagdaDocument response) {
         super.patchResponse(request, response);
 
-        //GeefDossierHandicapByDateRequest
-        if(response.getValue("//Antwoorden/Antwoord/Inhoud/ConsultFilesByDateResponse") != null) {
-            response.setValue("//Antwoorden/Antwoord/Inhoud/ConsultFilesByDateResponse/ssin",
-                    request.getValue("//Vragen/Vraag/Inhoud/Criteria/ConsultFilesByDateCriteria/ssin"));
-        }
-
-        //GeefDossierHandicapByPeriodRequest
-        if(response.getValue("//Antwoorden/Antwoord/Inhoud/ConsultFilesByPeriodResponse") != null) {
-            response.setValue("//Antwoorden/Antwoord/Inhoud/ConsultFilesByPeriodCriteria/ssin",
-                    request.getValue("//Vragen/Vraag/Inhoud/Criteria/ConsultFilesByPeriodCriteria/ssin"));
-        }
+        response.setValue("//ssin", request.getValue("//ssin"));
     }
 }

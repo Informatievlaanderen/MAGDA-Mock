@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 
 /**
  * A request that pertains to a person, identified by INSZ number.
@@ -15,6 +16,7 @@ import lombok.Getter;
  * </ul>
  */
 @Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 public abstract class PersonMagdaRequest extends MagdaRequest {
 

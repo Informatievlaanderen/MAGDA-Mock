@@ -7,6 +7,7 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -26,6 +27,7 @@ import java.time.Year;
  */
 @Getter
 @ToString
+@EqualsAndHashCode(callSuper = true)
 public class GeefLeefLoonBedragenRequest extends PersonMagdaRequest {
 
     public static class Builder extends PersonMagdaRequest.Builder<Builder> {

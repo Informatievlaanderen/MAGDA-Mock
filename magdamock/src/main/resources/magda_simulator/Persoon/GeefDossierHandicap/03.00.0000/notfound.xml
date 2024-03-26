@@ -42,6 +42,23 @@
                             </dgphResult>
                         </results>
                     </ConsultFilesByDateResponse>
+                    <ConsultFilesByPeriodResponse>
+                        <status>
+                            <value>NO_DATA_FOUND</value>
+                            <code>MSG00100</code>
+                            <description>Treatment successful, but no data found at the supplier.</description>
+                        </status>
+                        <ssin>00000000000</ssin>
+                        <results>
+                            <dgphResult>
+                                <status>
+                                    <value>NO_DATA_FOUND</value>
+                                    <code>MSG00021</code>
+                                    <description>Treatment successful, but no data found at the supplier.</description>
+                                </status>
+                            </dgphResult>
+                        </results>
+                    </ConsultFilesByPeriodResponse>
                 </Inhoud>
                 <Uitzonderingen>
                     <Uitzondering>
