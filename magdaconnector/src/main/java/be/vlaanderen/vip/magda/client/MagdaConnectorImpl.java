@@ -79,7 +79,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
         } catch (MagdaConnectionException e) {
             logNoResponse(magdaRequest);
 
-            throw new NoResponseException("No response", e, magdaRequest);
+            throw new NoResponseException("No response", e, magdaRequest, e.getStatusCode());
         } finally {
             CorrelationId.clear();
         }
