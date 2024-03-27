@@ -1,15 +1,14 @@
 package be.vlaanderen.vip.mock.starter.connector;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.vault.core.VaultTemplate;
-
 import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.config.MagdaRegistrationConfigDto;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.vault.core.VaultTemplate;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 public class MagdaConfigBuilder {
@@ -61,7 +60,7 @@ public class MagdaConfigBuilder {
         
         var config = new MagdaConfigDto();
         config.setKeystore(keystore);
-        config.setVerificationEnabled(keystore != null);
+        config.setVerificationEnabled(false); // TODO always disable verification for now, because it doesn't work as it should yet (see MagdaSignedConnection)
         config.setRegistration(registrations);
         return config;
     }
