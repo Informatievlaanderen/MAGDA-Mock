@@ -8,6 +8,7 @@ import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -31,6 +32,7 @@ import java.util.Set;
  */
 @Getter
 @ToString
+@EqualsAndHashCode(callSuper = true)
 public class GeefBetalingenHandicapRequest extends PersonMagdaRequest {
 
     public static class Builder extends PersonMagdaRequest.Builder<Builder> {
