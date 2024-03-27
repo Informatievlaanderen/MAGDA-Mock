@@ -17,11 +17,13 @@ public class NoResponseException extends ServerException {
     private final UUID transactionID;
     private final UUID localTransactionID;
     private final String serviceName;
+    private final int statusCode;
 
-    public NoResponseException(String bericht, Throwable oorzaak, MagdaRequest magdaRequest) {
+    public NoResponseException(String bericht, Throwable oorzaak, MagdaRequest magdaRequest, int statusCode) {
         super(bericht, oorzaak);
         this.transactionID = magdaRequest.getCorrelationId();
         this.localTransactionID = magdaRequest.getRequestId();
         this.serviceName = magdaRequest.magdaServiceIdentification().getName();
+        this.statusCode = statusCode;
     }
 }
