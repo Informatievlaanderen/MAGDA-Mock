@@ -55,7 +55,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                     .log("Request: {}", requestDocument);
 
             var response = callMagda(requestDocument);
-            magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
+            magdaRequestLoggingEventBuilder(log, Level.DEBUG, magdaRequest)
                     .log("Response: {}", response);
 
             var duration = Duration.of(System.nanoTime() - start, ChronoUnit.NANOS);
