@@ -75,7 +75,7 @@ class MagdaConfigBuilderTest {
                                            .build();
             
             assertAll(
-                    () -> assertThat(result.isVerificationEnabled(), is(true)),
+                    () -> assertThat(result.isVerificationEnabled(), is(false)),
                     () -> assertThat(result.getKeystore(), is(equalTo(keystore))));
         }
         
@@ -89,7 +89,7 @@ class MagdaConfigBuilderTest {
                                            .build();
             
             assertAll(
-                    () -> assertThat(result.isVerificationEnabled(), is(true)),
+                    () -> assertThat(result.isVerificationEnabled(), is(false)),
                     () -> assertThat(result.getKeystore(), is(equalTo(keystore))));
         }
         

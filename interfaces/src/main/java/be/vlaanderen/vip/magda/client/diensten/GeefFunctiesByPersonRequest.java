@@ -8,6 +8,7 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -28,6 +29,7 @@ import java.util.Set;
  */
 @Getter
 @ToString
+@EqualsAndHashCode(callSuper = true)
 public class GeefFunctiesByPersonRequest extends PersonMagdaRequest{
 
     public static class Builder extends PersonMagdaRequest.Builder<Builder> {

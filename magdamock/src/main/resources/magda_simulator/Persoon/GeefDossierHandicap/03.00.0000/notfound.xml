@@ -1,0 +1,89 @@
+<web:GeefDossierHandicapResponse xmlns:web="http://magda.vlaanderen.be/soczek/soap/geefdossierhandicap/v03_00">
+    <Repliek>
+        <Context>
+            <Naam>GeefDossierHandicap</Naam>
+            <Versie>03.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-03-15</Datum>
+                    <Tijd>10:21:40.797</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>d00c2291-f643-489f-8071-791822f0ad8f</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>gent.be/ipdc2858</Identificatie>
+                    <Referte>AREF_QT_860921_102202</Referte>
+                    <Hoedanigheid>ipdc2858</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>d925bbb8-a14f-47cb-b81c-255644da8acd</Referte>
+                <Inhoud>
+                    <ConsultFilesByDateResponse>
+                        <status>
+                            <value>NO_DATA_FOUND</value>
+                            <code>MSG00100</code>
+                            <description>Treatment successful, but no data found at the supplier.</description>
+                        </status>
+                        <ssin>00000000000</ssin>
+                        <results>
+                            <dgphResult>
+                                <status>
+                                    <value>NO_DATA_FOUND</value>
+                                    <code>MSG00021</code>
+                                    <description>Treatment successful, but no data found at the supplier.</description>
+                                </status>
+                            </dgphResult>
+                        </results>
+                    </ConsultFilesByDateResponse>
+                    <ConsultFilesByPeriodResponse>
+                        <status>
+                            <value>NO_DATA_FOUND</value>
+                            <code>MSG00100</code>
+                            <description>Treatment successful, but no data found at the supplier.</description>
+                        </status>
+                        <ssin>00000000000</ssin>
+                        <results>
+                            <dgphResult>
+                                <status>
+                                    <value>NO_DATA_FOUND</value>
+                                    <code>MSG00021</code>
+                                    <description>Treatment successful, but no data found at the supplier.</description>
+                                </status>
+                            </dgphResult>
+                        </results>
+                    </ConsultFilesByPeriodResponse>
+                </Inhoud>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>70001</Identificatie>
+                        <Oorsprong>KSZ</Oorsprong>
+                        <Type>WAARSCHUWING</Type>
+                        <Tijdstip>
+                            <Datum>2024-03-15</Datum>
+                            <Tijd>10:21:40.797</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Antwoord met waarschuwing</Diagnose>
+                        <Omstandigheid>NO_DATA_FOUND</Omstandigheid>
+                        <Annotaties>
+                            <Annotatie>
+                                <Naam>status code</Naam>
+                                <Waarde>MSG00100</Waarde>
+                            </Annotatie>
+                            <Annotatie>
+                                <Naam>status description</Naam>
+                                <Waarde>Treatment successful, but no data found at the supplier.</Waarde>
+                            </Annotatie>
+                        </Annotaties>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefDossierHandicapResponse>

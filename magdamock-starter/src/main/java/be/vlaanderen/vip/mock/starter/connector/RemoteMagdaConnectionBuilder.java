@@ -1,9 +1,8 @@
 package be.vlaanderen.vip.mock.starter.connector;
 
-import org.springframework.util.Assert;
-
 import be.vlaanderen.vip.magda.client.MagdaConnector;
 import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
+import be.vlaanderen.vip.magda.client.MagdaSignedConnection;
 import be.vlaanderen.vip.magda.client.MagdaSoapConnection;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceImpl;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
@@ -11,6 +10,7 @@ import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.legallogging.service.ClientLogService;
 import brave.Tracing;
+import org.springframework.util.Assert;
 
 public class RemoteMagdaConnectionBuilder {
     private ClientLogService logService;
@@ -47,18 +47,17 @@ public class RemoteMagdaConnectionBuilder {
         if(logService == null) {
             logService = new DebugLogService();
         }
-        
-        var connection = createConnection();
+
+        var connection = new MagdaSignedConnection(createSoapConnection(), magdaConfig);
         var hoedaingheidService = new MagdaHoedanigheidServiceImpl(magdaConfig);
         
         return new MagdaConnectorImpl(connection, logService, hoedaingheidService);
     }
     
-    private MagdaSoapConnection createConnection() throws TwoWaySslException {
+    private MagdaSoapConnection createSoapConnection() throws TwoWaySslException {
         if(tracing != null) {
             return new MagdaSoapConnection(endpoints, magdaConfig, tracing);
         }
         return new MagdaSoapConnection(endpoints, magdaConfig);
     }
-
 }

@@ -6,6 +6,7 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import java.time.LocalDate;
@@ -23,6 +24,7 @@ import java.time.format.DateTimeFormatter;
  */
 @Getter
 @ToString
+@EqualsAndHashCode(callSuper = true)
 public class GeefLoopbaanARZARequest extends PersonMagdaRequest {
 
     public static class Builder extends PersonMagdaRequest.Builder<Builder> {
