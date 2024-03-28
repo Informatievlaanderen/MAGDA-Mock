@@ -24,6 +24,7 @@
                     <Vraag>
                         <Referte>Referte</Referte>
                         <Inhoud>
+                            <TypeAntwoord>0</TypeAntwoord>
                             <Criteria>
                                 <Relatie>
                                     <Werknemer>
