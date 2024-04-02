@@ -46,7 +46,7 @@ class MagdaClientRepertoriumRegistrationServiceTest {
             var insz = INSZ.of("00000000097");
             var start = LocalDate.now();
             
-            var registeredInsz = service.register(() -> RegistreerInschrijvingRequest.builder()
+            var registeredInsz = service.register(RegistreerInschrijvingRequest.builder()
                     .insz(insz.getValue())
                     .startDate(start)
                     .build());
@@ -71,7 +71,7 @@ class MagdaClientRepertoriumRegistrationServiceTest {
             var start = LocalDate.now();
             
             assertThrows(MagdaClientException.class,
-                         () -> service.register(() -> RegistreerInschrijvingRequest.builder()
+                         () -> service.register(RegistreerInschrijvingRequest.builder()
                                  .insz(insz.getValue())
                                  .startDate(start)
                                  .build()));
