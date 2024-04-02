@@ -27,10 +27,10 @@ public class ConnectorMagdaClient implements MagdaClient {
     
     private void validateMagdaResponse(MagdaResponse response, MagdaRequest request) throws MagdaClientException {
         if(!response.getUitzonderingEntries().isEmpty()) {
-            throw new MagdaClientException("Level 2 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getUitzonderingEntries()));
+            throw new MagdaClientException("Level 2 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getUitzonderingEntries(), request.getRequestId()));
         }
         if(!response.getResponseUitzonderingEntries().isEmpty()) {
-            throw new MagdaClientException("Level 3 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getResponseUitzonderingEntries()));
+            throw new MagdaClientException("Level 3 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getResponseUitzonderingEntries(), request.getRequestId()));
         }
     }
     
