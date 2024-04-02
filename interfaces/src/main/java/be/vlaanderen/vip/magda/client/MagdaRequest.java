@@ -46,6 +46,7 @@ public abstract class MagdaRequest {
 
     @Setter
     private UUID correlationId;
+    @Setter
     private final UUID requestId = UUID.randomUUID();
     @NotNull
     private final String registration;
