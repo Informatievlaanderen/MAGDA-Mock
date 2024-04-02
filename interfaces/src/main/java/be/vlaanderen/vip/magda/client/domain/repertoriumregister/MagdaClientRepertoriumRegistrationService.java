@@ -10,7 +10,7 @@ import be.vlaanderen.vip.magda.client.domain.dto.RegisteredINSZ;
 import be.vlaanderen.vip.magda.client.xml.node.Node;
 
 import java.util.UUID;
-import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class MagdaClientRepertoriumRegistrationService implements RepertoriumRegistrationService {
 
@@ -25,13 +25,14 @@ public class MagdaClientRepertoriumRegistrationService implements RepertoriumReg
     }
 
     @Override
-    public RegisteredINSZ register(RegistreerInschrijvingRequest request) throws MagdaClientException {
-        correlationHeaderProvider.getXCorrelationId().ifPresent(xCorrelationId -> request.setCorrelationId(UUID.fromString(xCorrelationId)));
+    public RegisteredINSZ register(Supplier<RegistreerInschrijvingRequest> request) throws MagdaClientException {
+        RegistreerInschrijvingRequest registreerInschrijvingRequest = request.get();
+        correlationHeaderProvider.getXCorrelationId().ifPresent(xCorrelationId -> registreerInschrijvingRequest.setCorrelationId(UUID.fromString(xCorrelationId)));
 
-        var response = service.send(request);
+        var response = service.send(registreerInschrijvingRequest);
         validateResponse(response);
 
-        return new RegisteredINSZ(INSZ.of(request.getInsz().getValue()));
+        return new RegisteredINSZ(INSZ.of(registreerInschrijvingRequest.getInsz().getValue()));
     }
     
     private void validateResponse(MagdaResponseWrapper response) throws MagdaClientException {
