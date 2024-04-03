@@ -24,7 +24,7 @@ import java.time.format.DateTimeFormatter;
  * <li>endDate: optional, the end date of the period</li>
  * <li>startedOrEndedType: optional, indication to include all periods overlapping with the requested period or only the periods that started or ended within the requested period in the response.</li>
  * <li>deletionIndicationType: required, indication to include all contracts or only deleted contracts or only non-deleted contracts in the response.</li>
- * <li>interimIndicationType: optional, indication to include interim & non-interim, interim only or non-interim only in the response.</li>
+ * <li>interimIndicationType: optional, indication to include interim &amp; non-interim, interim only or non-interim only in the response.</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefWerkrelaties/02.00.0000/template.xml">XML template for this request type</a>
@@ -211,7 +211,7 @@ public class GeefWerkrelatiesRequest  extends PersonMagdaRequest{
 
     public enum InterimIndicationType {
         /**
-         * Include interim & non-interim.
+         * Include interim &amp; non-interim.
          */
         ALL("0"),
         /**
