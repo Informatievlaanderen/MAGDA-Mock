@@ -100,7 +100,7 @@ class SignedConnectionTest extends MockTestBase {
             fail("No exception was thrown");
         } catch(UitzonderingenSectionInResponseException e) {
             assertEquals(REQUEST_INSZ, e.getSubject().getValue());
-            assertNotNull(e.getRequestId());
+            assertNotNull(e.getLocalTransactionID());
             assertEquals(1, e.getUitzonderingEntries().size());
 
             var uitzondering = e.getUitzonderingEntries().get(0);
@@ -135,7 +135,7 @@ class SignedConnectionTest extends MockTestBase {
             connector.send(request);
             fail("No exception was thrown");
         } catch(UitzonderingenSectionInResponseException e) {
-            assertNotNull(e.getRequestId());
+            assertNotNull(e.getLocalTransactionID());
             assertEquals(REQUEST_INSZ, e.getSubject().getValue());
             assertEquals(1, e.getUitzonderingEntries().size());
 

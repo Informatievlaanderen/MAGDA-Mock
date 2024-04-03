@@ -20,12 +20,10 @@ public class UitzonderingenSectionInResponseException extends ServerException {
     
     private final SubjectIdentificationNumber subject;
     private final transient List<UitzonderingEntry> uitzonderingEntries;
-    private final UUID requestId;
 
-    public UitzonderingenSectionInResponseException(SubjectIdentificationNumber subject, List<UitzonderingEntry> uitzonderingEntries, UUID requestId) {
-        super("Backend error '" + uitzonderingEntries.get(0).toString() + "'");
+    public UitzonderingenSectionInResponseException(SubjectIdentificationNumber subject, List<UitzonderingEntry> uitzonderingEntries, UUID transactionID, UUID localTransactionID) {
+        super("Backend error '" + uitzonderingEntries.get(0).toString() + "'", transactionID, localTransactionID);
         this.subject = subject;
         this.uitzonderingEntries = uitzonderingEntries;
-        this.requestId = requestId;
     }
 }
