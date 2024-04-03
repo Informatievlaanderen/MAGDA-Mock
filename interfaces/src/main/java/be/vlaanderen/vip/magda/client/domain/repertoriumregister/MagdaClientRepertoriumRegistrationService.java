@@ -11,7 +11,7 @@ import be.vlaanderen.vip.magda.client.xml.node.Node;
 
 import java.util.UUID;
 
-public class MagdaClientRepertoriumRegistrationService  {
+public class MagdaClientRepertoriumRegistrationService implements RepertoriumRegistrationService {
 
     private final MagdaClient service;
     private final CorrelationHeaderProvider correlationHeaderProvider;
@@ -23,6 +23,7 @@ public class MagdaClientRepertoriumRegistrationService  {
         this.correlationHeaderProvider = correlationHeaderProvider;
     }
 
+    @Override
     public RegisteredINSZ register(RegistreerInschrijvingRequest request) throws MagdaClientException {
         correlationHeaderProvider.getXCorrelationId().ifPresent(xCorrelationId -> request.setCorrelationId(UUID.fromString(xCorrelationId)));
 
