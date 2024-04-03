@@ -11,21 +11,21 @@ import java.util.UUID;
 @Getter
 public class ServerException extends RuntimeException {
 
-    private final UUID transactionID;
-    private final UUID localTransactionID;
+    private final UUID correlationID;
+    private final UUID requestID;
 
     @Serial
     private static final long serialVersionUID = -3155129158010790297L;
 
-    public ServerException(String message, UUID transactionID, UUID localTransactionID) {
+    public ServerException(String message, UUID correlationID, UUID requestID) {
         super(message);
-        this.transactionID = transactionID;
-        this.localTransactionID = localTransactionID;
+        this.correlationID = correlationID;
+        this.requestID = requestID;
     }
 
-    public ServerException(String message, Throwable cause,UUID transactionID, UUID localTransactionID) {
+    public ServerException(String message, Throwable cause, UUID correlationID, UUID requestID) {
         super(message, cause);
-        this.transactionID = transactionID;
-        this.localTransactionID = localTransactionID;
+        this.correlationID = correlationID;
+        this.requestID = requestID;
     }
 }

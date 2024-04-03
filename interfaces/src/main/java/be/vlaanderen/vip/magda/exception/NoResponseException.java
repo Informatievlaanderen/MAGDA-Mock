@@ -4,6 +4,7 @@ import be.vlaanderen.vip.magda.client.MagdaRequest;
 import lombok.Getter;
 
 import java.io.Serial;
+import java.util.UUID;
 
 /**
  * The MAGDA server has not delivered a (valid) response.
@@ -20,5 +21,21 @@ public class NoResponseException extends ServerException {
         super(bericht, oorzaak, magdaRequest.getCorrelationId(), magdaRequest.getRequestId());
         this.serviceName = magdaRequest.magdaServiceIdentification().getName();
         this.statusCode = statusCode;
+    }
+
+    /**
+     * @deprecated use {@link #getCorrelationID()} instead
+     */
+    @Deprecated
+    public UUID getTransactionID() {
+        return getCorrelationID();
+    }
+
+    /**
+     * @deprecated use {@link #getRequestID()} instead
+     */
+    @Deprecated
+    public UUID getLocalTransactionID() {
+        return getRequestID();
     }
 }
