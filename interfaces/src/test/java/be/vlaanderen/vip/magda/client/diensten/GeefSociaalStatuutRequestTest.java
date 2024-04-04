@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -19,8 +20,8 @@ class GeefSociaalStatuutRequestTest {
     class GeefSociaalStatuutRequestBuilder {
 
         @Test
-        void buildsRequest() {
-            var date = OffsetDateTime.now();
+        void buildsRequestWithDate() {
+            var date = LocalDate.now();
 
             var request = GeefSociaalStatuutRequest.builder()
                     .insz("insz")
@@ -36,16 +37,23 @@ class GeefSociaalStatuutRequestTest {
         }
 
         @Test
-        void locationNameIsOptional() {
-            var date = OffsetDateTime.now();
+        void buildsRequestWithPeriod() {
+            var startDate = LocalDate.now();
+            var endDate = LocalDate.now().plusYears(1);
 
             var request = GeefSociaalStatuutRequest.builder()
                     .insz("insz")
                     .socialStatusName("sociaal-statuut")
-                    .date(date)
+                    .startDate(startDate)
+                    .endDate(endDate)
+                    .locationName("REGIO_GENT")
                     .build();
 
-            assertNull(request.getLocationName());
+            assertEquals(INSZNumber.of("insz"), request.getInsz());
+            assertEquals("sociaal-statuut", request.getSocialStatusName());
+            assertEquals(startDate, request.getStartDate());
+            assertEquals(endDate, request.getEndDate());
+            assertEquals("REGIO_GENT", request.getLocationName());
         }
 
         @Test
@@ -67,10 +75,45 @@ class GeefSociaalStatuutRequestTest {
         }
 
         @Test
-        void throwsException_whenDateNull() {
+        void locationNameIsOptional() {
+            var date = OffsetDateTime.now();
+
+            var request = GeefSociaalStatuutRequest.builder()
+                    .insz("insz")
+                    .socialStatusName("sociaal-statuut")
+                    .date(date)
+                    .build();
+
+            assertNull(request.getLocationName());
+        }
+
+        @Test
+        void throwsException_whenDateAndStartDateNull() {
             var builder = GeefSociaalStatuutRequest.builder()
                     .insz("insz")
                     .socialStatusName("sociaal-statuut");
+
+            assertThrows(IllegalStateException.class, builder::build);
+        }
+
+        @Test
+        void throwsException_whenDateAndStartDateNotNull() {
+            var builder = GeefSociaalStatuutRequest.builder()
+                    .insz("insz")
+                    .socialStatusName("sociaal-statuut")
+                    .date(LocalDate.now())
+                    .startDate(LocalDate.now());
+
+            assertThrows(IllegalStateException.class, builder::build);
+        }
+
+        @Test
+        void throwsException_whenStartDateNullAndEndDateNotNull() {
+            var builder = GeefSociaalStatuutRequest.builder()
+                    .insz("insz")
+                    .socialStatusName("sociaal-statuut")
+                    .date(LocalDate.now())
+                    .endDate(LocalDate.now());
 
             assertThrows(IllegalStateException.class, builder::build);
         }
@@ -103,12 +146,57 @@ class GeefSociaalStatuutRequestTest {
         }
 
         @Test
-        void setsDate() {
-            var request = builder.date(OffsetDateTime.parse("2023-01-22T00:00:00.000+00:00"))
+        void setsDateIfSpecified() {
+            var request = builder.date(LocalDate.of(2024,4,1))
                     .build()
                     .toMagdaDocument(info);
 
-            assertThat(request.getValue("//SociaalStatuut/Datum/Datum"), is(equalTo("2023-01-22")));
+            assertThat(request.getValue("//SociaalStatuut/Datum/Datum"), is(equalTo("2024-04-01")));
+        }
+
+        @Test
+        void doesNotSetDateIfNotSpecified() {
+            var request = builder
+                    .date((LocalDate)null)
+                    .startDate(LocalDate.of(2024,4,1))
+                    .endDate(LocalDate.of(2025,4,1))
+                    .build()
+                    .toMagdaDocument(info);
+
+            assertThat(request.getValue("//SociaalStatuut/Datum/Datum"), is(nullValue()));
+        }
+
+        @Test
+        void setsPeriodIfSpecified() {
+            var request = builder
+                    .date((LocalDate)null)
+                    .startDate(LocalDate.of(2024,4,1))
+                    .endDate(LocalDate.of(2025,4,1))
+                    .build()
+                    .toMagdaDocument(info);
+
+            assertThat(request.getValue("//SociaalStatuut/Datum/Periode/Begindatum"), is(equalTo("2024-04-01")));
+            assertThat(request.getValue("//SociaalStatuut/Datum/Periode/Einddatum"), is(equalTo("2025-04-01")));
+        }
+
+        @Test
+        void doesNotSetPeriodIfNotSpecified() {
+            var request = builder.build()
+                    .toMagdaDocument(info);
+
+            assertThat(request.getValue("//SociaalStatuut/Datum/Periode"), is(nullValue()));
+        }
+
+        @Test
+        void doesNotSetPeriodEndDateIfNotSpecified() {
+            var request = builder
+                    .date((LocalDate)null)
+                    .startDate(LocalDate.of(2024,4,1))
+                    .build()
+                    .toMagdaDocument(info);
+
+            assertThat(request.getValue("//SociaalStatuut/Datum/Periode/Begindatum"), is(equalTo("2024-04-01")));
+            assertThat(request.getValue("//SociaalStatuut/Datum/Periode/Einddatum"), is(nullValue()));
         }
 
         @Test
