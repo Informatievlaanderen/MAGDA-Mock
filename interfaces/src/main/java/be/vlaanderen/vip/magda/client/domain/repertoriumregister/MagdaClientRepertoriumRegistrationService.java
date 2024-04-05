@@ -10,7 +10,6 @@ import be.vlaanderen.vip.magda.client.domain.dto.RegisteredINSZ;
 import be.vlaanderen.vip.magda.client.xml.node.Node;
 
 import java.util.UUID;
-import java.util.function.Function;
 
 public class MagdaClientRepertoriumRegistrationService implements RepertoriumRegistrationService {
 
