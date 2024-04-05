@@ -12,6 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 import java.util.UUID;
@@ -38,7 +39,7 @@ class MagdaClientSocialStatuteServiceTest {
         
         @Test
         void callsMagdaService() throws MagdaClientException {
-            var date = OffsetDateTime.now();
+            var date = LocalDate.now();
 
             service.getSocialStatute(GeefSociaalStatuutRequest.builder()
                     .insz("insz")
@@ -64,7 +65,7 @@ class MagdaClientSocialStatuteServiceTest {
 
         @Test
         void callsMagdaService() throws MagdaClientException {
-            var date = OffsetDateTime.now();
+            var date = LocalDate.now();
 
             service.getSocialStatute(GeefSociaalStatuutRequest.builder()
                     .insz("insz")
