@@ -60,7 +60,7 @@ class GeefSociaalStatuutRequestTest {
         void throwsException_whenInszNull() {
             var builder = GeefSociaalStatuutRequest.builder()
                     .socialStatusName("sociaal-statuut")
-                    .date(OffsetDateTime.now());
+                    .date(LocalDate.now());
 
             assertThrows(IllegalStateException.class, builder::build);
         }
@@ -69,14 +69,14 @@ class GeefSociaalStatuutRequestTest {
         void throwsException_whenSocialStatusNameNull() {
             var builder = GeefSociaalStatuutRequest.builder()
                     .insz("insz")
-                    .date(OffsetDateTime.now());
+                    .date(LocalDate.now());
 
             assertThrows(IllegalStateException.class, builder::build);
         }
 
         @Test
         void locationNameIsOptional() {
-            var date = OffsetDateTime.now();
+            var date = LocalDate.now();
 
             var request = GeefSociaalStatuutRequest.builder()
                     .insz("insz")
@@ -134,7 +134,7 @@ class GeefSociaalStatuutRequestTest {
             builder = GeefSociaalStatuutRequest.builder()
                     .insz("insz")
                     .socialStatusName("sociaal-statuut")
-                    .date(OffsetDateTime.now());
+                    .date(LocalDate.now());
         }
 
         @Test

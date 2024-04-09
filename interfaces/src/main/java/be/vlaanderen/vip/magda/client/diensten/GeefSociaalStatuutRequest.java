@@ -75,6 +75,7 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
         /**
          * @deprecated data type OffsetDateTime has been replaced by LocalDate.
          */
+        @Deprecated(forRemoval=true)
         public Builder date(OffsetDateTime date) {
             return date(date.toLocalDate());
         }
@@ -97,9 +98,9 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
         
         public GeefSociaalStatuutRequest build() {
             if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
-            if(socialStatusName == null) { throw new IllegalStateException("SocialStatusName must be given"); }
-            if((date == null && startDate == null) || (date != null && startDate != null)) { throw new IllegalStateException("Date or StartDate must be given"); }
-            if(startDate == null && endDate != null) { throw new IllegalStateException("EndDate cannot be given without StartDate"); }
+            if(socialStatusName == null) { throw new IllegalStateException("socialStatusName must be given"); }
+            if((date == null && startDate == null) || (date != null && startDate != null)) { throw new IllegalStateException("Either date or startDate must be given"); }
+            if(startDate == null && endDate != null) { throw new IllegalStateException("endDate cannot be given without startDate"); }
 
             return new GeefSociaalStatuutRequest(
                     getInsz(),
