@@ -1,7 +1,7 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://magda.vlaanderen.be/soczek/soap/geefsociaalstatuut/v03_00">
     <soapenv:Header/>
     <soapenv:Body>
-            <web:geefSociaalStatuut>
+        <web:geefSociaalStatuut>
             <Verzoek>
                 <Context>
                     <Naam>GeefSociaalStatuut</Naam>
@@ -30,17 +30,21 @@
                                         <Naam>Naam</Naam>
                                         <Datum>
                                             <Datum>Datum</Datum>
+                                            <Periode>
+                                                <Begindatum>Begindatum</Begindatum>
+                                                <Einddatum>Einddatum</Einddatum>
+                                            </Periode>
                                         </Datum>
                                         <Locatie>
-                                            <Name>Locatie</Name>
+                                            <Naam>Locatie</Naam>
                                         </Locatie>
                                     </SociaalStatuut>
                                 </SocialeStatuten>
                             </Criteria>
                         </Inhoud>
                     </Vraag>
-              </Vragen>
-              </Verzoek>
-              </web:geefSociaalStatuut>
-        </soapenv:Body>
+                </Vragen>
+            </Verzoek>
+        </web:geefSociaalStatuut>
+    </soapenv:Body>
 </soapenv:Envelope>
