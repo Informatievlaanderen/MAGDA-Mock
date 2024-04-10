@@ -13,17 +13,29 @@ import java.util.UUID;
 public class NoResponseException extends ServerException {
     @Serial
     private static final long serialVersionUID = 4914331924177455934L;
-    
-    private final UUID transactionID;
-    private final UUID localTransactionID;
+
     private final String serviceName;
     private final int statusCode;
 
     public NoResponseException(String bericht, Throwable oorzaak, MagdaRequest magdaRequest, int statusCode) {
-        super(bericht, oorzaak);
-        this.transactionID = magdaRequest.getCorrelationId();
-        this.localTransactionID = magdaRequest.getRequestId();
+        super(bericht, oorzaak, magdaRequest.getCorrelationId(), magdaRequest.getRequestId());
         this.serviceName = magdaRequest.magdaServiceIdentification().getName();
         this.statusCode = statusCode;
+    }
+
+    /**
+     * @deprecated use {@link #getCorrelationID()} instead
+     */
+    @Deprecated
+    public UUID getTransactionID() {
+        return getCorrelationID();
+    }
+
+    /**
+     * @deprecated use {@link #getRequestID()} instead
+     */
+    @Deprecated
+    public UUID getLocalTransactionID() {
+        return getRequestID();
     }
 }

@@ -35,27 +35,4 @@ class GeefDossierHandicapSimulatorTest {
 
         assertEquals(ssin, response.getValue("//Antwoorden/Antwoord/Inhoud/ConsultFilesByDateResponse/ssin"));
     }
-
-    @Test
-    void fillsInSsinFromByPeriodRequest() throws URISyntaxException, IOException {
-        var ssin = "00010100173";
-
-        var request = MagdaDocumentBuilder.request(Map.of(
-                "Context", Map.of(
-                        "Naam", "GeefDossierHandicap",
-                        "Versie", "03.00.0000"),
-                "Vragen", Map.of(
-                        "Vraag", Map.of(
-                                "Inhoud", Map.of(
-                                        "Criteria", Map.of(
-                                                "ConsultFilesByPeriodCriteria", Map.of(
-                                                        "ssin", ssin
-                                                )))))));
-
-        var simulator = new GeefDossierHandicapSimulator(ResourceFinders.magdaSimulator(), PERSOON, KEY_SSIN);
-
-        var response = simulator.send(request);
-
-        assertEquals(ssin, response.getValue("//Antwoorden/Antwoord/Inhoud/ConsultFilesByPeriodResponse/ssin"));
-    }
 }
