@@ -52,7 +52,7 @@ public interface Person {
          *
          * @throws MalformedMagdaResponseException if the field is not present.
          * @see INSZ
-         * @deprecated This field is in fact not always present in a document; use {@link #inszOptional()} as a replacement for this method.
+         * @deprecated This field is in fact not always present in a well-formed document; use {@link #inszOptional()} as a replacement for this method.
          */
         @Deprecated
         String insz();
