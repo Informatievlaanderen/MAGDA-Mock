@@ -86,11 +86,15 @@ public interface Person {
 
         /**
          * The person's date of birth.
+         *
+         * @throws java.time.format.DateTimeParseException in case it's an incomplete date.
          */
         LocalDate dateOfBirth();
 
         /**
          * The person's date of death (if any).
+         *
+         * @throws java.time.format.DateTimeParseException in case it's an incomplete date.
          */
         Optional<LocalDate> deathDate();
 
@@ -108,12 +112,16 @@ public interface Person {
         /**
          * The date when this related person started being a family member of the person.
          * This field should in principle always be present, but it's technically possible for it to be missing from a document.
+         *
+         * @throws java.time.format.DateTimeParseException in case it's an incomplete date.
          */
         Optional<LocalDate> startDate();
 
         /**
          * The date when this related person ceased to be a family member of the person.
          * If there is no end date, then they're still a family member of the person to this day.
+         *
+         * @throws java.time.format.DateTimeParseException in case it's an incomplete date.
          */
         Optional<LocalDate> endDate();
     }

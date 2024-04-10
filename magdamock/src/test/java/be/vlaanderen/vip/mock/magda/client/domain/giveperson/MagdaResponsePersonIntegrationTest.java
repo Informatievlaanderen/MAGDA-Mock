@@ -22,6 +22,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MagdaResponsePersonIntegrationTest {
 
+    // TODO needs some tests around the behavior of parsing incomplete dates (expect DateTimeParseExceptions)
+
     @Nested
     class Self {
         private DetailedRelatedPerson self;
