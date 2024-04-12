@@ -84,7 +84,7 @@ public class SOAPSimulatorBuilder {
 
         simulator.register("ZoekPersoonOpAdres", VERSION_02_02, new StaticResponseSimulator(finder, PERSOON, "//Inhoud/Bron","//Criteria/Adres/PostCode", "//Criteria/Adres/Straatcode", "//Criteria/Adres/Huisnummer", "//Criteria/EnkelReferentiepersoon"));
         
-        simulator.register("GeefSociaalStatuut", VERSION_03_00, new StaticResponseSimulator(finder, PERSOON, "//SociaalStatuut/Naam", KEY_INSZ));
+        simulator.register("GeefSociaalStatuut", VERSION_03_00, new GeefSociaalStatuutSimulator(finder, PERSOON, "//SociaalStatuut/Naam", KEY_INSZ));
 
         simulator.register("GeefLoopbaanARZA", VERSION_02_01, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefWerkrelaties", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
