@@ -5,6 +5,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * @deprecated This class is out of scope for MagdaMock and is to be removed from it.
+ */
+@Deprecated(forRemoval = true)
 public record PersonRecord(
         DetailedRelatedPersonRecord selfRecord,
         RelatedPersonRecord referencePersonRecord,
@@ -21,6 +25,12 @@ public record PersonRecord(
     public Optional<RelatedPerson> referencePerson() {
         return Optional.ofNullable(referencePersonRecord)
                        .map(RelatedPerson.class::cast);
+    }
+
+    @Override
+    public Optional<FamilyMemberPerson> referenceFamilyMember() {
+        return Optional.ofNullable(referencePersonRecord)
+                       .map(FamilyMemberPerson.class::cast);
     }
 
     @Override
@@ -55,14 +65,28 @@ public record PersonRecord(
     public record RelatedPersonRecord(
             String insz,
             String firstName,
-            String lastName) implements RelatedPerson, Serializable { 
+            String lastName) implements FamilyMemberPerson, Serializable {
         
         public static RelatedPersonRecord from(RelatedPerson person) {
             return new RelatedPersonRecord(person.insz(),
                                            person.firstName(),
                                            person.lastName());
         }
-        
+
+        @Override
+        public Optional<String> inszOptional() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public Optional<LocalDate> startDate() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public Optional<LocalDate> endDate() {
+            throw new UnsupportedOperationException();
+        }
     }
     
     public record DetailedRelatedPersonRecord(
@@ -84,6 +108,11 @@ public record PersonRecord(
                                                    person.dateOfBirth(),
                                                    person.deathDate().orElse(null),
                                                    AddressRecord.from(person.mainResidence()));
+        }
+
+        @Override
+        public Optional<String> inszOptional() {
+            throw new UnsupportedOperationException();
         }
         
     }
