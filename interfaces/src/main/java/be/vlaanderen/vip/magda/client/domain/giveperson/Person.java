@@ -2,6 +2,8 @@ package be.vlaanderen.vip.magda.client.domain.giveperson;
 
 import be.vlaanderen.vip.magda.MalformedMagdaResponseException;
 import be.vlaanderen.vip.magda.client.domain.dto.INSZ;
+import be.vlaanderen.vip.magda.client.domain.dto.IncompletePartialDateException;
+import be.vlaanderen.vip.magda.client.domain.dto.PartialDate;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -88,8 +90,15 @@ public interface Person {
          * The person's date of birth.
          *
          * @throws java.time.format.DateTimeParseException in case it's an incomplete date.
+         * @deprecated since this date is possibly incomplete, use {@link #partialDateOfBirth()} and call {@link PartialDate#toLocalDate()} to extract the actual date. Make sure to handle the {@link IncompletePartialDateException} that may be thrown by that.
          */
+        @Deprecated(forRemoval = true)
         LocalDate dateOfBirth();
+
+        /**
+         * The person's (possibly incomplete) date of birth.
+         */
+        PartialDate partialDateOfBirth();
 
         /**
          * The person's date of death (if any).
