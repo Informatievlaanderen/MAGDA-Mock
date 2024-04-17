@@ -2,7 +2,7 @@ package be.vlaanderen.vip.magda.client.domain.giveperson;
 
 import be.vlaanderen.vip.magda.MalformedMagdaResponseException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
-import be.vlaanderen.vip.magda.client.domain.dto.PartialDate;
+import be.vlaanderen.vip.magda.client.domain.dto.IncompleteDate;
 import be.vlaanderen.vip.magda.client.xml.node.Node;
 
 import java.time.LocalDate;
@@ -133,10 +133,10 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
         }
 
         @Override
-        public PartialDate partialDateOfBirth() {
+        public IncompleteDate incompleteDateOfBirth() {
             return node.get("Geboorte/Datum")
                     .flatMap(Node::getValue)
-                    .map(PartialDate::fromString)
+                    .map(IncompleteDate::fromString)
                     .orElse(null);
         }
         

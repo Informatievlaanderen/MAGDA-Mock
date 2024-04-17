@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.magda.client.domain.giveperson;
 
-import be.vlaanderen.vip.magda.client.domain.dto.PartialDate;
+import be.vlaanderen.vip.magda.client.domain.dto.IncompleteDate;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -118,7 +118,7 @@ public record PersonRecord(
         }
 
         @Override
-        public PartialDate partialDateOfBirth() {
+        public IncompleteDate incompleteDateOfBirth() {
             throw new UnsupportedOperationException();
         }
     }
