@@ -42,14 +42,14 @@ class IncompleteDateTest {
     }
 
     @Test
-    void equals_whenSameIncompleteDate_isTrue() {
+    void equals_whenSameIncompleteDate() {
         assertEquals(
                 IncompleteDate.fromString("2024-06-00"),
                 IncompleteDate.fromString("2024-06-00"));
     }
 
     @Test
-    void equals_whenDifferentIncompleteDate_isTrue() {
+    void notEquals_whenDifferentIncompleteDate() {
         assertNotEquals(
                 IncompleteDate.fromString("2024-06-15"),
                 IncompleteDate.fromString("2024-06-00"));
