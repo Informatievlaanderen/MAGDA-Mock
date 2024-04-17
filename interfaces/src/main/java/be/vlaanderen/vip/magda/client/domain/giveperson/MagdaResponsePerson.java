@@ -28,6 +28,12 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
     }
 
     @Override
+    public Optional<FamilyMemberPerson> referenceFamilyMember() {
+        return response.getNode("//Persoon/Referentiepersoon")
+                       .map(NodeFamilyMemberPerson::new);
+    }
+
+    @Override
     public List<RelatedPerson> familyMembers() {
         return familyMemberNodes().<RelatedPerson>map(NodeRelatedPerson::new)
                                   .toList();
@@ -80,9 +86,14 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
 
         @Override
         public String insz() {
+            return inszOptional()
+                    .orElseThrow(() -> new MalformedMagdaResponseException("Magda response document misses an expected 'INSZ' node"));
+        }
+
+        @Override
+        public Optional<String> inszOptional() {
             return node.get("INSZ")
-                       .flatMap(Node::getValue)
-                       .orElseThrow(() -> new MalformedMagdaResponseException("Magda response document misses an expected 'INSZ' node"));
+                    .flatMap(Node::getValue);
         }
 
         @Override
@@ -132,6 +143,27 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
             return node.get("Adressen/Hoofdverblijfplaats")
                     .map(NodeAddress::new)
                     .orElse(null);
+        }
+    }
+
+    private static class NodeFamilyMemberPerson extends NodeRelatedPerson implements FamilyMemberPerson {
+
+        public NodeFamilyMemberPerson(Node node) {
+            super(node);
+        }
+
+        @Override
+        public Optional<LocalDate> startDate() {
+            return node.get("@DatumBegin")
+                    .flatMap(Node::getValue)
+                    .map(LocalDate::parse);
+        }
+
+        @Override
+        public Optional<LocalDate> endDate() {
+            return node.get("@DatumEinde")
+                    .flatMap(Node::getValue)
+                    .map(LocalDate::parse);
         }
     }
 

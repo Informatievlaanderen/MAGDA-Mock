@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client.domain.giveperson;
 
+import be.vlaanderen.vip.magda.MalformedMagdaResponseException;
 import be.vlaanderen.vip.magda.client.domain.dto.INSZ;
 
 import java.time.LocalDate;
@@ -20,6 +21,11 @@ public interface Person {
      * Information on the reference person of the citizen (if any).
      */
     Optional<RelatedPerson> referencePerson();
+
+    /**
+     * Information on the reference person (as family member) of the citizen (if any).
+     */
+    Optional<FamilyMemberPerson> referenceFamilyMember();
 
     /**
      * Information on the family members of the citizen.
@@ -44,17 +50,31 @@ public interface Person {
         /**
          * INSZ number of the person.
          *
+         * @throws MalformedMagdaResponseException if the field is not present.
          * @see INSZ
+         * @deprecated This field is in fact not always present in a well-formed document; use {@link #inszOptional()} as a replacement for this method.
          */
+        @Deprecated
         String insz();
 
         /**
+         * INSZ number of the person (if any).
+         *
+         * @see INSZ
+         */
+        Optional<String> inszOptional();
+
+        /**
          * The first name of the person.
+         *
+         * @return concatenation of the person's first names, or an empty string if the document contains no information on their first names.
          */
         String firstName();
 
         /**
          * The last name of the person.
+         *
+         * @return concatenation of the person's last names, or an empty string if the document contains no information on their last names.
          */
         String lastName();
     }
@@ -66,11 +86,15 @@ public interface Person {
 
         /**
          * The person's date of birth.
+         *
+         * @throws java.time.format.DateTimeParseException in case it's an incomplete date.
          */
         LocalDate dateOfBirth();
 
         /**
          * The person's date of death (if any).
+         *
+         * @throws java.time.format.DateTimeParseException in case it's an incomplete date.
          */
         Optional<LocalDate> deathDate();
 
@@ -78,6 +102,28 @@ public interface Person {
          * The address of the person's main residence.
          */
         Address mainResidence();
+    }
+
+    /**
+     * Information on a person's family member.
+     */
+    interface FamilyMemberPerson extends RelatedPerson {
+
+        /**
+         * The date when this related person started being a family member of the person.
+         * This field should in principle always be present, but it's technically possible for it to be missing from a document.
+         *
+         * @throws java.time.format.DateTimeParseException in case it's an incomplete date.
+         */
+        Optional<LocalDate> startDate();
+
+        /**
+         * The date when this related person ceased to be a family member of the person.
+         * If there is no end date, then they're still a family member of the person to this day.
+         *
+         * @throws java.time.format.DateTimeParseException in case it's an incomplete date.
+         */
+        Optional<LocalDate> endDate();
     }
 
     /**
