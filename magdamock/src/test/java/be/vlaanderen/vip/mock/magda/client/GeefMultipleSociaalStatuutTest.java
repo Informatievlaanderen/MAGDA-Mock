@@ -117,7 +117,7 @@ class GeefMultipleSociaalStatuutTest extends MockTestBase {
         assertThat(inszNumber).isEqualTo(requestInsz);
 
         var statusNames = doc.getValues("//SocialeStatuten/SociaalStatuut/Naam");
-        assertThat(statusNames.size()).isEqualTo(2);
+        assertThat(statusNames).hasSize(2);
 
         assertThat(doc.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_1']]/Naam")).isEqualTo("SOCIAL_STATUTE_NAME_1");
         assertThat(doc.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_1']]/Resultaat/Code")).isEqualTo("0");
