@@ -17,7 +17,7 @@ import java.time.LocalDate;
  * <li>endDate: optional, the end date of the period in which the social status was in effect. When not specified, the period is assumed to run until today.</li>
  * <li>locationName: the name of the location where the social status was in effect (optional)</li>
  * </ul>
- * Either a date or a period using "startDate" and/or "endDate" has to be specified.
+ * Either a date or a period using "startDate" and an optional "endDate" has to be specified.
  */
 @Getter
 @ToString

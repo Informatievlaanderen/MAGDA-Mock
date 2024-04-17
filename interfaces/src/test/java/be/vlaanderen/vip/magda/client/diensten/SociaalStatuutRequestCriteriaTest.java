@@ -14,7 +14,7 @@ class SociaalStatuutRequestCriteriaTest {
 
         @Test
         void buildsCriteria_whenDateNotNull() {
-            var date = LocalDate.now();
+            var date = LocalDate.of(2024,3, 1);
 
             var request = SociaalStatuutRequestCriteria.builder()
                     .socialStatusName("sociaal-statuut")
@@ -29,8 +29,8 @@ class SociaalStatuutRequestCriteriaTest {
 
         @Test
         void buildsCriteria_whenPeriodNotNull() {
-            var startDate = LocalDate.now();
-            var endDate = LocalDate.now().plusYears(1);
+            var startDate = LocalDate.of(2024,3, 1);
+            var endDate = LocalDate.of(2025,3, 1);
 
             var request = SociaalStatuutRequestCriteria.builder()
                     .socialStatusName("sociaal-statuut")
@@ -65,8 +65,8 @@ class SociaalStatuutRequestCriteriaTest {
         void throwsException_whenDateNotNullAndStartDateNotNull() {
             var builder = SociaalStatuutRequestCriteria.builder()
                     .socialStatusName("sociaal-statuut")
-                    .date(LocalDate.now())
-                    .startDate(LocalDate.now());
+                    .date(LocalDate.of(2024,3, 1))
+                    .startDate(LocalDate.of(2024,3, 1));
 
             assertThrows(IllegalStateException.class, builder::build);
         }
@@ -75,19 +75,18 @@ class SociaalStatuutRequestCriteriaTest {
         void throwsException_whenStartDateNullAndEndDateNotNull() {
             var builder = SociaalStatuutRequestCriteria.builder()
                     .socialStatusName("sociaal-statuut")
-                    .date(LocalDate.now())
-                    .endDate(LocalDate.now());
+                    .date(LocalDate.of(2024,3, 1))
+                    .endDate(LocalDate.of(2024,3, 1));
 
             assertThrows(IllegalStateException.class, builder::build);
         }
 
         @Test
         void buildsCriteria_whenLocationNameNull() {
-            var date = LocalDate.now();
 
             var request = SociaalStatuutRequestCriteria.builder()
                     .socialStatusName("sociaal-statuut")
-                    .date(date)
+                    .date(LocalDate.of(2024,3, 1))
                     .build();
 
             assertNull(request.getLocationName());

@@ -20,7 +20,7 @@ import static org.hamcrest.Matchers.is;
 class GeefMultipleSociaalStatuutTest extends MockTestBase {
     @Test
     @SneakyThrows
-    void geefMultipleSociaalStatuutGeeftAntwoordWithRequestedSocialStatutesOnly() {
+    void geefMultipleSociaalStatuutGivesResponse_withRequestedSocialStatutesOnly() {
         final var requestInsz = "62691699717";
         final var socialStatutes = Set.of(
                 SociaalStatuutRequestCriteria.builder()
@@ -74,7 +74,7 @@ class GeefMultipleSociaalStatuutTest extends MockTestBase {
 
     @Test
     @SneakyThrows
-    void geefSociaalStatuutGeeftAntwoordWithRequestedSocialStatutesOnlyAndNotApplied() {
+    void geefSociaalStatuutGivesResponse_withRequestedSocialStatutesOnlyAndNotApplied() {
         final var requestInsz = "62691699717";
         final var socialStatutes = Set.of(
                 SociaalStatuutRequestCriteria.builder()
@@ -128,7 +128,7 @@ class GeefMultipleSociaalStatuutTest extends MockTestBase {
 
     @Test
     @SneakyThrows
-    void geefSociaalStatuutGeeftAntwoordWithRequestedSocialStatutesOnlyAndNotFound() {
+    void geefSociaalStatuutGivesResponse_withRequestedSocialStatutesOnlyAndNotFound() {
         final var requestInsz = "00010100173";
         final var socialStatutes = Set.of(
                 SociaalStatuutRequestCriteria.builder()
@@ -171,7 +171,7 @@ class GeefMultipleSociaalStatuutTest extends MockTestBase {
         assertThat(inszNumber).isEqualTo(requestInsz);
 
         var statusNames = doc.getValues("//SocialeStatuten/SociaalStatuut/Naam");
-        assertThat(statusNames.size()).isEqualTo(2);
+        assertThat(statusNames).hasSize(2);
 
         assertThat(doc.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_1']]/Naam")).isEqualTo("SOCIAL_STATUTE_NAME_1");
         assertThat(doc.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_1']]/Resultaat/Code")).isEqualTo("0");

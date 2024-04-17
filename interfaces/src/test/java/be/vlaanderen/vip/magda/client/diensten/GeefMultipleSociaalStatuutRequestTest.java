@@ -8,13 +8,12 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class GeefMultipleSociaalStatuutRequestTest {
 
@@ -27,7 +26,7 @@ class GeefMultipleSociaalStatuutRequestTest {
             var socialStatutes = Set.of(
                     SociaalStatuutRequestCriteria.builder()
                             .socialStatusName("SOCIAL_STATUTE_NAME")
-                            .date(LocalDate.now())
+                            .date(LocalDate.of(2024, 4,5))
                             .build()
             );
 
@@ -162,16 +161,16 @@ class GeefMultipleSociaalStatuutRequestTest {
             var socialStatutes = Set.of(
                     SociaalStatuutRequestCriteria.builder()
                             .socialStatusName("SOCIAL_STATUTE_NAME_1")
-                            .date(LocalDate.of(2024, 3,1))
+                            .date(LocalDate.of(2024, 3, 1))
                             .build(),
                     SociaalStatuutRequestCriteria.builder()
                             .socialStatusName("SOCIAL_STATUTE_NAME_2")
-                            .startDate(LocalDate.of(2024, 3,1))
+                            .startDate(LocalDate.of(2024, 3, 1))
                             .build(),
                     SociaalStatuutRequestCriteria.builder()
                             .socialStatusName("SOCIAL_STATUTE_NAME_3")
-                            .startDate(LocalDate.of(2024,6,30))
-                            .endDate(LocalDate.of(2025,4,1))
+                            .startDate(LocalDate.of(2024, 6, 30))
+                            .endDate(LocalDate.of(2025, 4, 1))
                             .locationName("LOCATION_3")
                             .build()
             );

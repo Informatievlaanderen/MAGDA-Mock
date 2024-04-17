@@ -23,8 +23,10 @@ public class GeefSociaalStatuutSimulator extends StaticResponseSimulator {
         var socialStatuteNamesRequest = request.getValues("//SociaalStatuut/Naam");
         var socialStatuteNamesResponse = response.getValues("//SociaalStatuut/Naam");
 
+
         socialStatuteNamesResponse.stream().filter(x -> !socialStatuteNamesRequest.contains(x)).forEach(x -> {
-            response.removeNode("//SociaalStatuut[Naam[text()='"+ x +"']]");
+            //No injection, because we are removing redundant social statutes from hardcoded response xml.
+            response.removeNode("//SociaalStatuut[Naam[text()='" + x + "']]");
         });
 
         socialStatuteNamesRequest.stream().filter(x -> !socialStatuteNamesResponse.contains(x)).forEach(x -> {
@@ -32,8 +34,7 @@ public class GeefSociaalStatuutSimulator extends StaticResponseSimulator {
         });
     }
 
-    private void writeNotAppliedSocialStatute(MagdaDocument response, String socialStatuteName)
-    {
+    private void writeNotAppliedSocialStatute(MagdaDocument response, String socialStatuteName) {
         /*
             <SociaalStatuut>
                 <Naam>SOCIAL_STATUTE_NAME</Naam>
