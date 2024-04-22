@@ -15,8 +15,8 @@ class GeefSociaalStatuutTest extends MockTestBase {
     @Test
     @SneakyThrows
     void geefSociaalStatuutGeeftAntwoord() {
-        final var requestInsz = "66691666644";
-        final var requestStatusName = "BIM_BVT";
+        final var requestInsz = "62691699717";
+        final var requestStatusName = "PCSA_AND_BIM_HELP";
         var request = GeefSociaalStatuutRequest.builder()
                 .insz(requestInsz)
                 .date(LocalDate.now())
@@ -47,15 +47,19 @@ class GeefSociaalStatuutTest extends MockTestBase {
         var inszNumber = doc.getValue("//Persoon/INSZ");
         assertThat(inszNumber).isEqualTo(requestInsz);
 
-        var statusName = doc.getValue("//SocialeStatuten/SociaalStatuut/Naam");
-        assertThat(statusName).isEqualTo(statusName);
+        var statusNames = doc.getValues("//SocialeStatuten/SociaalStatuut/Naam");
+        assertThat(statusNames.size()).isEqualTo(1);
+        assertThat(statusNames.getFirst()).isEqualTo(requestStatusName);
+
+        var resultCode = doc.getValue("//SocialeStatuten/SociaalStatuut/Resultaat/Code");
+        assertThat(resultCode).isEqualTo("1");
     }
 
     @Test
     @SneakyThrows
     void geefSociaalStatuutGeeftAntwoordNotFound() {
-        final var requestInsz = "66691666645";
-        final var requestStatusName = "BIM_BVT";
+        final var requestInsz = "62691699717";
+        final var requestStatusName = "SOCIAL_STATUTE_NAME";
         var request = GeefSociaalStatuutRequest.builder()
                 .insz(requestInsz)
                 .date(LocalDate.now())
@@ -86,8 +90,9 @@ class GeefSociaalStatuutTest extends MockTestBase {
         var inszNumber = doc.getValue("//Persoon/INSZ");
         assertThat(inszNumber).isEqualTo(requestInsz);
 
-        var statusName = doc.getValue("//SocialeStatuten/SociaalStatuut/Naam");
-        assertThat(statusName).isEqualTo(statusName);
+        var statusNames = doc.getValues("//SocialeStatuten/SociaalStatuut/Naam");
+        assertThat(statusNames.size()).isEqualTo(1);
+        assertThat(statusNames.getFirst()).isEqualTo(requestStatusName);
 
         var resultCode = doc.getValue("//SocialeStatuten/SociaalStatuut/Resultaat/Code");
         assertThat(resultCode).isEqualTo("0");

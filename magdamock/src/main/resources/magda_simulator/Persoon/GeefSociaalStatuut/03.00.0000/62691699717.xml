@@ -27,10 +27,24 @@
                 <Referte>456</Referte>
                 <Inhoud>
                     <Persoon>
-                        <INSZ>75652299881</INSZ>
+                        <INSZ>62691699717</INSZ>
                         <SocialeStatuten>
                             <SociaalStatuut>
                                 <Naam>LIVING_WAGES_PCSA_HELP</Naam>
+                                <Resultaat>
+                                    <Code>1</Code>
+                                    <Omschrijving>Van toepassing</Omschrijving>
+                                </Resultaat>
+                            </SociaalStatuut>
+                            <SociaalStatuut>
+                                <Naam>PCSA_AND_BIM_HELP</Naam>
+                                <Resultaat>
+                                    <Code>1</Code>
+                                    <Omschrijving>Van toepassing</Omschrijving>
+                                </Resultaat>
+                            </SociaalStatuut>
+                            <SociaalStatuut>
+                                <Naam>BIM_BVT</Naam>
                                 <Resultaat>
                                     <Code>1</Code>
                                     <Omschrijving>Van toepassing</Omschrijving>
