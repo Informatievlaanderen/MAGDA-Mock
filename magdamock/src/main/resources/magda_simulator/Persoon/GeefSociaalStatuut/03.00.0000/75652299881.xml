@@ -7,33 +7,40 @@
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
-                    <Datum>2024-03-21</Datum>
+                    <Datum>2017-06-01</Datum>
                     <Tijd>12:21:40.797</Tijd>
                 </Tijdstip>
                 <Afzender>
                     <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>d00c2291-f643-489f-8071-791822f0ad8f</Referte>
+                    <Naam>VIP</Naam>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
                 </Afzender>
                 <Ontvanger>
-                    <Identificatie>gent.be/ipdc2858</Identificatie>
-                    <Referte>AREF_QT_860921_102202</Referte>
-                    <Hoedanigheid>ipdc2858</Hoedanigheid>
+                    <Identificatie>vip.vlaanderen.be/rrdev-aip-jg</Identificatie>
+                    <Referte>XE:420:11815:1419</Referte>
+                    <Hoedanigheid>101</Hoedanigheid>
                 </Ontvanger>
             </Bericht>
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>97d2135e-e349-4b43-952c-002efb20abb8</Referte>
+                <Referte>456</Referte>
                 <Inhoud>
                     <Persoon>
-                        <INSZ>00000000000</INSZ>
+                        <INSZ>75652299881</INSZ>
                         <SocialeStatuten>
                             <SociaalStatuut>
-                                <Naam>BIM_BVT</Naam>
+                                <Naam>PCSA_AND_BIM_HELP</Naam>
                                 <Resultaat>
-                                    <Code>0</Code>
-                                    <Omschrijving>Niet van toepassing</Omschrijving>
+                                    <Code>1</Code>
+                                    <Omschrijving>Van toepassing</Omschrijving>
+                                </Resultaat>
+                            </SociaalStatuut>
+                            <SociaalStatuut>
+                                <Naam>LIVING_WAGES_PCSA_HELP</Naam>
+                                <Resultaat>
+                                    <Code>1</Code>
+                                    <Omschrijving>Van toepassing</Omschrijving>
                                 </Resultaat>
                             </SociaalStatuut>
                         </SocialeStatuten>

@@ -1,5 +1,7 @@
 package be.vlaanderen.vip.magda.client.domain.giveperson;
 
+import be.vlaanderen.vip.magda.client.domain.dto.IncompleteDate;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -95,8 +97,8 @@ public record PersonRecord(
             String lastName,
             LocalDate dateOfBirth,
             LocalDate deathDateValue,
-            AddressRecord mainResidence) implements DetailedRelatedPerson, Serializable { 
-        
+            AddressRecord mainResidence) implements DetailedRelatedPerson, Serializable {
+
         public Optional<LocalDate> deathDate() {
             return Optional.ofNullable(deathDateValue);
         }
@@ -114,7 +116,11 @@ public record PersonRecord(
         public Optional<String> inszOptional() {
             throw new UnsupportedOperationException();
         }
-        
+
+        @Override
+        public IncompleteDate incompleteDateOfBirth() {
+            throw new UnsupportedOperationException();
+        }
     }
     
     public record AddressRecord(
