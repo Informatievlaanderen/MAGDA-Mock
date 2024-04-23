@@ -1,0 +1,23 @@
+<Antwoord>
+    <Referte>${REFERTE}</Referte>
+    <Inhoud>
+        <SociaalStatuut>
+            <INSZ>XXXXXXXXXX</INSZ>
+            <SocialeStatuten>
+                <SociaalStatuut>
+                    <Naam>INCREASED_COMPENSATION</Naam>
+                    <Resultaat>
+                        <Code>1</Code>
+                        <Omschrijving>Van toepassing</Omschrijving>
+                    </Resultaat>
+                </SociaalStatuut><SociaalStatuut>
+                <Naam>LIVING_WAGE</Naam>
+                <Resultaat>
+                    <Code>0</Code>
+                    <Omschrijving>Niet van toepassing</Omschrijving>
+                </Resultaat>
+            </SociaalStatuut>
+            </SocialeStatuten>
+        </SociaalStatuut>
+    </Inhoud>
+</Antwoord>
