@@ -62,7 +62,13 @@ class MagdaResponsePersonIntegrationTest {
         void deathDateNull_whenMissing() {
             assertThat(self.deathDate().isEmpty(), is(true));
         }
-        
+
+        @Test
+        void mapsNISCodeLand() { assertThat(self.mainResidence().nisCodeLand(), is(Optional.of("150"))); }
+
+        @Test
+        void mapsIsoCodeLand() { assertThat(self.mainResidence().isoCodeLand(), is(Optional.of("BEL"))); }
+
         @Test
         void mapsDeathDate() {
             MatcherAssert.assertThat(person("65712399877").self().deathDate().get(), is(equalTo(LocalDate.of(2002, 1, 1))));
