@@ -20,8 +20,8 @@ public record MagdaResponseSocialStatutes(MagdaResponseWrapper response) impleme
     @Override
     public List<SocialStatute> socialStatutes() {
 
-        List<String> names = names().map(Node::getValue).map(name -> name.orElse(null)).toList();
-        List<String> codes = codes().map(Node::getValue).map(code -> code.orElse(null)).toList();
+        List<String> names = names().map(Node::getValue).map(name -> name.orElseThrow()).toList();
+        List<String> codes = codes().map(Node::getValue).map(code -> code.orElseThrow()).toList();
 
         List<SocialStatute> socialStatutes = new ArrayList<>();
 
