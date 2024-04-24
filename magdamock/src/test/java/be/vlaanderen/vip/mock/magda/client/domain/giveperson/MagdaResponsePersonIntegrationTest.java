@@ -70,6 +70,10 @@ class MagdaResponsePersonIntegrationTest {
         void mapsIsoCodeCountry() { assertThat(self.mainResidence().isoCodeCountry(), is(Optional.of("BEL"))); }
 
         @Test
+        void mapsCountryName() { assertThat(self.mainResidence().countryName(), is(Optional.of("BELGIE"))); }
+
+
+        @Test
         void mapsDeathDate() {
             MatcherAssert.assertThat(person("65712399877").self().deathDate().get(), is(equalTo(LocalDate.of(2002, 1, 1))));
         }
