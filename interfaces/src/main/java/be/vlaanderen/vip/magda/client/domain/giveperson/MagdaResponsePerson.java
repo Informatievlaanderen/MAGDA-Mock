@@ -224,13 +224,13 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
         }
 
         @Override
-        public Optional<String> nisCodeLand() {
+        public Optional<String> nisCodeCountry() {
             return node.get("NISCodeLand")
                     .flatMap(Node::getValue);
         }
 
         @Override
-        public Optional<String> isoCodeLand() {
+        public Optional<String> isoCodeCountry() {
             return node.get("ISOCodeLand")
                     .flatMap(Node::getValue);
         }

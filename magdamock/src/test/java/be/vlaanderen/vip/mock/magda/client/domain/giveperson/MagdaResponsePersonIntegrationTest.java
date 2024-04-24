@@ -64,10 +64,10 @@ class MagdaResponsePersonIntegrationTest {
         }
 
         @Test
-        void mapsNISCodeLand() { assertThat(self.mainResidence().nisCodeLand(), is(Optional.of("150"))); }
+        void mapsNISCodeCountry() { assertThat(self.mainResidence().nisCodeCountry(), is(Optional.of("150"))); }
 
         @Test
-        void mapsIsoCodeLand() { assertThat(self.mainResidence().isoCodeLand(), is(Optional.of("BEL"))); }
+        void mapsIsoCodeCountry() { assertThat(self.mainResidence().isoCodeCountry(), is(Optional.of("BEL"))); }
 
         @Test
         void mapsDeathDate() {
