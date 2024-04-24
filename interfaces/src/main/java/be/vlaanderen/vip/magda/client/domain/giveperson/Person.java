@@ -172,5 +172,9 @@ public interface Person {
          */
         Optional<String> municipality();
 
+        Optional<String> nisCodeCountry();
+
+        Optional<String> isoCodeCountry();
+
     }
 }
