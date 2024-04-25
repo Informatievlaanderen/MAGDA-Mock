@@ -176,5 +176,7 @@ public interface Person {
 
         Optional<String> isoCodeCountry();
 
+        Optional<String> countryName();
+
     }
 }
