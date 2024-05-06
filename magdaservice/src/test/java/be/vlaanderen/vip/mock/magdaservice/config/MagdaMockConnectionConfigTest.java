@@ -2,9 +2,8 @@ package be.vlaanderen.vip.mock.magdaservice.config;
 
 import be.vlaanderen.vip.magda.client.diensten.GeefAanslagbiljetPersonenbelastingRequest;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
-import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
-import lombok.SneakyThrows;
+import org.apache.commons.lang3.time.StopWatch;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -14,13 +13,16 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
+import java.time.Duration;
 import java.time.Year;
 import java.util.Objects;
 
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MagdaMockConnectionConfigTest {
     @TempDir
@@ -93,9 +95,11 @@ class MagdaMockConnectionConfigTest {
 
     @Nested
     class SimulatorBean {
+
+        private static final Duration DELAY_DURATION = Duration.ofMillis(200);
+
         @Test
-        @SneakyThrows
-        void simulatorBeanWithCopyPropertiesHasProperBehaviour() {
+        void simulatorBeanWithCopyPropertiesHasProperBehaviour() throws URISyntaxException, IOException {
             config.setCopyPropertiesFromRequest(true);
             var simulator = config.simulator(config.resourceFinder(), new RegistratieConfig());
 
@@ -111,12 +115,11 @@ class MagdaMockConnectionConfigTest {
 
             var response = simulator.send(request);
 
-            assertEquals(response.getValue("//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar"), "2021");
+            assertEquals("2021", response.getValue("//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar"));
         }
 
         @Test
-        @SneakyThrows
-        void simulatorBeanWithoutCopyPropertiesHasProperBehaviour() {
+        void simulatorBeanWithoutCopyPropertiesHasProperBehaviour() throws URISyntaxException, IOException {
             config.setCopyPropertiesFromRequest(false);
             var simulator = config.simulator(config.resourceFinder(), new RegistratieConfig());
 
@@ -131,7 +134,32 @@ class MagdaMockConnectionConfigTest {
                     );
 
             var response = simulator.send(request);
-            assertEquals(response.getValue("//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar"), "2011");
+            assertEquals("2011", response.getValue("//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar"));
+        }
+
+        @Test
+        void simulatorBeanWithResponseDelay_delaysResponses() throws URISyntaxException, IOException {
+            var stopWatch = new StopWatch();
+
+            config.setSimulatedResponseDelay(DELAY_DURATION);
+            var simulator = config.simulator(config.resourceFinder(), new RegistratieConfig());
+
+            var request = GeefAanslagbiljetPersonenbelastingRequest.builder2()
+                    .insz("00610122309")
+                    .incomeYear(Year.of(2021))
+                    .build()
+                    .toMagdaDocument(
+                            MagdaRegistrationInfo.builder()
+                                    .identification("identification")
+                                    .build()
+                    );
+
+            stopWatch.start();
+            var response = simulator.send(request);
+            stopWatch.stop();
+
+            assertEquals("2011", response.getValue("//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar"));
+            assertTrue(stopWatch.getTime(MILLISECONDS) >= DELAY_DURATION.toMillis());
         }
     }
     
