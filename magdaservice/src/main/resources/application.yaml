@@ -27,9 +27,9 @@ management:
       endpoint: http://localhost:9411/api/v2/spans
 
 magdamock:
-  defaultresponsetime: 0
   mockTestcasePath: ${MOCK_TESTCASE_PATH:}
   copy-properties-from-request: ${MOCK_COPY_PROPERTIES_FROM_REQUEST:false}
+  simulated-response-delay: 0
 
 registratie:
   hoedanigheid:  ${MAGDA_HOEDANIGHEID:1300}

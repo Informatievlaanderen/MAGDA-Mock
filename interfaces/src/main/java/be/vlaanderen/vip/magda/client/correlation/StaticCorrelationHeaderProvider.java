@@ -3,6 +3,10 @@ package be.vlaanderen.vip.magda.client.correlation;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * @deprecated for all the relevant requests, replace all uses of a CorrelationHeaderProvider with request.setCorrelationId(correlationId)`.
+ */
+@Deprecated(forRemoval = true)
 public class StaticCorrelationHeaderProvider implements CorrelationHeaderProvider {
     private String correlationId;
     
