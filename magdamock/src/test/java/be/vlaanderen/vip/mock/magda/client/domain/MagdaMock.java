@@ -5,15 +5,20 @@ import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
 import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.MagdaResponse;
 import be.vlaanderen.vip.magda.client.diensten.GeefAanslagbiljetPersonenbelastingRequest;
+import be.vlaanderen.vip.magda.client.diensten.GeefMultipleSociaalStatuutRequest;
 import be.vlaanderen.vip.magda.client.diensten.GeefPersoonRequest;
 import be.vlaanderen.vip.magda.client.diensten.GeefSociaalStatuutRequest;
+import be.vlaanderen.vip.magda.client.diensten.SociaalStatuutRequestCriteria;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.mock.magda.client.MagdaHoedanigheidServiceMock;
 import be.vlaanderen.vip.mock.magda.client.MagdaMockConnection;
 import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.Year;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MagdaMock {
     private static MagdaMock mock;
@@ -56,6 +61,13 @@ public class MagdaMock {
                                              .sociaalStatuut(socialStatute)
                                              .datum(OffsetDateTime.now())
                                              .build());
+    }
+
+    public MagdaResponse getSocialStatute(String insz, List<String> socialStatutes) {
+        return send(GeefMultipleSociaalStatuutRequest.builder()
+                .insz(insz)
+                .socialStatutes(socialStatutes.stream().map(s -> SociaalStatuutRequestCriteria.builder().socialStatusName(s).date(LocalDate.now()).build()).collect(Collectors.toSet()))
+                .build());
     }
     
     public MagdaResponse getPerson(String insz) {
