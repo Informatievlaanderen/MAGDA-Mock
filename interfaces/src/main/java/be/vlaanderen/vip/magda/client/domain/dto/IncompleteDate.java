@@ -4,7 +4,6 @@ import lombok.EqualsAndHashCode;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.util.function.IntSupplier;
 import java.util.regex.Pattern;
 
 import static be.vlaanderen.vip.magda.client.domain.dto.IncompleteDate.CompletenessType.COMPLETE;
@@ -67,6 +66,7 @@ public class IncompleteDate {
     private final int year;
     private final int month;
     private final int dayOfMonth;
+    private final String value;
 
     public static IncompleteDate fromString(String value) {
         var matcher = INCOMPLETE_DATE_PATTERN.matcher(value);
@@ -85,16 +85,17 @@ public class IncompleteDate {
                 throw new IllegalArgumentException("Invalid incomplete date: %s".formatted(value), ex);
             }
 
-            return new IncompleteDate(year, month, dayOfMonth);
+            return new IncompleteDate(year, month, dayOfMonth, value);
         } else {
             throw new IllegalArgumentException("Could not parse incomplete date value: %s".formatted(value));
         }
     }
 
-    public IncompleteDate(int year, int month, int dayOfMonth) {
+    private IncompleteDate(int year, int month, int dayOfMonth, String value) {
         this.year = year;
         this.month = month;
         this.dayOfMonth = dayOfMonth;
+        this.value = value;
     }
 
     /**
@@ -174,14 +175,6 @@ public class IncompleteDate {
      * @return The date in textual representation yyyy-MM-dd
      */
     public String toTextualRepresentation() {
-        return "%04d-%02d-%02d".formatted(getIntValue(this::year), getIntValue(this::month), getIntValue(this::dayOfMonth));
-    }
-
-    private int getIntValue(IntSupplier supplier) {
-        try {
-            return supplier.getAsInt();
-        } catch (IncompleteDateMissingPartException ex) {
-            return 0;
-        }
+        return this.value;
     }
 }

@@ -144,10 +144,10 @@ class IncompleteDateTest {
     }
     static Stream<Arguments> toTextualRepresentation_parameters() {
         return Stream.of(
-                Arguments.of(new IncompleteDate(0, 0, 0), "0000-00-00"),
-                Arguments.of(new IncompleteDate(1974, 0, 0),  "1974-00-00"),
-                Arguments.of(new IncompleteDate(1974, 6, 0), "1974-06-00"),
-                Arguments.of(new IncompleteDate(1974, 0, 12), "1974-00-12")
+                Arguments.of(IncompleteDate.fromString("0000-00-00"), "0000-00-00"),
+                Arguments.of(IncompleteDate.fromString("1974-00-00"),  "1974-00-00"),
+                Arguments.of(IncompleteDate.fromString("1974-06-00"), "1974-06-00"),
+                Arguments.of(IncompleteDate.fromString("1974-00-12"), "1974-00-12")
         );
     }
 }
