@@ -138,11 +138,11 @@ class IncompleteDateTest {
     }
 
     @ParameterizedTest
-    @MethodSource("toTextualRepresentation_paramters")
+    @MethodSource("toTextualRepresentation_parameters")
     void toTextualRepresentation(IncompleteDate incompleteDate, String result) {
         assertEquals(result, incompleteDate.toTextualRepresentation());
     }
-    static Stream<Arguments> toTextualRepresentation_paramters() {
+    static Stream<Arguments> toTextualRepresentation_parameters() {
         return Stream.of(
                 Arguments.of(new IncompleteDate(0, 0, 0), "0000-00-00"),
                 Arguments.of(new IncompleteDate(1974, 0, 0),  "1974-00-00"),
