@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.domain.givearzacareer;
 
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
+import be.vlaanderen.vip.magda.client.domain.model.arza.ARZACareerJaxb;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import lombok.SneakyThrows;

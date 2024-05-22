@@ -1,5 +1,6 @@
-package be.vlaanderen.vip.magda.client.domain.giveenterprise;
+package be.vlaanderen.vip.magda.client.domain.model.enterprise;
 
+import be.vlaanderen.vip.magda.client.domain.giveenterprise.Enterprise;
 import be.vlaanderen.vip.magda.client.domain.shared.AddressJaxb;
 import be.vlaanderen.vip.magda.client.domain.shared.CodeAndDescriptionJaxb;
 import be.vlaanderen.vip.magda.client.domain.shared.OffsetDateXmlAdapter;

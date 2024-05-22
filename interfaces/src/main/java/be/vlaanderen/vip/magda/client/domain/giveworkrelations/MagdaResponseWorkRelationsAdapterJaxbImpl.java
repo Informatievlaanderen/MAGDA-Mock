@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.domain.giveworkrelations;
 
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
+import be.vlaanderen.vip.magda.client.domain.model.workrelations.WorkRelationsJaxb;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import lombok.SneakyThrows;

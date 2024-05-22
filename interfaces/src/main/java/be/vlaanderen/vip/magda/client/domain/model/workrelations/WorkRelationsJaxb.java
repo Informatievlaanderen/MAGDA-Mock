@@ -1,5 +1,6 @@
-package be.vlaanderen.vip.magda.client.domain.giveworkrelations;
+package be.vlaanderen.vip.magda.client.domain.model.workrelations;
 
+import be.vlaanderen.vip.magda.client.domain.giveworkrelations.WorkRelations;
 import be.vlaanderen.vip.magda.client.domain.shared.AddressJaxb;
 import be.vlaanderen.vip.magda.client.domain.shared.OffsetDateTimeXmlAdapter;
 import be.vlaanderen.vip.magda.client.domain.shared.OffsetDateXmlAdapter;

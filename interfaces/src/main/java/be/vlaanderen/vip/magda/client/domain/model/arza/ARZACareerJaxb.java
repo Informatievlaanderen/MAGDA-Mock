@@ -1,5 +1,6 @@
-package be.vlaanderen.vip.magda.client.domain.givearzacareer;
+package be.vlaanderen.vip.magda.client.domain.model.arza;
 
+import be.vlaanderen.vip.magda.client.domain.givearzacareer.ARZACareer;
 import be.vlaanderen.vip.magda.client.domain.shared.CodeAndDescriptionJaxb;
 import be.vlaanderen.vip.magda.client.domain.shared.OffsetDateXmlAdapter;
 import jakarta.xml.bind.annotation.XmlElement;
