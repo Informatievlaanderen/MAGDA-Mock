@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.magda.client.domain.socialstatute;
+package be.vlaanderen.vip.magda.client.domain.shared;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 

@@ -1,8 +1,8 @@
 package be.vlaanderen.vip.magda.client.domain.giveenterprisefunctions;
 
-import be.vlaanderen.vip.jobbonusplus.model.enterprise.EnterpriseFunctionsJaxb;
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
+import be.vlaanderen.vip.magda.client.domain.giveenterprise.EnterpriseFunctionsJaxb;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import lombok.SneakyThrows;

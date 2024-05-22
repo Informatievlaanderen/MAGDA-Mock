@@ -1,6 +1,5 @@
 package be.vlaanderen.vip.magda.client.domain.givearzacareer;
 
-import be.vlaanderen.vip.jobbonusplus.model.arza.ARZACareerJaxb;
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
 import jakarta.xml.bind.JAXBContext;

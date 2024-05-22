@@ -1,6 +1,5 @@
 package be.vlaanderen.vip.magda.client.domain.giveenterprise;
 
-import be.vlaanderen.vip.jobbonusplus.model.enterprise.EnterpriseJaxb;
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
 import jakarta.xml.bind.JAXBContext;
