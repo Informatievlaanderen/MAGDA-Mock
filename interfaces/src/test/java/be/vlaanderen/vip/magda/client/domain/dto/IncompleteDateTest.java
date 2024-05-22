@@ -136,4 +136,18 @@ class IncompleteDateTest {
     void toLocalDate_whenIncompleteDateMissesAnyParts_throwsException() {
         assertThrows(IncompleteDateMissingPartException.class, () -> IncompleteDate.fromString("2024-06-00").toLocalDate());
     }
+
+    @ParameterizedTest
+    @MethodSource("toTextualRepresentation_paramters")
+    void toTextualRepresentation(IncompleteDate incompleteDate, String result) {
+        assertEquals(result, incompleteDate.toTextualRepresentation());
+    }
+    static Stream<Arguments> toTextualRepresentation_paramters() {
+        return Stream.of(
+                Arguments.of(new IncompleteDate(0,0, 0), "0000-00-00"),
+                Arguments.of(new IncompleteDate(1974, 0, 0),  "1974-00-00"),
+                Arguments.of(new IncompleteDate(1974, 6, 0), "1974-06-00"),
+                Arguments.of(new IncompleteDate(1974, 0, 12), "1974-00-12")
+        );
+    }
 }

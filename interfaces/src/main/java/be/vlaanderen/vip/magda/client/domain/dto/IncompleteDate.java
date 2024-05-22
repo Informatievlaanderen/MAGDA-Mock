@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.util.function.IntSupplier;
 import java.util.regex.Pattern;
 
 import static be.vlaanderen.vip.magda.client.domain.dto.IncompleteDate.CompletenessType.COMPLETE;
@@ -160,6 +161,21 @@ public class IncompleteDate {
             return LocalDate.of(year, month, dayOfMonth);
         } else {
             throw new IncompleteDateMissingPartException("Date is incomplete.");
+        }
+    }
+
+    /**
+     * @return The date in textual representation yyyy-MM-dd
+     */
+    public String toTextualRepresentation() {
+        return "%s-%s-%s".formatted(String.format("%04d", getIntValue(this::year)), String.format("%02d", getIntValue(this::month)), String.format("%02d", getIntValue(this::dayOfMonth)));
+    }
+
+    private int getIntValue(IntSupplier supplier) {
+        try {
+            return supplier.getAsInt();
+        } catch (IncompleteDateMissingPartException ex) {
+            return 0;
         }
     }
 }
