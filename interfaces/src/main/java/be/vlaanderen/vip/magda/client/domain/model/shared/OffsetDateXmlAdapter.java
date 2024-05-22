@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.magda.client.domain.shared;
+package be.vlaanderen.vip.magda.client.domain.model.shared;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 

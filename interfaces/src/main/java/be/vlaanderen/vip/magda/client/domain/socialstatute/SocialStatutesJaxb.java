@@ -1,6 +1,6 @@
 package be.vlaanderen.vip.magda.client.domain.socialstatute;
 
-import be.vlaanderen.vip.magda.client.domain.shared.OffsetDateXmlAdapter;
+import be.vlaanderen.vip.magda.client.domain.model.shared.OffsetDateXmlAdapter;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementWrapper;
 import jakarta.xml.bind.annotation.XmlRootElement;

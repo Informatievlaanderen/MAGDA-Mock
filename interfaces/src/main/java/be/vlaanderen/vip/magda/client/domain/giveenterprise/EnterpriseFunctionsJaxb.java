@@ -1,7 +1,7 @@
 package be.vlaanderen.vip.magda.client.domain.giveenterprise;
 
 import be.vlaanderen.vip.magda.client.domain.giveenterprisefunctions.EnterpriseFunctions;
-import be.vlaanderen.vip.magda.client.domain.shared.CodeAndDescriptionJaxb;
+import be.vlaanderen.vip.magda.client.domain.model.shared.CodeAndDescriptionJaxb;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.Getter;

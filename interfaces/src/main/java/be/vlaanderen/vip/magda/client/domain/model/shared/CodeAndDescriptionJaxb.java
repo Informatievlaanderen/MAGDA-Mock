@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.magda.client.domain.shared;
+package be.vlaanderen.vip.magda.client.domain.model.shared;
 
 import be.vlaanderen.vip.magda.client.domain.givearzacareer.ARZACareer;
 import be.vlaanderen.vip.magda.client.domain.giveenterprise.Enterprise;

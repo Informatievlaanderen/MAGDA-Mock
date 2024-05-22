@@ -1,10 +1,10 @@
 package be.vlaanderen.vip.magda.client.domain.model.workrelations;
 
 import be.vlaanderen.vip.magda.client.domain.giveworkrelations.WorkRelations;
-import be.vlaanderen.vip.magda.client.domain.shared.AddressJaxb;
-import be.vlaanderen.vip.magda.client.domain.shared.OffsetDateTimeXmlAdapter;
-import be.vlaanderen.vip.magda.client.domain.shared.OffsetDateXmlAdapter;
-import be.vlaanderen.vip.magda.client.domain.shared.ValueAndDescriptionJaxb;
+import be.vlaanderen.vip.magda.client.domain.model.shared.AddressJaxb;
+import be.vlaanderen.vip.magda.client.domain.model.shared.OffsetDateTimeXmlAdapter;
+import be.vlaanderen.vip.magda.client.domain.model.shared.OffsetDateXmlAdapter;
+import be.vlaanderen.vip.magda.client.domain.model.shared.ValueAndDescriptionJaxb;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
