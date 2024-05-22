@@ -66,11 +66,12 @@ public class IncompleteDate {
     private final int year;
     private final int month;
     private final int dayOfMonth;
+    private final String value;
 
     public static IncompleteDate fromString(String value) {
         var matcher = INCOMPLETE_DATE_PATTERN.matcher(value);
 
-        if(matcher.matches()) {
+        if (matcher.matches()) {
             var year = Integer.parseInt(matcher.group(1));
             var month = Integer.parseInt(matcher.group(2));
             var dayOfMonth = Integer.parseInt(matcher.group(3));
@@ -80,20 +81,21 @@ public class IncompleteDate {
                         year == 0 ? 1 : year,
                         month == 0 ? 1 : month,
                         dayOfMonth == 0 ? 1 : dayOfMonth);
-            } catch(DateTimeException ex) {
+            } catch (DateTimeException ex) {
                 throw new IllegalArgumentException("Invalid incomplete date: %s".formatted(value), ex);
             }
 
-            return new IncompleteDate(year, month, dayOfMonth);
+            return new IncompleteDate(year, month, dayOfMonth, value);
         } else {
             throw new IllegalArgumentException("Could not parse incomplete date value: %s".formatted(value));
         }
     }
 
-    public IncompleteDate(int year, int month, int dayOfMonth) {
+    private IncompleteDate(int year, int month, int dayOfMonth, String value) {
         this.year = year;
         this.month = month;
         this.dayOfMonth = dayOfMonth;
+        this.value = value;
     }
 
     /**
@@ -103,7 +105,7 @@ public class IncompleteDate {
      * @throws IncompleteDateMissingPartException if the year part is not given.
      */
     public int year() {
-        if(year > 0) {
+        if (year > 0) {
             return year;
         } else {
             throw new IncompleteDateMissingPartException("Year part is not given.");
@@ -117,7 +119,7 @@ public class IncompleteDate {
      * @throws IncompleteDateMissingPartException if the month part is not given.
      */
     public int month() {
-        if(month > 0) {
+        if (month > 0) {
             return month;
         } else {
             throw new IncompleteDateMissingPartException("Month part is not given.");
@@ -131,7 +133,7 @@ public class IncompleteDate {
      * @throws IncompleteDateMissingPartException if the day of month part is not given.
      */
     public int dayOfMonth() {
-        if(dayOfMonth > 0) {
+        if (dayOfMonth > 0) {
             return dayOfMonth;
         } else {
             throw new IncompleteDateMissingPartException("Day of month part is not given.");
@@ -144,9 +146,15 @@ public class IncompleteDate {
      */
     public CompletenessType completenessType() {
         var idx = 0;
-        if(year > 0) { idx += 4; }
-        if(month > 0) { idx += 2; }
-        if(dayOfMonth > 0) { idx += 1; }
+        if (year > 0) {
+            idx += 4;
+        }
+        if (month > 0) {
+            idx += 2;
+        }
+        if (dayOfMonth > 0) {
+            idx += 1;
+        }
 
         return CompletenessType.values()[idx];
     }
@@ -156,10 +164,17 @@ public class IncompleteDate {
      * @throws IncompleteDateMissingPartException if the date information is not complete.
      */
     public LocalDate toLocalDate() throws IncompleteDateMissingPartException {
-        if(completenessType() == COMPLETE) {
+        if (completenessType() == COMPLETE) {
             return LocalDate.of(year, month, dayOfMonth);
         } else {
             throw new IncompleteDateMissingPartException("Date is incomplete.");
         }
+    }
+
+    /**
+     * @return The date in textual representation yyyy-MM-dd
+     */
+    public String toTextualRepresentation() {
+        return this.value;
     }
 }
