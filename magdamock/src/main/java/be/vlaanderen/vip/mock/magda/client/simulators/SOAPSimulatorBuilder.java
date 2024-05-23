@@ -101,7 +101,7 @@ public class SOAPSimulatorBuilder {
 
         // GEBOUW
         simulator.register("GeefEpc", VERSION_02_00, new StaticResponseSimulator(finder, VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId"));
-        simulator.register("GeefEpc", VERSION_02_01, new StaticResponseSimulator(finder, VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId", "//Criteria/Adres/Postcode", "//Criteria/Adres/Straat", "//Criteria/Adres/Huisnummer"));
+        simulator.register("GeefEpc", VERSION_02_01, new StaticResponseSimulator(finder, VASTGOED,  "//Criteria/Adres/Postcode", "//Criteria/Adres/Straat", "//Criteria/Adres/Huisnummer"));
 
         return this;
     }
