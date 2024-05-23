@@ -6,6 +6,8 @@ import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 
+import java.time.Duration;
+
 public class SOAPSimulatorBuilder {
     // Subcategories for MAGDA services
     public static final String PERSOON = "Persoon";
@@ -122,6 +124,11 @@ public class SOAPSimulatorBuilder {
 
     public SOAPSimulatorBuilder responseSignerProperties(TwoWaySslProperties properties) throws TwoWaySslException {
         return responseSigner(DocumentSigner.fromJksStore(properties));
+    }
+
+    public SOAPSimulatorBuilder responseDelay(Duration delay) {
+        result = new DelaySimulator(result, delay);
+        return this;
     }
     
     public SOAPSimulator build() {

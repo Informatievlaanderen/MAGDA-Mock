@@ -223,6 +223,24 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
                     .orElseGet(this::standardizedMunicipality));
         }
 
+        @Override
+        public Optional<String> nisCodeCountry() {
+            return node.get("NISCodeLand")
+                    .flatMap(Node::getValue);
+        }
+
+        @Override
+        public Optional<String> isoCodeCountry() {
+            return node.get("ISOCodeLand")
+                    .flatMap(Node::getValue);
+        }
+
+        @Override
+        public Optional<String> countryName() {
+            return node.get("Land/String")
+                    .flatMap(Node::getValue);
+        }
+
         private String standardizedMunicipality() {
             return node.get("Gemeentenaam/String")
                     .flatMap(Node::getValue)

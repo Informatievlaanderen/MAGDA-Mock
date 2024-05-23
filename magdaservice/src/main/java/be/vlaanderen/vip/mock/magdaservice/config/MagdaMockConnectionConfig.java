@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.time.Duration;
 
 @Data
 @Configuration
@@ -23,6 +24,7 @@ import java.net.URISyntaxException;
 public class MagdaMockConnectionConfig {
     private String mockTestcasePath;
     private boolean copyPropertiesFromRequest;
+    private Duration simulatedResponseDelay;
 
     @Bean
     public ResourceFinder resourceFinder() throws URISyntaxException, IOException {
@@ -48,6 +50,10 @@ public class MagdaMockConnectionConfig {
         var builder = SOAPSimulatorBuilder.builder(finder)
                                           .magdaMockSimulator(copyPropertiesFromRequest);
 
+        if(simulatedResponseDelay != null && simulatedResponseDelay.isPositive()) {
+            builder = builder.responseDelay(simulatedResponseDelay);
+        }
+
         if(properties != null) {
             try {
                 builder = builder.requestVerifierProperties(properties);
@@ -61,6 +67,7 @@ public class MagdaMockConnectionConfig {
                 throw new InitializationException("Failed to create response signer from properties", e);
             }
         }
+
         return builder.build();
     }
     

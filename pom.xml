@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.3</version>
+		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>be.vlaanderen.vip.mock</groupId>
 	<artifactId>magda</artifactId>
-	<version>2.19.0-SNAPSHOT</version>
+	<version>2.23.0-SNAPSHOT</version>
 	<name>magdaservice</name>
 	<description>MAGDA diensten Mock voor afnemers</description>
 	<properties>
@@ -21,7 +21,7 @@
 		<magda-openjdk.version>21.0.2</magda-openjdk.version>
 		<docker.image>magdamock.service</docker.image>
 		<assertj-core.version>3.24.2</assertj-core.version>
-		<commons-io.version>2.15.1</commons-io.version>
+		<commons-io.version>2.16.1</commons-io.version>
 		<commons-lang3.version>3.14.0</commons-lang3.version>
 		<dom4j.version>2.1.4</dom4j.version>
 		<jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
@@ -29,12 +29,12 @@
 		<javax.json.version>1.1.4</javax.json.version>
 		<log4j2.version>2.18.0</log4j2.version>
 		<logstash.logback.version>7.4</logstash.logback.version>
-		<slf4j.version>2.0.12</slf4j.version>
-		<lombok.version>1.18.30</lombok.version>
+		<slf4j.version>2.0.13</slf4j.version>
+		<lombok.version>1.18.32</lombok.version>
 		<mapstruct-lombok.version>0.2.0</mapstruct-lombok.version>
 		<mockito.version>5.3.1</mockito.version>
 		<org.apache.wss4j.version>2.4.1</org.apache.wss4j.version>
-		<spring-cloud.version>2023.0.0</spring-cloud.version>
+		<spring-cloud.version>2023.0.1</spring-cloud.version>
 		<springdoc.api>1.8.0</springdoc.api>
 		<springfox-swagger2.version>3.0.0</springfox-swagger2.version>
 		<testrunner.version>0.2.0</testrunner.version>
