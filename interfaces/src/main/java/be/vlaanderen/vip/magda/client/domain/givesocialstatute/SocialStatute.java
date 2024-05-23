@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.magda.client.domain.socialstatute;
+package be.vlaanderen.vip.magda.client.domain.givesocialstatute;
 
 import be.vlaanderen.vip.magda.MalformedMagdaResponseException;
 

@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.magda.client.domain.socialstatute;
+package be.vlaanderen.vip.magda.client.domain.givesocialstatute;
 
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.diensten.GeefMultipleSociaalStatuutRequest;
@@ -7,7 +7,7 @@ import be.vlaanderen.vip.magda.client.diensten.GeefSociaalStatuutRequest;
 /**
  * A service for interfacing with MAGDA's "GeefSociaalStatuut" services for retrieving information on the social statute of citizens.
  */
-public interface SocialStatuteService {
+public interface GiveSocialStatuteService {
 
     /**
      * Retrieves a list of social statutes from a GeefSociaalStatuutRequest request.

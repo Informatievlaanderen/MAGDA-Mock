@@ -2,8 +2,8 @@ package be.vlaanderen.vip.mock.magda.client.domain.socialstatute;
 
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
-import be.vlaanderen.vip.magda.client.domain.socialstatute.MagdaResponseSocialStatutesAdapterJaxbImpl;
-import be.vlaanderen.vip.magda.client.domain.socialstatute.SocialStatutes;
+import be.vlaanderen.vip.magda.client.domain.givesocialstatute.MagdaResponseSocialStatutesAdapterJaxbImpl;
+import be.vlaanderen.vip.magda.client.domain.givesocialstatute.SocialStatutes;
 import be.vlaanderen.vip.mock.magda.client.domain.MagdaMock;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
