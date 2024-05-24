@@ -3,11 +3,9 @@ package be.vlaanderen.vip.magda.client.domain.repertoriumregister;
 import be.vlaanderen.vip.magda.client.MagdaClient;
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
-import be.vlaanderen.vip.magda.client.correlation.CorrelationHeaderProvider;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijvingRequest;
 import be.vlaanderen.vip.magda.client.domain.dto.INSZ;
 import be.vlaanderen.vip.magda.client.xml.node.Node;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,7 +25,6 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class MagdaClientRepertoriumRegistrationServiceTest {
     @Mock private MagdaClient magdaClient;
-    @Mock private CorrelationHeaderProvider correlationHeaderProvider;
     
     @InjectMocks
     private MagdaClientRepertoriumRegistrationService service;
@@ -35,21 +32,20 @@ class MagdaClientRepertoriumRegistrationServiceTest {
     @Nested
     class Register {
 
-        @BeforeEach
-        void setup() {
-            when(correlationHeaderProvider.getXCorrelationId()).thenReturn(Optional.of("6469cd5e-e8ed-43f7-a91e-48fdfbb76e0f"));
-        }
-
         @Test
         void callsMagdaService() throws MagdaClientException {
             mockResultResponse("1");
             var insz = INSZ.of("00000000097");
             var start = LocalDate.now();
-            
-            var registeredInsz = service.register(RegistreerInschrijvingRequest.builder()
+
+            var requestRegister = RegistreerInschrijvingRequest.builder()
                     .insz(insz.getValue())
                     .startDate(start)
-                    .build());
+                    .build();
+
+            requestRegister.setCorrelationId(UUID.fromString("6469cd5e-e8ed-43f7-a91e-48fdfbb76e0f"));
+
+            var registeredInsz = service.register(requestRegister);
 
             assertNotNull(registeredInsz);
             assertEquals(insz, registeredInsz.insz());
