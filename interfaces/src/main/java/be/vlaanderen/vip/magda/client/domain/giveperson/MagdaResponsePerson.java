@@ -125,14 +125,6 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
         }
 
         @Override
-        public LocalDate dateOfBirth() {
-            return node.get("Geboorte/Datum")
-                    .flatMap(Node::getValue)
-                    .map(LocalDate::parse)
-                    .orElse(null);
-        }
-
-        @Override
         public IncompleteDate incompleteDateOfBirth() {
             return node.get("Geboorte/Datum")
                     .flatMap(Node::getValue)
