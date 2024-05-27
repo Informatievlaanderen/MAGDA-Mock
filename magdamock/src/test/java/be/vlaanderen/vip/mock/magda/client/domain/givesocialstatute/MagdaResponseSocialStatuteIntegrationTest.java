@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.mock.magda.client.domain.socialstatute;
+package be.vlaanderen.vip.mock.magda.client.domain.givesocialstatute;
 
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
