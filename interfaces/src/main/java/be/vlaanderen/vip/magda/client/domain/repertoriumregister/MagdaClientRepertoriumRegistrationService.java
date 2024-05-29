@@ -3,39 +3,22 @@ package be.vlaanderen.vip.magda.client.domain.repertoriumregister;
 import be.vlaanderen.vip.magda.client.MagdaClient;
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
-import be.vlaanderen.vip.magda.client.correlation.CorrelationHeaderProvider;
-import be.vlaanderen.vip.magda.client.correlation.NullCorrelationHeaderProvider;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijvingRequest;
 import be.vlaanderen.vip.magda.client.domain.dto.INSZ;
 import be.vlaanderen.vip.magda.client.domain.dto.RegisteredINSZ;
 import be.vlaanderen.vip.magda.client.xml.node.Node;
 
-import java.util.UUID;
-
 public class MagdaClientRepertoriumRegistrationService implements RepertoriumRegistrationService {
 
     private final MagdaClient service;
-    private final CorrelationHeaderProvider correlationHeaderProvider;
-
-    /**
-     * @deprecated remove the correlationHeaderProvider parameters, and for all the relevant requests, replace all uses of a CorrelationHeaderProvider with request.setCorrelationId(correlationId)`.
-     */
-    public MagdaClientRepertoriumRegistrationService(
-            MagdaClient service,
-            CorrelationHeaderProvider correlationHeaderProvider) {
-        this.service = service;
-        this.correlationHeaderProvider = correlationHeaderProvider;
-    }
 
     public MagdaClientRepertoriumRegistrationService(
             MagdaClient service) {
         this.service = service;
-        this.correlationHeaderProvider = NullCorrelationHeaderProvider.getInstance();
     }
 
     @Override
     public RegisteredINSZ register(RegistreerInschrijvingRequest request) throws MagdaClientException {
-        correlationHeaderProvider.getXCorrelationId().ifPresent(xCorrelationId -> request.setCorrelationId(UUID.fromString(xCorrelationId)));
 
         var response = service.send(request);
         validateResponse(response);

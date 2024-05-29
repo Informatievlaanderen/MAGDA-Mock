@@ -55,7 +55,7 @@ class MagdaResponsePersonIntegrationTest {
 
         @Test
         void mapsDateOfBirth() {
-            assertThat(self.dateOfBirth(), is(equalTo(LocalDate.of(2000, 12, 20))));
+            assertThat(self.incompleteDateOfBirth().toLocalDate(), is(equalTo(LocalDate.of(2000, 12, 20))));
         }
         
         @Test
