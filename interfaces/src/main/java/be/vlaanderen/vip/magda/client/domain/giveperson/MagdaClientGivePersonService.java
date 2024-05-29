@@ -24,7 +24,6 @@ public class MagdaClientGivePersonService implements GivePersonService {
         this.correlationHeaderProvider = correlationHeaderProvider;
     }
 
-    @Deprecated(forRemoval = true)
     public MagdaClientGivePersonService(
             MagdaClient service) {
         this.service = service;
