@@ -26,12 +26,12 @@ class LoggingUtilsTest {
 
         var serviceId = new MagdaServiceIdentification(GEEF_BEWIJS, VERSIE);
 
-        when(mockLogger.makeLoggingEventBuilder(any())).thenReturn(mockEventBuilder);
+        when(mockLogger.atLevel(any())).thenReturn(mockEventBuilder);
         when(mockRequest.magdaServiceIdentification()).thenReturn(serviceId);
 
         magdaRequestLoggingEventBuilder(mockLogger, Level.INFO, mockRequest);
 
-        verify(mockLogger).makeLoggingEventBuilder(Level.INFO);
+        verify(mockLogger).atLevel(Level.INFO);
         verify(mockEventBuilder).addKeyValue(MAGDA_SERVICE_NAME.getKey(), GEEF_BEWIJS);
         verify(mockEventBuilder).addKeyValue(MAGDA_SERVICE_VERSION.getKey(), VERSIE);
     }
