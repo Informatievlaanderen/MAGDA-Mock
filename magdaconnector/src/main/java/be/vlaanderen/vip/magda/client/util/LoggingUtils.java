@@ -11,7 +11,7 @@ public class LoggingUtils {
     }
 
     public static LoggingEventBuilder magdaRequestLoggingEventBuilder(Logger logger, Level level, MagdaRequest magdaRequest) {
-        return logger.makeLoggingEventBuilder(level)
+        return logger.atLevel(level)
                 .addKeyValue(LoggingKeys.MAGDA_SERVICE_NAME.getKey(), magdaRequest.magdaServiceIdentification().getName())
                 .addKeyValue(LoggingKeys.MAGDA_SERVICE_VERSION.getKey(), magdaRequest.magdaServiceIdentification().getVersion());
     }
