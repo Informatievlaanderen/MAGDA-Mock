@@ -1,7 +1,7 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://magda.vlaanderen.be/soczek/soap/geefsociaalstatuut/v03_00">
     <soapenv:Header/>
     <soapenv:Body>
-        <web:geefSociaalStatuut>
+        <web:GeefSociaalStatuut>
             <Verzoek>
                 <Context>
                     <Naam>GeefSociaalStatuut</Naam>
@@ -45,6 +45,6 @@
                     </Vraag>
                 </Vragen>
             </Verzoek>
-        </web:geefSociaalStatuut>
+        </web:GeefSociaalStatuut>
     </soapenv:Body>
 </soapenv:Envelope>
