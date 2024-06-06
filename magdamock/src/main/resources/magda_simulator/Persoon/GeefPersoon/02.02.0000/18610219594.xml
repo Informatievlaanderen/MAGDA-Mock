@@ -24,13 +24,13 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>41285f3f-1ecf-42b3-9720-555344b64765</Referte>
+                <Referte>0715c491-8fda-4dcc-b831-c4d88ee05358</Referte>
                 <Inhoud>
-                    <Persoon Bron="RR" DatumCreatie="2015-01-02">
-                        <INSZ>15610210623</INSZ>
-                        <Naam DatumBegin="2015-01-02">
+                    <Persoon Bron="RR" DatumCreatie="2018-01-02">
+                        <INSZ>18610219594</INSZ>
+                        <Naam DatumBegin="2018-01-02">
                             <Achternamen>
-                                <Achternaam>Pauwels</Achternaam>
+                                <Achternaam>Van Hoeylandt</Achternaam>
                             </Achternamen>
                             <Voornamen>
                                 <Voornaam>Ward</Voornaam>
@@ -40,7 +40,7 @@
                             <Code>1</Code>
                             <Omschrijving>Mannelijk</Omschrijving>
                         </Geslacht>
-                        <Beheerder DatumBegin="2015-01-02">
+                        <Beheerder DatumBegin="2018-01-02">
                             <Plaats>
                                 <Gemeente>
                                     <NISCode>44021</NISCode>
@@ -61,18 +61,18 @@
                                 <Omschrijving Taal="nl">Nederlands</Omschrijving>
                             </Taalregime>
                         </Beheerder>
-                        <Register DatumBegin="2015-01-02">
+                        <Register DatumBegin="2018-01-02">
                             <Code>RR</Code>
                             <Omschrijving Taal="nl">Rijksregister</Omschrijving>
                         </Register>
                         <Nationaliteiten>
-                            <Nationaliteit DatumBegin="2015-01-02">
+                            <Nationaliteit DatumBegin="2018-01-02">
                                 <Code>150</Code>
                                 <Omschrijving>Belg</Omschrijving>
                             </Nationaliteit>
                         </Nationaliteiten>
-                        <Geboorte DatumBegin="2015-01-02">
-                            <Datum>2015-01-02</Datum>
+                        <Geboorte DatumBegin="2018-01-02">
+                            <Datum>2018-01-02</Datum>
                             <Plaats>
                                 <Gemeente>
                                     <NISCode>44021</NISCode>
@@ -91,9 +91,9 @@
                             </Bewijsstuk>
                         </Geboorte>
                         <Adressen>
-                            <Hoofdverblijfplaats DatumBegin="2015-01-02">
+                            <Hoofdverblijfplaats DatumBegin="2018-01-02">
                                 <Straatnaam>
-                                    <String>Hoogstraat</String>
+                                    <String>Leeuwenstraat</String>
                                     <Taal>nl</Taal>
                                 </Straatnaam>
                                 <Huisnummer>70</Huisnummer>
@@ -112,17 +112,17 @@
                                 <NISCodeGemeente>44021</NISCodeGemeente>
                             </Hoofdverblijfplaats>
                         </Adressen>
-                        <Referentiepersoon DatumBegin="2015-01-02">
-                            <INSZ>84640618997</INSZ>
+                        <Referentiepersoon DatumBegin="2018-01-02">
+                            <INSZ>94640219137</INSZ>
                             <Naam>
                                 <Achternamen>
-                                    <Achternaam>Pauwels</Achternaam>
+                                    <Achternaam>Van Hoeylandt</Achternaam>
                                 </Achternamen>
                                 <Voornamen>
-                                    <Voornaam>Bert</Voornaam>
+                                    <Voornaam>Johan</Voornaam>
                                 </Voornamen>
                             </Naam>
-                            <Geboortedatum>1984-04-06</Geboortedatum>
+                            <Geboortedatum>1994-04-02</Geboortedatum>
                             <Positie>
                                 <Code>03</Code>
                                 <Omschrijving Taal="nl">Zoon</Omschrijving>
