@@ -23,6 +23,7 @@ import java.util.List;
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefAanslagbiljetPersonenbelasting/02.00.0000/template.xml">XML template for this request type</a>
+ * @see <a href="https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/499777761/Inkomen.GeefAanslagbiljetPersonenbelasting-02.00">More information on this request type</a>
  * @see <a href="https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/499974512/Codetabellen+GeefAanslagbiljetPersonenbelasting-02.00">More information on IPCAL codes</a>
  */
 @Getter

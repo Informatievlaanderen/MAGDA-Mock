@@ -39,7 +39,7 @@
 							</Voornamen>
 						</Naam>
 						<Geslacht>
-							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Code>1</Code>
 							<Omschrijving>Mannelijk</Omschrijving>
 						</Geslacht>
 						<Statussen>
@@ -181,7 +181,7 @@
 											</Voornamen>
 										</Naam>
 										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+											<Code>1</Code>
 											<Omschrijving>Mannelijk</Omschrijving>
 										</Geslacht>
 										<Geboortedatum>1957-11-24</Geboortedatum>
@@ -202,7 +202,7 @@
 								</Voornamen>
 							</Naam>
 							<Geslacht>
-								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+								<Code>2</Code>
 								<Omschrijving>Vrouwelijk</Omschrijving>
 							</Geslacht>
 							<Geboortedatum>1962-08-04</Geboortedatum>
