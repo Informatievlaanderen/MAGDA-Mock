@@ -35,6 +35,12 @@
                         </GevraagdePersoon>
                         <Inkomensjaar>2022</Inkomensjaar>
                         <Artikelnummer>727270607</Artikelnummer>
+                        <Items>
+                            <Item>
+                                <Code>A7555</Code>
+                                <Waarde>0</Waarde>
+                            </Item>
+                        </Items>
                     </AanslagbiljetPersonenbelasting>
                 </Inhoud>
             </Antwoord>
