@@ -23,20 +23,20 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>XE_800101:1408:61095:5045</Referte>
-                <Inhoud>
-                    <AanslagbiljetPersonenbelasting>
-                        <GevraagdePersoon>
-                            <INSZ>82102108114</INSZ>
-                            <FiscaleStatus>
-                                <Code>A</Code>
-                                <Omschrijving>Titularis</Omschrijving>
-                            </FiscaleStatus>
-                        </GevraagdePersoon>
-                        <Inkomensjaar>2011</Inkomensjaar>
-                        <Artikelnummer>727270607</Artikelnummer>
-                    </AanslagbiljetPersonenbelasting>
-                </Inhoud>
+                <Referte>ba94d287-798d-40e4-8891-c405ea331851</Referte>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>45008</Identificatie>
+                        <Oorsprong>MAGDA</Oorsprong>
+                        <Type>INFORMATIE</Type>
+                        <Tijdstip>
+                            <Datum>2024-06-07</Datum>
+                            <Tijd>11:07:16.726</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Het gevraagde inkomensjaar bestaat niet</Diagnose>
+                        <Omstandigheid>Geen gegevens beschikbaar voor meegeleverd inkomstenjaar</Omstandigheid>
+                    </Uitzondering>
+                </Uitzonderingen>
             </Antwoord>
         </Antwoorden>
     </Repliek>
