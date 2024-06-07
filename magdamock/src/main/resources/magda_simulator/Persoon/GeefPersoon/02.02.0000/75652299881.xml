@@ -179,26 +179,6 @@
                         </Ouders>
                      </Afstamming>
                   </Afstammingen>
-                  <Referentiepersoon DatumBegin="1998-09-21">
-                     <INSZ>62691699717</INSZ>
-                     <Naam>
-                        <Achternamen>
-                           <Achternaam>Dubois</Achternaam>
-                        </Achternamen>
-                        <Voornamen>
-                           <Voornaam>Daniël</Voornaam>
-                        </Voornamen>
-                     </Naam>
-                     <Geslacht>
-                        <Code>1</Code>
-                        <Omschrijving>Mannelijk</Omschrijving>
-                     </Geslacht>
-                     <Geboortedatum>1962-09-16</Geboortedatum>
-                     <Positie>
-                        <Code>02</Code>
-                        <Omschrijving>Echtgenoot</Omschrijving>
-                     </Positie>
-                  </Referentiepersoon>
                   <Gezinsleden>
                      <Gezinslid DatumBegin="1999-12-20">
                         <INSZ>99722099716</INSZ>
