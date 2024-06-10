@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Year;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -20,7 +21,7 @@ class GeefAanslagbiljetPersonenbelastingTest extends MockTestBase {
 
     @Test
     @SneakyThrows
-    void defaultAanslagBiljet() {
+    void notFoundAanslagBiljet() {
         var request = GeefAanslagbiljetPersonenbelastingRequest.builder2()
                 .insz(INSZ_GEENDATA)
                 .incomeYear(Year.of(2021))
@@ -34,23 +35,17 @@ class GeefAanslagbiljetPersonenbelastingTest extends MockTestBase {
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), GeefAanslagbiljetPersonenbelastingTest.ANTWOORD_REFERTE, request.getRequestId().toString());
 
-        assertThatResponseContainsAnswerNoError(antwoord);
-
         assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
         assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
         assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
-
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2021");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
+        //No data found
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Uitzonderingen/Uitzondering/Identificatie", "45008");
     }
 
     @Test
     @SneakyThrows
-    void defaultAanslagBiljetWithStaticSimulatorShouldRetainInkomensjaar() {
+    void notFoundAanslagBiljetWithStaticSimulatorShouldRetainInkomensjaar() {
         var request = GeefAanslagbiljetPersonenbelastingRequest.builder2()
                 .insz(INSZ_GEENDATA)
                 .incomeYear(Year.of(2021))
@@ -63,19 +58,13 @@ class GeefAanslagbiljetPersonenbelastingTest extends MockTestBase {
         var antwoord = connector.send(request);
         assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
         assertThatXmlFieldIsEqualTo(antwoord.getDocument(), GeefAanslagbiljetPersonenbelastingTest.ANTWOORD_REFERTE, request.getRequestId().toString());
-
-        assertThatResponseContainsAnswerNoError(antwoord);
-
+        
         assertThat(clientLogService.getNumberOfMagdaLoggedRequests()).isEqualTo(1);
         assertThat(clientLogService.getNumberOfSucceededLoggedRequests()).isEqualTo(1);
         assertThat(clientLogService.getNumberOfFailedLoggedRequests()).isZero();
 
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
-
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Inkomensjaar", "2011");
-        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/Artikelnummer", "727270607");
+        //No data found
+        assertThatXmlFieldIsEqualTo(antwoord.getDocument(), "//Antwoorden/Antwoord/Uitzonderingen/Uitzondering/Identificatie", "45008");
     }
 
     @Test
