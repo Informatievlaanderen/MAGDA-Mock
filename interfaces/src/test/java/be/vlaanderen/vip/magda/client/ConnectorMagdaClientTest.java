@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.exception.ServerException;
 import be.vlaanderen.vip.magda.legallogging.model.UitzonderingEntry;
+import be.vlaanderen.vip.magda.legallogging.model.UitzonderingType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
@@ -59,7 +61,7 @@ class ConnectorMagdaClientTest {
         }
         
         @Test
-        void throwsException_whenResponseContainsLevel1Errors() {
+        void throwsException_whenResponseContainsLevel2Errors() {
             when(connector.send(request)).thenReturn(response);
             level2errors.add(mock(UitzonderingEntry.class));
 
@@ -68,13 +70,25 @@ class ConnectorMagdaClientTest {
         }
         
         @Test
-        void throwsException_whenResponseContainsLevel2Errors() {
+        void throwsException_whenResponseContainsLevel3ErrorsAtLeastOneFout() {
             when(connector.send(request)).thenReturn(response);
-            level3errors.add(mock(UitzonderingEntry.class));
+            UitzonderingEntry uitzonderingEntry = mock(UitzonderingEntry.class);
+            when(uitzonderingEntry.getUitzonderingType()).thenReturn(UitzonderingType.FOUT);
+            level3errors.add(uitzonderingEntry);
 
             assertThrows(MagdaClientException.class,
                          () -> service.send(request));
         }
-        
+
+        @Test
+        void throwsException_whenResponseContainsLevel3ErrorsNoFout() {
+            when(connector.send(request)).thenReturn(response);
+            UitzonderingEntry uitzonderingEntry = mock(UitzonderingEntry.class);
+            when(uitzonderingEntry.getUitzonderingType()).thenReturn(UitzonderingType.WAARSCHUWING);
+            level3errors.add(uitzonderingEntry);
+
+            assertDoesNotThrow(
+                    () -> service.send(request));
+        }
     }
 }
