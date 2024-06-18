@@ -16,6 +16,7 @@ import java.nio.file.Files;
 import java.time.Duration;
 import java.time.Year;
 import java.util.Objects;
+import java.util.UUID;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -25,6 +26,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MagdaMockConnectionConfigTest {
+    private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
     @TempDir
     private File dir;
     
@@ -107,7 +110,7 @@ class MagdaMockConnectionConfigTest {
                     .insz("00610122309")
                     .incomeYear(Year.of(2021))
                     .build()
-                    .toMagdaDocument(
+                    .toMagdaDocument(REQUEST_ID,
                             MagdaRegistrationInfo.builder()
                             .identification("identification")
                             .build()
@@ -127,7 +130,7 @@ class MagdaMockConnectionConfigTest {
                     .insz("00610122309")
                     .incomeYear(Year.of(2021))
                     .build()
-                    .toMagdaDocument(
+                    .toMagdaDocument(REQUEST_ID,
                             MagdaRegistrationInfo.builder()
                                     .identification("identification")
                                     .build()
@@ -148,7 +151,7 @@ class MagdaMockConnectionConfigTest {
                     .insz("00610122309")
                     .incomeYear(Year.of(2021))
                     .build()
-                    .toMagdaDocument(
+                    .toMagdaDocument(REQUEST_ID,
                             MagdaRegistrationInfo.builder()
                                     .identification("identification")
                                     .build()

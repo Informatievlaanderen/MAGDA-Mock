@@ -12,8 +12,8 @@ import lombok.Getter;
 import lombok.ToString;
 
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 /**
  * A request to a "GeefHistoriekGezinssamenstelling" MAGDA service, which provides information on the history of family composition for an INSZ.
@@ -85,8 +85,8 @@ public class GeefHistoriekGezinssamenstellingRequest extends PersonMagdaRequest 
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo);
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//Vragen/Vraag/Inhoud/Criteria/Datum", getFromDate() != null ? getFromDate().format(dateFormatter) : getOnDate().format(dateFormatter));
         request.removeAttribute("//Vragen/Vraag/Inhoud/Criteria/Datum/@Op");

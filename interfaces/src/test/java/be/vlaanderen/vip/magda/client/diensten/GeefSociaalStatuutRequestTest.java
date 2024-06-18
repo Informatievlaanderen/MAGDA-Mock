@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.UUID;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -121,6 +122,8 @@ class GeefSociaalStatuutRequestTest {
 
     @Nested
     class ToMagdaDocument {
+        private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
         private MagdaRegistrationInfo info;
         private Builder builder;
 
@@ -140,7 +143,7 @@ class GeefSociaalStatuutRequestTest {
         @Test
         void setsSocialStatusName() {
             var request = builder.build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//SociaalStatuut/Naam"), is(equalTo("sociaal-statuut")));
         }
@@ -149,7 +152,7 @@ class GeefSociaalStatuutRequestTest {
         void setsDateIfSpecified() {
             var request = builder.date(LocalDate.of(2024,4,1))
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//SociaalStatuut/Datum/Datum"), is(equalTo("2024-04-01")));
         }
@@ -161,7 +164,7 @@ class GeefSociaalStatuutRequestTest {
                     .startDate(LocalDate.of(2024,4,1))
                     .endDate(LocalDate.of(2025,4,1))
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//SociaalStatuut/Datum/Datum"), is(nullValue()));
         }
@@ -173,7 +176,7 @@ class GeefSociaalStatuutRequestTest {
                     .startDate(LocalDate.of(2024,4,1))
                     .endDate(LocalDate.of(2025,4,1))
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//SociaalStatuut/Datum/Periode/Begindatum"), is(equalTo("2024-04-01")));
             assertThat(request.getValue("//SociaalStatuut/Datum/Periode/Einddatum"), is(equalTo("2025-04-01")));
@@ -182,7 +185,7 @@ class GeefSociaalStatuutRequestTest {
         @Test
         void doesNotSetPeriodIfNotSpecified() {
             var request = builder.build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//SociaalStatuut/Datum/Periode"), is(nullValue()));
         }
@@ -193,7 +196,7 @@ class GeefSociaalStatuutRequestTest {
                     .date((LocalDate)null)
                     .startDate(LocalDate.of(2024,4,1))
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//SociaalStatuut/Datum/Periode/Begindatum"), is(equalTo("2024-04-01")));
             assertThat(request.getValue("//SociaalStatuut/Datum/Periode/Einddatum"), is(nullValue()));
@@ -202,7 +205,7 @@ class GeefSociaalStatuutRequestTest {
         @Test
         void setsLocationNameIfSpecified() {
             var request = builder.locationName("REGIO_GENT").build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//SociaalStatuut/Locatie/Naam"), is(equalTo("REGIO_GENT")));
         }
@@ -210,7 +213,7 @@ class GeefSociaalStatuutRequestTest {
         @Test
         void doesNotSetLocationNameIfNotSpecified() {
             var request = builder.build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//SociaalStatuut/Locatie"), is(nullValue()));
         }
@@ -262,6 +265,8 @@ class GeefSociaalStatuutRequestTest {
 
         @Nested
         class ToMagdaDocument {
+            private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
             private MagdaRegistrationInfo info;
             private Builder builder;
 
@@ -281,7 +286,7 @@ class GeefSociaalStatuutRequestTest {
             @Test
             void setsSociaalStatuus() {
                 var request = builder.build()
-                        .toMagdaDocument(info);
+                        .toMagdaDocument(REQUEST_ID, info);
 
                 assertThat(request.getValue("//SociaalStatuut/Naam"), is(equalTo("sociaal-statuut")));
             }
@@ -290,7 +295,7 @@ class GeefSociaalStatuutRequestTest {
             void setsDatum() {
                 var request = builder.datum(OffsetDateTime.parse("2023-01-22T00:00:00.000+00:00"))
                         .build()
-                        .toMagdaDocument(info);
+                        .toMagdaDocument(REQUEST_ID, info);
 
                 assertThat(request.getValue("//SociaalStatuut/Datum/Datum"), is(equalTo("2023-01-22")));
             }

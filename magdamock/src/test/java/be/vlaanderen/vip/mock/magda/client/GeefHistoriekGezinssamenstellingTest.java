@@ -7,11 +7,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 class GeefHistoriekGezinssamenstellingTest extends MockTestBase {
+    private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
     @Test
     @SneakyThrows
     void geefHistoriekGezinssamenstellingGeeftAntwoord() {
@@ -24,7 +27,7 @@ class GeefHistoriekGezinssamenstellingTest extends MockTestBase {
 
         var connector = makeMagdaConnector(clientLogService);
 
-        var antwoord = connector.send(request);
+        var antwoord = connector.send(request, REQUEST_ID);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyFilledIn()).isTrue();
@@ -39,7 +42,7 @@ class GeefHistoriekGezinssamenstellingTest extends MockTestBase {
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(request.getRequestId().toString());
+        assertThat(referte).isEqualTo(REQUEST_ID.toString());
 
         var inszNumbers = doc.getValues("//Antwoorden/Antwoord/Inhoud/HistoriekGezinssamenstelling/Gezinssamenstelling/Gezinsleden/Gezinslid/INSZ");
         assertThat(inszNumbers).contains(requestInsz);

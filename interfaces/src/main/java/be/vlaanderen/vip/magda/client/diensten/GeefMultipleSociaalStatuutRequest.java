@@ -12,6 +12,7 @@ import lombok.ToString;
 
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * A request to a "GeefSociaalStatuut" MAGDA service, which provides information on one or multiple social statutes for an INSZ.
@@ -80,8 +81,8 @@ public class GeefMultipleSociaalStatuutRequest extends PersonMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo);
 
         //Remove dummy from template
         request.removeNode("//SociaalStatuut");

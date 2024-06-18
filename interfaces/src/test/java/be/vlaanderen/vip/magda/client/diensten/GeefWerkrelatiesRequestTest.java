@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -136,6 +137,8 @@ class GeefWerkrelatiesRequestTest {
 
     @Nested
     class ToMagdaDocument {
+        private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
         private MagdaRegistrationInfo info;
         private GeefWerkrelatiesRequest.Builder builder;
 
@@ -161,7 +164,7 @@ class GeefWerkrelatiesRequestTest {
                     .deletionIndicationType(GeefWerkrelatiesRequest.DeletionIndicationType.NON_DELETED)
                     .interimIndicationType(GeefWerkrelatiesRequest.InterimIndicationType.NON_INTERIM_ONLY)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
             assertThat(request.getValue("//Criteria/Relatie/Werknemer/INSZ"), is(equalTo(TestBase.TEST_INSZ)));
             assertThat(request.getValue("//Criteria/Bron"), is(equalTo(GeefWerkrelatiesRequest.SourceType.RSZ.getTypeString())));
             assertThat(request.getValue("//Criteria/Periode/Begin"), is(equalTo("2023-01-01")));
@@ -178,7 +181,7 @@ class GeefWerkrelatiesRequestTest {
                     .startDate(LocalDate.of(2023, 1,1))
                     .deletionIndicationType(GeefWerkrelatiesRequest.DeletionIndicationType.ALL)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.xpath("//Criteria/Bron").getLength(), is(0));
         }
@@ -190,7 +193,7 @@ class GeefWerkrelatiesRequestTest {
                     .startDate(LocalDate.of(2023, 1,1))
                     .deletionIndicationType(GeefWerkrelatiesRequest.DeletionIndicationType.ALL)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//Criteria/Periode/Einde"), is(nullValue()));
         }
@@ -202,7 +205,7 @@ class GeefWerkrelatiesRequestTest {
                     .startDate(LocalDate.of(2023, 1,1))
                     .deletionIndicationType(GeefWerkrelatiesRequest.DeletionIndicationType.ALL)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//Criteria/EnkelGestartOfBeeindigd"), is(nullValue()));
         }
@@ -214,7 +217,7 @@ class GeefWerkrelatiesRequestTest {
                     .startDate(LocalDate.of(2023, 1,1))
                     .deletionIndicationType(GeefWerkrelatiesRequest.DeletionIndicationType.ALL)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//Criteria/InterimIndicatie"), is(nullValue()));
         }

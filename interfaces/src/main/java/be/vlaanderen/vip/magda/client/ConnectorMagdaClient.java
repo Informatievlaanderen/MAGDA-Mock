@@ -6,6 +6,7 @@ import be.vlaanderen.vip.magda.legallogging.model.UitzonderingEntry;
 import be.vlaanderen.vip.magda.legallogging.model.UitzonderingType;
 
 import java.util.List;
+import java.util.UUID;
 
 public class ConnectorMagdaClient implements MagdaClient {
     private MagdaConnector connector;
@@ -17,10 +18,15 @@ public class ConnectorMagdaClient implements MagdaClient {
 
     @Override
     public MagdaResponseWrapper send(MagdaRequest request) throws MagdaClientException {
+        return send(request, UUID.randomUUID());
+    }
+
+    @Override
+    public MagdaResponseWrapper send(MagdaRequest request, UUID requestId) throws MagdaClientException {
         try {
             var response = connector.send(request);
             
-            validateMagdaResponse(response, request);
+            validateMagdaResponse(response, request, requestId);
             
             return new MagdaResponseWrapper(response);
         }
@@ -29,12 +35,12 @@ public class ConnectorMagdaClient implements MagdaClient {
         }
     }
     
-    private void validateMagdaResponse(MagdaResponse response, MagdaRequest request) throws MagdaClientException {
+    private void validateMagdaResponse(MagdaResponse response, MagdaRequest request, UUID requestId) throws MagdaClientException {
         if(!response.getUitzonderingEntries().isEmpty()) {
-            throw new MagdaClientException("Level 2 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getUitzonderingEntries(), request.getCorrelationId(), request.getRequestId()));
+            throw new MagdaClientException("Level 2 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getUitzonderingEntries(), request.getCorrelationId(), requestId));
         }
         if(!response.getResponseUitzonderingEntries().isEmpty() && haveAtLeastOneFout(response.getResponseUitzonderingEntries())) {
-            throw new MagdaClientException("Level 3 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getResponseUitzonderingEntries(), request.getCorrelationId(), request.getRequestId()));
+            throw new MagdaClientException("Level 3 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getResponseUitzonderingEntries(), request.getCorrelationId(), requestId));
         }
     }
 

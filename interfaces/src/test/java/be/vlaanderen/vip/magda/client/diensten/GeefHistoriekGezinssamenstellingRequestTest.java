@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -74,6 +75,8 @@ class GeefHistoriekGezinssamenstellingRequestTest {
 
     @Nested
     class ToMagdaDocument {
+        private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
         private MagdaRegistrationInfo info;
         private GeefHistoriekGezinssamenstellingRequest.Builder builder;
 
@@ -94,7 +97,7 @@ class GeefHistoriekGezinssamenstellingRequestTest {
             var request = builder
                     .fromDate(LocalDate.of(2023, 01, 22))
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//Vragen/Vraag/Inhoud/Criteria/Datum"), is(equalTo("2023-01-22")));
             assertThat(request.getValue("//Vragen/Vraag/Inhoud/Criteria/Datum/@Op"), is(equalTo("1")));
@@ -105,7 +108,7 @@ class GeefHistoriekGezinssamenstellingRequestTest {
             var request = builder
                     .onDate(LocalDate.of(2023, 01, 22))
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//Vragen/Vraag/Inhoud/Criteria/Datum"), is(equalTo("2023-01-22")));
             assertThat(request.getValue("//Vragen/Vraag/Inhoud/Criteria/Datum/@Op"), is(equalTo("0")));
