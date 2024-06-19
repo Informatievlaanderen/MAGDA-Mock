@@ -24,9 +24,9 @@ public class ConnectorMagdaClient implements MagdaClient {
     @Override
     public MagdaResponseWrapper send(MagdaRequest request, UUID requestId) throws MagdaClientException {
         try {
-            var response = connector.send(request);
+            var response = connector.send(request, requestId);
             
-            validateMagdaResponse(response, request, requestId);
+            validateMagdaResponse(response, request);
             
             return new MagdaResponseWrapper(response);
         }
@@ -35,12 +35,12 @@ public class ConnectorMagdaClient implements MagdaClient {
         }
     }
     
-    private void validateMagdaResponse(MagdaResponse response, MagdaRequest request, UUID requestId) throws MagdaClientException {
+    private void validateMagdaResponse(MagdaResponse response, MagdaRequest request) throws MagdaClientException {
         if(!response.getUitzonderingEntries().isEmpty()) {
-            throw new MagdaClientException("Level 2 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getUitzonderingEntries(), request.getCorrelationId(), requestId));
+            throw new MagdaClientException("Level 2 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getUitzonderingEntries(), request.getCorrelationId(), response.getRequestId()));
         }
         if(!response.getResponseUitzonderingEntries().isEmpty() && haveAtLeastOneFout(response.getResponseUitzonderingEntries())) {
-            throw new MagdaClientException("Level 3 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getResponseUitzonderingEntries(), request.getCorrelationId(), requestId));
+            throw new MagdaClientException("Level 3 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getResponseUitzonderingEntries(), request.getCorrelationId(), response.getRequestId()));
         }
     }
 
