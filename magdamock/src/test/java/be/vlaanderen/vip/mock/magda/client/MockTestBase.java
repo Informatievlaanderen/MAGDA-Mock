@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -95,9 +96,9 @@ public abstract class MockTestBase {
         return new MagdaMockConnection(simulatorBuilder.build());
     }
 
-    protected void assertThatTechnicalFieldsInResponseMatchRequest(MagdaResponse magdaResponse, MagdaRequest magdaRequest) {
+    protected void assertThatTechnicalFieldsInResponseMatchRequest(MagdaResponse magdaResponse, UUID requestId) {
         var doc = magdaResponse.getDocument();
-        assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_REFERTE, magdaRequest.getRequestId().toString());
+        assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_REFERTE, requestId.toString());
         assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_IDENTIFICATIE, TEST_SERVICE_URI);
         assertThatXmlFieldIsEqualTo(doc, RepertoriumTest.ONTVANGER_HOEDANIGHEID, TEST_SERVICE_HOEDANIGHEID);
     }
@@ -122,9 +123,9 @@ public abstract class MockTestBase {
         assertThat(magdaResponse.getUitzonderingEntries()).hasSize(1);
     }
 
-    protected void assertThatTechnicalFieldsAreFilledInCorrectly(MagdaResponse magdaResponse, MagdaRequest magdaRequest) {
+    protected void assertThatTechnicalFieldsAreFilledInCorrectly(MagdaResponse magdaResponse, UUID requestId) {
         log.debug("Response: {}", magdaResponse.getDocument().toString());
 
-        assertThatTechnicalFieldsInResponseMatchRequest(magdaResponse, magdaRequest);
+        assertThatTechnicalFieldsInResponseMatchRequest(magdaResponse, requestId);
     }
 }

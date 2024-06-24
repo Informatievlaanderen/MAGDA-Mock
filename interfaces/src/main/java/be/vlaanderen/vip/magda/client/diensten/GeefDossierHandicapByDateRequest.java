@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * A request to a "GeefDossierHandicap" MAGDA service, which provides information regarding disability for an INSZ.
@@ -101,8 +102,8 @@ public class GeefDossierHandicapByDateRequest extends PersonMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo);
 
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//ConsultFilesByDateCriteria/ssin", getInsz().getValue());

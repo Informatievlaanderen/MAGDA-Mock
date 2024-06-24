@@ -8,11 +8,14 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.Set;
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 class GeefDossierHandicapByDateTest extends MockTestBase {
+    private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
     @Test
     @SneakyThrows
     void geefDossierHandicapByDateGeeftAntwoord() {
@@ -32,7 +35,7 @@ class GeefDossierHandicapByDateTest extends MockTestBase {
 
         var connector = makeMagdaConnector(clientLogService);
 
-        var antwoord = connector.send(request);
+        var antwoord = connector.send(request, REQUEST_ID);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyFilledIn()).isTrue();
@@ -47,7 +50,7 @@ class GeefDossierHandicapByDateTest extends MockTestBase {
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(request.getRequestId().toString());
+        assertThat(referte).isEqualTo(REQUEST_ID.toString());
 
         var status = doc.getValue("//Antwoorden/Antwoord/Inhoud/ConsultFilesByDateResponse/status/value");
         assertThat(status).isEqualTo("DATA_FOUND");
@@ -75,7 +78,7 @@ class GeefDossierHandicapByDateTest extends MockTestBase {
 
         var connector = makeMagdaConnector(clientLogService);
 
-        var antwoord = connector.send(request);
+        var antwoord = connector.send(request, REQUEST_ID);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyFilledIn()).isTrue();
@@ -88,7 +91,7 @@ class GeefDossierHandicapByDateTest extends MockTestBase {
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(request.getRequestId().toString());
+        assertThat(referte).isEqualTo(REQUEST_ID.toString());
 
         var status = doc.getValue("//Antwoorden/Antwoord/Inhoud/ConsultFilesByDateResponse/status/value");
         assertThat(status).isEqualTo("NO_DATA_FOUND");

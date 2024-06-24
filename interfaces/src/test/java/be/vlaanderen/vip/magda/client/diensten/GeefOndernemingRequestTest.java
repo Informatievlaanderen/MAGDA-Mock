@@ -1,7 +1,6 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.diensten.GeefOndernemingRequest.Builder;
-import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,13 +8,12 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.HashSet;
+import java.util.UUID;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 class GeefOndernemingRequestTest {
 
@@ -87,6 +85,8 @@ class GeefOndernemingRequestTest {
 
     @Nested
     class ToMagdaDocument {
+        private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
         private MagdaRegistrationInfo info;
         private Builder builder;
 
@@ -116,7 +116,7 @@ class GeefOndernemingRequestTest {
                     .startDate(startDate)
                     .endDate(endDate)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//Criteria/Ondernemingsnummer"), is(equalTo(kboNumber)));
             assertThat(request.getValue("//Criteria/Basisgegevens"), is(equalTo("1")));
@@ -133,7 +133,7 @@ class GeefOndernemingRequestTest {
 
             var request = builder
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
             assertNull(request.getValue("//Criteria/Basisgegevens"));
             assertNull(request.getValue("//Criteria/Rechtstoestanden"));
             assertNull(request.getValue("//Criteria/Vestigingen"));

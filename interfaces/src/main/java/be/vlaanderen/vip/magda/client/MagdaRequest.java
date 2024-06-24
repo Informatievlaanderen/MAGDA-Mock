@@ -46,7 +46,6 @@ public abstract class MagdaRequest {
 
     @Setter
     private UUID correlationId;
-    private final UUID requestId = UUID.randomUUID();
     @NotNull
     private final String registration;
 
@@ -58,16 +57,16 @@ public abstract class MagdaRequest {
 
     public abstract SubjectIdentificationNumber getSubject();
 
-    public MagdaDocument toMagdaDocument(MagdaRegistrationInfo magdaRegistrationInfo) {
+    public MagdaDocument toMagdaDocument(UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
         var serviceId = magdaServiceIdentification();
         var document = Objects.requireNonNull(MagdaDocument.fromResource(MagdaDocument.class, "/templates/" + serviceId.getName() + "/" + serviceId.getVersion() + "/template.xml"));
-        fillIn(document, magdaRegistrationInfo);
+        fillIn(document, requestId, magdaRegistrationInfo);
 
         return document;
     }
 
-    protected void fillInCommonFields(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
-        request.setValue("//Referte", getRequestId().toString());
+    protected void fillInCommonFields(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+        request.setValue("//Referte", requestId.toString());
         request.setValue(getSubject().getXPathExpression(), getSubject().getValue());
 
         final var now = Instant.now();
@@ -93,5 +92,5 @@ public abstract class MagdaRequest {
         }
     }
 
-    protected abstract void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo);
+    protected abstract void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo);
 }

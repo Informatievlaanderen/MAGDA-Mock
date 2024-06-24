@@ -25,7 +25,6 @@ class GeefAanslagbiljetPersonenbelastingRequestTest {
             var request = builder.build();
 
             assertNull(request.getCorrelationId());
-            assertNotNull(request.getRequestId());
             assertEquals(INSZNumber.of("123"), request.getInsz());
             assertEquals("456", request.getRegistration());
             assertEquals(Year.of(2021), request.getIncomeYear());
@@ -93,7 +92,6 @@ class GeefAanslagbiljetPersonenbelastingRequestTest {
                 var request = builder.build();
 
                 assertNull(request.getCorrelationId());
-                assertNotNull(request.getRequestId());
                 assertEquals(INSZNumber.of("123"), request.getInsz());
                 assertEquals("456", request.getRegistration());
             }

@@ -17,8 +17,8 @@ public class NoResponseException extends ServerException {
     private final String serviceName;
     private final int statusCode;
 
-    public NoResponseException(String bericht, Throwable oorzaak, MagdaRequest magdaRequest, int statusCode) {
-        super(bericht, oorzaak, magdaRequest.getCorrelationId(), magdaRequest.getRequestId());
+    public NoResponseException(String bericht, Throwable oorzaak, MagdaRequest magdaRequest, UUID requestId, int statusCode) {
+        super(bericht, oorzaak, magdaRequest.getCorrelationId(), requestId);
         this.serviceName = magdaRequest.magdaServiceIdentification().getName();
         this.statusCode = statusCode;
     }

@@ -12,8 +12,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.time.format.DateTimeFormatter;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * A request to a "GeefFuncties" MAGDA service allows you to consult the work relations for an INSZ.
@@ -84,8 +84,8 @@ public class GeefFunctiesByPersonRequest extends PersonMagdaRequest{
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo);
         request.removeNode("//Criteria/Persoon/Ondernemingsnummer");
         if(getKboNumber() != null)
         {

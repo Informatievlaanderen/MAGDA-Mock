@@ -7,9 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -67,6 +66,8 @@ class GeefFunctiesByPersonRequestTest {
 
     @Nested
     class ToMagdaDocument {
+        private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
         private MagdaRegistrationInfo info;
         private GeefFunctiesByPersonRequest.Builder builder;
 
@@ -90,7 +91,7 @@ class GeefFunctiesByPersonRequestTest {
                     .kboNumber(kboNumber)
                     .functionTypes(functionTypes)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
             assertThat(request.getValue("//Criteria/Persoon/INSZ"), is(equalTo(TestBase.TEST_INSZ)));
             assertThat(request.getValue("//Criteria/Persoon/Ondernemingsnummer"), is(equalTo(kboNumber.getValue())));
             assertThat(request.getValues("//Criteria/AardFuncties/AardFunctie"), is(functionTypes.stream().toList()));
@@ -101,7 +102,7 @@ class GeefFunctiesByPersonRequestTest {
             var request = builder
                     .insz(TestBase.TEST_INSZ)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//Criteria/Persoon/Ondernemingsnummer"), is(nullValue()));
         }
@@ -111,7 +112,7 @@ class GeefFunctiesByPersonRequestTest {
             var request = builder
                     .insz(TestBase.TEST_INSZ)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.xpath("//Criteria/AardFuncties").getLength(), is(0));
         }

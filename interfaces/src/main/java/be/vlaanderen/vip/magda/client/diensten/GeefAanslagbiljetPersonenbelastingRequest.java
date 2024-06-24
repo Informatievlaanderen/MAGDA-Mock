@@ -13,6 +13,7 @@ import lombok.ToString;
 
 import java.time.Year;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * A request to a "GeefAanslagBiljet" MAGDA service, which provides tax bills.
@@ -98,8 +99,8 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends PersonMagdaReques
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo);
 
         request.setValue("//Vragen/Vraag/Inhoud/Criteria/Inkomensjaar", incomeYear.toString());
 

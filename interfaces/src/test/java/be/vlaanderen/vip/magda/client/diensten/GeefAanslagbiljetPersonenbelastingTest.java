@@ -8,11 +8,13 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Year;
 import java.util.List;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 @Slf4j
 class GeefAanslagbiljetPersonenbelastingTest extends TestBase {
+    private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
 
     @Test
     void requestFillsInStandardRequestParameters_withIpcalCodes() {
@@ -28,12 +30,12 @@ class GeefAanslagbiljetPersonenbelastingTest extends TestBase {
                 .identification(TEST_SERVICE_URI)
                 .build();
 
-        var requestDocument = request.toMagdaDocument(mockedMagdaRegistrationInfo);
+        var requestDocument = request.toMagdaDocument(REQUEST_ID, mockedMagdaRegistrationInfo);
 
         log.debug("Request:  {}", requestDocument);
 
         assertAll(
-                () -> assertThatTechnicalFieldsInRequestMatchRequest(requestDocument, request, mockedMagdaRegistrationInfo),
+                () -> assertThatTechnicalFieldsInRequestMatchRequest(requestDocument, request, REQUEST_ID, mockedMagdaRegistrationInfo),
                 () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/INSZ", insz),
                 () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/Inkomensjaar", "2021"),
                 () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes/IPCALCode[1]", "7001"),
@@ -59,12 +61,12 @@ class GeefAanslagbiljetPersonenbelastingTest extends TestBase {
                 .identification(TEST_SERVICE_URI)
                 .build();
 
-        var requestDocument = request.toMagdaDocument(mockedMagdaRegistrationInfo);
+        var requestDocument = request.toMagdaDocument(REQUEST_ID, mockedMagdaRegistrationInfo);
 
         log.debug("Request:  {}", requestDocument);
 
         assertAll(
-                () -> assertThatTechnicalFieldsInRequestMatchRequest(requestDocument, request, mockedMagdaRegistrationInfo),
+                () -> assertThatTechnicalFieldsInRequestMatchRequest(requestDocument, request, REQUEST_ID, mockedMagdaRegistrationInfo),
                 () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/INSZ", insz),
                 () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/Inkomensjaar", "2021"),
                 () -> assertThatXmlHasNoFieldForPath(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/IPCALCodes"),
@@ -91,12 +93,12 @@ class GeefAanslagbiljetPersonenbelastingTest extends TestBase {
                     .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();
 
-            var requestDocument = request.toMagdaDocument(mockedMagdaRegistrationInfo);
+            var requestDocument = request.toMagdaDocument(REQUEST_ID, mockedMagdaRegistrationInfo);
 
             log.debug("Request:  {}", requestDocument);
 
             assertAll(
-                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchRequest(requestDocument, request, mockedMagdaRegistrationInfo),
+                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchRequest(requestDocument, request, REQUEST_ID, mockedMagdaRegistrationInfo),
                     () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/INSZ", insz),
 
                     // TODO: Should these values be passed as inputs in MagdaRequest instead of hardcoded in the request template?
@@ -120,12 +122,12 @@ class GeefAanslagbiljetPersonenbelastingTest extends TestBase {
                     .identification(TEST_SERVICE_URI)
                     .build();
 
-            var requestDocument = request.toMagdaDocument(mockedMagdaRegistrationInfo);
+            var requestDocument = request.toMagdaDocument(REQUEST_ID, mockedMagdaRegistrationInfo);
 
             log.debug("Request:  {}", requestDocument);
 
             assertAll(
-                    () -> assertThatTechnicalFieldsInRequestMatchRequest(requestDocument, request, mockedMagdaRegistrationInfo),
+                    () -> assertThatTechnicalFieldsInRequestMatchRequest(requestDocument, request, REQUEST_ID, mockedMagdaRegistrationInfo),
                     () -> assertThatXmlFieldIsEqualTo(requestDocument, "//Vragen/Vraag/Inhoud/Criteria/INSZ", insz),
 
                     // TODO: Should these values be passed as inputs in MagdaRequest instead of hardcoded in the request template?

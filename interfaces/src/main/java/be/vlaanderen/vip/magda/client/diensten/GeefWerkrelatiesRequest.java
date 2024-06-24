@@ -1,12 +1,11 @@
 package be.vlaanderen.vip.magda.client.diensten;
+
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
-import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -14,6 +13,7 @@ import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 /**
  * A request to a "GeefWerkrelaties" MAGDA service allows you to consult the work relations for an INSZ.
@@ -136,8 +136,8 @@ public class GeefWerkrelatiesRequest  extends PersonMagdaRequest{
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo);
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         if (getSource() != null) {
             request.setValue("//Criteria/Bron", getSource().getTypeString());

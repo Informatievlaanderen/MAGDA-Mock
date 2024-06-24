@@ -25,7 +25,6 @@ class RegistreerInschrijving0201RequestTest {
             var request = builder.build();
 
             assertNull(request.getCorrelationId());
-            assertNotNull(request.getRequestId());
             assertEquals(INSZNumber.of("123"), request.getSubject());
             assertEquals("456", request.getRegistration());
         }

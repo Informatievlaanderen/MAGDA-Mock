@@ -14,6 +14,7 @@ import lombok.ToString;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 /**
  * A request to a "GeefSociaalStatuut" MAGDA service, which provides information on a given social status for an INSZ.
@@ -151,8 +152,8 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo);
         
         request.setValue("//SociaalStatuut/Naam", getSocialStatusName());
         if(getDate() != null){

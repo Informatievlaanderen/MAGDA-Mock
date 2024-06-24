@@ -1,27 +1,22 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
 import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.diensten.RegistreerInschrijvingRequest.Builder;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.*;
 
 class RegistreerInschrijvingRequestTest {
 
@@ -38,7 +33,6 @@ class RegistreerInschrijvingRequestTest {
             var request = builder.build();
 
             assertNull(request.getCorrelationId());
-            assertNotNull(request.getRequestId());
             assertEquals(INSZNumber.of("123"), request.getInsz());
             assertEquals("456", request.getRegistration());
         }
@@ -87,6 +81,8 @@ class RegistreerInschrijvingRequestTest {
     
     @Nested
     class ToMagdaDocument {
+        private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
         private MagdaRegistrationInfo info;
         private Builder builder;
         private LocalDate start, end;
@@ -110,7 +106,7 @@ class RegistreerInschrijvingRequestTest {
         @Test
         void setsFields() {
             var request = builder.build()
-                                 .toMagdaDocument(info);
+                                 .toMagdaDocument(REQUEST_ID, info);
             
             assertAll(
                     () -> assertThat(request.getValue("//Vraag/Inhoud/Inschrijving/Periode/Begin"), is(equalTo(start.format(DateTimeFormatter.ISO_LOCAL_DATE)))),
@@ -121,7 +117,7 @@ class RegistreerInschrijvingRequestTest {
         void noEndDate_whenMissing() {
             var request = builder.endDate(null)
                                  .build()
-                                 .toMagdaDocument(info);
+                                 .toMagdaDocument(REQUEST_ID, info);
             
             var result = request.xpath("//Vraag/Inhoud/Inschrijving/Periode/Einde");
             assertThat(result.getLength(), is(0));

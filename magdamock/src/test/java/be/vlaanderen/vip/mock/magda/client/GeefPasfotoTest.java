@@ -11,11 +11,13 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 class GeefPasfotoTest extends MockTestBase {
+    private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
     private static final String INSZ_MAGDA_OVERBELAST = "91610100176";
     private static final String INSZ_ECHTE_PASFOTO = "67621546751";
     private static final String INSZ_RANDOM_MAN = "67021400130";
@@ -52,7 +54,7 @@ class GeefPasfotoTest extends MockTestBase {
 
         var connector = makeMagdaConnector(clientLogService);
 
-        var antwoord = connector.send(request);
+        var antwoord = connector.send(request, REQUEST_ID);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyFilledIn()).isTrue();
@@ -67,7 +69,7 @@ class GeefPasfotoTest extends MockTestBase {
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(request.getRequestId().toString());
+        assertThat(referte).isEqualTo(REQUEST_ID.toString());
 
         var insz = doc.getValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ");
         assertThat(insz).isEqualTo(requestInsz);
@@ -100,8 +102,8 @@ class GeefPasfotoTest extends MockTestBase {
 
         var connector = makeMagdaConnector(clientLogService);
 
-        var antwoord = connector.send(request);
-        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, request);
+        var antwoord = connector.send(request, REQUEST_ID);
+        assertThatTechnicalFieldsAreFilledInCorrectly(antwoord, REQUEST_ID);
 
         assertThatAnswerContainsUitzondering(antwoord);
 
