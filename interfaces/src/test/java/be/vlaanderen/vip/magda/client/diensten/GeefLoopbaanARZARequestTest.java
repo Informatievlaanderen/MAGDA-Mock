@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
+import java.util.UUID;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -61,6 +63,8 @@ class GeefLoopbaanARZARequestTest {
 
     @Nested
     class ToMagdaDocument {
+        private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
         private MagdaRegistrationInfo info;
         private GeefLoopbaanARZARequest.Builder builder;
 
@@ -82,7 +86,7 @@ class GeefLoopbaanARZARequestTest {
                     .startDate(LocalDate.of(2023, 1,1))
                     .endDate(LocalDate.of(2023,12,31))
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
             assertThat(request.getValue("//Criteria/INSZ"), is(equalTo(TestBase.TEST_INSZ)));
             assertThat(request.getValue("//Criteria/Periode/Begin"), is(equalTo("2023-01-01")));
             assertThat(request.getValue("//Criteria/Periode/Einde"), is(equalTo("2023-12-31")));
@@ -94,7 +98,7 @@ class GeefLoopbaanARZARequestTest {
                     .insz(TestBase.TEST_INSZ)
                     .startDate(LocalDate.of(2023, 1,1))
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//Criteria/Periode/Einde"), is(nullValue()));
         }

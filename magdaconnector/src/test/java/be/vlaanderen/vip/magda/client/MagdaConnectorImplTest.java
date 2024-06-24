@@ -23,6 +23,7 @@ import org.w3c.dom.Document;
 
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -208,6 +209,7 @@ class MagdaConnectorImplTest {
 
 	@Nested
 	class BuildResponse {
+		private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
 
 		@Test
 		void buildsResponseFromMagdaRequestAndAccordingResponseDocument() {
@@ -217,10 +219,10 @@ class MagdaConnectorImplTest {
 					.build();
 			var responseDocument = MagdaDocument.fromDocument(buildReplyDocument());
 
-			var response = constructConnectorImpl().buildResponse(request, responseDocument);
+			var response = constructConnectorImpl().buildResponse(request, REQUEST_ID, responseDocument);
 
 			assertEquals(request.getCorrelationId(), response.getCorrelationId());
-			assertEquals(request.getRequestId(), response.getRequestId());
+			assertEquals(REQUEST_ID, response.getRequestId());
 			assertTrue(response.getUitzonderingEntries().isEmpty());
 			assertTrue(response.getResponseUitzonderingEntries().isEmpty());
 			assertNotNull(response.getBody());
@@ -248,7 +250,7 @@ class MagdaConnectorImplTest {
 					"""
 			));
 
-			var response = constructConnectorImpl().buildResponse(request, responseDocument);
+			var response = constructConnectorImpl().buildResponse(request, REQUEST_ID, responseDocument);
 
 			assertEquals(List.of(UitzonderingEntry.builder()
 					.identification("12345")
@@ -290,7 +292,7 @@ class MagdaConnectorImplTest {
 					"""
 			));
 
-			var response = constructConnectorImpl().buildResponse(request, responseDocument);
+			var response = constructConnectorImpl().buildResponse(request, REQUEST_ID, responseDocument);
 
 			assertEquals(Set.of(
 							INSZNumber.of("123"),

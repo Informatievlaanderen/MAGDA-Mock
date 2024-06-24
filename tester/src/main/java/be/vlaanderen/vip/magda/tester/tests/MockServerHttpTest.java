@@ -33,6 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 @SpringBootTest
 public class MockServerHttpTest extends MockServerTest {
 
+    private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
     private static final String CORRECT_INSZ = "67621546751";
     private static final String INSZ_MAGDA_OVERBELAST = "91610100176";
     private static final String INSZ_ECHTE_PASFOTO = "67621546751";
@@ -81,7 +82,7 @@ public class MockServerHttpTest extends MockServerTest {
 
         var doc = magdaResponse.getDocument();
 
-        assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
+        assertResponsKomtOvereenMetRequest(doc, REQUEST_ID);
 
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Bewijzen/Bewijs/BewijsrefertesLed/Bewijsreferte");
         assertThat(resultaat).isEqualTo("66567d75-a223-4c12-959e-6560e3d0f0e5");
@@ -96,14 +97,14 @@ public class MockServerHttpTest extends MockServerTest {
                 .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
 
-        var magdaResponse = connector.send(request);
+        var magdaResponse = connector.send(request, REQUEST_ID);
         logMagdaResponse(magdaResponse);
 
         assertResponsBevatAntwoord(magdaResponse);
 
         var doc = magdaResponse.getDocument();
 
-        assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
+        assertResponsKomtOvereenMetRequest(doc, REQUEST_ID);
 
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
         assertThat(resultaat).isEqualTo("1");
@@ -131,14 +132,14 @@ public class MockServerHttpTest extends MockServerTest {
                 .startDate(LocalDate.now())
                 .endDate(LocalDate.now().plus(7, ChronoUnit.DAYS))
                 .build();
-        var magdaResponse = connector.send(request);
+        var magdaResponse = connector.send(request, REQUEST_ID);
         logMagdaResponse(magdaResponse);
 
         assertResponsBevatAntwoord(magdaResponse);
 
         var doc = magdaResponse.getDocument();
 
-        assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
+        assertResponsKomtOvereenMetRequest(doc, REQUEST_ID);
 
         var resultaat = doc.getValue("//Antwoorden/Antwoord/Inhoud/Resultaat");
         assertThat(resultaat).isEqualTo("1");
@@ -164,14 +165,14 @@ public class MockServerHttpTest extends MockServerTest {
         var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
                 .insz("82102108114")
                 .build();
-        var magdaResponse = connector.send(request);
+        var magdaResponse = connector.send(request, REQUEST_ID);
         logMagdaResponse(magdaResponse);
 
         assertResponsBevatAntwoord(magdaResponse);
 
         var doc = magdaResponse.getDocument();
 
-        assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
+        assertResponsKomtOvereenMetRequest(doc, REQUEST_ID);
 
         assertThatXmlFieldIsEqualTo(magdaResponse.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
         assertThatXmlFieldIsEqualTo(magdaResponse.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
@@ -216,14 +217,14 @@ public class MockServerHttpTest extends MockServerTest {
                 .insz(requestInsz)
                 .build();
 
-        var magdaResponse = connector.send(request);
+        var magdaResponse = connector.send(request, REQUEST_ID);
         logMagdaResponse(magdaResponse);
 
         assertResponsBevatAntwoord(magdaResponse);
 
         var doc = magdaResponse.getDocument();
 
-        assertResponsKomtOvereenMetRequest(doc, request.getRequestId());
+        assertResponsKomtOvereenMetRequest(doc, REQUEST_ID);
 
         var insz = doc.getValue("//Antwoorden/Antwoord/Inhoud/Pasfoto/INSZ");
         assertThat(insz).isEqualTo(requestInsz);

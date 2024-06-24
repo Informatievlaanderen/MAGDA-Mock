@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.Set;
+import java.util.UUID;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -142,6 +143,8 @@ class GeefMultipleSociaalStatuutRequestTest {
 
     @Nested
     class ToMagdaDocument {
+        private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
         private MagdaRegistrationInfo info;
         private Builder builder;
 
@@ -178,7 +181,7 @@ class GeefMultipleSociaalStatuutRequestTest {
             var request = builder
                     .socialStatutes(socialStatutes)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_1']]/Naam"), is(equalTo("SOCIAL_STATUTE_NAME_1")));
             assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_1']]/Datum/Datum"), is(equalTo("2024-03-01")));

@@ -1,23 +1,22 @@
 package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.diensten.GeefMultipleSociaalStatuutRequest;
-import be.vlaanderen.vip.magda.client.diensten.GeefSociaalStatuutRequest;
 import be.vlaanderen.vip.magda.client.diensten.SociaalStatuutRequestCriteria;
 import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.Set;
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
 
 @Slf4j
 class GeefMultipleSociaalStatuutTest extends MockTestBase {
+    private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
     @Test
     @SneakyThrows
     void geefMultipleSociaalStatuutGivesResponse_withRequestedSocialStatutesOnly() {
@@ -42,7 +41,7 @@ class GeefMultipleSociaalStatuutTest extends MockTestBase {
 
         var connector = makeMagdaConnector(clientLogService);
 
-        var antwoord = connector.send(request);
+        var antwoord = connector.send(request, REQUEST_ID);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyFilledIn()).isTrue();
@@ -57,7 +56,7 @@ class GeefMultipleSociaalStatuutTest extends MockTestBase {
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(request.getRequestId().toString());
+        assertThat(referte).isEqualTo(REQUEST_ID.toString());
 
         var inszNumber = doc.getValue("//Persoon/INSZ");
         assertThat(inszNumber).isEqualTo(requestInsz);
@@ -96,7 +95,7 @@ class GeefMultipleSociaalStatuutTest extends MockTestBase {
 
         var connector = makeMagdaConnector(clientLogService);
 
-        var antwoord = connector.send(request);
+        var antwoord = connector.send(request, REQUEST_ID);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyFilledIn()).isTrue();
@@ -111,7 +110,7 @@ class GeefMultipleSociaalStatuutTest extends MockTestBase {
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(request.getRequestId().toString());
+        assertThat(referte).isEqualTo(REQUEST_ID.toString());
 
         var inszNumber = doc.getValue("//Persoon/INSZ");
         assertThat(inszNumber).isEqualTo(requestInsz);
@@ -150,7 +149,7 @@ class GeefMultipleSociaalStatuutTest extends MockTestBase {
 
         var connector = makeMagdaConnector(clientLogService);
 
-        var antwoord = connector.send(request);
+        var antwoord = connector.send(request, REQUEST_ID);
         log.info("{}", antwoord.getDocument());
 
         assertThat(antwoord.isBodyFilledIn()).isTrue();
@@ -165,7 +164,7 @@ class GeefMultipleSociaalStatuutTest extends MockTestBase {
         var doc = antwoord.getDocument();
 
         var referte = doc.getValue("//Antwoorden/Antwoord/Referte");
-        assertThat(referte).isEqualTo(request.getRequestId().toString());
+        assertThat(referte).isEqualTo(REQUEST_ID.toString());
 
         var inszNumber = doc.getValue("//Persoon/INSZ");
         assertThat(inszNumber).isEqualTo(requestInsz);

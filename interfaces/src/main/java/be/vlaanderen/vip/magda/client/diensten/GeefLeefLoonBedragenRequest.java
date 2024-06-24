@@ -12,6 +12,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 import java.time.Year;
+import java.util.UUID;
 
 /**
  * A request to a "GeefBetalingenHandicap" MAGDA service allows you to consult the periods and amounts paid out in the context of the living wage for an INSZ.
@@ -100,8 +101,8 @@ public class GeefLeefLoonBedragenRequest extends PersonMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo);
         request.setValue("//Criteria/Jaar", getCurrentYear() != null ? getCurrentYear().toString() : getReferenceYear().toString());
         request.setValue("//Criteria/Jaar/@Huidig", getCurrentYear() == null ? "0" : "1" );
         request.removeNode("//Criteria/AantalJaarTerug");

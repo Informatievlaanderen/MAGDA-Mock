@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.Set;
+import java.util.UUID;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -90,6 +91,8 @@ class GeefDossierHandicapByDateRequestTest {
 
     @Nested
     class ToMagdaDocument {
+        private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
         private MagdaRegistrationInfo info;
         private Builder builder;
 
@@ -124,7 +127,7 @@ class GeefDossierHandicapByDateRequestTest {
                     .sources(sources)
                     .parts(parts)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//ConsultFilesByDateCriteria/ssin"), is(equalTo(TestBase.TEST_INSZ)));
             assertThat(request.getValue("//ConsultFilesByDateCriteria/referenceDate"), is(equalTo("2022-01-22")));
@@ -147,7 +150,7 @@ class GeefDossierHandicapByDateRequestTest {
                     .insz(TestBase.TEST_INSZ)
                     .referenceDate(LocalDate.of(2022, 01, 22))
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//ConsultFilesByDateCriteria/handicapAuthenticSources/DGPH"), is(equalTo("false")));
             assertThat(request.getValue("//ConsultFilesByDateCriteria/handicapAuthenticSources/VSB"), is(equalTo("false")));
@@ -168,7 +171,7 @@ class GeefDossierHandicapByDateRequestTest {
                     .insz(TestBase.TEST_INSZ)
                     .referenceDate(LocalDate.of(2022, 01, 22))
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertNull(request.getValue("//ConsultFilesByPeriodCriteria"));
         }

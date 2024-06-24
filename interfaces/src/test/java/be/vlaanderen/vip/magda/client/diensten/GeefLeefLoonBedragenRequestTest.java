@@ -6,8 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
 import java.time.Year;
+import java.util.UUID;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -93,6 +93,8 @@ class GeefLeefLoonBedragenRequestTest {
 
     @Nested
     class ToMagdaDocument {
+        private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
+
         private MagdaRegistrationInfo info;
         private GeefLeefLoonBedragenRequest.Builder builder;
 
@@ -115,7 +117,7 @@ class GeefLeefLoonBedragenRequestTest {
                     .currentYear(year)
                     .numberOfYearsAgo(2)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//Criteria/Jaar"), is(equalTo(year.toString())));
             assertThat(request.getValue("//Criteria/Jaar/@Huidig"), is(equalTo("1")));
@@ -129,7 +131,7 @@ class GeefLeefLoonBedragenRequestTest {
                     .referenceYear(year)
                     .numberOfYearsAgo(2)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//Criteria/Jaar"), is(equalTo(year.toString())));
             assertThat(request.getValue("//Criteria/Jaar/@Huidig"), is(equalTo("0")));
@@ -142,7 +144,7 @@ class GeefLeefLoonBedragenRequestTest {
             var request = builder
                     .currentYear(year)
                     .build()
-                    .toMagdaDocument(info);
+                    .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//Criteria/AantalJaarTerug"), is(nullValue()));
         }

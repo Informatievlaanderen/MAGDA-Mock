@@ -5,10 +5,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.UUID;
+
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 @Slf4j
 class GeefPasfotoTest extends TestBase {
+    private static final UUID REQUEST_ID = UUID.fromString("64fb1939-0ca7-432b-b7f4-3b53f7fc3789");
     private static final String INSZ = "67021546719";
 
     @Test
@@ -21,12 +24,12 @@ class GeefPasfotoTest extends TestBase {
                 .identification(TEST_SERVICE_URI)
                 .build();
 
-        var requestDocument = request.toMagdaDocument(mockedMagdaRegistrationInfo);
+        var requestDocument = request.toMagdaDocument(REQUEST_ID, mockedMagdaRegistrationInfo);
 
         log.debug("Request:  {}", requestDocument.toString());
 
         assertAll(
-                () -> assertThatTechnicalFieldsInRequestMatchRequest(requestDocument, request, mockedMagdaRegistrationInfo)
+                () -> assertThatTechnicalFieldsInRequestMatchRequest(requestDocument, request, REQUEST_ID, mockedMagdaRegistrationInfo)
         );
     }
 
@@ -44,12 +47,12 @@ class GeefPasfotoTest extends TestBase {
                     .hoedanigheidscode(TEST_SERVICE_HOEDANIGHEID)
                     .build();
 
-            var requestDocument = request.toMagdaDocument(mockedMagdaRegistrationInfo);
+            var requestDocument = request.toMagdaDocument(REQUEST_ID, mockedMagdaRegistrationInfo);
 
             log.debug("Request:  {}", requestDocument.toString());
 
             assertAll(
-                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchRequest(requestDocument, request, mockedMagdaRegistrationInfo)
+                    () -> assertThatTechnicalFieldsIncludingHoedanigheidInRequestMatchRequest(requestDocument, request, REQUEST_ID, mockedMagdaRegistrationInfo)
             );
         }
     }

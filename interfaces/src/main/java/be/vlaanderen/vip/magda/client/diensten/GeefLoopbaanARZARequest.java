@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.ToString;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
+
 /**
  * A request to a "GeefLoopbaanARZA" MAGDA service, which provides information regarding self-employment for an INSZ.
  * Adds the following fields to the {@link PersonMagdaRequest}:
@@ -81,8 +83,8 @@ public class GeefLoopbaanARZARequest extends PersonMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo);
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
 
         request.setValue("//Criteria/Periode/Begin", getStartDate().format(dateFormatter));
