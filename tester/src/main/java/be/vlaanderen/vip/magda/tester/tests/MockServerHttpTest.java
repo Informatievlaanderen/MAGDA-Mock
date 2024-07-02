@@ -75,7 +75,7 @@ public class MockServerHttpTest extends MockServerTest {
                 .insz(CORRECT_INSZ)
                 .build();
 
-        var magdaResponse = connector.send(request);
+        var magdaResponse = connector.send(request, REQUEST_ID);
         logMagdaResponse(magdaResponse);
 
         assertResponsBevatAntwoord(magdaResponse);
@@ -163,7 +163,7 @@ public class MockServerHttpTest extends MockServerTest {
     @SneakyThrows
     void callGeefAanslagbiljetPersonenbelasting() {
         var request = GeefAanslagbiljetPersonenbelastingRequest.builder()
-                .insz("82102108114")
+                .insz("82702108146")
                 .build();
         var magdaResponse = connector.send(request, REQUEST_ID);
         logMagdaResponse(magdaResponse);
@@ -174,7 +174,7 @@ public class MockServerHttpTest extends MockServerTest {
 
         assertResponsKomtOvereenMetRequest(doc, REQUEST_ID);
 
-        assertThatXmlFieldIsEqualTo(magdaResponse.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82102108114");
+        assertThatXmlFieldIsEqualTo(magdaResponse.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/INSZ", "82702108146");
         assertThatXmlFieldIsEqualTo(magdaResponse.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Code", "A");
         assertThatXmlFieldIsEqualTo(magdaResponse.getDocument(), "//Antwoorden/Antwoord/Inhoud/AanslagbiljetPersonenbelasting/GevraagdePersoon/FiscaleStatus/Omschrijving", "Titularis");
 
