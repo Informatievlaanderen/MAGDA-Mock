@@ -9,3 +9,7 @@ tester:
     key-alias: ${MAGDA_KEY_ALIAS}
     key-password: ${MAGDA_KEY_PASSWORD}
     keystore-password: ${MAGDA_KEYSTORE_PASSWORD}
+
+logging:
+  level:
+    be.vlaanderen.vip.magda: debug
