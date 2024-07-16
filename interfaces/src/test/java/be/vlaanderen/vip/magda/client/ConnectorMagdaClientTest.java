@@ -11,7 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -37,18 +36,16 @@ class ConnectorMagdaClientTest {
         
         @Mock private MagdaResponse response;
         
-        private final List<UitzonderingEntry> level2errors = new ArrayList<>();
-        private final List<UitzonderingEntry> level3errors = new ArrayList<>();
-        
         @BeforeEach
         void setup() {
-            lenient().when(response.getUitzonderingEntries()).thenReturn(level2errors);
-            lenient().when(response.getResponseUitzonderingEntries()).thenReturn(level3errors);
             lenient().when(response.getRequestId()).thenReturn(REQUEST_ID);
         }
         
         @Test
         void returnsMagdaResponse() throws MagdaClientException {
+            when(response.getUitzonderingEntries()).thenReturn(List.of());
+            when(response.getResponseUitzonderingEntries()).thenReturn(List.of());
+
             when(connector.send(request, REQUEST_ID)).thenReturn(response);
             
             var result = service.send(request, REQUEST_ID);
@@ -66,30 +63,60 @@ class ConnectorMagdaClientTest {
         
         @Test
         void throwsException_whenResponseContainsLevel2Errors() {
+            when(response.getUitzonderingEntries()).thenReturn(List.of(mock(UitzonderingEntry.class)));
+
             when(connector.send(request, REQUEST_ID)).thenReturn(response);
-            level2errors.add(mock(UitzonderingEntry.class));
 
             assertThrows(MagdaClientException.class,
                          () -> service.send(request, REQUEST_ID));
+        }
+
+        @Test
+        void returnsMagdaResponse_whenLevel3ErrorsAreNeverSevere() throws MagdaClientException {
+            when(response.getUitzonderingEntries()).thenReturn(List.of());
+            when(response.getResponseUitzonderingEntries()).thenReturn(List.of(mock(UitzonderingEntry.class)));
+
+            when(connector.send(request, REQUEST_ID)).thenReturn(response);
+
+            var result = service.send(request, REQUEST_ID, uitzonderingEntries -> false);
+
+            assertThat(result.getResponse(), is(equalTo(response)));
+        }
+
+        @Test
+        void throwsException_whenLevel3ErrorsAreAlwaysSevere() {
+            when(response.getUitzonderingEntries()).thenReturn(List.of());
+            when(response.getResponseUitzonderingEntries()).thenReturn(List.of(mock(UitzonderingEntry.class)));
+
+            when(connector.send(request, REQUEST_ID)).thenReturn(response);
+
+            assertThrows(MagdaClientException.class,
+                    () -> service.send(request, REQUEST_ID, uitzonderingEntries -> true));
         }
         
         @Test
-        void throwsException_whenResponseContainsLevel3ErrorsAtLeastOneFout() {
-            when(connector.send(request, REQUEST_ID)).thenReturn(response);
+        void throwsException_whenResponseContainsLevel3ErrorsAtLeastOneFout_byDefault() {
             UitzonderingEntry uitzonderingEntry = mock(UitzonderingEntry.class);
             when(uitzonderingEntry.getUitzonderingType()).thenReturn(UitzonderingType.FOUT);
-            level3errors.add(uitzonderingEntry);
+
+            when(response.getUitzonderingEntries()).thenReturn(List.of());
+            when(response.getResponseUitzonderingEntries()).thenReturn(List.of(uitzonderingEntry));
+
+            when(connector.send(request, REQUEST_ID)).thenReturn(response);
 
             assertThrows(MagdaClientException.class,
                          () -> service.send(request, REQUEST_ID));
         }
 
         @Test
-        void throwsException_whenResponseContainsLevel3ErrorsNoFout() {
-            when(connector.send(request, REQUEST_ID)).thenReturn(response);
+        void throwsException_whenResponseContainsLevel3ErrorsNoFout_byDefault() {
             UitzonderingEntry uitzonderingEntry = mock(UitzonderingEntry.class);
             when(uitzonderingEntry.getUitzonderingType()).thenReturn(UitzonderingType.WAARSCHUWING);
-            level3errors.add(uitzonderingEntry);
+
+            when(response.getUitzonderingEntries()).thenReturn(List.of());
+            when(response.getResponseUitzonderingEntries()).thenReturn(List.of(uitzonderingEntry));
+
+            when(connector.send(request, REQUEST_ID)).thenReturn(response);
 
             assertDoesNotThrow(
                     () -> service.send(request, REQUEST_ID));
