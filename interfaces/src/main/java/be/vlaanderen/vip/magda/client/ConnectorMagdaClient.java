@@ -1,41 +1,23 @@
 package be.vlaanderen.vip.magda.client;
 
-import be.vlaanderen.vip.magda.exception.ServerException;
 import be.vlaanderen.vip.magda.exception.UitzonderingenSectionInResponseException;
 import be.vlaanderen.vip.magda.legallogging.model.UitzonderingEntry;
 import be.vlaanderen.vip.magda.legallogging.model.UitzonderingType;
 
 import java.util.List;
-import java.util.UUID;
 
-public class ConnectorMagdaClient implements MagdaClient {
-    private MagdaConnector connector;
-    
-    public ConnectorMagdaClient(
-            MagdaConnector connector) {
-        this.connector = connector;
+/**
+ * A MagdaConnector-based client which handles both level 2 and level 3 uitzondingen in the response.
+ * Level 3 uitzondingen are handled in an opinionated manner whereby an exception is thrown if at least one of them is of type "FOUT".
+ */
+public class ConnectorMagdaClient extends AbstractConnectorMagdaClient {
+
+    public ConnectorMagdaClient(MagdaConnector connector) {
+        super(connector);
     }
 
     @Override
-    public MagdaResponseWrapper send(MagdaRequest request) throws MagdaClientException {
-        return send(request, UUID.randomUUID());
-    }
-
-    @Override
-    public MagdaResponseWrapper send(MagdaRequest request, UUID requestId) throws MagdaClientException {
-        try {
-            var response = connector.send(request, requestId);
-            
-            validateMagdaResponse(response, request);
-            
-            return new MagdaResponseWrapper(response);
-        }
-        catch (ServerException e) {
-            throw new MagdaClientException("Error occurred while sending magda request", e);
-        }
-    }
-    
-    private void validateMagdaResponse(MagdaResponse response, MagdaRequest request) throws MagdaClientException {
+    protected void validateMagdaResponse(MagdaResponse response, MagdaRequest request) throws MagdaClientException {
         if(!response.getUitzonderingEntries().isEmpty()) {
             throw new MagdaClientException("Level 2 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getUitzonderingEntries(), request.getCorrelationId(), response.getRequestId()));
         }
@@ -47,5 +29,4 @@ public class ConnectorMagdaClient implements MagdaClient {
     private boolean haveAtLeastOneFout(List<UitzonderingEntry> entries) {
         return entries.stream().anyMatch(uitzonderingEntry -> uitzonderingEntry.getUitzonderingType().equals(UitzonderingType.FOUT));
     }
-    
 }
