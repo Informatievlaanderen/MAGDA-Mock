@@ -2,17 +2,20 @@ package be.vlaanderen.vip.magda.client.domain.giveenrollmenthistory;
 
 import be.vlaanderen.vip.magda.client.MagdaClient;
 import be.vlaanderen.vip.magda.client.MagdaClientException;
+import be.vlaanderen.vip.magda.client.MagdaResponse;
 import be.vlaanderen.vip.magda.client.diensten.GeefHistoriekInschrijvingRequest;
+import be.vlaanderen.vip.magda.exception.UitzonderingenSectionInResponseException;
+import be.vlaanderen.vip.magda.legallogging.model.UitzonderingType;
 
 public class MagdaClientGiveEnrollmentHistoryService implements GiveEnrollmentHistoryService {
 
-    private final MagdaClient service;
+    private final MagdaClient client;
     private final MagdaResponseEnrollmentHistoryAdapter adapter;
 
     public MagdaClientGiveEnrollmentHistoryService(
-            MagdaClient service,
+            MagdaClient client,
             MagdaResponseEnrollmentHistoryAdapter adapter) {
-        this.service = service;
+        this.client = client;
         this.adapter = adapter;
     }
 
@@ -23,6 +26,18 @@ public class MagdaClientGiveEnrollmentHistoryService implements GiveEnrollmentHi
 
     @Override
     public EnrollmentHistory getEnrollmentHistory(GeefHistoriekInschrijvingRequest request) throws MagdaClientException {
-        return adapter.adapt(service.send(request));
+        var responseWrapper = client.send(request);
+
+        validateResponse(responseWrapper.getResponse(), request); // XXX test
+
+        return adapter.adapt(responseWrapper);
+    }
+
+    private void validateResponse(MagdaResponse response, GeefHistoriekInschrijvingRequest request) throws MagdaClientException {
+        if(response.getResponseUitzonderingEntries().stream().anyMatch(x ->
+                        x.getUitzonderingType().equals(UitzonderingType.FOUT) &&
+                        !"30101".equals(x.getIdentification()))) {
+            throw new MagdaClientException("Level 3 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getResponseUitzonderingEntries(), request.getCorrelationId(), response.getRequestId()));
+        }
     }
 }
