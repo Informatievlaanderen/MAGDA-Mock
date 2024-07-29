@@ -2,7 +2,6 @@ package be.vlaanderen.vip.magda.client.domain.giveperson;
 
 import be.vlaanderen.vip.magda.MalformedMagdaResponseException;
 import be.vlaanderen.vip.magda.client.domain.dto.INSZ;
-import be.vlaanderen.vip.magda.client.domain.dto.IncompleteDateMissingPartException;
 import be.vlaanderen.vip.magda.client.domain.dto.IncompleteDate;
 
 import java.time.LocalDate;
@@ -79,6 +78,13 @@ public interface Person {
          * @return concatenation of the person's last names, or an empty string if the document contains no information on their last names.
          */
         String lastName();
+
+        /**
+         * The position of the person in relation to the person they are related to.
+         *
+         * @return the position code.
+         */
+        String positionCode();
     }
 
     /**
@@ -102,6 +108,11 @@ public interface Person {
          * The address of the person's main residence.
          */
         Address mainResidence();
+
+        /**
+         * The person's contact address
+         */
+        Address contactAddress();
     }
 
     /**
@@ -130,6 +141,18 @@ public interface Person {
      * Address information.
      */
     interface Address {
+
+        /**
+         * The start date of the validity period for this address.
+         * This field should in principle always be present, but it's technically possible for it to be missing from a document.
+         */
+        Optional<IncompleteDate> startDate();
+
+        /**
+         * The end date of the validity period for this address.
+         * If there is no end date, then the address is still valid to this day.
+         */
+        Optional<IncompleteDate> endDate();
 
         /**
          * Street name.

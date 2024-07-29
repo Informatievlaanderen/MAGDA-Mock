@@ -28,7 +28,7 @@ public class MagdaClientGiveEnrollmentHistoryService implements GiveEnrollmentHi
     public EnrollmentHistory getEnrollmentHistory(GeefHistoriekInschrijvingRequest request) throws MagdaClientException {
         var responseWrapper = client.send(request);
 
-        validateResponse(responseWrapper.getResponse(), request); // XXX test
+        validateResponse(responseWrapper.getResponse(), request);
 
         return adapter.adapt(responseWrapper);
     }
