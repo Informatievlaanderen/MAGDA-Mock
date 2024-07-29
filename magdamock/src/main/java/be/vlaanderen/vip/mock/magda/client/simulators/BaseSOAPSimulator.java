@@ -23,7 +23,9 @@ public abstract class BaseSOAPSimulator implements SOAPSimulator {
     }
 
     protected void patchResponse(MagdaDocument request, MagdaDocument response) {
-        response.setValue("//Referte", request.getValue("//Afzender/Referte"));
+        var senderReference = request.getValue("//Afzender/Referte");
+        response.setValue("//Ontvanger/Referte", senderReference);
+        response.setValue("//Antwoord/Referte", senderReference);
         response.setValue("//Ontvanger/Identificatie", request.getValue("//Afzender/Identificatie"));
         response.setValue("//Ontvanger/Hoedanigheid", request.getValue("//Afzender/Hoedanigheid"));
         
