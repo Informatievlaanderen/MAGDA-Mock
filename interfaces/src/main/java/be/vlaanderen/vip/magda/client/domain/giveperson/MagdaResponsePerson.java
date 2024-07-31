@@ -60,7 +60,7 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
     private Stream<Node> familyMemberNodes() {
         return response.getNodes("//Gezinsleden/Gezinslid");
     }
-    
+
     private boolean hasPartnerCode(Node familyMemberNode) {
         return familyMemberHasCode(familyMemberNode, "02", "21", "22");
     }
@@ -116,6 +116,13 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
                        .flatMap(Optional::stream)
                        .collect(Collectors.joining(" "));
         }
+
+        @Override
+        public String positionCode() {
+            return node.get("Positie/Code")
+                    .flatMap(Node::getValue)
+                    .orElseThrow(() -> new MalformedMagdaResponseException("Magda response document misses an expected 'Positie/Code' node"));
+        }
     }
 
     private static class NodeDetailedRelatedPerson extends NodeRelatedPerson implements DetailedRelatedPerson {
@@ -145,6 +152,13 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
                     .map(NodeAddress::new)
                     .orElse(null);
         }
+
+        @Override
+        public Address contactAddress() {
+            return node.get("Adressen/ContactAdres")
+                    .map(NodeAddress::new)
+                    .orElse(null);
+        }
     }
 
     private static class NodeFamilyMemberPerson extends NodeRelatedPerson implements FamilyMemberPerson {
@@ -169,6 +183,20 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
     }
 
     private record NodeAddress(Node node) implements Address {
+
+        @Override
+        public Optional<IncompleteDate> startDate() {
+            return node.get("@DatumBegin")
+                    .flatMap(Node::getValue)
+                    .map(IncompleteDate::fromString);
+        }
+
+        @Override
+        public Optional<IncompleteDate> endDate() {
+            return node.get("@DatumEinde")
+                    .flatMap(Node::getValue)
+                    .map(IncompleteDate::fromString);
+        }
 
         @Override
         public String street() {
