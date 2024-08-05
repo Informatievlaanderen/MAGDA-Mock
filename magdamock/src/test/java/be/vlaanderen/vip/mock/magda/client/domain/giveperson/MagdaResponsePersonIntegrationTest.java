@@ -305,6 +305,11 @@ class MagdaResponsePersonIntegrationTest {
                     () -> assertThat(memberA2.positionCode(), is(equalTo("12"))),
                     () -> assertThat(memberB1.positionCode(), is(equalTo("01"))));
         }
+
+        @Test
+        void mapsDateOfBirth() {
+            assertThat(memberA1.incompleteDateOfBirth().toLocalDate(), is(equalTo(LocalDate.of(1902, 4, 18))));
+        }
     }
     
     @Nested

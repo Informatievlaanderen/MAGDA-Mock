@@ -123,20 +123,21 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
                     .flatMap(Node::getValue)
                     .orElseThrow(() -> new MalformedMagdaResponseException("Magda response document misses an expected 'Positie/Code' node"));
         }
+
+        @Override
+        public IncompleteDate incompleteDateOfBirth() {
+            return node.get("Geboorte/Datum")
+                    .or(() -> node.get("Geboortedatum"))
+                    .flatMap(Node::getValue)
+                    .map(IncompleteDate::fromString)
+                    .orElse(null);
+        }
     }
 
     private static class NodeDetailedRelatedPerson extends NodeRelatedPerson implements DetailedRelatedPerson {
 
         public NodeDetailedRelatedPerson(Node node) {
             super(node);
-        }
-
-        @Override
-        public IncompleteDate incompleteDateOfBirth() {
-            return node.get("Geboorte/Datum")
-                    .flatMap(Node::getValue)
-                    .map(IncompleteDate::fromString)
-                    .orElse(null);
         }
         
         @Override

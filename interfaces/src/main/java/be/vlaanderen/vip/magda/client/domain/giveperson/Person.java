@@ -85,17 +85,17 @@ public interface Person {
          * @return the position code.
          */
         String positionCode();
+
+        /**
+         * The person's (potentially incomplete) date of birth.
+         */
+        IncompleteDate incompleteDateOfBirth();
     }
 
     /**
      * Detailed personal information.
      */
     interface DetailedRelatedPerson extends RelatedPerson {
-
-        /**
-         * The person's (potentially incomplete) date of birth.
-         */
-        IncompleteDate incompleteDateOfBirth();
 
         /**
          * The person's date of death (if any).
