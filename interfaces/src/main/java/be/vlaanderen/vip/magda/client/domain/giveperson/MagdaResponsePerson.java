@@ -60,7 +60,7 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
     private Stream<Node> familyMemberNodes() {
         return response.getNodes("//Gezinsleden/Gezinslid");
     }
-    
+
     private boolean hasPartnerCode(Node familyMemberNode) {
         return familyMemberHasCode(familyMemberNode, "02", "21", "22");
     }
@@ -116,20 +116,28 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
                        .flatMap(Optional::stream)
                        .collect(Collectors.joining(" "));
         }
+
+        @Override
+        public String positionCode() {
+            return node.get("Positie/Code")
+                    .flatMap(Node::getValue)
+                    .orElseThrow(() -> new MalformedMagdaResponseException("Magda response document misses an expected 'Positie/Code' node"));
+        }
+
+        @Override
+        public IncompleteDate incompleteDateOfBirth() {
+            return node.get("Geboorte/Datum")
+                    .or(() -> node.get("Geboortedatum"))
+                    .flatMap(Node::getValue)
+                    .map(IncompleteDate::fromString)
+                    .orElse(null);
+        }
     }
 
     private static class NodeDetailedRelatedPerson extends NodeRelatedPerson implements DetailedRelatedPerson {
 
         public NodeDetailedRelatedPerson(Node node) {
             super(node);
-        }
-
-        @Override
-        public IncompleteDate incompleteDateOfBirth() {
-            return node.get("Geboorte/Datum")
-                    .flatMap(Node::getValue)
-                    .map(IncompleteDate::fromString)
-                    .orElse(null);
         }
         
         @Override
@@ -142,6 +150,13 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
         @Override
         public Address mainResidence() {
             return node.get("Adressen/Hoofdverblijfplaats")
+                    .map(NodeAddress::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public Address contactAddress() {
+            return node.get("Adressen/ContactAdres")
                     .map(NodeAddress::new)
                     .orElse(null);
         }
@@ -169,6 +184,20 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
     }
 
     private record NodeAddress(Node node) implements Address {
+
+        @Override
+        public Optional<IncompleteDate> startDate() {
+            return node.get("@DatumBegin")
+                    .flatMap(Node::getValue)
+                    .map(IncompleteDate::fromString);
+        }
+
+        @Override
+        public Optional<IncompleteDate> endDate() {
+            return node.get("@DatumEinde")
+                    .flatMap(Node::getValue)
+                    .map(IncompleteDate::fromString);
+        }
 
         @Override
         public String street() {

@@ -4,18 +4,22 @@ import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
 import java.util.UUID;
 
+import static be.vlaanderen.vip.magda.client.diensten.PersonSource.RR;
+
 /**
  * A request to a "GeefPersoon" MAGDA service, which provides personal information.
  * Adds the following fields to the {@link PersonMagdaRequest}:
  * <ul>
- * <li>none</li>
+ * <li>source: the source to be consulted (optional; default is RR)</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefPersoon/02.02.0000/template.xml">XML template for this request type</a>
@@ -27,12 +31,21 @@ public class GeefPersoonRequest extends PersonMagdaRequest {
 
     public static class Builder extends PersonMagdaRequest.Builder<Builder> {
 
+        @Getter(AccessLevel.PROTECTED)
+        private PersonSource source;
+
+        public GeefPersoonRequest.Builder source(PersonSource source) {
+            this.source = source;
+            return this;
+        }
+
         public GeefPersoonRequest build() {
             if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
 
             return new GeefPersoonRequest(
                     getInsz(),
-                    getRegistration()
+                    getRegistration(),
+                    getSource()
             );
         }
     }
@@ -41,10 +54,15 @@ public class GeefPersoonRequest extends PersonMagdaRequest {
         return new Builder();
     }
 
+    @Nullable
+    private final PersonSource source;
+
     private GeefPersoonRequest(
             @NotNull INSZNumber insz,
-            @NotNull String registratie) {
+            @NotNull String registratie,
+            @Nullable PersonSource source) {
         super(insz, registratie);
+        this.source = source;
     }
 
     @Override
@@ -55,5 +73,7 @@ public class GeefPersoonRequest extends PersonMagdaRequest {
     @Override
     protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
         fillInCommonFields(request, requestId, magdaRegistrationInfo);
+
+        request.setValue("//Inhoud/Bron", (source != null ? source : RR).getValue());
     }
 }

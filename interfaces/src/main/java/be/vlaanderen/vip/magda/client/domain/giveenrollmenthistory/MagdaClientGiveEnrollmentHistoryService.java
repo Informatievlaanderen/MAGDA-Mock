@@ -7,6 +7,8 @@ import be.vlaanderen.vip.magda.client.diensten.GeefHistoriekInschrijvingRequest;
 import be.vlaanderen.vip.magda.exception.UitzonderingenSectionInResponseException;
 import be.vlaanderen.vip.magda.legallogging.model.UitzonderingType;
 
+import java.util.UUID;
+
 public class MagdaClientGiveEnrollmentHistoryService implements GiveEnrollmentHistoryService {
 
     private final MagdaClient client;
@@ -28,7 +30,16 @@ public class MagdaClientGiveEnrollmentHistoryService implements GiveEnrollmentHi
     public EnrollmentHistory getEnrollmentHistory(GeefHistoriekInschrijvingRequest request) throws MagdaClientException {
         var responseWrapper = client.send(request);
 
-        validateResponse(responseWrapper.getResponse(), request); // XXX test
+        validateResponse(responseWrapper.getResponse(), request);
+
+        return adapter.adapt(responseWrapper);
+    }
+
+    @Override
+    public EnrollmentHistory getEnrollmentHistory(GeefHistoriekInschrijvingRequest request, UUID requestId) throws MagdaClientException {
+        var responseWrapper = client.send(request, requestId);
+
+        validateResponse(responseWrapper.getResponse(), request);
 
         return adapter.adapt(responseWrapper);
     }

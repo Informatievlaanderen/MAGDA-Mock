@@ -15,7 +15,6 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 import static be.vlaanderen.vip.magda.client.domain.giveperson.Person.*;
-import static be.vlaanderen.vip.magda.client.domain.giveperson.Person.DetailedRelatedPerson;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -102,6 +101,19 @@ class MagdaResponsePersonIntegrationTest {
             assertEquals(Optional.of("2340"), address.zipCode());
             assertEquals(Optional.of("Kortenberg"), address.municipality());
         }
+
+        @Test
+        void mapsContactAddress() {
+            var address = person("83320675958").self().contactAddress();
+
+            assertNotNull(address);
+            assertEquals("Hoogstraat", address.street());
+            assertEquals("64", address.houseNumber());
+            assertEquals(Optional.of("A"), address.postalBoxNumber());
+            assertEquals(Optional.of("44021"), address.nisCode());
+            assertEquals(Optional.of("9000"), address.zipCode());
+            assertEquals(Optional.of("Gent"), address.municipality());
+        }
     }
 
     @Nested
@@ -134,6 +146,11 @@ class MagdaResponsePersonIntegrationTest {
         @Test
         void mapsLastName() {
             assertThat(referencePerson.lastName(), is(equalTo("Dubois")));
+        }
+
+        @Test
+        void mapsPositionCode() {
+            assertThat(referencePerson.positionCode(), is(equalTo("03")));
         }
 
         @Test
@@ -172,6 +189,11 @@ class MagdaResponsePersonIntegrationTest {
         @Test
         void mapsLastName() {
             assertThat(referenceFamilyMemberA.lastName(), is(equalTo("Dubois")));
+        }
+
+        @Test
+        void mapsPositionCode() {
+            assertThat(referenceFamilyMemberA.positionCode(), is(equalTo("03")));
         }
 
         @Test
@@ -274,6 +296,19 @@ class MagdaResponsePersonIntegrationTest {
         void mapsLastName_withLastNamesAbsent_asEmptyString() {
             assertAll(
                     () -> assertThat(memberB1.lastName(), is(equalTo(""))));
+        }
+
+        @Test
+        void mapsPositionCode() {
+            assertAll(
+                    () -> assertThat(memberA1.positionCode(), is(equalTo("03"))),
+                    () -> assertThat(memberA2.positionCode(), is(equalTo("12"))),
+                    () -> assertThat(memberB1.positionCode(), is(equalTo("01"))));
+        }
+
+        @Test
+        void mapsDateOfBirth() {
+            assertThat(memberA1.incompleteDateOfBirth().toLocalDate(), is(equalTo(LocalDate.of(1902, 4, 18))));
         }
     }
     
