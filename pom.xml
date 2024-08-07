@@ -28,7 +28,7 @@
 		<jackson-dataformat-yaml.version>2.15.2</jackson-dataformat-yaml.version>
 		<javax.json.version>1.1.4</javax.json.version>
 		<log4j2.version>2.18.0</log4j2.version>
-		<logstash.logback.version>7.4</logstash.logback.version>
+		<logstash.logback.version>8.0</logstash.logback.version>
 		<slf4j.version>2.0.13</slf4j.version>
 		<lombok.version>1.18.34</lombok.version>
 		<mapstruct-lombok.version>0.2.0</mapstruct-lombok.version>
