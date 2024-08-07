@@ -10,13 +10,14 @@ import jakarta.annotation.Nullable;
 import java.time.LocalDate;
 import java.time.Year;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Information on a citizen's history of enrollment in education.
  */
 public interface EnrollmentHistory {
 
-    static EnrollmentHistory ofMagdaDocument(MagdaDocument magdaDocument) throws MagdaClientException {
+    static Optional<EnrollmentHistory> ofMagdaDocument(MagdaDocument magdaDocument) throws MagdaClientException {
         return MagdaResponseEnrollmentHistoryAdapterJaxbImpl.getInstance().adapt(new MagdaResponseWrapper(MagdaResponse.builder()
                 .document(magdaDocument)
                 .build()));

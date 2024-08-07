@@ -3,6 +3,7 @@ package be.vlaanderen.vip.magda.client.domain.giveenrollmenthistory;
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.diensten.GeefHistoriekInschrijvingRequest;
 
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -11,18 +12,18 @@ import java.util.UUID;
 public interface GiveEnrollmentHistoryService {
 
     /**
-     * Retrieves education enrollment history information from a GeefHistoriekInschrijvingRequest request.
+     * Retrieves education enrollment history information, if any, from a GeefHistoriekInschrijvingRequest request.
      *
      * @see EnrollmentHistory
      * @see GeefHistoriekInschrijvingRequest
      */
-    EnrollmentHistory getEnrollmentHistory(GeefHistoriekInschrijvingRequest request) throws MagdaClientException;
+    Optional<EnrollmentHistory> getEnrollmentHistory(GeefHistoriekInschrijvingRequest request) throws MagdaClientException;
 
     /**
-     * Retrieves education enrollment history information from a GeefHistoriekInschrijvingRequest request, with a provided request ID.
+     * Retrieves education enrollment history information, if any, from a GeefHistoriekInschrijvingRequest request, with a provided request ID.
      *
      * @see EnrollmentHistory
      * @see GeefHistoriekInschrijvingRequest
      */
-    EnrollmentHistory getEnrollmentHistory(GeefHistoriekInschrijvingRequest request, UUID requestId) throws MagdaClientException;
+    Optional<EnrollmentHistory> getEnrollmentHistory(GeefHistoriekInschrijvingRequest request, UUID requestId) throws MagdaClientException;
 }
