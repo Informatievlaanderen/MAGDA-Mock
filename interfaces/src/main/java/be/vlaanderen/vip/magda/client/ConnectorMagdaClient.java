@@ -7,8 +7,8 @@ import be.vlaanderen.vip.magda.legallogging.model.UitzonderingType;
 import java.util.List;
 
 /**
- * A MagdaConnector-based client which handles both level 2 and level 3 uitzondingen in the response.
- * Level 3 uitzondingen are handled in an opinionated manner whereby an exception is thrown if at least one of them is of type "FOUT".
+ * A MagdaConnector-based client which handles both level 2 and level 3 uitzonderingen in the response.
+ * Level 3 uitzonderingen are handled in an opinionated manner whereby an exception is thrown if at least one of them is of type "FOUT".
  */
 public class ConnectorMagdaClient extends AbstractConnectorMagdaClient {
 
