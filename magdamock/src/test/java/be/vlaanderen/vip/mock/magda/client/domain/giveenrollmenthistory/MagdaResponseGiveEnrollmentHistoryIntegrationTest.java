@@ -4,31 +4,33 @@ import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.diensten.GeefHistoriekInschrijvingRequest;
 import be.vlaanderen.vip.magda.client.domain.giveenrollmenthistory.EnrollmentHistory;
 import be.vlaanderen.vip.mock.magda.client.domain.MagdaMock;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MagdaResponseGiveEnrollmentHistoryIntegrationTest {
 
-    private EnrollmentHistory enrollmentHistory;
-
-    @BeforeEach
-    void setup() throws MagdaClientException {
-        enrollmentHistory = enrollmentHistory("88611099807");
-    }
-
     @Test
-    void dataIsBoundToResponseDocument() {
-        var enrollments = enrollmentHistory.enrollments();
+    void dataIsBoundToResponseDocument() throws MagdaClientException {
+        var enrollmentHistory = enrollmentHistory("88611099807");
+
+        assertTrue(enrollmentHistory.isPresent());
+        var enrollments = enrollmentHistory.get().enrollments();
         assertNotNull(enrollments);
         assertEquals(6, enrollments.size());
     }
 
-    private EnrollmentHistory enrollmentHistory(String insz) throws MagdaClientException {
+    @Test
+    void empty_ifResponseDocumentHasNoContent() throws MagdaClientException {
+        var enrollmentHistory = enrollmentHistory("00000000097");
+
+        assertTrue(enrollmentHistory.isEmpty());
+    }
+
+    private Optional<EnrollmentHistory> enrollmentHistory(String insz) throws MagdaClientException {
         var response = MagdaMock.getInstance().send(GeefHistoriekInschrijvingRequest.builder()
                 .insz(insz)
                 .startDate(LocalDate.of(2024, 1, 1))

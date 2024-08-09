@@ -3,7 +3,7 @@ package be.vlaanderen.vip.magda.client;
 import be.vlaanderen.vip.magda.exception.UitzonderingenSectionInResponseException;
 
 /**
- * A MagdaConnector-based client which handles level 2 uitzondingen in the response.
+ * A MagdaConnector-based client which handles level 2 uitzonderingen in the response.
  */
 public class LenientConnectorMagdaClient extends AbstractConnectorMagdaClient {
 
