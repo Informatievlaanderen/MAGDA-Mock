@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefPersoon</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-03-20</Datum>
+                    <Tijd>10:21:40.797</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>gent.be/ipdc2858</Identificatie>
+                    <Referte>AREF_QT_860921_102202</Referte>
+                    <Hoedanigheid>ipdc2858</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>3d9555a8-5702-41f6-a979-c75bdca6a603</Referte>
+                <Inhoud>
+                    <Persoon Bron="RR" DatumCreatie="1998-04-09">
+                        <INSZ>98640966618</INSZ>
+                        <Naam DatumBegin="1998-04-09">
+                            <Achternamen>
+                                <Achternaam>Saidi</Achternaam>
+                            </Achternamen>
+                            <Voornamen>
+                                <Voornaam>Amina</Voornaam>
+                            </Voornamen>
+                        </Naam>
+                        <Geslacht>
+                            <Code>2</Code>
+                            <Omschrijving>Vrouwelijk</Omschrijving>
+                        </Geslacht>
+                        <Beheerder DatumBegin="1998-04-09">
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Fusie>
+                                <Code>0</Code>
+                                <Omschrijving Taal="nl">NEEN</Omschrijving>
+                            </Fusie>
+                            <Taalregime>
+                                <Code>2</Code>
+                                <Omschrijving Taal="nl">Nederlands</Omschrijving>
+                            </Taalregime>
+                        </Beheerder>
+                        <Register DatumBegin="1998-04-09">
+                            <Code>RR</Code>
+                            <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                        </Register>
+                        <Nationaliteiten>
+                            <Nationaliteit DatumBegin="1998-04-09">
+                                <Code>150</Code>
+                                <Omschrijving>Belg</Omschrijving>
+                            </Nationaliteit>
+                        </Nationaliteiten>
+                        <Geboorte DatumBegin="1998-04-09">
+                            <Datum>1998-04-09</Datum>
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Aktenummer>80985</Aktenummer>
+                            <Bewijsstuk>
+                                <Code>00</Code>
+                                <Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
+                            </Bewijsstuk>
+                        </Geboorte>
+                        <Adressen>
+                            <Hoofdverblijfplaats DatumBegin="2004-04-04">
+                                <Straatnaam>
+                                    <String>Blankenbergsestraat</String>
+                                    <Taal>nl</Taal>
+                                </Straatnaam>
+                                <Huisnummer>23</Huisnummer>
+                                <Busnummer>001</Busnummer>
+                                <Gemeentenaam>
+                                    <String>Gent</String>
+                                    <Taal>nl</Taal>
+                                </Gemeentenaam>
+                                <Land>
+                                    <String>BELGIE</String>
+                                    <Taal>nl</Taal>
+                                </Land>
+                                <Postcode>9000</Postcode>
+                                <NISCodeLand>150</NISCodeLand>
+                                <ISOCodeLand>BEL</ISOCodeLand>
+                                <NISCodeGemeente>44021</NISCodeGemeente>
+                            </Hoofdverblijfplaats>
+                        </Adressen>
+                        <Referentiepersoon DatumBegin="2004-04-04">
+                            <INSZ>96721418968</INSZ>
+                            <Naam>
+                                <Achternamen>
+                                    <Achternaam>Saidi</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Mohammed</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                            <Geboortedatum>1996-12-14</Geboortedatum>
+                            <Positie>
+                                <Code>09</Code>
+                                <Omschrijving Taal="nl">Zuster</Omschrijving>
+                            </Positie>
+                        </Referentiepersoon>
+                    </Persoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefPersoonResponse>
