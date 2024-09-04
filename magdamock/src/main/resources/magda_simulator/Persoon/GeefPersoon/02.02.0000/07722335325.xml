@@ -37,8 +37,8 @@
                             </Voornamen>
                         </Naam>
                         <Geslacht>
-                            <Code>2</Code>
-                            <Omschrijving>Vrouwelijk</Omschrijving>
+                            <Code>1</Code>
+                            <Omschrijving>Mannelijk</Omschrijving>
                         </Geslacht>
                         <Register DatumBegin="2007-12-23">
                             <Code>RR</Code>
