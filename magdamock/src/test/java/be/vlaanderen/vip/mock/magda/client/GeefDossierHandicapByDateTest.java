@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @Slf4j
 class GeefDossierHandicapByDateTest extends MockTestBase {
@@ -97,6 +98,6 @@ class GeefDossierHandicapByDateTest extends MockTestBase {
         assertThat(status).isEqualTo("NO_DATA_FOUND");
 
         var ssin = doc.getValue("//Antwoorden/Antwoord/Inhoud/ConsultFilesByDateResponse/ssin");
-        assertThat(ssin).isEqualTo("00010100173");
+        assertNull(ssin);
     }
 }
