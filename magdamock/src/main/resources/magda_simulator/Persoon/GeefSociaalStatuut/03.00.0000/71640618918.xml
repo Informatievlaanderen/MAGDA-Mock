@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<v03:GeefSociaalStatuutResponse xmlns:v03="http://magda.vlaanderen.be/soczek/soap/geefsociaalstatuut/v03_00">
+    <Repliek>
+        <Context>
+            <Naam>GeefSociaalStatuut</Naam>
+            <Versie>03.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-04-26</Datum>
+                    <Tijd>12:21:40.797</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>gent.be/ipdc2858</Identificatie>
+                    <Referte>AREF_QT_860921_102202</Referte>
+                    <Hoedanigheid>ipdc2045</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>c716a80d-e36b-4383-8617-c9125c537af4</Referte>
+                <Inhoud>
+                    <Persoon>
+                        <INSZ>71640618918</INSZ>
+                        <SocialeStatuten>
+                            <SociaalStatuut>
+                                <Naam>PCSA_AND_BIM_HELP</Naam>
+                                <Resultaat>
+                                    <Code>1</Code>
+                                    <Omschrijving>Van toepassing</Omschrijving>
+                                </Resultaat>
+                            </SociaalStatuut>
+                        </SocialeStatuten>
+                    </Persoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</v03:GeefSociaalStatuutResponse>

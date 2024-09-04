@@ -24,16 +24,16 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>93d5ccc1-ee66-41f4-b7ba-5b0b9d3f73c3</Referte>
+                <Referte>a2865ad0-9da2-4e79-b23c-21ba0c6ceb23</Referte>
                 <Inhoud>
-                    <Persoon Bron="RR" DatumCreatie="1976-04-28" DatumModificatie="2004-09-12">
-                        <INSZ>76642812413</INSZ>
-                        <Naam DatumBegin="1976-04-28">
+                    <Persoon Bron="RR" DatumCreatie="1978-05-09" DatumModificatie="2004-09-12">
+                        <INSZ>78650919873</INSZ>
+                        <Naam DatumBegin="1978-05-09">
                             <Achternamen>
-                                <Achternaam>Boelaert</Achternaam>
+                                <Achternaam>Bonne</Achternaam>
                             </Achternamen>
                             <Voornamen>
-                                <Voornaam>Stefanie</Voornaam>
+                                <Voornaam>Valérie</Voornaam>
                             </Voornamen>
                         </Naam>
                         <Geslacht>
@@ -61,18 +61,18 @@
                                 <Omschrijving Taal="nl">Nederlands</Omschrijving>
                             </Taalregime>
                         </Beheerder>
-                        <Register DatumBegin="1976-04-28">
+                        <Register DatumBegin="1978-05-09">
                             <Code>RR</Code>
                             <Omschrijving Taal="nl">Rijksregister</Omschrijving>
                         </Register>
                         <Nationaliteiten>
-                            <Nationaliteit DatumBegin="1976-04-28">
+                            <Nationaliteit DatumBegin="1978-05-09">
                                 <Code>150</Code>
                                 <Omschrijving>Belg</Omschrijving>
                             </Nationaliteit>
                         </Nationaliteiten>
-                        <Geboorte DatumBegin="1976-04-28">
-                            <Datum>1976-04-28</Datum>
+                        <Geboorte DatumBegin="1978-05-09">
+                            <Datum>1978-05-09</Datum>
                             <Plaats>
                                 <Gemeente>
                                     <NISCode>31005</NISCode>
@@ -111,31 +111,22 @@
                                 <NISCodeGemeente>31005</NISCodeGemeente>
                             </Hoofdverblijfplaats>
                         </Adressen>
-                        <Gezinsleden>
-                            <Gezinslid DatumBegin="2004-04-04">
-                                <INSZ>78650919873</INSZ>
-                                <Naam>
-                                    <Achternamen>
-                                        <Achternaam>Bonne</Achternaam>
-                                    </Achternamen>
-                                    <Voornamen>
-                                        <Voornaam>Valérie</Voornaam>
-                                    </Voornamen>
-                                </Naam>
-                                <Geslacht>
-                                    <Code>2</Code>
-                                    <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
-                                </Geslacht>
-                                <Geboortedatum>1978-05-09</Geboortedatum>
-                                <Positie>
-                                    <Code>21</Code>
-                                    <Omschrijving Taal="nl">Partner</Omschrijving>
-                                </Positie>
-                                <Woonvorm>
-                                    <Code>00</Code>
-                                </Woonvorm>
-                            </Gezinslid>
-                        </Gezinsleden>
+                        <Referentiepersoon DatumBegin="2004-04-04">
+                            <INSZ>76642812413</INSZ>
+                            <Naam>
+                                <Achternamen>
+                                    <Achternaam>Boelaert</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Stefanie</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                            <Geboortedatum>1976-04-28</Geboortedatum>
+                            <Positie>
+                                <Code>21</Code>
+                                <Omschrijving Taal="nl">Partner</Omschrijving>
+                            </Positie>
+                        </Referentiepersoon>
                     </Persoon>
                 </Inhoud>
             </Antwoord>
