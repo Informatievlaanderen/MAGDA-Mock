@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefPersoon</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-03-15</Datum>
+                    <Tijd>10:21:40.797</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>gent.be/ipdc2045</Identificatie>
+                    <Referte>AREF_QT_860921_102202</Referte>
+                    <Hoedanigheid>ipdc2045</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>4e40f06c-17c8-44e2-abae-42788aebcd63</Referte>
+                <Inhoud>
+                    <Persoon Bron="RR" DatumCreatie="1972-11-05" DatumModificatie="2004-09-12">
+                        <INSZ>72710585633</INSZ>
+                        <Naam DatumBegin="1972-11-05">
+                            <Achternamen>
+                                <Achternaam>Collart</Achternaam>
+                            </Achternamen>
+                            <Voornamen>
+                                <Voornaam>Fien</Voornaam>
+                            </Voornamen>
+                        </Naam>
+                        <Geslacht>
+                            <Code>2</Code>
+                            <Omschrijving>Vrouwelijk</Omschrijving>
+                        </Geslacht>
+                        <Register DatumBegin="1972-11-05">
+                            <Code>RR</Code>
+                            <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                        </Register>
+                        <Nationaliteiten>
+                            <Nationaliteit DatumBegin="1972-11-05">
+                                <Code>150</Code>
+                                <Omschrijving>Belg</Omschrijving>
+                            </Nationaliteit>
+                        </Nationaliteiten>
+                        <Geboorte DatumBegin="1972-11-05">
+                            <Datum>1972-11-05</Datum>
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44040</NISCode>
+                                    <Naam>Melle</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Aktenummer>80985</Aktenummer>
+                            <Bewijsstuk>
+                                <Code>00</Code>
+                                <Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
+                            </Bewijsstuk>
+                        </Geboorte>
+                        <Adressen>
+                            <Hoofdverblijfplaats DatumBegin="2004-04-04">
+                                <Straatnaam>
+                                    <String>Vijverveldlaan</String>
+                                    <Taal>nl</Taal>
+                                </Straatnaam>
+                                <Huisnummer>7</Huisnummer>
+                                <Gemeentenaam>
+                                    <String>Melle</String>
+                                    <Taal>nl</Taal>
+                                </Gemeentenaam>
+                                <Land>
+                                    <String>BELGIE</String>
+                                    <Taal>nl</Taal>
+                                </Land>
+                                <Postcode>9090</Postcode>
+                                <NISCodeLand>150</NISCodeLand>
+                                <ISOCodeLand>BEL</ISOCodeLand>
+                                <NISCodeGemeente>44040</NISCodeGemeente>
+                            </Hoofdverblijfplaats>
+                        </Adressen>
+                        <Referentiepersoon DatumBegin="2004-04-04">
+                            <INSZ>71640618918</INSZ>
+                            <Naam>
+                                <Achternamen>
+                                    <Achternaam>Delattre</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Rik</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                            <Geboortedatum>1971-04-06</Geboortedatum>
+                            <Positie>
+                                <Code>22</Code>
+                                <Omschrijving Taal="nl">Wettelijk samenwonende</Omschrijving>
+                            </Positie>
+                        </Referentiepersoon>
+                    </Persoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefPersoonResponse>

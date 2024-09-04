@@ -24,59 +24,38 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>93d5ccc1-ee66-41f4-b7ba-5b0b9d3f73c3</Referte>
+                <Referte>c2cecc1b-839e-404d-9f09-003339604422</Referte>
                 <Inhoud>
-                    <Persoon Bron="RR" DatumCreatie="1976-04-28" DatumModificatie="2004-09-12">
-                        <INSZ>76642812413</INSZ>
-                        <Naam DatumBegin="1976-04-28">
+                    <Persoon Bron="RR" DatumCreatie="1973-04-06" DatumModificatie="2004-09-12">
+                        <INSZ>73640618960</INSZ>
+                        <Naam DatumBegin="1973-04-06">
                             <Achternamen>
-                                <Achternaam>Boelaert</Achternaam>
+                                <Achternaam>Van Looy</Achternaam>
                             </Achternamen>
                             <Voornamen>
-                                <Voornaam>Stefanie</Voornaam>
+                                <Voornaam>Paul</Voornaam>
                             </Voornamen>
                         </Naam>
                         <Geslacht>
-                            <Code>2</Code>
-                            <Omschrijving>Vrouwelijk</Omschrijving>
+                            <Code>1</Code>
+                            <Omschrijving>Mannelijk</Omschrijving>
                         </Geslacht>
-                        <Beheerder DatumBegin="2004-04-04">
-                            <Plaats>
-                                <Gemeente>
-                                    <NISCode>31005</NISCode>
-                                    <Naam>Brugge</Naam>
-                                </Gemeente>
-                                <Land>
-                                    <NISCode>150</NISCode>
-                                    <ISOCode>BEL</ISOCode>
-                                    <Naam>BELGIE</Naam>
-                                </Land>
-                            </Plaats>
-                            <Fusie>
-                                <Code>0</Code>
-                                <Omschrijving Taal="nl">NEEN</Omschrijving>
-                            </Fusie>
-                            <Taalregime>
-                                <Code>2</Code>
-                                <Omschrijving Taal="nl">Nederlands</Omschrijving>
-                            </Taalregime>
-                        </Beheerder>
-                        <Register DatumBegin="1976-04-28">
+                        <Register DatumBegin="1973-04-06">
                             <Code>RR</Code>
                             <Omschrijving Taal="nl">Rijksregister</Omschrijving>
                         </Register>
                         <Nationaliteiten>
-                            <Nationaliteit DatumBegin="1976-04-28">
+                            <Nationaliteit DatumBegin="1973-04-06">
                                 <Code>150</Code>
                                 <Omschrijving>Belg</Omschrijving>
                             </Nationaliteit>
                         </Nationaliteiten>
-                        <Geboorte DatumBegin="1976-04-28">
-                            <Datum>1976-04-28</Datum>
+                        <Geboorte DatumBegin="1973-04-06">
+                            <Datum>1973-04-06</Datum>
                             <Plaats>
                                 <Gemeente>
-                                    <NISCode>31005</NISCode>
-                                    <Naam>Brugge</Naam>
+                                    <NISCode>44013</NISCode>
+                                    <Naam>Destelbergen</Naam>
                                 </Gemeente>
                                 <Land>
                                     <NISCode>150</NISCode>
@@ -84,7 +63,7 @@
                                     <Naam>BELGIE</Naam>
                                 </Land>
                             </Plaats>
-                            <Aktenummer>12354</Aktenummer>
+                            <Aktenummer>80985</Aktenummer>
                             <Bewijsstuk>
                                 <Code>00</Code>
                                 <Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
@@ -93,43 +72,90 @@
                         <Adressen>
                             <Hoofdverblijfplaats DatumBegin="2004-04-04">
                                 <Straatnaam>
-                                    <String>Arsenaalstraat</String>
+                                    <String>Laarnebaan</String>
                                     <Taal>nl</Taal>
                                 </Straatnaam>
-                                <Huisnummer>10</Huisnummer>
+                                <Huisnummer>19</Huisnummer>
+                                <Busnummer>F</Busnummer>
                                 <Gemeentenaam>
-                                    <String>Brugge</String>
+                                    <String>Destelbergen</String>
                                     <Taal>nl</Taal>
                                 </Gemeentenaam>
                                 <Land>
                                     <String>BELGIE</String>
                                     <Taal>nl</Taal>
                                 </Land>
-                                <Postcode>8000</Postcode>
+                                <Postcode>9070</Postcode>
                                 <NISCodeLand>150</NISCodeLand>
                                 <ISOCodeLand>BEL</ISOCodeLand>
-                                <NISCodeGemeente>31005</NISCodeGemeente>
+                                <NISCodeGemeente>44013</NISCodeGemeente>
                             </Hoofdverblijfplaats>
                         </Adressen>
                         <Gezinsleden>
                             <Gezinslid DatumBegin="2004-04-04">
-                                <INSZ>78650919873</INSZ>
+                                <INSZ>75710585696</INSZ>
                                 <Naam>
                                     <Achternamen>
-                                        <Achternaam>Bonne</Achternaam>
+                                        <Achternaam>Denys</Achternaam>
                                     </Achternamen>
                                     <Voornamen>
-                                        <Voornaam>Valérie</Voornaam>
+                                        <Voornaam>Vanessa</Voornaam>
                                     </Voornamen>
                                 </Naam>
                                 <Geslacht>
                                     <Code>2</Code>
                                     <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
                                 </Geslacht>
-                                <Geboortedatum>1978-05-09</Geboortedatum>
+                                <Geboortedatum>1975-11-05</Geboortedatum>
                                 <Positie>
-                                    <Code>21</Code>
-                                    <Omschrijving Taal="nl">Partner</Omschrijving>
+                                    <Code>02</Code>
+                                    <Omschrijving Taal="nl">Echtgenote</Omschrijving>
+                                </Positie>
+                                <Woonvorm>
+                                    <Code>00</Code>
+                                </Woonvorm>
+                            </Gezinslid>
+                            <Gezinslid DatumBegin="2011-03-03">
+                                <INSZ>11630345955</INSZ>
+                                <Naam>
+                                    <Achternamen>
+                                        <Achternaam>Van Looy</Achternaam>
+                                    </Achternamen>
+                                    <Voornamen>
+                                        <Voornaam>Jeroen</Voornaam>
+                                    </Voornamen>
+                                </Naam>
+                                <Geslacht>
+                                    <Code>1</Code>
+                                    <Omschrijving Taal="nl">Mannelijk</Omschrijving>
+                                </Geslacht>
+                                <Geboortedatum>2011-03-03</Geboortedatum>
+                                <Positie>
+                                    <Code>03</Code>
+                                    <Omschrijving Taal="nl">Zoon</Omschrijving>
+                                </Positie>
+                                <Woonvorm>
+                                    <Code>00</Code>
+                                </Woonvorm>
+                            </Gezinslid>
+                            <Gezinslid DatumBegin="2007-12-23">
+                                <INSZ>07722335325</INSZ>
+                                <Naam>
+                                    <Achternamen>
+                                        <Achternaam>Van Looy</Achternaam>
+                                    </Achternamen>
+                                    <Voornamen>
+                                        <Voornaam>Bruno</Voornaam>
+                                    </Voornamen>
+                                </Naam>
+                                <Geslacht>
+                                    <Code>1</Code>
+                                    <Omschrijving Taal="nl">Mannelijk</Omschrijving>
+                                </Geslacht>
+                                <Geboortedatum>2007-12-23</Geboortedatum>
+                                <Positie>
+                                    <Code>03</Code>
+                                    <Omschrijving Taal="nl">Zoon</Omschrijving>
                                 </Positie>
                                 <Woonvorm>
                                     <Code>00</Code>

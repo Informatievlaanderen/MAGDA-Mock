@@ -2,7 +2,7 @@
                   xmlns:web="http://magda.vlaanderen.be/soczek/soap/geefdossierhandicap/v03_00">
     <soapenv:Header/>
     <soapenv:Body>
-        <web:GeefBetalingenHandicap>
+        <web:GeefDossierHandicap>
             <Verzoek>
                 <Context>
                     <Naam>GeefDossierHandicap</Naam>
@@ -23,7 +23,6 @@
                 <Vragen>
                     <Vraag>
                         <Referte>Referte</Referte>
-                        <Inhoud>
                             <Criteria>
                                 <ConsultFilesByDateCriteria>
                                     <ssin>INSZ</ssin>
@@ -35,10 +34,9 @@
                                 </ConsultFilesByDateCriteria>
                                 <ConsultFilesByPeriodCriteria></ConsultFilesByPeriodCriteria>
                             </Criteria>
-                        </Inhoud>
                     </Vraag>
                 </Vragen>
             </Verzoek>
-        </web:GeefBetalingenHandicap>
+        </web:GeefDossierHandicap>
     </soapenv:Body>
 </soapenv:Envelope>
