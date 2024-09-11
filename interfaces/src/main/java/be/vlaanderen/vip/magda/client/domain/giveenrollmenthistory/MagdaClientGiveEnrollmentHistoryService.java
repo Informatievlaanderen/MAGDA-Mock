@@ -49,7 +49,7 @@ public class MagdaClientGiveEnrollmentHistoryService implements GiveEnrollmentHi
         if(response.getResponseUitzonderingEntries().stream().anyMatch(x ->
                         x.getUitzonderingType().equals(UitzonderingType.FOUT) &&
                         !"30101".equals(x.getIdentification()))) {
-            throw new MagdaClientException("Level 3 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getResponseUitzonderingEntries(), request.getCorrelationId(), response.getRequestId()));
+            throw new MagdaClientException("Level 3 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getResponseUitzonderingEntries(), request.magdaServiceIdentification(), request.getCorrelationId(), response.getRequestId()));
         }
     }
 }

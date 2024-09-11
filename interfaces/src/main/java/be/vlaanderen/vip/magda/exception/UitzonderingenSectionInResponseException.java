@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.exception;
 
+import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.legallogging.model.UitzonderingEntry;
 import lombok.Getter;
@@ -20,10 +21,17 @@ public class UitzonderingenSectionInResponseException extends ServerException {
     
     private final SubjectIdentificationNumber subject;
     private final transient List<UitzonderingEntry> uitzonderingEntries;
+    private final MagdaServiceIdentification magdaServiceIdentification;
 
-    public UitzonderingenSectionInResponseException(SubjectIdentificationNumber subject, List<UitzonderingEntry> uitzonderingEntries, UUID correlationID, UUID requestID) {
+    public UitzonderingenSectionInResponseException(SubjectIdentificationNumber subject, List<UitzonderingEntry> uitzonderingEntries, MagdaServiceIdentification magdaServiceIdentification, UUID correlationID, UUID requestID) {
         super("Backend error '" + uitzonderingEntries.get(0).toString() + "'", correlationID, requestID);
         this.subject = subject;
         this.uitzonderingEntries = uitzonderingEntries;
+        this.magdaServiceIdentification = magdaServiceIdentification;
+    }
+
+    @Deprecated(forRemoval = true)
+    public UitzonderingenSectionInResponseException(SubjectIdentificationNumber subject, List<UitzonderingEntry> uitzonderingEntries, UUID correlationID, UUID requestID) {
+        this(subject, uitzonderingEntries, null, correlationID, requestID);
     }
 }
