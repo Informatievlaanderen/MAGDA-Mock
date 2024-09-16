@@ -6,10 +6,7 @@ import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -74,6 +71,9 @@ public class GeefPersoonRequest extends PersonMagdaRequest {
     protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
         fillInCommonFields(request, requestId, magdaRegistrationInfo);
 
-        request.setValue("//Inhoud/Bron", (source != null ? source : RR).getValue());
+        var sourceValue = source != null ? source : RR;
+        request.setValue("//Inhoud/Bron", sourceValue.getValue());
+
+        if (sourceValue == RR) { request.removeNode("//Inhoud/Criteria/OpvragingenKSZ"); }
     }
 }
