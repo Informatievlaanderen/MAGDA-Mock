@@ -25,6 +25,9 @@
                         <Inhoud>
                             <Criteria>
                                 <INSZ>INSZ</INSZ>
+                                <OpvragingenKSZ>
+                                    <BasisPersoonsgegevens>1</BasisPersoonsgegevens>
+                                </OpvragingenKSZ>
                             </Criteria>
                             <Bron>RR</Bron>
                             <Taal>nl</Taal>
