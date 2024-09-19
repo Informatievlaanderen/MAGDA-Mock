@@ -24,10 +24,10 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>0c99e3e6-c91c-4870-911a-c093f6984b52</Referte>
+                <Referte>473195bc-cff9-43e0-b5ec-d81a6aabfd3c</Referte>
                 <Inhoud>
                     <Persoon>
-                        <INSZ>66691666644</INSZ>
+                        <INSZ>88681575651</INSZ>
                         <SocialeStatuten>
                             <SociaalStatuut>
                                 <Naam>BIM_BVT_IN_FAMILY</Naam>
@@ -41,19 +41,10 @@
                                         <Einddatum>2030-01-01</Einddatum>
                                     </Periode>
                                 </Periodes>
-                            </SociaalStatuut>
-                            <SociaalStatuut>
-                                <Naam>BIM_BVT</Naam>
-                                <Resultaat>
-                                    <Code>1</Code>
-                                    <Omschrijving>Van toepassing</Omschrijving>
-                                </Resultaat>
-                                <Periodes>
-                                    <Periode>
-                                        <Begindatum>2024-01-01</Begindatum>
-                                        <Einddatum>2030-01-01</Einddatum>
-                                    </Periode>
-                                </Periodes>
+                                <Status>
+                                    <Code>SSH00047</Code>
+                                    <Waarde></Waarde>
+                                </Status>
                             </SociaalStatuut>
                         </SocialeStatuten>
                     </Persoon>
