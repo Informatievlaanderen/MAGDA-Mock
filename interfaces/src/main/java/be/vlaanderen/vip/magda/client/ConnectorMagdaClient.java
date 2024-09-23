@@ -19,10 +19,10 @@ public class ConnectorMagdaClient extends AbstractConnectorMagdaClient {
     @Override
     protected void validateMagdaResponse(MagdaResponse response, MagdaRequest request) throws MagdaClientException {
         if(!response.getUitzonderingEntries().isEmpty()) {
-            throw new MagdaClientException("Level 2 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getUitzonderingEntries(), request.getCorrelationId(), response.getRequestId()));
+            throw new MagdaClientException("Level 2 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getUitzonderingEntries(), request.magdaServiceIdentification(), request.getCorrelationId(), response.getRequestId()));
         }
         if(!response.getResponseUitzonderingEntries().isEmpty() && haveAtLeastOneFout(response.getResponseUitzonderingEntries())) {
-            throw new MagdaClientException("Level 3 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getResponseUitzonderingEntries(), request.getCorrelationId(), response.getRequestId()));
+            throw new MagdaClientException("Level 3 exception occurred while calling magda service", new UitzonderingenSectionInResponseException(request.getSubject(), response.getResponseUitzonderingEntries(), request.magdaServiceIdentification(), request.getCorrelationId(), response.getRequestId()));
         }
     }
 

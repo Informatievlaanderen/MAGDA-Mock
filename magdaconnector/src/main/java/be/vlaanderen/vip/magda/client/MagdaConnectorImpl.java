@@ -77,7 +77,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                     .log("Result of request to MAGDA service with reference [{}] ({} ms): {}", requestId, duration.toMillis(), uitzonderingenMessage1);
 
             if(!antwoord.isHasContents() && antwoordUitzonderingen.isEmpty() && uitzonderingen.isEmpty()) {
-                throw new UitzonderingenSectionInResponseException(magdaRequest.getSubject(), getLevel1UitzonderingEntry(response), magdaRequest.getCorrelationId(), requestId);
+                throw new UitzonderingenSectionInResponseException(magdaRequest.getSubject(), getLevel1UitzonderingEntry(response), magdaRequest.magdaServiceIdentification(), magdaRequest.getCorrelationId(), requestId);
             }
 
             return antwoord;
