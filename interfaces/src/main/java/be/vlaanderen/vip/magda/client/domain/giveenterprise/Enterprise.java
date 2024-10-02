@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client.domain.giveenterprise;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -10,6 +11,12 @@ public interface Enterprise {
     List<BranchOffice> branchOffices();
 
     List<Address> addresses();
+
+    CodeAndDescription statusKBO();
+
+    DateContainer startDate();
+
+    CodeAndDescription enterpriseType();
 
     interface LegalSituation {
 
@@ -352,5 +359,10 @@ public interface Enterprise {
         String value();
 
         String description();
+    }
+
+    interface DateContainer {
+
+        LocalDate value();
     }
 }

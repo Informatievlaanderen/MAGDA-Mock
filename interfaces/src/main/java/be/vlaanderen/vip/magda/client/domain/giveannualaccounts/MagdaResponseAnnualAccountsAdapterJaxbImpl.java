@@ -24,7 +24,7 @@ public class MagdaResponseAnnualAccountsAdapterJaxbImpl implements MagdaResponse
             var node = Optional.ofNullable(wrapper
                     .getResponse()
                     .getDocument()
-                    .xpath("//Onderneming") // XXX
+                    .xpath("//Jaarrekeningen")
                     .item(0));
             return (AnnualAccounts) context.createUnmarshaller()
                     .unmarshal(node.orElseThrow());

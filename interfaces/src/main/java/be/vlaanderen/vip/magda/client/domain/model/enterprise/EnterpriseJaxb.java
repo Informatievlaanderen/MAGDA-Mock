@@ -5,16 +5,13 @@ import be.vlaanderen.vip.magda.client.domain.model.shared.AddressJaxb;
 import be.vlaanderen.vip.magda.client.domain.model.shared.CodeAndDescriptionJaxb;
 import be.vlaanderen.vip.magda.client.domain.model.shared.OffsetDateXmlAdapter;
 import be.vlaanderen.vip.magda.client.domain.model.shared.ValueAndDescriptionJaxb;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlElementWrapper;
-import jakarta.xml.bind.annotation.XmlRootElement;
-import jakarta.xml.bind.annotation.XmlValue;
+import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import lombok.Getter;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,6 +31,18 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
     @XmlElementWrapper(name = "Adressen")
     @XmlElement(name = "Adres")
     ArrayList<BaseAddress> addresses = new ArrayList<>();
+
+    @XmlElement(name = "StatusKBO")
+    @Getter
+    CodeAndDescriptionJaxb statusKBO;
+
+    @XmlElement(name = "Start")
+    @Getter
+    DateContainerJaxb startDate;
+
+    @XmlElement(name = "SoortOnderneming")
+    @Getter
+    CodeAndDescriptionJaxb enterpriseType;
 
     @Override
     public List<Enterprise.BranchOffice> branchOffices() {
@@ -197,5 +206,10 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
 
     }
 
+    @Getter
+    private static class DateContainerJaxb implements Enterprise.DateContainer, Serializable {
 
+        @XmlElement(name = "Datum")
+        LocalDate value;
+    }
 }
