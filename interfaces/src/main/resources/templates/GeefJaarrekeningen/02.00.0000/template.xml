@@ -1,0 +1,39 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be"><!-- XXX -->
+    <soapenv:Header/>
+    <soapenv:Body>
+        <web:GeefOnderneming>
+            <Verzoek>
+                <Context>
+                    <Naam>GeefJaarrekeningen</Naam>
+                    <Versie>02.00.0000</Versie>
+                    <Bericht>
+                        <Type>VRAAG</Type>
+                        <Tijdstip>
+                            <Datum>DATUM</Datum>
+                            <Tijd>TIJD</Tijd>
+                        </Tijdstip>
+                        <Afzender>
+                            <Identificatie>Identificatie</Identificatie>
+                            <Referte>Referte</Referte>
+                            <Hoedanigheid>Hoedanigheid</Hoedanigheid>
+                        </Afzender>
+                    </Bericht>
+                </Context>
+                <Vragen>
+                    <Vraag>
+                        <Referte>Referte</Referte>
+                        <Inhoud>
+                            <Criteria>
+                                <Ondernemingsnummer>KboNumber</Ondernemingsnummer>
+                                <Boekjaar>2024</Boekjaar>
+                                <AlleRubrieken>1</AlleRubrieken>
+                                <Benamingen Taal="nl">1</Benamingen>
+                            </Criteria>
+                        </Inhoud>
+                    </Vraag>
+                </Vragen>
+            </Verzoek>
+        </web:GeefOnderneming>
+    </soapenv:Body>
+</soapenv:Envelope>

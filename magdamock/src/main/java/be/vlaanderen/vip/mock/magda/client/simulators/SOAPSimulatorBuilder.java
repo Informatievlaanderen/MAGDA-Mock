@@ -100,6 +100,7 @@ public class SOAPSimulatorBuilder {
         // ONDERNEMING
         simulator.register("GeefOnderneming", VERSION_02_00, new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
         simulator.register("GeefOndernemingVKBO", VERSION_02_00, new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
+        simulator.register("GeefJaarrekeningen", VERSION_02_00, new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
 
         // GEBOUW
         simulator.register("GeefEpc", VERSION_02_00, new StaticResponseSimulator(finder, VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId"));
