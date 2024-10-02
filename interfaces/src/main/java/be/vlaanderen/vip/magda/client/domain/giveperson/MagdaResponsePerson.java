@@ -141,11 +141,20 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
         }
         
         @Override
+        @Deprecated(forRemoval = true)
         public Optional<LocalDate> deathDate() {
             return node.get("Overlijden/Datum")
                        .flatMap(Node::getValue)
                        .map(LocalDate::parse);
         }
+
+        @Override
+        public Optional<IncompleteDate> incompleteDateOfDeath() {
+            return node.get("Overlijden/Datum")
+                       .flatMap(Node::getValue)
+                       .map(IncompleteDate::fromString);
+        }
+
 
         @Override
         public Address mainResidence() {

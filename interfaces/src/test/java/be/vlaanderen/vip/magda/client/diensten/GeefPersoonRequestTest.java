@@ -97,6 +97,8 @@ class GeefPersoonRequestTest {
 
             assertThat(requestDocument.getValue("//Inhoud/Criteria/INSZ"), is(equalTo(TestBase.TEST_INSZ)));
             assertThat(requestDocument.getValue("//Inhoud/Bron"), is(equalTo("RR")));
+            assertNull(requestDocument.getValue("//Inhoud/Criteria/OpvragingenKSZ"));
+            assertNull(requestDocument.getValue("//Inhoud/Criteria/OpvragingenKSZ/BasisPersoonsgegevens"));
         }
 
         @Test
@@ -108,6 +110,7 @@ class GeefPersoonRequestTest {
 
             assertThat(requestDocument.getValue("//Inhoud/Criteria/INSZ"), is(equalTo(TestBase.TEST_INSZ)));
             assertThat(requestDocument.getValue("//Inhoud/Bron"), is(equalTo("KSZ")));
+            assertThat(requestDocument.getValue("//Inhoud/Criteria/OpvragingenKSZ/BasisPersoonsgegevens"), is(equalTo("1")));
         }
     }
 }

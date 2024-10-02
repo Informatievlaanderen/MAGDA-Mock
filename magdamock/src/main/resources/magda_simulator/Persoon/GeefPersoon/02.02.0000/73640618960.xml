@@ -24,59 +24,38 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>45311479-4338-485c-b03d-399ba26f1b5f</Referte>
+                <Referte>c2cecc1b-839e-404d-9f09-003339604422</Referte>
                 <Inhoud>
-                    <Persoon Bron="RR" DatumCreatie="1989-08-21" DatumModificatie="2004-09-12">
-                        <INSZ>89682134512</INSZ>
-                        <Naam DatumBegin="1989-08-21">
+                    <Persoon Bron="RR" DatumCreatie="1973-04-06" DatumModificatie="2004-09-12">
+                        <INSZ>73640618960</INSZ>
+                        <Naam DatumBegin="1973-04-06">
                             <Achternamen>
-                                <Achternaam>Ongenae</Achternaam>
+                                <Achternaam>Van Looy</Achternaam>
                             </Achternamen>
                             <Voornamen>
-                                <Voornaam>Tom</Voornaam>
+                                <Voornaam>Paul</Voornaam>
                             </Voornamen>
                         </Naam>
                         <Geslacht>
                             <Code>1</Code>
                             <Omschrijving>Mannelijk</Omschrijving>
                         </Geslacht>
-                        <Beheerder DatumBegin="2004-04-04">
-                            <Plaats>
-                                <Gemeente>
-                                    <NISCode>44021</NISCode>
-                                    <Naam>Gent</Naam>
-                                </Gemeente>
-                                <Land>
-                                    <NISCode>150</NISCode>
-                                    <ISOCode>BEL</ISOCode>
-                                    <Naam>BELGIE</Naam>
-                                </Land>
-                            </Plaats>
-                            <Fusie>
-                                <Code>0</Code>
-                                <Omschrijving Taal="nl">NEEN</Omschrijving>
-                            </Fusie>
-                            <Taalregime>
-                                <Code>2</Code>
-                                <Omschrijving Taal="nl">Nederlands</Omschrijving>
-                            </Taalregime>
-                        </Beheerder>
-                        <Register DatumBegin="1989-08-21">
+                        <Register DatumBegin="1973-04-06">
                             <Code>RR</Code>
                             <Omschrijving Taal="nl">Rijksregister</Omschrijving>
                         </Register>
                         <Nationaliteiten>
-                            <Nationaliteit DatumBegin="1989-08-21">
+                            <Nationaliteit DatumBegin="1973-04-06">
                                 <Code>150</Code>
                                 <Omschrijving>Belg</Omschrijving>
                             </Nationaliteit>
                         </Nationaliteiten>
-                        <Geboorte DatumBegin="1989-08-21">
-                            <Datum>1989-08-21</Datum>
+                        <Geboorte DatumBegin="1973-04-06">
+                            <Datum>1973-04-06</Datum>
                             <Plaats>
                                 <Gemeente>
-                                    <NISCode>73066</NISCode>
-                                    <Naam>Riemst</Naam>
+                                    <NISCode>44013</NISCode>
+                                    <Naam>Destelbergen</Naam>
                                 </Gemeente>
                                 <Land>
                                     <NISCode>150</NISCode>
@@ -93,80 +72,87 @@
                         <Adressen>
                             <Hoofdverblijfplaats DatumBegin="2004-04-04">
                                 <Straatnaam>
-                                    <String>Hoogstraat</String>
+                                    <String>Laarnebaan</String>
                                     <Taal>nl</Taal>
                                 </Straatnaam>
-                                <Huisnummer>70</Huisnummer>
-                                <Busnummer>A</Busnummer>
+                                <Huisnummer>19</Huisnummer>
+                                <Busnummer>F</Busnummer>
                                 <Gemeentenaam>
-                                    <String>Gent</String>
+                                    <String>Destelbergen</String>
                                     <Taal>nl</Taal>
                                 </Gemeentenaam>
                                 <Land>
                                     <String>BELGIE</String>
                                     <Taal>nl</Taal>
                                 </Land>
-                                <Postcode>9000</Postcode>
+                                <Postcode>9070</Postcode>
                                 <NISCodeLand>150</NISCodeLand>
                                 <ISOCodeLand>BEL</ISOCodeLand>
-                                <NISCodeGemeente>44021</NISCodeGemeente>
+                                <NISCodeGemeente>44013</NISCodeGemeente>
                             </Hoofdverblijfplaats>
                         </Adressen>
-                        <Referentiepersoon DatumBegin="1989-08-21" DatumEinde="2004-04-04">
-                            <INSZ>56011785314</INSZ>
-                            <Naam>
-                                <Achternamen>
-                                    <Achternaam>Ongenae</Achternaam>
-                                </Achternamen>
-                                <Voornamen>
-                                    <Voornaam>Jef</Voornaam>
-                                </Voornamen>
-                            </Naam>
-                            <Geboortedatum>1956-01-17</Geboortedatum>
-                            <Positie>
-                                <Code>03</Code>
-                                <Omschrijving Taal="nl">Zoon</Omschrijving>
-                            </Positie>
-                        </Referentiepersoon>
                         <Gezinsleden>
                             <Gezinslid DatumBegin="2004-04-04">
-                                <INSZ>91671721308</INSZ>
+                                <INSZ>75710585696</INSZ>
                                 <Naam>
                                     <Achternamen>
-                                        <Achternaam>Devlieger</Achternaam>
+                                        <Achternaam>Denys</Achternaam>
                                     </Achternamen>
                                     <Voornamen>
-                                        <Voornaam>Ward</Voornaam>
+                                        <Voornaam>Vanessa</Voornaam>
                                     </Voornamen>
                                 </Naam>
                                 <Geslacht>
-                                    <Code>1</Code>
-                                    <Omschrijving Taal="nl">Mannelijk</Omschrijving>
+                                    <Code>2</Code>
+                                    <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
                                 </Geslacht>
-                                <Geboortedatum>1991-07-17</Geboortedatum>
+                                <Geboortedatum>1975-11-05</Geboortedatum>
                                 <Positie>
                                     <Code>02</Code>
-                                    <Omschrijving Taal="nl">Echtgenoot</Omschrijving>
+                                    <Omschrijving Taal="nl">Echtgenote</Omschrijving>
                                 </Positie>
                                 <Woonvorm>
                                     <Code>00</Code>
                                 </Woonvorm>
                             </Gezinslid>
-                            <Gezinslid DatumBegin="2012-03-03">
-                                <INSZ>12630352312</INSZ>
+                            <Gezinslid DatumBegin="2011-03-03">
+                                <INSZ>11630345955</INSZ>
                                 <Naam>
                                     <Achternamen>
-                                        <Achternaam>Ongenae</Achternaam>
+                                        <Achternaam>Van Looy</Achternaam>
                                     </Achternamen>
                                     <Voornamen>
-                                        <Voornaam>Flor</Voornaam>
+                                        <Voornaam>Jeroen</Voornaam>
                                     </Voornamen>
                                 </Naam>
                                 <Geslacht>
                                     <Code>1</Code>
                                     <Omschrijving Taal="nl">Mannelijk</Omschrijving>
                                 </Geslacht>
-                                <Geboortedatum>2012-03-03</Geboortedatum>
+                                <Geboortedatum>2011-03-03</Geboortedatum>
+                                <Positie>
+                                    <Code>03</Code>
+                                    <Omschrijving Taal="nl">Zoon</Omschrijving>
+                                </Positie>
+                                <Woonvorm>
+                                    <Code>00</Code>
+                                </Woonvorm>
+                            </Gezinslid>
+                            <Gezinslid DatumBegin="2007-12-23">
+                                <INSZ>07722335325</INSZ>
+                                <Naam>
+                                    <Achternamen>
+                                        <Achternaam>Van Looy</Achternaam>
+                                    </Achternamen>
+                                    <Voornamen>
+                                        <Voornaam>Bruno</Voornaam>
+                                    </Voornamen>
+                                </Naam>
+                                <Geslacht>
+                                    <Code>1</Code>
+                                    <Omschrijving Taal="nl">Mannelijk</Omschrijving>
+                                </Geslacht>
+                                <Geboortedatum>2007-12-23</Geboortedatum>
                                 <Positie>
                                     <Code>03</Code>
                                     <Omschrijving Taal="nl">Zoon</Omschrijving>

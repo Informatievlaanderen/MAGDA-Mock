@@ -39,7 +39,6 @@
                                 <fieldValue>fieldValue2</fieldValue>
                             </information>
                         </status>
-                        <ssin>04651999966</ssin>
                         <dataFilters>
                             <filteredElement>filteredElement</filteredElement>
                             <filteredElement>filteredElement1</filteredElement>
@@ -65,7 +64,7 @@
                                             <deliveryDate>2023-05-15</deliveryDate>
                                             <endDate>2030-05-15</endDate>
                                             <cardNumber>6677889900</cardNumber>
-                                            <cardCategory>REDUCTIONCARD</cardCategory>
+                                            <cardCategory>PARKINGCARD</cardCategory>
                                         </socialCard>
                                     </socialCards>
                                 </file>

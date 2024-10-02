@@ -24,59 +24,38 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>45311479-4338-485c-b03d-399ba26f1b5f</Referte>
+                <Referte>4e40f06c-17c8-44e2-abae-42788aebcd63</Referte>
                 <Inhoud>
-                    <Persoon Bron="RR" DatumCreatie="1991-07-17" DatumModificatie="2004-09-12">
-                        <INSZ>91671721308</INSZ>
-                        <Naam DatumBegin="1991-07-17">
+                    <Persoon Bron="RR" DatumCreatie="1972-11-05" DatumModificatie="2004-09-12">
+                        <INSZ>72710585633</INSZ>
+                        <Naam DatumBegin="1972-11-05">
                             <Achternamen>
-                                <Achternaam>Devlieger</Achternaam>
+                                <Achternaam>Collart</Achternaam>
                             </Achternamen>
                             <Voornamen>
-                                <Voornaam>Ward</Voornaam>
+                                <Voornaam>Fien</Voornaam>
                             </Voornamen>
                         </Naam>
                         <Geslacht>
-                            <Code>1</Code>
-                            <Omschrijving>Mannelijk</Omschrijving>
+                            <Code>2</Code>
+                            <Omschrijving>Vrouwelijk</Omschrijving>
                         </Geslacht>
-                        <Beheerder DatumBegin="2004-04-04">
-                            <Plaats>
-                                <Gemeente>
-                                    <NISCode>44021</NISCode>
-                                    <Naam>Gent</Naam>
-                                </Gemeente>
-                                <Land>
-                                    <NISCode>150</NISCode>
-                                    <ISOCode>BEL</ISOCode>
-                                    <Naam>BELGIE</Naam>
-                                </Land>
-                            </Plaats>
-                            <Fusie>
-                                <Code>0</Code>
-                                <Omschrijving Taal="nl">NEEN</Omschrijving>
-                            </Fusie>
-                            <Taalregime>
-                                <Code>2</Code>
-                                <Omschrijving Taal="nl">Nederlands</Omschrijving>
-                            </Taalregime>
-                        </Beheerder>
-                        <Register DatumBegin="1991-07-17">
+                        <Register DatumBegin="1972-11-05">
                             <Code>RR</Code>
                             <Omschrijving Taal="nl">Rijksregister</Omschrijving>
                         </Register>
                         <Nationaliteiten>
-                            <Nationaliteit DatumBegin="1991-07-17">
+                            <Nationaliteit DatumBegin="1972-11-05">
                                 <Code>150</Code>
                                 <Omschrijving>Belg</Omschrijving>
                             </Nationaliteit>
                         </Nationaliteiten>
-                        <Geboorte DatumBegin="1991-07-17">
-                            <Datum>1991-07-17</Datum>
+                        <Geboorte DatumBegin="1972-11-05">
+                            <Datum>1972-11-05</Datum>
                             <Plaats>
                                 <Gemeente>
-                                    <NISCode>73066</NISCode>
-                                    <Naam>Riemst</Naam>
+                                    <NISCode>44040</NISCode>
+                                    <Naam>Melle</Naam>
                                 </Gemeente>
                                 <Land>
                                     <NISCode>150</NISCode>
@@ -93,39 +72,38 @@
                         <Adressen>
                             <Hoofdverblijfplaats DatumBegin="2004-04-04">
                                 <Straatnaam>
-                                    <String>Hoogstraat</String>
+                                    <String>Vijverveldlaan</String>
                                     <Taal>nl</Taal>
                                 </Straatnaam>
-                                <Huisnummer>70</Huisnummer>
-                                <Busnummer>A</Busnummer>
+                                <Huisnummer>7</Huisnummer>
                                 <Gemeentenaam>
-                                    <String>Gent</String>
+                                    <String>Melle</String>
                                     <Taal>nl</Taal>
                                 </Gemeentenaam>
                                 <Land>
                                     <String>BELGIE</String>
                                     <Taal>nl</Taal>
                                 </Land>
-                                <Postcode>9000</Postcode>
+                                <Postcode>9090</Postcode>
                                 <NISCodeLand>150</NISCodeLand>
                                 <ISOCodeLand>BEL</ISOCodeLand>
-                                <NISCodeGemeente>44021</NISCodeGemeente>
+                                <NISCodeGemeente>44040</NISCodeGemeente>
                             </Hoofdverblijfplaats>
                         </Adressen>
                         <Referentiepersoon DatumBegin="2004-04-04">
-                            <INSZ>89682134512</INSZ>
+                            <INSZ>71640618918</INSZ>
                             <Naam>
                                 <Achternamen>
-                                    <Achternaam>Ongenae</Achternaam>
+                                    <Achternaam>Delattre</Achternaam>
                                 </Achternamen>
                                 <Voornamen>
-                                    <Voornaam>Tom</Voornaam>
+                                    <Voornaam>Rik</Voornaam>
                                 </Voornamen>
                             </Naam>
-                            <Geboortedatum>1989-08-21</Geboortedatum>
+                            <Geboortedatum>1971-04-06</Geboortedatum>
                             <Positie>
-                                <Code>02</Code>
-                                <Omschrijving Taal="nl">Echtgenoot</Omschrijving>
+                                <Code>22</Code>
+                                <Omschrijving Taal="nl">Wettelijk samenwonende</Omschrijving>
                             </Positie>
                         </Referentiepersoon>
                     </Persoon>

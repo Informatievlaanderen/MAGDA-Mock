@@ -7,53 +7,34 @@
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
-                    <Datum>2024-03-21</Datum>
+                    <Datum>2024-04-26</Datum>
                     <Tijd>12:21:40.797</Tijd>
                 </Tijdstip>
                 <Afzender>
                     <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>d00c2291-f643-489f-8071-791822f0ad8f</Referte>
+                    <Naam>VIP</Naam>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
                 </Afzender>
                 <Ontvanger>
                     <Identificatie>gent.be/ipdc2858</Identificatie>
                     <Referte>AREF_QT_860921_102202</Referte>
-                    <Hoedanigheid>ipdc2858</Hoedanigheid>
+                    <Hoedanigheid>ipdc2045</Hoedanigheid>
                 </Ontvanger>
             </Bericht>
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>0c99e3e6-c91c-4870-911a-c093f6984b52</Referte>
+                <Referte>ec1dc9b4-ab98-4e2d-b0b0-830a6ccceb14</Referte>
                 <Inhoud>
                     <Persoon>
-                        <INSZ>66691666644</INSZ>
+                        <INSZ>78650919873</INSZ>
                         <SocialeStatuten>
                             <SociaalStatuut>
-                                <Naam>BIM_BVT_IN_FAMILY</Naam>
+                                <Naam>PCSA_AND_BIM_HELP</Naam>
                                 <Resultaat>
                                     <Code>1</Code>
                                     <Omschrijving>Van toepassing</Omschrijving>
                                 </Resultaat>
-                                <Periodes>
-                                    <Periode>
-                                        <Begindatum>2024-01-01</Begindatum>
-                                        <Einddatum>2030-01-01</Einddatum>
-                                    </Periode>
-                                </Periodes>
-                            </SociaalStatuut>
-                            <SociaalStatuut>
-                                <Naam>BIM_BVT</Naam>
-                                <Resultaat>
-                                    <Code>1</Code>
-                                    <Omschrijving>Van toepassing</Omschrijving>
-                                </Resultaat>
-                                <Periodes>
-                                    <Periode>
-                                        <Begindatum>2024-01-01</Begindatum>
-                                        <Einddatum>2030-01-01</Einddatum>
-                                    </Periode>
-                                </Periodes>
                             </SociaalStatuut>
                         </SocialeStatuten>
                     </Persoon>

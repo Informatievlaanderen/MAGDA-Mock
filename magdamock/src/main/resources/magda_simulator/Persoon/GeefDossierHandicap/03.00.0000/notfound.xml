@@ -31,7 +31,6 @@
                             <code>MSG00100</code>
                             <description>Treatment successful, but no data found at the supplier.</description>
                         </status>
-                        <ssin>00000000000</ssin>
                         <results>
                             <dgphResult>
                                 <status>

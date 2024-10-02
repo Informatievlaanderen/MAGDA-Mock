@@ -63,6 +63,11 @@ class MagdaResponsePersonIntegrationTest {
         }
 
         @Test
+        void incompleteDeathDateNull_whenMissing() {
+            assertThat(self.incompleteDateOfDeath().isEmpty(), is(true));
+        }
+
+        @Test
         void mapsNISCodeCountry() { assertThat(self.mainResidence().nisCodeCountry(), is(Optional.of("150"))); }
 
         @Test
@@ -74,6 +79,11 @@ class MagdaResponsePersonIntegrationTest {
         @Test
         void mapsDeathDate() {
             MatcherAssert.assertThat(person("65712399877").self().deathDate().get(), is(equalTo(LocalDate.of(2002, 1, 1))));
+        }
+
+        @Test
+        void mapsIncompleteDeathDate(){
+            MatcherAssert.assertThat(person("65712399877").self().incompleteDateOfDeath().get().toLocalDate(), is(equalTo(LocalDate.of(2002, 1, 1))));
         }
 
         @Test

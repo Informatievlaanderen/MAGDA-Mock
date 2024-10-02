@@ -112,10 +112,28 @@
                             </Hoofdverblijfplaats>
                         </Adressen>
                         <Gezinsleden>
-                            <Gezinslid DatumBegin="2020-01-03">
+                            <Gezinslid DatumBegin="2004-04-04">
+                                <INSZ>78650919873</INSZ>
+                                <Naam>
+                                    <Achternamen>
+                                        <Achternaam>Bonne</Achternaam>
+                                    </Achternamen>
+                                    <Voornamen>
+                                        <Voornaam>Valérie</Voornaam>
+                                    </Voornamen>
+                                </Naam>
+                                <Geslacht>
+                                    <Code>2</Code>
+                                    <Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+                                </Geslacht>
+                                <Geboortedatum>1978-05-09</Geboortedatum>
                                 <Positie>
-                                    <Code>01</Code>
+                                    <Code>21</Code>
+                                    <Omschrijving Taal="nl">Partner</Omschrijving>
                                 </Positie>
+                                <Woonvorm>
+                                    <Code>00</Code>
+                                </Woonvorm>
                             </Gezinslid>
                         </Gezinsleden>
                     </Persoon>

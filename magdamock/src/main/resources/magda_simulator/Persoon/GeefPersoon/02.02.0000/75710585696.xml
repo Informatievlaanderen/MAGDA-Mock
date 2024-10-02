@@ -16,7 +16,7 @@
                     <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
                 </Afzender>
                 <Ontvanger>
-                    <Identificatie>gent.be/ipdc2045</Identificatie>
+                    <Identificatie>gent.be/ipdc2858</Identificatie>
                     <Referte>AREF_QT_860921_102202</Referte>
                     <Hoedanigheid>ipdc2045</Hoedanigheid>
                 </Ontvanger>
@@ -24,59 +24,38 @@
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>45311479-4338-485c-b03d-399ba26f1b5f</Referte>
+                <Referte>c591af13-a740-4ee5-b88d-55f9d4f279e0</Referte>
                 <Inhoud>
-                    <Persoon Bron="RR" DatumCreatie="1991-07-17" DatumModificatie="2004-09-12">
-                        <INSZ>91671721308</INSZ>
-                        <Naam DatumBegin="1991-07-17">
+                    <Persoon Bron="RR" DatumCreatie="1975-11-05" DatumModificatie="2004-09-12">
+                        <INSZ>75710585696</INSZ>
+                        <Naam DatumBegin="1975-11-05">
                             <Achternamen>
-                                <Achternaam>Devlieger</Achternaam>
+                                <Achternaam>Denys</Achternaam>
                             </Achternamen>
                             <Voornamen>
-                                <Voornaam>Ward</Voornaam>
+                                <Voornaam>Vanessa</Voornaam>
                             </Voornamen>
                         </Naam>
                         <Geslacht>
-                            <Code>1</Code>
-                            <Omschrijving>Mannelijk</Omschrijving>
+                            <Code>2</Code>
+                            <Omschrijving>Vrouwelijk</Omschrijving>
                         </Geslacht>
-                        <Beheerder DatumBegin="2004-04-04">
-                            <Plaats>
-                                <Gemeente>
-                                    <NISCode>44021</NISCode>
-                                    <Naam>Gent</Naam>
-                                </Gemeente>
-                                <Land>
-                                    <NISCode>150</NISCode>
-                                    <ISOCode>BEL</ISOCode>
-                                    <Naam>BELGIE</Naam>
-                                </Land>
-                            </Plaats>
-                            <Fusie>
-                                <Code>0</Code>
-                                <Omschrijving Taal="nl">NEEN</Omschrijving>
-                            </Fusie>
-                            <Taalregime>
-                                <Code>2</Code>
-                                <Omschrijving Taal="nl">Nederlands</Omschrijving>
-                            </Taalregime>
-                        </Beheerder>
-                        <Register DatumBegin="1991-07-17">
+                        <Register DatumBegin="1975-11-05">
                             <Code>RR</Code>
                             <Omschrijving Taal="nl">Rijksregister</Omschrijving>
                         </Register>
                         <Nationaliteiten>
-                            <Nationaliteit DatumBegin="1991-07-17">
+                            <Nationaliteit DatumBegin="1975-11-05">
                                 <Code>150</Code>
                                 <Omschrijving>Belg</Omschrijving>
                             </Nationaliteit>
                         </Nationaliteiten>
-                        <Geboorte DatumBegin="1991-07-17">
-                            <Datum>1991-07-17</Datum>
+                        <Geboorte DatumBegin="1975-11-05">
+                            <Datum>1975-11-05</Datum>
                             <Plaats>
                                 <Gemeente>
-                                    <NISCode>73066</NISCode>
-                                    <Naam>Riemst</Naam>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
                                 </Gemeente>
                                 <Land>
                                     <NISCode>150</NISCode>
@@ -93,36 +72,36 @@
                         <Adressen>
                             <Hoofdverblijfplaats DatumBegin="2004-04-04">
                                 <Straatnaam>
-                                    <String>Hoogstraat</String>
+                                    <String>Laarnebaan</String>
                                     <Taal>nl</Taal>
                                 </Straatnaam>
-                                <Huisnummer>70</Huisnummer>
-                                <Busnummer>A</Busnummer>
+                                <Huisnummer>19</Huisnummer>
+                                <Busnummer>F</Busnummer>
                                 <Gemeentenaam>
-                                    <String>Gent</String>
+                                    <String>Destelbergen</String>
                                     <Taal>nl</Taal>
                                 </Gemeentenaam>
                                 <Land>
                                     <String>BELGIE</String>
                                     <Taal>nl</Taal>
                                 </Land>
-                                <Postcode>9000</Postcode>
+                                <Postcode>9070</Postcode>
                                 <NISCodeLand>150</NISCodeLand>
                                 <ISOCodeLand>BEL</ISOCodeLand>
-                                <NISCodeGemeente>44021</NISCodeGemeente>
+                                <NISCodeGemeente>44013</NISCodeGemeente>
                             </Hoofdverblijfplaats>
                         </Adressen>
                         <Referentiepersoon DatumBegin="2004-04-04">
-                            <INSZ>89682134512</INSZ>
+                            <INSZ>73640618960</INSZ>
                             <Naam>
                                 <Achternamen>
-                                    <Achternaam>Ongenae</Achternaam>
+                                    <Achternaam>Van Looy</Achternaam>
                                 </Achternamen>
                                 <Voornamen>
-                                    <Voornaam>Tom</Voornaam>
+                                    <Voornaam>Paul</Voornaam>
                                 </Voornamen>
                             </Naam>
-                            <Geboortedatum>1989-08-21</Geboortedatum>
+                            <Geboortedatum>1973-04-06</Geboortedatum>
                             <Positie>
                                 <Code>02</Code>
                                 <Omschrijving Taal="nl">Echtgenoot</Omschrijving>

@@ -105,6 +105,11 @@ public interface Person {
         Optional<LocalDate> deathDate();
 
         /**
+         * The person's (potentially incomplete) date of death
+         */
+        Optional<IncompleteDate> incompleteDateOfDeath();
+
+        /**
          * The address of the person's main residence.
          */
         Address mainResidence();
