@@ -84,22 +84,17 @@ public class TestcaseFinder {
         record ServiceVersion(ServiceDirectory sd, VersionDirectory vd) {
         }
 
-        Map<TestcaseService, Set<String>> result = new HashMap<>();
-
-        finder.listServicesDirectories(type)
+        return finder.listServicesDirectories(type)
                 .stream()
                 .flatMap(sd -> sd.versions()
                         .stream()
                         .map(vd -> new ServiceVersion(sd, vd)))
-                .forEach(serviceVersion -> {
-                    TestcaseService testcaseService = toTestcaseService(serviceVersion.sd, serviceVersion.vd);
-                    if (result.containsKey(testcaseService)) {
-                        result.get(testcaseService).addAll(getCases(serviceVersion.vd));
-                    } else {
-                        result.put(testcaseService, getCases(serviceVersion.vd));
-                    }
-                });
-        return result;
+                .collect(Collectors.toMap(sv -> toTestcaseService(sv.sd(), sv.vd()),
+                        sv -> getCases(sv.vd()),
+                        (existing, replacement) -> {
+                            existing.addAll(replacement);
+                            return replacement;
+                        }));
     }
     
     /**
