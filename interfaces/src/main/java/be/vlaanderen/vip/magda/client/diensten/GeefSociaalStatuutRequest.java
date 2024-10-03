@@ -21,6 +21,7 @@ import java.util.UUID;
  * Adds the following fields to the {@link PersonMagdaRequest}:
  * <ul>
  * <li>socialStatusName: the name of the type of social status about which the information is requested</li>
+ * <li>dateOfRequest: if true, the date used in the criteria is to be the same as the date used in the Tijdstip/Datum field from the request header. Mutually exclusive with other date parameters.</li>
  * <li>date: the date on which the information on the social status was in effect.</li>
  * <li>startDate: required, the start date of the period in which the social status was in effect</li>
  * <li>endDate: optional, the end date of the period in which the social status was in effect. When not specified, the period is assumed to run until today.</li>
@@ -40,6 +41,8 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
         @Getter(AccessLevel.PROTECTED)
         private String socialStatusName;
         @Getter(AccessLevel.PROTECTED)
+        private boolean dateOfRequest;
+        @Getter(AccessLevel.PROTECTED)
         private LocalDate date;
         @Getter(AccessLevel.PROTECTED)
         private LocalDate startDate;
@@ -55,6 +58,11 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
 
         public Builder date(LocalDate date) {
             this.date = date;
+            return this;
+        }
+
+        public Builder dateOfRequest(boolean dateOfRequest) {
+            this.dateOfRequest = dateOfRequest;
             return this;
         }
 
@@ -100,13 +108,18 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
         public GeefSociaalStatuutRequest build() {
             if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
             if(socialStatusName == null) { throw new IllegalStateException("socialStatusName must be given"); }
-            if((date == null && startDate == null) || (date != null && startDate != null)) { throw new IllegalStateException("Either date or startDate must be given"); }
+            if(dateOfRequest) {
+                if((date != null || startDate != null)) { throw new IllegalStateException("When dateOfRequest is to be used, no date or startDate may be specified"); }
+            } else if((date == null && startDate == null) || (date != null && startDate != null)) {
+                throw new IllegalStateException("Either date or startDate must be given");
+            }
             if(startDate == null && endDate != null) { throw new IllegalStateException("endDate cannot be given without startDate"); }
 
             return new GeefSociaalStatuutRequest(
                     getInsz(),
                     getRegistration(),
                     socialStatusName,
+                    dateOfRequest,
                     date,
                     startDate,
                     endDate,
@@ -121,6 +134,7 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
 
     @NotNull
     private final String socialStatusName;
+    private final boolean dateOfRequest;
     @Nullable
     private final LocalDate date;
     @Nullable
@@ -134,12 +148,14 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
             @NotNull INSZNumber insz,
             @NotNull String registration,
             @NotNull String socialStatusName,
+            boolean dateOfRequest,
             @Nullable LocalDate date,
             @Nullable LocalDate startDate,
             @Nullable LocalDate endDate,
             @Nullable String locationName) {
         super(insz, registration);
         this.socialStatusName = socialStatusName;
+        this.dateOfRequest = dateOfRequest;
         this.date = date;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -156,21 +172,26 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
         fillInCommonFields(request, requestId, magdaRegistrationInfo);
         
         request.setValue("//SociaalStatuut/Naam", getSocialStatusName());
-        if(getDate() != null){
-            request.setValue("//SociaalStatuut/Datum/Datum", DateTimeFormatter.ISO_LOCAL_DATE.format(getDate()));
-        } else {
-            request.removeNode("//SociaalStatuut/Datum/Datum");
-        }
 
-        if(getStartDate() != null) {
-            request.setValue("//SociaalStatuut/Datum/Periode/Begindatum", DateTimeFormatter.ISO_LOCAL_DATE.format(getStartDate()));
-            if(getEndDate() != null) {
-                request.setValue("//SociaalStatuut/Datum/Periode/Einddatum", DateTimeFormatter.ISO_LOCAL_DATE.format(getEndDate()));
-            } else {
-                request.removeNode("//SociaalStatuut/Datum/Periode/Einddatum");
-            }
+        if(isDateOfRequest()) {
+            request.setValue("//SociaalStatuut/Datum/Datum", request.getValue("//Context/Bericht/Tijdstip/Datum"));
         } else {
-            request.removeNode("//SociaalStatuut/Datum/Periode");
+            if(getDate() != null) {
+                request.setValue("//SociaalStatuut/Datum/Datum", DateTimeFormatter.ISO_LOCAL_DATE.format(getDate()));
+            } else {
+                request.removeNode("//SociaalStatuut/Datum/Datum");
+            }
+
+            if(getStartDate() != null) {
+                request.setValue("//SociaalStatuut/Datum/Periode/Begindatum", DateTimeFormatter.ISO_LOCAL_DATE.format(getStartDate()));
+                if(getEndDate() != null) {
+                    request.setValue("//SociaalStatuut/Datum/Periode/Einddatum", DateTimeFormatter.ISO_LOCAL_DATE.format(getEndDate()));
+                } else {
+                    request.removeNode("//SociaalStatuut/Datum/Periode/Einddatum");
+                }
+            } else {
+                request.removeNode("//SociaalStatuut/Datum/Periode");
+            }
         }
 
         if(getLocationName() != null) {

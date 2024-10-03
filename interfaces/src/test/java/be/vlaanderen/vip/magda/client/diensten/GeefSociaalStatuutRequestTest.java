@@ -118,6 +118,43 @@ class GeefSociaalStatuutRequestTest {
 
             assertThrows(IllegalStateException.class, builder::build);
         }
+
+        @Test
+        void buildsRequest_withDateOfRequestFlag() {
+            var request = GeefSociaalStatuutRequest.builder()
+                    .insz("insz")
+                    .socialStatusName("sociaal-statuut")
+                    .dateOfRequest(true)
+                    .build();
+
+            assertTrue(request.isDateOfRequest());
+        }
+
+        @Test
+        void throwsException_whenDateOfRequestIsUsedTogetherWithDate() {
+            var date = LocalDate.now();
+
+            var builder = GeefSociaalStatuutRequest.builder()
+                    .insz("insz")
+                    .socialStatusName("sociaal-statuut")
+                    .dateOfRequest(true)
+                    .date(date);
+
+            assertThrows(IllegalStateException.class, builder::build);
+        }
+
+        @Test
+        void throwsException_whenDateOfRequestIsUsedTogetherWithStartDate() {
+            var date = LocalDate.now();
+
+            var builder = GeefSociaalStatuutRequest.builder()
+                    .insz("insz")
+                    .socialStatusName("sociaal-statuut")
+                    .dateOfRequest(true)
+                    .startDate(date);
+
+            assertThrows(IllegalStateException.class, builder::build);
+        }
     }
 
     @Nested
@@ -146,6 +183,20 @@ class GeefSociaalStatuutRequestTest {
                     .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//SociaalStatuut/Naam"), is(equalTo("sociaal-statuut")));
+        }
+
+        @Test
+        void setsDateOfRequestIfSpecified() {
+            var request = builder
+                    .date((LocalDate) null)
+                    .dateOfRequest(true)
+                    .build()
+                    .toMagdaDocument(REQUEST_ID, info);
+
+            var dateInRequestHeader = request.getValue("//Context/Bericht/Tijdstip/Datum");
+            assertNotNull(dateInRequestHeader);
+            assertTrue(dateInRequestHeader.matches("\\d{4}-\\d{2}-\\d{2}"));
+            assertThat(request.getValue("//SociaalStatuut/Datum/Datum"), is(equalTo(dateInRequestHeader)));
         }
 
         @Test
