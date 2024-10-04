@@ -124,10 +124,10 @@ class GeefSociaalStatuutRequestTest {
             var request = GeefSociaalStatuutRequest.builder()
                     .insz("insz")
                     .socialStatusName("sociaal-statuut")
-                    .dateOfRequest(true)
+                    .atDateOfRequest(true)
                     .build();
 
-            assertTrue(request.isDateOfRequest());
+            assertTrue(request.isAtDateOfRequest());
         }
 
         @Test
@@ -137,7 +137,7 @@ class GeefSociaalStatuutRequestTest {
             var builder = GeefSociaalStatuutRequest.builder()
                     .insz("insz")
                     .socialStatusName("sociaal-statuut")
-                    .dateOfRequest(true)
+                    .atDateOfRequest(true)
                     .date(date);
 
             assertThrows(IllegalStateException.class, builder::build);
@@ -150,7 +150,7 @@ class GeefSociaalStatuutRequestTest {
             var builder = GeefSociaalStatuutRequest.builder()
                     .insz("insz")
                     .socialStatusName("sociaal-statuut")
-                    .dateOfRequest(true)
+                    .atDateOfRequest(true)
                     .startDate(date);
 
             assertThrows(IllegalStateException.class, builder::build);
@@ -189,7 +189,7 @@ class GeefSociaalStatuutRequestTest {
         void setsDateOfRequestIfSpecified() {
             var request = builder
                     .date((LocalDate) null)
-                    .dateOfRequest(true)
+                    .atDateOfRequest(true)
                     .build()
                     .toMagdaDocument(REQUEST_ID, info);
 

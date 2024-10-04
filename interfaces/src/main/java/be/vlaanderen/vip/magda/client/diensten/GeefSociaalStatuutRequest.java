@@ -21,7 +21,7 @@ import java.util.UUID;
  * Adds the following fields to the {@link PersonMagdaRequest}:
  * <ul>
  * <li>socialStatusName: the name of the type of social status about which the information is requested</li>
- * <li>dateOfRequest: if true, the date used in the criteria is to be the same as the date used in the Tijdstip/Datum field from the request header. Mutually exclusive with other date parameters.</li>
+ * <li>atDateOfRequest: if true, the date used in the criteria is to be the same as the date used in the Tijdstip/Datum field from the request header. Mutually exclusive with other date parameters.</li>
  * <li>date: the date on which the information on the social status was in effect.</li>
  * <li>startDate: required, the start date of the period in which the social status was in effect</li>
  * <li>endDate: optional, the end date of the period in which the social status was in effect. When not specified, the period is assumed to run until today.</li>
@@ -41,7 +41,7 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
         @Getter(AccessLevel.PROTECTED)
         private String socialStatusName;
         @Getter(AccessLevel.PROTECTED)
-        private boolean dateOfRequest;
+        private boolean atDateOfRequest;
         @Getter(AccessLevel.PROTECTED)
         private LocalDate date;
         @Getter(AccessLevel.PROTECTED)
@@ -61,8 +61,8 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
             return this;
         }
 
-        public Builder dateOfRequest(boolean dateOfRequest) {
-            this.dateOfRequest = dateOfRequest;
+        public Builder atDateOfRequest(boolean atDateOfRequest) {
+            this.atDateOfRequest = atDateOfRequest;
             return this;
         }
 
@@ -108,8 +108,8 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
         public GeefSociaalStatuutRequest build() {
             if(getInsz() == null) { throw new IllegalStateException("INSZ number must be given"); }
             if(socialStatusName == null) { throw new IllegalStateException("socialStatusName must be given"); }
-            if(dateOfRequest) {
-                if((date != null || startDate != null)) { throw new IllegalStateException("When dateOfRequest is to be used, no date or startDate may be specified"); }
+            if(atDateOfRequest) {
+                if((date != null || startDate != null)) { throw new IllegalStateException("When atDateOfRequest is to be used, no date or startDate may be specified"); }
             } else if((date == null && startDate == null) || (date != null && startDate != null)) {
                 throw new IllegalStateException("Either date or startDate must be given");
             }
@@ -119,7 +119,7 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
                     getInsz(),
                     getRegistration(),
                     socialStatusName,
-                    dateOfRequest,
+                    atDateOfRequest,
                     date,
                     startDate,
                     endDate,
@@ -134,7 +134,7 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
 
     @NotNull
     private final String socialStatusName;
-    private final boolean dateOfRequest;
+    private final boolean atDateOfRequest;
     @Nullable
     private final LocalDate date;
     @Nullable
@@ -148,14 +148,14 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
             @NotNull INSZNumber insz,
             @NotNull String registration,
             @NotNull String socialStatusName,
-            boolean dateOfRequest,
+            boolean atDateOfRequest,
             @Nullable LocalDate date,
             @Nullable LocalDate startDate,
             @Nullable LocalDate endDate,
             @Nullable String locationName) {
         super(insz, registration);
         this.socialStatusName = socialStatusName;
-        this.dateOfRequest = dateOfRequest;
+        this.atDateOfRequest = atDateOfRequest;
         this.date = date;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -173,7 +173,7 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
         
         request.setValue("//SociaalStatuut/Naam", getSocialStatusName());
 
-        if(isDateOfRequest()) {
+        if(isAtDateOfRequest()) {
             request.setValue("//SociaalStatuut/Datum/Datum", request.getValue("//Context/Bericht/Tijdstip/Datum"));
         } else {
             if(getDate() != null) {
