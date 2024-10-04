@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.mock.magda.inventory;
 
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder.ServiceDirectory;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -109,5 +110,47 @@ class MultiResourceFinderTest {
         private CaseFile caseFile() {
             return mock(CaseFile.class);
         }
+    }
+
+    @Nested
+    class ListServices {
+
+        @Test
+        void listServices() {
+
+            TestcaseFinder testcaseFinder = new TestcaseFinder(finder);
+
+            var file1 = caseFile();
+            var file2 = caseFile();
+            var file3 = caseFile();
+
+            ServiceDirectory serviceDirectory = mock(ServiceDirectory.class);
+            VersionDirectory versionDirectory = mock(VersionDirectory.class);
+            when(serviceDirectory.service()).thenReturn("GeefPersoonhistoriek");
+            when(versionDirectory.version()).thenReturn("02.00.0000");
+            when(serviceDirectory.versions()).thenReturn(List.of(versionDirectory));
+
+            when(file1.name()).thenReturn("file-1");
+            when(file2.name()).thenReturn("file-2");
+            when(file3.name()).thenReturn("file-3");
+
+            when(versionDirectory.cases()).thenReturn(List.of(file1, file2, file3));
+            when(finder.listServicesDirectories("type")).thenReturn(List.of(serviceDirectory, serviceDirectory, serviceDirectory));
+
+            Testcase testCase1 = Testcase.builder().key("file-1").description("Testcase file-1").type(TestcaseType.DOMAIN).services(List.of(TestcaseService.builder().service("GeefPersoonhistoriek").version("02.00.0000").build())).build();
+            Testcase testCase2 = Testcase.builder().key("file-2").description("Testcase file-2").type(TestcaseType.DOMAIN).services(List.of(TestcaseService.builder().service("GeefPersoonhistoriek").version("02.00.0000").build())).build();
+            Testcase testCase3 = Testcase.builder().key("file-3").description("Testcase file-3").type(TestcaseType.DOMAIN).services(List.of(TestcaseService.builder().service("GeefPersoonhistoriek").version("02.00.0000").build())).build();
+
+            List<Testcase> testcases = testcaseFinder.listServices("type");
+
+            Assertions.assertThat(testcases).hasSize(3);
+            Assertions.assertThat(testcases).contains(testCase1, testCase2, testCase3);
+
+        }
+
+        private CaseFile caseFile() {
+            return mock(CaseFile.class);
+        }
+
     }
 }
