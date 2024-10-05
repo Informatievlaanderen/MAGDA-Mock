@@ -7,16 +7,18 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Slf4j
 public class TestcaseFinder {
     private final ResourceFinder finder;
-    
+
     public TestcaseFinder(ResourceFinder finder) {
         this.finder = finder;
     }
@@ -79,15 +81,20 @@ public class TestcaseFinder {
      * ((service: "GeefBewijs", version: "02.00.00"), <"12345", "67890">)
      */
     private Map<TestcaseService, Set<String>> getServicesWithCases(String type) {
-        record ServiceVersion(ServiceDirectory sd, VersionDirectory vd) {}
-        
+        record ServiceVersion(ServiceDirectory sd, VersionDirectory vd) {
+        }
+
         return finder.listServicesDirectories(type)
-                     .stream()
-                     .flatMap(sd -> sd.versions()
-                                      .stream()
-                                      .map(vd -> new ServiceVersion(sd, vd)))
-                     .collect(Collectors.toMap(sv -> toTestcaseService(sv.sd(), sv.vd()), 
-                                               sv -> getCases(sv.vd())));
+                .stream()
+                .flatMap(sd -> sd.versions()
+                        .stream()
+                        .map(vd -> new ServiceVersion(sd, vd)))
+                .collect(Collectors.toMap(sv -> toTestcaseService(sv.sd(), sv.vd()),
+                        sv -> getCases(sv.vd()),
+                        (existing, replacement) -> {
+                            existing.addAll(replacement);
+                            return replacement;
+                        }));
     }
     
     /**
