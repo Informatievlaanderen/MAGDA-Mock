@@ -175,6 +175,7 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
 
         if(isAtDateOfRequest()) {
             request.setValue("//SociaalStatuut/Datum/Datum", request.getValue("//Context/Bericht/Tijdstip/Datum"));
+            request.removeNode("//SociaalStatuut/Datum/Periode");
         } else {
             if(getDate() != null) {
                 request.setValue("//SociaalStatuut/Datum/Datum", DateTimeFormatter.ISO_LOCAL_DATE.format(getDate()));
