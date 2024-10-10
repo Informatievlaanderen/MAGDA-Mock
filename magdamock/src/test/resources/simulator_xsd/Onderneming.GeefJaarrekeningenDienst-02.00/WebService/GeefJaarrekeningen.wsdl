@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions 
+	xmlns="http://webservice.geefjaarrekeningendienst-02_00.onderneming-02_00.vip.vlaanderen.be" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	targetNamespace="http://webservice.geefjaarrekeningendienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+
+	<wsdl:types>
+		<xsd:schema 
+			targetNamespace="http://webservice.geefjaarrekeningendienst-02_00.onderneming-02_00.vip.vlaanderen.be" 
+			xmlns="http://webservice.geefjaarrekeningendienst-02_00.onderneming-02_00.vip.vlaanderen.be" 
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			elementFormDefault="unqualified" 
+			attributeFormDefault="unqualified" version="2.00">
+
+			<xsd:include schemaLocation="GeefJaarrekeningen.xsd"/>
+			<xsd:include schemaLocation="GeefJaarrekeningenResponse.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="GeefJaarrekeningenRequest">
+		<wsdl:part name="Verzoek" element="GeefJaarrekeningen"/>
+	</wsdl:message>
+	<wsdl:message name="GeefJaarrekeningenResponse">
+		<wsdl:part name="Repliek" element="GeefJaarrekeningenResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="Onderneming.GeefJaarrekeningenPortType">
+		<wsdl:operation name="GeefJaarrekeningen">
+			<wsdl:input name="GeefJaarrekeningenRequest" message="GeefJaarrekeningenRequest"/>
+			<wsdl:output name="GeefJaarrekeningenResponse" message="GeefJaarrekeningenResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="Onderneming.GeefJaarrekeningenHttpBinding" type="Onderneming.GeefJaarrekeningenPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GeefJaarrekeningen">
+			<soap:operation soapAction="http://magdaondernemingdienst-intern-aip.vonet.be/GeefJaarrekeningenDienst-02.00/soap/WebService"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="Onderneming.GeefJaarrekeningen">
+		<wsdl:port name="Onderneming.GeefJaarrekeningenPortType" binding="Onderneming.GeefJaarrekeningenHttpBinding">
+			<soap:address location="https://magdaondernemingdienst.vlaanderen.be/GeefJaarrekeningenDienst-02.00/soap/WebService"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

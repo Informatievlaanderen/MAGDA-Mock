@@ -22,7 +22,7 @@ public interface AnnualAccounts {
 
         CodeAndDescription typeSchema();
 
-        CodeAndDescription nature(); // XXX is this a code and description? not sure
+        CodeAndDescription nature();
     }
 
     interface Element {

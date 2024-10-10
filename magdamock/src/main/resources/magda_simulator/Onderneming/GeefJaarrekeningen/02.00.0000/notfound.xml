@@ -1,5 +1,5 @@
-<web:GeefOndernemingResponse
-        xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be"><!-- XXX -->
+<web:GeefJaarrekeningenResponse
+        xmlns:web="http://webservice.geefjaarrekeningendienst-02_00.onderneming-02_00.vip.vlaanderen.be">
     <Repliek>
         <Context>
             <Naam>GeefJaarrekeningen</Naam>
@@ -26,7 +26,7 @@
                 <Referte>5800</Referte>
                 <Uitzonderingen>
                     <Uitzondering>
-                        <Identificatie>30001</Identificatie><!-- XXX -->
+                        <Identificatie>30001</Identificatie>
                         <Oorsprong>MAGDA</Oorsprong>
                         <Type>FOUT</Type>
                         <Tijdstip>
@@ -39,4 +39,4 @@
             </Antwoord>
         </Antwoorden>
     </Repliek>
-</web:GeefOndernemingResponse>
+</web:GeefJaarrekeningenResponse>
