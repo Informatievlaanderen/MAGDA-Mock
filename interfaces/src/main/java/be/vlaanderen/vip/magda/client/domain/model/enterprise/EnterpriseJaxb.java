@@ -40,9 +40,17 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
     @Getter
     DateContainerJaxb startDate;
 
+    @XmlElement(name = "Naam")
+    @Getter
+    String name;
+
     @XmlElement(name = "SoortOnderneming")
     @Getter
     CodeAndDescriptionJaxb enterpriseType;
+
+    @XmlElement(name = "Rechtsvorm")
+    @Getter
+    String juridicalForm;
 
     @Override
     public List<Enterprise.BranchOffice> branchOffices() {

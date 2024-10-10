@@ -16,7 +16,11 @@ public interface Enterprise {
 
     DateContainer startDate();
 
+    String name();
+
     CodeAndDescription enterpriseType();
+
+    String juridicalForm();
 
     interface LegalSituation {
 
