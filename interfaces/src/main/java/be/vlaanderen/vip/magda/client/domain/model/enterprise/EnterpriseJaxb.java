@@ -58,8 +58,8 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
     }
 
     @Override
-    public List<Enterprise.LegalForm> legalForms() {
-        return legalForms.stream().map(o -> (Enterprise.LegalForm) o).toList();
+    public List<Enterprise.CodeAndDescription> legalForms() {
+        return legalForms.stream().map(o -> (Enterprise.CodeAndDescription) o).toList();
     }
 
     @Override
