@@ -20,7 +20,7 @@ public interface Enterprise {
 
     CodeAndDescription enterpriseType();
 
-    List<LegalForm> legalForms();
+    List<CodeAndDescription> legalForms();
 
     interface LegalSituation {
 
