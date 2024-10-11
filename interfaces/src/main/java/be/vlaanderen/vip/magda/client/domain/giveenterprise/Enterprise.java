@@ -16,11 +16,11 @@ public interface Enterprise {
 
     DateContainer startDate();
 
-    String name();
+    CompanyNames companyNames();
 
     CodeAndDescription enterpriseType();
 
-    String juridicalForm();
+    List<LegalForm> legalForms();
 
     interface LegalSituation {
 
@@ -57,11 +57,7 @@ public interface Enterprise {
 
     interface CompanyNames {
 
-        List<CompanyName> registeredNames();
-
-        List<CompanyName> abbreviatedName();
-
-        List<CompanyName> commercialName();
+        CompanyName registeredName();
     }
 
     interface CompanyName {

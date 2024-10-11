@@ -40,17 +40,17 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
     @Getter
     DateContainerJaxb startDate;
 
-    @XmlElement(name = "Naam")
+    @XmlElement(name = "Namen")
     @Getter
-    String name;
+    CompanyNames companyNames;
 
     @XmlElement(name = "SoortOnderneming")
     @Getter
     CodeAndDescriptionJaxb enterpriseType;
 
+    @XmlElementWrapper(name = "Rechtsvormen")
     @XmlElement(name = "Rechtsvorm")
-    @Getter
-    String juridicalForm;
+    ArrayList<CodeAndDescriptionJaxb> legalForms = new ArrayList<>();
 
     @Override
     public List<Enterprise.BranchOffice> branchOffices() {
@@ -58,8 +58,40 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
     }
 
     @Override
+    public List<Enterprise.LegalForm> legalForms() {
+        return legalForms.stream().map(o -> (Enterprise.LegalForm) o).toList();
+    }
+
+    @Override
     public List<Address> addresses() {
         return addresses.stream().map(o -> (Enterprise.Address) o).toList();
+    }
+
+    @Getter
+    private static class CompanyNames implements Enterprise.CompanyNames, Serializable {
+
+        @XmlElement(name = "MaatschappelijkeNaam")
+        CompanyName registeredName;
+    }
+
+    @Getter
+    private static class CompanyName implements Enterprise.CompanyName, Serializable {
+
+        @XmlElement(name = "Naam")
+        String name;
+
+        @XmlElement(name = "TaalCode")
+        String languageCode;
+
+        @Override
+        public OffsetDateTime startDate() {
+            return null;
+        }
+
+        @Override
+        public OffsetDateTime endDate() {
+            return null;
+        }
     }
 
     private static class BranchOffice implements Enterprise.BranchOffice, Serializable {
