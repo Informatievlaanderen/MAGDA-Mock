@@ -57,7 +57,7 @@ public interface Enterprise {
 
     interface CompanyNames {
 
-        CompanyName registeredName();
+        List<CompanyName> registeredNames();
     }
 
     interface CompanyName {

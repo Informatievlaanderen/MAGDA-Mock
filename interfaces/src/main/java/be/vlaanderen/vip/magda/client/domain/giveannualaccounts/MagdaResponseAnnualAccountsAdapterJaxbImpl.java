@@ -11,20 +11,10 @@ import java.util.Optional;
 
 public class MagdaResponseAnnualAccountsAdapterJaxbImpl implements MagdaResponseAnnualAccountsAdapter {
 
-    private static MagdaResponseAnnualAccountsAdapterJaxbImpl instance;
-
-    public static MagdaResponseAnnualAccountsAdapterJaxbImpl getInstance() {
-        if(instance == null) {
-            instance = new MagdaResponseAnnualAccountsAdapterJaxbImpl();
-        }
-
-        return instance;
-    }
-
-    private final JAXBContext context;
+    JAXBContext context;
 
     @SneakyThrows
-    private MagdaResponseAnnualAccountsAdapterJaxbImpl() {
+    public MagdaResponseAnnualAccountsAdapterJaxbImpl() {
         context = JAXBContext.newInstance(AnnualAccountsJaxb.class);
     }
 

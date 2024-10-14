@@ -11,7 +11,7 @@ import java.util.List;
 public interface AnnualAccounts {
 
     static AnnualAccounts ofMagdaDocument(MagdaDocument magdaDocument) throws MagdaClientException {
-        return MagdaResponseAnnualAccountsAdapterJaxbImpl.getInstance().adapt(new MagdaResponseWrapper(MagdaResponse.builder()
+        return new MagdaResponseAnnualAccountsAdapterJaxbImpl().adapt(new MagdaResponseWrapper(MagdaResponse.builder()
                 .document(magdaDocument)
                 .build()));
     }

@@ -1,10 +1,7 @@
 package be.vlaanderen.vip.magda.client.domain.model.enterprise;
 
 import be.vlaanderen.vip.magda.client.domain.giveenterprise.Enterprise;
-import be.vlaanderen.vip.magda.client.domain.model.shared.AddressJaxb;
-import be.vlaanderen.vip.magda.client.domain.model.shared.CodeAndDescriptionJaxb;
-import be.vlaanderen.vip.magda.client.domain.model.shared.OffsetDateXmlAdapter;
-import be.vlaanderen.vip.magda.client.domain.model.shared.ValueAndDescriptionJaxb;
+import be.vlaanderen.vip.magda.client.domain.model.shared.*;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import lombok.Getter;
@@ -70,8 +67,14 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
     @Getter
     private static class CompanyNames implements Enterprise.CompanyNames, Serializable {
 
+        @XmlElementWrapper(name = "MaatschappelijkeNamen")
         @XmlElement(name = "MaatschappelijkeNaam")
-        CompanyName registeredName;
+        List<CompanyName> registeredNames;
+
+        @Override
+        public List<Enterprise.CompanyName> registeredNames() {
+            return registeredNames.stream().map(o -> (Enterprise.CompanyName) o).toList();
+        }
     }
 
     @Getter
@@ -250,6 +253,7 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
     private static class DateContainerJaxb implements Enterprise.DateContainer, Serializable {
 
         @XmlElement(name = "Datum")
+        @XmlJavaTypeAdapter(LocalDateXmlAdapter.class)
         LocalDate value;
     }
 }
