@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefOndernemingResponse xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefOnderneming</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-10-11</Datum>
+                    <Tijd>12:43:46.123</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>feeff533-484b-489d-b3e2-88cb7de5ee67</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kb.vlaanderen.be/aiv/kmo-automatisch-advies-ond</Identificatie>
+                    <Referte>9881da5a-9f72-47d0-a163-94c55211518f</Referte>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>test1</Referte>
+                <Inhoud>
+                    <Onderneming>
+                        <Ondernemingsnummer>0205157869</Ondernemingsnummer>
+                        <AuthentiekBron>
+                            <Code>03</Code>
+                            <Omschrijving>KBO</Omschrijving>
+                        </AuthentiekBron>
+                        <OndernemingOfVestiging>
+                            <Code Beschrijving="Onderneming">1</Code>
+                        </OndernemingOfVestiging>
+                        <StatusKBO>
+                            <Code>AC</Code>
+                            <Omschrijving>Actief</Omschrijving>
+                        </StatusKBO>
+                        <SoortOnderneming>
+                            <Code Beschrijving="Rechtspersoon">2</Code>
+                        </SoortOnderneming>
+                        <Namen>
+                            <MaatschappelijkeNamen>
+                                <MaatschappelijkeNaam DatumBegin="2003-10-21">
+                                    <Naam>West-Vlaamse Intercommunale</Naam>
+                                    <Taalcode>nl</Taalcode>
+                                </MaatschappelijkeNaam>
+                            </MaatschappelijkeNamen>
+                            <AfgekorteNamen>
+                                <AfgekorteNaam DatumBegin="1999-12-10">
+                                    <Naam>WVI</Naam>
+                                    <Taalcode>nl</Taalcode>
+                                </AfgekorteNaam>
+                            </AfgekorteNamen>
+                        </Namen>
+                        <Adressen>
+                            <Adres DatumBegin="1999-12-10">
+                                <Straat>
+                                    <Code>1008</Code>
+                                </Straat>
+                                <Huisnummer>35</Huisnummer>
+                                <Gemeente>
+                                    <NISCode>31005</NISCode>
+                                    <PostCode>8310</PostCode>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BE</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                                <Type>
+                                    <Code>001</Code>
+                                    <Omschrijving>Zetel</Omschrijving>
+                                </Type>
+                                <Descripties>
+                                    <Descriptie>
+                                        <Adres>
+                                            <Straat>
+                                                <Naam>Baron Ruzettelaan</Naam>
+                                            </Straat>
+                                            <Gemeente>
+                                                <Naam>Brugge</Naam>
+                                            </Gemeente>
+                                            <Land>
+                                                <NISCode>150</NISCode>
+                                                <Naam>België</Naam>
+                                            </Land>
+                                        </Adres>
+                                    </Descriptie>
+                                </Descripties>
+                            </Adres>
+                        </Adressen>
+                        <Start>
+                            <Datum>1964-05-30</Datum>
+                        </Start>
+                        <Inschrijving>
+                            <Datum>2003-01-18</Datum>
+                        </Inschrijving>
+                        <Rechtsvormen>
+                            <Rechtsvorm DatumBegin="2004-03-24">
+                                <Code>416</Code>
+                                <Omschrijving>Dienstverlenende vereniging (Vlaams Gewest)</Omschrijving>
+                                <Afkorting>DIENSTV</Afkorting>
+                            </Rechtsvorm>
+                        </Rechtsvormen>
+                        <Rechtstoestanden>
+                            <Rechtstoestand DatumBegin="1964-05-30">
+                                <Code>000</Code>
+                                <Omschrijving>Normale toestand</Omschrijving>
+                                <InstrumenterendeOverheid>205157869</InstrumenterendeOverheid>
+                            </Rechtstoestand>
+                        </Rechtstoestanden>
+                    </Onderneming>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefOndernemingResponse>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefOndernemingResponse xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefOnderneming</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-10-11</Datum>
+                    <Tijd>12:44:34.889</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>a8fd2ea8-71e5-482f-8ffc-e0dc67a13f4e</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kb.vlaanderen.be/aiv/kmo-automatisch-advies-ond</Identificatie>
+                    <Referte>c03b21d8-880a-4d06-90bd-a9bcc807e11c</Referte>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>test1</Referte>
+                <Inhoud>
+                    <Onderneming>
+                        <Ondernemingsnummer>0207432520</Ondernemingsnummer>
+                        <AuthentiekBron>
+                            <Code>03</Code>
+                            <Omschrijving>KBO</Omschrijving>
+                        </AuthentiekBron>
+                        <OndernemingOfVestiging>
+                            <Code Beschrijving="Onderneming">1</Code>
+                        </OndernemingOfVestiging>
+                        <StatusKBO>
+                            <Code>AC</Code>
+                            <Omschrijving>Actief</Omschrijving>
+                        </StatusKBO>
+                        <SoortOnderneming>
+                            <Code Beschrijving="Rechtspersoon">2</Code>
+                        </SoortOnderneming>
+                        <Namen>
+                            <MaatschappelijkeNamen>
+                                <MaatschappelijkeNaam DatumBegin="1964-07-02">
+                                    <Naam>Stad Roeselare</Naam>
+                                    <Taalcode>nl</Taalcode>
+                                </MaatschappelijkeNaam>
+                            </MaatschappelijkeNamen>
+                        </Namen>
+                        <Adressen>
+                            <Adres DatumBegin="2024-07-10">
+                                <Straat>
+                                    <Code>0069</Code>
+                                </Straat>
+                                <Huisnummer>1</Huisnummer>
+                                <Gemeente>
+                                    <NISCode>36015</NISCode>
+                                    <PostCode>8800</PostCode>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BE</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                                <Type>
+                                    <Code>001</Code>
+                                    <Omschrijving>Zetel</Omschrijving>
+                                </Type>
+                                <Descripties>
+                                    <Descriptie>
+                                        <Adres>
+                                            <Straat>
+                                                <Naam>Grote Markt</Naam>
+                                            </Straat>
+                                            <Gemeente>
+                                                <Naam>Roeselare</Naam>
+                                            </Gemeente>
+                                            <Land>
+                                                <NISCode>150</NISCode>
+                                                <Naam>België</Naam>
+                                            </Land>
+                                        </Adres>
+                                    </Descriptie>
+                                </Descripties>
+                            </Adres>
+                        </Adressen>
+                        <Start>
+                            <Datum>1964-07-02</Datum>
+                        </Start>
+                        <Inschrijving>
+                            <Datum>2003-01-18</Datum>
+                        </Inschrijving>
+                        <Rechtsvormen>
+                            <Rechtsvorm DatumBegin="1964-07-02">
+                                <Code>411</Code>
+                                <Omschrijving>Stad / gemeente</Omschrijving>
+                                <Afkorting>GEMEENTE</Afkorting>
+                            </Rechtsvorm>
+                        </Rechtsvormen>
+                        <Rechtstoestanden>
+                            <Rechtstoestand DatumBegin="1964-07-02">
+                                <Code>000</Code>
+                                <Omschrijving>Normale toestand</Omschrijving>
+                                <InstrumenterendeOverheid>207432520</InstrumenterendeOverheid>
+                            </Rechtstoestand>
+                        </Rechtstoestanden>
+                    </Onderneming>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefOndernemingResponse>

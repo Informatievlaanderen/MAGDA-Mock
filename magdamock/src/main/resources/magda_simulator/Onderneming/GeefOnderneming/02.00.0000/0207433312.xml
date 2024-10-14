@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefOndernemingResponse xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefOnderneming</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-10-11</Datum>
+                    <Tijd>12:45:16.234</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>f26c8531-b31b-4e7b-a1e4-efe1fea29b8a</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kb.vlaanderen.be/aiv/kmo-automatisch-advies-ond</Identificatie>
+                    <Referte>007c9de5-50ad-42e5-a828-b93cd5c9b54a</Referte>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>test1</Referte>
+                <Inhoud>
+                    <Onderneming>
+                        <Ondernemingsnummer>0207433312</Ondernemingsnummer>
+                        <AuthentiekBron>
+                            <Code>03</Code>
+                            <Omschrijving>KBO</Omschrijving>
+                        </AuthentiekBron>
+                        <OndernemingOfVestiging>
+                            <Code Beschrijving="Onderneming">1</Code>
+                        </OndernemingOfVestiging>
+                        <StatusKBO>
+                            <Code>AC</Code>
+                            <Omschrijving>Actief</Omschrijving>
+                        </StatusKBO>
+                        <SoortOnderneming>
+                            <Code Beschrijving="Rechtspersoon">2</Code>
+                        </SoortOnderneming>
+                        <Namen>
+                            <MaatschappelijkeNamen>
+                                <MaatschappelijkeNaam DatumBegin="1968-01-01">
+                                    <Naam>Stad Menen</Naam>
+                                    <Taalcode>nl</Taalcode>
+                                </MaatschappelijkeNaam>
+                            </MaatschappelijkeNamen>
+                        </Namen>
+                        <Adressen>
+                            <Adres DatumBegin="2011-10-17">
+                                <Straat>
+                                    <Code>1011</Code>
+                                </Straat>
+                                <Huisnummer>1</Huisnummer>
+                                <Gemeente>
+                                    <NISCode>34027</NISCode>
+                                    <PostCode>8930</PostCode>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BE</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                                <Type>
+                                    <Code>001</Code>
+                                    <Omschrijving>Zetel</Omschrijving>
+                                </Type>
+                                <Descripties>
+                                    <Descriptie>
+                                        <Adres>
+                                            <Straat>
+                                                <Naam>Grote Markt</Naam>
+                                            </Straat>
+                                            <Gemeente>
+                                                <Naam>Menen</Naam>
+                                            </Gemeente>
+                                            <Land>
+                                                <NISCode>150</NISCode>
+                                                <Naam>België</Naam>
+                                            </Land>
+                                        </Adres>
+                                        <Contact>
+                                            <Telefoonnummer>056 529 200</Telefoonnummer>
+                                        </Contact>
+                                    </Descriptie>
+                                </Descripties>
+                            </Adres>
+                        </Adressen>
+                        <Start>
+                            <Datum>1968-01-01</Datum>
+                        </Start>
+                        <Inschrijving>
+                            <Datum>2003-01-18</Datum>
+                        </Inschrijving>
+                        <Rechtsvormen>
+                            <Rechtsvorm DatumBegin="1968-01-01">
+                                <Code>411</Code>
+                                <Omschrijving>Stad / gemeente</Omschrijving>
+                                <Afkorting>GEMEENTE</Afkorting>
+                            </Rechtsvorm>
+                        </Rechtsvormen>
+                        <Rechtstoestanden>
+                            <Rechtstoestand DatumBegin="1968-01-01">
+                                <Code>000</Code>
+                                <Omschrijving>Normale toestand</Omschrijving>
+                                <InstrumenterendeOverheid>207433312</InstrumenterendeOverheid>
+                            </Rechtstoestand>
+                        </Rechtstoestanden>
+                    </Onderneming>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefOndernemingResponse>

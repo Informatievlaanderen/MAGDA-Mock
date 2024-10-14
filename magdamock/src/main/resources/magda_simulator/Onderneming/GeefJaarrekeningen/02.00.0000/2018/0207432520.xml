@@ -1,0 +1,46 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns:GeefJaarrekeningenResponse xmlns:ns="http://webservice.geefjaarrekeningendienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+            <Repliek>
+                <Context xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.geefjaarrekeningendienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                    <Naam>GeefJaarrekeningen</Naam>
+                    <Versie>02.00.0000</Versie>
+                    <Bericht>
+                        <Type>ANTWOORD</Type>
+                        <Tijdstip>
+                            <Datum>2024-10-14</Datum>
+                            <Tijd>08:59:42.393</Tijd>
+                        </Tijdstip>
+                        <Afzender>
+                            <Identificatie>vip.vlaanderen.be</Identificatie>
+                            <Naam>MagdaGateway</Naam>
+                            <Referte>19bcff23-e9f1-4b7a-a952-74259298671b</Referte>
+                        </Afzender>
+                        <Ontvanger>
+                            <Identificatie>kb.vlaanderen.be/aiv/kmo-automatisch-advies-ond</Identificatie>
+                            <Referte>cd5acc05-ba39-4f62-855a-b184f566bc09</Referte>
+                        </Ontvanger>
+                    </Bericht>
+                </Context>
+                <Antwoorden>
+                    <Antwoord>
+                        <Referte xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.geefjaarrekeningendienst-02_00.onderneming-02_00.vip.vlaanderen.be">b81b38fa-e0ea-4131-8029-72c63587df0b</Referte>
+                        <Uitzonderingen xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.geefjaarrekeningendienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                            <Uitzondering>
+                                <Identificatie>30001</Identificatie>
+                                <Oorsprong>MAGDA</Oorsprong>
+                                <Type>FOUT</Type>
+                                <Tijdstip>
+                                    <Datum>2024-10-14</Datum>
+                                    <Tijd>08:59:42.392</Tijd>
+                                </Tijdstip>
+                                <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+                            </Uitzondering>
+                        </Uitzonderingen>
+                    </Antwoord>
+                </Antwoorden>
+            </Repliek>
+        </ns:GeefJaarrekeningenResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
