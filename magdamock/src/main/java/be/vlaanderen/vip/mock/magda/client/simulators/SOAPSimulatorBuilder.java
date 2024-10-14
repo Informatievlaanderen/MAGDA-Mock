@@ -16,6 +16,7 @@ public class SOAPSimulatorBuilder {
 
     public static final String KEY_INSZ = "//INSZ";
     public static final String KEY_ONDERNEMINGSNUMMER = "//Ondernemingsnummer";
+    public static final String KEY_BOEKJAAR = "//Boekjaar";
     public static final String KEY_RRNR = "//rrnr";
     public static final String KEY_SSIN = "//ssin";
 
@@ -100,7 +101,7 @@ public class SOAPSimulatorBuilder {
         // ONDERNEMING
         simulator.register("GeefOnderneming", VERSION_02_00, new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
         simulator.register("GeefOndernemingVKBO", VERSION_02_00, new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
-        simulator.register("GeefJaarrekeningen", VERSION_02_00, new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
+        simulator.register("GeefJaarrekeningen", VERSION_02_00, new StaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER, KEY_BOEKJAAR));
 
         // GEBOUW
         simulator.register("GeefEpc", VERSION_02_00, new StaticResponseSimulator(finder, VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId"));

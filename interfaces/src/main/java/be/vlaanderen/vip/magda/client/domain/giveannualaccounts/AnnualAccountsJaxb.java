@@ -1,8 +1,10 @@
 package be.vlaanderen.vip.magda.client.domain.giveannualaccounts;
 
 import be.vlaanderen.vip.magda.client.domain.model.shared.CodeAndDescriptionJaxb;
+import be.vlaanderen.vip.magda.client.domain.model.shared.YearXmlAdapter;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import lombok.Getter;
 import lombok.experimental.Accessors;
 
@@ -80,6 +82,7 @@ public class AnnualAccountsJaxb implements AnnualAccounts, Serializable {
     private static class FinancialYearJaxb implements AnnualAccounts.FinancialYear, Serializable {
 
         @XmlElement(name = "Jaar")
+        @XmlJavaTypeAdapter(YearXmlAdapter.class)
         Year year;
     }
 }

@@ -1,9 +1,20 @@
 package be.vlaanderen.vip.magda.client.domain.giveannualaccounts;
 
+import be.vlaanderen.vip.magda.client.MagdaClientException;
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.MagdaResponse;
+import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
+
 import java.time.Year;
 import java.util.List;
 
 public interface AnnualAccounts {
+
+    static AnnualAccounts ofMagdaDocument(MagdaDocument magdaDocument) throws MagdaClientException {
+        return MagdaResponseAnnualAccountsAdapterJaxbImpl.getInstance().adapt(new MagdaResponseWrapper(MagdaResponse.builder()
+                .document(magdaDocument)
+                .build()));
+    }
 
     List<AnnualAccount> annualAccounts();
 
