@@ -29,17 +29,17 @@ public class CodeAndDescriptionJaxb implements Enterprise.CodeAndDescription, AR
 
     @Override
     public String descriptionValue() {
-        return description.value;
+        return description != null ? description.value : null;
     }
 
     @Override
     public String descriptionOrigin() {
-        return description.origin;
+        return description != null ? description.origin : null;
     }
 
     @Override
     public String descriptionLanguageCode() {
-        return description.languageCode;
+        return description != null ? description.languageCode : null;
     }
 
     private static class Description implements Serializable {
