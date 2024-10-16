@@ -83,7 +83,7 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
         @XmlElement(name = "Naam")
         String name;
 
-        @XmlElement(name = "TaalCode")
+        @XmlElement(name = "Taalcode")
         String languageCode;
 
         @Override
