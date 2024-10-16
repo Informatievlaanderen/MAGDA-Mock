@@ -11,20 +11,18 @@ import java.io.Serializable;
 
 public class CodeAndDescriptionJaxb implements Enterprise.CodeAndDescription, ARZACareer.CodeAndDescription, AnnualAccounts.CodeAndDescription, Serializable {
     @XmlElement(name = "Code")
-    String value;
-    @XmlAttribute(name = "Beschrijving")
-    String codeDescription;
+    Code code;
     @XmlElement(name = "Omschrijving")
     Description description;
 
     @Override
     public String codeValue() {
-        return value;
+        return code != null ? code.value : null;
     }
 
     @Override
     public String codeDescription() {
-        return codeDescription;
+        return code != null ? code.description : null;
     }
 
     @Override
@@ -40,6 +38,13 @@ public class CodeAndDescriptionJaxb implements Enterprise.CodeAndDescription, AR
     @Override
     public String descriptionLanguageCode() {
         return description != null ? description.languageCode : null;
+    }
+
+    private static class Code implements Serializable {
+        @XmlValue
+        String value;
+        @XmlAttribute(name = "Beschrijving")
+        String description;
     }
 
     private static class Description implements Serializable {
