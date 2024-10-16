@@ -19,10 +19,6 @@ class MagdaResponseEnterpriseIntegrationTest {
     @BeforeEach
     void setup() throws MagdaClientException {
         enterprise = enterprise("0202239951");
-    }
-
-    @Test
-    void isNotNull() {
         assertNotNull(enterprise);
     }
 
