@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://generiek-02_00.vip.vlaanderen.be"
+		   xmlns="http://generiek-02_00.vip.vlaanderen.be"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="unqualified" 
+           attributeFormDefault="unqualified" 
+           version="2.00">
+                   
+	<xs:include schemaLocation="GeneriekComplex.xsd"/>
+	<xs:complexType name="OntvangerAdresType">
+		<xs:annotation>
+			<xs:documentation>OntvangerAdresType</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Identificatie" type="ApplicatieIdentificatieType">
+				<xs:annotation>
+					<xs:documentation>Identificatie</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Naam" type="NaamKortType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Naam</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Referte" type="ReferteType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Referte</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrganisatieEenheid" type="NaamKortType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>OrganisatieEenheid</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Hoedanigheid" type="NaamKortType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Hoedanigheid</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Gebruiker" type="INSZType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gebruiker</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AfzenderAdresType">
+		<xs:annotation>
+			<xs:documentation>AfzenderAdresType</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Identificatie" type="ApplicatieIdentificatieType">
+				<xs:annotation>
+					<xs:documentation>Identificatie</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Naam" type="NaamKortType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Naam</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Referte" type="ReferteType">
+				<xs:annotation>
+					<xs:documentation>Referte</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrganisatieEenheid" type="NaamKortType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>OrganisatieEenheid</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Hoedanigheid" type="NaamKortType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Hoedanigheid</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Gebruiker" type="INSZType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gebruiker</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="VersieType">
+		<xs:annotation>
+			<xs:documentation>VersieType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="10"/>
+			<xs:pattern value="([0-9]{2}(\.)[0-9]{2}(\.)[0-9]{4})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BerichtTypeType">
+		<xs:annotation>
+			<xs:documentation>Beschrijving van het type van boodschap die als drager geldt voor de VIPService.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+			<xs:enumeration value="VRAAG"/>
+			<xs:enumeration value="ANTWOORD"/>
+			<xs:enumeration value="VOORLOPIG_ANTWOORD"/>
+			<xs:enumeration value="DATAGRAM"/>
+			<xs:enumeration value="BEVESTIGING"/>
+			<xs:enumeration value="UITZONDERING"/>
+			<xs:enumeration value="PUBLICATIE"/>			
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ApplicatieIdentificatieType">
+		<xs:annotation>
+			<xs:documentation>ApplicatieIdentificatieType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="120"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ContextType">
+		<xs:annotation>
+			<xs:documentation>ContextType</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="NaamLangType">
+				<xs:annotation>
+					<xs:documentation>Naam</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieType">
+				<xs:annotation>
+					<xs:documentation>Versie</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bericht" type="BerichtType">
+				<xs:annotation>
+					<xs:documentation>Bericht</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Annotaties" type="AnnotatiesType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Annotaties</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BerichtType">
+		<xs:annotation>
+			<xs:documentation>BerichtType</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type" type="BerichtTypeType">
+				<xs:annotation>
+					<xs:documentation>Type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Tijdstip" type="TijdstipType">
+				<xs:annotation>
+					<xs:documentation>Tijdstip</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Afzender" type="AfzenderAdresType">
+				<xs:annotation>
+					<xs:documentation>Afzender</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Ontvanger" type="OntvangerAdresType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ontvanger</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

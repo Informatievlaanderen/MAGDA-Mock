@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://generiek-02_00.vip.vlaanderen.be"
+		   xmlns="http://generiek-02_00.vip.vlaanderen.be"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified"
+           version="2.00">
+
+	<xs:simpleType name="AuthentiekeBronEnumType">
+		<xs:annotation>
+			<xs:documentation> 
+				BCSS_KSZ | RN_RR.
+				Deze enumeratie is deprecated en wordt vervangen door GeneriekSimple.xsd: BronType dat minder restricties kent.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BCSS_KSZ"/>
+			<xs:enumeration value="RN_RR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResultaatEnumType">
+		<xs:annotation>
+			<xs:documentation> | 0 (Niet OK) | 1 (OK) | </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VlagEnumType">
+		<xs:annotation>
+			<xs:documentation> | 0 (false) | 1 (true) | </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--======================================-->
+	<!-- Start van nieuwe XSD-Richtlijnen 2.x -->
+	<!--======================================-->
+	<xs:simpleType name="TypeAntwoordEnumType">
+		<xs:annotation>
+			<xs:documentation> | 0 (online) | 1 (batch) | 2 (batch indien resultaat te groot) | </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

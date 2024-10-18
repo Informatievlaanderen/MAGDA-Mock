@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefOndernemingResponse xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefOnderneming</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-10-11</Datum>
+                    <Tijd>12:32:30.302</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>2bb32b7a-fba9-4215-8b55-29ebc7cf91fc</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kb.vlaanderen.be/aiv/kmo-automatisch-advies-ond</Identificatie>
+                    <Referte>test1</Referte>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>test1</Referte>
+                <Inhoud>
+                    <Onderneming>
+                        <Ondernemingsnummer>0200065765</Ondernemingsnummer>
+                        <AuthentiekBron>
+                            <Code>03</Code>
+                            <Omschrijving>KBO</Omschrijving>
+                        </AuthentiekBron>
+                        <OndernemingOfVestiging>
+                            <Code Beschrijving="Onderneming">1</Code>
+                        </OndernemingOfVestiging>
+                        <StatusKBO>
+                            <Code>AC</Code>
+                            <Omschrijving>Actief</Omschrijving>
+                        </StatusKBO>
+                        <SoortOnderneming>
+                            <Code Beschrijving="Rechtspersoon">2</Code>
+                        </SoortOnderneming>
+                        <Namen>
+                            <MaatschappelijkeNamen>
+                                <MaatschappelijkeNaam DatumBegin="2016-12-13">
+                                    <Naam>Intergemeentelijke Vereniging Veneco</Naam>
+                                    <Taalcode>nl</Taalcode>
+                                </MaatschappelijkeNaam>
+                            </MaatschappelijkeNamen>
+                            <AfgekorteNamen>
+                                <AfgekorteNaam DatumBegin="1997-06-21">
+                                    <Naam>Veneco</Naam>
+                                    <Taalcode>nl</Taalcode>
+                                </AfgekorteNaam>
+                            </AfgekorteNamen>
+                        </Namen>
+                        <Adressen>
+                            <Adres DatumBegin="2016-12-13">
+                                <Straat>
+                                    <Code>0370</Code>
+                                </Straat>
+                                <Huisnummer>1</Huisnummer>
+                                <Gemeente>
+                                    <NISCode>44013</NISCode>
+                                    <PostCode>9070</PostCode>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BE</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                                <Type>
+                                    <Code>001</Code>
+                                    <Omschrijving>Zetel</Omschrijving>
+                                </Type>
+                                <Descripties>
+                                    <Descriptie>
+                                        <Adres>
+                                            <Straat>
+                                                <Naam>Panhuisstraat</Naam>
+                                            </Straat>
+                                            <Gemeente>
+                                                <Naam>Destelbergen</Naam>
+                                            </Gemeente>
+                                            <Land>
+                                                <NISCode>150</NISCode>
+                                                <Naam>België</Naam>
+                                            </Land>
+                                        </Adres>
+                                    </Descriptie>
+                                </Descripties>
+                            </Adres>
+                        </Adressen>
+                        <Start>
+                            <Datum>1960-08-09</Datum>
+                        </Start>
+                        <Inschrijving>
+                            <Datum>2003-01-18</Datum>
+                        </Inschrijving>
+                        <Rechtsvormen>
+                            <Rechtsvorm DatumBegin="1960-08-09">
+                                <Code>416</Code>
+                                <Omschrijving>Dienstverlenende vereniging (Vlaams Gewest)</Omschrijving>
+                                <Afkorting>DIENSTV</Afkorting>
+                            </Rechtsvorm>
+                        </Rechtsvormen>
+                        <Rechtstoestanden>
+                            <Rechtstoestand DatumBegin="1960-08-09">
+                                <Code>000</Code>
+                                <Omschrijving>Normale toestand</Omschrijving>
+                                <InstrumenterendeOverheid>200065765</InstrumenterendeOverheid>
+                            </Rechtstoestand>
+                        </Rechtstoestanden>
+                    </Onderneming>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefOndernemingResponse>

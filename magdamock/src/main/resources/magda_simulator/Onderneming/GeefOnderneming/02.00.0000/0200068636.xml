@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefOndernemingResponse xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefOnderneming</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-10-11</Datum>
+                    <Tijd>12:37:11.112</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>3a7189fe-3b8a-4be3-857a-2a0c7b0236d3</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kb.vlaanderen.be/aiv/kmo-automatisch-advies-ond</Identificatie>
+                    <Referte>test1</Referte>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>test1</Referte>
+                <Inhoud>
+                    <Onderneming>
+                        <Ondernemingsnummer>0200068636</Ondernemingsnummer>
+                        <AuthentiekBron>
+                            <Code>03</Code>
+                            <Omschrijving>KBO</Omschrijving>
+                        </AuthentiekBron>
+                        <OndernemingOfVestiging>
+                            <Code Beschrijving="Onderneming">1</Code>
+                        </OndernemingOfVestiging>
+                        <StatusKBO>
+                            <Code>AC</Code>
+                            <Omschrijving>Actief</Omschrijving>
+                        </StatusKBO>
+                        <SoortOnderneming>
+                            <Code Beschrijving="Rechtspersoon">2</Code>
+                        </SoortOnderneming>
+                        <Namen>
+                            <MaatschappelijkeNamen>
+                                <MaatschappelijkeNaam DatumBegin="2022-12-16">
+                                    <Naam>Farys</Naam>
+                                    <Taalcode>nl</Taalcode>
+                                </MaatschappelijkeNaam>
+                            </MaatschappelijkeNamen>
+                        </Namen>
+                        <Adressen>
+                            <Adres DatumBegin="2012-06-22">
+                                <Straat>
+                                    <Code>5716</Code>
+                                </Straat>
+                                <Huisnummer>1</Huisnummer>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <PostCode>9000</PostCode>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BE</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                                <Type>
+                                    <Code>001</Code>
+                                    <Omschrijving>Zetel</Omschrijving>
+                                </Type>
+                                <Descripties>
+                                    <Descriptie>
+                                        <Adres>
+                                            <Straat>
+                                                <Naam>Stropstraat</Naam>
+                                            </Straat>
+                                            <Gemeente>
+                                                <Naam>Gent</Naam>
+                                            </Gemeente>
+                                            <Land>
+                                                <NISCode>150</NISCode>
+                                                <Naam>België</Naam>
+                                            </Land>
+                                        </Adres>
+                                    </Descriptie>
+                                </Descripties>
+                            </Adres>
+                        </Adressen>
+                        <Start>
+                            <Datum>1923-02-16</Datum>
+                        </Start>
+                        <Inschrijving>
+                            <Datum>2003-01-18</Datum>
+                        </Inschrijving>
+                        <Rechtsvormen>
+                            <Rechtsvorm DatumBegin="2017-12-22">
+                                <Code>417</Code>
+                                <Omschrijving>Opdrachthoudende vereniging (Vlaams Gewest)</Omschrijving>
+                                <Afkorting>OPDRAVER</Afkorting>
+                            </Rechtsvorm>
+                        </Rechtsvormen>
+                        <Rechtstoestanden>
+                            <Rechtstoestand DatumBegin="1923-02-16">
+                                <Code>000</Code>
+                                <Omschrijving>Normale toestand</Omschrijving>
+                                <InstrumenterendeOverheid>200068636</InstrumenterendeOverheid>
+                            </Rechtstoestand>
+                        </Rechtstoestanden>
+                    </Onderneming>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefOndernemingResponse>

@@ -39,6 +39,7 @@ class SimulatorXmlValidationTest {
             // xsds on the right                                      in https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/487620609/Overzicht+testdata+endpoints+en+XSD+s#Diensten-alle-versies-samen
             "GeefVipAdmGegevens/02.00.0000",                          "VipAdm.GeefVipAdmGegevensDienst-02.00/WebService/GeefVipAdmGegevensResponse.xsd",
             "Onderneming/GeefOnderneming/02.00.0000",                 "Onderneming.GeefOndernemingDienst-02.00/WebService/GeefOndernemingResponse.xsd",
+            "Onderneming/GeefJaarrekeningen/02.00.0000",              "Onderneming.GeefJaarrekeningenDienst-02.00/WebService/GeefJaarrekeningenResponse.xsd",
             "Persoon/GeefAanslagbiljetPersonenbelasting/02.00.0000",  "Inkomen.GeefAanslagbiljetPersonenbelastingDienst-02.00/WebService/GeefAanslagbiljetPersonenbelastingResponse.xsd",
             "Persoon/GeefAttest/02.00.0000",                          "Persoon.GeefAttestDienst-02.00/WebService/GeefAttestResponse.xsd",
             "Persoon/GeefBetalingenHandicap/03.00.0000",              "SocZek.GeefBetalingenHandicapDienst-03.00/WebService/GeefBetalingenHandicapResponse.xsd",

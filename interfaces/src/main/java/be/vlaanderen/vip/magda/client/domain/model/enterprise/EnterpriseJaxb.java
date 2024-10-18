@@ -1,20 +1,14 @@
 package be.vlaanderen.vip.magda.client.domain.model.enterprise;
 
 import be.vlaanderen.vip.magda.client.domain.giveenterprise.Enterprise;
-import be.vlaanderen.vip.magda.client.domain.model.shared.AddressJaxb;
-import be.vlaanderen.vip.magda.client.domain.model.shared.CodeAndDescriptionJaxb;
-import be.vlaanderen.vip.magda.client.domain.model.shared.OffsetDateXmlAdapter;
-import be.vlaanderen.vip.magda.client.domain.model.shared.ValueAndDescriptionJaxb;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlElementWrapper;
-import jakarta.xml.bind.annotation.XmlRootElement;
-import jakarta.xml.bind.annotation.XmlValue;
+import be.vlaanderen.vip.magda.client.domain.model.shared.*;
+import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import lombok.Getter;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,14 +29,72 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
     @XmlElement(name = "Adres")
     ArrayList<BaseAddress> addresses = new ArrayList<>();
 
+    @XmlElement(name = "StatusKBO")
+    @Getter
+    CodeAndDescriptionJaxb statusKBO;
+
+    @XmlElement(name = "Start")
+    @Getter
+    DateContainerJaxb startDate;
+
+    @XmlElement(name = "Namen")
+    @Getter
+    CompanyNames companyNames;
+
+    @XmlElement(name = "SoortOnderneming")
+    @Getter
+    CodeAndDescriptionJaxb enterpriseType;
+
+    @XmlElementWrapper(name = "Rechtsvormen")
+    @XmlElement(name = "Rechtsvorm")
+    ArrayList<CodeAndDescriptionJaxb> legalForms = new ArrayList<>();
+
     @Override
     public List<Enterprise.BranchOffice> branchOffices() {
         return branchOffices.stream().map(o -> (Enterprise.BranchOffice) o).toList();
     }
 
     @Override
+    public List<Enterprise.CodeAndDescription> legalForms() {
+        return legalForms.stream().map(o -> (Enterprise.CodeAndDescription) o).toList();
+    }
+
+    @Override
     public List<Address> addresses() {
         return addresses.stream().map(o -> (Enterprise.Address) o).toList();
+    }
+
+    @Getter
+    private static class CompanyNames implements Enterprise.CompanyNames, Serializable {
+
+        @XmlElementWrapper(name = "MaatschappelijkeNamen")
+        @XmlElement(name = "MaatschappelijkeNaam")
+        List<CompanyName> registeredNames;
+
+        @Override
+        public List<Enterprise.CompanyName> registeredNames() {
+            return registeredNames.stream().map(o -> (Enterprise.CompanyName) o).toList();
+        }
+    }
+
+    @Getter
+    private static class CompanyName implements Enterprise.CompanyName, Serializable {
+
+        @XmlElement(name = "Naam")
+        String name;
+
+        @XmlElement(name = "Taalcode")
+        String languageCode;
+
+        @Override
+        public OffsetDateTime startDate() {
+            return null;
+        }
+
+        @Override
+        public OffsetDateTime endDate() {
+            return null;
+        }
     }
 
     private static class BranchOffice implements Enterprise.BranchOffice, Serializable {
@@ -197,5 +249,11 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
 
     }
 
+    @Getter
+    private static class DateContainerJaxb implements Enterprise.DateContainer, Serializable {
 
+        @XmlElement(name = "Datum")
+        @XmlJavaTypeAdapter(LocalDateXmlAdapter.class)
+        LocalDate value;
+    }
 }

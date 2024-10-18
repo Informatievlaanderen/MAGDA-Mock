@@ -1,15 +1,37 @@
 package be.vlaanderen.vip.magda.client.domain.giveenterprise;
 
+import be.vlaanderen.vip.magda.client.MagdaClientException;
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.MagdaResponse;
+import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
+
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.List;
 
 public interface Enterprise {
+
+    static Enterprise ofMagdaDocument(MagdaDocument magdaDocument) throws MagdaClientException {
+        return new MagdaResponseEnterpriseAdapterJaxbImpl().adapt(new MagdaResponseWrapper(MagdaResponse.builder()
+                .document(magdaDocument)
+                .build()));
+    }
 
     String enterpriseNumber();
 
     List<BranchOffice> branchOffices();
 
     List<Address> addresses();
+
+    CodeAndDescription statusKBO();
+
+    DateContainer startDate();
+
+    CompanyNames companyNames();
+
+    CodeAndDescription enterpriseType();
+
+    List<CodeAndDescription> legalForms();
 
     interface LegalSituation {
 
@@ -47,10 +69,6 @@ public interface Enterprise {
     interface CompanyNames {
 
         List<CompanyName> registeredNames();
-
-        List<CompanyName> abbreviatedName();
-
-        List<CompanyName> commercialName();
     }
 
     interface CompanyName {
@@ -352,5 +370,10 @@ public interface Enterprise {
         String value();
 
         String description();
+    }
+
+    interface DateContainer {
+
+        LocalDate value();
     }
 }
