@@ -8,7 +8,7 @@ prepare_git
 
 # start gitflow release
 echo "Starting release process"
-mvn -B com.amashchenko.maven.plugin:gitflow-maven-plugin:1.17.0:release \
+mvn -B com.amashchenko.maven.plugin:gitflow-maven-plugin:1.19.0:release \
   -s .m2/settings.xml \
   -Dverbose="true" \
   -DproductionBranch="master" \

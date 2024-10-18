@@ -19,11 +19,9 @@ else
   echo "Using master branch for hotfix"
 fi
 
-mvn -B com.amashchenko.maven.plugin:gitflow-maven-plugin:1.17.0:hotfix-start \
+mvn -B com.amashchenko.maven.plugin:gitflow-maven-plugin:1.19.0:hotfix-start \
   -Dverbose="true" \
   -DuseSnapshotInHotfix="true" \
-  -DpreHotfixGoals="clean deploy -Pcucumber-tests -Pdocker" \
-  -DpostHotfixGoals="deploy -Pcucumber-tests -Pdocker-release" \
   -DpushRemote="true" \
   -DversionsForceUpdate="true" \
   -DargLine="-B -s .m2/settings.xml" \

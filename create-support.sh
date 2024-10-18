@@ -15,7 +15,7 @@ else
   exit 1;
 fi
 
-mvn -B com.amashchenko.maven.plugin:gitflow-maven-plugin:1.14.0:support-start \
+mvn -B com.amashchenko.maven.plugin:gitflow-maven-plugin:1.19.0:support-start \
   -Dverbose="true" \
   -DuseSnapshotInSupport="true" \
   -DpushRemote="true" \

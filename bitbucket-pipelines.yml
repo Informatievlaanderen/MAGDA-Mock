@@ -71,18 +71,14 @@ definitions:
         image: softwareimprovementgroup/sigridci
         name: Publish to Sigrid
         script:
-          - timeout 10m sigridci.py --customer $SIGRID_CI_ACCOUNT --system "Solid" --subsystem $(echo "magdamock.service"| sed -e "s/\./-/g") --source . --publish --include-history
-    - step: &dependencyTree
-        name: Dependency tree
-        caches:
-            - maven
-        script:
-            - mvn dependency:tree > maven.tree
+          - git config --global --add safe.directory /opt/atlassian/pipelines/agent/build
+          - timeout 10m sigridci.py --customer $SIGRID_CI_ACCOUNT --system $(echo $BITBUCKET_REPO_FULL_NAME | cut -d'/' -f 2 | cut -c 1-45| sed -e "s/\./-/g") --source . --publishonly --include-history
     - step: &sigridCI
         image: softwareimprovementgroup/sigridci
         name: Sigrid CI
         script:
-          - timeout 10m sigridci.py --customer $SIGRID_CI_ACCOUNT --system "Solid" --subsystem $(echo "magdamock.service"| sed -e "s/\./-/g") --source .
+          - git config --global --add safe.directory /opt/atlassian/pipelines/agent/build
+          - timeout 10m sigridci.py --customer $SIGRID_CI_ACCOUNT --system $(echo $BITBUCKET_REPO_FULL_NAME | cut -d'/' -f 2 | cut -c 1-45| sed -e "s/\./-/g") --source .
     - step: &githubMirror
         name: Sync to Github
         clone:
@@ -110,8 +106,6 @@ pipelines:
                   - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
                 artifacts:
                   - target/pom_version
-            - step:
-                <<: *dependencyTree
             - step:
                 <<: *sigridPublish
       - step:
@@ -150,8 +144,6 @@ pipelines:
                 artifacts:
                   - "**/*.jar"
                   - target/pom_version
-            - step:
-                <<: *dependencyTree
             - step:
                 <<: *sigridPublish
       - step:
@@ -205,8 +197,6 @@ pipelines:
                   - mvn -B -U clean verify sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.name="$BITBUCKET_BRANCH"
                 artifacts:
                   - "**/*.jar"
-            - step:
-                <<: *dependencyTree
             - step:
                 <<: *sigridCI
   custom:
@@ -307,7 +297,7 @@ pipelines:
             - maven
           script:
             - export MAVEN_OPTS="-Xmx1024m"
-            - mvn -B org.owasp:dependency-check-maven:7.4.4:aggregate -DskipSystemScope=true "-DsuppressionFile=.owasp/owasp-suppression.xml" "-DhintsFile=.owasp/owasp-hints.xml" -DfailBuildOnCVSS=7 -s .m2/settings.xml
+            - mvn -B org.owasp:dependency-check-maven:7.4.4:aggregate -DskipSystemScope=true "-DsuppressionFile=.owasp/owasp-suppression.xml" "-DhintsFile=.owasp/owasp-hints.xml" -DfailBuildOnCVSS=7 -DnvdApiKey=$NVD_API_KEY -s .m2/settings.xml
           artifacts:
             - target/dependency-check-report.html
           after-script:
