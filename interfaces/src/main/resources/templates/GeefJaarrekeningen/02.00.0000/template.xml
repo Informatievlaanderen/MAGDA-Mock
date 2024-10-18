@@ -2,7 +2,7 @@
                   xmlns:web="http://webservice.geefjaarrekeningendienst-02_00.onderneming-02_00.vip.vlaanderen.be">
     <soapenv:Header/>
     <soapenv:Body>
-        <web:GeefOnderneming>
+        <web:GeefJaarrekeningen>
             <Verzoek>
                 <Context>
                     <Naam>GeefJaarrekeningen</Naam>
@@ -34,6 +34,6 @@
                     </Vraag>
                 </Vragen>
             </Verzoek>
-        </web:GeefOnderneming>
+        </web:GeefJaarrekeningen>
     </soapenv:Body>
 </soapenv:Envelope>
