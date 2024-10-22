@@ -1,510 +1,503 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-04-24</Datum>
-                    <Tijd>10:26:57.845</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>blabla</Identificatie>
-                    <Naam>VIP</Naam>
-                    <Referte>865f13a1-10b3-4a39-b89b-1ee4faabbe56</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25029:8168</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>XE:1072:25029:8168</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                                xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>HO</Bron>
-                            <Referte>2013-02-24 11:58:43.519309</Referte>
-                            <Instelling>
-                                <Instellingsnummer>110131</Instellingsnummer>
-                                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
-                                <Instantie>Universiteit</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Oude Markt</Naam>
-                                    </Straat>
-                                    <Huisnummer>13</Huisnummer>
-                                    <Busnummer>5005</Busnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3000</PostCode>
-                                        <Naam>Leuven</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003816324052</Telefoonnummer>
-                                    <Email>info@kuleuven.be</Email>
-                                    <Website>http://www.kuleuven.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2013</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2014-02-24</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>6065</Code>
-                                    <VolledigeNaam>Voorbereidingsprogramma</VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Geen / Onbekend</Graad>
-                                        <Kwalificatie>voorbereidingsprogramma</Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>8</Code>
-                                        <Omschrijving>Voorbereidingsprogramma</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>8</Opgenomen>
-                                    <Verworven>0</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>6</GeenResultaat>
-                                    <NietVerworven>8</NietVerworven>
-                                    <Vrijgesteld>6</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>060</Studieomvang>
-                                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
-                                <VolgendeOpleiding>
-                                    <Code>2939</Code>
-                                    <VolledigeNaam>Master of Science in het overheidsmanagement en -beleid
+﻿<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-04-24</Datum>
+          <Tijd>10:26:57.845</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>blabla</Identificatie>
+          <Naam>VIP</Naam>
+          <Referte>865f13a1-10b3-4a39-b89b-1ee4faabbe56</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25029:8168</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>XE:1072:25029:8168</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>HO</Bron>
+              <Referte>ae949e06-a5eb-4b11-a5db-b15016cdd7e6</Referte>
+              <Instelling>
+                <Instellingsnummer>110131</Instellingsnummer>
+                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
+                <Instantie>Universiteit</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Oude Markt</Naam>
+                  </Straat>
+                  <Huisnummer>13</Huisnummer>
+                  <Busnummer>5005</Busnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3000</PostCode>
+                    <Naam>Leuven</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003816324052</Telefoonnummer>
+                  <Email>info@kuleuven.be</Email>
+                  <Website>http://www.kuleuven.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2013</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>2014-02-24</DatumInschrijving>
+                <Opleiding>
+                  <Code>6065</Code>
+                  <VolledigeNaam>Voorbereidingsprogramma</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad>Geen / Onbekend</Graad>
+                    <Kwalificatie>voorbereidingsprogramma</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code>8</Code>
+                    <Omschrijving>Voorbereidingsprogramma</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>8</Opgenomen>
+                  <Verworven>0</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>6</GeenResultaat>
+                  <NietVerworven>8</NietVerworven>
+                  <Vrijgesteld>6</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>060</Studieomvang>
+                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
+                <VolgendeOpleiding>
+                  <Code>2939</Code>
+                  <VolledigeNaam>Master of Science in het overheidsmanagement en -beleid
                                     </VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Master</Graad>
-                                        <SpecificatieGraad>of Science</SpecificatieGraad>
-                                        <PrefixKwalificatie>in het</PrefixKwalificatie>
-                                        <Kwalificatie>overheidsmanagement en -beleid</Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>3</Code>
-                                        <Omschrijving>Master</Omschrijving>
-                                    </Soort>
-                                </VolgendeOpleiding>
-                                <VorigeOpleiding>
-                                    <Code>4351</Code>
-                                    <VolledigeNaam>Bachelor of Science in de communicatiewetenschappen</VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Bachelor</Graad>
-                                        <SpecificatieGraad>of Science</SpecificatieGraad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>communicatiewetenschappen</Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>2</Code>
-                                        <Omschrijving>Academisch gerichte bachelor</Omschrijving>
-                                    </Soort>
-                                </VorigeOpleiding>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>HO</Bron>
-                            <Referte>2008-07-15 16:53:05.679530</Referte>
-                            <Instelling>
-                                <Instellingsnummer>110131</Instellingsnummer>
-                                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
-                                <Instantie>Universiteit</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Oude Markt</Naam>
-                                    </Straat>
-                                    <Huisnummer>13</Huisnummer>
-                                    <Busnummer>5005</Busnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3000</PostCode>
-                                        <Naam>Leuven</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003816324052</Telefoonnummer>
-                                    <Email>info@kuleuven.be</Email>
-                                    <Website>http://www.kuleuven.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2008</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2008-07-15</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>2074</Code>
-                                    <VolledigeNaam>Bachelor of Science in de communicatiewetenschappen</VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Bachelor</Graad>
-                                        <SpecificatieGraad>of Science</SpecificatieGraad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>communicatiewetenschappen</Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>2</Code>
-                                        <Omschrijving>Academisch gerichte bachelor</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>60</Opgenomen>
-                                    <Verworven>60</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>0</GeenResultaat>
-                                    <NietVerworven>0</NietVerworven>
-                                    <Vrijgesteld>0</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>180</Studieomvang>
-                                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>HO</Bron>
-                            <Referte>2009-08-21 13:16:25.442972</Referte>
-                            <Instelling>
-                                <Instellingsnummer>110131</Instellingsnummer>
-                                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
-                                <Instantie>Universiteit</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Oude Markt</Naam>
-                                    </Straat>
-                                    <Huisnummer>13</Huisnummer>
-                                    <Busnummer>5005</Busnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3000</PostCode>
-                                        <Naam>Leuven</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003816324052</Telefoonnummer>
-                                    <Email>info@kuleuven.be</Email>
-                                    <Website>http://www.kuleuven.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2009</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2009-08-06</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>2074</Code>
-                                    <VolledigeNaam>Bachelor of Science in de communicatiewetenschappen</VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Bachelor</Graad>
-                                        <SpecificatieGraad>of Science</SpecificatieGraad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>communicatiewetenschappen</Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>2</Code>
-                                        <Omschrijving>Academisch gerichte bachelor</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>63</Opgenomen>
-                                    <Verworven>63</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>0</GeenResultaat>
-                                    <NietVerworven>0</NietVerworven>
-                                    <Vrijgesteld>0</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>180</Studieomvang>
-                                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
-                                <Studiebewijzen>
-                                    <Studiebewijs>
-                                        <Referte>2009-07-02 13:28:43.917605</Referte>
-                                        <LEDReferte>2009-07-02 13:28:43.917605</LEDReferte>
-                                    </Studiebewijs>
-                                </Studiebewijzen>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>HO</Bron>
-                            <Referte>2007-01-10 17:24:39.984778</Referte>
-                            <Instelling>
-                                <Instellingsnummer>110131</Instellingsnummer>
-                                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
-                                <Instantie>Universiteit</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Oude Markt</Naam>
-                                    </Straat>
-                                    <Huisnummer>13</Huisnummer>
-                                    <Busnummer>5005</Busnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3000</PostCode>
-                                        <Naam>Leuven</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003816324052</Telefoonnummer>
-                                    <Email>info@kuleuven.be</Email>
-                                    <Website>http://www.kuleuven.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2007</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2007-08-22</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>2074</Code>
-                                    <VolledigeNaam>Bachelor of Science in de communicatiewetenschappen</VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Bachelor</Graad>
-                                        <SpecificatieGraad>of Science</SpecificatieGraad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>communicatiewetenschappen</Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>2</Code>
-                                        <Omschrijving>Academisch gerichte bachelor</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>60</Opgenomen>
-                                    <Verworven>48</Verworven>
-                                    <Gedelibereerd>12</Gedelibereerd>
-                                    <GeenResultaat>0</GeenResultaat>
-                                    <NietVerworven>0</NietVerworven>
-                                    <Vrijgesteld>0</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>180</Studieomvang>
-                                <ToereikendeStudieomvang>0</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>HO</Bron>
-                            <Referte>2010-07-20 08:01:29.793927</Referte>
-                            <Instelling>
-                                <Instellingsnummer>110131</Instellingsnummer>
-                                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
-                                <Instantie>Universiteit</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Oude Markt</Naam>
-                                    </Straat>
-                                    <Huisnummer>13</Huisnummer>
-                                    <Busnummer>5005</Busnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3000</PostCode>
-                                        <Naam>Leuven</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003816324052</Telefoonnummer>
-                                    <Email>info@kuleuven.be</Email>
-                                    <Website>http://www.kuleuven.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2010</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2010-07-19</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>2974</Code>
-                                    <VolledigeNaam>Master of Science in de communicatiewetenschappen</VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Master</Graad>
-                                        <SpecificatieGraad>of Science</SpecificatieGraad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>communicatiewetenschappen</Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>3</Code>
-                                        <Omschrijving>Master</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>61</Opgenomen>
-                                    <Verworven>61</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>0</GeenResultaat>
-                                    <NietVerworven>0</NietVerworven>
-                                    <Vrijgesteld>0</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>060</Studieomvang>
-                                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
-                                <Studiebewijzen>
-                                    <Studiebewijs>
-                                        <Referte>2010-09-17 09:36:49.242067</Referte>
-                                        <LEDReferte>2010-09-17 09:36:49.242067</LEDReferte>
-                                    </Studiebewijs>
-                                </Studiebewijzen>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>VWO</Bron>
-                            <Referte>4bb940f2-7d2a-4903-b3fc-0464d1b136c7:156ea0f0643</Referte>
-                            <Instelling>
-                                <Instellingsnummer>105759</Instellingsnummer>
-                                <OfficieleNaam>Centrum voor Volwassenenonderwijs VIVA Socialistische Vooruitziende Vrouwen van Brabant</OfficieleNaam>
-                                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Mechelsestraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>70</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3000</PostCode>
-                                        <Naam>Leuven</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>Belgie</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>016584396</Telefoonnummer>
-                                    <Email>cvo.svv.brabant@belgacom.net</Email>
-                                    <Website>http://www.cvo-svv-brabant.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>16</Nummer>
-                                <Omschrijving>De Curve</Omschrijving>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Baron August de Becker-Remyplein</Naam>
-                                    </Straat>
-                                    <Huisnummer>27</Huisnummer>
-                                    <Gemeente>
-                                        <PostCode>3010</PostCode>
-                                        <Naam>Leuven</Naam>
-                                    </Gemeente>
-                                </Adres>
-                            </OnderwijsLocatie>
-                            <Volwassenenonderwijs>
-                                <Status>
-                                    <Code>INGESCHREVEN</Code>
-                                    <Omschrijving>Ingeschreven</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2016-05-17</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>330</Code>
-                                    <Naam>Realisaties dameskleding</Naam>
-                                    <Omschrijving>Realisaties dameskleding</Omschrijving>
-                                    <Diplomagericht>0</Diplomagericht>
-                                    <Opleidingsvariant>
-                                        <Code>511</Code>
-                                        <Naam>Realisaties dameskleding standaard</Naam>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </Opleidingsvariant>
-                                </Opleiding>
-                                <Module>
-                                    <Code>00000135</Code>
-                                    <Naam>Basis naaien</Naam>
-                                    <Omschrijving>Basis naaien</Omschrijving>
-                                    <ModuleVariant>
-                                        <Code>151</Code>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </ModuleVariant>
-                                </Module>
-                            </Volwassenenonderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                            xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>Disci</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-04-24</Datum>
-                            <Tijd>10:26:53.179</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+                  <NaamElementen>
+                    <Graad>Master</Graad>
+                    <SpecificatieGraad>of Science</SpecificatieGraad>
+                    <PrefixKwalificatie>in het</PrefixKwalificatie>
+                    <Kwalificatie>overheidsmanagement en -beleid</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code>3</Code>
+                    <Omschrijving>Master</Omschrijving>
+                  </Soort>
+                </VolgendeOpleiding>
+                <VorigeOpleiding>
+                  <Code>4351</Code>
+                  <VolledigeNaam>Bachelor of Science in de communicatiewetenschappen</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad>Bachelor</Graad>
+                    <SpecificatieGraad>of Science</SpecificatieGraad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>communicatiewetenschappen</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code>2</Code>
+                    <Omschrijving>Academisch gerichte bachelor</Omschrijving>
+                  </Soort>
+                </VorigeOpleiding>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>HO</Bron>
+              <Referte>ac68a3cf-4954-4038-95ba-98c9028c60e6</Referte>
+              <Instelling>
+                <Instellingsnummer>110131</Instellingsnummer>
+                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
+                <Instantie>Universiteit</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Oude Markt</Naam>
+                  </Straat>
+                  <Huisnummer>13</Huisnummer>
+                  <Busnummer>5005</Busnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3000</PostCode>
+                    <Naam>Leuven</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003816324052</Telefoonnummer>
+                  <Email>info@kuleuven.be</Email>
+                  <Website>http://www.kuleuven.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2008</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>2008-07-15</DatumInschrijving>
+                <Opleiding>
+                  <Code>2074</Code>
+                  <VolledigeNaam>Bachelor of Science in de communicatiewetenschappen</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad>Bachelor</Graad>
+                    <SpecificatieGraad>of Science</SpecificatieGraad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>communicatiewetenschappen</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code>2</Code>
+                    <Omschrijving>Academisch gerichte bachelor</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>60</Opgenomen>
+                  <Verworven>60</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>0</GeenResultaat>
+                  <NietVerworven>0</NietVerworven>
+                  <Vrijgesteld>0</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>180</Studieomvang>
+                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>HO</Bron>
+              <Referte>3d806221-4971-4c11-99e9-df57e63b5d26</Referte>
+              <Instelling>
+                <Instellingsnummer>110131</Instellingsnummer>
+                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
+                <Instantie>Universiteit</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Oude Markt</Naam>
+                  </Straat>
+                  <Huisnummer>13</Huisnummer>
+                  <Busnummer>5005</Busnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3000</PostCode>
+                    <Naam>Leuven</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003816324052</Telefoonnummer>
+                  <Email>info@kuleuven.be</Email>
+                  <Website>http://www.kuleuven.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2009</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>2009-08-06</DatumInschrijving>
+                <Opleiding>
+                  <Code>2074</Code>
+                  <VolledigeNaam>Bachelor of Science in de communicatiewetenschappen</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad>Bachelor</Graad>
+                    <SpecificatieGraad>of Science</SpecificatieGraad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>communicatiewetenschappen</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code>2</Code>
+                    <Omschrijving>Academisch gerichte bachelor</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>63</Opgenomen>
+                  <Verworven>63</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>0</GeenResultaat>
+                  <NietVerworven>0</NietVerworven>
+                  <Vrijgesteld>0</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>180</Studieomvang>
+                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
+                <Studiebewijzen>
+                  <Studiebewijs>
+                    <Referte>2009-07-02 13:28:43.917605</Referte>
+                    <LEDReferte>2009-07-02 13:28:43.917605</LEDReferte>
+                  </Studiebewijs>
+                </Studiebewijzen>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>HO</Bron>
+              <Referte>3ae1c6d8-50fc-4eb8-aa6e-817d7a35d979</Referte>
+              <Instelling>
+                <Instellingsnummer>110131</Instellingsnummer>
+                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
+                <Instantie>Universiteit</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Oude Markt</Naam>
+                  </Straat>
+                  <Huisnummer>13</Huisnummer>
+                  <Busnummer>5005</Busnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3000</PostCode>
+                    <Naam>Leuven</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003816324052</Telefoonnummer>
+                  <Email>info@kuleuven.be</Email>
+                  <Website>http://www.kuleuven.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2007</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>2007-08-22</DatumInschrijving>
+                <Opleiding>
+                  <Code>2074</Code>
+                  <VolledigeNaam>Bachelor of Science in de communicatiewetenschappen</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad>Bachelor</Graad>
+                    <SpecificatieGraad>of Science</SpecificatieGraad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>communicatiewetenschappen</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code>2</Code>
+                    <Omschrijving>Academisch gerichte bachelor</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>60</Opgenomen>
+                  <Verworven>48</Verworven>
+                  <Gedelibereerd>12</Gedelibereerd>
+                  <GeenResultaat>0</GeenResultaat>
+                  <NietVerworven>0</NietVerworven>
+                  <Vrijgesteld>0</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>180</Studieomvang>
+                <ToereikendeStudieomvang>0</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>HO</Bron>
+              <Referte>f69ad6e0-1db8-43d2-9dcc-27ec75ec84d2</Referte>
+              <Instelling>
+                <Instellingsnummer>110131</Instellingsnummer>
+                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
+                <Instantie>Universiteit</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Oude Markt</Naam>
+                  </Straat>
+                  <Huisnummer>13</Huisnummer>
+                  <Busnummer>5005</Busnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3000</PostCode>
+                    <Naam>Leuven</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003816324052</Telefoonnummer>
+                  <Email>info@kuleuven.be</Email>
+                  <Website>http://www.kuleuven.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2010</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>2010-07-19</DatumInschrijving>
+                <Opleiding>
+                  <Code>2974</Code>
+                  <VolledigeNaam>Master of Science in de communicatiewetenschappen</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad>Master</Graad>
+                    <SpecificatieGraad>of Science</SpecificatieGraad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>communicatiewetenschappen</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code>3</Code>
+                    <Omschrijving>Master</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>61</Opgenomen>
+                  <Verworven>61</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>0</GeenResultaat>
+                  <NietVerworven>0</NietVerworven>
+                  <Vrijgesteld>0</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>060</Studieomvang>
+                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
+                <Studiebewijzen>
+                  <Studiebewijs>
+                    <Referte>2010-09-17 09:36:49.242067</Referte>
+                    <LEDReferte>2010-09-17 09:36:49.242067</LEDReferte>
+                  </Studiebewijs>
+                </Studiebewijzen>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>VWO</Bron>
+              <Referte>3c541998-4183-4c1c-be78-a831e0060ba9</Referte>
+              <Instelling>
+                <Instellingsnummer>105759</Instellingsnummer>
+                <OfficieleNaam>Centrum voor Volwassenenonderwijs VIVA Socialistische Vooruitziende Vrouwen van Brabant</OfficieleNaam>
+                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Mechelsestraat</Naam>
+                  </Straat>
+                  <Huisnummer>70</Huisnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3000</PostCode>
+                    <Naam>Leuven</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>Belgie</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>016584396</Telefoonnummer>
+                  <Email>cvo.svv.brabant@belgacom.net</Email>
+                  <Website>http://www.cvo-svv-brabant.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>16</Nummer>
+                <Omschrijving>De Curve</Omschrijving>
+                <Adres>
+                  <Straat>
+                    <Naam>Baron August de Becker-Remyplein</Naam>
+                  </Straat>
+                  <Huisnummer>27</Huisnummer>
+                  <Gemeente>
+                    <PostCode>3010</PostCode>
+                    <Naam>Leuven</Naam>
+                  </Gemeente>
+                </Adres>
+              </OnderwijsLocatie>
+              <Volwassenenonderwijs>
+                <Status>
+                  <Code>INGESCHREVEN</Code>
+                  <Omschrijving>Ingeschreven</Omschrijving>
+                </Status>
+                <DatumInschrijving>2016-05-17</DatumInschrijving>
+                <Opleiding>
+                  <Code>330</Code>
+                  <Naam>Realisaties dameskleding</Naam>
+                  <Omschrijving>Realisaties dameskleding</Omschrijving>
+                  <Diplomagericht>0</Diplomagericht>
+                  <Opleidingsvariant>
+                    <Code>511</Code>
+                    <Naam>Realisaties dameskleding standaard</Naam>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </Opleidingsvariant>
+                </Opleiding>
+                <Module>
+                  <Code>00000135</Code>
+                  <Naam>Basis naaien</Naam>
+                  <Omschrijving>Basis naaien</Omschrijving>
+                  <ModuleVariant>
+                    <Code>151</Code>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </ModuleVariant>
+                </Module>
+              </Volwassenenonderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>Disci</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-04-24</Datum>
+              <Tijd>10:26:53.179</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>

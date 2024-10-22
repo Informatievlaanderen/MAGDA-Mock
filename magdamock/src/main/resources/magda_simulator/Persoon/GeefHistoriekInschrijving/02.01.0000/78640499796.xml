@@ -1,139 +1,138 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-04-27</Datum>
-                    <Tijd>07:30:02.387</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>15f55329-8efb-4496-8d02-3d3124aec0eb</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25059:8190</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>15f55329-8efb-4496-8d02-3d3124aec0eb</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving>
-                            <Bron>HO</Bron>
-                            <Referte>1999-01-10 07:49:12.182073</Referte>
-                            <Instelling>
-                                <Instellingsnummer>103598</Instellingsnummer>
-                                <OfficieleNaam>Katholieke Hogeschool Mechelen</OfficieleNaam>
-                                <Instantie>Hogeschool</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Zandpoortvest</Naam>
-                                    </Straat>
-                                    <Huisnummer>13</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>12025</NISCode>
-                                        <PostCode>2800</PostCode>
-                                        <Naam>Mechelen</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003815369195</Telefoonnummer>
-                                    <Email>info@thomasmore.be</Email>
-                                    <Website>http://www.thomasmore.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>1999</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>1999-09-13</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>999471</Code>
-                                    <VolledigeNaam>Geen / Onbekend 3e studiejaar communicatiebeheer optie
+﻿<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-04-27</Datum>
+          <Tijd>07:30:02.387</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>15f55329-8efb-4496-8d02-3d3124aec0eb</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25059:8190</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>15f55329-8efb-4496-8d02-3d3124aec0eb</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>HO</Bron>
+              <Referte>911c58e0-0467-4aff-a08c-ae6dba7c4dec</Referte>
+              <Instelling>
+                <Instellingsnummer>103598</Instellingsnummer>
+                <OfficieleNaam>Katholieke Hogeschool Mechelen</OfficieleNaam>
+                <Instantie>Hogeschool</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Zandpoortvest</Naam>
+                  </Straat>
+                  <Huisnummer>13</Huisnummer>
+                  <Gemeente>
+                    <NISCode>12025</NISCode>
+                    <PostCode>2800</PostCode>
+                    <Naam>Mechelen</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003815369195</Telefoonnummer>
+                  <Email>info@thomasmore.be</Email>
+                  <Website>http://www.thomasmore.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>1999</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>1999-09-13</DatumInschrijving>
+                <Opleiding>
+                  <Code>999471</Code>
+                  <VolledigeNaam>Geen / Onbekend 3e studiejaar communicatiebeheer optie
                                         bedrijfscommunicatie
                                     </VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Geen / Onbekend</Graad>
-                                        <Kwalificatie>3e studiejaar communicatiebeheer optie bedrijfscommunicatie
+                  <NaamElementen>
+                    <Graad>Geen / Onbekend</Graad>
+                    <Kwalificatie>3e studiejaar communicatiebeheer optie bedrijfscommunicatie
                                         </Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>16</Code>
-                                        <Omschrijving>Basisopleiding van 1 cyclus</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>0</Opgenomen>
-                                    <Verworven>0</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>0</GeenResultaat>
-                                    <NietVerworven>0</NietVerworven>
-                                    <Vrijgesteld>0</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <ToereikendeStudieomvang>0</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
-                                <Studiebewijzen>
-                                    <Studiebewijs>
-                                        <Referte>1999-01-10 07:49:12.188130</Referte>
-                                        <LEDReferte>1999-01-10 07:49:12.188130</LEDReferte>
-                                    </Studiebewijs>
-                                </Studiebewijzen>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering>
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-04-27</Datum>
-                            <Tijd>07:30:00.955</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+                  </NaamElementen>
+                  <Soort>
+                    <Code>16</Code>
+                    <Omschrijving>Basisopleiding van 1 cyclus</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>0</Opgenomen>
+                  <Verworven>0</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>0</GeenResultaat>
+                  <NietVerworven>0</NietVerworven>
+                  <Vrijgesteld>0</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <ToereikendeStudieomvang>0</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
+                <Studiebewijzen>
+                  <Studiebewijs>
+                    <Referte>1999-01-10 07:49:12.188130</Referte>
+                    <LEDReferte>1999-01-10 07:49:12.188130</LEDReferte>
+                  </Studiebewijs>
+                </Studiebewijzen>
+              </HogerOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-04-27</Datum>
+              <Tijd>07:30:00.955</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     064c1db8-dec4-46c2-9fea-28a7bcb1cf3c/20170427672958566/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering>
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>Disci</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-04-27</Datum>
-                            <Tijd>07:29:58.544</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>Disci</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-04-27</Datum>
+              <Tijd>07:29:58.544</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-

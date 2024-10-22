@@ -1,254 +1,249 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:01:47.205</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>be95fee4-5ea8-42a6-a824-ebeb6ca6a0ae</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8256</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>be95fee4-5ea8-42a6-a824-ebeb6ca6a0ae</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>ed1d3004-81a4-4e66-9b92-a820c453ed83</Referte>
-                            <Instelling>
-                                <Instellingsnummer>32052</Instellingsnummer>
-                                <OfficieleNaam>Sint-Guido-Instituut</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Dokter Jacobsstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>67</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>21001</NISCode>
-                                        <PostCode>1070</PostCode>
-                                        <Naam>ANDERLECHT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>02 521 60 10</Telefoonnummer>
-                                    <Email>candide.behets@sintguido.be</Email>
-                                    <Website>http://www.sintguido.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Dokter Jacobsstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>67</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>21001</NISCode>
-                                        <PostCode>1070</PostCode>
-                                        <Naam>ANDERLECHT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>02 521 60 10</Telefoonnummer>
-                                    <Email>candide.behets@sintguido.be</Email>
-                                    <Website>http://www.sintguido.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2015-11-16</DatumInschrijving>
-                                <DatumEersteLes>2015-11-16</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>3ce359b5-6f69-4869-9bb9-dc7192832e62</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-01</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>37749</Nummer>
-                                        <Naam>Onthaaljaar voor anderstalige nieuwkomers</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>ed1d3004-81a4-4e66-9b92-a820c453ed83</Referte>
-                            <Instelling>
-                                <Instellingsnummer>32052</Instellingsnummer>
-                                <OfficieleNaam>Sint-Guido-Instituut</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Dokter Jacobsstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>67</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>21001</NISCode>
-                                        <PostCode>1070</PostCode>
-                                        <Naam>ANDERLECHT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>02 521 60 10</Telefoonnummer>
-                                    <Email>candide.behets@sintguido.be</Email>
-                                    <Website>http://www.sintguido.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Dokter Jacobsstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>67</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>21001</NISCode>
-                                        <PostCode>1070</PostCode>
-                                        <Naam>ANDERLECHT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>02 521 60 10</Telefoonnummer>
-                                    <Email>candide.behets@sintguido.be</Email>
-                                    <Website>http://www.sintguido.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2015-11-16</DatumInschrijving>
-                                <DatumEersteLes>2015-11-16</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>7f54c822-f8cc-4318-a835-ca49f33ca3ed</Referte>
-                                    <Periode>
-                                        <Begin>2015-11-16</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>37749</Nummer>
-                                        <Naam>Onthaaljaar voor anderstalige nieuwkomers</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:47.119</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:01:47.205</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>be95fee4-5ea8-42a6-a824-ebeb6ca6a0ae</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8256</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>be95fee4-5ea8-42a6-a824-ebeb6ca6a0ae</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>c89bab43-1932-46fc-8d1b-f4e524cf680e</Referte>
+              <Instelling>
+                <Instellingsnummer>32052</Instellingsnummer>
+                <OfficieleNaam>Sint-Guido-Instituut</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Dokter Jacobsstraat</Naam>
+                  </Straat>
+                  <Huisnummer>67</Huisnummer>
+                  <Gemeente>
+                    <NISCode>21001</NISCode>
+                    <PostCode>1070</PostCode>
+                    <Naam>ANDERLECHT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>02 521 60 10</Telefoonnummer>
+                  <Email>candide.behets@sintguido.be</Email>
+                  <Website>http://www.sintguido.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Dokter Jacobsstraat</Naam>
+                  </Straat>
+                  <Huisnummer>67</Huisnummer>
+                  <Gemeente>
+                    <NISCode>21001</NISCode>
+                    <PostCode>1070</PostCode>
+                    <Naam>ANDERLECHT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>02 521 60 10</Telefoonnummer>
+                  <Email>candide.behets@sintguido.be</Email>
+                  <Website>http://www.sintguido.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-11-16</DatumInschrijving>
+                <DatumEersteLes>2015-11-16</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>1891aa51-530f-4621-ab12-8256133bea51</Referte>
+                  <Periode>
+                    <Begin>2016-09-01</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>37749</Nummer>
+                    <Naam>Onthaaljaar voor anderstalige nieuwkomers</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>e4c9ab90-4759-4884-9c3a-c60d5dd82bd2</Referte>
+              <Instelling>
+                <Instellingsnummer>32052</Instellingsnummer>
+                <OfficieleNaam>Sint-Guido-Instituut</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Dokter Jacobsstraat</Naam>
+                  </Straat>
+                  <Huisnummer>67</Huisnummer>
+                  <Gemeente>
+                    <NISCode>21001</NISCode>
+                    <PostCode>1070</PostCode>
+                    <Naam>ANDERLECHT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>02 521 60 10</Telefoonnummer>
+                  <Email>candide.behets@sintguido.be</Email>
+                  <Website>http://www.sintguido.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Dokter Jacobsstraat</Naam>
+                  </Straat>
+                  <Huisnummer>67</Huisnummer>
+                  <Gemeente>
+                    <NISCode>21001</NISCode>
+                    <PostCode>1070</PostCode>
+                    <Naam>ANDERLECHT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>02 521 60 10</Telefoonnummer>
+                  <Email>candide.behets@sintguido.be</Email>
+                  <Website>http://www.sintguido.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-11-16</DatumInschrijving>
+                <DatumEersteLes>2015-11-16</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>14908666-4d4e-420f-8a89-1556921e38f5</Referte>
+                  <Periode>
+                    <Begin>2015-11-16</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>37749</Nummer>
+                    <Naam>Onthaaljaar voor anderstalige nieuwkomers</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:47.119</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     4b216a35-fefa-4702-adc0-9ebbb60d4954/20170505670144106/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:44.448</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:44.448</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     de1a2531-17b2-4d67-adc7-00a6ef37a96e/20170505670144106/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-

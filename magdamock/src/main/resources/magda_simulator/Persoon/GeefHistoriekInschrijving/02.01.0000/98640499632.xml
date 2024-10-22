@@ -1,526 +1,518 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:01:51.182</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>b69fcba6-491c-4e53-b1cf-e74e4e96f34d</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8257</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>b69fcba6-491c-4e53-b1cf-e74e4e96f34d</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>398f53bd-2eae-4c9b-82e5-a91f551fc354</Referte>
-                            <Instelling>
-                                <Instellingsnummer>35022</Instellingsnummer>
-                                <OfficieleNaam>Sportschool Meulebeke</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Ingelmunstersteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Busnummer>A</Busnummer>
-                                    <Gemeente>
-                                        <NISCode>37007</NISCode>
-                                        <PostCode>8760</PostCode>
-                                        <Naam>MEULEBEKE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>051 48 88 91</Telefoonnummer>
-                                    <Email>sportschool@sportschool-meulebeke.be</Email>
-                                    <Website>http://www.sportschool-meulebeke.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Ingelmunstersteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Busnummer>A</Busnummer>
-                                    <Gemeente>
-                                        <NISCode>37007</NISCode>
-                                        <PostCode>8760</PostCode>
-                                        <Naam>MEULEBEKE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>051 48 88 91</Telefoonnummer>
-                                    <Email>sportschool@sportschool-meulebeke.be</Email>
-                                    <Website>http://www.sportschool-meulebeke.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2013-07-03</DatumInschrijving>
-                                <DatumEersteLes>2013-09-01</DatumEersteLes>
-                                <Schooljaar>2013</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>f1bd57c5-218f-48a3-8f6f-01ae500e8186</Referte>
-                                    <Periode>
-                                        <Begin>2013-09-01</Begin>
-                                        <Einde>2014-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>20651</Nummer>
-                                        <Naam>1e leerjaar in de 2e graad Lichamelijke opvoeding en sport TSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>35300de7-a7d6-4c8a-9c82-28542e2da249</Referte>
-                            <Instelling>
-                                <Instellingsnummer>35592</Instellingsnummer>
-                                <OfficieleNaam>Technisch Instituut Sint-Vincentius</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Spinneschoolstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>10</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>31033</NISCode>
-                                        <PostCode>8820</PostCode>
-                                        <Naam>TORHOUT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>050 22 03 00</Telefoonnummer>
-                                    <Email>hilde.maertens@sint-rembert.be</Email>
-                                    <Website>http://www.sivi.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Spinneschoolstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>10</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>31033</NISCode>
-                                        <PostCode>8820</PostCode>
-                                        <Naam>TORHOUT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>050 22 03 00</Telefoonnummer>
-                                    <Email>hilde.maertens@sint-rembert.be</Email>
-                                    <Website>http://www.sivi.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-08-19</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>f13a2b32-06dd-4328-9572-3d7879a1836a</Referte>
-                                    <Periode>
-                                        <Begin>2014-09-01</Begin>
-                                        <Einde>2015-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>21338</Nummer>
-                                        <Naam>2e leerjaar in de 2e graad Sociale en technische wetenschappen TSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>eecca46d-bb5d-4a3a-aff4-6b7f05432a17</Referte>
-                            <Instelling>
-                                <Instellingsnummer>36715</Instellingsnummer>
-                                <OfficieleNaam>Hoger Technisch Instituut Sint-Antonius</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Holstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>66</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44021</NISCode>
-                                        <PostCode>9000</PostCode>
-                                        <Naam>GENT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 235 04 20</Telefoonnummer>
-                                    <Email>wouter.boute@htisa.be</Email>
-                                    <Website>http://www.htisa.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>6</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Sint-Jozefstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>7</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44021</NISCode>
-                                        <PostCode>9041</PostCode>
-                                        <Naam>OOSTAKKER</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 255 91 15</Telefoonnummer>
-                                    <Email></Email>
-                                    <Website></Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>2</Code>
-                                    <Omschrijving>Deeltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2016-09-20</DatumInschrijving>
-                                <DatumEersteLes>2016-09-20</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>c7a51827-02c7-4d1a-a2a4-79d24f89d3f1</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-20</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>35527</Nummer>
-                                        <Naam>Sportbegeleider DBSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                    <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>04e0c354-93e3-4c7a-818e-9a9567dba253</Referte>
-                            <Instelling>
-                                <Instellingsnummer>42796</Instellingsnummer>
-                                <OfficieleNaam>GO! Atheneum Eureka</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Rijselstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>110</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>31033</NISCode>
-                                        <PostCode>8820</PostCode>
-                                        <Naam>TORHOUT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>050 21 33 21</Telefoonnummer>
-                                    <Email>coucke.i@go-eureka.be</Email>
-                                    <Website>http://www.go-eureka.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Rijselstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>110</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>31033</NISCode>
-                                        <PostCode>8820</PostCode>
-                                        <Naam>TORHOUT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>050 21 33 21</Telefoonnummer>
-                                    <Email>coucke.i@go-eureka.be</Email>
-                                    <Website>http://www.go-eureka.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2015-08-28</DatumInschrijving>
-                                <DatumEersteLes>2015-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>024846f9-deed-4c3e-9a2c-9176fba092e9</Referte>
-                                    <Periode>
-                                        <Begin>2015-10-05</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>32125</Nummer>
-                                        <Naam>2e leerjaar in de 2e graad Verzorging-voeding BSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>04e0c354-93e3-4c7a-818e-9a9567dba253</Referte>
-                            <Instelling>
-                                <Instellingsnummer>42796</Instellingsnummer>
-                                <OfficieleNaam>GO! Atheneum Eureka</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Rijselstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>110</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>31033</NISCode>
-                                        <PostCode>8820</PostCode>
-                                        <Naam>TORHOUT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>050 21 33 21</Telefoonnummer>
-                                    <Email>coucke.i@go-eureka.be</Email>
-                                    <Website>http://www.go-eureka.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Rijselstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>110</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>31033</NISCode>
-                                        <PostCode>8820</PostCode>
-                                        <Naam>TORHOUT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>050 21 33 21</Telefoonnummer>
-                                    <Email>coucke.i@go-eureka.be</Email>
-                                    <Website>http://www.go-eureka.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2015-08-28</DatumInschrijving>
-                                <DatumEersteLes>2015-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>4f1c5eac-13b1-4c5f-8be0-7f9c3b4e27a5</Referte>
-                                    <Periode>
-                                        <Begin>2015-09-01</Begin>
-                                        <Einde>2015-10-04</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>21326</Nummer>
-                                        <Naam>2e leerjaar in de 2e graad Handel TSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>E</Code>
-                                            <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>12</Code>
-                                            <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
+﻿<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:01:51.182</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>b69fcba6-491c-4e53-b1cf-e74e4e96f34d</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8257</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>b69fcba6-491c-4e53-b1cf-e74e4e96f34d</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>a247541f-3002-4b2e-9ca5-6c1b0c9947ca</Referte>
+              <Instelling>
+                <Instellingsnummer>35022</Instellingsnummer>
+                <OfficieleNaam>Sportschool Meulebeke</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Ingelmunstersteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Busnummer>A</Busnummer>
+                  <Gemeente>
+                    <NISCode>37007</NISCode>
+                    <PostCode>8760</PostCode>
+                    <Naam>MEULEBEKE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>051 48 88 91</Telefoonnummer>
+                  <Email>sportschool@sportschool-meulebeke.be</Email>
+                  <Website>http://www.sportschool-meulebeke.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Ingelmunstersteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Busnummer>A</Busnummer>
+                  <Gemeente>
+                    <NISCode>37007</NISCode>
+                    <PostCode>8760</PostCode>
+                    <Naam>MEULEBEKE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>051 48 88 91</Telefoonnummer>
+                  <Email>sportschool@sportschool-meulebeke.be</Email>
+                  <Website>http://www.sportschool-meulebeke.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2013-07-03</DatumInschrijving>
+                <DatumEersteLes>2013-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>e1965f30-aac6-4d61-8e49-b33157f295fb</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>20651</Nummer>
+                    <Naam>1e leerjaar in de 2e graad Lichamelijke opvoeding en sport TSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>d9190dc2-e925-4dea-9a35-485b7f4e9d0d</Referte>
+              <Instelling>
+                <Instellingsnummer>35592</Instellingsnummer>
+                <OfficieleNaam>Technisch Instituut Sint-Vincentius</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Spinneschoolstraat</Naam>
+                  </Straat>
+                  <Huisnummer>10</Huisnummer>
+                  <Gemeente>
+                    <NISCode>31033</NISCode>
+                    <PostCode>8820</PostCode>
+                    <Naam>TORHOUT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>050 22 03 00</Telefoonnummer>
+                  <Email>hilde.maertens@sint-rembert.be</Email>
+                  <Website>http://www.sivi.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Spinneschoolstraat</Naam>
+                  </Straat>
+                  <Huisnummer>10</Huisnummer>
+                  <Gemeente>
+                    <NISCode>31033</NISCode>
+                    <PostCode>8820</PostCode>
+                    <Naam>TORHOUT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>050 22 03 00</Telefoonnummer>
+                  <Email>hilde.maertens@sint-rembert.be</Email>
+                  <Website>http://www.sivi.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-08-19</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>96bdfca0-a323-4559-bd22-034cf273536e</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>21338</Nummer>
+                    <Naam>2e leerjaar in de 2e graad Sociale en technische wetenschappen TSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>713fef25-b871-4beb-bb3a-8f0e623f6937</Referte>
+              <Instelling>
+                <Instellingsnummer>36715</Instellingsnummer>
+                <OfficieleNaam>Hoger Technisch Instituut Sint-Antonius</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Holstraat</Naam>
+                  </Straat>
+                  <Huisnummer>66</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44021</NISCode>
+                    <PostCode>9000</PostCode>
+                    <Naam>GENT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 235 04 20</Telefoonnummer>
+                  <Email>wouter.boute@htisa.be</Email>
+                  <Website>http://www.htisa.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>6</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Sint-Jozefstraat</Naam>
+                  </Straat>
+                  <Huisnummer>7</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44021</NISCode>
+                    <PostCode>9041</PostCode>
+                    <Naam>OOSTAKKER</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 255 91 15</Telefoonnummer>
+                  <Email></Email>
+                  <Website></Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>2</Code>
+                  <Omschrijving>Deeltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2016-09-20</DatumInschrijving>
+                <DatumEersteLes>2016-09-20</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>c962a36e-df4c-4655-bf47-ad55f389b13f</Referte>
+                  <Periode>
+                    <Begin>2016-09-20</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>35527</Nummer>
+                    <Naam>Sportbegeleider DBSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                  <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>2ebdf5ec-9c45-433e-a1fa-e3f5eb83e379</Referte>
+              <Instelling>
+                <Instellingsnummer>42796</Instellingsnummer>
+                <OfficieleNaam>GO! Atheneum Eureka</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Rijselstraat</Naam>
+                  </Straat>
+                  <Huisnummer>110</Huisnummer>
+                  <Gemeente>
+                    <NISCode>31033</NISCode>
+                    <PostCode>8820</PostCode>
+                    <Naam>TORHOUT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>050 21 33 21</Telefoonnummer>
+                  <Email>coucke.i@go-eureka.be</Email>
+                  <Website>http://www.go-eureka.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Rijselstraat</Naam>
+                  </Straat>
+                  <Huisnummer>110</Huisnummer>
+                  <Gemeente>
+                    <NISCode>31033</NISCode>
+                    <PostCode>8820</PostCode>
+                    <Naam>TORHOUT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>050 21 33 21</Telefoonnummer>
+                  <Email>coucke.i@go-eureka.be</Email>
+                  <Website>http://www.go-eureka.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-08-28</DatumInschrijving>
+                <DatumEersteLes>2015-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>e30b0f3b-32c4-4e93-acbc-0e4f904c047f</Referte>
+                  <Periode>
+                    <Begin>2015-10-05</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>32125</Nummer>
+                    <Naam>2e leerjaar in de 2e graad Verzorging-voeding BSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>9341f5bf-fc2c-4801-a019-323d4fa1db89</Referte>
+              <Instelling>
+                <Instellingsnummer>42796</Instellingsnummer>
+                <OfficieleNaam>GO! Atheneum Eureka</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Rijselstraat</Naam>
+                  </Straat>
+                  <Huisnummer>110</Huisnummer>
+                  <Gemeente>
+                    <NISCode>31033</NISCode>
+                    <PostCode>8820</PostCode>
+                    <Naam>TORHOUT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>050 21 33 21</Telefoonnummer>
+                  <Email>coucke.i@go-eureka.be</Email>
+                  <Website>http://www.go-eureka.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Rijselstraat</Naam>
+                  </Straat>
+                  <Huisnummer>110</Huisnummer>
+                  <Gemeente>
+                    <NISCode>31033</NISCode>
+                    <PostCode>8820</PostCode>
+                    <Naam>TORHOUT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>050 21 33 21</Telefoonnummer>
+                  <Email>coucke.i@go-eureka.be</Email>
+                  <Website>http://www.go-eureka.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-08-28</DatumInschrijving>
+                <DatumEersteLes>2015-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>2a56b18f-b3eb-485b-a0f8-4c20abf10133</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2015-10-04</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>21326</Nummer>
+                    <Naam>2e leerjaar in de 2e graad Handel TSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>E</Code>
+                      <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>12</Code>
+                      <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
                                                 school
                                             </Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:51.107</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:51.107</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     8b390411-bcf9-47d4-8bd1-2c91846b9a4f/20170505670148064/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:48.372</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:48.372</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     4c11d8eb-d422-4661-98e0-4b85bc1d8704/20170505670148064/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-

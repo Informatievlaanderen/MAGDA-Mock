@@ -1,432 +1,425 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:01:38.207</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>3e0aa659-6657-46c4-a1b1-3a0c3910ee52</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8254</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>3e0aa659-6657-46c4-a1b1-3a0c3910ee52</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>6012e62b-f726-4d47-9895-c674f3f2baa7</Referte>
-                            <Instelling>
-                                <Instellingsnummer>35212</Instellingsnummer>
-                                <OfficieleNaam>Petrus &amp; Paulus campus centrumSint-Jozef</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Alfons Pieterslaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>21</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 80 24 23</Telefoonnummer>
-                                    <Email>olvo@petrusenpaulus.be</Email>
-                                    <Website>http://sjo.petrusenpaulus.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Alfons Pieterslaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>21</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 80 24 23</Telefoonnummer>
-                                    <Email>olvo@petrusenpaulus.be</Email>
-                                    <Website>http://sjo.petrusenpaulus.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2009-09-01</DatumInschrijving>
-                                <DatumEersteLes>2009-09-01</DatumEersteLes>
-                                <Schooljaar>2013</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>a14e9e27-1547-4aa6-8bae-4c9ff18ce41b</Referte>
-                                    <Periode>
-                                        <Begin>2013-09-01</Begin>
-                                        <Einde>2014-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>21892</Nummer>
-                                        <Naam>1e leerjaar in de 3e graad Sociale en technische wetenschappen TSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>989f39be-084e-43d3-9dbd-47e61650444b</Referte>
-                            <Instelling>
-                                <Instellingsnummer>42622</Instellingsnummer>
-                                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leffingestraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 70 68 70</Telefoonnummer>
-                                    <Email>guy.ghysels@vesaliusinstituut.be</Email>
-                                    <Website>http://www.vesaliusinstituut.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leffingestraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 70 68 70</Telefoonnummer>
-                                    <Email>guy.ghysels@vesaliusinstituut.be</Email>
-                                    <Website>http://www.vesaliusinstituut.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-08-19</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>28ae5ed6-b80e-4342-a530-7cf56fdb61e3</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-01</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>37038</Nummer>
-                                        <Naam>Internaatswerking Se-n-Se TSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>989f39be-084e-43d3-9dbd-47e61650444b</Referte>
-                            <Instelling>
-                                <Instellingsnummer>42622</Instellingsnummer>
-                                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leffingestraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 70 68 70</Telefoonnummer>
-                                    <Email>guy.ghysels@vesaliusinstituut.be</Email>
-                                    <Website>http://www.vesaliusinstituut.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leffingestraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 70 68 70</Telefoonnummer>
-                                    <Email>guy.ghysels@vesaliusinstituut.be</Email>
-                                    <Website>http://www.vesaliusinstituut.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-08-19</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>87b85d4e-596a-4491-82a5-ab9928fc93d6</Referte>
-                                    <Periode>
-                                        <Begin>2015-09-01</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>26397</Nummer>
-                                        <Naam>3e leerjaar in de 3e graad Kinderzorg BSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>989f39be-084e-43d3-9dbd-47e61650444b</Referte>
-                            <Instelling>
-                                <Instellingsnummer>42622</Instellingsnummer>
-                                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leffingestraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 70 68 70</Telefoonnummer>
-                                    <Email>guy.ghysels@vesaliusinstituut.be</Email>
-                                    <Website>http://www.vesaliusinstituut.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leffingestraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 70 68 70</Telefoonnummer>
-                                    <Email>guy.ghysels@vesaliusinstituut.be</Email>
-                                    <Website>http://www.vesaliusinstituut.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-08-19</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>9c351602-2253-4bb6-ae51-f5f79ffc4a8f</Referte>
-                                    <Periode>
-                                        <Begin>2014-09-01</Begin>
-                                        <Einde>2015-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>26319</Nummer>
-                                        <Naam>2e leerjaar in de 3e graad Verzorging BSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:38.075</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:01:38.207</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>3e0aa659-6657-46c4-a1b1-3a0c3910ee52</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8254</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>3e0aa659-6657-46c4-a1b1-3a0c3910ee52</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>4810d019-2ae0-4777-8517-e46eea3ade03</Referte>
+              <Instelling>
+                <Instellingsnummer>35212</Instellingsnummer>
+                <OfficieleNaam>Petrus &amp; Paulus campus centrumSint-Jozef</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Alfons Pieterslaan</Naam>
+                  </Straat>
+                  <Huisnummer>21</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 80 24 23</Telefoonnummer>
+                  <Email>olvo@petrusenpaulus.be</Email>
+                  <Website>http://sjo.petrusenpaulus.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Alfons Pieterslaan</Naam>
+                  </Straat>
+                  <Huisnummer>21</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 80 24 23</Telefoonnummer>
+                  <Email>olvo@petrusenpaulus.be</Email>
+                  <Website>http://sjo.petrusenpaulus.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2009-09-01</DatumInschrijving>
+                <DatumEersteLes>2009-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>e6140750-c3ae-4b80-bc09-05272dfcb3e4</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>21892</Nummer>
+                    <Naam>1e leerjaar in de 3e graad Sociale en technische wetenschappen TSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>c01c80b2-7710-4a66-bfb2-da2bebaeb174</Referte>
+              <Instelling>
+                <Instellingsnummer>42622</Instellingsnummer>
+                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leffingestraat</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 70 68 70</Telefoonnummer>
+                  <Email>guy.ghysels@vesaliusinstituut.be</Email>
+                  <Website>http://www.vesaliusinstituut.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Leffingestraat</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 70 68 70</Telefoonnummer>
+                  <Email>guy.ghysels@vesaliusinstituut.be</Email>
+                  <Website>http://www.vesaliusinstituut.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-08-19</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>4f0a6a8b-79df-4d35-92cc-987df33fb549</Referte>
+                  <Periode>
+                    <Begin>2016-09-01</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>37038</Nummer>
+                    <Naam>Internaatswerking Se-n-Se TSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>319239e7-0625-472a-8c09-530136d17cff</Referte>
+              <Instelling>
+                <Instellingsnummer>42622</Instellingsnummer>
+                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leffingestraat</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 70 68 70</Telefoonnummer>
+                  <Email>guy.ghysels@vesaliusinstituut.be</Email>
+                  <Website>http://www.vesaliusinstituut.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Leffingestraat</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 70 68 70</Telefoonnummer>
+                  <Email>guy.ghysels@vesaliusinstituut.be</Email>
+                  <Website>http://www.vesaliusinstituut.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-08-19</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>fc04b028-651c-4f22-adcf-b11109d27e70</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>26397</Nummer>
+                    <Naam>3e leerjaar in de 3e graad Kinderzorg BSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>7ec38e5f-c4c0-4f89-965d-72fb25e78c03</Referte>
+              <Instelling>
+                <Instellingsnummer>42622</Instellingsnummer>
+                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leffingestraat</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 70 68 70</Telefoonnummer>
+                  <Email>guy.ghysels@vesaliusinstituut.be</Email>
+                  <Website>http://www.vesaliusinstituut.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Leffingestraat</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 70 68 70</Telefoonnummer>
+                  <Email>guy.ghysels@vesaliusinstituut.be</Email>
+                  <Website>http://www.vesaliusinstituut.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-08-19</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>ba15f88a-e603-4aaf-8533-33481ee37040</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>26319</Nummer>
+                    <Naam>2e leerjaar in de 3e graad Verzorging BSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:38.075</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     37365862-f328-4d23-8080-c7b8e07cb731/20170505670135196/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:35.449</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:35.449</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     6e721f59-69bd-45ed-8aba-d9841f5054e3/20170505670135196/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-

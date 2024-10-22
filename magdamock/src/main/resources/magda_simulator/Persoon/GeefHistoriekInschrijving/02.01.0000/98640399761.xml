@@ -1,432 +1,425 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:01:16.456</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>b18f8faa-216f-4d01-82a7-c4d05c016f98</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8248</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>b18f8faa-216f-4d01-82a7-c4d05c016f98</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>b35fa2c9-92a4-49eb-915d-faa91046b91f</Referte>
-                            <Instelling>
-                                <Instellingsnummer>39636</Instellingsnummer>
-                                <OfficieleNaam>Harlindis en Relindis Technisch Instituu</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Sint-Jansberg</Naam>
-                                    </Straat>
-                                    <Huisnummer>39</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>72021</NISCode>
-                                        <PostCode>3680</PostCode>
-                                        <Naam>MAASEIK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>089 56 30 59</Telefoonnummer>
-                                    <Email>info@kasomk.be</Email>
-                                    <Website>http://www.kasomk.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Sint-Jansberg</Naam>
-                                    </Straat>
-                                    <Huisnummer>39</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>72021</NISCode>
-                                        <PostCode>3680</PostCode>
-                                        <Naam>MAASEIK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>089 56 30 59</Telefoonnummer>
-                                    <Email>info@kasomk.be</Email>
-                                    <Website>http://www.kasomk.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2012-06-08</DatumInschrijving>
-                                <DatumEersteLes>2012-09-01</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>10beb613-4168-4ac7-8bb1-833828d9a196</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-01</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>25646</Nummer>
-                                        <Naam>3e leerjaar in de 3e graad Computergestuurde werktuigmachines BSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>b35fa2c9-92a4-49eb-915d-faa91046b91f</Referte>
-                            <Instelling>
-                                <Instellingsnummer>39636</Instellingsnummer>
-                                <OfficieleNaam>Harlindis en Relindis Technisch Instituu</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Sint-Jansberg</Naam>
-                                    </Straat>
-                                    <Huisnummer>39</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>72021</NISCode>
-                                        <PostCode>3680</PostCode>
-                                        <Naam>MAASEIK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>089 56 30 59</Telefoonnummer>
-                                    <Email>info@kasomk.be</Email>
-                                    <Website>http://www.kasomk.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Sint-Jansberg</Naam>
-                                    </Straat>
-                                    <Huisnummer>39</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>72021</NISCode>
-                                        <PostCode>3680</PostCode>
-                                        <Naam>MAASEIK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>089 56 30 59</Telefoonnummer>
-                                    <Email>info@kasomk.be</Email>
-                                    <Website>http://www.kasomk.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2012-06-08</DatumInschrijving>
-                                <DatumEersteLes>2012-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>3a2b636b-6066-4a5c-acb5-86bbcb800363</Referte>
-                                    <Periode>
-                                        <Begin>2014-09-01</Begin>
-                                        <Einde>2015-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>21979</Nummer>
-                                        <Naam>1e leerjaar in de 3e graad Werktuigmachines BSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>b35fa2c9-92a4-49eb-915d-faa91046b91f</Referte>
-                            <Instelling>
-                                <Instellingsnummer>39636</Instellingsnummer>
-                                <OfficieleNaam>Harlindis en Relindis Technisch Instituu</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Sint-Jansberg</Naam>
-                                    </Straat>
-                                    <Huisnummer>39</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>72021</NISCode>
-                                        <PostCode>3680</PostCode>
-                                        <Naam>MAASEIK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>089 56 30 59</Telefoonnummer>
-                                    <Email>info@kasomk.be</Email>
-                                    <Website>http://www.kasomk.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Sint-Jansberg</Naam>
-                                    </Straat>
-                                    <Huisnummer>39</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>72021</NISCode>
-                                        <PostCode>3680</PostCode>
-                                        <Naam>MAASEIK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>089 56 30 59</Telefoonnummer>
-                                    <Email>info@kasomk.be</Email>
-                                    <Website>http://www.kasomk.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2012-06-08</DatumInschrijving>
-                                <DatumEersteLes>2012-09-01</DatumEersteLes>
-                                <Schooljaar>2013</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>3794faca-3943-4690-a945-0c13a20dceb4</Referte>
-                                    <Periode>
-                                        <Begin>2013-09-01</Begin>
-                                        <Einde>2014-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>33207</Nummer>
-                                        <Naam>2e leerjaar in de 2e graad Basismechanica BSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>b35fa2c9-92a4-49eb-915d-faa91046b91f</Referte>
-                            <Instelling>
-                                <Instellingsnummer>39636</Instellingsnummer>
-                                <OfficieleNaam>Harlindis en Relindis Technisch Instituu</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Sint-Jansberg</Naam>
-                                    </Straat>
-                                    <Huisnummer>39</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>72021</NISCode>
-                                        <PostCode>3680</PostCode>
-                                        <Naam>MAASEIK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>089 56 30 59</Telefoonnummer>
-                                    <Email>info@kasomk.be</Email>
-                                    <Website>http://www.kasomk.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Sint-Jansberg</Naam>
-                                    </Straat>
-                                    <Huisnummer>39</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>72021</NISCode>
-                                        <PostCode>3680</PostCode>
-                                        <Naam>MAASEIK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>089 56 30 59</Telefoonnummer>
-                                    <Email>info@kasomk.be</Email>
-                                    <Website>http://www.kasomk.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2012-06-08</DatumInschrijving>
-                                <DatumEersteLes>2012-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>5cbf1197-b076-42fb-9b9d-ff26e5e8fd0e</Referte>
-                                    <Periode>
-                                        <Begin>2015-09-01</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>22341</Nummer>
-                                        <Naam>2e leerjaar in de 3e graad Werktuigmachines BSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:16.363</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:01:16.456</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>b18f8faa-216f-4d01-82a7-c4d05c016f98</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8248</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>b18f8faa-216f-4d01-82a7-c4d05c016f98</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>e80bfd15-a1de-463e-8bad-28ed2dc3ffea</Referte>
+              <Instelling>
+                <Instellingsnummer>39636</Instellingsnummer>
+                <OfficieleNaam>Harlindis en Relindis Technisch Instituu</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Sint-Jansberg</Naam>
+                  </Straat>
+                  <Huisnummer>39</Huisnummer>
+                  <Gemeente>
+                    <NISCode>72021</NISCode>
+                    <PostCode>3680</PostCode>
+                    <Naam>MAASEIK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>089 56 30 59</Telefoonnummer>
+                  <Email>info@kasomk.be</Email>
+                  <Website>http://www.kasomk.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Sint-Jansberg</Naam>
+                  </Straat>
+                  <Huisnummer>39</Huisnummer>
+                  <Gemeente>
+                    <NISCode>72021</NISCode>
+                    <PostCode>3680</PostCode>
+                    <Naam>MAASEIK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>089 56 30 59</Telefoonnummer>
+                  <Email>info@kasomk.be</Email>
+                  <Website>http://www.kasomk.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2012-06-08</DatumInschrijving>
+                <DatumEersteLes>2012-09-01</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>099c59c6-471f-4bd7-a5e7-43a7cc8e078b</Referte>
+                  <Periode>
+                    <Begin>2016-09-01</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>25646</Nummer>
+                    <Naam>3e leerjaar in de 3e graad Computergestuurde werktuigmachines BSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>57ab7c81-bb22-4f7c-8416-d0cc74af35fe</Referte>
+              <Instelling>
+                <Instellingsnummer>39636</Instellingsnummer>
+                <OfficieleNaam>Harlindis en Relindis Technisch Instituu</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Sint-Jansberg</Naam>
+                  </Straat>
+                  <Huisnummer>39</Huisnummer>
+                  <Gemeente>
+                    <NISCode>72021</NISCode>
+                    <PostCode>3680</PostCode>
+                    <Naam>MAASEIK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>089 56 30 59</Telefoonnummer>
+                  <Email>info@kasomk.be</Email>
+                  <Website>http://www.kasomk.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Sint-Jansberg</Naam>
+                  </Straat>
+                  <Huisnummer>39</Huisnummer>
+                  <Gemeente>
+                    <NISCode>72021</NISCode>
+                    <PostCode>3680</PostCode>
+                    <Naam>MAASEIK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>089 56 30 59</Telefoonnummer>
+                  <Email>info@kasomk.be</Email>
+                  <Website>http://www.kasomk.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2012-06-08</DatumInschrijving>
+                <DatumEersteLes>2012-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>a3be33b4-c15c-418c-94ce-62aa771edd8b</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>21979</Nummer>
+                    <Naam>1e leerjaar in de 3e graad Werktuigmachines BSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>f1fe1421-f56e-41eb-97c7-c8211c4d98f8</Referte>
+              <Instelling>
+                <Instellingsnummer>39636</Instellingsnummer>
+                <OfficieleNaam>Harlindis en Relindis Technisch Instituu</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Sint-Jansberg</Naam>
+                  </Straat>
+                  <Huisnummer>39</Huisnummer>
+                  <Gemeente>
+                    <NISCode>72021</NISCode>
+                    <PostCode>3680</PostCode>
+                    <Naam>MAASEIK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>089 56 30 59</Telefoonnummer>
+                  <Email>info@kasomk.be</Email>
+                  <Website>http://www.kasomk.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Sint-Jansberg</Naam>
+                  </Straat>
+                  <Huisnummer>39</Huisnummer>
+                  <Gemeente>
+                    <NISCode>72021</NISCode>
+                    <PostCode>3680</PostCode>
+                    <Naam>MAASEIK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>089 56 30 59</Telefoonnummer>
+                  <Email>info@kasomk.be</Email>
+                  <Website>http://www.kasomk.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2012-06-08</DatumInschrijving>
+                <DatumEersteLes>2012-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>71dcdffe-b4cc-45e4-ac15-6e995de5b581</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>33207</Nummer>
+                    <Naam>2e leerjaar in de 2e graad Basismechanica BSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>3fb9ae5a-89c9-4ae7-b6a4-ed644f304ed4</Referte>
+              <Instelling>
+                <Instellingsnummer>39636</Instellingsnummer>
+                <OfficieleNaam>Harlindis en Relindis Technisch Instituu</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Sint-Jansberg</Naam>
+                  </Straat>
+                  <Huisnummer>39</Huisnummer>
+                  <Gemeente>
+                    <NISCode>72021</NISCode>
+                    <PostCode>3680</PostCode>
+                    <Naam>MAASEIK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>089 56 30 59</Telefoonnummer>
+                  <Email>info@kasomk.be</Email>
+                  <Website>http://www.kasomk.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Sint-Jansberg</Naam>
+                  </Straat>
+                  <Huisnummer>39</Huisnummer>
+                  <Gemeente>
+                    <NISCode>72021</NISCode>
+                    <PostCode>3680</PostCode>
+                    <Naam>MAASEIK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>089 56 30 59</Telefoonnummer>
+                  <Email>info@kasomk.be</Email>
+                  <Website>http://www.kasomk.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2012-06-08</DatumInschrijving>
+                <DatumEersteLes>2012-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>8a0a7b85-32cf-4673-b185-921f60f72dde</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>22341</Nummer>
+                    <Naam>2e leerjaar in de 3e graad Werktuigmachines BSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:16.363</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     16029de7-e2a6-47b4-b1fc-0e0fe9ea6889/20170505670113323/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:15.808</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:15.808</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     89e6c607-8329-4310-851e-07cdc8fb39c4/20170505670113323/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-

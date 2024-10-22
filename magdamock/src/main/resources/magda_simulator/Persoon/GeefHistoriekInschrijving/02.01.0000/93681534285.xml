@@ -1,566 +1,557 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-04-27</Datum>
-                    <Tijd>08:00:04.393</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>7d89aa67-9b64-40a5-850a-7f88b181b14f</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25063:8194</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>7d89aa67-9b64-40a5-850a-7f88b181b14f</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                        >
-                            <Bron>HO</Bron>
-                            <Referte>2013-10-28 14:57:45.099790</Referte>
-                            <Instelling>
-                                <Instellingsnummer>110148</Instellingsnummer>
-                                <OfficieleNaam>Vrije Universiteit Brussel</OfficieleNaam>
-                                <Instantie>Universiteit</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pleinlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>2</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>21009</NISCode>
-                                        <PostCode>1050</PostCode>
-                                        <Naam>Brussel</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003826292088</Telefoonnummer>
-                                    <Email>info@vub.ac.be</Email>
-                                    <Website>http://www.vub.ac.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2013</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2013-09-24</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>3480</Code>
-                                    <VolledigeNaam>Bachelor of Arts in de toegepaste taalkunde: combinatie van ten
+﻿<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-04-27</Datum>
+          <Tijd>08:00:04.393</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>7d89aa67-9b64-40a5-850a-7f88b181b14f</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25063:8194</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>7d89aa67-9b64-40a5-850a-7f88b181b14f</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>HO</Bron>
+              <Referte>004caa40-6561-48cd-83df-278b410af75d</Referte>
+              <Instelling>
+                <Instellingsnummer>110148</Instellingsnummer>
+                <OfficieleNaam>Vrije Universiteit Brussel</OfficieleNaam>
+                <Instantie>Universiteit</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Pleinlaan</Naam>
+                  </Straat>
+                  <Huisnummer>2</Huisnummer>
+                  <Gemeente>
+                    <NISCode>21009</NISCode>
+                    <PostCode>1050</PostCode>
+                    <Naam>Brussel</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003826292088</Telefoonnummer>
+                  <Email>info@vub.ac.be</Email>
+                  <Website>http://www.vub.ac.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2013</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>2013-09-24</DatumInschrijving>
+                <Opleiding>
+                  <Code>3480</Code>
+                  <VolledigeNaam>Bachelor of Arts in de toegepaste taalkunde: combinatie van ten
                                         minste twee talen
                                     </VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Bachelor</Graad>
-                                        <SpecificatieGraad>of Arts</SpecificatieGraad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>toegepaste taalkunde: combinatie van ten minste twee talen
+                  <NaamElementen>
+                    <Graad>Bachelor</Graad>
+                    <SpecificatieGraad>of Arts</SpecificatieGraad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>toegepaste taalkunde: combinatie van ten minste twee talen
                                         </Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>2</Code>
-                                        <Omschrijving>Academisch gerichte bachelor</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>52</Opgenomen>
-                                    <Verworven>52</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>3</GeenResultaat>
-                                    <NietVerworven>0</NietVerworven>
-                                    <Vrijgesteld>3</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>180</Studieomvang>
-                                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>HO</Bron>
-                            <Referte>2015-11-27 13:55:13.117815</Referte>
-                            <Instelling>
-                                <Instellingsnummer>110148</Instellingsnummer>
-                                <OfficieleNaam>Vrije Universiteit Brussel</OfficieleNaam>
-                                <Instantie>Universiteit</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pleinlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>2</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>21009</NISCode>
-                                        <PostCode>1050</PostCode>
-                                        <Naam>Brussel</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003826292088</Telefoonnummer>
-                                    <Email>info@vub.ac.be</Email>
-                                    <Website>http://www.vub.ac.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2015</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2015-09-30</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>3480</Code>
-                                    <VolledigeNaam>Bachelor of Arts in de toegepaste taalkunde: combinatie van ten
+                  </NaamElementen>
+                  <Soort>
+                    <Code>2</Code>
+                    <Omschrijving>Academisch gerichte bachelor</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>52</Opgenomen>
+                  <Verworven>52</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>3</GeenResultaat>
+                  <NietVerworven>0</NietVerworven>
+                  <Vrijgesteld>3</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>180</Studieomvang>
+                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>HO</Bron>
+              <Referte>83c38305-192c-4237-8238-e3cb587bc3e9</Referte>
+              <Instelling>
+                <Instellingsnummer>110148</Instellingsnummer>
+                <OfficieleNaam>Vrije Universiteit Brussel</OfficieleNaam>
+                <Instantie>Universiteit</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Pleinlaan</Naam>
+                  </Straat>
+                  <Huisnummer>2</Huisnummer>
+                  <Gemeente>
+                    <NISCode>21009</NISCode>
+                    <PostCode>1050</PostCode>
+                    <Naam>Brussel</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003826292088</Telefoonnummer>
+                  <Email>info@vub.ac.be</Email>
+                  <Website>http://www.vub.ac.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2015</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>2015-09-30</DatumInschrijving>
+                <Opleiding>
+                  <Code>3480</Code>
+                  <VolledigeNaam>Bachelor of Arts in de toegepaste taalkunde: combinatie van ten
                                         minste twee talen
                                     </VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Bachelor</Graad>
-                                        <SpecificatieGraad>of Arts</SpecificatieGraad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>toegepaste taalkunde: combinatie van ten minste twee talen
+                  <NaamElementen>
+                    <Graad>Bachelor</Graad>
+                    <SpecificatieGraad>of Arts</SpecificatieGraad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>toegepaste taalkunde: combinatie van ten minste twee talen
                                         </Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>2</Code>
-                                        <Omschrijving>Academisch gerichte bachelor</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>9</Opgenomen>
-                                    <Verworven>9</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>0</GeenResultaat>
-                                    <NietVerworven>0</NietVerworven>
-                                    <Vrijgesteld>0</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>180</Studieomvang>
-                                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
-                                <Studiebewijzen>
-                                    <Studiebewijs>
-                                        <Referte>2015-09-23 10:02:01.572732</Referte>
-                                        <LEDReferte>2015-09-23 10:02:01.572732</LEDReferte>
-                                    </Studiebewijs>
-                                </Studiebewijzen>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>HO</Bron>
-                            <Referte>2014-09-24 16:32:01.494869</Referte>
-                            <Instelling>
-                                <Instellingsnummer>110148</Instellingsnummer>
-                                <OfficieleNaam>Vrije Universiteit Brussel</OfficieleNaam>
-                                <Instantie>Universiteit</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pleinlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>2</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>21009</NISCode>
-                                        <PostCode>1050</PostCode>
-                                        <Naam>Brussel</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003826292088</Telefoonnummer>
-                                    <Email>info@vub.ac.be</Email>
-                                    <Website>http://www.vub.ac.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2014</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2014-09-24</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>3480</Code>
-                                    <VolledigeNaam>Bachelor of Arts in de toegepaste taalkunde: combinatie van ten
+                  </NaamElementen>
+                  <Soort>
+                    <Code>2</Code>
+                    <Omschrijving>Academisch gerichte bachelor</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>9</Opgenomen>
+                  <Verworven>9</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>0</GeenResultaat>
+                  <NietVerworven>0</NietVerworven>
+                  <Vrijgesteld>0</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>180</Studieomvang>
+                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
+                <Studiebewijzen>
+                  <Studiebewijs>
+                    <Referte>2015-09-23 10:02:01.572732</Referte>
+                    <LEDReferte>2015-09-23 10:02:01.572732</LEDReferte>
+                  </Studiebewijs>
+                </Studiebewijzen>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>HO</Bron>
+              <Referte>4f702f0c-bb94-4183-8ac3-e72b59e4f0c3</Referte>
+              <Instelling>
+                <Instellingsnummer>110148</Instellingsnummer>
+                <OfficieleNaam>Vrije Universiteit Brussel</OfficieleNaam>
+                <Instantie>Universiteit</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Pleinlaan</Naam>
+                  </Straat>
+                  <Huisnummer>2</Huisnummer>
+                  <Gemeente>
+                    <NISCode>21009</NISCode>
+                    <PostCode>1050</PostCode>
+                    <Naam>Brussel</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003826292088</Telefoonnummer>
+                  <Email>info@vub.ac.be</Email>
+                  <Website>http://www.vub.ac.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2014</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>2014-09-24</DatumInschrijving>
+                <Opleiding>
+                  <Code>3480</Code>
+                  <VolledigeNaam>Bachelor of Arts in de toegepaste taalkunde: combinatie van ten
                                         minste twee talen
                                     </VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Bachelor</Graad>
-                                        <SpecificatieGraad>of Arts</SpecificatieGraad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>toegepaste taalkunde: combinatie van ten minste twee talen
+                  <NaamElementen>
+                    <Graad>Bachelor</Graad>
+                    <SpecificatieGraad>of Arts</SpecificatieGraad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>toegepaste taalkunde: combinatie van ten minste twee talen
                                         </Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>2</Code>
-                                        <Omschrijving>Academisch gerichte bachelor</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>69</Opgenomen>
-                                    <Verworven>48</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>0</GeenResultaat>
-                                    <NietVerworven>21</NietVerworven>
-                                    <Vrijgesteld>0</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>180</Studieomvang>
-                                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>HO</Bron>
-                            <Referte>2012-09-20 14:42:23.872937</Referte>
-                            <Instelling>
-                                <Instellingsnummer>103606</Instellingsnummer>
-                                <OfficieleNaam>Erasmushogeschool Brussel</OfficieleNaam>
-                                <Instantie>Hogeschool</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Nijverheidskaai</Naam>
-                                    </Straat>
-                                    <Huisnummer>170</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>21001</NISCode>
-                                        <PostCode>1070</PostCode>
-                                        <Naam>Anderlecht</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003825233701</Telefoonnummer>
-                                    <Email>info@ehb.be</Email>
-                                    <Website>http://www.erasmushogeschool.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2012</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2012-09-20</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>2845</Code>
-                                    <VolledigeNaam>Bachelor of Arts in de toegepaste taalkunde: combinatie van ten
+                  </NaamElementen>
+                  <Soort>
+                    <Code>2</Code>
+                    <Omschrijving>Academisch gerichte bachelor</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>69</Opgenomen>
+                  <Verworven>48</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>0</GeenResultaat>
+                  <NietVerworven>21</NietVerworven>
+                  <Vrijgesteld>0</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>180</Studieomvang>
+                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>HO</Bron>
+              <Referte>afe3ac4e-dfeb-4604-9106-5345f059fe96</Referte>
+              <Instelling>
+                <Instellingsnummer>103606</Instellingsnummer>
+                <OfficieleNaam>Erasmushogeschool Brussel</OfficieleNaam>
+                <Instantie>Hogeschool</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Nijverheidskaai</Naam>
+                  </Straat>
+                  <Huisnummer>170</Huisnummer>
+                  <Gemeente>
+                    <NISCode>21001</NISCode>
+                    <PostCode>1070</PostCode>
+                    <Naam>Anderlecht</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003825233701</Telefoonnummer>
+                  <Email>info@ehb.be</Email>
+                  <Website>http://www.erasmushogeschool.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2012</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>2012-09-20</DatumInschrijving>
+                <Opleiding>
+                  <Code>2845</Code>
+                  <VolledigeNaam>Bachelor of Arts in de toegepaste taalkunde: combinatie van ten
                                         minste twee talen
                                     </VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Bachelor</Graad>
-                                        <SpecificatieGraad>of Arts</SpecificatieGraad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>toegepaste taalkunde: combinatie van ten minste twee talen
+                  <NaamElementen>
+                    <Graad>Bachelor</Graad>
+                    <SpecificatieGraad>of Arts</SpecificatieGraad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>toegepaste taalkunde: combinatie van ten minste twee talen
                                         </Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>2</Code>
-                                        <Omschrijving>Academisch gerichte bachelor</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>58</Opgenomen>
-                                    <Verworven>58</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>19</GeenResultaat>
-                                    <NietVerworven>0</NietVerworven>
-                                    <Vrijgesteld>19</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>180</Studieomvang>
-                                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>HO</Bron>
-                            <Referte>2011-10-01 15:46:24.899612</Referte>
-                            <Instelling>
-                                <Instellingsnummer>103804</Instellingsnummer>
-                                <OfficieleNaam>HUB-EHSAL</OfficieleNaam>
-                                <Instantie>Hogeschool</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Warmoesberg</Naam>
-                                    </Straat>
-                                    <Huisnummer>26</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>23025</NISCode>
-                                        <PostCode>1000</PostCode>
-                                        <Naam>Brussel</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003822101292</Telefoonnummer>
-                                    <Email>info@odisee.be</Email>
-                                    <Website>http://www.odisee.be/</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2011</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2011-06-29</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>2848</Code>
-                                    <VolledigeNaam>Bachelor of Arts in de toegepaste taalkunde: combinatie van ten
+                  </NaamElementen>
+                  <Soort>
+                    <Code>2</Code>
+                    <Omschrijving>Academisch gerichte bachelor</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>58</Opgenomen>
+                  <Verworven>58</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>19</GeenResultaat>
+                  <NietVerworven>0</NietVerworven>
+                  <Vrijgesteld>19</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>180</Studieomvang>
+                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>HO</Bron>
+              <Referte>06b5e5ee-d1d4-45a4-811c-465d5f5263d6</Referte>
+              <Instelling>
+                <Instellingsnummer>103804</Instellingsnummer>
+                <OfficieleNaam>HUB-EHSAL</OfficieleNaam>
+                <Instantie>Hogeschool</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Warmoesberg</Naam>
+                  </Straat>
+                  <Huisnummer>26</Huisnummer>
+                  <Gemeente>
+                    <NISCode>23025</NISCode>
+                    <PostCode>1000</PostCode>
+                    <Naam>Brussel</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003822101292</Telefoonnummer>
+                  <Email>info@odisee.be</Email>
+                  <Website>http://www.odisee.be/</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2011</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>2011-06-29</DatumInschrijving>
+                <Opleiding>
+                  <Code>2848</Code>
+                  <VolledigeNaam>Bachelor of Arts in de toegepaste taalkunde: combinatie van ten
                                         minste twee talen
                                     </VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Bachelor</Graad>
-                                        <SpecificatieGraad>of Arts</SpecificatieGraad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>toegepaste taalkunde: combinatie van ten minste twee talen
+                  <NaamElementen>
+                    <Graad>Bachelor</Graad>
+                    <SpecificatieGraad>of Arts</SpecificatieGraad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>toegepaste taalkunde: combinatie van ten minste twee talen
                                         </Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>2</Code>
-                                        <Omschrijving>Academisch gerichte bachelor</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>60</Opgenomen>
-                                    <Verworven>27</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>0</GeenResultaat>
-                                    <NietVerworven>33</NietVerworven>
-                                    <Vrijgesteld>0</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>180</Studieomvang>
-                                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>HO</Bron>
-                            <Referte>bb289b18-b3c9-4450-a407-4686a75a660e:16357202050</Referte>
-                            <Instelling>
-                                <Instellingsnummer>110131</Instellingsnummer>
-                                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
-                                <Instantie>Universiteit</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Oude Markt</Naam>
-                                    </Straat>
-                                    <Huisnummer>13</Huisnummer>
-                                    <Busnummer>5005</Busnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3000</PostCode>
-                                        <Naam>Leuven</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003816324052</Telefoonnummer>
-                                    <Email>info@kuleuven.be</Email>
-                                    <Website>http://www.kuleuven.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2016</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2016-09-23</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>3082</Code>
-                                    <VolledigeNaam>Master of Arts in de bedrijfscommunicatie</VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Master</Graad>
-                                        <SpecificatieGraad>of Arts</SpecificatieGraad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>bedrijfscommunicatie</Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>3</Code>
-                                        <Omschrijving>Master</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>35</Opgenomen>
-                                    <Verworven>0</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>35</GeenResultaat>
-                                    <NietVerworven>0</NietVerworven>
-                                    <Vrijgesteld>0</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>060</Studieomvang>
-                                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>HO</Bron>
-                            <Referte>2015-09-16 17:15:27.430111</Referte>
-                            <Instelling>
-                                <Instellingsnummer>110131</Instellingsnummer>
-                                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
-                                <Instantie>Universiteit</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Oude Markt</Naam>
-                                    </Straat>
-                                    <Huisnummer>13</Huisnummer>
-                                    <Busnummer>5005</Busnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3000</PostCode>
-                                        <Naam>Leuven</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003816324052</Telefoonnummer>
-                                    <Email>info@kuleuven.be</Email>
-                                    <Website>http://www.kuleuven.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2015</Academiejaar>
-                                <Status>
-                                    <Code>01</Code>
-                                    <Omschrijving>Actief</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2015-09-16</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>3082</Code>
-                                    <VolledigeNaam>Master of Arts in de bedrijfscommunicatie</VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Master</Graad>
-                                        <SpecificatieGraad>of Arts</SpecificatieGraad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>bedrijfscommunicatie</Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>3</Code>
-                                        <Omschrijving>Master</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>60</Opgenomen>
-                                    <Verworven>25</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>0</GeenResultaat>
-                                    <NietVerworven>35</NietVerworven>
-                                    <Vrijgesteld>0</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>060</Studieomvang>
-                                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-04-27</Datum>
-                            <Tijd>07:59:58.183</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+                  </NaamElementen>
+                  <Soort>
+                    <Code>2</Code>
+                    <Omschrijving>Academisch gerichte bachelor</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>60</Opgenomen>
+                  <Verworven>27</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>0</GeenResultaat>
+                  <NietVerworven>33</NietVerworven>
+                  <Vrijgesteld>0</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>180</Studieomvang>
+                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>HO</Bron>
+              <Referte>249013e2-f7aa-4a6c-8f8d-36d5ae2d251e</Referte>
+              <Instelling>
+                <Instellingsnummer>110131</Instellingsnummer>
+                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
+                <Instantie>Universiteit</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Oude Markt</Naam>
+                  </Straat>
+                  <Huisnummer>13</Huisnummer>
+                  <Busnummer>5005</Busnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3000</PostCode>
+                    <Naam>Leuven</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003816324052</Telefoonnummer>
+                  <Email>info@kuleuven.be</Email>
+                  <Website>http://www.kuleuven.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2016</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>2016-09-23</DatumInschrijving>
+                <Opleiding>
+                  <Code>3082</Code>
+                  <VolledigeNaam>Master of Arts in de bedrijfscommunicatie</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad>Master</Graad>
+                    <SpecificatieGraad>of Arts</SpecificatieGraad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>bedrijfscommunicatie</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code>3</Code>
+                    <Omschrijving>Master</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>35</Opgenomen>
+                  <Verworven>0</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>35</GeenResultaat>
+                  <NietVerworven>0</NietVerworven>
+                  <Vrijgesteld>0</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>060</Studieomvang>
+                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>HO</Bron>
+              <Referte>1d7f274f-929e-42b5-b70c-2f82816e7280</Referte>
+              <Instelling>
+                <Instellingsnummer>110131</Instellingsnummer>
+                <OfficieleNaam>Katholieke Universiteit Leuven</OfficieleNaam>
+                <Instantie>Universiteit</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Oude Markt</Naam>
+                  </Straat>
+                  <Huisnummer>13</Huisnummer>
+                  <Busnummer>5005</Busnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3000</PostCode>
+                    <Naam>Leuven</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003816324052</Telefoonnummer>
+                  <Email>info@kuleuven.be</Email>
+                  <Website>http://www.kuleuven.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2015</Academiejaar>
+                <Status>
+                  <Code>01</Code>
+                  <Omschrijving>Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving>2015-09-16</DatumInschrijving>
+                <Opleiding>
+                  <Code>3082</Code>
+                  <VolledigeNaam>Master of Arts in de bedrijfscommunicatie</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad>Master</Graad>
+                    <SpecificatieGraad>of Arts</SpecificatieGraad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>bedrijfscommunicatie</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code>3</Code>
+                    <Omschrijving>Master</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>60</Opgenomen>
+                  <Verworven>25</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>0</GeenResultaat>
+                  <NietVerworven>35</NietVerworven>
+                  <Vrijgesteld>0</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>060</Studieomvang>
+                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>1</StudiebewijsHaalbaar>
+              </HogerOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-04-27</Datum>
+              <Tijd>07:59:58.183</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     78acbdbb-c547-496c-a679-3d9cf3b53100/20170427675957747/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>Disci</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-04-27</Datum>
-                            <Tijd>07:59:57.870</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>Disci</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-04-27</Datum>
+              <Tijd>07:59:57.870</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>

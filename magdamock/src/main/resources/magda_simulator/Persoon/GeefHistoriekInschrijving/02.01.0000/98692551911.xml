@@ -1,551 +1,544 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:01:34.659</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>3bcac5b6-f7ce-437c-b8f7-d9750ad197e9</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8253</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>3bcac5b6-f7ce-437c-b8f7-d9750ad197e9</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>81e32d0c-4365-4915-b685-9948cdae62a0</Referte>
-                            <Instelling>
-                                <Instellingsnummer>28118</Instellingsnummer>
-                                <OfficieleNaam>Buitengewoon Secundair Onderwijs Sint-Id</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>De Zilten</Naam>
-                                    </Straat>
-                                    <Huisnummer>52</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>36015</NISCode>
-                                        <PostCode>8800</PostCode>
-                                        <Naam>ROESELARE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>051 26 43 26</Telefoonnummer>
-                                    <Email>buso.st.idesbald@fracarita.org</Email>
-                                    <Website>www.sintidesbald.org</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>De Zilten</Naam>
-                                    </Straat>
-                                    <Huisnummer>52</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>36015</NISCode>
-                                        <PostCode>8800</PostCode>
-                                        <Naam>ROESELARE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>051 26 43 26</Telefoonnummer>
-                                    <Email>buso.st.idesbald@fracarita.org</Email>
-                                    <Website>www.sintidesbald.org</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2011-08-25</DatumInschrijving>
-                                <DatumEersteLes>2011-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>ac31a628-26c2-4096-81c1-a9c81406ebfe</Referte>
-                                    <Periode>
-                                        <Begin>2015-02-13</Begin>
-                                        <Einde>2015-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>36694</Nummer>
-                                        <Naam>1e modulair jaar kwalificatiefase Logistiek assistent in ziekenhuizen en
+﻿<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:01:34.659</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>3bcac5b6-f7ce-437c-b8f7-d9750ad197e9</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8253</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>3bcac5b6-f7ce-437c-b8f7-d9750ad197e9</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>0346427f-d533-4a9d-818f-873436697134</Referte>
+              <Instelling>
+                <Instellingsnummer>28118</Instellingsnummer>
+                <OfficieleNaam>Buitengewoon Secundair Onderwijs Sint-Id</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>De Zilten</Naam>
+                  </Straat>
+                  <Huisnummer>52</Huisnummer>
+                  <Gemeente>
+                    <NISCode>36015</NISCode>
+                    <PostCode>8800</PostCode>
+                    <Naam>ROESELARE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>051 26 43 26</Telefoonnummer>
+                  <Email>buso.st.idesbald@fracarita.org</Email>
+                  <Website>www.sintidesbald.org</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>De Zilten</Naam>
+                  </Straat>
+                  <Huisnummer>52</Huisnummer>
+                  <Gemeente>
+                    <NISCode>36015</NISCode>
+                    <PostCode>8800</PostCode>
+                    <Naam>ROESELARE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>051 26 43 26</Telefoonnummer>
+                  <Email>buso.st.idesbald@fracarita.org</Email>
+                  <Website>www.sintidesbald.org</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-08-25</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>e31f589e-5f28-4bab-a2c6-4d1070207023</Referte>
+                  <Periode>
+                    <Begin>2015-02-13</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>36694</Nummer>
+                    <Naam>1e modulair jaar kwalificatiefase Logistiek assistent in ziekenhuizen en
                                             zorginstellingen studiegebied Personenzorg
                                         </Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>1</Code>
-                                        <Omschrijving>Lichte mentale handicap</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>81e32d0c-4365-4915-b685-9948cdae62a0</Referte>
-                            <Instelling>
-                                <Instellingsnummer>28118</Instellingsnummer>
-                                <OfficieleNaam>Buitengewoon Secundair Onderwijs Sint-Id</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>De Zilten</Naam>
-                                    </Straat>
-                                    <Huisnummer>52</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>36015</NISCode>
-                                        <PostCode>8800</PostCode>
-                                        <Naam>ROESELARE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>051 26 43 26</Telefoonnummer>
-                                    <Email>buso.st.idesbald@fracarita.org</Email>
-                                    <Website>www.sintidesbald.org</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>De Zilten</Naam>
-                                    </Straat>
-                                    <Huisnummer>52</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>36015</NISCode>
-                                        <PostCode>8800</PostCode>
-                                        <Naam>ROESELARE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>051 26 43 26</Telefoonnummer>
-                                    <Email>buso.st.idesbald@fracarita.org</Email>
-                                    <Website>www.sintidesbald.org</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2011-08-25</DatumInschrijving>
-                                <DatumEersteLes>2011-09-01</DatumEersteLes>
-                                <Schooljaar>2013</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>b799037d-a61c-4d23-945f-43cca478c2dd</Referte>
-                                    <Periode>
-                                        <Begin>2013-09-01</Begin>
-                                        <Einde>2014-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>36788</Nummer>
-                                        <Naam>2e modulair jaar opleidingsfase Schoonmaakhulp in instellingen en diensten
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>1</Code>
+                    <Omschrijving>Lichte mentale handicap</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>bc16ce58-00a2-465c-9ff7-0aef291ffdf0</Referte>
+              <Instelling>
+                <Instellingsnummer>28118</Instellingsnummer>
+                <OfficieleNaam>Buitengewoon Secundair Onderwijs Sint-Id</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>De Zilten</Naam>
+                  </Straat>
+                  <Huisnummer>52</Huisnummer>
+                  <Gemeente>
+                    <NISCode>36015</NISCode>
+                    <PostCode>8800</PostCode>
+                    <Naam>ROESELARE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>051 26 43 26</Telefoonnummer>
+                  <Email>buso.st.idesbald@fracarita.org</Email>
+                  <Website>www.sintidesbald.org</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>De Zilten</Naam>
+                  </Straat>
+                  <Huisnummer>52</Huisnummer>
+                  <Gemeente>
+                    <NISCode>36015</NISCode>
+                    <PostCode>8800</PostCode>
+                    <Naam>ROESELARE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>051 26 43 26</Telefoonnummer>
+                  <Email>buso.st.idesbald@fracarita.org</Email>
+                  <Website>www.sintidesbald.org</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-08-25</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>b18fe9dc-1d51-4fe5-b91a-394d45ee2eec</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>36788</Nummer>
+                    <Naam>2e modulair jaar opleidingsfase Schoonmaakhulp in instellingen en diensten
                                             studiegebied Personenzorg
                                         </Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>1</Code>
-                                        <Omschrijving>Lichte mentale handicap</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>81e32d0c-4365-4915-b685-9948cdae62a0</Referte>
-                            <Instelling>
-                                <Instellingsnummer>28118</Instellingsnummer>
-                                <OfficieleNaam>Buitengewoon Secundair Onderwijs Sint-Id</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>De Zilten</Naam>
-                                    </Straat>
-                                    <Huisnummer>52</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>36015</NISCode>
-                                        <PostCode>8800</PostCode>
-                                        <Naam>ROESELARE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>051 26 43 26</Telefoonnummer>
-                                    <Email>buso.st.idesbald@fracarita.org</Email>
-                                    <Website>www.sintidesbald.org</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>De Zilten</Naam>
-                                    </Straat>
-                                    <Huisnummer>52</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>36015</NISCode>
-                                        <PostCode>8800</PostCode>
-                                        <Naam>ROESELARE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>051 26 43 26</Telefoonnummer>
-                                    <Email>buso.st.idesbald@fracarita.org</Email>
-                                    <Website>www.sintidesbald.org</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2011-08-25</DatumInschrijving>
-                                <DatumEersteLes>2011-09-01</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>efeb3ccf-d74a-4b9a-8939-48c45947a0fe</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-01</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>36526</Nummer>
-                                        <Naam>Integratiefase Basismedewerker in organisaties studiegebied Personenzorg
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>1</Code>
+                    <Omschrijving>Lichte mentale handicap</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>73ec751e-d795-47f7-a0db-e10aed762130</Referte>
+              <Instelling>
+                <Instellingsnummer>28118</Instellingsnummer>
+                <OfficieleNaam>Buitengewoon Secundair Onderwijs Sint-Id</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>De Zilten</Naam>
+                  </Straat>
+                  <Huisnummer>52</Huisnummer>
+                  <Gemeente>
+                    <NISCode>36015</NISCode>
+                    <PostCode>8800</PostCode>
+                    <Naam>ROESELARE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>051 26 43 26</Telefoonnummer>
+                  <Email>buso.st.idesbald@fracarita.org</Email>
+                  <Website>www.sintidesbald.org</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>De Zilten</Naam>
+                  </Straat>
+                  <Huisnummer>52</Huisnummer>
+                  <Gemeente>
+                    <NISCode>36015</NISCode>
+                    <PostCode>8800</PostCode>
+                    <Naam>ROESELARE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>051 26 43 26</Telefoonnummer>
+                  <Email>buso.st.idesbald@fracarita.org</Email>
+                  <Website>www.sintidesbald.org</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-08-25</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>797c4856-04e4-4783-8351-60baa3cb3d5a</Referte>
+                  <Periode>
+                    <Begin>2016-09-01</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>36526</Nummer>
+                    <Naam>Integratiefase Basismedewerker in organisaties studiegebied Personenzorg
                                         </Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>1</Code>
-                                        <Omschrijving>Lichte mentale handicap</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>81e32d0c-4365-4915-b685-9948cdae62a0</Referte>
-                            <Instelling>
-                                <Instellingsnummer>28118</Instellingsnummer>
-                                <OfficieleNaam>Buitengewoon Secundair Onderwijs Sint-Id</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>De Zilten</Naam>
-                                    </Straat>
-                                    <Huisnummer>52</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>36015</NISCode>
-                                        <PostCode>8800</PostCode>
-                                        <Naam>ROESELARE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>051 26 43 26</Telefoonnummer>
-                                    <Email>buso.st.idesbald@fracarita.org</Email>
-                                    <Website>www.sintidesbald.org</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>De Zilten</Naam>
-                                    </Straat>
-                                    <Huisnummer>52</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>36015</NISCode>
-                                        <PostCode>8800</PostCode>
-                                        <Naam>ROESELARE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>051 26 43 26</Telefoonnummer>
-                                    <Email>buso.st.idesbald@fracarita.org</Email>
-                                    <Website>www.sintidesbald.org</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2011-08-25</DatumInschrijving>
-                                <DatumEersteLes>2011-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>0d81f59e-551e-4599-b4c4-07fa16a232fe</Referte>
-                                    <Periode>
-                                        <Begin>2015-09-01</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>36695</Nummer>
-                                        <Naam>2e modulair jaar kwalificatiefase Logistiek assistent in ziekenhuizen en
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>1</Code>
+                    <Omschrijving>Lichte mentale handicap</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>2b46e6d3-3a87-48d0-96d0-1155c2dfc134</Referte>
+              <Instelling>
+                <Instellingsnummer>28118</Instellingsnummer>
+                <OfficieleNaam>Buitengewoon Secundair Onderwijs Sint-Id</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>De Zilten</Naam>
+                  </Straat>
+                  <Huisnummer>52</Huisnummer>
+                  <Gemeente>
+                    <NISCode>36015</NISCode>
+                    <PostCode>8800</PostCode>
+                    <Naam>ROESELARE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>051 26 43 26</Telefoonnummer>
+                  <Email>buso.st.idesbald@fracarita.org</Email>
+                  <Website>www.sintidesbald.org</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>De Zilten</Naam>
+                  </Straat>
+                  <Huisnummer>52</Huisnummer>
+                  <Gemeente>
+                    <NISCode>36015</NISCode>
+                    <PostCode>8800</PostCode>
+                    <Naam>ROESELARE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>051 26 43 26</Telefoonnummer>
+                  <Email>buso.st.idesbald@fracarita.org</Email>
+                  <Website>www.sintidesbald.org</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-08-25</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>914125ee-c5b7-4654-9b85-4364f7ac1d17</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>36695</Nummer>
+                    <Naam>2e modulair jaar kwalificatiefase Logistiek assistent in ziekenhuizen en
                                             zorginstellingen studiegebied Personenzorg
                                         </Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>1</Code>
-                                        <Omschrijving>Lichte mentale handicap</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>81e32d0c-4365-4915-b685-9948cdae62a0</Referte>
-                            <Instelling>
-                                <Instellingsnummer>28118</Instellingsnummer>
-                                <OfficieleNaam>Buitengewoon Secundair Onderwijs Sint-Id</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>De Zilten</Naam>
-                                    </Straat>
-                                    <Huisnummer>52</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>36015</NISCode>
-                                        <PostCode>8800</PostCode>
-                                        <Naam>ROESELARE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>051 26 43 26</Telefoonnummer>
-                                    <Email>buso.st.idesbald@fracarita.org</Email>
-                                    <Website>www.sintidesbald.org</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>De Zilten</Naam>
-                                    </Straat>
-                                    <Huisnummer>52</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>36015</NISCode>
-                                        <PostCode>8800</PostCode>
-                                        <Naam>ROESELARE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>051 26 43 26</Telefoonnummer>
-                                    <Email>buso.st.idesbald@fracarita.org</Email>
-                                    <Website>www.sintidesbald.org</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2011-08-25</DatumInschrijving>
-                                <DatumEersteLes>2011-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>6a97b1c4-5cf4-45c2-9cc4-8e72d39a67c9</Referte>
-                                    <Periode>
-                                        <Begin>2014-09-01</Begin>
-                                        <Einde>2015-02-12</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>36789</Nummer>
-                                        <Naam>1e modulair jaar kwalificatiefase Schoonmaakhulp in instellingen en
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>1</Code>
+                    <Omschrijving>Lichte mentale handicap</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>c8b4e86f-a5ae-49e3-826f-acfb009d0c85</Referte>
+              <Instelling>
+                <Instellingsnummer>28118</Instellingsnummer>
+                <OfficieleNaam>Buitengewoon Secundair Onderwijs Sint-Id</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>De Zilten</Naam>
+                  </Straat>
+                  <Huisnummer>52</Huisnummer>
+                  <Gemeente>
+                    <NISCode>36015</NISCode>
+                    <PostCode>8800</PostCode>
+                    <Naam>ROESELARE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>051 26 43 26</Telefoonnummer>
+                  <Email>buso.st.idesbald@fracarita.org</Email>
+                  <Website>www.sintidesbald.org</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>De Zilten</Naam>
+                  </Straat>
+                  <Huisnummer>52</Huisnummer>
+                  <Gemeente>
+                    <NISCode>36015</NISCode>
+                    <PostCode>8800</PostCode>
+                    <Naam>ROESELARE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>051 26 43 26</Telefoonnummer>
+                  <Email>buso.st.idesbald@fracarita.org</Email>
+                  <Website>www.sintidesbald.org</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-08-25</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>d3a3755e-549c-4cbb-86c2-47984add8f98</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-02-12</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>36789</Nummer>
+                    <Naam>1e modulair jaar kwalificatiefase Schoonmaakhulp in instellingen en
                                             diensten studiegebied Personenzorg
                                         </Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>1</Code>
-                                        <Omschrijving>Lichte mentale handicap</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>S</Code>
-                                            <Omschrijving>Op advies van school of CLB</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>12</Code>
-                                            <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>1</Code>
+                    <Omschrijving>Lichte mentale handicap</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>S</Code>
+                      <Omschrijving>Op advies van school of CLB</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>12</Code>
+                      <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
                                                 school
                                             </Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                            xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:34.573</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:34.573</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     c3c922b7-28ac-4740-85c2-d95a543679bb/20170505670131436/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                            xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:31.774</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:31.774</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     bbd2ee9c-bb5b-49fa-ba7e-2d3a32614915/20170505670131436/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>

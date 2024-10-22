@@ -1,432 +1,425 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:01:01.658</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>ea869fd4-13f7-46bc-a1bc-0ee2a2e7b315</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8244</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>ea869fd4-13f7-46bc-a1bc-0ee2a2e7b315</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>34da1b2a-c0ef-42e2-9c3f-282bc4572e0a</Referte>
-                            <Instelling>
-                                <Instellingsnummer>40601</Instellingsnummer>
-                                <OfficieleNaam>Middenschool Ekeren van het GO!</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pastoor De Vosstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>19</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>11002</NISCode>
-                                        <PostCode>2180</PostCode>
-                                        <Naam>EKEREN</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>03 541 14 28</Telefoonnummer>
-                                    <Email>directie.kaekeren@antigon.be</Email>
-                                    <Website>http://www.ka-ekeren.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pastoor De Vosstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>19</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>11002</NISCode>
-                                        <PostCode>2180</PostCode>
-                                        <Naam>EKEREN</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>03 541 14 28</Telefoonnummer>
-                                    <Email>directie.kaekeren@antigon.be</Email>
-                                    <Website>http://www.ka-ekeren.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2012-03-16</DatumInschrijving>
-                                <DatumEersteLes>2012-09-01</DatumEersteLes>
-                                <Schooljaar>2013</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>6acfdffe-49ea-4d73-b145-54dfd3ad4be1</Referte>
-                                    <Periode>
-                                        <Begin>2013-09-01</Begin>
-                                        <Einde>2014-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>20096</Nummer>
-                                        <Naam>2e leerjaar in de 1e graad Latijn</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>7cadffb5-bf34-4a05-a65d-c75c3a773782</Referte>
-                            <Instelling>
-                                <Instellingsnummer>40618</Instellingsnummer>
-                                <OfficieleNaam>GO! atheneum Ekeren</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pastoor De Vosstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>19</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>11002</NISCode>
-                                        <PostCode>2180</PostCode>
-                                        <Naam>EKEREN</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>03 541 14 28</Telefoonnummer>
-                                    <Email>directie.kaekeren@antigon.be</Email>
-                                    <Website>http://www.ka-ekeren.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pastoor De Vosstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>19</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>11002</NISCode>
-                                        <PostCode>2180</PostCode>
-                                        <Naam>EKEREN</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>03 541 14 28</Telefoonnummer>
-                                    <Email>directie.kaekeren@antigon.be</Email>
-                                    <Website>http://www.ka-ekeren.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-08-28</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>168837d3-265a-4124-9d9f-29d8752ab875</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-01</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>21994</Nummer>
-                                        <Naam>1e leerjaar in de 3e graad Wetenschappen-wiskunde ASO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>7cadffb5-bf34-4a05-a65d-c75c3a773782</Referte>
-                            <Instelling>
-                                <Instellingsnummer>40618</Instellingsnummer>
-                                <OfficieleNaam>GO! atheneum Ekeren</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pastoor De Vosstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>19</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>11002</NISCode>
-                                        <PostCode>2180</PostCode>
-                                        <Naam>EKEREN</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>03 541 14 28</Telefoonnummer>
-                                    <Email>directie.kaekeren@antigon.be</Email>
-                                    <Website>http://www.ka-ekeren.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pastoor De Vosstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>19</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>11002</NISCode>
-                                        <PostCode>2180</PostCode>
-                                        <Naam>EKEREN</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>03 541 14 28</Telefoonnummer>
-                                    <Email>directie.kaekeren@antigon.be</Email>
-                                    <Website>http://www.ka-ekeren.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-08-28</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>9f132879-c998-4843-ba9e-6f7b67e138f2</Referte>
-                                    <Periode>
-                                        <Begin>2015-09-01</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>32921</Nummer>
-                                        <Naam>2e leerjaar in de 2e graad Wetenschappen ASO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>7cadffb5-bf34-4a05-a65d-c75c3a773782</Referte>
-                            <Instelling>
-                                <Instellingsnummer>40618</Instellingsnummer>
-                                <OfficieleNaam>GO! atheneum Ekeren</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pastoor De Vosstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>19</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>11002</NISCode>
-                                        <PostCode>2180</PostCode>
-                                        <Naam>EKEREN</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>03 541 14 28</Telefoonnummer>
-                                    <Email>directie.kaekeren@antigon.be</Email>
-                                    <Website>http://www.ka-ekeren.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pastoor De Vosstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>19</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>11002</NISCode>
-                                        <PostCode>2180</PostCode>
-                                        <Naam>EKEREN</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>03 541 14 28</Telefoonnummer>
-                                    <Email>directie.kaekeren@antigon.be</Email>
-                                    <Website>http://www.ka-ekeren.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-08-28</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>96b7b9a5-db5c-4737-b694-ed236074b984</Referte>
-                                    <Periode>
-                                        <Begin>2014-09-01</Begin>
-                                        <Einde>2015-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>32567</Nummer>
-                                        <Naam>1e leerjaar in de 2e graad Wetenschappen ASO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                            xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:01.566</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:01:01.658</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>ea869fd4-13f7-46bc-a1bc-0ee2a2e7b315</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8244</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>ea869fd4-13f7-46bc-a1bc-0ee2a2e7b315</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>8b099aa0-7821-4e8b-b3ce-686647916bf8</Referte>
+              <Instelling>
+                <Instellingsnummer>40601</Instellingsnummer>
+                <OfficieleNaam>Middenschool Ekeren van het GO!</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Pastoor De Vosstraat</Naam>
+                  </Straat>
+                  <Huisnummer>19</Huisnummer>
+                  <Gemeente>
+                    <NISCode>11002</NISCode>
+                    <PostCode>2180</PostCode>
+                    <Naam>EKEREN</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>03 541 14 28</Telefoonnummer>
+                  <Email>directie.kaekeren@antigon.be</Email>
+                  <Website>http://www.ka-ekeren.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Pastoor De Vosstraat</Naam>
+                  </Straat>
+                  <Huisnummer>19</Huisnummer>
+                  <Gemeente>
+                    <NISCode>11002</NISCode>
+                    <PostCode>2180</PostCode>
+                    <Naam>EKEREN</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>03 541 14 28</Telefoonnummer>
+                  <Email>directie.kaekeren@antigon.be</Email>
+                  <Website>http://www.ka-ekeren.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2012-03-16</DatumInschrijving>
+                <DatumEersteLes>2012-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>9bb39edf-51e5-4e59-af00-f10f275b675d</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>20096</Nummer>
+                    <Naam>2e leerjaar in de 1e graad Latijn</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>2c7105cc-3490-48c8-9732-b853b6f59714</Referte>
+              <Instelling>
+                <Instellingsnummer>40618</Instellingsnummer>
+                <OfficieleNaam>GO! atheneum Ekeren</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Pastoor De Vosstraat</Naam>
+                  </Straat>
+                  <Huisnummer>19</Huisnummer>
+                  <Gemeente>
+                    <NISCode>11002</NISCode>
+                    <PostCode>2180</PostCode>
+                    <Naam>EKEREN</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>03 541 14 28</Telefoonnummer>
+                  <Email>directie.kaekeren@antigon.be</Email>
+                  <Website>http://www.ka-ekeren.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Pastoor De Vosstraat</Naam>
+                  </Straat>
+                  <Huisnummer>19</Huisnummer>
+                  <Gemeente>
+                    <NISCode>11002</NISCode>
+                    <PostCode>2180</PostCode>
+                    <Naam>EKEREN</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>03 541 14 28</Telefoonnummer>
+                  <Email>directie.kaekeren@antigon.be</Email>
+                  <Website>http://www.ka-ekeren.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-08-28</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>a6f0d62a-8991-4a7b-b06b-5b4b738cfa53</Referte>
+                  <Periode>
+                    <Begin>2016-09-01</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>21994</Nummer>
+                    <Naam>1e leerjaar in de 3e graad Wetenschappen-wiskunde ASO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>8a8f6c6e-82b2-48ea-bbbb-68a67ebf5dc2</Referte>
+              <Instelling>
+                <Instellingsnummer>40618</Instellingsnummer>
+                <OfficieleNaam>GO! atheneum Ekeren</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Pastoor De Vosstraat</Naam>
+                  </Straat>
+                  <Huisnummer>19</Huisnummer>
+                  <Gemeente>
+                    <NISCode>11002</NISCode>
+                    <PostCode>2180</PostCode>
+                    <Naam>EKEREN</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>03 541 14 28</Telefoonnummer>
+                  <Email>directie.kaekeren@antigon.be</Email>
+                  <Website>http://www.ka-ekeren.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Pastoor De Vosstraat</Naam>
+                  </Straat>
+                  <Huisnummer>19</Huisnummer>
+                  <Gemeente>
+                    <NISCode>11002</NISCode>
+                    <PostCode>2180</PostCode>
+                    <Naam>EKEREN</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>03 541 14 28</Telefoonnummer>
+                  <Email>directie.kaekeren@antigon.be</Email>
+                  <Website>http://www.ka-ekeren.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-08-28</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>cf3824ad-0066-43ee-ab12-15050493f1e6</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>32921</Nummer>
+                    <Naam>2e leerjaar in de 2e graad Wetenschappen ASO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>a6933285-abff-4800-b1da-ada042695f7d</Referte>
+              <Instelling>
+                <Instellingsnummer>40618</Instellingsnummer>
+                <OfficieleNaam>GO! atheneum Ekeren</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Pastoor De Vosstraat</Naam>
+                  </Straat>
+                  <Huisnummer>19</Huisnummer>
+                  <Gemeente>
+                    <NISCode>11002</NISCode>
+                    <PostCode>2180</PostCode>
+                    <Naam>EKEREN</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>03 541 14 28</Telefoonnummer>
+                  <Email>directie.kaekeren@antigon.be</Email>
+                  <Website>http://www.ka-ekeren.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Pastoor De Vosstraat</Naam>
+                  </Straat>
+                  <Huisnummer>19</Huisnummer>
+                  <Gemeente>
+                    <NISCode>11002</NISCode>
+                    <PostCode>2180</PostCode>
+                    <Naam>EKEREN</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>03 541 14 28</Telefoonnummer>
+                  <Email>directie.kaekeren@antigon.be</Email>
+                  <Website>http://www.ka-ekeren.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-08-28</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>443254e1-e915-43f8-af31-90ebfe6e4c2a</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>32567</Nummer>
+                    <Naam>1e leerjaar in de 2e graad Wetenschappen ASO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:01.566</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     043d100a-ff05-4168-b6bb-8671c8cc17f6/20170505670058586/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                            xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:00:58.919</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:00:58.919</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     7adeffdf-5ad5-41c6-bbb7-b991a65e4822/20170505670058586/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-

@@ -1,575 +1,567 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:01:43.631</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>b44ddd91-05bc-476f-87fe-c67898bb1aaa</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8255</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>b44ddd91-05bc-476f-87fe-c67898bb1aaa</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                        >
-                            <Bron>HO</Bron>
-                            <Referte>2014-06-30 17:33:11.537791</Referte>
-                            <Instelling>
-                                <Instellingsnummer>103663</Instellingsnummer>
-                                <OfficieleNaam>Hogeschool Gent</OfficieleNaam>
-                                <Instantie>Hogeschool</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Kortrijksesteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>14</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44021</NISCode>
-                                        <PostCode>9000</PostCode>
-                                        <Naam>Gent</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>België</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>003892433321</Telefoonnummer>
-                                    <Email>info@hogent.be</Email>
-                                    <Website>http://www.hogent.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <HogerOnderwijs>
-                                <Academiejaar>2014</Academiejaar>
-                                <Status>
-                                    <Code>03</Code>
-                                    <Omschrijving>Uitgeschreven</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2014-06-30</DatumInschrijving>
-                                <DatumUitschrijving>2014-07-07</DatumUitschrijving>
-                                <Opleiding>
-                                    <Code>2391</Code>
-                                    <VolledigeNaam>Bachelor in de verpleegkunde</VolledigeNaam>
-                                    <NaamElementen>
-                                        <Graad>Bachelor</Graad>
-                                        <PrefixKwalificatie>in de</PrefixKwalificatie>
-                                        <Kwalificatie>verpleegkunde</Kwalificatie>
-                                    </NaamElementen>
-                                    <Soort>
-                                        <Code>1</Code>
-                                        <Omschrijving>Professioneel gerichte bachelor</Omschrijving>
-                                    </Soort>
-                                </Opleiding>
-                                <SoortContract>
-                                    <Code>01</Code>
-                                    <Omschrijving>Diplomacontract</Omschrijving>
-                                </SoortContract>
-                                <Studiepunten>
-                                    <Opgenomen>0</Opgenomen>
-                                    <Verworven>0</Verworven>
-                                    <Gedelibereerd>0</Gedelibereerd>
-                                    <GeenResultaat>0</GeenResultaat>
-                                    <NietVerworven>0</NietVerworven>
-                                    <Vrijgesteld>0</Vrijgesteld>
-                                    <Uitgeschreven>0</Uitgeschreven>
-                                </Studiepunten>
-                                <Studieomvang>180</Studieomvang>
-                                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
-                                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
-                            </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>894a30c7-8cfe-405a-9afd-cecbf1109e26</Referte>
-                            <Instelling>
-                                <Instellingsnummer>42622</Instellingsnummer>
-                                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leffingestraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 70 68 70</Telefoonnummer>
-                                    <Email>guy.ghysels@vesaliusinstituut.be</Email>
-                                    <Website>http://www.vesaliusinstituut.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>3</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Keramiekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>80</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44021</NISCode>
-                                        <PostCode>9000</PostCode>
-                                        <Naam>GENT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 222 40 15</Telefoonnummer>
-                                    <Email></Email>
-                                    <Website></Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-08-18</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>b55e23ec-ac3a-4c0e-b5a1-2e292f418047</Referte>
-                                    <Periode>
-                                        <Begin>2016-02-01</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>37000</Nummer>
-                                        <Naam>Module Oriëntatie ouderenzorg en geestelijke gezondheidszorg (20 weken)
+﻿<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:01:43.631</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>b44ddd91-05bc-476f-87fe-c67898bb1aaa</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8255</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>b44ddd91-05bc-476f-87fe-c67898bb1aaa</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>HO</Bron>
+              <Referte>b7edcd52-4768-4d58-8fd5-1ec9dac67e34</Referte>
+              <Instelling>
+                <Instellingsnummer>103663</Instellingsnummer>
+                <OfficieleNaam>Hogeschool Gent</OfficieleNaam>
+                <Instantie>Hogeschool</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Kortrijksesteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>14</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44021</NISCode>
+                    <PostCode>9000</PostCode>
+                    <Naam>Gent</Naam>
+                  </Gemeente>
+                  <Land>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>België</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>003892433321</Telefoonnummer>
+                  <Email>info@hogent.be</Email>
+                  <Website>http://www.hogent.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar>2014</Academiejaar>
+                <Status>
+                  <Code>03</Code>
+                  <Omschrijving>Uitgeschreven</Omschrijving>
+                </Status>
+                <DatumInschrijving>2014-06-30</DatumInschrijving>
+                <DatumUitschrijving>2014-07-07</DatumUitschrijving>
+                <Opleiding>
+                  <Code>2391</Code>
+                  <VolledigeNaam>Bachelor in de verpleegkunde</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad>Bachelor</Graad>
+                    <PrefixKwalificatie>in de</PrefixKwalificatie>
+                    <Kwalificatie>verpleegkunde</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code>1</Code>
+                    <Omschrijving>Professioneel gerichte bachelor</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code>01</Code>
+                  <Omschrijving>Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen>0</Opgenomen>
+                  <Verworven>0</Verworven>
+                  <Gedelibereerd>0</Gedelibereerd>
+                  <GeenResultaat>0</GeenResultaat>
+                  <NietVerworven>0</NietVerworven>
+                  <Vrijgesteld>0</Vrijgesteld>
+                  <Uitgeschreven>0</Uitgeschreven>
+                </Studiepunten>
+                <Studieomvang>180</Studieomvang>
+                <ToereikendeStudieomvang>1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar>0</StudiebewijsHaalbaar>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>f0756edb-745d-4b78-9e59-3643df0b1340</Referte>
+              <Instelling>
+                <Instellingsnummer>42622</Instellingsnummer>
+                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leffingestraat</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 70 68 70</Telefoonnummer>
+                  <Email>guy.ghysels@vesaliusinstituut.be</Email>
+                  <Website>http://www.vesaliusinstituut.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>3</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Keramiekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>80</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44021</NISCode>
+                    <PostCode>9000</PostCode>
+                    <Naam>GENT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 222 40 15</Telefoonnummer>
+                  <Email></Email>
+                  <Website></Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-08-18</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>8632f18e-eb2d-432f-a658-2413b71fa57e</Referte>
+                  <Periode>
+                    <Begin>2016-02-01</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>37000</Nummer>
+                    <Naam>Module Oriëntatie ouderenzorg en geestelijke gezondheidszorg (20 weken)
                                         </Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>894a30c7-8cfe-405a-9afd-cecbf1109e26</Referte>
-                            <Instelling>
-                                <Instellingsnummer>42622</Instellingsnummer>
-                                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leffingestraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 70 68 70</Telefoonnummer>
-                                    <Email>guy.ghysels@vesaliusinstituut.be</Email>
-                                    <Website>http://www.vesaliusinstituut.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>3</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Keramiekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>80</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44021</NISCode>
-                                        <PostCode>9000</PostCode>
-                                        <Naam>GENT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 222 40 15</Telefoonnummer>
-                                    <Email></Email>
-                                    <Website></Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-08-18</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>b628ddd8-e7e7-406d-b1f8-9f5804167690</Referte>
-                                    <Periode>
-                                        <Begin>2015-02-01</Begin>
-                                        <Einde>2015-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>36998</Nummer>
-                                        <Naam>Module Verpleegkunde basiszorg (20 weken)</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>894a30c7-8cfe-405a-9afd-cecbf1109e26</Referte>
-                            <Instelling>
-                                <Instellingsnummer>42622</Instellingsnummer>
-                                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leffingestraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 70 68 70</Telefoonnummer>
-                                    <Email>guy.ghysels@vesaliusinstituut.be</Email>
-                                    <Website>http://www.vesaliusinstituut.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>3</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Keramiekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>80</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44021</NISCode>
-                                        <PostCode>9000</PostCode>
-                                        <Naam>GENT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 222 40 15</Telefoonnummer>
-                                    <Email></Email>
-                                    <Website></Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-08-18</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>fad26075-5f17-4da2-881a-7856786c91f0</Referte>
-                                    <Periode>
-                                        <Begin>2015-09-01</Begin>
-                                        <Einde>2016-01-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>36999</Nummer>
-                                        <Naam>Module Oriëntatie algemene gezondheidszorg (20 weken)</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>E</Code>
-                                            <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>12</Code>
-                                            <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>ad5c26d4-0b0f-4d7a-af7b-8301d55ee890</Referte>
+              <Instelling>
+                <Instellingsnummer>42622</Instellingsnummer>
+                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leffingestraat</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 70 68 70</Telefoonnummer>
+                  <Email>guy.ghysels@vesaliusinstituut.be</Email>
+                  <Website>http://www.vesaliusinstituut.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>3</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Keramiekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>80</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44021</NISCode>
+                    <PostCode>9000</PostCode>
+                    <Naam>GENT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 222 40 15</Telefoonnummer>
+                  <Email></Email>
+                  <Website></Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-08-18</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>a2650ab0-92bf-45a5-b237-21c0ac187744</Referte>
+                  <Periode>
+                    <Begin>2015-02-01</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>36998</Nummer>
+                    <Naam>Module Verpleegkunde basiszorg (20 weken)</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>363fe4d9-9399-4e60-a54d-1cb141b4cc63</Referte>
+              <Instelling>
+                <Instellingsnummer>42622</Instellingsnummer>
+                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leffingestraat</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 70 68 70</Telefoonnummer>
+                  <Email>guy.ghysels@vesaliusinstituut.be</Email>
+                  <Website>http://www.vesaliusinstituut.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>3</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Keramiekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>80</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44021</NISCode>
+                    <PostCode>9000</PostCode>
+                    <Naam>GENT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 222 40 15</Telefoonnummer>
+                  <Email></Email>
+                  <Website></Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-08-18</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>35347dbf-35b1-424a-bf15-d6a92e7edee6</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2016-01-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>36999</Nummer>
+                    <Naam>Module Oriëntatie algemene gezondheidszorg (20 weken)</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>E</Code>
+                      <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>12</Code>
+                      <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
                                                 school
                                             </Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>894a30c7-8cfe-405a-9afd-cecbf1109e26</Referte>
-                            <Instelling>
-                                <Instellingsnummer>42622</Instellingsnummer>
-                                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leffingestraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 70 68 70</Telefoonnummer>
-                                    <Email>guy.ghysels@vesaliusinstituut.be</Email>
-                                    <Website>http://www.vesaliusinstituut.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>3</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Keramiekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>80</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44021</NISCode>
-                                        <PostCode>9000</PostCode>
-                                        <Naam>GENT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 222 40 15</Telefoonnummer>
-                                    <Email></Email>
-                                    <Website></Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-08-18</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>423040a7-354e-4d4c-b029-36b37815eb15</Referte>
-                                    <Periode>
-                                        <Begin>2014-09-01</Begin>
-                                        <Einde>2015-01-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>36997</Nummer>
-                                        <Naam>Module Initiatie verpleegkunde (20 weken)</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>E</Code>
-                                            <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>12</Code>
-                                            <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>1c8c2552-c375-431f-90a9-ae15cb658510</Referte>
+              <Instelling>
+                <Instellingsnummer>42622</Instellingsnummer>
+                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leffingestraat</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 70 68 70</Telefoonnummer>
+                  <Email>guy.ghysels@vesaliusinstituut.be</Email>
+                  <Website>http://www.vesaliusinstituut.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>3</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Keramiekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>80</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44021</NISCode>
+                    <PostCode>9000</PostCode>
+                    <Naam>GENT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 222 40 15</Telefoonnummer>
+                  <Email></Email>
+                  <Website></Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-08-18</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>d47a2b69-82fc-43ce-b34e-7567ba75e6bd</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-01-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>36997</Nummer>
+                    <Naam>Module Initiatie verpleegkunde (20 weken)</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>E</Code>
+                      <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>12</Code>
+                      <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
                                                 school
                                             </Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>894a30c7-8cfe-405a-9afd-cecbf1109e26</Referte>
-                            <Instelling>
-                                <Instellingsnummer>42622</Instellingsnummer>
-                                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leffingestraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>OOSTENDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059 70 68 70</Telefoonnummer>
-                                    <Email>guy.ghysels@vesaliusinstituut.be</Email>
-                                    <Website>http://www.vesaliusinstituut.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>3</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Keramiekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>80</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44021</NISCode>
-                                        <PostCode>9000</PostCode>
-                                        <Naam>GENT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 222 40 15</Telefoonnummer>
-                                    <Email></Email>
-                                    <Website></Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-08-18</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>8688c770-17eb-4c5e-9dce-a58185c6e56e</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-01</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>37001</Nummer>
-                                        <Naam>Module Toegepaste verpleegkunde (40 weken)</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:42.817</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>2705cf59-ef44-4395-9ba2-39b61055ff73</Referte>
+              <Instelling>
+                <Instellingsnummer>42622</Instellingsnummer>
+                <OfficieleNaam>GO! technisch atheneum Vesaliusinstituut</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leffingestraat</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>OOSTENDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059 70 68 70</Telefoonnummer>
+                  <Email>guy.ghysels@vesaliusinstituut.be</Email>
+                  <Website>http://www.vesaliusinstituut.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>3</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Keramiekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>80</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44021</NISCode>
+                    <PostCode>9000</PostCode>
+                    <Naam>GENT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 222 40 15</Telefoonnummer>
+                  <Email></Email>
+                  <Website></Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-08-18</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>54ca49fb-1d1b-43fb-b933-640450861275</Referte>
+                  <Periode>
+                    <Begin>2016-09-01</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>37001</Nummer>
+                    <Naam>Module Toegepaste verpleegkunde (40 weken)</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:42.817</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     bda318e2-c46f-446c-a45d-cea32d3544bc/20170505670140344/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-

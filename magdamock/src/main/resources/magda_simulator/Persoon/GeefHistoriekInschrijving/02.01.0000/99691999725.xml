@@ -1,532 +1,525 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:01:05.924</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>bf2f4d08-c0f2-4cfb-9e58-775f5f3d185f</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8245</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>bf2f4d08-c0f2-4cfb-9e58-775f5f3d185f</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>4d1db205-1114-4590-9a75-8d6c11dced61</Referte>
-                            <Instelling>
-                                <Instellingsnummer>3368</Instellingsnummer>
-                                <OfficieleNaam>GO! de 3master basisonderwijs</OfficieleNaam>
-                                <Instantie>Basisschool</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pater Damiaanstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>10</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>13017</NISCode>
-                                        <PostCode>2460</PostCode>
-                                        <Naam>KASTERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>014 85 00 62</Telefoonnummer>
-                                    <Email>basisonderwijs@de3master.be</Email>
-                                    <Website>www.de3master.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>3</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Jozef Cardijnstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>48</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>13036</NISCode>
-                                        <PostCode>2470</PostCode>
-                                        <Naam>RETIE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>014 37 86 65</Telefoonnummer>
-                                    <Email></Email>
-                                    <Website></Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2011-09-01</DatumInschrijving>
-                                <DatumEersteLes>2011-09-01</DatumEersteLes>
-                                <Schooljaar>2013</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>adc5559b-3ae8-4900-a405-17fd669ad34e</Referte>
-                                    <Periode>
-                                        <Begin>2013-09-01</Begin>
-                                        <Einde>2014-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>15079</Nummer>
-                                        <Naam>BLO Lager onderwijs type 8</Naam>
-                                        <Niveau>
-                                            <Code>2</Code>
-                                            <Omschrijving>Lager onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>8</Code>
-                                        <Omschrijving>Ernstige leerstoornis</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>4d1db205-1114-4590-9a75-8d6c11dced61</Referte>
-                            <Instelling>
-                                <Instellingsnummer>3368</Instellingsnummer>
-                                <OfficieleNaam>GO! de 3master basisonderwijs</OfficieleNaam>
-                                <Instantie>Basisschool</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pater Damiaanstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>10</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>13017</NISCode>
-                                        <PostCode>2460</PostCode>
-                                        <Naam>KASTERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>014 85 00 62</Telefoonnummer>
-                                    <Email>basisonderwijs@de3master.be</Email>
-                                    <Website>www.de3master.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>3</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Jozef Cardijnstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>48</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>13036</NISCode>
-                                        <PostCode>2470</PostCode>
-                                        <Naam>RETIE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>014 37 86 65</Telefoonnummer>
-                                    <Email></Email>
-                                    <Website></Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2011-09-01</DatumInschrijving>
-                                <DatumEersteLes>2011-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>bdb3da0d-10fd-4690-a895-da65c8f2b75b</Referte>
-                                    <Periode>
-                                        <Begin>2014-09-01</Begin>
-                                        <Einde>2015-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>15079</Nummer>
-                                        <Naam>BLO Lager onderwijs type 8</Naam>
-                                        <Niveau>
-                                            <Code>2</Code>
-                                            <Omschrijving>Lager onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>8</Code>
-                                        <Omschrijving>Ernstige leerstoornis</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>4d1db205-1114-4590-9a75-8d6c11dced61</Referte>
-                            <Instelling>
-                                <Instellingsnummer>3368</Instellingsnummer>
-                                <OfficieleNaam>GO! de 3master basisonderwijs</OfficieleNaam>
-                                <Instantie>Basisschool</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Pater Damiaanstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>10</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>13017</NISCode>
-                                        <PostCode>2460</PostCode>
-                                        <Naam>KASTERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>014 85 00 62</Telefoonnummer>
-                                    <Email>basisonderwijs@de3master.be</Email>
-                                    <Website>www.de3master.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>3</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Jozef Cardijnstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>48</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>13036</NISCode>
-                                        <PostCode>2470</PostCode>
-                                        <Naam>RETIE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>014 37 86 65</Telefoonnummer>
-                                    <Email></Email>
-                                    <Website></Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2011-09-01</DatumInschrijving>
-                                <DatumEersteLes>2011-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>90b4d530-ab27-458f-b293-c548acb4a56b</Referte>
-                                    <Periode>
-                                        <Begin>2015-09-01</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>15079</Nummer>
-                                        <Naam>BLO Lager onderwijs type 8</Naam>
-                                        <Niveau>
-                                            <Code>2</Code>
-                                            <Omschrijving>Lager onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>8</Code>
-                                        <Omschrijving>Ernstige leerstoornis</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>a28f0a43-a3ba-4e41-be62-4a89d20022e7</Referte>
-                            <Instelling>
-                                <Instellingsnummer>41152</Instellingsnummer>
-                                <OfficieleNaam>GO! Talentenschool Turnhout Campus Boomg</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Boomgaardstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>56</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>13040</NISCode>
-                                        <PostCode>2300</PostCode>
-                                        <Naam>TURNHOUT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>014 47 05 13</Telefoonnummer>
-                                    <Email>stef.jacobs@talentenschoolturnhout.be</Email>
-                                    <Website>http://www.talentenschoolturnhout.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Boomgaardstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>56</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>13040</NISCode>
-                                        <PostCode>2300</PostCode>
-                                        <Naam>TURNHOUT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>014 47 05 13</Telefoonnummer>
-                                    <Email>stef.jacobs@talentenschoolturnhout.be</Email>
-                                    <Website>http://www.talentenschoolturnhout.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2016-06-29</DatumInschrijving>
-                                <DatumEersteLes>2016-09-01</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>2e7420ca-2dad-472e-a940-1885f45cf9e1</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-07</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>6247</Nummer>
-                                        <Naam>1ste leerjaar B</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>a28f0a43-a3ba-4e41-be62-4a89d20022e7</Referte>
-                            <Instelling>
-                                <Instellingsnummer>41152</Instellingsnummer>
-                                <OfficieleNaam>GO! Talentenschool Turnhout Campus Boomg</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Boomgaardstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>56</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>13040</NISCode>
-                                        <PostCode>2300</PostCode>
-                                        <Naam>TURNHOUT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>014 47 05 13</Telefoonnummer>
-                                    <Email>stef.jacobs@talentenschoolturnhout.be</Email>
-                                    <Website>http://www.talentenschoolturnhout.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Boomgaardstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>56</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>13040</NISCode>
-                                        <PostCode>2300</PostCode>
-                                        <Naam>TURNHOUT</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>014 47 05 13</Telefoonnummer>
-                                    <Email>stef.jacobs@talentenschoolturnhout.be</Email>
-                                    <Website>http://www.talentenschoolturnhout.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2016-06-29</DatumInschrijving>
-                                <DatumEersteLes>2016-09-01</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>30709481-bc9d-4071-8bcc-b7561e80ead1</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-01</Begin>
-                                        <Einde>2016-09-06</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>6247</Nummer>
-                                        <Naam>1ste leerjaar B</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:05.823</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:01:05.924</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>bf2f4d08-c0f2-4cfb-9e58-775f5f3d185f</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8245</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>bf2f4d08-c0f2-4cfb-9e58-775f5f3d185f</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>240167ce-a017-4aa1-9385-82d7c84da945</Referte>
+              <Instelling>
+                <Instellingsnummer>3368</Instellingsnummer>
+                <OfficieleNaam>GO! de 3master basisonderwijs</OfficieleNaam>
+                <Instantie>Basisschool</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Pater Damiaanstraat</Naam>
+                  </Straat>
+                  <Huisnummer>10</Huisnummer>
+                  <Gemeente>
+                    <NISCode>13017</NISCode>
+                    <PostCode>2460</PostCode>
+                    <Naam>KASTERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>014 85 00 62</Telefoonnummer>
+                  <Email>basisonderwijs@de3master.be</Email>
+                  <Website>www.de3master.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>3</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Jozef Cardijnstraat</Naam>
+                  </Straat>
+                  <Huisnummer>48</Huisnummer>
+                  <Gemeente>
+                    <NISCode>13036</NISCode>
+                    <PostCode>2470</PostCode>
+                    <Naam>RETIE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>014 37 86 65</Telefoonnummer>
+                  <Email></Email>
+                  <Website></Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-09-01</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>8b846bb8-1320-4aa8-b37e-7cc6eb0aae18</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>15079</Nummer>
+                    <Naam>BLO Lager onderwijs type 8</Naam>
+                    <Niveau>
+                      <Code>2</Code>
+                      <Omschrijving>Lager onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>8</Code>
+                    <Omschrijving>Ernstige leerstoornis</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>38050a51-6e29-49b5-a5cd-db4d89281768</Referte>
+              <Instelling>
+                <Instellingsnummer>3368</Instellingsnummer>
+                <OfficieleNaam>GO! de 3master basisonderwijs</OfficieleNaam>
+                <Instantie>Basisschool</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Pater Damiaanstraat</Naam>
+                  </Straat>
+                  <Huisnummer>10</Huisnummer>
+                  <Gemeente>
+                    <NISCode>13017</NISCode>
+                    <PostCode>2460</PostCode>
+                    <Naam>KASTERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>014 85 00 62</Telefoonnummer>
+                  <Email>basisonderwijs@de3master.be</Email>
+                  <Website>www.de3master.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>3</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Jozef Cardijnstraat</Naam>
+                  </Straat>
+                  <Huisnummer>48</Huisnummer>
+                  <Gemeente>
+                    <NISCode>13036</NISCode>
+                    <PostCode>2470</PostCode>
+                    <Naam>RETIE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>014 37 86 65</Telefoonnummer>
+                  <Email></Email>
+                  <Website></Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-09-01</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>816343db-702c-48ae-9852-578ecbf1ed05</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>15079</Nummer>
+                    <Naam>BLO Lager onderwijs type 8</Naam>
+                    <Niveau>
+                      <Code>2</Code>
+                      <Omschrijving>Lager onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>8</Code>
+                    <Omschrijving>Ernstige leerstoornis</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>2920bc05-911f-4fed-8465-80258e840935</Referte>
+              <Instelling>
+                <Instellingsnummer>3368</Instellingsnummer>
+                <OfficieleNaam>GO! de 3master basisonderwijs</OfficieleNaam>
+                <Instantie>Basisschool</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Pater Damiaanstraat</Naam>
+                  </Straat>
+                  <Huisnummer>10</Huisnummer>
+                  <Gemeente>
+                    <NISCode>13017</NISCode>
+                    <PostCode>2460</PostCode>
+                    <Naam>KASTERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>014 85 00 62</Telefoonnummer>
+                  <Email>basisonderwijs@de3master.be</Email>
+                  <Website>www.de3master.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>3</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Jozef Cardijnstraat</Naam>
+                  </Straat>
+                  <Huisnummer>48</Huisnummer>
+                  <Gemeente>
+                    <NISCode>13036</NISCode>
+                    <PostCode>2470</PostCode>
+                    <Naam>RETIE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>014 37 86 65</Telefoonnummer>
+                  <Email></Email>
+                  <Website></Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-09-01</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>f9907aea-90b0-4a01-aa65-1e2a19a08b4c</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>15079</Nummer>
+                    <Naam>BLO Lager onderwijs type 8</Naam>
+                    <Niveau>
+                      <Code>2</Code>
+                      <Omschrijving>Lager onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>8</Code>
+                    <Omschrijving>Ernstige leerstoornis</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>5926e30c-4b7b-4f50-ac32-bdb0a0e24802</Referte>
+              <Instelling>
+                <Instellingsnummer>41152</Instellingsnummer>
+                <OfficieleNaam>GO! Talentenschool Turnhout Campus Boomg</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Boomgaardstraat</Naam>
+                  </Straat>
+                  <Huisnummer>56</Huisnummer>
+                  <Gemeente>
+                    <NISCode>13040</NISCode>
+                    <PostCode>2300</PostCode>
+                    <Naam>TURNHOUT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>014 47 05 13</Telefoonnummer>
+                  <Email>stef.jacobs@talentenschoolturnhout.be</Email>
+                  <Website>http://www.talentenschoolturnhout.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Boomgaardstraat</Naam>
+                  </Straat>
+                  <Huisnummer>56</Huisnummer>
+                  <Gemeente>
+                    <NISCode>13040</NISCode>
+                    <PostCode>2300</PostCode>
+                    <Naam>TURNHOUT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>014 47 05 13</Telefoonnummer>
+                  <Email>stef.jacobs@talentenschoolturnhout.be</Email>
+                  <Website>http://www.talentenschoolturnhout.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2016-06-29</DatumInschrijving>
+                <DatumEersteLes>2016-09-01</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>192d531c-d188-4360-940e-5ce6fb806e26</Referte>
+                  <Periode>
+                    <Begin>2016-09-07</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>6247</Nummer>
+                    <Naam>1ste leerjaar B</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>1bcd1ea9-ee12-49e9-a20b-c6b366c88a6b</Referte>
+              <Instelling>
+                <Instellingsnummer>41152</Instellingsnummer>
+                <OfficieleNaam>GO! Talentenschool Turnhout Campus Boomg</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Boomgaardstraat</Naam>
+                  </Straat>
+                  <Huisnummer>56</Huisnummer>
+                  <Gemeente>
+                    <NISCode>13040</NISCode>
+                    <PostCode>2300</PostCode>
+                    <Naam>TURNHOUT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>014 47 05 13</Telefoonnummer>
+                  <Email>stef.jacobs@talentenschoolturnhout.be</Email>
+                  <Website>http://www.talentenschoolturnhout.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Boomgaardstraat</Naam>
+                  </Straat>
+                  <Huisnummer>56</Huisnummer>
+                  <Gemeente>
+                    <NISCode>13040</NISCode>
+                    <PostCode>2300</PostCode>
+                    <Naam>TURNHOUT</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>014 47 05 13</Telefoonnummer>
+                  <Email>stef.jacobs@talentenschoolturnhout.be</Email>
+                  <Website>http://www.talentenschoolturnhout.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2016-06-29</DatumInschrijving>
+                <DatumEersteLes>2016-09-01</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>10a9feff-70c2-41e2-868a-42caa2294e22</Referte>
+                  <Periode>
+                    <Begin>2016-09-01</Begin>
+                    <Einde>2016-09-06</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>6247</Nummer>
+                    <Naam>1ste leerjaar B</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:05.823</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     56632454-276c-47ed-b82d-2b4d6b85f61b/20170505670103029/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering>
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:05.123</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:05.123</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     2db1f6f0-ecd1-41fb-9a7c-f706c0e81c1b/20170505670104811/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-
