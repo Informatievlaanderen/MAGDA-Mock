@@ -1,436 +1,429 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:00:54.118</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>b222cc93-913a-4fe5-a189-3a1164e46e61</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8242</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>b222cc93-913a-4fe5-a189-3a1164e46e61</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>202ad4b5-48a3-4925-8c83-8fe7c6272a40</Referte>
-                            <Instelling>
-                                <Instellingsnummer>27136</Instellingsnummer>
-                                <OfficieleNaam>Vrije Lagere School voor Buitengewoon On</OfficieleNaam>
-                                <Instantie>Basisschool</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Kouter</Naam>
-                                    </Straat>
-                                    <Huisnummer>93</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44011</NISCode>
-                                        <PostCode>9800</PostCode>
-                                        <Naam>DEINZE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 386 38 65</Telefoonnummer>
-                                    <Email>directie@vibloleieland.be</Email>
-                                    <Website>www.vibloleieland.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Kouter</Naam>
-                                    </Straat>
-                                    <Huisnummer>93</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44011</NISCode>
-                                        <PostCode>9800</PostCode>
-                                        <Naam>DEINZE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 386 38 65</Telefoonnummer>
-                                    <Email>directie@vibloleieland.be</Email>
-                                    <Website>www.vibloleieland.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2010-06-28</DatumInschrijving>
-                                <DatumEersteLes>2010-09-01</DatumEersteLes>
-                                <Schooljaar>2013</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>75fe3a75-70e3-43aa-954d-d0e4fe5e00cb</Referte>
-                                    <Periode>
-                                        <Begin>2013-09-01</Begin>
-                                        <Einde>2014-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>15072</Nummer>
-                                        <Naam>BLO Lager onderwijs type 1</Naam>
-                                        <Niveau>
-                                            <Code>2</Code>
-                                            <Omschrijving>Lager onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>1</Code>
-                                        <Omschrijving>Lichte mentale handicap</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>a0d10921-41d9-4316-9428-4565f7d421bd</Referte>
-                            <Instelling>
-                                <Instellingsnummer>34314</Instellingsnummer>
-                                <OfficieleNaam>Hotelschool en Slagerijschool Ter Groene</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Spoorwegstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>14</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>31005</NISCode>
-                                        <PostCode>8200</PostCode>
-                                        <Naam>SINT-MICHIELS</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>050 40 30 20</Telefoonnummer>
-                                    <Email>info@tergroenepoorte.be</Email>
-                                    <Website>http://www.tergroenepoorte.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Spoorwegstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>14</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>31005</NISCode>
-                                        <PostCode>8200</PostCode>
-                                        <Naam>SINT-MICHIELS</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>050 40 30 20</Telefoonnummer>
-                                    <Email>info@tergroenepoorte.be</Email>
-                                    <Website>http://www.tergroenepoorte.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2016-08-23</DatumInschrijving>
-                                <DatumEersteLes>2016-09-01</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>bb89abc5-5771-4b59-b874-60c2d633e61d</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-01</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>20702</Nummer>
-                                        <Naam>1e leerjaar in de 2e graad Slagerij en vleeswarenbereiding BSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>00f5310b-ce19-471c-984a-e0510156f49a</Referte>
-                            <Instelling>
-                                <Instellingsnummer>36228</Instellingsnummer>
-                                <OfficieleNaam>Leiepoort Deinze campus Sint- Theresia</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Kaaistraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>23</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44011</NISCode>
-                                        <PostCode>9800</PostCode>
-                                        <Naam>DEINZE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 381 51 21</Telefoonnummer>
-                                    <Email>directie@sinttheresiadeinze.be</Email>
-                                    <Website>http://www.sinttheresiadeinze.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Kaaistraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>23</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44011</NISCode>
-                                        <PostCode>9800</PostCode>
-                                        <Naam>DEINZE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 381 51 21</Telefoonnummer>
-                                    <Email>directie@sinttheresiadeinze.be</Email>
-                                    <Website>http://www.sinttheresiadeinze.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-04-27</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>44487b88-d6ab-4fa2-867f-aa29962998d7</Referte>
-                                    <Periode>
-                                        <Begin>2015-09-01</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>29201</Nummer>
-                                        <Naam>Beroepsvoorbereidend leerjaar Hotel-bakkerij-slagerij</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>00f5310b-ce19-471c-984a-e0510156f49a</Referte>
-                            <Instelling>
-                                <Instellingsnummer>36228</Instellingsnummer>
-                                <OfficieleNaam>Leiepoort Deinze campus Sint- Theresia</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Kaaistraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>23</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44011</NISCode>
-                                        <PostCode>9800</PostCode>
-                                        <Naam>DEINZE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 381 51 21</Telefoonnummer>
-                                    <Email>directie@sinttheresiadeinze.be</Email>
-                                    <Website>http://www.sinttheresiadeinze.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Kaaistraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>23</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>44011</NISCode>
-                                        <PostCode>9800</PostCode>
-                                        <Naam>DEINZE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>09 381 51 21</Telefoonnummer>
-                                    <Email>directie@sinttheresiadeinze.be</Email>
-                                    <Website>http://www.sinttheresiadeinze.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-04-27</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>60859058-6bf0-48d8-af63-1070be095abb</Referte>
-                                    <Periode>
-                                        <Begin>2014-09-01</Begin>
-                                        <Einde>2015-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>6247</Nummer>
-                                        <Naam>1ste leerjaar B</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                            xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:00:54.029</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:00:54.118</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>b222cc93-913a-4fe5-a189-3a1164e46e61</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8242</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>b222cc93-913a-4fe5-a189-3a1164e46e61</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>fbedb75b-d780-4a29-9439-be4d85f59f05</Referte>
+              <Instelling>
+                <Instellingsnummer>27136</Instellingsnummer>
+                <OfficieleNaam>Vrije Lagere School voor Buitengewoon On</OfficieleNaam>
+                <Instantie>Basisschool</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Kouter</Naam>
+                  </Straat>
+                  <Huisnummer>93</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44011</NISCode>
+                    <PostCode>9800</PostCode>
+                    <Naam>DEINZE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 386 38 65</Telefoonnummer>
+                  <Email>directie@vibloleieland.be</Email>
+                  <Website>www.vibloleieland.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Kouter</Naam>
+                  </Straat>
+                  <Huisnummer>93</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44011</NISCode>
+                    <PostCode>9800</PostCode>
+                    <Naam>DEINZE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 386 38 65</Telefoonnummer>
+                  <Email>directie@vibloleieland.be</Email>
+                  <Website>www.vibloleieland.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2010-06-28</DatumInschrijving>
+                <DatumEersteLes>2010-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>dd10b02c-e3f9-464f-8453-aa9acd133c78</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>15072</Nummer>
+                    <Naam>BLO Lager onderwijs type 1</Naam>
+                    <Niveau>
+                      <Code>2</Code>
+                      <Omschrijving>Lager onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>1</Code>
+                    <Omschrijving>Lichte mentale handicap</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>837a65e4-4c24-4edb-980b-ed3fcacd9d88</Referte>
+              <Instelling>
+                <Instellingsnummer>34314</Instellingsnummer>
+                <OfficieleNaam>Hotelschool en Slagerijschool Ter Groene</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Spoorwegstraat</Naam>
+                  </Straat>
+                  <Huisnummer>14</Huisnummer>
+                  <Gemeente>
+                    <NISCode>31005</NISCode>
+                    <PostCode>8200</PostCode>
+                    <Naam>SINT-MICHIELS</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>050 40 30 20</Telefoonnummer>
+                  <Email>info@tergroenepoorte.be</Email>
+                  <Website>http://www.tergroenepoorte.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Spoorwegstraat</Naam>
+                  </Straat>
+                  <Huisnummer>14</Huisnummer>
+                  <Gemeente>
+                    <NISCode>31005</NISCode>
+                    <PostCode>8200</PostCode>
+                    <Naam>SINT-MICHIELS</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>050 40 30 20</Telefoonnummer>
+                  <Email>info@tergroenepoorte.be</Email>
+                  <Website>http://www.tergroenepoorte.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2016-08-23</DatumInschrijving>
+                <DatumEersteLes>2016-09-01</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>b395e6fd-d53f-4c93-a9a3-4acacae6ba7f</Referte>
+                  <Periode>
+                    <Begin>2016-09-01</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>20702</Nummer>
+                    <Naam>1e leerjaar in de 2e graad Slagerij en vleeswarenbereiding BSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>7c5b27ec-15d2-403d-a911-533314a624b5</Referte>
+              <Instelling>
+                <Instellingsnummer>36228</Instellingsnummer>
+                <OfficieleNaam>Leiepoort Deinze campus Sint- Theresia</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Kaaistraat</Naam>
+                  </Straat>
+                  <Huisnummer>23</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44011</NISCode>
+                    <PostCode>9800</PostCode>
+                    <Naam>DEINZE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 381 51 21</Telefoonnummer>
+                  <Email>directie@sinttheresiadeinze.be</Email>
+                  <Website>http://www.sinttheresiadeinze.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Kaaistraat</Naam>
+                  </Straat>
+                  <Huisnummer>23</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44011</NISCode>
+                    <PostCode>9800</PostCode>
+                    <Naam>DEINZE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 381 51 21</Telefoonnummer>
+                  <Email>directie@sinttheresiadeinze.be</Email>
+                  <Website>http://www.sinttheresiadeinze.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-04-27</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>d465b0b7-1a12-4d87-a0d9-951f28d588b2</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>29201</Nummer>
+                    <Naam>Beroepsvoorbereidend leerjaar Hotel-bakkerij-slagerij</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>311cced6-f3e9-4232-bf82-43a437fe38b5</Referte>
+              <Instelling>
+                <Instellingsnummer>36228</Instellingsnummer>
+                <OfficieleNaam>Leiepoort Deinze campus Sint- Theresia</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Kaaistraat</Naam>
+                  </Straat>
+                  <Huisnummer>23</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44011</NISCode>
+                    <PostCode>9800</PostCode>
+                    <Naam>DEINZE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 381 51 21</Telefoonnummer>
+                  <Email>directie@sinttheresiadeinze.be</Email>
+                  <Website>http://www.sinttheresiadeinze.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Kaaistraat</Naam>
+                  </Straat>
+                  <Huisnummer>23</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44011</NISCode>
+                    <PostCode>9800</PostCode>
+                    <Naam>DEINZE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>09 381 51 21</Telefoonnummer>
+                  <Email>directie@sinttheresiadeinze.be</Email>
+                  <Website>http://www.sinttheresiadeinze.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-04-27</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>149107f1-8839-47ec-b364-06bc6854615d</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>6247</Nummer>
+                    <Naam>1ste leerjaar B</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:00:54.029</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     f050ba3f-2635-4b90-bf44-2e05b304a13a/20170505670051262/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                            xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:00:51.571</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:00:51.571</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     64d560fa-937a-43ef-9240-bf503372acbc/20170505670051262/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-

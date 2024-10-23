@@ -1,259 +1,259 @@
-
-      <web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-         <Repliek>
-            <Context>
-               <Naam>GeefHistoriekInschrijving</Naam>
-               <Versie>02.01.0000</Versie>
-               <Bericht>
-                  <Type>ANTWOORD</Type>
-                  <Tijdstip>
-                     <Datum>2018-08-14</Datum>
-                     <Tijd>09:59:06.765</Tijd>
-                  </Tijdstip>
-                  <Afzender>
-                     <Identificatie>vip.vlaanderen.be</Identificatie>
-                     <Naam>MagdaGateway</Naam>
-                     <Referte>277230f4-bd46-4e7f-831f-a3b9cdaf9467</Referte>
-                  </Afzender>
-                  <Ontvanger>
-                     <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom</Identificatie>
-                     <Referte>43D73052-82F4-496B-9D11-A040442DA530</Referte>
-                     <Hoedanigheid>1300</Hoedanigheid>
-                  </Ontvanger>
-               </Bericht>
-            </Context>
-            <Antwoorden>
-               <Antwoord>
-                  <Referte>277230f4-bd46-4e7f-831f-a3b9cdaf9467</Referte>
-                  <Inhoud>
-                     <Inschrijvingen>
-                        <Inschrijving>
-                           <Bron xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">HO</Bron>
-                           <Referte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2009-08-21 13:25:18.048527</Referte>
-                           <Instelling>
-                              <Instellingsnummer xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">110131</Instellingsnummer>
-                              <OfficieleNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Katholieke Universiteit Leuven</OfficieleNaam>
-                              <Instantie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Universiteit</Instantie>
-                           </Instelling>
-                           <HogerOnderwijs>
-                              <Academiejaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2009</Academiejaar>
-                              <Status>
-                                 <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
-                                 <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Actief</Omschrijving>
-                              </Status>
-                              <DatumInschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2009-08-17</DatumInschrijving>
-                              <Opleiding>
-                                 <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2078</Code>
-                                 <VolledigeNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Bachelor in de politieke wetenschappen en de sociologie</VolledigeNaam>
-                                 <NaamElementen>
-                                    <Graad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Bachelor</Graad>
-                                    <SpecificatieGraad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">of Science</SpecificatieGraad>
-                                    <PrefixKwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">in de</PrefixKwalificatie>
-                                    <Kwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">politieke wetenschappen en de sociologie</Kwalificatie>
-                                 </NaamElementen>
-                                 <Soort>
-                                    <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2</Code>
-                                    <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Academisch gerichte bachelor</Omschrijving>
-                                 </Soort>
-                              </Opleiding>
-                              <SoortContract>
-                                 <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
-                                 <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Diplomacontract</Omschrijving>
-                              </SoortContract>
-                              <Studiepunten>
-                                 <Opgenomen xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Opgenomen>
-                                 <Verworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Verworven>
-                                 <Gedelibereerd xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Gedelibereerd>
-                                 <GeenResultaat xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</GeenResultaat>
-                                 <NietVerworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</NietVerworven>
-                                 <Vrijgesteld xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Vrijgesteld>
-                                 <Uitgeschreven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Uitgeschreven>
-                              </Studiepunten>
-                              <ToereikendeStudieomvang xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">1</ToereikendeStudieomvang>
-                              <StudiebewijsHaalbaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">1</StudiebewijsHaalbaar>
-                              <Studiebewijzen>
-                                 <Studiebewijs>
-                                    <Referte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2009-07-02 13:43:55.260095</Referte>
-                                    <LEDReferte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2009-07-02 13:43:55.260095</LEDReferte>
-                                 </Studiebewijs>
-                              </Studiebewijzen>
-                           </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving>
-                           <Bron xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">HO</Bron>
-                           <Referte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2007-01-10 17:25:25.976022</Referte>
-                           <Instelling>
-                              <Instellingsnummer xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">110131</Instellingsnummer>
-                              <OfficieleNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Katholieke Universiteit Leuven</OfficieleNaam>
-                              <Instantie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Universiteit</Instantie>
-                           </Instelling>
-                           <HogerOnderwijs>
-                              <Academiejaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2007</Academiejaar>
-                              <Status>
-                                 <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
-                                 <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Actief</Omschrijving>
-                              </Status>
-                              <DatumInschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2007-08-27</DatumInschrijving>
-                              <Opleiding>
-                                 <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2078</Code>
-                                 <VolledigeNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Bachelor in de politieke wetenschappen en de sociologie</VolledigeNaam>
-                                 <NaamElementen>
-                                    <Graad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Bachelor</Graad>
-                                    <SpecificatieGraad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">of Science</SpecificatieGraad>
-                                    <PrefixKwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">in de</PrefixKwalificatie>
-                                    <Kwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">politieke wetenschappen en de sociologie</Kwalificatie>
-                                 </NaamElementen>
-                                 <Soort>
-                                    <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2</Code>
-                                    <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Academisch gerichte bachelor</Omschrijving>
-                                 </Soort>
-                              </Opleiding>
-                              <SoortContract>
-                                 <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
-                                 <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Diplomacontract</Omschrijving>
-                              </SoortContract>
-                              <Studiepunten>
-                                 <Opgenomen xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Opgenomen>
-                                 <Verworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Verworven>
-                                 <Gedelibereerd xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Gedelibereerd>
-                                 <GeenResultaat xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</GeenResultaat>
-                                 <NietVerworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</NietVerworven>
-                                 <Vrijgesteld xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Vrijgesteld>
-                                 <Uitgeschreven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Uitgeschreven>
-                              </Studiepunten>
-                              <ToereikendeStudieomvang xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</ToereikendeStudieomvang>
-                              <StudiebewijsHaalbaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</StudiebewijsHaalbaar>
-                           </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving>
-                           <Bron xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">HO</Bron>
-                           <Referte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2008-09-05 12:20:25.995327</Referte>
-                           <Instelling>
-                              <Instellingsnummer xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">110131</Instellingsnummer>
-                              <OfficieleNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Katholieke Universiteit Leuven</OfficieleNaam>
-                              <Instantie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Universiteit</Instantie>
-                           </Instelling>
-                           <HogerOnderwijs>
-                              <Academiejaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2008</Academiejaar>
-                              <Status>
-                                 <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
-                                 <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Actief</Omschrijving>
-                              </Status>
-                              <DatumInschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2008-09-04</DatumInschrijving>
-                              <Opleiding>
-                                 <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2078</Code>
-                                 <VolledigeNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Bachelor in de politieke wetenschappen en de sociologie</VolledigeNaam>
-                                 <NaamElementen>
-                                    <Graad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Bachelor</Graad>
-                                    <SpecificatieGraad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">of Science</SpecificatieGraad>
-                                    <PrefixKwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">in de</PrefixKwalificatie>
-                                    <Kwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">politieke wetenschappen en de sociologie</Kwalificatie>
-                                 </NaamElementen>
-                                 <Soort>
-                                    <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2</Code>
-                                    <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Academisch gerichte bachelor</Omschrijving>
-                                 </Soort>
-                              </Opleiding>
-                              <SoortContract>
-                                 <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
-                                 <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Diplomacontract</Omschrijving>
-                              </SoortContract>
-                              <Studiepunten>
-                                 <Opgenomen xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Opgenomen>
-                                 <Verworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Verworven>
-                                 <Gedelibereerd xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Gedelibereerd>
-                                 <GeenResultaat xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</GeenResultaat>
-                                 <NietVerworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</NietVerworven>
-                                 <Vrijgesteld xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Vrijgesteld>
-                                 <Uitgeschreven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Uitgeschreven>
-                              </Studiepunten>
-                              <ToereikendeStudieomvang xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">1</ToereikendeStudieomvang>
-                              <StudiebewijsHaalbaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</StudiebewijsHaalbaar>
-                           </HogerOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving>
-                           <Bron xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">HO</Bron>
-                           <Referte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2010-07-29 07:57:58.276571</Referte>
-                           <Instelling>
-                              <Instellingsnummer xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">110131</Instellingsnummer>
-                              <OfficieleNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Katholieke Universiteit Leuven</OfficieleNaam>
-                              <Instantie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Universiteit</Instantie>
-                           </Instelling>
-                           <HogerOnderwijs>
-                              <Academiejaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2010</Academiejaar>
-                              <Status>
-                                 <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
-                                 <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Actief</Omschrijving>
-                              </Status>
-                              <DatumInschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2010-07-28</DatumInschrijving>
-                              <Opleiding>
-                                 <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">3242</Code>
-                                 <VolledigeNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Master of Science in de vergelijkende en internationale politiek</VolledigeNaam>
-                                 <NaamElementen>
-                                    <Graad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Master</Graad>
-                                    <SpecificatieGraad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">of Science</SpecificatieGraad>
-                                    <PrefixKwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">in de</PrefixKwalificatie>
-                                    <Kwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">vergelijkende en internationale politiek</Kwalificatie>
-                                 </NaamElementen>
-                                 <Soort>
-                                    <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">3</Code>
-                                    <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Master</Omschrijving>
-                                 </Soort>
-                              </Opleiding>
-                              <SoortContract>
-                                 <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
-                                 <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Diplomacontract</Omschrijving>
-                              </SoortContract>
-                              <Studiepunten>
-                                 <Opgenomen xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Opgenomen>
-                                 <Verworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Verworven>
-                                 <Gedelibereerd xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Gedelibereerd>
-                                 <GeenResultaat xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</GeenResultaat>
-                                 <NietVerworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</NietVerworven>
-                                 <Vrijgesteld xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Vrijgesteld>
-                                 <Uitgeschreven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Uitgeschreven>
-                              </Studiepunten>
-                              <ToereikendeStudieomvang xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">1</ToereikendeStudieomvang>
-                              <StudiebewijsHaalbaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">1</StudiebewijsHaalbaar>
-                              <Studiebewijzen>
-                                 <Studiebewijs>
-                                    <Referte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2010-07-11 09:55:19.471984</Referte>
-                                    <LEDReferte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2010-07-11 09:55:19.471984</LEDReferte>
-                                 </Studiebewijs>
-                              </Studiebewijzen>
-                           </HogerOnderwijs>
-                        </Inschrijving>
-                     </Inschrijvingen>
-                  </Inhoud>
-                  <Uitzonderingen>
-                     <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                           <Datum>2018-08-14</Datum>
-                           <Tijd>09:59:06.669</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                           <Annotatie>
-                              <Naam>davincilogid</Naam>
-                              <Waarde>8340ee61-5d1e-48d3-8564-08b9ae509438/20180814695902549/DAVINCI/prod/OntsluitingDienst02/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving</Waarde>
-                           </Annotatie>
-                        </Annotaties>
-                     </Uitzondering>
-                     <Uitzondering xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>Disci</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                           <Datum>2018-08-14</Datum>
-                           <Tijd>09:59:02.019</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
-                     </Uitzondering>
-                  </Uitzonderingen>
-               </Antwoord>
-            </Antwoorden>
-         </Repliek>
-      </web:GeefHistoriekInschrijvingResponse>
+<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2018-08-14</Datum>
+          <Tijd>09:59:06.765</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>277230f4-bd46-4e7f-831f-a3b9cdaf9467</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom</Identificatie>
+          <Referte>43D73052-82F4-496B-9D11-A040442DA530</Referte>
+          <Hoedanigheid>1300</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>277230f4-bd46-4e7f-831f-a3b9cdaf9467</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">HO</Bron>
+              <Referte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">c8e24cd9-6042-4c38-ba4c-6c397620d86f</Referte>
+              <Instelling>
+                <Instellingsnummer xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">110131</Instellingsnummer>
+                <OfficieleNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Katholieke Universiteit Leuven</OfficieleNaam>
+                <Instantie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Universiteit</Instantie>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2009</Academiejaar>
+                <Status>
+                  <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
+                  <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2009-08-17</DatumInschrijving>
+                <Opleiding>
+                  <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2078</Code>
+                  <VolledigeNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Bachelor in de politieke wetenschappen en de sociologie</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Bachelor</Graad>
+                    <SpecificatieGraad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">of Science</SpecificatieGraad>
+                    <PrefixKwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">in de</PrefixKwalificatie>
+                    <Kwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">politieke wetenschappen en de sociologie</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2</Code>
+                    <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Academisch gerichte bachelor</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
+                  <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Opgenomen>
+                  <Verworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Verworven>
+                  <Gedelibereerd xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Gedelibereerd>
+                  <GeenResultaat xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</GeenResultaat>
+                  <NietVerworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</NietVerworven>
+                  <Vrijgesteld xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Vrijgesteld>
+                  <Uitgeschreven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Uitgeschreven>
+                </Studiepunten>
+                <ToereikendeStudieomvang xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">1</StudiebewijsHaalbaar>
+                <Studiebewijzen>
+                  <Studiebewijs>
+                    <Referte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2009-07-02 13:43:55.260095</Referte>
+                    <LEDReferte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2009-07-02 13:43:55.260095</LEDReferte>
+                  </Studiebewijs>
+                </Studiebewijzen>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">HO</Bron>
+              <Referte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">02b9ec07-2e64-4bdb-a3a2-fc09a037b3cb</Referte>
+              <Instelling>
+                <Instellingsnummer xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">110131</Instellingsnummer>
+                <OfficieleNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Katholieke Universiteit Leuven</OfficieleNaam>
+                <Instantie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Universiteit</Instantie>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2007</Academiejaar>
+                <Status>
+                  <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
+                  <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2007-08-27</DatumInschrijving>
+                <Opleiding>
+                  <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2078</Code>
+                  <VolledigeNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Bachelor in de politieke wetenschappen en de sociologie</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Bachelor</Graad>
+                    <SpecificatieGraad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">of Science</SpecificatieGraad>
+                    <PrefixKwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">in de</PrefixKwalificatie>
+                    <Kwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">politieke wetenschappen en de sociologie</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2</Code>
+                    <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Academisch gerichte bachelor</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
+                  <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Opgenomen>
+                  <Verworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Verworven>
+                  <Gedelibereerd xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Gedelibereerd>
+                  <GeenResultaat xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</GeenResultaat>
+                  <NietVerworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</NietVerworven>
+                  <Vrijgesteld xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Vrijgesteld>
+                  <Uitgeschreven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Uitgeschreven>
+                </Studiepunten>
+                <ToereikendeStudieomvang xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</StudiebewijsHaalbaar>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">HO</Bron>
+              <Referte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">7ce16cb8-c518-4488-b069-e93b802a13ac</Referte>
+              <Instelling>
+                <Instellingsnummer xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">110131</Instellingsnummer>
+                <OfficieleNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Katholieke Universiteit Leuven</OfficieleNaam>
+                <Instantie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Universiteit</Instantie>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2008</Academiejaar>
+                <Status>
+                  <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
+                  <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2008-09-04</DatumInschrijving>
+                <Opleiding>
+                  <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2078</Code>
+                  <VolledigeNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Bachelor in de politieke wetenschappen en de sociologie</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Bachelor</Graad>
+                    <SpecificatieGraad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">of Science</SpecificatieGraad>
+                    <PrefixKwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">in de</PrefixKwalificatie>
+                    <Kwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">politieke wetenschappen en de sociologie</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2</Code>
+                    <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Academisch gerichte bachelor</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
+                  <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Opgenomen>
+                  <Verworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Verworven>
+                  <Gedelibereerd xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Gedelibereerd>
+                  <GeenResultaat xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</GeenResultaat>
+                  <NietVerworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</NietVerworven>
+                  <Vrijgesteld xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Vrijgesteld>
+                  <Uitgeschreven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Uitgeschreven>
+                </Studiepunten>
+                <ToereikendeStudieomvang xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</StudiebewijsHaalbaar>
+              </HogerOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">HO</Bron>
+              <Referte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">9dcd5531-ef9b-402d-8f9c-1c5fe8370c19</Referte>
+              <Instelling>
+                <Instellingsnummer xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">110131</Instellingsnummer>
+                <OfficieleNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Katholieke Universiteit Leuven</OfficieleNaam>
+                <Instantie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Universiteit</Instantie>
+              </Instelling>
+              <HogerOnderwijs>
+                <Academiejaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2010</Academiejaar>
+                <Status>
+                  <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
+                  <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Actief</Omschrijving>
+                </Status>
+                <DatumInschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2010-07-28</DatumInschrijving>
+                <Opleiding>
+                  <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">3242</Code>
+                  <VolledigeNaam xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Master of Science in de vergelijkende en internationale politiek</VolledigeNaam>
+                  <NaamElementen>
+                    <Graad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Master</Graad>
+                    <SpecificatieGraad xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">of Science</SpecificatieGraad>
+                    <PrefixKwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">in de</PrefixKwalificatie>
+                    <Kwalificatie xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">vergelijkende en internationale politiek</Kwalificatie>
+                  </NaamElementen>
+                  <Soort>
+                    <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">3</Code>
+                    <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Master</Omschrijving>
+                  </Soort>
+                </Opleiding>
+                <SoortContract>
+                  <Code xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">01</Code>
+                  <Omschrijving xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">Diplomacontract</Omschrijving>
+                </SoortContract>
+                <Studiepunten>
+                  <Opgenomen xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Opgenomen>
+                  <Verworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">60</Verworven>
+                  <Gedelibereerd xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Gedelibereerd>
+                  <GeenResultaat xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</GeenResultaat>
+                  <NietVerworven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</NietVerworven>
+                  <Vrijgesteld xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Vrijgesteld>
+                  <Uitgeschreven xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">0</Uitgeschreven>
+                </Studiepunten>
+                <ToereikendeStudieomvang xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">1</ToereikendeStudieomvang>
+                <StudiebewijsHaalbaar xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">1</StudiebewijsHaalbaar>
+                <Studiebewijzen>
+                  <Studiebewijs>
+                    <Referte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2010-07-11 09:55:19.471984</Referte>
+                    <LEDReferte xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">2010-07-11 09:55:19.471984</LEDReferte>
+                  </Studiebewijs>
+                </Studiebewijzen>
+              </HogerOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2018-08-14</Datum>
+              <Tijd>09:59:06.669</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>8340ee61-5d1e-48d3-8564-08b9ae509438/20180814695902549/DAVINCI/prod/OntsluitingDienst02/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving</Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>Disci</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2018-08-14</Datum>
+              <Tijd>09:59:02.019</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
+</web:GeefHistoriekInschrijvingResponse>

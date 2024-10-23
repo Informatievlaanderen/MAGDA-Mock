@@ -1,437 +1,430 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:00:43.369</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>54e4ac52-cf99-4033-b9a1-09b14d073567</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8239</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>54e4ac52-cf99-4033-b9a1-09b14d073567</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>47a8db77-42ce-4ec0-a972-f2cf641177bb</Referte>
-                            <Instelling>
-                                <Instellingsnummer>22822</Instellingsnummer>
-                                <OfficieleNaam>Stedelijke Basisschool - Notelaar</OfficieleNaam>
-                                <Instantie>Basisschool</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Vrijheidstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>65</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>41002</NISCode>
-                                        <PostCode>9300</PostCode>
-                                        <Naam>AALST</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>053 72 34 77</Telefoonnummer>
-                                    <Email>sbs.notelaar@aalst.be</Email>
-                                    <Website>www.notelaar.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Vrijheidstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>65</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>41002</NISCode>
-                                        <PostCode>9300</PostCode>
-                                        <Naam>AALST</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>053 72 39 55</Telefoonnummer>
-                                    <Email>sbs.notelaar@aalst.be</Email>
-                                    <Website>www.notelaar.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2007-09-01</DatumInschrijving>
-                                <DatumEersteLes>2007-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>beecbbba-9b57-47f2-bd19-c8963abd6209</Referte>
-                                    <Periode>
-                                        <Begin>2014-09-01</Begin>
-                                        <Einde>2015-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>14904</Nummer>
-                                        <Naam>5de leerjaar</Naam>
-                                        <Niveau>
-                                            <Code>2</Code>
-                                            <Omschrijving>Lager onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                    <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
-                                    <GewezenAnderstaligeNieuwkomer>0</GewezenAnderstaligeNieuwkomer>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>47a8db77-42ce-4ec0-a972-f2cf641177bb</Referte>
-                            <Instelling>
-                                <Instellingsnummer>22822</Instellingsnummer>
-                                <OfficieleNaam>Stedelijke Basisschool - Notelaar</OfficieleNaam>
-                                <Instantie>Basisschool</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Vrijheidstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>65</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>41002</NISCode>
-                                        <PostCode>9300</PostCode>
-                                        <Naam>AALST</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>053 72 34 77</Telefoonnummer>
-                                    <Email>sbs.notelaar@aalst.be</Email>
-                                    <Website>www.notelaar.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Vrijheidstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>65</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>41002</NISCode>
-                                        <PostCode>9300</PostCode>
-                                        <Naam>AALST</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>053 72 39 55</Telefoonnummer>
-                                    <Email>sbs.notelaar@aalst.be</Email>
-                                    <Website>www.notelaar.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2007-09-01</DatumInschrijving>
-                                <DatumEersteLes>2007-09-01</DatumEersteLes>
-                                <Schooljaar>2013</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>307a333a-9cb8-4e88-80e2-c38c8d7139c0</Referte>
-                                    <Periode>
-                                        <Begin>2013-09-01</Begin>
-                                        <Einde>2014-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>14903</Nummer>
-                                        <Naam>4de leerjaar</Naam>
-                                        <Niveau>
-                                            <Code>2</Code>
-                                            <Omschrijving>Lager onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                    <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
-                                    <GewezenAnderstaligeNieuwkomer>0</GewezenAnderstaligeNieuwkomer>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>e86f304c-7b42-4a7a-9304-6f758b193586</Referte>
-                            <Instelling>
-                                <Instellingsnummer>43018</Instellingsnummer>
-                                <OfficieleNaam>TechniGO! middenschool Aalst</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Ledebaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>101</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>41002</NISCode>
-                                        <PostCode>9300</PostCode>
-                                        <Naam>AALST</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>053 76 92 50</Telefoonnummer>
-                                    <Email>info@technigo.be</Email>
-                                    <Website>http://www.technigo.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Ledebaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>101</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>41002</NISCode>
-                                        <PostCode>9300</PostCode>
-                                        <Naam>AALST</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>053 76 92 50</Telefoonnummer>
-                                    <Email>info@technigo.be</Email>
-                                    <Website>http://www.technigo.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2015-08-26</DatumInschrijving>
-                                <DatumEersteLes>2015-09-01</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>2fb3693d-7441-43cb-beb2-c8989d9d0a39</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-01</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>29200</Nummer>
-                                        <Naam>Beroepsvoorbereidend leerjaar Kantoor en verkoop - Verzorging-voeding
+<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:00:43.369</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>54e4ac52-cf99-4033-b9a1-09b14d073567</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8239</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>54e4ac52-cf99-4033-b9a1-09b14d073567</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>8e6c7705-cd85-43cf-be0f-7adfe0bf1ece</Referte>
+              <Instelling>
+                <Instellingsnummer>22822</Instellingsnummer>
+                <OfficieleNaam>Stedelijke Basisschool - Notelaar</OfficieleNaam>
+                <Instantie>Basisschool</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Vrijheidstraat</Naam>
+                  </Straat>
+                  <Huisnummer>65</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41002</NISCode>
+                    <PostCode>9300</PostCode>
+                    <Naam>AALST</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 72 34 77</Telefoonnummer>
+                  <Email>sbs.notelaar@aalst.be</Email>
+                  <Website>www.notelaar.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Vrijheidstraat</Naam>
+                  </Straat>
+                  <Huisnummer>65</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41002</NISCode>
+                    <PostCode>9300</PostCode>
+                    <Naam>AALST</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 72 39 55</Telefoonnummer>
+                  <Email>sbs.notelaar@aalst.be</Email>
+                  <Website>www.notelaar.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2007-09-01</DatumInschrijving>
+                <DatumEersteLes>2007-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>ece7a29c-33eb-469a-ab42-2722a56e41cf</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>14904</Nummer>
+                    <Naam>5de leerjaar</Naam>
+                    <Niveau>
+                      <Code>2</Code>
+                      <Omschrijving>Lager onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                  <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
+                  <GewezenAnderstaligeNieuwkomer>0</GewezenAnderstaligeNieuwkomer>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>3979d3ac-4c02-46c5-a776-6d166c2d2723</Referte>
+              <Instelling>
+                <Instellingsnummer>22822</Instellingsnummer>
+                <OfficieleNaam>Stedelijke Basisschool - Notelaar</OfficieleNaam>
+                <Instantie>Basisschool</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Vrijheidstraat</Naam>
+                  </Straat>
+                  <Huisnummer>65</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41002</NISCode>
+                    <PostCode>9300</PostCode>
+                    <Naam>AALST</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 72 34 77</Telefoonnummer>
+                  <Email>sbs.notelaar@aalst.be</Email>
+                  <Website>www.notelaar.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Vrijheidstraat</Naam>
+                  </Straat>
+                  <Huisnummer>65</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41002</NISCode>
+                    <PostCode>9300</PostCode>
+                    <Naam>AALST</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 72 39 55</Telefoonnummer>
+                  <Email>sbs.notelaar@aalst.be</Email>
+                  <Website>www.notelaar.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2007-09-01</DatumInschrijving>
+                <DatumEersteLes>2007-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>f7a71123-92af-4357-bd58-ff8670a28d4a</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>14903</Nummer>
+                    <Naam>4de leerjaar</Naam>
+                    <Niveau>
+                      <Code>2</Code>
+                      <Omschrijving>Lager onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                  <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
+                  <GewezenAnderstaligeNieuwkomer>0</GewezenAnderstaligeNieuwkomer>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>b1ed9ceb-925e-44f1-b644-bacaa3c284a3</Referte>
+              <Instelling>
+                <Instellingsnummer>43018</Instellingsnummer>
+                <OfficieleNaam>TechniGO! middenschool Aalst</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Ledebaan</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41002</NISCode>
+                    <PostCode>9300</PostCode>
+                    <Naam>AALST</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 76 92 50</Telefoonnummer>
+                  <Email>info@technigo.be</Email>
+                  <Website>http://www.technigo.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Ledebaan</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41002</NISCode>
+                    <PostCode>9300</PostCode>
+                    <Naam>AALST</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 76 92 50</Telefoonnummer>
+                  <Email>info@technigo.be</Email>
+                  <Website>http://www.technigo.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-08-26</DatumInschrijving>
+                <DatumEersteLes>2015-09-01</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>ec818333-b6a0-4b16-8858-bb25049430f1</Referte>
+                  <Periode>
+                    <Begin>2016-09-01</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>29200</Nummer>
+                    <Naam>Beroepsvoorbereidend leerjaar Kantoor en verkoop - Verzorging-voeding
                                         </Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>e86f304c-7b42-4a7a-9304-6f758b193586</Referte>
-                            <Instelling>
-                                <Instellingsnummer>43018</Instellingsnummer>
-                                <OfficieleNaam>TechniGO! middenschool Aalst</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Ledebaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>101</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>41002</NISCode>
-                                        <PostCode>9300</PostCode>
-                                        <Naam>AALST</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>053 76 92 50</Telefoonnummer>
-                                    <Email>info@technigo.be</Email>
-                                    <Website>http://www.technigo.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Ledebaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>101</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>41002</NISCode>
-                                        <PostCode>9300</PostCode>
-                                        <Naam>AALST</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>053 76 92 50</Telefoonnummer>
-                                    <Email>info@technigo.be</Email>
-                                    <Website>http://www.technigo.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2015-08-26</DatumInschrijving>
-                                <DatumEersteLes>2015-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>9336ef4c-74bb-427c-a50c-6ed2e3e6d7cf</Referte>
-                                    <Periode>
-                                        <Begin>2015-09-01</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>6247</Nummer>
-                                        <Naam>1ste leerjaar B</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                            xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:00:43.288</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>6df32e55-923a-4eab-ba8d-ba7767e6312a</Referte>
+              <Instelling>
+                <Instellingsnummer>43018</Instellingsnummer>
+                <OfficieleNaam>TechniGO! middenschool Aalst</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Ledebaan</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41002</NISCode>
+                    <PostCode>9300</PostCode>
+                    <Naam>AALST</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 76 92 50</Telefoonnummer>
+                  <Email>info@technigo.be</Email>
+                  <Website>http://www.technigo.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Ledebaan</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41002</NISCode>
+                    <PostCode>9300</PostCode>
+                    <Naam>AALST</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 76 92 50</Telefoonnummer>
+                  <Email>info@technigo.be</Email>
+                  <Website>http://www.technigo.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-08-26</DatumInschrijving>
+                <DatumEersteLes>2015-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>a9f67159-50e5-4f3c-a1a7-12e028bd9d30</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>6247</Nummer>
+                    <Naam>1ste leerjaar B</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:00:43.288</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     3f0cc9f1-dcb5-46a8-bd27-3f5659ae0f1e/20170505670040473/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                            xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:00:40.768</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:00:40.768</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     941060d4-8699-4b32-861e-1b0df176d6d9/20170505670040473/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-

@@ -1,799 +1,788 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:01:23.546</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>b3b45e52-35e7-4da7-b6bb-1b31070a47f1</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8250</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>b3b45e52-35e7-4da7-b6bb-1b31070a47f1</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>b61f41c9-f72f-4929-bcc1-01c1baa6d94a</Referte>
-                            <Instelling>
-                                <Instellingsnummer>35709</Instellingsnummer>
-                                <OfficieleNaam>Vrij Technisch Instituut</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Toekomststraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>75</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34040</NISCode>
-                                        <PostCode>8790</PostCode>
-                                        <Naam>WAREGEM</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 60 14 62</Telefoonnummer>
-                                    <Email>philipdemuynck@sgsintpaulus.be</Email>
-                                    <Website>http://www.vtiwaregem.eu</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Toekomststraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>75</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34040</NISCode>
-                                        <PostCode>8790</PostCode>
-                                        <Naam>WAREGEM</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 60 14 62</Telefoonnummer>
-                                    <Email>philipdemuynck@sgsintpaulus.be</Email>
-                                    <Website>http://www.vtiwaregem.eu</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-02-18</DatumInschrijving>
-                                <DatumEersteLes>2014-02-18</DatumEersteLes>
-                                <Schooljaar>2013</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>dac34729-b5c3-4d62-bbd9-fb30c3ae409d</Referte>
-                                    <Periode>
-                                        <Begin>2014-02-18</Begin>
-                                        <Einde>2014-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>20197</Nummer>
-                                        <Naam>Beroepsvoorbereidend leerjaar Elektriciteit - Metaal</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>b61f41c9-f72f-4929-bcc1-01c1baa6d94a</Referte>
-                            <Instelling>
-                                <Instellingsnummer>35709</Instellingsnummer>
-                                <OfficieleNaam>Vrij Technisch Instituut</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Toekomststraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>75</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34040</NISCode>
-                                        <PostCode>8790</PostCode>
-                                        <Naam>WAREGEM</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 60 14 62</Telefoonnummer>
-                                    <Email>philipdemuynck@sgsintpaulus.be</Email>
-                                    <Website>http://www.vtiwaregem.eu</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Toekomststraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>75</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34040</NISCode>
-                                        <PostCode>8790</PostCode>
-                                        <Naam>WAREGEM</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 60 14 62</Telefoonnummer>
-                                    <Email>philipdemuynck@sgsintpaulus.be</Email>
-                                    <Website>http://www.vtiwaregem.eu</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-02-18</DatumInschrijving>
-                                <DatumEersteLes>2014-02-18</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>5fb99a82-d3cb-4b73-af3d-52c1615d21fb</Referte>
-                                    <Periode>
-                                        <Begin>2014-09-01</Begin>
-                                        <Einde>2015-01-11</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>20197</Nummer>
-                                        <Naam>Beroepsvoorbereidend leerjaar Elektriciteit - Metaal</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>E</Code>
-                                            <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>9</Code>
-                                            <Omschrijving>Andere</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>8aaaba60-f7b0-4734-8f77-8b3d2acac4bc</Referte>
-                            <Instelling>
-                                <Instellingsnummer>42523</Instellingsnummer>
-                                <OfficieleNaam>GO! athena - campus Drie Hofsteden 1ste</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Hugo Verriestlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>155</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 21 40 79</Telefoonnummer>
-                                    <Email>steven.geerolf@athena-driehofsteden.be</Email>
-                                    <Website>http://www.athena-driehofsteden.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Hugo Verriestlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>155</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 21 40 79</Telefoonnummer>
-                                    <Email>steven.geerolf@athena-driehofsteden.be</Email>
-                                    <Website>http://www.athena-driehofsteden.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2013-06-17</DatumInschrijving>
-                                <DatumEersteLes>2013-09-01</DatumEersteLes>
-                                <Schooljaar>2013</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>83c05dca-5be6-4cf8-93e9-44f56a5cbb06</Referte>
-                                    <Periode>
-                                        <Begin>2013-09-01</Begin>
-                                        <Einde>2014-02-17</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>20197</Nummer>
-                                        <Naam>Beroepsvoorbereidend leerjaar Elektriciteit - Metaal</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>T</Code>
-                                            <Omschrijving>Tucht</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>12</Code>
-                                            <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
+<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:01:23.546</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>b3b45e52-35e7-4da7-b6bb-1b31070a47f1</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8250</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>b3b45e52-35e7-4da7-b6bb-1b31070a47f1</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>b8251b78-9be8-4439-b6df-8d3ce37288b9</Referte>
+              <Instelling>
+                <Instellingsnummer>35709</Instellingsnummer>
+                <OfficieleNaam>Vrij Technisch Instituut</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Toekomststraat</Naam>
+                  </Straat>
+                  <Huisnummer>75</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34040</NISCode>
+                    <PostCode>8790</PostCode>
+                    <Naam>WAREGEM</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 60 14 62</Telefoonnummer>
+                  <Email>philipdemuynck@sgsintpaulus.be</Email>
+                  <Website>http://www.vtiwaregem.eu</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Toekomststraat</Naam>
+                  </Straat>
+                  <Huisnummer>75</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34040</NISCode>
+                    <PostCode>8790</PostCode>
+                    <Naam>WAREGEM</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 60 14 62</Telefoonnummer>
+                  <Email>philipdemuynck@sgsintpaulus.be</Email>
+                  <Website>http://www.vtiwaregem.eu</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-02-18</DatumInschrijving>
+                <DatumEersteLes>2014-02-18</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>3510e388-b53d-46eb-968c-4a875e8e21b5</Referte>
+                  <Periode>
+                    <Begin>2014-02-18</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>20197</Nummer>
+                    <Naam>Beroepsvoorbereidend leerjaar Elektriciteit - Metaal</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>213b7a75-c509-4775-b189-ccb4e3c1d8ec</Referte>
+              <Instelling>
+                <Instellingsnummer>35709</Instellingsnummer>
+                <OfficieleNaam>Vrij Technisch Instituut</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Toekomststraat</Naam>
+                  </Straat>
+                  <Huisnummer>75</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34040</NISCode>
+                    <PostCode>8790</PostCode>
+                    <Naam>WAREGEM</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 60 14 62</Telefoonnummer>
+                  <Email>philipdemuynck@sgsintpaulus.be</Email>
+                  <Website>http://www.vtiwaregem.eu</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Toekomststraat</Naam>
+                  </Straat>
+                  <Huisnummer>75</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34040</NISCode>
+                    <PostCode>8790</PostCode>
+                    <Naam>WAREGEM</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 60 14 62</Telefoonnummer>
+                  <Email>philipdemuynck@sgsintpaulus.be</Email>
+                  <Website>http://www.vtiwaregem.eu</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-02-18</DatumInschrijving>
+                <DatumEersteLes>2014-02-18</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>1d459bd2-acc9-4c74-aef5-b08847c7ddbe</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-01-11</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>20197</Nummer>
+                    <Naam>Beroepsvoorbereidend leerjaar Elektriciteit - Metaal</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>E</Code>
+                      <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>9</Code>
+                      <Omschrijving>Andere</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>4e39dc5d-6a83-41c3-93e3-74f8897a3ae9</Referte>
+              <Instelling>
+                <Instellingsnummer>42523</Instellingsnummer>
+                <OfficieleNaam>GO! athena - campus Drie Hofsteden 1ste</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Hugo Verriestlaan</Naam>
+                  </Straat>
+                  <Huisnummer>155</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 21 40 79</Telefoonnummer>
+                  <Email>steven.geerolf@athena-driehofsteden.be</Email>
+                  <Website>http://www.athena-driehofsteden.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Hugo Verriestlaan</Naam>
+                  </Straat>
+                  <Huisnummer>155</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 21 40 79</Telefoonnummer>
+                  <Email>steven.geerolf@athena-driehofsteden.be</Email>
+                  <Website>http://www.athena-driehofsteden.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2013-06-17</DatumInschrijving>
+                <DatumEersteLes>2013-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>b801f7a3-8b52-4bfb-b9a5-c5b2d03062c5</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-02-17</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>20197</Nummer>
+                    <Naam>Beroepsvoorbereidend leerjaar Elektriciteit - Metaal</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>T</Code>
+                      <Omschrijving>Tucht</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>12</Code>
+                      <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
                                                 school
                                             </Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>80bb3a3a-62ba-4da9-b9a5-b5f321adb0a6</Referte>
-                            <Instelling>
-                                <Instellingsnummer>122671</Instellingsnummer>
-                                <OfficieleNaam>GO! atheneum Oudenaarde</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Fortstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>47</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>45035</NISCode>
-                                        <PostCode>9700</PostCode>
-                                        <Naam>OUDENAARDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>055 31 11 34</Telefoonnummer>
-                                    <Email>info@go-atheneumoudenaarde.be</Email>
-                                    <Website>http://www.go-atheneumoudenaarde.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>2</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Bergstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>36</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>45035</NISCode>
-                                        <PostCode>9700</PostCode>
-                                        <Naam>OUDENAARDE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>055 31 21 31</Telefoonnummer>
-                                    <Email></Email>
-                                    <Website></Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>2</Code>
-                                    <Omschrijving>Deeltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2016-09-05</DatumInschrijving>
-                                <DatumEersteLes>2016-09-05</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>597bb270-196c-4196-8d30-fe4a46103f76</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-05</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>35527</Nummer>
-                                        <Naam>Sportbegeleider DBSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                    <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>2e194b6e-0a17-4932-b369-fac0d9ee0a9b</Referte>
-                            <Instelling>
-                                <Instellingsnummer>126409</Instellingsnummer>
-                                <OfficieleNaam>Centrum Deeltijds Onderwijs</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Scheutistenlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>8</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 25 92 08</Telefoonnummer>
-                                    <Email>wolf.vlaeminck@cdokortrijk.be</Email>
-                                    <Website>http:\\www.cdokortrijk.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Scheutistenlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>8</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 25 92 08</Telefoonnummer>
-                                    <Email>wolf.vlaeminck@cdokortrijk.be</Email>
-                                    <Website>http:\\www.cdokortrijk.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>2</Code>
-                                    <Omschrijving>Deeltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2015-01-12</DatumInschrijving>
-                                <DatumEersteLes>2015-01-12</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>a1c3059e-ada6-4014-9e2a-eff04ce4abaf</Referte>
-                                    <Periode>
-                                        <Begin>2015-09-01</Begin>
-                                        <Einde>2016-03-20</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>38037</Nummer>
-                                        <Naam>Hoeknaadlasser DBSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>E</Code>
-                                            <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>12</Code>
-                                            <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>b9cb8f17-10fa-4d68-ac75-55535aff0e71</Referte>
+              <Instelling>
+                <Instellingsnummer>122671</Instellingsnummer>
+                <OfficieleNaam>GO! atheneum Oudenaarde</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Fortstraat</Naam>
+                  </Straat>
+                  <Huisnummer>47</Huisnummer>
+                  <Gemeente>
+                    <NISCode>45035</NISCode>
+                    <PostCode>9700</PostCode>
+                    <Naam>OUDENAARDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>055 31 11 34</Telefoonnummer>
+                  <Email>info@go-atheneumoudenaarde.be</Email>
+                  <Website>http://www.go-atheneumoudenaarde.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>2</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Bergstraat</Naam>
+                  </Straat>
+                  <Huisnummer>36</Huisnummer>
+                  <Gemeente>
+                    <NISCode>45035</NISCode>
+                    <PostCode>9700</PostCode>
+                    <Naam>OUDENAARDE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>055 31 21 31</Telefoonnummer>
+                  <Email></Email>
+                  <Website></Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>2</Code>
+                  <Omschrijving>Deeltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2016-09-05</DatumInschrijving>
+                <DatumEersteLes>2016-09-05</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>0b86672b-0ebc-4c32-9ea7-ec84bd0cbb47</Referte>
+                  <Periode>
+                    <Begin>2016-09-05</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>35527</Nummer>
+                    <Naam>Sportbegeleider DBSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                  <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>23d43fa2-5125-4b69-b466-9f1015a46d95</Referte>
+              <Instelling>
+                <Instellingsnummer>126409</Instellingsnummer>
+                <OfficieleNaam>Centrum Deeltijds Onderwijs</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Scheutistenlaan</Naam>
+                  </Straat>
+                  <Huisnummer>8</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 25 92 08</Telefoonnummer>
+                  <Email>wolf.vlaeminck@cdokortrijk.be</Email>
+                  <Website>http:\\www.cdokortrijk.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Scheutistenlaan</Naam>
+                  </Straat>
+                  <Huisnummer>8</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 25 92 08</Telefoonnummer>
+                  <Email>wolf.vlaeminck@cdokortrijk.be</Email>
+                  <Website>http:\\www.cdokortrijk.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>2</Code>
+                  <Omschrijving>Deeltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-01-12</DatumInschrijving>
+                <DatumEersteLes>2015-01-12</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>c96576de-ce9c-4629-9923-a0ceb56059e2</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2016-03-20</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>38037</Nummer>
+                    <Naam>Hoeknaadlasser DBSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>E</Code>
+                      <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>12</Code>
+                      <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
                                                 school
                                             </Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                    <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>2e194b6e-0a17-4932-b369-fac0d9ee0a9b</Referte>
-                            <Instelling>
-                                <Instellingsnummer>126409</Instellingsnummer>
-                                <OfficieleNaam>Centrum Deeltijds Onderwijs</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Scheutistenlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>8</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 25 92 08</Telefoonnummer>
-                                    <Email>wolf.vlaeminck@cdokortrijk.be</Email>
-                                    <Website>http:\\www.cdokortrijk.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Scheutistenlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>8</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 25 92 08</Telefoonnummer>
-                                    <Email>wolf.vlaeminck@cdokortrijk.be</Email>
-                                    <Website>http:\\www.cdokortrijk.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>2</Code>
-                                    <Omschrijving>Deeltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2015-01-12</DatumInschrijving>
-                                <DatumEersteLes>2015-01-12</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>c3a5b041-a12f-4400-9ea3-1ae2d92eee2f</Referte>
-                                    <Periode>
-                                        <Begin>2016-03-21</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>38029</Nummer>
-                                        <Naam>Bandenmonteur DBSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                    <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>2e194b6e-0a17-4932-b369-fac0d9ee0a9b</Referte>
-                            <Instelling>
-                                <Instellingsnummer>126409</Instellingsnummer>
-                                <OfficieleNaam>Centrum Deeltijds Onderwijs</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Scheutistenlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>8</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 25 92 08</Telefoonnummer>
-                                    <Email>wolf.vlaeminck@cdokortrijk.be</Email>
-                                    <Website>http:\\www.cdokortrijk.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Scheutistenlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>8</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 25 92 08</Telefoonnummer>
-                                    <Email>wolf.vlaeminck@cdokortrijk.be</Email>
-                                    <Website>http:\\www.cdokortrijk.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>2</Code>
-                                    <Omschrijving>Deeltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2015-01-12</DatumInschrijving>
-                                <DatumEersteLes>2015-01-12</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>d989d3f6-7b9f-4090-81de-a700edf7b8a4</Referte>
-                                    <Periode>
-                                        <Begin>2015-01-12</Begin>
-                                        <Einde>2015-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>38037</Nummer>
-                                        <Naam>Hoeknaadlasser DBSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                    <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>LP</Bron>
-                            <Referte>2e194b6e-0a17-4932-b369-fac0d9ee0a9b</Referte>
-                            <Instelling>
-                                <Instellingsnummer>126409</Instellingsnummer>
-                                <OfficieleNaam>Centrum Deeltijds Onderwijs</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Scheutistenlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>8</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 25 92 08</Telefoonnummer>
-                                    <Email>wolf.vlaeminck@cdokortrijk.be</Email>
-                                    <Website>http:\\www.cdokortrijk.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Scheutistenlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>8</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 25 92 08</Telefoonnummer>
-                                    <Email>wolf.vlaeminck@cdokortrijk.be</Email>
-                                    <Website>http:\\www.cdokortrijk.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>2</Code>
-                                    <Omschrijving>Deeltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2015-01-12</DatumInschrijving>
-                                <DatumEersteLes>2015-01-12</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>863d7166-5d54-49b5-89cd-fcfbd246c394</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-01</Begin>
-                                        <Einde>2016-09-04</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>38029</Nummer>
-                                        <Naam>Bandenmonteur DBSO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>E</Code>
-                                            <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>1</Code>
-                                            <Omschrijving>Veranderd naar erkende vorming (deeltijdse vorming,
+                    </SituatieNa>
+                  </Uitschrijving>
+                  <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>1710e086-680b-4325-b71d-5da52520b72b</Referte>
+              <Instelling>
+                <Instellingsnummer>126409</Instellingsnummer>
+                <OfficieleNaam>Centrum Deeltijds Onderwijs</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Scheutistenlaan</Naam>
+                  </Straat>
+                  <Huisnummer>8</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 25 92 08</Telefoonnummer>
+                  <Email>wolf.vlaeminck@cdokortrijk.be</Email>
+                  <Website>http:\\www.cdokortrijk.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Scheutistenlaan</Naam>
+                  </Straat>
+                  <Huisnummer>8</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 25 92 08</Telefoonnummer>
+                  <Email>wolf.vlaeminck@cdokortrijk.be</Email>
+                  <Website>http:\\www.cdokortrijk.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>2</Code>
+                  <Omschrijving>Deeltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-01-12</DatumInschrijving>
+                <DatumEersteLes>2015-01-12</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>aac86dbb-f8cd-4e39-ae84-d35f835f9a34</Referte>
+                  <Periode>
+                    <Begin>2016-03-21</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>38029</Nummer>
+                    <Naam>Bandenmonteur DBSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                  <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>90622231-24f5-4eaf-8e2e-ce29715fab57</Referte>
+              <Instelling>
+                <Instellingsnummer>126409</Instellingsnummer>
+                <OfficieleNaam>Centrum Deeltijds Onderwijs</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Scheutistenlaan</Naam>
+                  </Straat>
+                  <Huisnummer>8</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 25 92 08</Telefoonnummer>
+                  <Email>wolf.vlaeminck@cdokortrijk.be</Email>
+                  <Website>http:\\www.cdokortrijk.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Scheutistenlaan</Naam>
+                  </Straat>
+                  <Huisnummer>8</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 25 92 08</Telefoonnummer>
+                  <Email>wolf.vlaeminck@cdokortrijk.be</Email>
+                  <Website>http:\\www.cdokortrijk.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>2</Code>
+                  <Omschrijving>Deeltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-01-12</DatumInschrijving>
+                <DatumEersteLes>2015-01-12</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>d9a500ae-18b2-41ab-9dcf-80812616336e</Referte>
+                  <Periode>
+                    <Begin>2015-01-12</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>38037</Nummer>
+                    <Naam>Hoeknaadlasser DBSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                  <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>d29778c0-3e48-49b6-9827-0d3a8afb8803</Referte>
+              <Instelling>
+                <Instellingsnummer>126409</Instellingsnummer>
+                <OfficieleNaam>Centrum Deeltijds Onderwijs</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Scheutistenlaan</Naam>
+                  </Straat>
+                  <Huisnummer>8</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 25 92 08</Telefoonnummer>
+                  <Email>wolf.vlaeminck@cdokortrijk.be</Email>
+                  <Website>http:\\www.cdokortrijk.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Scheutistenlaan</Naam>
+                  </Straat>
+                  <Huisnummer>8</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 25 92 08</Telefoonnummer>
+                  <Email>wolf.vlaeminck@cdokortrijk.be</Email>
+                  <Website>http:\\www.cdokortrijk.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>2</Code>
+                  <Omschrijving>Deeltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-01-12</DatumInschrijving>
+                <DatumEersteLes>2015-01-12</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>45b605d1-4441-45bf-b7c0-4d1cf211b582</Referte>
+                  <Periode>
+                    <Begin>2016-09-01</Begin>
+                    <Einde>2016-09-04</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>38029</Nummer>
+                    <Naam>Bandenmonteur DBSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>E</Code>
+                      <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>1</Code>
+                      <Omschrijving>Veranderd naar erkende vorming (deeltijdse vorming,
                                                 leercontract)
                                             </Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                    <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:23.466</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+                    </SituatieNa>
+                  </Uitschrijving>
+                  <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:23.466</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     671d702c-abcc-4d1d-b946-d77af1a4e563/20170505670120548/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:20.894</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:20.894</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     f8ab2ff0-2018-4541-88c8-6ead811273e3/20170505670120548/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-
