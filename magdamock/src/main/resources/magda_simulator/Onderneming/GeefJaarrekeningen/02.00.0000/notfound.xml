@@ -1,0 +1,42 @@
+<web:GeefJaarrekeningenResponse
+        xmlns:web="http://webservice.geefjaarrekeningendienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefJaarrekeningen</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-04-20</Datum>
+                    <Tijd>07:32:54.218</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>0fdebd06-8b91-419e-8380-0fb4dde2cb33</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>vip.vlaanderen.be/vkbo-aip-bo</Identificatie>
+                    <Referte>XE:840:24976:8145</Referte>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>5800</Referte>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>30001</Identificatie>
+                        <Oorsprong>MAGDA</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2015-05-06</Datum>
+                            <Tijd>17:29:51.106</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefJaarrekeningenResponse>

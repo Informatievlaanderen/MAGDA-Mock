@@ -1,630 +1,621 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-04-24</Datum>
-                    <Tijd>10:03:00.703</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>blabla</Identificatie>
-                    <Naam>VIP</Naam>
-                    <Referte>cbf6f8cc-b3eb-4fb3-ad92-ef0cd7d8bb62</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25013:8153</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>XE:1072:25013:8153</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                        >
-                            <Bron>VWO</Bron>
-                            <Referte>0996585f-7aff-4d3e-b978-a81a44eb5c3e:156e59434da</Referte>
-                            <Instelling>
-                                <Instellingsnummer>48637</Instellingsnummer>
-                                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
-                                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leopold III-laan</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>Belgie</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059700710</Telefoonnummer>
-                                    <Email>info@deavondschool.be</Email>
-                                    <Website>http://www.deavondschool.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>9</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Generaal Jungbluthlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>2</Huisnummer>
-                                    <Gemeente>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                </Adres>
-                            </OnderwijsLocatie>
-                            <Volwassenenonderwijs>
-                                <Status>
-                                    <Code>INGESCHREVEN</Code>
-                                    <Omschrijving>Ingeschreven</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2016-09-01</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>832</Code>
-                                    <Naam>Nederlands tweede taal - richtgraad 2</Naam>
-                                    <Omschrijving>Nederlands tweede taal - richtgraad 2</Omschrijving>
-                                    <Diplomagericht>0</Diplomagericht>
-                                    <Opleidingsvariant>
-                                        <Code>10136</Code>
-                                        <Naam>Nederlands tweede taal - richtgraad 2</Naam>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </Opleidingsvariant>
-                                </Opleiding>
-                                <Module>
-                                    <Code>70000429</Code>
-                                    <Naam>NT2 - threshold 2 mondeling publiek</Naam>
-                                    <Omschrijving>NT2 - Threshold 2 mondeling publiek</Omschrijving>
-                                    <ModuleVariant>
-                                        <Code>10553</Code>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </ModuleVariant>
-                                </Module>
-                            </Volwassenenonderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>VWO</Bron>
-                            <Referte>8f6890a2-eca5-409f-a8ca-2c0c363cbdc9:14f6eb5440c</Referte>
-                            <Instelling>
-                                <Instellingsnummer>48637</Instellingsnummer>
-                                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
-                                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leopold III-laan</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>Belgie</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059700710</Telefoonnummer>
-                                    <Email>info@deavondschool.be</Email>
-                                    <Website>http://www.deavondschool.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>9</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Generaal Jungbluthlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>2</Huisnummer>
-                                    <Gemeente>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                </Adres>
-                            </OnderwijsLocatie>
-                            <Volwassenenonderwijs>
-                                <Status>
-                                    <Code>INGESCHREVEN</Code>
-                                    <Omschrijving>Ingeschreven</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2015-08-27</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>832</Code>
-                                    <Naam>Nederlands tweede taal - richtgraad 2</Naam>
-                                    <Omschrijving>Nederlands tweede taal - richtgraad 2</Omschrijving>
-                                    <Diplomagericht>0</Diplomagericht>
-                                    <Opleidingsvariant>
-                                        <Code>10136</Code>
-                                        <Naam>Nederlands tweede taal - richtgraad 2</Naam>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </Opleidingsvariant>
-                                </Opleiding>
-                                <Module>
-                                    <Code>70000428</Code>
-                                    <Naam>NT2 - threshold 1 mondeling persoonlijk</Naam>
-                                    <Omschrijving>NT2 - Threshold 1 mondeling persoonlijk</Omschrijving>
-                                    <ModuleVariant>
-                                        <Code>10550</Code>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </ModuleVariant>
-                                </Module>
-                                <Resultaat>
-                                    <EvaluatieResultaat>
-                                        <Code>GESLAAGD</Code>
-                                        <Omschrijving>Geslaagd</Omschrijving>
-                                    </EvaluatieResultaat>
-                                    <Studiebewijzen>
-                                        <Studiebewijs>
-                                            <Referte>d0453b52-9a6f-42e2-87ec-2cfe747ad294:1525f504111</Referte>
-                                            <LEDReferte>a60bfacc-daa5-4196-972f-759eb7fafb7c</LEDReferte>
-                                        </Studiebewijs>
-                                    </Studiebewijzen>
-                                </Resultaat>
-                            </Volwassenenonderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>VWO</Bron>
-                            <Referte>772fb1b9-413a-4977-ad27-0142d1df84a8:14f6eb53b0c</Referte>
-                            <Instelling>
-                                <Instellingsnummer>48637</Instellingsnummer>
-                                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
-                                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leopold III-laan</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>Belgie</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059700710</Telefoonnummer>
-                                    <Email>info@deavondschool.be</Email>
-                                    <Website>http://www.deavondschool.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>9</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Generaal Jungbluthlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>2</Huisnummer>
-                                    <Gemeente>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                </Adres>
-                            </OnderwijsLocatie>
-                            <Volwassenenonderwijs>
-                                <Status>
-                                    <Code>INGESCHREVEN</Code>
-                                    <Omschrijving>Ingeschreven</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2015-08-27</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>832</Code>
-                                    <Naam>Nederlands tweede taal - richtgraad 2</Naam>
-                                    <Omschrijving>Nederlands tweede taal - richtgraad 2</Omschrijving>
-                                    <Diplomagericht>0</Diplomagericht>
-                                    <Opleidingsvariant>
-                                        <Code>10136</Code>
-                                        <Naam>Nederlands tweede taal - richtgraad 2</Naam>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </Opleidingsvariant>
-                                </Opleiding>
-                                <Module>
-                                    <Code>70000435</Code>
-                                    <Naam>NT2 - threshold 1 schriftelijk persoonlijk</Naam>
-                                    <Omschrijving>NT2 - threshold 1 schriftelijk persoonlijk</Omschrijving>
-                                    <ModuleVariant>
-                                        <Code>10565</Code>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </ModuleVariant>
-                                </Module>
-                                <Resultaat>
-                                    <EvaluatieResultaat>
-                                        <Code>GESLAAGD</Code>
-                                        <Omschrijving>Geslaagd</Omschrijving>
-                                    </EvaluatieResultaat>
-                                    <Studiebewijzen>
-                                        <Studiebewijs>
-                                            <Referte>e3523e88-373e-4d21-a2dd-9cc410820880:1525f4de9d7</Referte>
-                                            <LEDReferte>9036c097-b534-4cee-ab9d-39f9fa8bbd9e</LEDReferte>
-                                        </Studiebewijs>
-                                    </Studiebewijzen>
-                                </Resultaat>
-                            </Volwassenenonderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>VWO</Bron>
-                            <Referte>e6aa00a6-0f80-47c7-895a-dbc7082a7ecd:15259888d71</Referte>
-                            <Instelling>
-                                <Instellingsnummer>48637</Instellingsnummer>
-                                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
-                                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leopold III-laan</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>Belgie</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059700710</Telefoonnummer>
-                                    <Email>info@deavondschool.be</Email>
-                                    <Website>http://www.deavondschool.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>9</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Generaal Jungbluthlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>2</Huisnummer>
-                                    <Gemeente>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                </Adres>
-                            </OnderwijsLocatie>
-                            <Volwassenenonderwijs>
-                                <Status>
-                                    <Code>INGESCHREVEN</Code>
-                                    <Omschrijving>Ingeschreven</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2016-01-19</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>832</Code>
-                                    <Naam>Nederlands tweede taal - richtgraad 2</Naam>
-                                    <Omschrijving>Nederlands tweede taal - richtgraad 2</Omschrijving>
-                                    <Diplomagericht>0</Diplomagericht>
-                                    <Opleidingsvariant>
-                                        <Code>10136</Code>
-                                        <Naam>Nederlands tweede taal - richtgraad 2</Naam>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </Opleidingsvariant>
-                                </Opleiding>
-                                <Module>
-                                    <Code>70000429</Code>
-                                    <Naam>NT2 - threshold 2 mondeling publiek</Naam>
-                                    <Omschrijving>NT2 - Threshold 2 mondeling publiek</Omschrijving>
-                                    <ModuleVariant>
-                                        <Code>10553</Code>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </ModuleVariant>
-                                </Module>
-                            </Volwassenenonderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>VWO</Bron>
-                            <Referte>457bb8c1-955a-4146-b6b6-5dc6d17db499:14c31fb6b69</Referte>
-                            <Instelling>
-                                <Instellingsnummer>48637</Instellingsnummer>
-                                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
-                                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leopold III-laan</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>Belgie</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059700710</Telefoonnummer>
-                                    <Email>info@deavondschool.be</Email>
-                                    <Website>http://www.deavondschool.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>9</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Generaal Jungbluthlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>2</Huisnummer>
-                                    <Gemeente>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                </Adres>
-                            </OnderwijsLocatie>
-                            <Volwassenenonderwijs>
-                                <Status>
-                                    <Code>INGESCHREVEN</Code>
-                                    <Omschrijving>Ingeschreven</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2015-03-19</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>346</Code>
-                                    <Naam>Nederlands tweede taal richtgraad 1</Naam>
-                                    <Omschrijving>Nederlands tweede taal richtgraad 1</Omschrijving>
-                                    <Diplomagericht>0</Diplomagericht>
-                                    <Opleidingsvariant>
-                                        <Code>437</Code>
-                                        <Naam>Nederlands tweede taal richtgraad 1 standaard</Naam>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </Opleidingsvariant>
-                                </Opleiding>
-                                <Module>
-                                    <Code>00000884</Code>
-                                    <Naam>NT2 waystage A</Naam>
-                                    <Omschrijving>NT2 waystage A</Omschrijving>
-                                    <ModuleVariant>
-                                        <Code>1002</Code>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </ModuleVariant>
-                                </Module>
-                            </Volwassenenonderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>VWO</Bron>
-                            <Referte>998586a0-3d40-4636-b7d0-52d22abed551:14c31fb74bc</Referte>
-                            <Instelling>
-                                <Instellingsnummer>48637</Instellingsnummer>
-                                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
-                                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leopold III-laan</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>Belgie</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059700710</Telefoonnummer>
-                                    <Email>info@deavondschool.be</Email>
-                                    <Website>http://www.deavondschool.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>9</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Generaal Jungbluthlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>2</Huisnummer>
-                                    <Gemeente>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                </Adres>
-                            </OnderwijsLocatie>
-                            <Volwassenenonderwijs>
-                                <Status>
-                                    <Code>INGESCHREVEN</Code>
-                                    <Omschrijving>Ingeschreven</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2015-03-19</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>346</Code>
-                                    <Naam>Nederlands tweede taal richtgraad 1</Naam>
-                                    <Omschrijving>Nederlands tweede taal richtgraad 1</Omschrijving>
-                                    <Diplomagericht>0</Diplomagericht>
-                                    <Opleidingsvariant>
-                                        <Code>437</Code>
-                                        <Naam>Nederlands tweede taal richtgraad 1 standaard</Naam>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </Opleidingsvariant>
-                                </Opleiding>
-                                <Module>
-                                    <Code>00000886</Code>
-                                    <Naam>NT2 waystage B</Naam>
-                                    <Omschrijving>NT2 waystage B</Omschrijving>
-                                    <ModuleVariant>
-                                        <Code>1005</Code>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </ModuleVariant>
-                                </Module>
-                            </Volwassenenonderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                        >
-                            <Bron>VWO</Bron>
-                            <Referte>49bd80c4-b9d7-432c-9ad0-adea25686bef:15259889f66</Referte>
-                            <Instelling>
-                                <Instellingsnummer>48637</Instellingsnummer>
-                                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
-                                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Leopold III-laan</Naam>
-                                    </Straat>
-                                    <Huisnummer>1</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>35013</NISCode>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                        <ISOCode>BEL</ISOCode>
-                                        <Naam>Belgie</Naam>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>059700710</Telefoonnummer>
-                                    <Email>info@deavondschool.be</Email>
-                                    <Website>http://www.deavondschool.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>9</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Generaal Jungbluthlaan</Naam>
-                                    </Straat>
-                                    <Huisnummer>2</Huisnummer>
-                                    <Gemeente>
-                                        <PostCode>8400</PostCode>
-                                        <Naam>Oostende</Naam>
-                                    </Gemeente>
-                                </Adres>
-                            </OnderwijsLocatie>
-                            <Volwassenenonderwijs>
-                                <Status>
-                                    <Code>INGESCHREVEN</Code>
-                                    <Omschrijving>Ingeschreven</Omschrijving>
-                                </Status>
-                                <DatumInschrijving>2016-01-19</DatumInschrijving>
-                                <Opleiding>
-                                    <Code>832</Code>
-                                    <Naam>Nederlands tweede taal - richtgraad 2</Naam>
-                                    <Omschrijving>Nederlands tweede taal - richtgraad 2</Omschrijving>
-                                    <Diplomagericht>0</Diplomagericht>
-                                    <Opleidingsvariant>
-                                        <Code>10136</Code>
-                                        <Naam>Nederlands tweede taal - richtgraad 2</Naam>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </Opleidingsvariant>
-                                </Opleiding>
-                                <Module>
-                                    <Code>70000439</Code>
-                                    <Naam>NT2 - threshold 2 schriftelijk publiek</Naam>
-                                    <Omschrijving>NT2 - threshold 2 schriftelijk publiek</Omschrijving>
-                                    <ModuleVariant>
-                                        <Code>10569</Code>
-                                        <Traject>
-                                            <Code>STANDAARD</Code>
-                                            <Omschrijving>Standaard</Omschrijving>
-                                        </Traject>
-                                    </ModuleVariant>
-                                </Module>
-                            </Volwassenenonderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-04-24</Datum>
-                            <Tijd>10:03:00.588</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-04-24</Datum>
+          <Tijd>10:03:00.703</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>blabla</Identificatie>
+          <Naam>VIP</Naam>
+          <Referte>cbf6f8cc-b3eb-4fb3-ad92-ef0cd7d8bb62</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25013:8153</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>XE:1072:25013:8153</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>VWO</Bron>
+              <Referte>89ab89ba-a9c1-41ae-8c6b-c6ebbe3d6d1e</Referte>
+              <Instelling>
+                <Instellingsnummer>48637</Instellingsnummer>
+                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
+                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leopold III-laan</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>Belgie</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059700710</Telefoonnummer>
+                  <Email>info@deavondschool.be</Email>
+                  <Website>http://www.deavondschool.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>9</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Generaal Jungbluthlaan</Naam>
+                  </Straat>
+                  <Huisnummer>2</Huisnummer>
+                  <Gemeente>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                </Adres>
+              </OnderwijsLocatie>
+              <Volwassenenonderwijs>
+                <Status>
+                  <Code>INGESCHREVEN</Code>
+                  <Omschrijving>Ingeschreven</Omschrijving>
+                </Status>
+                <DatumInschrijving>2016-09-01</DatumInschrijving>
+                <Opleiding>
+                  <Code>832</Code>
+                  <Naam>Nederlands tweede taal - richtgraad 2</Naam>
+                  <Omschrijving>Nederlands tweede taal - richtgraad 2</Omschrijving>
+                  <Diplomagericht>0</Diplomagericht>
+                  <Opleidingsvariant>
+                    <Code>10136</Code>
+                    <Naam>Nederlands tweede taal - richtgraad 2</Naam>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </Opleidingsvariant>
+                </Opleiding>
+                <Module>
+                  <Code>70000429</Code>
+                  <Naam>NT2 - threshold 2 mondeling publiek</Naam>
+                  <Omschrijving>NT2 - Threshold 2 mondeling publiek</Omschrijving>
+                  <ModuleVariant>
+                    <Code>10553</Code>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </ModuleVariant>
+                </Module>
+              </Volwassenenonderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>VWO</Bron>
+              <Referte>784b8469-44c7-4558-ac77-af7a21614695</Referte>
+              <Instelling>
+                <Instellingsnummer>48637</Instellingsnummer>
+                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
+                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leopold III-laan</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>Belgie</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059700710</Telefoonnummer>
+                  <Email>info@deavondschool.be</Email>
+                  <Website>http://www.deavondschool.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>9</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Generaal Jungbluthlaan</Naam>
+                  </Straat>
+                  <Huisnummer>2</Huisnummer>
+                  <Gemeente>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                </Adres>
+              </OnderwijsLocatie>
+              <Volwassenenonderwijs>
+                <Status>
+                  <Code>INGESCHREVEN</Code>
+                  <Omschrijving>Ingeschreven</Omschrijving>
+                </Status>
+                <DatumInschrijving>2015-08-27</DatumInschrijving>
+                <Opleiding>
+                  <Code>832</Code>
+                  <Naam>Nederlands tweede taal - richtgraad 2</Naam>
+                  <Omschrijving>Nederlands tweede taal - richtgraad 2</Omschrijving>
+                  <Diplomagericht>0</Diplomagericht>
+                  <Opleidingsvariant>
+                    <Code>10136</Code>
+                    <Naam>Nederlands tweede taal - richtgraad 2</Naam>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </Opleidingsvariant>
+                </Opleiding>
+                <Module>
+                  <Code>70000428</Code>
+                  <Naam>NT2 - threshold 1 mondeling persoonlijk</Naam>
+                  <Omschrijving>NT2 - Threshold 1 mondeling persoonlijk</Omschrijving>
+                  <ModuleVariant>
+                    <Code>10550</Code>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </ModuleVariant>
+                </Module>
+                <Resultaat>
+                  <EvaluatieResultaat>
+                    <Code>GESLAAGD</Code>
+                    <Omschrijving>Geslaagd</Omschrijving>
+                  </EvaluatieResultaat>
+                  <Studiebewijzen>
+                    <Studiebewijs>
+                      <Referte>d0453b52-9a6f-42e2-87ec-2cfe747ad294:1525f504111</Referte>
+                      <LEDReferte>a60bfacc-daa5-4196-972f-759eb7fafb7c</LEDReferte>
+                    </Studiebewijs>
+                  </Studiebewijzen>
+                </Resultaat>
+              </Volwassenenonderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>VWO</Bron>
+              <Referte>d39088e2-e70d-4724-b6f6-773917ffd52b</Referte>
+              <Instelling>
+                <Instellingsnummer>48637</Instellingsnummer>
+                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
+                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leopold III-laan</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>Belgie</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059700710</Telefoonnummer>
+                  <Email>info@deavondschool.be</Email>
+                  <Website>http://www.deavondschool.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>9</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Generaal Jungbluthlaan</Naam>
+                  </Straat>
+                  <Huisnummer>2</Huisnummer>
+                  <Gemeente>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                </Adres>
+              </OnderwijsLocatie>
+              <Volwassenenonderwijs>
+                <Status>
+                  <Code>INGESCHREVEN</Code>
+                  <Omschrijving>Ingeschreven</Omschrijving>
+                </Status>
+                <DatumInschrijving>2015-08-27</DatumInschrijving>
+                <Opleiding>
+                  <Code>832</Code>
+                  <Naam>Nederlands tweede taal - richtgraad 2</Naam>
+                  <Omschrijving>Nederlands tweede taal - richtgraad 2</Omschrijving>
+                  <Diplomagericht>0</Diplomagericht>
+                  <Opleidingsvariant>
+                    <Code>10136</Code>
+                    <Naam>Nederlands tweede taal - richtgraad 2</Naam>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </Opleidingsvariant>
+                </Opleiding>
+                <Module>
+                  <Code>70000435</Code>
+                  <Naam>NT2 - threshold 1 schriftelijk persoonlijk</Naam>
+                  <Omschrijving>NT2 - threshold 1 schriftelijk persoonlijk</Omschrijving>
+                  <ModuleVariant>
+                    <Code>10565</Code>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </ModuleVariant>
+                </Module>
+                <Resultaat>
+                  <EvaluatieResultaat>
+                    <Code>GESLAAGD</Code>
+                    <Omschrijving>Geslaagd</Omschrijving>
+                  </EvaluatieResultaat>
+                  <Studiebewijzen>
+                    <Studiebewijs>
+                      <Referte>e3523e88-373e-4d21-a2dd-9cc410820880:1525f4de9d7</Referte>
+                      <LEDReferte>9036c097-b534-4cee-ab9d-39f9fa8bbd9e</LEDReferte>
+                    </Studiebewijs>
+                  </Studiebewijzen>
+                </Resultaat>
+              </Volwassenenonderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>VWO</Bron>
+              <Referte>5fa694cf-52e1-43f3-b05c-c2b2e21f1688</Referte>
+              <Instelling>
+                <Instellingsnummer>48637</Instellingsnummer>
+                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
+                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leopold III-laan</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>Belgie</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059700710</Telefoonnummer>
+                  <Email>info@deavondschool.be</Email>
+                  <Website>http://www.deavondschool.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>9</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Generaal Jungbluthlaan</Naam>
+                  </Straat>
+                  <Huisnummer>2</Huisnummer>
+                  <Gemeente>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                </Adres>
+              </OnderwijsLocatie>
+              <Volwassenenonderwijs>
+                <Status>
+                  <Code>INGESCHREVEN</Code>
+                  <Omschrijving>Ingeschreven</Omschrijving>
+                </Status>
+                <DatumInschrijving>2016-01-19</DatumInschrijving>
+                <Opleiding>
+                  <Code>832</Code>
+                  <Naam>Nederlands tweede taal - richtgraad 2</Naam>
+                  <Omschrijving>Nederlands tweede taal - richtgraad 2</Omschrijving>
+                  <Diplomagericht>0</Diplomagericht>
+                  <Opleidingsvariant>
+                    <Code>10136</Code>
+                    <Naam>Nederlands tweede taal - richtgraad 2</Naam>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </Opleidingsvariant>
+                </Opleiding>
+                <Module>
+                  <Code>70000429</Code>
+                  <Naam>NT2 - threshold 2 mondeling publiek</Naam>
+                  <Omschrijving>NT2 - Threshold 2 mondeling publiek</Omschrijving>
+                  <ModuleVariant>
+                    <Code>10553</Code>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </ModuleVariant>
+                </Module>
+              </Volwassenenonderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>VWO</Bron>
+              <Referte>f71c8ca2-0f63-454f-9574-ffd3d2d0669a</Referte>
+              <Instelling>
+                <Instellingsnummer>48637</Instellingsnummer>
+                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
+                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leopold III-laan</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>Belgie</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059700710</Telefoonnummer>
+                  <Email>info@deavondschool.be</Email>
+                  <Website>http://www.deavondschool.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>9</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Generaal Jungbluthlaan</Naam>
+                  </Straat>
+                  <Huisnummer>2</Huisnummer>
+                  <Gemeente>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                </Adres>
+              </OnderwijsLocatie>
+              <Volwassenenonderwijs>
+                <Status>
+                  <Code>INGESCHREVEN</Code>
+                  <Omschrijving>Ingeschreven</Omschrijving>
+                </Status>
+                <DatumInschrijving>2015-03-19</DatumInschrijving>
+                <Opleiding>
+                  <Code>346</Code>
+                  <Naam>Nederlands tweede taal richtgraad 1</Naam>
+                  <Omschrijving>Nederlands tweede taal richtgraad 1</Omschrijving>
+                  <Diplomagericht>0</Diplomagericht>
+                  <Opleidingsvariant>
+                    <Code>437</Code>
+                    <Naam>Nederlands tweede taal richtgraad 1 standaard</Naam>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </Opleidingsvariant>
+                </Opleiding>
+                <Module>
+                  <Code>00000884</Code>
+                  <Naam>NT2 waystage A</Naam>
+                  <Omschrijving>NT2 waystage A</Omschrijving>
+                  <ModuleVariant>
+                    <Code>1002</Code>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </ModuleVariant>
+                </Module>
+              </Volwassenenonderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>VWO</Bron>
+              <Referte>d0bee2dc-8796-4110-9ee1-2f95410eecd5</Referte>
+              <Instelling>
+                <Instellingsnummer>48637</Instellingsnummer>
+                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
+                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leopold III-laan</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>Belgie</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059700710</Telefoonnummer>
+                  <Email>info@deavondschool.be</Email>
+                  <Website>http://www.deavondschool.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>9</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Generaal Jungbluthlaan</Naam>
+                  </Straat>
+                  <Huisnummer>2</Huisnummer>
+                  <Gemeente>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                </Adres>
+              </OnderwijsLocatie>
+              <Volwassenenonderwijs>
+                <Status>
+                  <Code>INGESCHREVEN</Code>
+                  <Omschrijving>Ingeschreven</Omschrijving>
+                </Status>
+                <DatumInschrijving>2015-03-19</DatumInschrijving>
+                <Opleiding>
+                  <Code>346</Code>
+                  <Naam>Nederlands tweede taal richtgraad 1</Naam>
+                  <Omschrijving>Nederlands tweede taal richtgraad 1</Omschrijving>
+                  <Diplomagericht>0</Diplomagericht>
+                  <Opleidingsvariant>
+                    <Code>437</Code>
+                    <Naam>Nederlands tweede taal richtgraad 1 standaard</Naam>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </Opleidingsvariant>
+                </Opleiding>
+                <Module>
+                  <Code>00000886</Code>
+                  <Naam>NT2 waystage B</Naam>
+                  <Omschrijving>NT2 waystage B</Omschrijving>
+                  <ModuleVariant>
+                    <Code>1005</Code>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </ModuleVariant>
+                </Module>
+              </Volwassenenonderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>VWO</Bron>
+              <Referte>f2c43244-7666-4495-9b0a-387a97ccd41a</Referte>
+              <Instelling>
+                <Instellingsnummer>48637</Instellingsnummer>
+                <OfficieleNaam>Centrum voor Volwassenenonderwijs De Avondschool Oostende</OfficieleNaam>
+                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Leopold III-laan</Naam>
+                  </Straat>
+                  <Huisnummer>1</Huisnummer>
+                  <Gemeente>
+                    <NISCode>35013</NISCode>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>Belgie</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>059700710</Telefoonnummer>
+                  <Email>info@deavondschool.be</Email>
+                  <Website>http://www.deavondschool.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>9</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Generaal Jungbluthlaan</Naam>
+                  </Straat>
+                  <Huisnummer>2</Huisnummer>
+                  <Gemeente>
+                    <PostCode>8400</PostCode>
+                    <Naam>Oostende</Naam>
+                  </Gemeente>
+                </Adres>
+              </OnderwijsLocatie>
+              <Volwassenenonderwijs>
+                <Status>
+                  <Code>INGESCHREVEN</Code>
+                  <Omschrijving>Ingeschreven</Omschrijving>
+                </Status>
+                <DatumInschrijving>2016-01-19</DatumInschrijving>
+                <Opleiding>
+                  <Code>832</Code>
+                  <Naam>Nederlands tweede taal - richtgraad 2</Naam>
+                  <Omschrijving>Nederlands tweede taal - richtgraad 2</Omschrijving>
+                  <Diplomagericht>0</Diplomagericht>
+                  <Opleidingsvariant>
+                    <Code>10136</Code>
+                    <Naam>Nederlands tweede taal - richtgraad 2</Naam>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </Opleidingsvariant>
+                </Opleiding>
+                <Module>
+                  <Code>70000439</Code>
+                  <Naam>NT2 - threshold 2 schriftelijk publiek</Naam>
+                  <Omschrijving>NT2 - threshold 2 schriftelijk publiek</Omschrijving>
+                  <ModuleVariant>
+                    <Code>10569</Code>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </ModuleVariant>
+                </Module>
+              </Volwassenenonderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-04-24</Datum>
+              <Tijd>10:03:00.588</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     bf935b1d-093d-4b4a-9858-d18944f0fa26/20170424700257172/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                    >
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>Disci</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-04-24</Datum>
-                            <Tijd>10:02:57.188</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering>
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>Disci</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-04-24</Datum>
+              <Tijd>10:02:57.188</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>

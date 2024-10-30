@@ -48,6 +48,6 @@ class GeefHistoriekInschrijvingTest extends MockTestBase {
         assertThat(antwoordReferte).isEqualTo(REQUEST_ID.toString());
 
         var inschrijvingReferte = doc.getValue("//Inschrijvingen/Inschrijving/Referte");
-        assertThat(inschrijvingReferte).isEqualTo("4cb57cc1-1834-4692-88ec-c5b6380c2c8d");
+        assertThat(inschrijvingReferte).isEqualTo("0bfbef2b-9fe4-4ffe-bc43-12e98308f2ed");
     }
 }

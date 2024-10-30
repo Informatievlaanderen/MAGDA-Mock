@@ -1,448 +1,441 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:01:19.972</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>0e16733a-44ea-448f-a5ba-e3de1b0f8e49</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8249</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>0e16733a-44ea-448f-a5ba-e3de1b0f8e49</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>3ef77689-a96d-448d-be6a-3a63d867e0f4</Referte>
-                            <Instelling>
-                                <Instellingsnummer>112789</Instellingsnummer>
-                                <OfficieleNaam>Buitengewoon Secundair Onderwijs Kouter</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Beekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>101</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 23 07 80</Telefoonnummer>
-                                    <Email>info@kouterkortrijk.be</Email>
-                                    <Website>www.kouterkortrijk.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Beekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>101</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 23 07 80</Telefoonnummer>
-                                    <Email>info@kouterkortrijk.be</Email>
-                                    <Website>www.kouterkortrijk.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2011-04-14</DatumInschrijving>
-                                <DatumEersteLes>2011-09-01</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>08e1a3b0-474c-4b16-821b-83415f74115d</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-01</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>33736</Nummer>
-                                        <Naam>alternerende opleiding hoeklasser</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>1</Code>
-                                        <Omschrijving>Lichte mentale handicap</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>3ef77689-a96d-448d-be6a-3a63d867e0f4</Referte>
-                            <Instelling>
-                                <Instellingsnummer>112789</Instellingsnummer>
-                                <OfficieleNaam>Buitengewoon Secundair Onderwijs Kouter</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Beekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>101</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 23 07 80</Telefoonnummer>
-                                    <Email>info@kouterkortrijk.be</Email>
-                                    <Website>www.kouterkortrijk.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Beekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>101</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 23 07 80</Telefoonnummer>
-                                    <Email>info@kouterkortrijk.be</Email>
-                                    <Website>www.kouterkortrijk.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2011-04-14</DatumInschrijving>
-                                <DatumEersteLes>2011-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>15b03854-a881-4159-b2be-2948eaeaccdc</Referte>
-                                    <Periode>
-                                        <Begin>2015-09-01</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>32810</Nummer>
-                                        <Naam>2e jaar kwalificatiefase Hoeklasser</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>1</Code>
-                                        <Omschrijving>Lichte mentale handicap</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>3ef77689-a96d-448d-be6a-3a63d867e0f4</Referte>
-                            <Instelling>
-                                <Instellingsnummer>112789</Instellingsnummer>
-                                <OfficieleNaam>Buitengewoon Secundair Onderwijs Kouter</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Beekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>101</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 23 07 80</Telefoonnummer>
-                                    <Email>info@kouterkortrijk.be</Email>
-                                    <Website>www.kouterkortrijk.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Beekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>101</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 23 07 80</Telefoonnummer>
-                                    <Email>info@kouterkortrijk.be</Email>
-                                    <Website>www.kouterkortrijk.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2011-04-14</DatumInschrijving>
-                                <DatumEersteLes>2011-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>2d8c440a-acd3-4365-9537-14e3ce0d16fe</Referte>
-                                    <Periode>
-                                        <Begin>2014-09-01</Begin>
-                                        <Einde>2015-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>32809</Nummer>
-                                        <Naam>1e jaar kwalificatiefase Hoeklasser</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>1</Code>
-                                        <Omschrijving>Lichte mentale handicap</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>3ef77689-a96d-448d-be6a-3a63d867e0f4</Referte>
-                            <Instelling>
-                                <Instellingsnummer>112789</Instellingsnummer>
-                                <OfficieleNaam>Buitengewoon Secundair Onderwijs Kouter</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Beekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>101</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 23 07 80</Telefoonnummer>
-                                    <Email>info@kouterkortrijk.be</Email>
-                                    <Website>www.kouterkortrijk.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Beekstraat</Naam>
-                                    </Straat>
-                                    <Huisnummer>101</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>34022</NISCode>
-                                        <PostCode>8500</PostCode>
-                                        <Naam>KORTRIJK</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>056 23 07 80</Telefoonnummer>
-                                    <Email>info@kouterkortrijk.be</Email>
-                                    <Website>www.kouterkortrijk.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2011-04-14</DatumInschrijving>
-                                <DatumEersteLes>2011-09-01</DatumEersteLes>
-                                <Schooljaar>2013</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>656f79d1-b246-424b-bfab-a57c343b5826</Referte>
-                                    <Periode>
-                                        <Begin>2013-09-01</Begin>
-                                        <Einde>2014-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>32808</Nummer>
-                                        <Naam>2e jaar opleidingsfase Hoeklasser</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>2</Code>
-                                            <Omschrijving>Buitengewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <TypeBuitengewoon>
-                                        <Code>1</Code>
-                                        <Omschrijving>Lichte mentale handicap</Omschrijving>
-                                    </TypeBuitengewoon>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                            xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:19.889</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:01:19.972</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>0e16733a-44ea-448f-a5ba-e3de1b0f8e49</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8249</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>0e16733a-44ea-448f-a5ba-e3de1b0f8e49</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>bfdcb2af-2aac-4f7e-be4f-0918e6f82c7b</Referte>
+              <Instelling>
+                <Instellingsnummer>112789</Instellingsnummer>
+                <OfficieleNaam>Buitengewoon Secundair Onderwijs Kouter</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Beekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 23 07 80</Telefoonnummer>
+                  <Email>info@kouterkortrijk.be</Email>
+                  <Website>www.kouterkortrijk.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Beekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 23 07 80</Telefoonnummer>
+                  <Email>info@kouterkortrijk.be</Email>
+                  <Website>www.kouterkortrijk.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-04-14</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>b0e66ac4-544a-4533-b298-a513d163d6dc</Referte>
+                  <Periode>
+                    <Begin>2016-09-01</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>33736</Nummer>
+                    <Naam>alternerende opleiding hoeklasser</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>1</Code>
+                    <Omschrijving>Lichte mentale handicap</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>9e145fdf-0986-4f1a-8efd-af42e5c5811d</Referte>
+              <Instelling>
+                <Instellingsnummer>112789</Instellingsnummer>
+                <OfficieleNaam>Buitengewoon Secundair Onderwijs Kouter</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Beekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 23 07 80</Telefoonnummer>
+                  <Email>info@kouterkortrijk.be</Email>
+                  <Website>www.kouterkortrijk.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Beekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 23 07 80</Telefoonnummer>
+                  <Email>info@kouterkortrijk.be</Email>
+                  <Website>www.kouterkortrijk.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-04-14</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>142db36a-c467-4601-9d6f-7560d7dd01dc</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>32810</Nummer>
+                    <Naam>2e jaar kwalificatiefase Hoeklasser</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>1</Code>
+                    <Omschrijving>Lichte mentale handicap</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>05c3c9bd-0993-445e-8be4-b4dee75ec5fd</Referte>
+              <Instelling>
+                <Instellingsnummer>112789</Instellingsnummer>
+                <OfficieleNaam>Buitengewoon Secundair Onderwijs Kouter</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Beekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 23 07 80</Telefoonnummer>
+                  <Email>info@kouterkortrijk.be</Email>
+                  <Website>www.kouterkortrijk.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Beekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 23 07 80</Telefoonnummer>
+                  <Email>info@kouterkortrijk.be</Email>
+                  <Website>www.kouterkortrijk.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-04-14</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>da46b216-4ec0-4923-b59c-2ca9691e5517</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>32809</Nummer>
+                    <Naam>1e jaar kwalificatiefase Hoeklasser</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>1</Code>
+                    <Omschrijving>Lichte mentale handicap</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>9502369c-98c8-454e-889e-54bfea2154df</Referte>
+              <Instelling>
+                <Instellingsnummer>112789</Instellingsnummer>
+                <OfficieleNaam>Buitengewoon Secundair Onderwijs Kouter</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Beekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 23 07 80</Telefoonnummer>
+                  <Email>info@kouterkortrijk.be</Email>
+                  <Website>www.kouterkortrijk.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Beekstraat</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>34022</NISCode>
+                    <PostCode>8500</PostCode>
+                    <Naam>KORTRIJK</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>056 23 07 80</Telefoonnummer>
+                  <Email>info@kouterkortrijk.be</Email>
+                  <Website>www.kouterkortrijk.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-04-14</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>24cf70d9-ca94-4b66-88bb-c55ca583ba92</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>32808</Nummer>
+                    <Naam>2e jaar opleidingsfase Hoeklasser</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>1</Code>
+                    <Omschrijving>Lichte mentale handicap</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:19.889</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     b1566567-0864-40dd-9e4a-b2cedea073f3/20170505670117083/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                            xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:01:17.304</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:01:17.304</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     b26800f7-6335-4abf-b097-efbb0478bffa/20170505670117083/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-

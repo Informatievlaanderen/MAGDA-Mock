@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client.domain.model.shared;
 
+import be.vlaanderen.vip.magda.client.domain.giveannualaccounts.AnnualAccounts;
 import be.vlaanderen.vip.magda.client.domain.givearzacareer.ARZACareer;
 import be.vlaanderen.vip.magda.client.domain.giveenterprise.Enterprise;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -8,37 +9,42 @@ import jakarta.xml.bind.annotation.XmlValue;
 
 import java.io.Serializable;
 
-public class CodeAndDescriptionJaxb implements Enterprise.CodeAndDescription, ARZACareer.CodeAndDescription, Serializable {
+public class CodeAndDescriptionJaxb implements Enterprise.CodeAndDescription, ARZACareer.CodeAndDescription, AnnualAccounts.CodeAndDescription, Serializable {
     @XmlElement(name = "Code")
-    String value;
-    @XmlAttribute(name = "Beschrijving")
-    String codeDescription;
+    Code code;
     @XmlElement(name = "Omschrijving")
     Description description;
 
     @Override
     public String codeValue() {
-        return value;
+        return code != null ? code.value : null;
     }
 
     @Override
     public String codeDescription() {
-        return codeDescription;
+        return code != null ? code.description : null;
     }
 
     @Override
     public String descriptionValue() {
-        return description.value;
+        return description != null ? description.value : null;
     }
 
     @Override
     public String descriptionOrigin() {
-        return description.origin;
+        return description != null ? description.origin : null;
     }
 
     @Override
     public String descriptionLanguageCode() {
-        return description.languageCode;
+        return description != null ? description.languageCode : null;
+    }
+
+    private static class Code implements Serializable {
+        @XmlValue
+        String value;
+        @XmlAttribute(name = "Beschrijving")
+        String description;
     }
 
     private static class Description implements Serializable {

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefJaarrekeningenResponse xmlns:web="http://webservice.geefjaarrekeningendienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefJaarrekeningen</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-10-14</Datum>
+                    <Tijd>09:03:28.691</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>9920be19-6ace-43fd-8925-f8dc753de199</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kb.vlaanderen.be/aiv/kmo-automatisch-advies-ond</Identificatie>
+                    <Referte>81d20f94-7645-4bfa-88a8-741214efc4fa</Referte>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>602582cc-29dd-40d3-a221-60740e330523</Referte>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>30001</Identificatie>
+                        <Oorsprong>MAGDA</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2024-10-14</Datum>
+                            <Tijd>09:03:28.691</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefJaarrekeningenResponse>

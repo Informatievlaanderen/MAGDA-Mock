@@ -21,7 +21,7 @@ shopt -s nocasematch
 
 # no merge if skipMergeDev is true
 if [ "$skipMergeDev" == "true" ]; then
-  mvn -B com.amashchenko.maven.plugin:gitflow-maven-plugin:1.17.0:hotfix-finish \
+  mvn -B com.amashchenko.maven.plugin:gitflow-maven-plugin:1.19.0:hotfix-finish \
     -Dverbose="true" \
     -DuseSnapshotInHotfix="true" \
     -DpreHotfixGoals="" \
@@ -33,7 +33,7 @@ if [ "$skipMergeDev" == "true" ]; then
     -DargLine="-B -s .m2/settings.xml"
 else
   # finish gitflow hotfix with merge to develop
-  mvn -B com.amashchenko.maven.plugin:gitflow-maven-plugin:1.17.0:hotfix-finish \
+  mvn -B com.amashchenko.maven.plugin:gitflow-maven-plugin:1.19.0:hotfix-finish \
     -Dverbose="true" \
     -DuseSnapshotInHotfix="true" \
     -DpreHotfixGoals="" \

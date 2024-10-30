@@ -56,6 +56,7 @@ echo "Deploying version ${VERSION}";
 git config --global user.email "magda-pipeline@vlaanderen.be"
 git config --global user.name "Magda Pipeline"
 
+rm -rf "${INFRA_REPO}"
 git clone "git@bitbucket.org:vlaamseoverheid/${INFRA_REPO}.git" || exit 1
 cd "${INFRA_REPO}"
 

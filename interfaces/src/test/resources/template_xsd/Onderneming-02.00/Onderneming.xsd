@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+  #%L
+  VIPInterfaces-generiek
+  %%
+  Copyright (C) 2016 - 2018 Vlaamse Overheid
+  %%
+  Licensed under the EUPL, Version 1.1 or – as soon they will be
+  approved by the European Commission - subsequent versions of the
+  EUPL (the "Licence");
+  
+  You may not use this work except in compliance with the Licence.
+  You may obtain a copy of the Licence at:
+  
+  http://ec.europa.eu/idabc/eupl5
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the Licence is distributed on an "AS IS" basis,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the Licence for the specific language governing permissions and
+  limitations under the Licence.
+  #L%
+  -->
+
+<xs:schema targetNamespace = "http://onderneming-02_00.vip.vlaanderen.be"
+		   xmlns = "http://onderneming-02_00.vip.vlaanderen.be"
+	 	   xmlns:xs = "http://www.w3.org/2001/XMLSchema"
+	 	   elementFormDefault = "unqualified"
+	 	   attributeFormDefault = "unqualified"
+	 	   version = "2.00">
+	 	   
+	<xs:include schemaLocation = "OndernemingComplex.xsd"/>
+</xs:schema>

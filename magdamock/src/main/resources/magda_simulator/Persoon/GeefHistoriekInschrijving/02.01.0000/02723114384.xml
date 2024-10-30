@@ -1,523 +1,515 @@
-<web:GeefHistoriekInschrijvingResponse
-        xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-    <Repliek>
-        <Context>
-            <Naam>GeefHistoriekInschrijving</Naam>
-            <Versie>02.01.0000</Versie>
-            <Bericht>
-                <Type>ANTWOORD</Type>
-                <Tijdstip>
-                    <Datum>2017-05-05</Datum>
-                    <Tijd>07:00:36.342</Tijd>
-                </Tijdstip>
-                <Afzender>
-                    <Identificatie>vip.vlaanderen.be</Identificatie>
-                    <Naam>MagdaGateway</Naam>
-                    <Referte>b3d4c3e5-c125-4c85-bac9-735f04ca7fd6</Referte>
-                </Afzender>
-                <Ontvanger>
-                    <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
-                    <Referte>XE:1072:25160:8237</Referte>
-                    <Hoedanigheid>101</Hoedanigheid>
-                </Ontvanger>
-            </Bericht>
-        </Context>
-        <Antwoorden>
-            <Antwoord>
-                <Referte>b3d4c3e5-c125-4c85-bac9-735f04ca7fd6</Referte>
-                <Inhoud>
-                    <Inschrijvingen>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>dca06d10-2b6c-4465-b48c-9ac9abbfa930</Referte>
-                            <Instelling>
-                                <Instellingsnummer>12393</Instellingsnummer>
-                                <OfficieleNaam>Vrije Lagere School</OfficieleNaam>
-                                <Instantie>Basisschool</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Naamsesteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>355</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3001</PostCode>
-                                        <Naam>HEVERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>016 39 90 25</Telefoonnummer>
-                                    <Email>directie.lagereschoolhhh@leuven-zuid.be</Email>
-                                    <Website>www.basisschoolhhh.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Naamsesteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>355</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3001</PostCode>
-                                        <Naam>HEVERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>016 39 90 25</Telefoonnummer>
-                                    <Email>directie.lagereschoolhhh@leuven-zuid.be</Email>
-                                    <Website>www.basisschoolhhh.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2008-09-01</DatumInschrijving>
-                                <DatumEersteLes>2008-09-01</DatumEersteLes>
-                                <Schooljaar>2013</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>6100a4d2-8515-4939-b9cd-bd09bb2956f0</Referte>
-                                    <Periode>
-                                        <Begin>2013-09-01</Begin>
-                                        <Einde>2014-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>14905</Nummer>
-                                        <Naam>6de leerjaar</Naam>
-                                        <Niveau>
-                                            <Code>2</Code>
-                                            <Omschrijving>Lager onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                    <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
-                                    <GewezenAnderstaligeNieuwkomer>0</GewezenAnderstaligeNieuwkomer>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>20e56182-8b97-4471-b628-0b357b9e9b96</Referte>
-                            <Instelling>
-                                <Instellingsnummer>32664</Instellingsnummer>
-                                <OfficieleNaam>Pedagogische Humaniora - Heilig Hartinst</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Naamsesteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>355</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3001</PostCode>
-                                        <Naam>HEVERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>016 39 90 51</Telefoonnummer>
-                                    <Email>walter.dhoore@hhscholen.be</Email>
-                                    <Website>http://www.hhscholen.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Naamsesteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>355</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3001</PostCode>
-                                        <Naam>HEVERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>016 39 90 51</Telefoonnummer>
-                                    <Email>walter.dhoore@hhscholen.be</Email>
-                                    <Website>http://www.hhscholen.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2016-09-01</DatumInschrijving>
-                                <DatumEersteLes>2016-09-01</DatumEersteLes>
-                                <Schooljaar>2016</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>6371cadb-c67f-47de-8c90-17ddfac32d91</Referte>
-                                    <Periode>
-                                        <Begin>2016-09-01</Begin>
-                                        <Einde>2017-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>32565</Nummer>
-                                        <Naam>1e leerjaar in de 2e graad Humane wetenschappen ASO</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>d2c363d5-153f-4505-a4fa-c76d5b1049bb</Referte>
-                            <Instelling>
-                                <Instellingsnummer>126656</Instellingsnummer>
-                                <OfficieleNaam>Pedagogische Humaniora - Heilig Hartinst</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Naamsesteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>355</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3001</PostCode>
-                                        <Naam>HEVERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>016 39 90 51</Telefoonnummer>
-                                    <Email>walter.dhoore@hhscholen.be</Email>
-                                    <Website>http://www.hhscholen.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Naamsesteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>355</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3001</PostCode>
-                                        <Naam>HEVERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>016 39 90 51</Telefoonnummer>
-                                    <Email>walter.dhoore@hhscholen.be</Email>
-                                    <Website>http://www.hhscholen.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2015-01-05</DatumInschrijving>
-                                <DatumEersteLes>2015-01-05</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>50824d25-d49d-4438-bc43-a9c7056cbfe3</Referte>
-                                    <Periode>
-                                        <Begin>2015-01-05</Begin>
-                                        <Einde>2015-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>6246</Nummer>
-                                        <Naam>1ste leerjaar A</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>9e432c96-5ff3-4fbd-9981-16a003e1266e</Referte>
-                            <Instelling>
-                                <Instellingsnummer>126664</Instellingsnummer>
-                                <OfficieleNaam>Heilig Hartinstituut TechnischOnderwijs</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Naamsesteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>355</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3001</PostCode>
-                                        <Naam>HEVERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>016 39 90 51</Telefoonnummer>
-                                    <Email>walter.dhoore@hhscholen.be</Email>
-                                    <Website>http://www.hhscholen.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Naamsesteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>355</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3001</PostCode>
-                                        <Naam>HEVERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>016 39 90 51</Telefoonnummer>
-                                    <Email>walter.dhoore@hhscholen.be</Email>
-                                    <Website>http://www.hhscholen.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2015-09-01</DatumInschrijving>
-                                <DatumEersteLes>2015-09-01</DatumEersteLes>
-                                <Schooljaar>2015</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>358bad54-65c7-4707-9e97-7e19784a2166</Referte>
-                                    <Periode>
-                                        <Begin>2015-09-01</Begin>
-                                        <Einde>2016-08-31</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>20098</Nummer>
-                                        <Naam>2e leerjaar in de 1e graad Moderne wetenschappen</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>X</Code>
-                                            <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>10</Code>
-                                            <Omschrijving>Geen informatie</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                        <Inschrijving
-                                xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                            <Bron>LP</Bron>
-                            <Referte>e0ddc6a7-0ade-4e7c-ba91-f6b2742d5d95</Referte>
-                            <Instelling>
-                                <Instellingsnummer>126672</Instellingsnummer>
-                                <OfficieleNaam>Heilig Hartinstituut Lyceum Middenschool</OfficieleNaam>
-                                <Instantie>Secundaire school</Instantie>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Naamsesteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>355</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3001</PostCode>
-                                        <Naam>HEVERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>016 39 90 51</Telefoonnummer>
-                                    <Email>walter.dhoore@hhscholen.be</Email>
-                                    <Website>http://www.hhscholen.be</Website>
-                                </Contactgegevens>
-                            </Instelling>
-                            <OnderwijsLocatie>
-                                <Nummer>1</Nummer>
-                                <Adres>
-                                    <Straat>
-                                        <Naam>Naamsesteenweg</Naam>
-                                    </Straat>
-                                    <Huisnummer>355</Huisnummer>
-                                    <Gemeente>
-                                        <NISCode>24062</NISCode>
-                                        <PostCode>3001</PostCode>
-                                        <Naam>HEVERLEE</Naam>
-                                    </Gemeente>
-                                    <Land>
-                                        <NISCode>150</NISCode>
-                                    </Land>
-                                </Adres>
-                                <Contactgegevens>
-                                    <Telefoonnummer>016 39 90 51</Telefoonnummer>
-                                    <Email>walter.dhoore@hhscholen.be</Email>
-                                    <Website>http://www.hhscholen.be</Website>
-                                </Contactgegevens>
-                            </OnderwijsLocatie>
-                            <LeerplichtOnderwijs>
-                                <SoortProgramma>
-                                    <Code>1</Code>
-                                    <Omschrijving>Voltijds</Omschrijving>
-                                </SoortProgramma>
-                                <DatumInschrijving>2014-09-01</DatumInschrijving>
-                                <DatumEersteLes>2014-09-01</DatumEersteLes>
-                                <Schooljaar>2014</Schooljaar>
-                                <InschrijvingAdministratieveGroep>
-                                    <Referte>4dff20ae-dc46-48a1-9088-158bb7e14f20</Referte>
-                                    <Periode>
-                                        <Begin>2014-09-01</Begin>
-                                        <Einde>2015-01-04</Einde>
-                                    </Periode>
-                                    <AdministratieveGroep>
-                                        <Nummer>6246</Nummer>
-                                        <Naam>1ste leerjaar A</Naam>
-                                        <Niveau>
-                                            <Code>3</Code>
-                                            <Omschrijving>Secundair onderwijs</Omschrijving>
-                                        </Niveau>
-                                        <SoortOnderwijs>
-                                            <Code>1</Code>
-                                            <Omschrijving>Gewoon onderwijs</Omschrijving>
-                                        </SoortOnderwijs>
-                                    </AdministratieveGroep>
-                                    <Uitschrijving>
-                                        <Aanleiding>
-                                            <Code>E</Code>
-                                            <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
-                                        </Aanleiding>
-                                        <SituatieNa>
-                                            <Code>9</Code>
-                                            <Omschrijving>Andere</Omschrijving>
-                                        </SituatieNa>
-                                    </Uitschrijving>
-                                </InschrijvingAdministratieveGroep>
-                            </LeerplichtOnderwijs>
-                        </Inschrijving>
-                    </Inschrijvingen>
-                </Inhoud>
-                <Uitzonderingen>
-                    <Uitzondering
-                            xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DHO2</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:00:36.251</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>dho2logid</Naam>
-                                <Waarde>
+<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2017-05-05</Datum>
+          <Tijd>07:00:36.342</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>b3d4c3e5-c125-4c85-bac9-735f04ca7fd6</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>XE:1072:25160:8237</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>b3d4c3e5-c125-4c85-bac9-735f04ca7fd6</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>c14652aa-59f1-4929-acc1-c88550cc0e34</Referte>
+              <Instelling>
+                <Instellingsnummer>12393</Instellingsnummer>
+                <OfficieleNaam>Vrije Lagere School</OfficieleNaam>
+                <Instantie>Basisschool</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Naamsesteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>355</Huisnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3001</PostCode>
+                    <Naam>HEVERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>016 39 90 25</Telefoonnummer>
+                  <Email>directie.lagereschoolhhh@leuven-zuid.be</Email>
+                  <Website>www.basisschoolhhh.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Naamsesteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>355</Huisnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3001</PostCode>
+                    <Naam>HEVERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>016 39 90 25</Telefoonnummer>
+                  <Email>directie.lagereschoolhhh@leuven-zuid.be</Email>
+                  <Website>www.basisschoolhhh.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2008-09-01</DatumInschrijving>
+                <DatumEersteLes>2008-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>c3ce5b48-8012-49df-9127-b97cea094e42</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>14905</Nummer>
+                    <Naam>6de leerjaar</Naam>
+                    <Niveau>
+                      <Code>2</Code>
+                      <Omschrijving>Lager onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                  <AnderstaligeNieuwkomer>0</AnderstaligeNieuwkomer>
+                  <GewezenAnderstaligeNieuwkomer>0</GewezenAnderstaligeNieuwkomer>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>7e465b53-dc39-4a42-95b8-4b3cc6eb48dd</Referte>
+              <Instelling>
+                <Instellingsnummer>32664</Instellingsnummer>
+                <OfficieleNaam>Pedagogische Humaniora - Heilig Hartinst</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Naamsesteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>355</Huisnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3001</PostCode>
+                    <Naam>HEVERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>016 39 90 51</Telefoonnummer>
+                  <Email>walter.dhoore@hhscholen.be</Email>
+                  <Website>http://www.hhscholen.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Naamsesteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>355</Huisnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3001</PostCode>
+                    <Naam>HEVERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>016 39 90 51</Telefoonnummer>
+                  <Email>walter.dhoore@hhscholen.be</Email>
+                  <Website>http://www.hhscholen.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2016-09-01</DatumInschrijving>
+                <DatumEersteLes>2016-09-01</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>59d28aab-4647-4e6e-8320-58c51ff18575</Referte>
+                  <Periode>
+                    <Begin>2016-09-01</Begin>
+                    <Einde>2017-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>32565</Nummer>
+                    <Naam>1e leerjaar in de 2e graad Humane wetenschappen ASO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>1dd89122-c206-4737-8efb-c04ef5d223a9</Referte>
+              <Instelling>
+                <Instellingsnummer>126656</Instellingsnummer>
+                <OfficieleNaam>Pedagogische Humaniora - Heilig Hartinst</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Naamsesteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>355</Huisnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3001</PostCode>
+                    <Naam>HEVERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>016 39 90 51</Telefoonnummer>
+                  <Email>walter.dhoore@hhscholen.be</Email>
+                  <Website>http://www.hhscholen.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Naamsesteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>355</Huisnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3001</PostCode>
+                    <Naam>HEVERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>016 39 90 51</Telefoonnummer>
+                  <Email>walter.dhoore@hhscholen.be</Email>
+                  <Website>http://www.hhscholen.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-01-05</DatumInschrijving>
+                <DatumEersteLes>2015-01-05</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>b94d6b40-aea1-4d85-9078-f0fe45ea4602</Referte>
+                  <Periode>
+                    <Begin>2015-01-05</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>6246</Nummer>
+                    <Naam>1ste leerjaar A</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>b46aa097-c1de-464c-a095-bb8dad834d7f</Referte>
+              <Instelling>
+                <Instellingsnummer>126664</Instellingsnummer>
+                <OfficieleNaam>Heilig Hartinstituut TechnischOnderwijs</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Naamsesteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>355</Huisnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3001</PostCode>
+                    <Naam>HEVERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>016 39 90 51</Telefoonnummer>
+                  <Email>walter.dhoore@hhscholen.be</Email>
+                  <Website>http://www.hhscholen.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Naamsesteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>355</Huisnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3001</PostCode>
+                    <Naam>HEVERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>016 39 90 51</Telefoonnummer>
+                  <Email>walter.dhoore@hhscholen.be</Email>
+                  <Website>http://www.hhscholen.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-09-01</DatumInschrijving>
+                <DatumEersteLes>2015-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>e6bdfb9b-e799-4d3d-8344-fd8707c6853e</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2016-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>20098</Nummer>
+                    <Naam>2e leerjaar in de 1e graad Moderne wetenschappen</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving xmlns:ns3="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+              <Bron>LP</Bron>
+              <Referte>b7e1c47f-e21d-41ea-9c46-9d85c67db93b</Referte>
+              <Instelling>
+                <Instellingsnummer>126672</Instellingsnummer>
+                <OfficieleNaam>Heilig Hartinstituut Lyceum Middenschool</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Naamsesteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>355</Huisnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3001</PostCode>
+                    <Naam>HEVERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>016 39 90 51</Telefoonnummer>
+                  <Email>walter.dhoore@hhscholen.be</Email>
+                  <Website>http://www.hhscholen.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Naamsesteenweg</Naam>
+                  </Straat>
+                  <Huisnummer>355</Huisnummer>
+                  <Gemeente>
+                    <NISCode>24062</NISCode>
+                    <PostCode>3001</PostCode>
+                    <Naam>HEVERLEE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>016 39 90 51</Telefoonnummer>
+                  <Email>walter.dhoore@hhscholen.be</Email>
+                  <Website>http://www.hhscholen.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2014-09-01</DatumInschrijving>
+                <DatumEersteLes>2014-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>fd2355df-0171-4a46-a8f8-e704489dd958</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-01-04</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>6246</Nummer>
+                    <Naam>1ste leerjaar A</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>E</Code>
+                      <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>9</Code>
+                      <Omschrijving>Andere</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+        <Uitzonderingen>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DHO2</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:00:36.251</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>dho2logid</Naam>
+                <Waarde>
                                     89968eb8-a0a5-45d3-b773-43d96e1facd3/20170505670033248/DHO2/dev_branch_vpc/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                    <Uitzondering
-                            xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
-                        <Identificatie>30101</Identificatie>
-                        <Oorsprong>DVNCI</Oorsprong>
-                        <Type>FOUT</Type>
-                        <Tijdstip>
-                            <Datum>2017-05-05</Datum>
-                            <Tijd>07:00:33.553</Tijd>
-                        </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
-                        <Annotaties>
-                            <Annotatie>
-                                <Naam>davincilogid</Naam>
-                                <Waarde>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+          <Uitzondering xmlns:ns2="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+            <Identificatie>30101</Identificatie>
+            <Oorsprong>DVNCI</Oorsprong>
+            <Type>FOUT</Type>
+            <Tijdstip>
+              <Datum>2017-05-05</Datum>
+              <Tijd>07:00:33.553</Tijd>
+            </Tijdstip>
+            <Diagnose>Geen gegevens gevonden voor de vraag.</Diagnose>
+            <Annotaties>
+              <Annotatie>
+                <Naam>davincilogid</Naam>
+                <Waarde>
                                     634575ab-4bde-45f0-80f6-2a63b219e375/20170505670033248/DAVINCI/dev_demo/OntsluitingDienst01/OntsluitingDienst/02.01.0000/GeefHistoriekInschrijving
                                 </Waarde>
-                            </Annotatie>
-                        </Annotaties>
-                    </Uitzondering>
-                </Uitzonderingen>
-            </Antwoord>
-        </Antwoorden>
-    </Repliek>
+              </Annotatie>
+            </Annotaties>
+          </Uitzondering>
+        </Uitzonderingen>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefHistoriekInschrijvingResponse>
-
