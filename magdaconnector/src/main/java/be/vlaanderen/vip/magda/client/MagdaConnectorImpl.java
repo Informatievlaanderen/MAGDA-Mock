@@ -161,11 +161,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
 
     private String messageForUitzonderingEntries(List<UitzonderingEntry> uitzonderingenEntries, List<UitzonderingEntry> responseUitzonderingEntries) {
-        if(!responseUitzonderingEntries.isEmpty() || !uitzonderingenEntries.isEmpty()) {
-            return formatUitzonderingEntries("Level 2: ", uitzonderingenEntries) + formatUitzonderingEntries("Level 3: ", responseUitzonderingEntries);
-        } else {
-            return "Ok";
-        }
+        return formatUitzonderingEntries("Level 2: ", uitzonderingenEntries) + formatUitzonderingEntries("Level 3: ", responseUitzonderingEntries);
     }
 
     private void logRequestResultMessage(Level logLevel, MagdaRequest magdaRequest, UUID requestId, Duration duration, String message) {
