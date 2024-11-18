@@ -93,21 +93,21 @@ clone:
 pipelines:
   branches:
     master:
-      - parallel:
-          steps:
-            - step:
-                name: Check
-                caches:
-                  - maven
-                script:
-                  # Only run for released version
-                  - mvn -B -s .m2/settings.xml org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3:enforce -Drules=requireReleaseVersion
-                  - mkdir -p target
-                  - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
-                artifacts:
-                  - target/pom_version
-            - step:
-                <<: *sigridPublish
+      - step:
+          name: Check
+          caches:
+            - maven
+          script:
+            # Only run for released version
+            - mvn -B -s .m2/settings.xml org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3:enforce -Drules=requireReleaseVersion
+            - mkdir -p target
+            - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
+            - mvn dependency:tree > maven.tree
+          artifacts:
+            - target/pom_version
+            - maven.tree
+      - step:
+          <<: *sigridPublish
       - step:
           <<: *deploy
           name: Deploy release to TST
@@ -128,24 +128,24 @@ pipelines:
           trigger: manual
           deployment: PRD_SOLID
     develop:
-      - parallel:
-          steps:
-            - step:
-                name: Maven
-                caches:
-                  - maven
-                  - docker
-                script:
-                  - export TESTCONTAINERS_RYUK_DISABLED=true
-                  - export MAVEN_OPTS="-Xmx1024m"
-                  - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD}
-                  - mkdir -p target
-                  - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
-                artifacts:
-                  - "**/*.jar"
-                  - target/pom_version
-            - step:
-                <<: *sigridPublish
+      - step:
+          name: Maven
+          caches:
+            - maven
+            - docker
+          script:
+            - export TESTCONTAINERS_RYUK_DISABLED=true
+            - export MAVEN_OPTS="-Xmx1024m"
+            - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD}
+            - mkdir -p target
+            - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
+            - mvn dependency:tree > maven.tree
+          artifacts:
+            - "**/*.jar"
+            - target/pom_version
+            - maven.tree
+      - step:
+          <<: *sigridPublish
       - step:
           <<: *deploy
           name: Deploy to BETA
