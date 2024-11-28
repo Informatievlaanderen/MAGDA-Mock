@@ -71,10 +71,12 @@ public class MagdaConnectorImpl implements MagdaConnector {
             legalLogging(magdaRequest, requestId, duration, uitzonderingen, antwoord.getSubjects());
 
             final var antwoordUitzonderingen = antwoord.getResponseUitzonderingEntries();
-            var uitzonderingenMessage1 = messageForUitzonderingEntries(uitzonderingen, antwoordUitzonderingen);
 
-            magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
-                    .log("Result of request to MAGDA service with reference [{}] ({} ms): {}", requestId, duration.toMillis(), uitzonderingenMessage1);
+            if(antwoordUitzonderingen.isEmpty() && uitzonderingen.isEmpty()) {
+                logRequestResultMessage(Level.INFO, magdaRequest, requestId, duration, "Ok");
+            } else {
+                logRequestResultMessage(Level.WARN, magdaRequest, requestId, duration, messageForUitzonderingEntries(uitzonderingen, antwoordUitzonderingen));
+            }
 
             if(!antwoord.isHasContents() && antwoordUitzonderingen.isEmpty() && uitzonderingen.isEmpty()) {
                 throw new UitzonderingenSectionInResponseException(magdaRequest.getSubject(), getLevel1UitzonderingEntry(response), magdaRequest.magdaServiceIdentification(), magdaRequest.getCorrelationId(), requestId);
@@ -159,11 +161,12 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
 
     private String messageForUitzonderingEntries(List<UitzonderingEntry> uitzonderingenEntries, List<UitzonderingEntry> responseUitzonderingEntries) {
-        var uitzonderingenMessage1 = "Ok";
-        if (!responseUitzonderingEntries.isEmpty() || !uitzonderingenEntries.isEmpty()) {
-            uitzonderingenMessage1 = formatUitzonderingEntries("Level 2: ", uitzonderingenEntries) + formatUitzonderingEntries("Level 3: ", responseUitzonderingEntries);
-        }
-        return uitzonderingenMessage1;
+        return formatUitzonderingEntries("Level 2: ", uitzonderingenEntries) + formatUitzonderingEntries("Level 3: ", responseUitzonderingEntries);
+    }
+
+    private void logRequestResultMessage(Level logLevel, MagdaRequest magdaRequest, UUID requestId, Duration duration, String message) {
+        magdaRequestLoggingEventBuilder(log, logLevel, magdaRequest)
+                .log("Result of request to MAGDA service with reference [{}] ({} ms): {}", requestId, duration.toMillis(), message);
     }
 
     private void legalLogging(MagdaRequest magdaRequest, UUID requestId, Duration duration, List<UitzonderingEntry> uitzonderingEntries, Set<SubjectIdentificationNumber> subjects) {
