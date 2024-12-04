@@ -37,7 +37,7 @@ public abstract class BaseSOAPSimulator implements SOAPSimulator {
         var today = dayFormat.format(new Date());
         response.setValue("//Context/Bericht/Tijdstip/Datum", today);
 
-        var timeFormat = new SimpleDateFormat("HH:mm:ss.S");
+        var timeFormat = new SimpleDateFormat("HH:mm:ss.SSS");
         var time = timeFormat.format(new Date());
         response.setValue("//Context/Bericht/Tijdstip/Tijd", time);
 
