@@ -1,99 +1,102 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
-	<Repliek>
-		<Context xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
-			<Naam>GeefPersoon</Naam>
-			<Versie>02.02.0000</Versie>
-			<Bericht>
-				<Type>ANTWOORD</Type>
-				<Tijdstip>
-					<Datum>2021-07-14</Datum>
-					<Tijd>11:43:58.680</Tijd>
-				</Tijdstip>
-				<Afzender>
-					<Identificatie>vip.vlaanderen.be</Identificatie>
-					<Naam>MagdaGateway</Naam>
-					<Referte>ac4ed518-e8b8-40be-94e7-1f5f79c2a695</Referte>
-				</Afzender>
-				<Ontvanger>
-					<Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-aip</Identificatie>
-					<Referte>fd6cdeb1-0791-4402-9904-abd0ea0a4ac9</Referte>
-					<Hoedanigheid>1300</Hoedanigheid>
-				</Ontvanger>
-			</Bericht>
-		</Context>
-		<Antwoorden>
-			<Antwoord>
-				<Referte xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">fd6cdeb1-0791-4402-9904-abd0ea0a4ac9</Referte>
-				<Inhoud>
-					<Persoon Bron="RR" DatumCreatie="2007-03-21" DatumModificatie="2007-03-21">
-						<INSZ xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">00651100156</INSZ>
-						<Naam DatumBegin="2000-05-11">
-							<Achternamen>
-								<Achternaam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Nadzialek</Achternaam>
-							</Achternamen>
-							<Voornamen>
-								<Voornaam>Boris</Voornaam>
-							</Voornamen>
-						</Naam>
-						<Geslacht>
-							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
-							<Omschrijving>Mannelijk</Omschrijving>
-						</Geslacht>
-						<Beheerder DatumBegin="2005-06-01">
-							<Plaats>
-								<Gemeente>
-									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">52011</NISCode>
-									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Charleroi</Naam>
-								</Gemeente>
-								<Land>
-									<NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCode>
-									<ISOCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCode>
-									<Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</Naam>
-								</Land>
-							</Plaats>
-							<Fusie>
-								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">0</Code>
-								<Omschrijving>NEEN</Omschrijving>
-							</Fusie>
-							<Taalregime>
-								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
-								<Omschrijving>Frans</Omschrijving>
-							</Taalregime>
-						</Beheerder>
-						<Register DatumBegin="2005-06-01">
-							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">5</Code>
-							<Omschrijving>W.R.</Omschrijving>
-						</Register>
-						<Nationaliteiten>
-							<Nationaliteit DatumBegin="2000-05-11">
-								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">145</Code>
-								<Omschrijving>Russische Federatie</Omschrijving>
-							</Nationaliteit>
-						</Nationaliteiten>
-						<Adressen>
-							<Hoofdverblijfplaats DatumBegin="2005-06-01">
-								<Huisnummer xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">956</Huisnummer>
-								<Land>
-									<String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</String>
-									<Taal xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">nl</Taal>
-								</Land>
-								<Postcode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">6043</Postcode>
-								<NISCodeLand xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCodeLand>
-								<ISOCodeLand xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCodeLand>
-								<NISCodeGemeente xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">52011</NISCodeGemeente>
-								<StraatCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">7556</StraatCode>
-								<NietGestandaardiseerdeStraatnaam>
-									<String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Rue du Vigneron</String>
-								</NietGestandaardiseerdeStraatnaam>
-								<NietGestandaardiseerdeGemeentenaam>
-									<String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Charleroi</String>
-								</NietGestandaardiseerdeGemeentenaam>
-							</Hoofdverblijfplaats>
-						</Adressen>
-					</Persoon>
-				</Inhoud>
-			</Antwoord>
-		</Antwoorden>
-	</Repliek>
+  <Repliek>
+    <Context xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+      <Naam>GeefPersoon</Naam>
+      <Versie>02.02.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2021-07-14</Datum>
+          <Tijd>11:43:58.680</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>ac4ed518-e8b8-40be-94e7-1f5f79c2a695</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-aip</Identificatie>
+          <Referte>fd6cdeb1-0791-4402-9904-abd0ea0a4ac9</Referte>
+          <Hoedanigheid>1300</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">fd6cdeb1-0791-4402-9904-abd0ea0a4ac9</Referte>
+        <Inhoud>
+          <Persoon Bron="RR" DatumCreatie="2007-03-21" DatumModificatie="2007-03-21">
+            <INSZ xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">00651100156</INSZ>
+            <Naam DatumBegin="2000-05-11">
+              <Achternamen>
+                <Achternaam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Nadzialek</Achternaam>
+              </Achternamen>
+              <Voornamen>
+                <Voornaam>Boris</Voornaam>
+              </Voornamen>
+            </Naam>
+            <Geslacht>
+              <Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+              <Omschrijving>Mannelijk</Omschrijving>
+            </Geslacht>
+            <Beheerder DatumBegin="2005-06-01">
+              <Plaats>
+                <Gemeente>
+                  <NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">52011</NISCode>
+                  <Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Charleroi</Naam>
+                </Gemeente>
+                <Land>
+                  <NISCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCode>
+                  <ISOCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCode>
+                  <Naam xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</Naam>
+                </Land>
+              </Plaats>
+              <Fusie>
+                <Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">0</Code>
+                <Omschrijving>NEEN</Omschrijving>
+              </Fusie>
+              <Taalregime>
+                <Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+                <Omschrijving>Frans</Omschrijving>
+              </Taalregime>
+            </Beheerder>
+            <Register DatumBegin="2005-06-01">
+              <Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">5</Code>
+              <Omschrijving>W.R.</Omschrijving>
+            </Register>
+            <Nationaliteiten>
+              <Nationaliteit DatumBegin="2000-05-11">
+                <Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">145</Code>
+                <Omschrijving>Russische Federatie</Omschrijving>
+              </Nationaliteit>
+            </Nationaliteiten>
+            <Geboorte DatumBegin="2000-05-11">
+              <Datum>2000-05-11</Datum>
+            </Geboorte>
+            <Adressen>
+              <Hoofdverblijfplaats DatumBegin="2005-06-01">
+                <Huisnummer xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">956</Huisnummer>
+                <Land>
+                  <String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BELGIE</String>
+                  <Taal xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">nl</Taal>
+                </Land>
+                <Postcode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">6043</Postcode>
+                <NISCodeLand xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">150</NISCodeLand>
+                <ISOCodeLand xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">BEL</ISOCodeLand>
+                <NISCodeGemeente xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">52011</NISCodeGemeente>
+                <StraatCode xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">7556</StraatCode>
+                <NietGestandaardiseerdeStraatnaam>
+                  <String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Rue du Vigneron</String>
+                </NietGestandaardiseerdeStraatnaam>
+                <NietGestandaardiseerdeGemeentenaam>
+                  <String xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">Charleroi</String>
+                </NietGestandaardiseerdeGemeentenaam>
+              </Hoofdverblijfplaats>
+            </Adressen>
+          </Persoon>
+        </Inhoud>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
 </web:GeefPersoonResponse>
