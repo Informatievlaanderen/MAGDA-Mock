@@ -1,0 +1,6 @@
+<xs:schema targetNamespace="http://generiek-02_01.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01" xmlns="http://generiek-02_01.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+           
+	<xs:include schemaLocation="GeneriekComplex.xsd"/>
+	<xs:include schemaLocation="Context.xsd"/>
+	<xs:include schemaLocation="Uitzondering.xsd"/>
+</xs:schema>

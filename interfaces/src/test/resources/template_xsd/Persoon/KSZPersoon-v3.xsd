@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Dagmar (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/persoon-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/persoon-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:include schemaLocation="PersoonGemeenschappelijk-v3.xsd"/>
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<xs:simpleType name="CreeerBurgerlijkeStaatCodeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CreeerContactAddressTypeType">
+		<xs:restriction base="xs:unsignedShort">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CreeerGeslachtEnumType">
+		<xs:annotation>
+			<xs:documentation> | 0 (onbepaald) | 1 (man) | 2 (vrouw) | </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CreeerAchternaamType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="128"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CreeerLandNaamType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CreeerGemeenteNaamType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CreeerPostcodeType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CreeerHuisnummerType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CreeerBusType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CreeerStraatnaamType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CreeerGemeentenaamType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CreeerVoornaamType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="48"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--=> SAMENGESTELDE TYPE DEFINITES-->
+	<xs:complexType name="CriteriaCreeerBisType">
+		<xs:sequence>
+			<xs:element name="Naam" type="CreeerNaamType" minOccurs="0"/>
+			<xs:element name="Nationaliteiten" type="CreeerNationaliteitenType" minOccurs="0"/>
+			<xs:element name="Geboorte" type="CreeerGeboorteOverlijdenType" minOccurs="0"/>
+			<xs:element name="Overlijden" type="CreeerGeboorteOverlijdenType" minOccurs="0"/>
+			<xs:element name="Geslacht" type="CreeerGeslachtType" minOccurs="0"/>
+			<xs:element name="BurgerlijkeStaten" type="CreeerBurgerlijkestatenType" minOccurs="0"/>
+			<xs:element name="Hoofdverblijfplaats" type="CreeerBuitenlandseHoofdverblijfplaatsType" minOccurs="0"/>
+			<xs:element name="Contactadres" type="CreeerContactadresType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CriteriaWijzigKSZPersoonType">
+		<xs:sequence>
+			<xs:element name="Naam" type="CreeerNaamType" minOccurs="0"/>
+			<xs:element name="Nationaliteiten" type="CreeerNationaliteitenType" minOccurs="0"/>
+			<xs:element name="Geboorte" type="CreeerGeboorteOverlijdenType" minOccurs="0"/>
+			<xs:element name="Overlijden" type="CreeerGeboorteOverlijdenType" minOccurs="0"/>
+			<xs:element name="Geslacht" type="CreeerGeslachtType" minOccurs="0"/>
+			<xs:element name="BurgerlijkeStaten" type="CreeerBurgerlijkestatenType" minOccurs="0"/>
+			<xs:element name="Hoofdverblijfplaats" type="CreeerBuitenlandseHoofdverblijfplaatsType" minOccurs="0"/>
+			<xs:element name="Contactadres" type="CreeerContactadresType" minOccurs="0"/>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreeerNaamType">
+		<xs:sequence>
+			<xs:element name="Achternaam" type="CreeerAchternaamType"/>
+			<xs:element name="Voornamen" type="CreeerVoornaamLijstType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:DatumType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="CreeerVoornaamLijstType">
+		<xs:sequence>
+			<xs:element name="Voornaam" type="CreeerVoornaamType" minOccurs="1" maxOccurs="3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreeerNationaliteitenType">
+		<xs:sequence>
+			<xs:element name="Nationaliteit" type="CreeerNationaliteitType" minOccurs="1" maxOccurs="10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreeerNationaliteitType">
+		<xs:sequence>
+			<xs:element name="LandNISCode" type="generiek:NISCodeLandType"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:DatumType" use="required"/>
+		<xs:attribute name="DatumEinde" type="generiek:DatumType"/>
+	</xs:complexType>
+	<xs:complexType name="CreeerGeboorteOverlijdenType">
+		<xs:sequence>
+			<xs:element name="Datum" type="generiek:OnvolledigeDatumType"/>
+			<xs:element name="Plaats" type="CreeerPlaatsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreeerPlaatsType">
+		<xs:sequence>
+			<xs:element name="Gemeente" type="CreeerGemeenteType" minOccurs="0"/>
+			<xs:element name="Land" type="CreeerLandType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreeerGeslachtType">
+		<xs:sequence>
+			<xs:element name="Code" type="CreeerGeslachtEnumType"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:DatumType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="CreeerBurgerlijkestatenType">
+		<xs:sequence>
+			<xs:element name="BurgerlijkeStaat" type="CreeerBurgerlijkeStaatType" minOccurs="1" maxOccurs="10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreeerBurgerlijkeStaatType">
+		<xs:sequence>
+			<xs:element name="Code" type="CreeerBurgerlijkeStaatCodeType"/>
+			<xs:element name="Partner" type="sleutel:INSZType" minOccurs="0"/>
+			<xs:element name="Plaats" type="CreeerPlaatsType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:DatumType" use="required"/>
+		<xs:attribute name="DatumEinde" type="generiek:DatumType"/>
+	</xs:complexType>
+	<xs:complexType name="CreeerBuitenlandseHoofdverblijfplaatsType">
+		<xs:sequence>
+			<xs:element name="Straatnaam" type="CreeerStraatnaamType" minOccurs="0"/>
+			<xs:element name="Huisnummer" type="CreeerHuisnummerType" minOccurs="0"/>
+			<xs:element name="Busnummer" type="CreeerBusType" minOccurs="0"/>
+			<xs:element name="Postcode" type="CreeerPostcodeType" minOccurs="0"/>
+			<xs:element name="Gemeente" type="CreeerGemeenteBasisType" minOccurs="0"/>
+			<xs:element name="Land" type="CreeerLandType"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:DatumType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="CreeerContactadresType">
+		<xs:sequence>
+			<xs:element name="Straat" type="CreeerStraatType" minOccurs="0"/>
+			<xs:element name="Huisnummer" type="CreeerHuisnummerType" minOccurs="0"/>
+			<xs:element name="Busnummer" type="CreeerBusType" minOccurs="0"/>
+			<xs:element name="Postcode" type="CreeerPostcodeType" minOccurs="0"/>
+			<xs:element name="Gemeente" type="CreeerGemeenteType" minOccurs="0"/>
+			<xs:element name="Land" type="CreeerLandType"/>
+			<xs:element name="Type" type="CreeerContactAddressTypeType"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:DatumType" use="required"/>
+		<xs:attribute name="DatumEinde" type="generiek:DatumType"/>
+	</xs:complexType>
+	<xs:complexType name="CreeerLandType">
+		<xs:sequence>
+			<xs:element name="NISCode" type="generiek:NISCodeLandType"/>
+			<xs:element name="ISOCode" type="generiek:ISOCodeLand3KaraktersType" minOccurs="0"/>
+			<xs:element name="Naam" type="CreeerLandNaamType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreeerGemeenteBasisType">
+		<xs:sequence>
+			<xs:element name="Naam" type="CreeerGemeenteNaamType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreeerGemeenteType">
+		<xs:complexContent>
+			<xs:extension base="CreeerGemeenteBasisType">
+				<xs:sequence>
+					<xs:element name="NISCode" type="generiek:NISCodeGemeenteType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CreeerStraatType">
+		<xs:sequence>
+			<xs:element name="Code" type="generiek:StraatRRCodeType" minOccurs="0"/>
+			<xs:element name="Naam" type="CreeerStraatnaamType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ======================== RESPONSE TYPES ======================= -->
+	<xs:complexType name="KSZPersoonType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Naam" type="NaamPersoonType"/>
+			<xs:element name="Geslacht" type="GeslachtPersoonType" minOccurs="0"/>
+			<xs:element name="Register" type="RegisterPersoonType" minOccurs="0"/>
+			<xs:element name="Nationaliteiten" type="NationaliteitLijstType" minOccurs="0"/>
+			<xs:element name="Geboorte" type="GeboorteType" minOccurs="0"/>
+			<xs:element name="Overlijden" type="OverlijdenType" minOccurs="0"/>
+			<xs:element name="BurgerlijkeStaten" type="BurgerlijkeStaatLijstType" minOccurs="0"/>
+			<xs:element name="Adressen" type="AdressenKSZPersoonType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="DatumCreatie" type="generiek:DatumType"/>
+		<xs:attribute name="DatumModificatie" type="generiek:DatumType"/>
+	</xs:complexType>
+	<xs:complexType name="AdressenKSZPersoonType">
+		<xs:sequence>
+			<xs:element name="ContactAdres" type="ContactAdresType" minOccurs="0"/>
+			<xs:element name="Hoofdverblijfplaats" type="HoofdverblijfplaatsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KSZPersoonMetUpdatestatusType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Naam" type="NaamPersoonMetUpdatestatusType"/>
+			<xs:element name="Geslacht" type="GeslachtPersoonMetUpdatestatusType" minOccurs="0"/>
+			<xs:element name="Register" type="RegisterPersoonType" minOccurs="0"/>
+			<xs:element name="Nationaliteiten" type="NationaliteitLijstMetUpdatestatusType" minOccurs="0"/>
+			<xs:element name="Geboorte" type="GeboorteMetUpdatestatusType" minOccurs="0"/>
+			<xs:element name="Overlijden" type="OverlijdenMetUpdatestatusType" minOccurs="0"/>
+			<xs:element name="BurgerlijkeStaten" type="BurgerlijkeStaatLijstMetUpdatestatusType" minOccurs="0"/>
+			<xs:element name="Adressen" type="AdressenKSZPersoonMetUpdatestatusType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="DatumCreatie" type="generiek:DatumType"/>
+		<xs:attribute name="DatumModificatie" type="generiek:DatumType"/>
+	</xs:complexType>
+	<xs:complexType name="AdressenKSZPersoonMetUpdatestatusType">
+		<xs:sequence>
+			<xs:element name="ContactAdres" type="ContactAdresMetUpdatestatusType" minOccurs="0"/>
+			<xs:element name="Hoofdverblijfplaats" type="HoofdverblijfplaatsMetUpdatestatusType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NaamPersoonMetUpdatestatusType">
+		<xs:complexContent>
+			<xs:extension base="NaamPersoonType">
+				<xs:attribute name="Status" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GeslachtPersoonMetUpdatestatusType">
+		<xs:complexContent>
+			<xs:extension base="GeslachtPersoonType">
+				<xs:attribute name="Status" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NationaliteitLijstMetUpdatestatusType">
+		<xs:complexContent>
+			<xs:extension base="NationaliteitLijstType">
+				<xs:attribute name="Status" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GeboorteMetUpdatestatusType">
+		<xs:complexContent>
+			<xs:extension base="GeboorteType">
+				<xs:attribute name="Status" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OverlijdenMetUpdatestatusType">
+		<xs:complexContent>
+			<xs:extension base="OverlijdenType">
+				<xs:attribute name="Status" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BurgerlijkeStaatLijstMetUpdatestatusType">
+		<xs:complexContent>
+			<xs:extension base="BurgerlijkeStaatLijstType">
+				<xs:attribute name="Status" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContactAdresMetUpdatestatusType">
+		<xs:complexContent>
+			<xs:extension base="ContactAdresType">
+				<xs:attribute name="Status" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="HoofdverblijfplaatsMetUpdatestatusType">
+		<xs:complexContent>
+			<xs:extension base="HoofdverblijfplaatsType">
+				<xs:attribute name="Status" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

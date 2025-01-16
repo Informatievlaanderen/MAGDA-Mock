@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by USER (KSZ-BCSS) -->
+<!-- ========================================================================
+       	 * Owner :               KSZ / CBSS
+         * Creation date :       2018-04-27
+         * Description :         Type definitions for the JobSeeker elementss.
+         * Revision History : 	 2018-11-21: Initial version
+======================================================================== -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://kszbcss.fgov.be/types/JobSeeker/v1" xmlns:common="http://kszbcss.fgov.be/types/common/v3" xmlns:jobseekerCommon="http://kszbcss.fgov.be/types/JobSeeker/common/v1" targetNamespace="http://kszbcss.fgov.be/types/JobSeeker/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2015-04-28">
+	<!--========= xsd imports ===========-->
+	<xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../common/CommonV3.xsd"/>
+	<xsd:import namespace="http://kszbcss.fgov.be/types/JobSeeker/common/v1" schemaLocation="common/JobSeekerCommonV1.xsd"/>
+	<!--========= requests ===========-->
+	<xsd:complexType name="ConsultContactAndInscriptionRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="tns:AbstractRequestCustomerType">
+				<xsd:sequence>
+					<xsd:element name="criteria" type="tns:ConsultContactAndInscriptionCriteriaType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--========= responses ===========-->
+	<xsd:complexType name="ConsultContactAndInscriptionResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="tns:AbstractResponseCustomerType">
+				<xsd:sequence>
+					<xsd:element name="criteria" type="tns:ConsultContactAndInscriptionCriteriaType"/>
+					<xsd:element name="status" type="tns:GlobalStatusType"/>
+					<xsd:element name="ssin" type="tns:SsinWithCanceledAndReplacesStatusType" minOccurs="0"/>
+					<xsd:element name="results" type="tns:ConsultContactAndInscriptionResultType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--========= elements ===========-->
+	<xsd:complexType name="ConsultContactAndInscriptionCriteriaType">
+		<xsd:sequence>
+			<xsd:element name="ssin" type="common:SsinType"/>
+			<xsd:element name="period" type="common:OpenPeriodType" minOccurs="0"/>
+			<xsd:element name="publicEmploymentServices" type="tns:PublicEmploymentServicesType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultContactAndInscriptionResultType">
+		<xsd:sequence>
+			<xsd:element name="pes" type="tns:ConsultContactAndInscriptionPESResultType" maxOccurs="4"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultContactAndInscriptionPESResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType"/>
+			<xsd:element name="result" type="tns:ConsultContactAndInscriptionDetailType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="source" type="jobseekerCommon:PESValueType" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultContactAndInscriptionDetailType">
+		<xsd:complexContent>
+			<xsd:extension base="jobseekerCommon:ConsultContactAndInscriptionResultType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="PublicEmploymentServicesType">
+		<xsd:sequence>
+			<xsd:element name="publicEmploymentService" type="jobseekerCommon:PESValueType" maxOccurs="4"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AbstractRequestCustomerType" abstract="true">
+		<xsd:annotation>
+			<xsd:documentation>Base complex type for all request messages.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="informationCustomer" type="common:InformationCustomerType"/>
+			<xsd:element name="informationCBSS" type="common:InformationCBSSType" minOccurs="0"/>
+			<xsd:element name="legalContext" type="common:LegalContextType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AbstractResponseCustomerType" abstract="true">
+		<xsd:annotation>
+			<xsd:documentation>Base complex type for all response messages.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="informationCustomer" type="common:InformationCustomerType"/>
+			<xsd:element name="informationCBSS" type="common:InformationCBSSType"/>
+			<xsd:element name="legalContext" type="common:LegalContextType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GlobalStatusType">
+		<xsd:sequence>
+			<xsd:element name="value">
+				<xsd:annotation>
+					<xsd:documentation>global status of the result</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="DATA_FOUND"/>
+						<xsd:enumeration value="NO_DATA_FOUND"/>
+						<xsd:enumeration value="NO_RESULT"/>
+						<xsd:enumeration value="INCOMPLETE_DATA"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="code">
+				<xsd:annotation>
+					<xsd:documentation>the code of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="description" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the description of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="256"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="information" type="common:InformationType" minOccurs="0" maxOccurs="15"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SourceStatusType">
+		<xsd:sequence>
+			<xsd:element name="value">
+				<xsd:annotation>
+					<xsd:documentation>global status of the result</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="DATA_FOUND"/>
+						<xsd:enumeration value="NO_DATA_FOUND"/>
+						<xsd:enumeration value="TECHNICAL_ERROR"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="code">
+				<xsd:annotation>
+					<xsd:documentation>the code of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="description" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the description of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="256"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="information" type="common:InformationType" minOccurs="0" maxOccurs="15"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SsinWithCanceledAndReplacesStatusType">
+		<xsd:simpleContent>
+			<xsd:extension base="common:SsinType">
+				<xsd:attribute name="canceled" type="xsd:boolean"/>
+				<xsd:attribute name="replaces" type="common:SsinType"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+</xsd:schema>

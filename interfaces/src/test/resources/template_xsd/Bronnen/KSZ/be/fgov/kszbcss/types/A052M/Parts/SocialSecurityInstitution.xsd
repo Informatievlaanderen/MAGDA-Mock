@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:simpleType name="SocialSecurityInstitutionType">
+		<xs:annotation>
+			<xs:documentation>Format code </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="000000"/>
+			<xs:enumeration value="001000"/>
+			<xs:enumeration value="001000"/>
+			<xs:enumeration value="002000"/>
+			<xs:enumeration value="003001"/>
+			<xs:enumeration value="005000"/>
+			<xs:enumeration value="006000"/>
+			<xs:enumeration value="007000"/>
+			<xs:enumeration value="007001"/>
+			<xs:enumeration value="008000"/>
+			<xs:enumeration value="009000"/>
+			<xs:enumeration value="010000"/>
+			<xs:enumeration value="010001"/>
+			<xs:enumeration value="011000"/>
+			<xs:enumeration value="011001"/>
+			<xs:enumeration value="011002"/>
+			<xs:enumeration value="012000"/>
+			<xs:enumeration value="013000"/>
+			<xs:enumeration value="013002"/>
+			<xs:enumeration value="014000"/>
+			<xs:enumeration value="015000"/>
+			<xs:enumeration value="015001"/>
+			<xs:enumeration value="016000"/>
+			<xs:enumeration value="016001"/>
+			<xs:enumeration value="017000"/>
+			<xs:enumeration value="017001"/>
+			<xs:enumeration value="018000"/>
+			<xs:enumeration value="018001"/>
+			<xs:enumeration value="020000"/>
+			<xs:enumeration value="021000"/>
+			<xs:enumeration value="022000"/>
+			<xs:enumeration value="023000"/>
+			<xs:enumeration value="025000"/>
+			<xs:enumeration value="026000"/>
+			<xs:enumeration value="026001"/>
+			<xs:enumeration value="026002"/>
+			<xs:enumeration value="026003"/>
+			<xs:enumeration value="027000"/>
+			<xs:enumeration value="028000"/>
+			<xs:enumeration value="029000"/>
+			<xs:enumeration value="030000"/>
+			<xs:enumeration value="031000"/>
+			<xs:enumeration value="031001"/>
+			<xs:enumeration value="032000"/>
+			<xs:enumeration value="050000"/>
+			<xs:enumeration value="051001"/>
+			<xs:enumeration value="051002"/>
+			<xs:enumeration value="051003"/>
+			<xs:enumeration value="051004"/>
+			<xs:enumeration value="051005"/>
+			<xs:enumeration value="051006"/>
+			<xs:enumeration value="051007"/>
+			<xs:enumeration value="051008"/>
+			<xs:enumeration value="051009"/>
+			<xs:enumeration value="051010"/>
+			<xs:enumeration value="051011"/>
+			<xs:enumeration value="051012"/>
+			<xs:enumeration value="051013"/>
+			<xs:enumeration value="051014"/>
+			<xs:enumeration value="051015"/>
+			<xs:enumeration value="052001"/>
+			<xs:enumeration value="052002"/>
+			<xs:enumeration value="053000"/>
+			<xs:enumeration value="054000"/>
+			<xs:enumeration value="055000"/>
+			<xs:enumeration value="058000"/>
+			<xs:enumeration value="060000"/>
+			<xs:enumeration value="061000"/>
+			<xs:enumeration value="062000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="SocialSecurityInstitution" type="SocialSecurityInstitutionType">
+		<xs:annotation>
+			<xs:documentation>Institution de la Sécurité sociale</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

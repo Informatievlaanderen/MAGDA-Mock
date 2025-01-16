@@ -1,0 +1,436 @@
+<xs:schema targetNamespace="http://werk-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00" xmlns="http://werk-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be">
+
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xs:include schemaLocation="DmfaSimple.xsd"/>
+	<xs:include schemaLocation="DmfaEnum.xsd"/>
+
+	<!-- GeefDmfAVoorWerknemer Vraag -->
+	<xs:complexType name="AttestDmfaInputType">
+		<xs:sequence>
+			<xs:element name="AttestIdentificatie" type="AttestIdentificatieDmfaInputType" minOccurs="0"/>
+			<xs:element name="WerkgeversAangifte" type="WerkgeversAangifteDmfaInputType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AttestIdentificatieDmfaInputType">
+		<xs:sequence>
+			<xs:element name="NrAttest" type="AttestNrDmfaType"/><!-- 100040 -->
+			<xs:element name="VersieAttest" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100041 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WerkgeversAangifteDmfaInputType">
+		<xs:sequence>
+			<xs:element name="RSZNr" type="RSZNummerDmfaInputType" minOccurs="0"/><!-- 121008 -->
+			<xs:element name="KBONr" type="KBONummerDmfaInputType" minOccurs="0"/><!-- 00014 -->
+			<xs:element name="WerkgeversCategorie" type="WerkgeversCategorieDmfaType" minOccurs="0"/><!-- 00036 -->
+			<xs:element name="WerknemersKengetal" type="WerknemersKengetalDmfaType" minOccurs="0"/><!-- 00037 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KwartaalDmfaType">
+		<xs:sequence>
+			<xs:element name="Jaar" type="generiek:JaarType"/>
+			<xs:element name="KwartaalCijfer" type="KwartaalCijferDmfaType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VolgendDmfaType">
+		<xs:sequence>
+			<xs:element name="Kwartaal" type="KwartaalDmfaType"/><!-- 00013 -->
+			<xs:element name="IdentificatieNrPersoon" type="IdentificatieNrPersoonDmfaType"/><!-- 100058 -->
+			<xs:element name="VersieAttest" type="AttestVersieDmfaType"/><!-- 100059 -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- GeefDmfAVoorWerknemer Antwoord -->
+	<xs:complexType name="AttestDmfaType">
+		<xs:sequence>
+			<xs:element name="AttestIdentificatie" type="AttestIdentificatieDmfaType"/>
+			<xs:element name="HistoriekVersie" type="HistoriekVersieDmfaType" minOccurs="0"/>
+			<xs:element name="WerkgeversAangifte" type="WerkgeversAangifteDmfaType"/>
+			<xs:element name="Anomalien" type="AnomalienDmfaType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AttestIdentificatieDmfaType">
+		<xs:sequence>
+			<xs:element name="NrAttest" type="AttestNrDmfaType"/><!-- 100041 -->
+			<xs:element name="VersieAttest" type="AttestVersieDmfaType"/><!-- 100042 -->
+			<xs:element name="Status" type="AttestStatusDmfaType"/><!-- 100003 -->
+			<xs:element name="CreatieDatum" type="generiek:VolledigDatumType"/><!-- 100043 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HistoriekVersieDmfaType">
+		<xs:sequence>
+			<xs:element name="VorigeVersie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100044 -->
+			<xs:element name="VolgendeVersie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100045 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WerkgeversAangifteDmfaType">
+		<xs:sequence>
+			<xs:element name="AangifteBasis" type="WerkgeversAangifteBasisDmfaType"/>
+			<xs:element name="NatuurlijkePersoon" type="NatuurlijkePersoonDmfaType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WerkgeversAangifteBasisDmfaType">
+		<xs:sequence>
+			<xs:element name="Kwartaal" type="KwartaalDmfaType"/><!-- 00013 -->
+			<xs:element name="RSZNr" type="RSZNummerDmfaType"/><!-- 121008 -->
+			<xs:element name="VorigRSZNr" type="RSZNummerDmfaType" minOccurs="0"/><!-- 100073 -->
+			<xs:element name="Bron" type="BronDmfaCodeType"/><!-- 121005 -->
+			<xs:element name="Curatele" type="generiek:VlagCodeType" minOccurs="0"/><!-- 00012 -->
+			<xs:element name="KBONr" type="KBONummerDmfaType" minOccurs="0"/><!-- 00014 -->
+			<xs:element name="VerschuldigdBedrag" type="VerschuldigdBedragDmfaType"/><!-- 00015 -->
+			<xs:element name="ConversieSysteemAangifte" type="generiek:VlagCodeType"/><!-- 00016 -->
+			<xs:element name="BeginDatumVakantie" type="generiek:VolledigDatumType" minOccurs="0"/><!-- 00017 -->
+			<xs:element name="Aangever" type="AangeverDmfaType" minOccurs="0"/><!-- 100047 -->
+			<xs:element name="TypeAangever" type="TypeAangeverDmfaType" minOccurs="0"/><!-- 00486 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BronDmfaCodeType">
+		<xs:annotation>
+			<xs:documentation>is een extension van simpel Type 'BronDmfaCodeType' + beschrijving</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="BronDmfaEnumType">
+				<xs:attribute name="Beschrijving" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="NatuurlijkePersoonDmfaType">
+		<xs:sequence>
+			<xs:element name="NatuurlijkePersoonBasis" type="NatuurlijkePersoonBasisDmfaType"/>
+			<xs:element name="PersoonsGegevens" type="PersoonsGegevensDmfaType" minOccurs="0"/>
+			<xs:element name="WerknemersLijn" type="WerknemersLijnDmfaType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NatuurlijkePersoonBasisDmfaType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="generiek:INSZType"/><!-- 00024 -->
+			<xs:element name="VorigeINSZ" type="generiek:INSZType" minOccurs="0"/><!-- 100074 -->
+			<xs:element name="IdentificatiePersoon" type="generiek:VlagCodeType"/><!-- 100048 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersoonsGegevensDmfaType">
+		<xs:sequence>
+			<xs:element name="Naam" type="generiek:NaamLangType" minOccurs="0"/><!-- 00025 -->
+			<xs:element name="Voornaam" type="generiek:NaamKortType" minOccurs="0"/><!-- 00026 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WerknemersLijnDmfaType">
+		<xs:sequence>
+			<xs:element name="WerknemersLijnBasis" type="WerknemersLijnBasisDmfaType"/>
+			<xs:element name="VerantwoordingAangifte" type="VerantwoordingAangifteDmfaType" minOccurs="0"/>
+			<xs:element name="Tewerkstellingen" type="TewerkstellingenDmfaType" minOccurs="0"/>
+			<xs:element name="WerknemersBijdrages" type="WerknemersBijdragesDmfaType" minOccurs="0"/>
+			<xs:element name="VerminderingenWerknemer" type="VerminderingenWerknemerDmfaType" minOccurs="0"/>
+			<xs:element name="OntslagenStatutairBijdrage" type="OntslagenStatutairBijdrageDmfaType" minOccurs="0"/>
+			<xs:element name="StudentBijdrage" type="StudentBijdrageDmfaType" minOccurs="0"/>
+			<xs:element name="BruggepensioneerdeBijdrages" type="BruggepensioneerdeBijdragesDmfaType" minOccurs="0"/>
+			<xs:element name="ArbeidsongevalBeroepsziekteVergoedingen" type="OngevalZiekteVergoedingenDmfaType" minOccurs="0"/>
+			<xs:element name="AanvullendeVergoedingen" type="AanvullendeVergoedingenDmfaType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WerknemersLijnBasisDmfaType">
+		<xs:sequence>
+			<xs:element name="WerkgeversCategorie" type="WerkgeversCategorieDmfaType"/><!-- 00036 -->
+			<xs:element name="WerknemersKengetal" type="WerknemersKengetalDmfaType"/><!-- 00037 -->
+			<xs:element name="BeginDatumAangifteKwartaal" type="generiek:VolledigDatumType"/><!-- 00038 -->
+			<xs:element name="EindDatumAangifteKwartaal" type="generiek:VolledigDatumType"/><!-- 00039 -->
+			<xs:element name="GrensArbeider" type="GrensArbeiderDmfaType"/><!-- 00040 -->
+			<xs:element name="ActiviteitTOVRisico" type="ActiviteitTOVRisicoDmfaType" minOccurs="0"/><!-- 00041 -->
+			<xs:element name="LokaleEenheid" type="LokaleEenheidDmfaType" minOccurs="0"/><!-- 00042 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerantwoordingAangifteDmfaType">
+		<xs:sequence>
+			<xs:element name="Omschrijving" type="VerantwoordingOmschrijvingDmfaType" minOccurs="0"/><!-- 00545 -->
+			<xs:element name="Code" type="VerantwoordingCodeDmfaType" minOccurs="0"/><!-- 00536 -->
+			<xs:element name="Datum" type="generiek:VolledigDatumType" minOccurs="0"/><!-- 00537 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TewerkstellingenDmfaType">
+		<xs:sequence>
+			<xs:element name="Tewerkstelling" type="TewerkstellingDmfaType" minOccurs="1" maxOccurs="99"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TewerkstellingDmfaType">
+		<xs:sequence>
+			<xs:element name="TewerkstellingBasis" type="TewerkstellingBasisDmfaType"/>
+			<xs:element name="InfoTewerkstelling" type="InfoTewerkstellingDmfaType" minOccurs="0"/>
+			<xs:element name="Prestaties" type="TewerkstellingPrestatiesDmfaType" minOccurs="0"/>
+			<xs:element name="Bezoldigingen" type="TewerkstellingBezoldigingenDmfaType" minOccurs="0"/>
+			<xs:element name="VerminderingenTewerkstelling" type="VerminderingenTewerkstellingDmfaType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TewerkstellingBasisDmfaType">
+		<xs:sequence>
+			<xs:element name="VolgNr" type="VolgNrDmfaType"/><!-- 00043 -->
+			<xs:element name="InternTewerkstellingsNr" type="InternTewerkstellingsNrDmfaType"/><!-- 00217 -->
+			<xs:element name="BeginDatum" type="generiek:VolledigDatumType" minOccurs="0"/><!-- 00044 -->
+			<xs:element name="EindDatum" type="generiek:VolledigDatumType" minOccurs="0"/><!-- 00045 -->
+			<xs:element name="ParitairComite" type="ParitairComiteDmfaType"/><!-- 00046 -->
+			<xs:element name="AantalWerkdagenPerWeek" type="AantalWerkdagenPerWeekDmfaType"/><!-- 00047 -->
+			<xs:element name="ContractType" type="ContractTypeDmfaType"/><!-- 00050 -->
+			<xs:element name="GemAantalUrenPerWeekMaatpersoon" type="GemAantalUrenPerWeekDmfaType" minOccurs="0"/><!-- 00049 -->
+			<xs:element name="GemAantalUrenPerWeek" type="GemAantalUrenPerWeekDmfaType" minOccurs="0"/><!-- 00048 -->
+			<xs:element name="MaatregelReorganisatieArbeidstijd" type="MaatregelReorganisatieDmfaType" minOccurs="0"/><!-- 00051 -->
+			<xs:element name="MaatregelBevorderingWerkgelegenheid" type="MaatregelBevorderingDmfaType" minOccurs="0"/><!-- 00052 -->
+			<xs:element name="WerknemersStatuut" type="WerknemersStatuutDmfaType" minOccurs="0"/><!-- 00053 -->
+			<xs:element name="Gepensioneerd" type="GepensioneerdDmfaType" minOccurs="0"/><!-- 00054 -->
+			<xs:element name="TypeLeerling" type="TypeLeerlingDmfaType" minOccurs="0"/><!-- 00055 -->
+			<xs:element name="BezoldigingsWijze" type="BezoldigingsWijzeDmfaType" minOccurs="0"/><!-- 00056 -->
+			<xs:element name="FunctieNr" type="TewerkstellingFunctieNrDmfaType" minOccurs="0"/><!-- 00057 -->
+			<xs:element name="KlasseVliegendPersoneel" type="KlasseVliegendPersoneelDmfaType" minOccurs="0"/><!-- 00059 -->
+			<xs:element name="BetalingIn10denOf12den" type="Betaling10Of12DmfaType" minOccurs="0"/><!-- 00060 -->
+			<xs:element name="Arbeidscyclus" type="ArbeidscyclusDmfaType" minOccurs="0"/><!-- 00625 -->
+			<xs:element name="Uurloon" type="TewerkstellingUurloonDmfaType" minOccurs="0"/><!-- 00812 -->
+			<xs:element name="PercentageVermindering" type="PercentageVerminderingDmfaType" minOccurs="0"/><!-- 100065 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InfoTewerkstellingDmfaType">
+		<xs:sequence>
+			<xs:element name="Datum6MaandenZiek" type="generiek:VolledigDatumType" minOccurs="0"/><!-- 00728 -->
+			<xs:element name="UurloonInEuroDuizendsten" type="UurloonInEuroDuizendstenDmfaType" minOccurs="0"/><!-- 00862 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TewerkstellingPrestatiesDmfaType">
+		<xs:sequence>
+			<xs:element name="TewerkstellingPrestatie" type="TewerkstellingPrestatieDmfaType" minOccurs="1" maxOccurs="26"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TewerkstellingPrestatieDmfaType">
+		<xs:sequence>
+			<xs:element name="VolgNr" type="VolgNrDmfaType"/><!-- 00061 -->
+			<xs:element name="Code" type="PrestatieCodeDmfaType" minOccurs="0"/><!-- 00062 -->
+			<xs:element name="Dagen" type="PrestatieDagenDmfaType"/><!-- 00063 -->
+			<xs:element name="Uren" type="PrestatieUrenDmfaType" minOccurs="0"/><!-- 00064 -->
+			<xs:element name="AantalVluchtMinuten" type="AantalVluchtMinutenDmfaType" minOccurs="0"/><!-- 00065 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TewerkstellingBezoldigingenDmfaType">
+		<xs:sequence>
+			<xs:element name="TewerkstellingBezoldiging" type="TewerkstellingBezoldigingDmfaType" minOccurs="1" maxOccurs="36"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TewerkstellingBezoldigingDmfaType">
+		<xs:sequence>
+			<xs:element name="VolgNr" type="VolgNrDmfaType"/><!-- 00066 -->
+			<xs:element name="Code" type="BezoldigingCodeDmfaType"/><!-- 00067 -->
+			<xs:element name="FrequentieBetalingPremieInMaanden" type="BezoldigingFrequentieBetalingDmfaType" minOccurs="0"/><!-- 00068 -->
+			<xs:element name="PercentageBezoldigingJaarbasis" type="BezoldigingPercentageDmfaType" minOccurs="0"/><!-- 00069 -->
+			<xs:element name="BezoldigingBedrag" type="BezoldigingBedragDmfaType"/><!-- 00070 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerminderingenTewerkstellingDmfaType">
+		<xs:sequence>
+			<xs:element name="VerminderingTewerkstelling" type="VerminderingTewerkstellingDmfaType" minOccurs="1" maxOccurs="99"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerminderingTewerkstellingDmfaType">
+		<xs:sequence>
+			<xs:element name="VerminderingTewerkstellingBasis" type="VerminderingBasisDmfaType"/>
+			<xs:element name="VerminderingTewerkstellingDetail" type="VerminderingTewerkstellingDetailDmfaType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerminderingBasisDmfaType">
+		<xs:sequence>
+			<xs:element name="Code" type="VerminderingCodeDmfaType"/><!-- 00086 -->
+			<xs:element name="BerekeningsBasis" type="VerminderingBerekeningDmfaType" minOccurs="0"/><!-- 00088 -->
+			<xs:element name="Vermindering" type="VerminderingBedragDmfaType" minOccurs="0"/><!-- 00089 -->
+			<xs:element name="BeginDatumRecht" type="generiek:VolledigDatumType" minOccurs="0"/><!-- 00090 -->
+			<xs:element name="AantalMaandenBeheerskostRSZ" type="VerminderingAantalMaandenType" minOccurs="0"/><!-- 00091 -->
+			<xs:element name="VervangenINSZ" type="generiek:INSZType" minOccurs="0"/><!-- 00092 -->
+			<xs:element name="RechtOpenendINSZ" type="generiek:INSZType" minOccurs="0"/><!-- 00093 -->
+			<xs:element name="HerkomstAttest" type="VerminderingHerkomstAttestDmfaType" minOccurs="0"/><!-- 00094 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerminderingTewerkstellingDetailDmfaType">
+		<xs:sequence>
+			<xs:element name="VolgNr" type="VolgNrDmfaType"/><!-- 00138 -->
+			<xs:element name="BeginDatumArbeidsregeling" type="generiek:VolledigDatumType" minOccurs="0"/><!-- 00143 -->
+			<xs:element name="GemiddeldeArbeidsduurVoorVermindering" type="VerminderingGemArbeidsduurDmfaType" minOccurs="0"/><!-- 00147 -->
+			<xs:element name="GemiddeldeArbeidsduurNaVermindering" type="VerminderingGemArbeidsduurDmfaType" minOccurs="0"/><!-- 00148 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WerknemersBijdragesDmfaType">
+		<xs:sequence>
+			<xs:element name="WerknemersBijdrage" type="WerknemersBijdrageDmfaType" minOccurs="1" maxOccurs="99"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WerknemersBijdrageDmfaType">
+		<xs:sequence>
+			<xs:element name="Code" type="WerknemersBijdrageCodeDmfaType"/><!-- 00082 -->
+			<xs:element name="Type" type="WerknemersBijdrageTypeDmfaType"/><!-- 00083 -->
+			<xs:element name="BerekeningsBasis" type="WerknemersBijdrageBerekeningDmfaType" minOccurs="0"/><!-- 00084 -->
+			<xs:element name="Bijdrage" type="WerknemersBijdrageCodeBedragDmfaType"/><!-- 00085 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerminderingenWerknemerDmfaType">
+		<xs:sequence>
+			<xs:element name="VerminderingWerknemer" type="VerminderingWerknemerDmfaType" minOccurs="1" maxOccurs="99"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerminderingWerknemerDmfaType">
+		<xs:sequence>
+			<xs:element name="VerminderingWerknemerBasis" type="VerminderingBasisDmfaType"/>
+			<xs:element name="VerminderingWerknemerDetails" type="VerminderingWerknemerDetailsDmfaType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerminderingWerknemerDetailsDmfaType">
+		<xs:sequence>
+			<xs:element name="VerminderingWerknemerDetail" type="VerminderingWerknemerDetailDmfaType" minOccurs="1" maxOccurs="99"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerminderingWerknemerDetailDmfaType">
+		<xs:sequence>
+			<xs:element name="VolgNr" type="VolgNrDmfaType"/><!-- 00138 -->
+			<xs:element name="VerminderingDetail" type="VerminderingBedragDmfaType" minOccurs="0"/><!-- 00141 -->
+			<xs:element name="ArbeidsReglementRegistratieNr" type="ArbeidsreglementRegistratieNrDmfaType" minOccurs="0"/><!-- 00142 -->
+			<xs:element name="BeginDatumRecht" type="generiek:VolledigDatumType" minOccurs="0"/><!-- 00143 -->
+			<xs:element name="GemiddeldeArbeidsduurVoorVermindering" type="VerminderingGemArbeidsduurDmfaType" minOccurs="0"/><!-- 00147 -->
+			<xs:element name="GemiddeldeArbeidsduurNaVermindering" type="VerminderingGemArbeidsduurDmfaType" minOccurs="0"/><!-- 00148 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OntslagenStatutairBijdrageDmfaType">
+		<xs:sequence>
+			<xs:element name="ReferteBrutoLoon" type="ReferteBrutoLoonDmfaType"/><!-- 00071 -->
+			<xs:element name="Bijdrage" type="StatutairBijdrageBedragDmfaType"/><!-- 00072 -->
+			<xs:element name="ReferteAantalDagen" type="ReferteAantalDagenDmfaType"/><!-- 00073 -->
+			<xs:element name="BeginDatumOnderwerping" type="generiek:VolledigDatumType"/><!-- 00127 -->
+			<xs:element name="EindDatumOnderwerping" type="generiek:VolledigDatumType"/><!-- 00129 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StudentBijdrageDmfaType">
+		<xs:sequence>
+			<xs:element name="ReferteBrutoLoon" type="StudentLoonDmfaType"/><!-- 00076 -->
+			<xs:element name="Bijdrage" type="StudentBijdrageBedragDmfaType"/><!-- 00077 -->
+			<xs:element name="AantalDagen" type="StudentAantalDagenDmfaType" minOccurs="0"/><!-- 00078 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BruggepensioneerdeBijdragesDmfaType">
+		<xs:sequence>
+			<xs:element name="BruggepensioneerdeBijdrage" type="BruggepensioneerdeBijdrageDmfaType" minOccurs="1" maxOccurs="2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BruggepensioneerdeBijdrageDmfaType">
+		<xs:sequence>
+			<xs:element name="Code" type="generiek:VlagCodeType"/><!-- 00079 -->
+			<xs:element name="AantalMaanden" type="BrugAantalDagenDmfaType" minOccurs="0"/><!-- 00080 -->
+			<xs:element name="Bijdrage" type="BrugBijdrageBedragDmfaType"/><!-- 00081 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OngevalZiekteVergoedingenDmfaType">
+		<xs:sequence>
+			<xs:element name="ArbeidsongevalBeroepsziekteVergoeding" type="OngevalZiekteVergoedingDmfaType" minOccurs="1" maxOccurs="20"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OngevalZiekteVergoedingDmfaType">
+		<xs:sequence>
+			<xs:element name="AardVergoeding" type="AardVergoedingDmfaType"/><!-- 00144 -->
+			<xs:element name="GraadArbeidsongeschiktheid" type="GraadOngeschiktheidDmfaType"/><!-- 00145 -->
+			<xs:element name="Vergoeding" type="VergoedingBedragDmfaType"/><!-- 00146 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanvullendeVergoedingenDmfaType">
+		<xs:sequence>
+			<xs:element name="AanvullendeVergoeding" type="AanvullendeVergoedingDmfaType" minOccurs="1" maxOccurs="99"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanvullendeVergoedingDmfaType">
+		<xs:sequence>
+			<xs:element name="AanvullendeVergoedingBasis" type="AanvullendeVergoedingBasisDmfaType"/>
+			<xs:element name="AanvullendeVergoedingBijdrages" type="AanvullendeVergoedingBijdragesDmfaType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanvullendeVergoedingBasisDmfaType">
+		<xs:sequence>
+			<xs:element name="IdentificatieNrWerkgever" type="IdentificatieNrWerkgeverDmfaType"/><!-- 00815 -->
+			<xs:element name="ParitairComite" type="ParitairComiteDmfaType"/><!-- 00046 -->
+			<xs:element name="DatumEersteAanvullendeVergoeding" type="generiek:VolledigDatumType"/><!-- 00823 -->
+			<xs:element name="TypeAkkoordAanvullendeVergoeding" type="TypeAkkoordVergoedingDmfaType"/><!-- 00824 -->
+			<xs:element name="HalftijdseLoopbaanOnderbreking" type="HalftijdseOnderbrekingDmfaType"/><!-- 00825 -->
+			<xs:element name="VrijstellingPrestaties" type="VrijstellingPrestatiesDmfaType"/><!-- 00826 -->
+			<xs:element name="VervangingInOvereenkomstMetCAO" type="VervangingInOvereenkomstDmfaType"/><!-- 00827 -->
+			<xs:element name="INSZVervanger" type="generiek:INSZType" minOccurs="0"/><!-- 00749 -->
+			<xs:element name="RegelingBijWerkhervatting" type="RegelingBijWerkhervattingDmfaType" minOccurs="0"/><!-- 00853 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanvullendeVergoedingBijdragesDmfaType">
+		<xs:sequence>
+			<xs:element name="AanvullendeVergoedingBijdrage" type="AanvullendeVergoedingBijdrageDmfaType" minOccurs="1" maxOccurs="99"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanvullendeVergoedingBijdrageDmfaType">
+		<xs:sequence>
+			<xs:element name="WerknemersKengetal" type="WerknemersKengetalDmfaType"/><!-- 00082 -->
+			<xs:element name="Type" type="AanvullendeVergoedingTypeDmfaType"/><!-- 00083 -->
+			<xs:element name="AanpassingBedrag" type="AanvullendeVergoedingAanpassingBedragDmfaType"/><!-- 00829 -->
+			<xs:element name="Vergoeding" type="AanvullendeVergoedingBedragDmfaType"/><!-- 00830 -->
+			<xs:element name="AantalMaanden" type="AanvullendeVergoedingAantalMaandenDmfaType"/><!-- 00831 -->
+			<xs:element name="Bijdrage" type="AanvullendeVergoedingBijdrageBedragDmfaType"/><!-- 000085 -->
+			<xs:element name="Versie" type="AttestVersieDmfaType" minOccurs="0"/><!-- 100046 -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AnomalienDmfaType">
+		<xs:sequence>
+			<xs:element name="Anomalie" type="AnomalieDmfaType" minOccurs="1" maxOccurs="999"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AnomalieDmfaType">
+		<xs:sequence>
+			<xs:element name="NrAangifteBlok" type="NrAangifteBlokDmfaType"/><!-- 100050 -->
+			<xs:element name="NrVeldOfAangifteBlok" type="NrAangifteVeldDmfaType"/><!-- 100051 -->
+			<xs:element name="NrAnomalie" type="NrAnomalieDmfaType"/><!-- 100052 -->
+			<xs:element name="AnomalieStatus" type="AnomalieStatusDmfaType"/><!-- 100053 -->
+			<xs:element name="VersieBlok" type="AttestVersieDmfaType"/><!-- 100046 -->
+			<xs:element name="DatumCreatie" type="generiek:VolledigDatumType"/><!-- 100054 -->
+			<xs:element name="DatumAanpassing" type="generiek:VolledigDatumType" minOccurs="0"/><!-- 100055 -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+	<xs:complexType name="DeelDmfaType">
+		<xs:sequence>
+			<xs:element name="NrDeel" type="NrDeelDmfaType"/>
+			<xs:element name="AantalDelen" type="AantalDelenDmfaType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResultaatVerwerkingDmfaType">
+		<xs:sequence>
+			<xs:element name="Resultaat" type="DeelResultaatDmfaType" minOccurs="0"/>
+			<xs:element name="VolledigResultaat" type="VolledigResultaatDmfaType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DeelResultaatDmfaType">
+		<xs:sequence>
+			<xs:element name="ResultaatCode" type="ResultaatCodeDmfaType"/>
+			<xs:element name="ResultaatCodeLijst" type="ResultaatCodeLijstDmfaType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VolledigResultaatDmfaType">
+		<xs:sequence>
+			<xs:element name="OorspronkelijkBericht" type="OorspronkelijkBerichtDmfaType"/>
+			<xs:element name="Resultaat" type="ResultaatDmfaType"/>
+			<xs:element name="BijkomendeInfo" type="BijkomendeInfoDmfaType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResultaatDmfaType">
+		<xs:sequence>
+			<xs:element name="ResultaatCode" type="ResultaatCodeDmfaType"/>
+			<xs:element name="ResultaatCodeLijst" type="ResultaatCodeLijstDmfaType" minOccurs="0"/>
+			<xs:element name="Datum" type="generiek:VolledigDatumType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	 -->
+</xs:schema>

@@ -10,8 +10,8 @@
                     <Bericht>
                         <Type>VRAAG</Type>
                         <Tijdstip>
-                            <Datum>DATUM</Datum>
-                            <Tijd>TIJD</Tijd>
+                            <Datum>2025-01-01</Datum>
+                            <Tijd>12:00</Tijd>
                         </Tijdstip>
                         <Afzender>
                             <Identificatie>Identificatie</Identificatie>
@@ -25,20 +25,20 @@
                         <Referte>Referte</Referte>
                         <Inhoud>
                             <Criteria>
-                                <Ondernemingsnummer>KboNumber</Ondernemingsnummer>
-                                <Basisgegevens>IncludeBasicData</Basisgegevens>
-                                <Rechtstoestanden>IncludeJuridicalSituations</Rechtstoestanden>
+                                <Ondernemingsnummer>0123456789</Ondernemingsnummer>
+                                <Basisgegevens>0</Basisgegevens>
+                                <Rechtstoestanden>0</Rechtstoestanden>
                                 <Vestigingen>
-                                    <Aanduiding>IncludeEstablishments</Aanduiding>
-                                    <Details>IncludeEstablishmentsDetails</Details>
+                                    <Aanduiding>0</Aanduiding>
+                                    <Details>0</Details>
                                 </Vestigingen>
                                 <Omschrijvingen>
-                                    <Aanduiding>IncludeDescriptions</Aanduiding>
+                                    <Aanduiding>0</Aanduiding>
                                 </Omschrijvingen>
                                 <Datums>
                                     <Periode>
-                                        <Begin>StartDate</Begin>
-                                        <Einde>EndDate</Einde>
+                                        <Begin>2025-01-01</Begin>
+                                        <Einde>2026-01-01</Einde>
                                     </Periode>
                                 </Datums>
                             </Criteria>

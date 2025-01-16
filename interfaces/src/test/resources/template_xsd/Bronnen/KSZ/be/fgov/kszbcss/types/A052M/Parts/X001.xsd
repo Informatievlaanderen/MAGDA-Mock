@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by BANQUE CARREFOUR DE LA SECURITE SOCIALE (BANQUE CARREFOUR DE LA SECURITE SOCIALE) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052">
+	<xs:include schemaLocation="PossibleAddressees.xsd"/>
+	<!--In release of 15/09/2004 : Add MFI-->
+	<!--In this release of 22/05/2003 : add BGM/DTM/ERC and BGM/DTM/ERC/FTX-->
+	<xs:complexType name="X001Type">
+		<xs:choice>
+			<xs:element name="PossibleAddressees" type="PossibleAddresseesType">
+				<xs:annotation>
+					<xs:documentation>version MDP</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Result">
+				<xs:annotation>
+					<xs:documentation>version ERC</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:restriction base="ResultType">
+							<xs:sequence>
+								<xs:element ref="ReturnCode">
+									<xs:annotation>
+										<xs:appinfo>BeginGlossaryDetailFr 100030 EndGlossaryDetailFr</xs:appinfo>
+										<xs:appinfo>BeginGlossaryDetailNl 100030 EndGlossaryDetailNl</xs:appinfo>
+										<xs:documentation xml:lang="FR">Code retour</xs:documentation>
+										<xs:documentation xml:lang="NL">Returncode</xs:documentation>
+										<xs:appinfo>BeginGlossaryDetailFr 100030 EndGlossaryDetailFr</xs:appinfo>
+										<xs:appinfo>BeginGlossaryDetailNl 100030 EndGlossaryDetailNl</xs:appinfo>
+										<xs:documentation xml:lang="FR">Code retour</xs:documentation>
+										<xs:documentation xml:lang="NL">Returncode</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element ref="Codelist" minOccurs="0">
+									<xs:annotation>
+										<xs:appinfo>BeginGlossaryDetailFr 100031 EndGlossaryDetailFr</xs:appinfo>
+										<xs:appinfo>BeginGlossaryDetailNl 100031 EndGlossaryDetailNl</xs:appinfo>
+										<xs:documentation xml:lang="FR">Liste de code</xs:documentation>
+										<xs:documentation xml:lang="NL">Codelijst</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:restriction>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DetailedResult">
+				<xs:annotation>
+					<xs:documentation>version 
+BGM/DTM/ERC</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="OriginalMessageIdentification">
+							<xs:annotation>
+								<xs:appinfo>BeginGlossaryDetailFr 100033 EndGlossaryDetailFr</xs:appinfo>
+								<xs:appinfo>BeginGlossaryDetailNl 100033 EndGlossaryDetailNl</xs:appinfo>
+								<xs:documentation xml:lang="FR">Identification du message original</xs:documentation>
+								<xs:documentation xml:lang="NL">Identificatie van het origineel bericht</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Result" type="ResultType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CompleteResult">
+				<xs:annotation>
+					<xs:documentation>version 
+BGM/DTM/ERC/FTX</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="OriginalMessageIdentification"/>
+						<xs:element name="Result" type="ResultType"/>
+						<xs:element name="ExtraData" minOccurs="0">
+							<xs:annotation>
+								<xs:appinfo>BeginGlossaryDetailFr 100064 EndGlossaryDetailFr</xs:appinfo>
+								<xs:appinfo>BeginGlossaryDetailNl 100064 EndGlossaryDetailNl</xs:appinfo>
+								<xs:documentation xml:lang="FR">Informations supplémentaires</xs:documentation>
+								<xs:documentation xml:lang="NL">Bijvoegende informaties</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="350"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MaiboxProcessing">
+				<xs:annotation>
+					<xs:documentation>version MFI</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="NbrOfAddressees">
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="99"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Addressee" minOccurs="0" maxOccurs="99">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element ref="MatrixID"/>
+									<xs:element ref="MatrixSubID"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="OriginalMessageIdentification">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100063 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100063 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Identification du message original</xs:documentation>
+			<xs:documentation xml:lang="NL">Identificatie van het origineel bericht</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="35"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

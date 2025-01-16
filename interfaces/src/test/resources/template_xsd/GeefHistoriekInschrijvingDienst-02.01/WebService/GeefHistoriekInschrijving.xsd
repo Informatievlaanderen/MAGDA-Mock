@@ -1,0 +1,39 @@
+<xs:schema targetNamespace="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01.201603011007" xmlns="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:inschrijving="http://inschrijving-02_01.onderwijs.vlaanderen.be">
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../../Generiek-02.00/Generiek.xsd"/>
+	<xs:import namespace="http://inschrijving-02_01.onderwijs.vlaanderen.be" schemaLocation="../../Inschrijving-02.01/Inschrijving.xsd"/>
+	<xs:element name="GeefHistoriekInschrijving">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Verzoek" type="VerzoekType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="VerzoekType">
+		<xs:sequence>
+			<xs:element name="Context" type="generiek:ContextType"/>
+			<xs:element name="Vragen" type="VragenType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VragenType">
+		<xs:sequence>
+			<xs:element name="Vraag" type="VraagType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VraagType">
+		<xs:sequence>
+			<xs:element name="Referte" type="generiek:ReferteType"/>
+			<xs:element name="Inhoud" type="VraagInhoudType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VraagInhoudType">
+		<xs:sequence>
+			<xs:element name="Criteria" type="inschrijving:CriteriaGeefHistoriekInschrijvingType">
+				<xs:annotation>
+					<xs:documentation>
+							Bevat de input elementen/data die nodig zijn om de operatie uit te kunnen voeren.
+						</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

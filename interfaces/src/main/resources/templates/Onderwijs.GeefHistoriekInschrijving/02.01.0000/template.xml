@@ -10,8 +10,8 @@
                     <Bericht>
                         <Type>VRAAG</Type>
                         <Tijdstip>
-                            <Datum>Datum</Datum>
-                            <Tijd>Tijd</Tijd>
+                            <Datum>2025-01-01</Datum>
+                            <Tijd>12:00</Tijd>
                         </Tijdstip>
                         <Afzender>
                             <Identificatie>Identificatie</Identificatie>
@@ -30,8 +30,10 @@
                                     <Begin>2015-01-01</Begin>
                                     <Einde>2016-06-30</Einde>
                                 </Periode>
+                                <!--
                                 <Bronnen>
                                 </Bronnen>
+                                -->
                             </Criteria>
                         </Inhoud>
                     </Vraag>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Bert Van Kets (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/generiek-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://magda.vlaanderen.be/generiek-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="Generiek-v3.xsd"/>
+	<xs:include schemaLocation="Code-v3.xsd"/>
+	<xs:include schemaLocation="DatumTijd-v3.xsd"/>
+	<xs:include schemaLocation="Adres-v3.xsd"/>
+	<xs:include schemaLocation="Persoon-v3.xsd"/>
+	<xs:include schemaLocation="Tekst-v3.xsd"/>
+	<xs:include schemaLocation="Numeriek-v3.xsd"/>
+</xs:schema>

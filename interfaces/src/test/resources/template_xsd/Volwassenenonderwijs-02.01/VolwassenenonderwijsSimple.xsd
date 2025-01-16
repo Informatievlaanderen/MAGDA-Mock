@@ -1,0 +1,63 @@
+<xs:schema targetNamespace="http://volwassenenonderwijs-02_01.onderwijs.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01.201603011007" xmlns="http://volwassenenonderwijs-02_01.onderwijs.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:onderwijs="http://onderwijs-02_01.onderwijs.vlaanderen.be">
+	<xs:import namespace="http://onderwijs-02_01.onderwijs.vlaanderen.be" schemaLocation="../Onderwijs-02.01/Onderwijs.xsd"/>
+	<xs:simpleType name="ModuleVariantCodeType">
+		<xs:annotation>
+			<xs:documentation>Code die uniek een ModuleVariant identificeert.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="onderwijs:NatuurlijkGetalType"/>
+	</xs:simpleType>
+	<xs:simpleType name="ModulecodeType">
+		<xs:annotation>
+			<xs:documentation>Code die uniek een Module identificeert.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="onderwijs:NatuurlijkGetalType"/>
+	</xs:simpleType>
+	<xs:simpleType name="ModulenaamType">
+		<xs:annotation>
+			<xs:documentation>Naam van een Module.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OpleidingsVariantCodeType">
+		<xs:annotation>
+			<xs:documentation>Code die uniek een OpleidingsVariant identificeert.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="onderwijs:NatuurlijkGetalType"/>
+	</xs:simpleType>
+	<xs:simpleType name="OpleidingsCodeType">
+		<xs:annotation>
+			<xs:documentation>Code die uniek een Opleidingstype identificeert.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="75"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OpleidingsGebiedCodeType">
+		<xs:annotation>
+			<xs:documentation>Code die uniek een Opleidingsgebied identificeert.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="onderwijs:NatuurlijkGetalType"/>
+	</xs:simpleType>
+	<xs:simpleType name="CommunicatieCodeIngerichteModuleVariantType">
+		<xs:annotation>
+			<xs:documentation>Code waarmee centra aan de KBI op een gestructureerde informatie kan doorgeven over de Ingerichte Modulevariant. KBI en centra kunnen bijvoorbeeld afspreken dat Ingerichte Modulevarianten met dezelfde communicatiecode gebundeld worden aangeboden.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CursusCodeIngerichteModuleVariantType">
+		<xs:annotation>
+			<xs:documentation>Code, uniek voor het centrum en toegekend door het centrum, met als doel de "menselijke" communicatie omtrent deze Ingerichte Modulevariant.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

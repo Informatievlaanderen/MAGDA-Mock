@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by  (Kruispuntbank van de Sociale Zekerheid) -->
+<!-- ============================================================================================================
+         * File Name :                notifyJobSeekerStatusV1.xsd
+         * Author :                     Batch Team
+         * Owner :                     KSZ / BCSS
+         * Creation date :           04/01/2019
+         * Last revision date :      
+         * Description :              This service allows to notify institutions about the job seeker's inscription.
+         * Current version :         v1
+         * Revision History :    
+				* 2019-03-26: update after meeting with the partners (period => event)
+				* 2019-04-08: make registrationDate mandatory in block deregistrationDetails
+============================================================================================================= -->
+<xsd:schema xmlns="http://kszbcss.fgov.be/intf/jobseekerstatus/notify/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://kszbcss.fgov.be/types/common/v3" targetNamespace="http://kszbcss.fgov.be/intf/jobseekerstatus/notify/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="20190408">
+	<xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../../../types/common/CommonV3.xsd"/>
+	<xsd:element name="notifyJobSeekerStatus" type="NotifyJobSeekerStatusType"/>
+	<xsd:complexType name="NotifyJobSeekerStatusType">
+		<xsd:sequence>
+			<xsd:element name="sender" type="common:SenderReceiverType">
+				<xsd:annotation>
+					<xsd:documentation>Information block that contains information about the sender.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="receiver" type="common:SenderReceiverType">
+				<xsd:annotation>
+					<xsd:documentation>Information block that contains information about the receiver. Timestamp and ticket will not be filled in.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="legalContext" type="common:LegalContextType">
+				<xsd:annotation>
+					<xsd:documentation>The legal context.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="sequenceNumber" type="common:SequenceNumberType">
+				<xsd:annotation>
+					<xsd:documentation>consecutive number </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="jobSeekers" type="JobSeekersType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="JobSeekersType">
+		<xsd:sequence>
+			<xsd:element name="jobSeeker" type="JobSeekerType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="JobSeekerType">
+		<xsd:sequence>
+			<xsd:element name="event" type="EventType"/>
+			<xsd:element name="deregistrationDetails" type="DeregistrationDetailsType" minOccurs="0"/>
+			<xsd:element name="ssin" type="common:SsinWithCanceledAndReplacedByStatusType"/>
+		</xsd:sequence>
+		<xsd:attribute name="source" type="PESValueType" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="EventType">
+		<xsd:sequence>
+			<xsd:element name="id" type="AttestationIdType"/>
+			<xsd:element name="type" type="EventValueType"/>
+			<xsd:element name="date" type="xsd:date"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DeregistrationDetailsType">
+		<xsd:sequence>
+			<xsd:element name="registrationDate" type="xsd:date"/>
+			<xsd:element name="reason" type="jobSearchEndValueType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="PESValueType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ACTIRIS"/>
+			<xsd:enumeration value="ADG"/>
+			<xsd:enumeration value="FOREM"/>
+			<xsd:enumeration value="VDAB"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EventValueType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="REGISTRATION"/>
+			<xsd:enumeration value="DEREGISTRATION"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="jobSearchEndValueType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BACK_TO_SCHOOL"/>
+			<xsd:enumeration value="BACK_TO_WORK"/>
+			<xsd:enumeration value="OTHER_REASON"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AttestationIdType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

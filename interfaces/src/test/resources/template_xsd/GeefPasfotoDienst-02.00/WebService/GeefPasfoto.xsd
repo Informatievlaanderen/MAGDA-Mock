@@ -1,0 +1,34 @@
+<xsd:schema targetNamespace="http://webservice.geefpasfotodienst-02_00.persoon-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00.201204271255" xmlns="http://webservice.geefpasfotodienst-02_00.persoon-02_00.vip.vlaanderen.be" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:persoon="http://persoon-02_00.vip.vlaanderen.be">
+	<xsd:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../../Sleutel-02.00/Sleutel.xsd"/>
+	<xsd:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../../Generiek-02.00/Generiek.xsd"/>
+	<xsd:import namespace="http://persoon-02_00.vip.vlaanderen.be" schemaLocation="../../Persoon-02.00/Persoon.xsd"/>
+	<xsd:element name="GeefPasfoto">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Verzoek" type="VerzoekType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="VerzoekType">
+		<xsd:sequence>
+			<xsd:element name="Context" type="generiek:ContextType"/>
+			<xsd:element name="Vragen" type="VragenType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VragenType">
+		<xsd:sequence>
+			<xsd:element name="Vraag" type="VraagType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VraagType">
+		<xsd:sequence>
+			<xsd:element name="Referte" type="generiek:ReferteType"/>
+			<xsd:element name="Inhoud" type="VraagInhoudType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VraagInhoudType">
+		<xsd:sequence>
+			<xsd:element name="Criteria" type="persoon:CriteriaGeefPasfoto2_0Type"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

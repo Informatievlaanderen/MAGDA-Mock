@@ -1,0 +1,37 @@
+<xsd:schema targetNamespace="http://webservice.geefaanslagbiljetpersonenbelastingdienst-02_00.inkomen-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00.201212031019" xmlns="http://webservice.geefaanslagbiljetpersonenbelastingdienst-02_00.inkomen-02_00.vip.vlaanderen.be" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:inkomen="http://inkomen-02_00.vip.vlaanderen.be">
+
+	<xsd:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../../Sleutel-02.00/Sleutel.xsd"/>
+	<xsd:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../../Generiek-02.00/Generiek.xsd"/>
+	<xsd:import namespace="http://inkomen-02_00.vip.vlaanderen.be" schemaLocation="../../Inkomen-02.00/Inkomen.xsd"/>
+	<xsd:element name="GeefAanslagbiljetPersonenbelasting">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Verzoek" type="VerzoekType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="VerzoekType">
+		<xsd:sequence>
+			<xsd:element name="Context" type="generiek:ContextType"/>
+			<xsd:element name="Vragen" type="VragenType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VragenType">
+		<xsd:sequence>
+			<xsd:element name="Vraag" type="VraagType" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VraagType">
+		<xsd:sequence>
+			<xsd:element name="Referte" type="generiek:ReferteType"/>
+			<xsd:element name="Inhoud" type="VraagInhoudType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VraagInhoudType">
+		<xsd:sequence>
+			<xsd:element name="Criteria" type="inkomen:CriteriaGeefAanslagbiljetPersonenbelastingType"/>
+			<xsd:element name="Bron" type="generiek:BronType"/>
+			<xsd:element name="Taal" type="generiek:OmschrijvingTaalCodeType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

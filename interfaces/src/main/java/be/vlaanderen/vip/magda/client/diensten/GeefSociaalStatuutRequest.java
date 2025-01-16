@@ -175,7 +175,6 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
 
         if(isAtDateOfRequest()) {
             request.setValue("//SociaalStatuut/Datum/Datum", request.getValue("//Context/Bericht/Tijdstip/Datum"));
-            request.removeNode("//SociaalStatuut/Datum/Periode");
         } else {
             if(getDate() != null) {
                 request.setValue("//SociaalStatuut/Datum/Datum", DateTimeFormatter.ISO_LOCAL_DATE.format(getDate()));
@@ -184,14 +183,13 @@ public class GeefSociaalStatuutRequest extends PersonMagdaRequest {
             }
 
             if(getStartDate() != null) {
+                request.createNode("//SociaalStatuut/Datum", "Periode");
+                request.createNode("//SociaalStatuut/Datum/Periode", "Begindatum");
                 request.setValue("//SociaalStatuut/Datum/Periode/Begindatum", DateTimeFormatter.ISO_LOCAL_DATE.format(getStartDate()));
                 if(getEndDate() != null) {
+                    request.createNode("//SociaalStatuut/Datum/Periode", "Einddatum");
                     request.setValue("//SociaalStatuut/Datum/Periode/Einddatum", DateTimeFormatter.ISO_LOCAL_DATE.format(getEndDate()));
-                } else {
-                    request.removeNode("//SociaalStatuut/Datum/Periode/Einddatum");
                 }
-            } else {
-                request.removeNode("//SociaalStatuut/Datum/Periode");
             }
         }
 

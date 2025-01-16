@@ -10,8 +10,8 @@
                     <Bericht>
                         <Type>VRAAG</Type>
                         <Tijdstip>
-                            <Datum>Datum</Datum>
-                            <Tijd>Tijd</Tijd>
+                            <Datum>2025-01-01</Datum>
+                            <Tijd>12:00</Tijd>
                         </Tijdstip>
                         <Afzender>
                             <Identificatie>Identificatie</Identificatie>
@@ -23,19 +23,17 @@
                 <Vragen>
                     <Vraag>
                         <Referte>Referte</Referte>
-                        <Inhoud>
-                            <Criteria>
-                                <ConsultPaymentsCriteria>
-                                    <ssin>INSZ</ssin>
-                                    <handicapAuthenticSources>
-                                    </handicapAuthenticSources>
-                                    <period>
-                                        <beginDatum>BeginDatum</beginDatum>
-                                        <eindDatum>EindDatum</eindDatum>
-                                    </period>
-                                </ConsultPaymentsCriteria>
-                            </Criteria>
-                        </Inhoud>
+                        <Criteria>
+                            <ConsultPaymentsCriteria>
+                                <ssin>90010100123</ssin>
+                                <handicapAuthenticSources>
+                                </handicapAuthenticSources>
+                                <period>
+                                    <beginDate>2025-01-01</beginDate>
+                                    <endDate>2026-01-01</endDate>
+                                </period>
+                            </ConsultPaymentsCriteria>
+                        </Criteria>
                     </Vraag>
                 </Vragen>
             </Verzoek>

@@ -1,0 +1,134 @@
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Ann (Bram Devreese) --><xs:schema targetNamespace="http://generiek-02_01.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01" xmlns="http://generiek-02_01.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="GeneriekEnum.xsd"/>
+	<xs:include schemaLocation="GeneriekSimple.xsd"/>
+	<!--======================================-->
+	<!-- Algemeen							  -->
+	<!--======================================-->
+	<xs:complexType name="VlagCodeType">
+		<xs:annotation>
+			<xs:documentation>is een extension van simpel Type 'VlagEnumType' + beschrijving</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="VlagEnumType">
+				<xs:attribute name="Beschrijving" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AnnotatieType">
+		<xs:annotation>
+			<xs:documentation>AnnotatieType</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Naam</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Waarde" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Waarde</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AnnotatiesType">
+		<xs:annotation>
+			<xs:documentation>AnnotatiesType</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Annotatie" type="AnnotatieType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Annotatie</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--======================================-->
+	<!-- Datum & Tijd 						  -->
+	<!--======================================-->
+	<xs:complexType name="PeriodeVerplichtType">
+		<xs:sequence>
+			<xs:element name="Begin" type="DatumType"/>
+			<xs:element name="Einde" type="DatumType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PeriodeVerplichtBeginType">
+		<xs:sequence>
+			<xs:element name="Begin" type="DatumType"/>
+			<xs:element name="Einde" type="DatumType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PeriodeVerplichtEindeType">
+		<xs:sequence>
+			<xs:element name="Begin" type="DatumType" minOccurs="0"/>
+			<xs:element name="Einde" type="DatumType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PeriodeOptioneelType">
+		<xs:sequence>
+			<xs:element name="Begin" type="DatumType" minOccurs="0"/>
+			<xs:element name="Einde" type="DatumType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TijdstipType">
+		<xs:annotation>
+			<xs:documentation>TijdstipType</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Datum" type="DatumType">
+				<xs:annotation>
+					<xs:documentation>Datum indicatie in YYYY-MM-DD</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Tijd" type="TijdType">
+				<xs:annotation>
+					<xs:documentation>Tijdsindicatie in HH:MM:SS.sss</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--======================================-->
+	<!-- Omschrijvingen						  -->
+	<!--======================================-->
+	<xs:complexType name="OmschrijvingAlgemeenType">
+		<xs:simpleContent>
+			<xs:extension base="TekstType">
+				<xs:attribute name="Oorsprong" type="OmschrijvingOorsprongType"/>
+				<xs:attribute name="TaalCode" type="OmschrijvingTaalCodeType"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--======================================-->
+	<!-- Abstract Code Omschrijving			  -->
+	<!--======================================-->
+	<xs:complexType name="AbstractCodeOmschrijvingType" abstract="true">
+		<xs:sequence>
+			<xs:element name="Code" type="xs:string"/>
+			<xs:element name="Omschrijving" type="AbstractOmschrijvingType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AbstractOmschrijvingType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="Oorsprong" type="OmschrijvingOorsprongType"/>
+				<xs:attribute name="TaalCode" type="OmschrijvingTaalCodeType"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OmschrijvingType">
+		<xs:simpleContent>
+			<xs:restriction base="AbstractOmschrijvingType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="255"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="OmschrijvingLangType">
+		<xs:simpleContent>
+			<xs:restriction base="AbstractOmschrijvingType">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="4000"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

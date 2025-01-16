@@ -107,8 +107,8 @@ public class GeefBetalingenHandicapRequest extends PersonMagdaRequest {
 
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//ConsultPaymentsCriteria/ssin", getInsz().getValue());
-        request.setValue("//ConsultPaymentsCriteria/period/beginDatum", getStartDate().format(dateFormatter));
-        request.setValue("//ConsultPaymentsCriteria/period/eindDatum", getEndDate().format(dateFormatter));
+        request.setValue("//ConsultPaymentsCriteria/period/beginDate", getStartDate().format(dateFormatter));
+        request.setValue("//ConsultPaymentsCriteria/period/endDate", getEndDate().format(dateFormatter));
         Arrays.stream(HandicapAuthenticSourceType.values()).forEach(x -> {
             request.createTextNode("//ConsultPaymentsCriteria/handicapAuthenticSources", x.getTypeString(), getSources() != null && getSources().contains(x) ? "true" : "false");
         });

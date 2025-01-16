@@ -1,0 +1,47 @@
+<xs:schema targetNamespace="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:bewijs="http://bewijs.led.vlaanderen.be">
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../../Generiek-02.00/Generiek.xsd"/>
+	<xs:import namespace="http://bewijs.led.vlaanderen.be" schemaLocation="../../Bewijs/Bewijs.xsd"/>
+	<xs:element name="GeefBewijs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Verzoek" type="VerzoekType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="VerzoekType">
+		<xs:sequence>
+			<xs:element name="Context" type="generiek:ContextType"/>
+			<xs:element name="Vragen" type="VragenType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VragenType">
+		<xs:sequence>
+			<xs:element name="Vraag" type="VraagType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VraagType">
+		<xs:sequence>
+			<xs:element name="Referte" type="generiek:ReferteType"/>
+			<xs:element name="Inhoud" type="VraagInhoudType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VraagInhoudType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="generiek:INSZType">
+				<xs:annotation>
+					<xs:documentation>					
+						Het INSZ van de persoon waarvoor de bewijzen worden opgevraagd.
+						Dit MOET het actuele INSZ zijn.
+						Indien dit niet het geval is dan zal de vraag niet succesvol zijn. 						
+						Verplicht.
+						
+						Een succesvolle vraag leidt altijd tot een repliek met daarin een
+						Inhoud en een AntwoordInhoud.
+						Een niet succesvolle vraag leidt altijd tot een repliek met daarin
+						een Uitzonderingen element met uitzonderingen.															
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

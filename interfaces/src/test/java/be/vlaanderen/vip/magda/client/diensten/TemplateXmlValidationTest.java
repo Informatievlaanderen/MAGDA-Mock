@@ -7,7 +7,6 @@ import org.junit.jupiter.api.DynamicNode;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.TestFactory;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
@@ -35,7 +34,26 @@ class TemplateXmlValidationTest {
     private static final String baseXml = "templates/";
 
     private final Map<String, String> XML_FOLDERS_AND_XSDS = data(
-            "GeefJaarrekeningen/02.00.0000", "GeefJaarrekeningen/02.00.0000/GeefJaarrekeningen.xsd");
+            "GeefAanslagbiljetPersonenbelasting/02.00.0000", "GeefAanslagbiljetPersonenbelastingDienst-02.00/WebService/GeefAanslagbiljetPersonenbelasting.xsd",
+            "GeefBetalingenHandicap/03.00.0000", "GeefBetalingenHandicapDienst-03.00/WebService/GeefBetalingenHandicap.xsd",
+            "GeefBewijs/02.00.0000", "GeefBewijsDienst-02.00/WebService/GeefBewijs.xsd",
+            "GeefDossierHandicap/03.00.0000", "GeefDossierHandicapDienst-03.00/WebService/GeefDossierHandicap.xsd",
+            "GeefFuncties/02.00.0000", "GeefFunctiesDienst-02.00/WebService/GeefFuncties.xsd",
+            "GeefHistoriekGezinssamenstelling/02.02.0000", "GeefHistoriekGezinssamenstellingDienst-02.02/WebService/GeefHistoriekGezinssamenstelling.xsd",
+            "GeefHistoriekPersoon/02.02.0000", "GeefHistoriekPersoonDienst-02.02/WebService/GeefHistoriekPersoon.xsd",
+            "GeefJaarrekeningen/02.00.0000", "GeefJaarrekeningenDienst-02.00/WebService/GeefJaarrekeningen.xsd",
+            "GeefLeefloonbedragen/02.00.0000", "GeefLeefloonbedragenDienst-02.00/WebService/GeefLeefloonbedragen.xsd",
+            "GeefLoopbaanARZA/02.01.0000", "GeefLoopbaanARZADienst-02.01/WebService/GeefLoopbaanARZA.xsd",
+            "GeefOnderneming/02.00.0000", "GeefOndernemingDienst-02.00/WebService/GeefOnderneming.xsd",
+            "GeefPasfoto/02.00.0000", "GeefPasfotoDienst-02.00/WebService/GeefPasfoto.xsd",
+            "GeefPersoon/02.02.0000", "GeefPersoonDienst-02.02/WebService/GeefPersoon.xsd",
+            "GeefSociaalStatuut/03.00.0000", "GeefSociaalStatuutDienst-03.00/WebService/GeefSociaalStatuut.xsd",
+            "GeefWerkrelaties/02.00.0000", "GeefWerkrelatiesDienst-02.00/WebService/GeefWerkrelaties.xsd",
+            "Onderwijs.GeefHistoriekInschrijving/02.01.0000", "GeefHistoriekInschrijvingDienst-02.01/WebService/GeefHistoriekInschrijving.xsd",
+            "RegistreerInschrijving/02.00.0000", "RegistreerInschrijvingDienst-02.00/WebService/RegistreerInschrijving.xsd",
+            "RegistreerInschrijving/02.01.0000", "RegistreerInschrijvingDienst-02.01/WebService/RegistreerInschrijving.xsd",
+            "RegistreerUitschrijving/02.00.0000", "RegistreerUitschrijvingDienst-02.00/WebService/RegistreerUitschrijving.xsd",
+            "ZoekPersoonOpAdres/02.02.0000", "ZoekPersoonOpAdresDienst-02.02/WebService/ZoekPersoonOpAdres.xsd");
 
     @TestFactory
     Stream<DynamicNode> validateXmls() {
@@ -87,7 +105,7 @@ class TemplateXmlValidationTest {
     }
 
     private Node findRequestRootNote(MagdaDocument doc) {
-        return ((NodeList) doc.xpath("/soapenv:Envelope/soapenv:Body").item(0)).item(0);
+        return doc.xpath("/soapenv:Envelope/soapenv:Body/*").item(0);
     }
 
     private Validator getValidator(File xsd) {

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 2 U (http://www.xmlspy.com) by leo (leo) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<!--In release of 17/03/2004 : introduction of glossary references. -->
+	<xs:element name="AnswerNOK">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Reponse en cas de probleme</xs:documentation>
+			<xs:documentation xml:lang="NL">Antwoord in geval van probleem</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:restriction base="ResultType">
+					<xs:sequence>
+						<xs:element ref="ReturnCode">
+							<xs:annotation>
+								<xs:appinfo>BeginGlossaryDetailFr 100030 EndGlossaryDetailFr</xs:appinfo>
+								<xs:appinfo>BeginGlossaryDetailNl 100030 EndGlossaryDetailNl</xs:appinfo>
+								<xs:documentation xml:lang="FR">Code retour</xs:documentation>
+								<xs:documentation xml:lang="NL">Returncode</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="Codelist" minOccurs="0">
+							<xs:annotation>
+								<xs:appinfo>BeginGlossaryDetailFr 100031 EndGlossaryDetailFr</xs:appinfo>
+								<xs:appinfo>BeginGlossaryDetailNl 100031 EndGlossaryDetailNl</xs:appinfo>
+								<xs:documentation xml:lang="FR">Liste de code</xs:documentation>
+								<xs:documentation xml:lang="NL">Codelijst</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:restriction>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ResultType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Resultats</xs:documentation>
+			<xs:documentation xml:lang="NL">Resultaten</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ReturnCode"/>
+			<xs:element ref="Codelist" minOccurs="0"/>
+			<xs:element ref="ResultDate" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ResultDate" type="xs:date">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100062 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100062 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Date du resultat</xs:documentation>
+			<xs:documentation xml:lang="NL">Datum van de RC</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Codelist">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100031 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100031 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Liste de code</xs:documentation>
+			<xs:documentation xml:lang="NL">Codelijst</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="3"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ReturnCode">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100030 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100030 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="FR">Code retour</xs:documentation>
+			<xs:documentation xml:lang="NL">Returncode</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="6"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

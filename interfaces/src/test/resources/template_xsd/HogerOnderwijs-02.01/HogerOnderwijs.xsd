@@ -1,0 +1,3 @@
+<xs:schema targetNamespace="http://hogeronderwijs-02_01.onderwijs.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01.201603011007" xmlns="http://hogeronderwijs-02_01.onderwijs.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="HogerOnderwijsComplex.xsd"/>
+</xs:schema>

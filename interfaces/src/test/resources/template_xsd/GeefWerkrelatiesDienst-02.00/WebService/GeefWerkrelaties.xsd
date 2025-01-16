@@ -1,0 +1,36 @@
+<xsd:schema targetNamespace="http://webservice.geefwerkrelatiesdienst-02_00.werk-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00.201601211824" xmlns="http://webservice.geefwerkrelatiesdienst-02_00.werk-02_00.vip.vlaanderen.be" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:werk="http://werk-02_00.vip.vlaanderen.be">
+            
+	<xsd:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../../Generiek-02.00/Generiek.xsd"/>
+	<xsd:import namespace="http://werk-02_00.vip.vlaanderen.be" schemaLocation="../../Werk-02.00/Werk.xsd"/>
+    
+	<xsd:element name="GeefWerkrelaties">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Verzoek" type="VerzoekType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="VerzoekType">
+		<xsd:sequence>
+			<xsd:element name="Context" type="generiek:ContextType"/>
+			<xsd:element name="Vragen" type="VragenType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VragenType">
+		<xsd:sequence>
+			<xsd:element name="Vraag" type="VraagType" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VraagType">
+		<xsd:sequence>
+			<xsd:element name="Referte" type="generiek:ReferteType"/>
+			<xsd:element name="Inhoud" type="VraagInhoudType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VraagInhoudType">
+		<xsd:sequence>
+			<xsd:element name="TypeAntwoord" type="generiek:TypeAntwoordEnumType"/>
+			<xsd:element name="Criteria" type="werk:CriteriaGeefWerkrelatiesType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

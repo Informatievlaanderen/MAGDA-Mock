@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 2 U (http://www.xmlspy.com) by leo (leo) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:element name="PLAIndicator">
+		<xs:annotation>
+			<xs:appinfo>BeginGlossaryDetailFr 100039 EndGlossaryDetailFr</xs:appinfo>
+			<xs:appinfo>BeginGlossaryDetailNl 100039 EndGlossaryDetailNl</xs:appinfo>
+			<xs:documentation xml:lang="EN">Provincial and Local Authorities indicator</xs:documentation>
+			<xs:documentation xml:lang="FR">Indicateur ONSS - ONSSAPL</xs:documentation>
+			<xs:documentation xml:lang="NL">RSZ - RSZPPO indicator</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">Inconnu</xs:documentation>
+						<xs:documentation xml:lang="NL">Onbekend</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="1">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">ONSS</xs:documentation>
+						<xs:documentation xml:lang="NL">RSZ</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="2">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">ONSS APL</xs:documentation>
+						<xs:documentation xml:lang="NL">RSZPPO</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

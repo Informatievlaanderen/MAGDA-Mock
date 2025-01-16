@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://magda.vlaanderen.be/soczek-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/soczek-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:include schemaLocation="SocZekGemeenschappelijk-v3.xsd"/>
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<xs:simpleType name="BedragArbeidsongevalType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.00"/>
+			<xs:maxInclusive value="999999999.99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--=> COMPLEX TYPE DEFINITES-->
+	<xs:complexType name="MutatieAttestArbeidsongevalType">
+		<xs:sequence>
+			<xs:element name="IdentificatieBericht" type="AttestPrefixType" minOccurs="0"/>
+			<xs:element name="Attest" type="AttestArbeidsongevalType"/>
+			<xs:element name="Referentie" type="AttestArbeidsongevalReferentieType" minOccurs="0"/>
+			<xs:element name="Werkgever" type="WerkgeverType" minOccurs="0"/>
+			<xs:element name="Beslissingen" type="ArbeidsongevalBeslissingLijstType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AttestArbeidsongevalType">
+		<xs:complexContent>
+			<xs:extension base="AttestBasisType">
+				<xs:sequence>
+					<xs:element name="INSZ" type="sleutel:INSZType"/>
+					<xs:element name="Versie" type="VersieType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AttestArbeidsongevalReferentieType">
+		<xs:sequence>
+			<xs:element name="Dossiernummer" type="DossiernummerType"/>
+			<xs:element name="DatumOngeval" type="generiek:DatumType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArbeidsongevalBeslissingLijstType">
+		<xs:sequence>
+			<xs:element name="Beslissing" type="ArbeidsongevalBeslissingType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArbeidsongevalBeslissingType">
+		<xs:sequence>
+			<xs:element name="PeriodeBetaling" type="generiek:PeriodeDatumBeginVerplichtType"/>
+			<xs:element name="BetalingPercentage" type="BetalingPercentageType"/>
+			<xs:element name="BetalingBedragBruto" type="BedragArbeidsongevalType" minOccurs="0"/>
+			<xs:element name="BetalingBedragRSZ" type="BedragArbeidsongevalType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
