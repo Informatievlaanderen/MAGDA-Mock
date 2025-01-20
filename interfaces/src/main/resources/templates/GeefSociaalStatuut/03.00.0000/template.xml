@@ -30,12 +30,6 @@
                                         <Naam>Naam</Naam>
                                         <Datum>
                                             <Datum>2025-01-01</Datum>
-                                            <!--
-                                            <Periode>
-                                                <Begindatum>2025-01-01</Begindatum>
-                                                <Einddatum>2026-01-01</Einddatum>
-                                            </Periode>
-                                            -->
                                         </Datum>
                                         <Locatie>
                                             <Naam>Locatie</Naam>

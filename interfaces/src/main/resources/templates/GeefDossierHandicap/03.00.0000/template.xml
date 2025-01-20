@@ -32,7 +32,6 @@
                                     <decisionStatus>false</decisionStatus>
                                     <enrichedRecognition>false</enrichedRecognition>
                                 </ConsultFilesByDateCriteria>
-                                <!--<ConsultFilesByPeriodCriteria></ConsultFilesByPeriodCriteria>-->
                             </Criteria>
                     </Vraag>
                 </Vragen>
