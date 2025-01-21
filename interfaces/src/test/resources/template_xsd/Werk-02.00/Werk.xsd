@@ -1,0 +1,5 @@
+<xs:schema targetNamespace="http://werk-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00" xmlns="http://werk-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	 	   
+	<xs:include schemaLocation="WerkComplex.xsd"/>
+	<xs:include schemaLocation="DmfaComplex.xsd"/>
+</xs:schema>

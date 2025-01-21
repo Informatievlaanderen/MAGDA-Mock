@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://werk-02_00.vip.vlaanderen.be"
+		   xmlns="http://werk-02_00.vip.vlaanderen.be"
+	 	   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 	   elementFormDefault="unqualified"
+	 	   attributeFormDefault="unqualified"
+	 	   version="2.00">
+
+	<!-- GeefDmfAVoorWerknemer Algemeen -->
+	<xs:simpleType name="AantalWerkdagenPerWeekDmfaType">
+		<xs:annotation>
+			<xs:documentation>00047</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WerknemersStatuutDmfaType">
+		<xs:annotation>
+			<xs:documentation>00053</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ArbeidsreglementRegistratieNrDmfaType">
+		<xs:annotation>
+			<xs:documentation>00142</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestStatusDmfaType">
+		<xs:annotation>
+			<xs:documentation>100003</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[0-4]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestNrDmfaType">
+		<xs:annotation>
+			<xs:documentation>100040</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestVersieDmfaType">
+		<xs:annotation>
+			<xs:documentation>100041</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AnomalieStatusDmfaType">
+		<xs:annotation>
+			<xs:documentation>100053</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[1-4]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- GeefDmfAVoorWerknemer Vraag -->
+	<xs:simpleType name="RSZNummerDmfaInputType">
+		<xs:annotation>
+			<xs:documentation>RSZNummerDmfaInputType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KBONummerDmfaInputType">
+		<xs:annotation>
+			<xs:documentation>KBONummerDmfaInputType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+			<xs:pattern value="[0-9]{9,10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WerkgeversCategorieDmfaType">
+		<xs:annotation>
+			<xs:documentation>WerkgeversCategorieDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WerknemersKengetalDmfaType">
+		<xs:annotation>
+			<xs:documentation>WerknemersKengetalDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KwartaalCijferDmfaType">
+		<xs:annotation>
+			<xs:documentation>KwartaalCijferDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[1-4]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IdentificatieNrPersoonDmfaType">
+		<xs:annotation>
+			<xs:documentation>IdentificatieNrPersoonDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- GeefDmfAVoorWerknemer Antwoord -->
+	<xs:simpleType name="RSZNummerDmfaType">
+		<xs:annotation>
+			<xs:documentation>RSZNummerDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KBONummerDmfaType">
+		<xs:annotation>
+			<xs:documentation>KBONummerDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+			<xs:pattern value="[0-9]{1,10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerschuldigdBedragDmfaType">
+		<xs:annotation>
+			<xs:documentation>VerschuldigdBedragDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+			<xs:pattern value="[0-9]{1,15}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AangeverDmfaType">
+		<xs:annotation>
+			<xs:documentation>AangeverDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeAangeverDmfaType">
+		<xs:annotation>
+			<xs:documentation>TypeAangeverDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GrensArbeiderDmfaType">
+		<xs:annotation>
+			<xs:documentation>GrensArbeiderDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ActiviteitTOVRisicoDmfaType">
+		<xs:annotation>
+			<xs:documentation>ActiviteitTOVRisicoDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LokaleEenheidDmfaType">
+		<xs:annotation>
+			<xs:documentation>LokaleEenheidDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+			<xs:pattern value="[0-9]{1,10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerantwoordingOmschrijvingDmfaType">
+		<xs:annotation>
+			<xs:documentation>VerantwoordingOmschrijvingDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="560"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerantwoordingCodeDmfaType">
+		<xs:annotation>
+			<xs:documentation>VerantwoordingCodeDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VolgNrDmfaType">
+		<xs:annotation>
+			<xs:documentation>VolgNrDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+			<xs:pattern value="[1-9][0-9]{0,1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InternTewerkstellingsNrDmfaType">
+		<xs:annotation>
+			<xs:documentation>InternTewerkstellingsNrDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ParitairComiteDmfaType">
+		<xs:annotation>
+			<xs:documentation>ParitairComiteDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContractTypeDmfaType">
+		<xs:annotation>
+			<xs:documentation>ContractTypeDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GemAantalUrenPerWeekDmfaType">
+		<xs:annotation>
+			<xs:documentation>GemAantalUrenPerWeekDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+			<xs:pattern value="[0-9]{1,4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MaatregelReorganisatieDmfaType">
+		<xs:annotation>
+			<xs:documentation>MaatregelReorganisatieDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MaatregelBevorderingDmfaType">
+		<xs:annotation>
+			<xs:documentation>MaatregelBevorderingDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GepensioneerdDmfaType">
+		<xs:annotation>
+			<xs:documentation>GepensioneerdDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeLeerlingDmfaType">
+		<xs:annotation>
+			<xs:documentation>TypeLeerlingDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BezoldigingsWijzeDmfaType">
+		<xs:annotation>
+			<xs:documentation>BezoldigingsWijzeDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TewerkstellingFunctieNrDmfaType">
+		<xs:annotation>
+			<xs:documentation>TewerkstellingFunctieNrDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KlasseVliegendPersoneelDmfaType">
+		<xs:annotation>
+			<xs:documentation>KlasseVliegendPersoneelDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Betaling10Of12DmfaType">
+		<xs:annotation>
+			<xs:documentation>Betaling10Of12DmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ArbeidscyclusDmfaType">
+		<xs:annotation>
+			<xs:documentation>ArbeidscyclusDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TewerkstellingUurloonDmfaType">
+		<xs:annotation>
+			<xs:documentation>TewerkstellingUurloonDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:pattern value="[1-9][0-9]{0,4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PercentageVerminderingDmfaType">
+		<xs:annotation>
+			<xs:documentation>PercentageVerminderingDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:pattern value="[1-9][0-9]{0,4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UurloonInEuroDuizendstenDmfaType">
+		<xs:annotation>
+			<xs:documentation>UurloonInEuroDuizendstenDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6"/>
+			<xs:pattern value="[0-9]{1,6}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PrestatieCodeDmfaType">
+		<xs:annotation>
+			<xs:documentation>PrestatieCodeDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PrestatieDagenDmfaType">
+		<xs:annotation>
+			<xs:documentation>PrestatieDagenDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:pattern value="[0-9]{1,5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PrestatieUrenDmfaType">
+		<xs:annotation>
+			<xs:documentation>PrestatieUrenDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="7"/>
+			<xs:pattern value="[0-9]{1,7}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AantalVluchtMinutenDmfaType">
+		<xs:annotation>
+			<xs:documentation>AantalVluchtMinutenDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="7"/>
+			<xs:pattern value="[0-9]{1,7}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BezoldigingCodeDmfaType">
+		<xs:annotation>
+			<xs:documentation>BezoldigingCodeDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BezoldigingFrequentieBetalingDmfaType">
+		<xs:annotation>
+			<xs:documentation>BezoldigingFrequentieBetalingDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BezoldigingPercentageDmfaType">
+		<xs:annotation>
+			<xs:documentation>BezoldigingPercentageDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:pattern value="[0-9]{1,5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BezoldigingBedragDmfaType">
+		<xs:annotation>
+			<xs:documentation>BezoldigingBedragDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WerknemersBijdrageCodeDmfaType">
+		<xs:annotation>
+			<xs:documentation>WerknemersBijdrageCodeDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WerknemersBijdrageTypeDmfaType">
+		<xs:annotation>
+			<xs:documentation>WerknemersBijdrageTypeDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WerknemersBijdrageBerekeningDmfaType">
+		<xs:annotation>
+			<xs:documentation>WerknemersBijdrageBerekeningDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WerknemersBijdrageCodeBedragDmfaType">
+		<xs:annotation>
+			<xs:documentation>WerknemersBijdrageCodeBedragDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerminderingCodeDmfaType">
+		<xs:annotation>
+			<xs:documentation>VerminderingCodeDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerminderingBerekeningDmfaType">
+		<xs:annotation>
+			<xs:documentation>VerminderingBerekeningDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerminderingBedragDmfaType">
+		<xs:annotation>
+			<xs:documentation>VerminderingBedragDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerminderingAantalMaandenType">
+		<xs:annotation>
+			<xs:documentation>VerminderingAantalMaandenType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[1-3]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerminderingHerkomstAttestDmfaType">
+		<xs:annotation>
+			<xs:documentation>VerminderingHerkomstAttestDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerminderingGemArbeidsduurDmfaType">
+		<xs:annotation>
+			<xs:documentation>VerminderingGemArbeidsduurDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+			<xs:pattern value="[0-4]{0,1}[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReferteBrutoLoonDmfaType">
+		<xs:annotation>
+			<xs:documentation>ReferteBrutoLoonDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="9"/>
+			<xs:pattern value="[0-9]{1,9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StatutairBijdrageBedragDmfaType">
+		<xs:annotation>
+			<xs:documentation>StatutairBijdrageBedragDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="9"/>
+			<xs:pattern value="[0-9]{1,9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReferteAantalDagenDmfaType">
+		<xs:annotation>
+			<xs:documentation>ReferteAantalDagenDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StudentLoonDmfaType">
+		<xs:annotation>
+			<xs:documentation>StudentLoonDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="9"/>
+			<xs:pattern value="[0-9]{1,9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StudentBijdrageBedragDmfaType">
+		<xs:annotation>
+			<xs:documentation>StudentBijdrageBedragDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="9"/>
+			<xs:pattern value="[0-9]{1,9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StudentAantalDagenDmfaType">
+		<xs:annotation>
+			<xs:documentation>ReferteAantalDagenDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BrugAantalDagenDmfaType">
+		<xs:annotation>
+			<xs:documentation>ReferteAantalDagenDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BrugBijdrageBedragDmfaType">
+		<xs:annotation>
+			<xs:documentation>StudentBijdrageBedragDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="9"/>
+			<xs:pattern value="[0-9]{1,9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AardVergoedingDmfaType">
+		<xs:annotation>
+			<xs:documentation>AardVergoedingDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GraadOngeschiktheidDmfaType">
+		<xs:annotation>
+			<xs:documentation>GraadOngeschiktheidDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6"/>
+			<xs:pattern value="[0-9]{3},[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VergoedingBedragDmfaType">
+		<xs:annotation>
+			<xs:documentation>VergoedingBedragDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IdentificatieNrWerkgeverDmfaType">
+		<xs:annotation>
+			<xs:documentation>IdentificatieNrWerkgeverDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeAkkoordVergoedingDmfaType">
+		<xs:annotation>
+			<xs:documentation>TypeAkkoordVergoedingDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HalftijdseOnderbrekingDmfaType">
+		<xs:annotation>
+			<xs:documentation>HalftijdseOnderbrekingDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VrijstellingPrestatiesDmfaType">
+		<xs:annotation>
+			<xs:documentation>VrijstellingPrestatiesDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VervangingInOvereenkomstDmfaType">
+		<xs:annotation>
+			<xs:documentation>VervangingInOvereenkomstDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RegelingBijWerkhervattingDmfaType">
+		<xs:annotation>
+			<xs:documentation>RegelingBijWerkhervattingDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AanvullendeVergoedingTypeDmfaType">
+		<xs:annotation>
+			<xs:documentation>AanvullendeVergoedingTypeDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AanvullendeVergoedingAanpassingBedragDmfaType">
+		<xs:annotation>
+			<xs:documentation>AanvullendeVergoedingAanpassingBedragDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AanvullendeVergoedingBedragDmfaType">
+		<xs:annotation>
+			<xs:documentation>AanvullendeVergoedingBedragDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="9"/>
+			<xs:pattern value="[0-9]{1,9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AanvullendeVergoedingAantalMaandenDmfaType">
+		<xs:annotation>
+			<xs:documentation>AanvullendeVergoedingAantalMaandenDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AanvullendeVergoedingBijdrageBedragDmfaType">
+		<xs:annotation>
+			<xs:documentation>AanvullendeVergoedingBijdrageBedragDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NrAangifteBlokDmfaType">
+		<xs:annotation>
+			<xs:documentation>NrAangifteBlokDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:pattern value="9[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NrAangifteVeldDmfaType">
+		<xs:annotation>
+			<xs:documentation>NrAangifteVeldDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:pattern value="[0-9]{1,5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NrAnomalieDmfaType">
+		<xs:annotation>
+			<xs:documentation>NrAnomalieDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 
+	<xs:simpleType name="NrDeelDmfaType">
+		<xs:annotation>
+			<xs:documentation>NrDeelDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+			<xs:pattern value="[1-9][0-9]{0,1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AantalDelenDmfaType">
+		<xs:annotation>
+			<xs:documentation>AantalDelenDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+			<xs:pattern value="[1-9][0-9]{0,1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResultaatCodeDmfaType">
+		<xs:annotation>
+			<xs:documentation>ResultaatCodeDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResultaatCodeLijstDmfaType">
+		<xs:annotation>
+			<xs:documentation>ResultaatCodeLijstDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OorspronkelijkBerichtDmfaType">
+		<xs:annotation>
+			<xs:documentation>OorspronkelijkBerichtDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BijkomendeInfoDmfaType">
+		<xs:annotation>
+			<xs:documentation>BijkomendeInfoDmfaType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="350"/>
+		</xs:restriction>
+	</xs:simpleType>
+	 -->
+</xs:schema>

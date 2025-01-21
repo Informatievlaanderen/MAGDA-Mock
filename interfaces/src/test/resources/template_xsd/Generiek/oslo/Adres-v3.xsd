@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Dagmar (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema 
+	xmlns="http://magda.vlaanderen.be/generiek/oslo-v3" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:sawsdl="http://www.w3.org/ns/sawsdl" 
+	targetNamespace="http://magda.vlaanderen.be/generiek/oslo-v3" 
+	elementFormDefault="unqualified" 
+	attributeFormDefault="unqualified">
+	<!-- Semantic link:  -->
+	<xs:include schemaLocation="Generiek-v3.xsd"/>
+	<!--*************** OSLO compliant named elements ***************-->
+	<xs:element name="AdresIdentificator" type="GestructureerdeIdentificatorType" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator"/>
+	<xs:element name="StraatIdentificator" type="GestructureerdeIdentificatorType" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator"/>
+	<xs:element name="GemeenteIdentificator" type="GestructureerdeIdentificatorType" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator"/>
+	<xs:element name="PostInfoIdentificator" type="GestructureerdeIdentificatorType" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator"/>
+	<xs:element name="AdresVoorstelling" type="AdresvoorstellingType" sawsdl:modelReference="https://www.w3.org/ns/locn#Address"/>
+	<!--*************** OSLO compliant types ***************-->
+	<xs:complexType name="AdresvoorstellingType" sawsdl:modelReference="https://www.w3.org/ns/locn#Address">
+		<xs:sequence>
+			<xs:element name="VolledigAdres" type="TaalstringType" minOccurs="0" maxOccurs="1" sawsdl:modelReference="http://www.w3.org/ns/locn#fullAddress"/>
+			<xs:element name="Postbus" type="xs:string" minOccurs="0" maxOccurs="1" sawsdl:modelReference="http://www.w3.org/ns/locn#poBox"/>
+			<xs:element name="Straatnaam" type="TaalstringType" minOccurs="0" maxOccurs="1" sawsdl:modelReference="https://data.vlaanderen.be/ns/adres#heeftStraatnaam"/>
+			<xs:element name="Locatieaanduiding" type="xs:string" minOccurs="0" maxOccurs="1" sawsdl:modelReference="https://data.vlaanderen.be/ns/adres#aanduiding">
+				<xs:annotation>
+					<xs:documentation>type (Wing, Stairwell, Floor, Door, Unit) + Waarde</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Huisnummer" type="xs:string" minOccurs="0" maxOccurs="1" sawsdl:modelReference="https://data.vlaanderen.be/ns/adres#Adresvoorstelling.huisnummer"/>
+			<xs:element name="Busnummer" type="xs:string" minOccurs="0" maxOccurs="1" sawsdl:modelReference="https://data.vlaanderen.be/ns/adres#Adresvoorstelling.busnummer"/>
+			<xs:element name="Locatienaam" type="TaalstringType" minOccurs="0" maxOccurs="1" sawsdl:modelReference="httpshttp://www.w3.org/ns/locn#locatorName"/>
+			<xs:element name="Adresgebied" type="TaalstringType" minOccurs="0" maxOccurs="1" sawsdl:modelReference="http://www.w3.org/ns/locn#addressArea"/>
+			<xs:element name="Postnaam" type="TaalstringType" minOccurs="0" maxOccurs="1" sawsdl:modelReference="http://www.w3.org/ns/locn#postName"/>
+			<xs:element name="Gemeentenaam" type="TaalstringType" minOccurs="0" maxOccurs="1" sawsdl:modelReference="https://data.vlaanderen.be/ns/adres#gemeentenaam"/>
+			<xs:element name="AdministratieveEenheidNiveau2" type="TaalstringType" minOccurs="0" maxOccurs="1" sawsdl:modelReference="http://www.w3.org/ns/locn#adminUnitL2"/>
+			<xs:element name="AdministratieveEenheidNiveau1" type="TaalstringType" minOccurs="0" maxOccurs="1" sawsdl:modelReference="http://www.w3.org/ns/locn#adminUnitL1"/>
+			<xs:element name="Land" type="TaalstringType" minOccurs="0" maxOccurs="1" sawsdl:modelReference="https://data.vlaanderen.be/ns/adres#land"/>
+			<xs:element name="Postcode" type="xs:string" minOccurs="0" maxOccurs="1" sawsdl:modelReference="http://www.w3.org/ns/locn#postCode"/>
+			<xs:element name="VerwijstNaar" type="GestructureerdeIdentificatorType" minOccurs="0" maxOccurs="1" sawsdl:modelReference="https://data.vlaanderen.be/ns/adres#verwijstNaar"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

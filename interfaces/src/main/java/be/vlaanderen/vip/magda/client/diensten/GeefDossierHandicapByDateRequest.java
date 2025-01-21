@@ -114,8 +114,6 @@ public class GeefDossierHandicapByDateRequest extends PersonMagdaRequest {
         Arrays.stream(HandicapFilePartType.values()).forEach(x -> {
             request.createTextNode("//ConsultFilesByDateCriteria/parts", x.getTypeString(), getParts() != null && getParts().contains(x) ? "true" : "false");
         });
-
-        request.removeNode("//ConsultFilesByPeriodCriteria");
     }
 
     public enum HandicapAuthenticSourceType {

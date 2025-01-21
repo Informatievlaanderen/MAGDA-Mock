@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://generiek-02_01.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://generiek-02_01.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01">
+	<!--======================================-->
+	<!-- Algemeen	 						  -->
+	<!--======================================-->
+	<xs:simpleType name="VlagEnumType">
+		<xs:annotation>
+			<xs:documentation> | 0 (false) | 1 (true) | </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BronType">
+		<xs:annotation>
+			<xs:documentation>
+				Deze zijn bv.: BCSS_KSZ | RN_RR | FODFIN. Deze lijst is niet exhaustief.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="24"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReferteType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="36"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OmschrijvingOorsprongType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9a-zA-Z_]{1,10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OmschrijvingTaalCodeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0a-z]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="INSZType">
+		<xs:annotation>
+			<xs:documentation>INSZType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="11"/>
+			<xs:pattern value="\p{N}{11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+		<xs:simpleType name="NaamType">
+		<xs:annotation>
+			<xs:documentation>NaamType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="48"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--======================================-->
+	<!-- Datum & Tijd 						  -->
+	<!--======================================-->
+	<xs:simpleType name="DatumType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}-[0-1,9][0-9]-[0-3,9][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TijdType">
+		<xs:annotation>
+			<xs:documentation>TijdType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12"/>
+			<xs:minLength value="5"/>
+			<xs:pattern value="[0-2][0-9]:[0-5][0-9](:[0-5][0-9](\.[0-9]{3})?)?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--======================================-->
+	<!-- Cijfers							  -->
+	<!--======================================-->
+	<xs:simpleType name="CijferType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferDubbelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferTripleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferQuadrupleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferQuintupleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferSextupleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{6}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferSeptupleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{7}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferOctupleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferNonupleType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferDubbelVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferTripleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferQuadrupleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferQuintupleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferSextupleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,6}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferSeptupleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,7}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferOctupleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CijferNonupleVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--======================================-->
+	<!-- Tekst								  -->
+	<!--======================================-->
+	<xs:simpleType name="Tekst3KaraktersType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst3KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst10KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst11KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst12KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst13KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst15KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst24KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="24"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst36KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="36"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Tekst48KaraktersVariabelType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="48"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstKortType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="120"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstLangType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--===========================================-->
+	<!--04/12/2017: Toevoeging tbv GeefLoopbaanARZA-->
+	<!--===========================================-->
+	<!--======================================-->
+	<!-- Tekst								  -->
+	<!--======================================-->
+	<xs:simpleType name="Tekst1KaraktersType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--======================================-->
+	<!-- Algemeen	 						  -->
+	<!--======================================-->
+	<xs:simpleType name="GemeenteNISCodeType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:pattern value="[0-9]{0,5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodeTaalType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RSZNummerType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="0[0-9]{9}"/>
+            <xs:pattern value="51[0-9]{8}"/>
+        </xs:restriction>
+    </xs:simpleType>	
+	<!--===========================================-->
+	<!--04/12/2017: EINDE Toevoeging tbv GeefLoopbaanARZA-->
+	<!--===========================================-->	
+</xs:schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://inkomen-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://inkomen-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00.201403271512">
+	<!--****************************************-->
+	<!--* Elementen - Code                     *-->
+	<!--****************************************-->
+	<xs:simpleType name="CodeFiscaleStatusKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ItemKernType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>	
+    <xs:simpleType name="ArtikelNummerType">
+    	<xs:restriction base="xs:string">
+    		<xs:pattern value="[0-9]{9}"/>
+    	</xs:restriction>
+    </xs:simpleType>	
+	<xs:simpleType name="WaardeType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="25"/>
+		</xs:restriction>
+	</xs:simpleType>	    
+	<xs:simpleType name="IPCALCodeType">
+		<xs:restriction base="xs:string">
+    		<xs:pattern value="[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>	    
+</xs:schema>

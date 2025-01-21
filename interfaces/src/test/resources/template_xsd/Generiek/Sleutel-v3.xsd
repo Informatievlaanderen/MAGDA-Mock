@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://magda.vlaanderen.be/generiek-v3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://magda.vlaanderen.be/generiek-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xsd:simpleType name="INSZType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{11}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OndernemingsnummerType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{10}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="VopEntiteitNummerType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{8}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RSZNummerType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{1,10}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

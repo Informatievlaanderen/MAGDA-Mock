@@ -9,8 +9,8 @@
                     <Bericht>
                         <Type>VRAAG</Type>
                         <Tijdstip>
-                            <Datum>DATUM</Datum>
-                            <Tijd>TIJD</Tijd>
+                            <Datum>2025-01-01</Datum>
+                            <Tijd>12:00</Tijd>
                         </Tijdstip>
                         <Afzender>
                             <Identificatie>akb.vlaanderen.be/aiv/burgerloket-wwoom-mock</Identificatie>
@@ -24,7 +24,7 @@
                         <Referte>vraagreferte</Referte>
                         <Inhoud>
                             <Criteria>
-                                <INSZ>INSZ</INSZ>
+                                <INSZ>90010100123</INSZ>
                             </Criteria>
                             <Bron>RR</Bron>
                             <Taal>nl</Taal>

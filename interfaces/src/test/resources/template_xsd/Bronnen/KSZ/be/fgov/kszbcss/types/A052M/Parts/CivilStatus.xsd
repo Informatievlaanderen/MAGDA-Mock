@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 2 U (http://www.xmlspy.com) by leo (leo) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<!--On release of 19/05/2003 : Add annotations in enumeration of valid codes-->
+	<xs:element name="CivilStatusCode">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Code etat-civil</xs:documentation>
+			<xs:documentation xml:lang="NL">Code burgelijke stand</xs:documentation>
+			<xs:documentation xml:lang="EN">Civil status code</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="10">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">Célibataire</xs:documentation>
+						<xs:documentation xml:lang="NL">Ongehuwd</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="20">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">Marié</xs:documentation>
+						<xs:documentation xml:lang="NL">Gehuwd</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="25">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">Annulation de mariage</xs:documentation>
+						<xs:documentation xml:lang="NL">Nietigverklaring van huwelijk</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="26">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">Mariage putatif</xs:documentation>
+						<xs:documentation xml:lang="NL">Putatief huwelijk</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="30">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">Veuf/veuve</xs:documentation>
+						<xs:documentation xml:lang="NL">Weduwnaar/weduwe</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="40">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">Divorcé</xs:documentation>
+						<xs:documentation xml:lang="NL">Echtgescheiden</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="41">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">Divorcé à partir du 1/10/1994</xs:documentation>
+						<xs:documentation xml:lang="NL">Echtgescheiden vanaf 1/10/1994</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="50">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">Séparé de corps et de biens</xs:documentation>
+						<xs:documentation xml:lang="NL">Gescheiden van tafel en bed</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="52">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">Séparé de corps et de biens à partir du 1/10/1994</xs:documentation>
+						<xs:documentation xml:lang="NL">Gescheiden van tafel en bed vanaf 1/10/1994</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="60">
+					<xs:annotation>
+						<xs:documentation xml:lang="FR">Répudiation</xs:documentation>
+						<xs:documentation xml:lang="NL">Verstoting</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

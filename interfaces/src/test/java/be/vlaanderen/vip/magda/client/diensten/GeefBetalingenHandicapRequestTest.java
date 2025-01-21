@@ -127,8 +127,8 @@ class GeefBetalingenHandicapRequestTest {
                     .toMagdaDocument(REQUEST_ID, info);
 
             assertThat(request.getValue("//ConsultPaymentsCriteria/ssin"), is(equalTo(TestBase.TEST_INSZ)));
-            assertThat(request.getValue("//ConsultPaymentsCriteria/period/beginDatum"), is(equalTo("2022-01-22")));
-            assertThat(request.getValue("//ConsultPaymentsCriteria/period/eindDatum"), is(equalTo("2023-05-16")));
+            assertThat(request.getValue("//ConsultPaymentsCriteria/period/beginDate"), is(equalTo("2022-01-22")));
+            assertThat(request.getValue("//ConsultPaymentsCriteria/period/endDate"), is(equalTo("2023-05-16")));
             assertThat(request.getValue("//ConsultPaymentsCriteria/handicapAuthenticSources/DGPH"), is(equalTo("true")));
             assertThat(request.getValue("//ConsultPaymentsCriteria/handicapAuthenticSources/VSB"), is(equalTo("true")));
             assertThat(request.getValue("//ConsultPaymentsCriteria/handicapAuthenticSources/IrisCare"), is(equalTo("false")));

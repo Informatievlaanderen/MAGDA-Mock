@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by  (Kruispuntbank van de Sociale Zekerheid) -->
+<!-- ========================================================================
+   * Owner :				KSZ / CBSS
+   * Creation date :		09/01/2017
+   * Description :
+   * Revision History :
+   *		- 15/10/2018 : Replace DataFilterType by the one in CommonV3
+      - 21/01/2019 : Add DecisionStatus boolean default false in requestcriteria
+      - 21/01/2019 : Add KindEnGezin boolean default false in requestcriteria
+      - 21/01/2019 : Add KindEnGezin result in response
+      - 21/01/2019 : Change namespace orderings
+      - 12/11/2020 : Add IRISCARE, DSL, AVIQ and NICCIN to consultFilesByDate and consultFilesByPeriod
+      - 12/11/2020 : Add IRISCARE and NICCIN to consultPayments
+      - 12/11/2020 : Remove KindEnGezin from consultPayments criteria
+-->
+<xsd:schema xmlns:tns="http://kszbcss.fgov.be/types/Handi/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			xmlns:common="http://kszbcss.fgov.be/types/common/v3" xmlns:dgph="http://kszbcss.fgov.be/types/Handi/dgph/common/v1"
+			xmlns:vsb="http://kszbcss.fgov.be/types/Handi/vsb/common/v1"
+			xmlns:keng="http://kszbcss.fgov.be/types/Handi/kindengezin/common/v1"
+			xmlns:iriscare="http://kszbcss.fgov.be/types/Handi/iriscare/common/v1"
+			xmlns:niccin="http://kszbcss.fgov.be/types/Handi/niccin/common/v1"
+			xmlns:aviq="http://kszbcss.fgov.be/types/Handi/aviq/common/v1"
+			xmlns:dsl="http://kszbcss.fgov.be/types/Handi/dsl/common/v1" targetNamespace="http://kszbcss.fgov.be/types/Handi/v2"
+			elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2022-06-01">
+	<xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../common/CommonV3.xsd" />
+	<xsd:import namespace="http://kszbcss.fgov.be/types/Handi/dgph/common/v1"
+				schemaLocation="dgph/common/DGPHHandiCommonV1.xsd" />
+	<xsd:import namespace="http://kszbcss.fgov.be/types/Handi/vsb/common/v1"
+				schemaLocation="vsb/common/VSBHandiCommonV1.xsd" />
+	<xsd:import namespace="http://kszbcss.fgov.be/types/Handi/kindengezin/common/v1"
+				schemaLocation="kindengezin/common/KindEnGezinHandiCommonV1.xsd" />
+	<xsd:import namespace="http://kszbcss.fgov.be/types/Handi/iriscare/common/v1"
+				schemaLocation="iriscare/common/IrisCareHandiCommonV1.xsd" />
+	<xsd:import namespace="http://kszbcss.fgov.be/types/Handi/niccin/common/v1"
+				schemaLocation="niccin/common/NicCinHandiCommonV1.xsd" />
+	<xsd:import namespace="http://kszbcss.fgov.be/types/Handi/aviq/common/v1"
+				schemaLocation="aviq/common/AVIQHandiCommonV1.xsd" />
+	<xsd:import namespace="http://kszbcss.fgov.be/types/Handi/dsl/common/v1"
+				schemaLocation="dsl/common/DSLHandiCommonV1.xsd" />
+	<xsd:complexType name="ConsultFilesByDateRequestType">
+		<xsd:sequence>
+			<xsd:element name="informationCustomer" type="common:InformationCustomerType" />
+			<xsd:element name="informationCBSS" type="common:InformationCBSSType" minOccurs="0" />
+			<xsd:element name="legalContext" type="common:LegalContextType" />
+			<xsd:element name="criteria" type="tns:ConsultFilesByDateCriteriaType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultFilesByDateResponseType">
+		<xsd:sequence>
+			<xsd:element name="informationCustomer" type="common:InformationCustomerType" />
+			<xsd:element name="informationCBSS" type="common:InformationCBSSType" />
+			<xsd:element name="legalContext" type="common:LegalContextType" />
+			<xsd:element name="criteria" type="tns:ConsultFilesByDateCriteriaType" />
+			<xsd:element name="status" type="tns:GlobalStatusType" />
+			<xsd:element name="ssin" type="tns:SsinWithCanceledAndReplacedByStatusType" minOccurs="0" />
+			<xsd:element name="dataFilters" type="common:DataFiltersType" minOccurs="0" />
+			<xsd:element name="results" type="tns:FileResultsType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultFilesByPeriodRequestType">
+		<xsd:sequence>
+			<xsd:element name="informationCustomer" type="common:InformationCustomerType" />
+			<xsd:element name="informationCBSS" type="common:InformationCBSSType" minOccurs="0" />
+			<xsd:element name="legalContext" type="common:LegalContextType" />
+			<xsd:element name="criteria" type="tns:ConsultFilesByPeriodCriteriaType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultFilesByPeriodResponseType">
+		<xsd:sequence>
+			<xsd:element name="informationCustomer" type="common:InformationCustomerType" />
+			<xsd:element name="informationCBSS" type="common:InformationCBSSType" />
+			<xsd:element name="legalContext" type="common:LegalContextType" />
+			<xsd:element name="criteria" type="tns:ConsultFilesByPeriodCriteriaType" />
+			<xsd:element name="status" type="tns:GlobalStatusType" />
+			<xsd:element name="ssin" type="tns:SsinWithCanceledAndReplacedByStatusType" minOccurs="0" />
+			<xsd:element name="dataFilters" type="common:DataFiltersType" minOccurs="0" />
+			<xsd:element name="results" type="tns:FileByPeriodResultsType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultPaymentsRequestType">
+		<xsd:sequence>
+			<xsd:element name="informationCustomer" type="common:InformationCustomerType" />
+			<xsd:element name="informationCBSS" type="common:InformationCBSSType" minOccurs="0" />
+			<xsd:element name="legalContext" type="common:LegalContextType" />
+			<xsd:element name="criteria" type="tns:ConsultPaymentsCriteriaType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultPaymentsResponseType">
+		<xsd:sequence>
+			<xsd:element name="informationCustomer" type="common:InformationCustomerType" />
+			<xsd:element name="informationCBSS" type="common:InformationCBSSType" />
+			<xsd:element name="legalContext" type="common:LegalContextType" />
+			<xsd:element name="criteria" type="tns:ConsultPaymentsCriteriaType" />
+			<xsd:element name="status" type="tns:GlobalStatusType" />
+			<xsd:element name="ssin" type="tns:SsinWithCanceledAndReplacedByStatusType" minOccurs="0" />
+			<xsd:element name="results" type="tns:PaymentsResultsType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SsinWithCanceledAndReplacedByStatusType">
+		<xsd:simpleContent>
+			<xsd:extension base="common:SsinType">
+				<xsd:attribute name="canceled" type="xsd:boolean" />
+				<xsd:attribute name="replacedBy" type="common:SsinType" />
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultFilesByDateCriteriaType">
+		<xsd:sequence>
+			<xsd:element name="ssin" type="common:SsinType" />
+			<xsd:element name="handicapAuthenticSources" type="tns:HandicapAuthenticSourcesType" />
+			<xsd:element name="referenceDate" type="xsd:date" />
+			<xsd:element name="parts" type="tns:FilePartsType" />
+			<xsd:element name="decisionStatus" type="xsd:boolean" default="false" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>If true, the service will return the decisionStatus in the results for DGPH, VSB and Kind en Gezin if they already implemented this new feature. For the other (newer) sources the decisionStatus will always be present.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="enrichedRecognition" type="xsd:boolean" default="false" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>If true, the service will return the legislation in the handicaprecognition results for DGPH and Kind en Gezin if they already implemented this new feature. For the other (newer) sources the legislation will always be present.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultFilesByPeriodCriteriaType">
+		<xsd:sequence>
+			<xsd:element name="ssin" type="common:SsinType" />
+			<xsd:element name="handicapAuthenticSources" type="tns:HandicapAuthenticSourcesType" />
+			<xsd:element name="period" type="common:PeriodType" />
+			<xsd:element name="parts" type="tns:FilePartsType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultPaymentsCriteriaType">
+		<xsd:sequence>
+			<xsd:element name="ssin" type="common:SsinType" />
+			<xsd:element name="handicapAuthenticSources" type="tns:HandicapAuthenticSourcesPaymentsType" />
+			<xsd:element name="period" type="common:PeriodType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FilePartsType">
+		<xsd:sequence>
+			<xsd:element name="evolutionOfRequest" type="xsd:boolean" default="false" minOccurs="0" />
+			<xsd:element name="handicapRecognitions" type="xsd:boolean" default="false" minOccurs="0" />
+			<xsd:element name="rights" type="xsd:boolean" default="false" minOccurs="0" />
+			<xsd:element name="socialCards" type="xsd:boolean" default="false" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HandicapAuthenticSourcesType">
+		<xsd:sequence>
+			<xsd:element name="DGPH" type="xsd:boolean" default="false" minOccurs="0" />
+			<xsd:element name="VSB" type="xsd:boolean" default="false" minOccurs="0" />
+			<xsd:element name="KindEnGezin" type="xsd:boolean" default="false" minOccurs="0" />
+			<xsd:element name="IrisCare" type="xsd:boolean" default="false" minOccurs="0" />
+			<xsd:element name="NicCin" type="xsd:boolean" default="false" minOccurs="0" />
+			<xsd:element name="AVIQ" type="xsd:boolean" default="false" minOccurs="0" />
+			<xsd:element name="DSL" type="xsd:boolean" default="false" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HandicapAuthenticSourcesPaymentsType">
+		<xsd:sequence>
+			<xsd:element name="DGPH" type="xsd:boolean" default="false" minOccurs="0" />
+			<xsd:element name="VSB" type="xsd:boolean" default="false" minOccurs="0" />
+			<xsd:element name="IrisCare" type="xsd:boolean" default="false" minOccurs="0" />
+			<xsd:element name="NicCin" type="xsd:boolean" default="false" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FileResultsType">
+		<xsd:sequence>
+			<xsd:element name="dgphResult" type="tns:DgphFileResultType" minOccurs="0" />
+			<xsd:element name="vsbResult" type="tns:VsbFileResultType" minOccurs="0" />
+			<xsd:element name="kindEnGezinResult" type="tns:KindEnGezinFileResultType" minOccurs="0" />
+			<xsd:element name="irisCareResult" type="tns:IrisCareFileResultType" minOccurs="0" />
+			<xsd:element name="nicCinResult" type="tns:NicCinFileResultType" minOccurs="0" />
+			<xsd:element name="aviqResult" type="tns:AviqFileResultType" minOccurs="0" />
+			<xsd:element name="dslResult" type="tns:DslFileResultType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DgphFileResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="dgph:FileType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VsbFileResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="vsb:FileType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="KindEnGezinFileResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="keng:FileType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IrisCareFileResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="iriscare:FileType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NicCinFileResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="niccin:FileType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AviqFileResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="aviq:FileType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DslFileResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="dsl:FileType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FileByPeriodResultsType">
+		<xsd:sequence>
+			<xsd:element name="dgphResult" type="tns:DgphFileByPeriodResultType" minOccurs="0" />
+			<xsd:element name="vsbResult" type="tns:VsbFileByPeriodResultType" minOccurs="0" />
+			<xsd:element name="kindEnGezinResult" type="tns:KindEnGezinFileByPeriodResultType" minOccurs="0" />
+			<xsd:element name="irisCareResult" type="tns:IrisCareFileByPeriodResultType" minOccurs="0" />
+			<xsd:element name="nicCinResult" type="tns:NicCinFileByPeriodResultType" minOccurs="0" />
+			<xsd:element name="aviqResult" type="tns:AviqFileByPeriodResultType" minOccurs="0" />
+			<xsd:element name="dslResult" type="tns:DslFileByPeriodResultType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DgphFileByPeriodResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="dgph:FileByPeriodType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VsbFileByPeriodResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="vsb:FileByPeriodType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="KindEnGezinFileByPeriodResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="keng:FileByPeriodType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IrisCareFileByPeriodResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="iriscare:FileByPeriodType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NicCinFileByPeriodResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="niccin:FileByPeriodType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AviqFileByPeriodResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="aviq:FileByPeriodType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DslFileByPeriodResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="file" type="dsl:FileByPeriodType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PaymentsResultsType">
+		<xsd:sequence>
+			<xsd:element name="dgphResult" type="tns:DgphPaymentsResultType" minOccurs="0" />
+			<xsd:element name="vsbResult" type="tns:VsbPaymentsResultType" minOccurs="0" />
+			<xsd:element name="irisCareResult" type="tns:IrisCarePaymentsResultType" minOccurs="0" />
+			<xsd:element name="nicCinResult" type="tns:NicCinPaymentsResultType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DgphPaymentsResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="payments" type="dgph:PaymentsType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VsbPaymentsResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="payments" type="vsb:PaymentsType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IrisCarePaymentsResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="payments" type="iriscare:PaymentsType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NicCinPaymentsResultType">
+		<xsd:sequence>
+			<xsd:element name="status" type="tns:SourceStatusType" />
+			<xsd:element name="payments" type="niccin:PaymentsType" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- global status -->
+	<xsd:complexType name="GlobalStatusType">
+		<xsd:sequence>
+			<xsd:element name="value">
+				<xsd:annotation>
+					<xsd:documentation>global status of the result</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="DATA_FOUND" />
+						<xsd:enumeration value="NO_DATA_FOUND" />
+						<xsd:enumeration value="NO_RESULT" />
+						<xsd:enumeration value="INCOMPLETE_DATA" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="code">
+				<xsd:annotation>
+					<xsd:documentation>the code of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="description" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the description of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="256" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="information" type="common:InformationType" minOccurs="0" maxOccurs="15" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- source status -->
+	<xsd:complexType name="SourceStatusType">
+		<xsd:sequence>
+			<xsd:element name="value">
+				<xsd:annotation>
+					<xsd:documentation>global status of the result</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="DATA_FOUND" />
+						<xsd:enumeration value="NO_DATA_FOUND" />
+						<xsd:enumeration value="TECHNICAL_ERROR" />
+						<xsd:enumeration value="NO_RESULT" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="code">
+				<xsd:annotation>
+					<xsd:documentation>the code of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="description" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the description of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="256" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="information" type="common:InformationType" minOccurs="0" maxOccurs="15" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

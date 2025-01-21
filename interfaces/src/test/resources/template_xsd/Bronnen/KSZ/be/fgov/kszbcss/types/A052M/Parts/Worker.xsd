@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:include schemaLocation="Period.xsd"/>
+	<xs:element name="Worker" type="WorkerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Travailleur</xs:documentation>
+			<xs:documentation xml:lang="NL">Werknemer</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">130000</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="OccupationPeriod" type="PeriodType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Periode d'occupation</xs:documentation>
+			<xs:documentation xml:lang="NL">Betrekkingsperiode</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">140010</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="JointCommissionNbr">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">No de commission paritaire</xs:documentation>
+			<xs:documentation xml:lang="NL">Paritaircomite</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">140001</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="9"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="WorkerCode">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Code travailleur</xs:documentation>
+			<xs:documentation xml:lang="NL">Werknemerskengetal</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">130001</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="LabourOrganisation">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Regime de travail</xs:documentation>
+			<xs:documentation xml:lang="NL">Arbeidsregime</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">140002</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="9"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:complexType name="WorkerType">
+		<xs:sequence>
+			<xs:element ref="OccupationPeriod" minOccurs="0"/>
+			<xs:element ref="JointCommissionNbr" minOccurs="0"/>
+			<xs:element ref="WorkerCode" minOccurs="0"/>
+			<xs:element ref="LabourOrganisation" minOccurs="0"/>
+			<xs:element ref="ContractType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ContractType">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Code contrat Temps plein / Temps partiel</xs:documentation>
+			<xs:documentation xml:lang="NL">Code Voltijds- / Deeltijks- contrakt</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">140003</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="1"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="InternalOccupationNbr">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Numero interne d'occupation</xs:documentation>
+			<xs:documentation xml:lang="NL">Intern tewerkstellingsnummer</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">140013</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="13"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="MeanWorkingHours">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">FacteurQ = duree moyenne hebdomadaire du temps de travail (travailleur temps partiel)</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">140014</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="9999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="RefMeanWorkingHours">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">FacteurS = duree moyenne hebdomadaire du temps de travail (equivalent temps plein)</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">140015</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="9999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="WorkerStatus">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">Statut du travailleur</xs:documentation>
+			<xs:documentation xml:lang="NL">Werknemer statuut</xs:documentation>
+			<xs:documentation source="KszBcssGlossary">140016</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="2"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

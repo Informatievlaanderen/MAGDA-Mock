@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by USER (KSZ-BCSS) -->
+<!-- ============================================================================================================
+         * File Name :			SelfEmployedTypesV2.xsd
+         * Author :					Cerberus Team
+         * Owner :					KSZ / CBSS
+         * Creation date :		2016-11-08
+         * Last revision date :	
+         * Status :					Planned
+         * Description :			This service supplies the information for a self employed
+         * Current version :		0.1
+         * Revision History :	
+============================================================================================================= -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nissecommon="http://rsvz-inasti.fgov.be/types/common/SelfEmployed/v1" xmlns:bcsscommon="http://kszbcss.fgov.be/types/common/v3" xmlns:tns="http://kszbcss.fgov.be/types/SelfEmployed/v2" targetNamespace="http://kszbcss.fgov.be/types/SelfEmployed/v2" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2016-11-08">
+	<xs:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../common/CommonV3.xsd"/>
+	<xs:import namespace="http://rsvz-inasti.fgov.be/types/common/SelfEmployed/v1" schemaLocation="../../../rsvz-inasti/types/SelfEmployed/common/SelfEmployedCommonTypesV1.xsd"/>
+	<!-- ============================================================================================================
+	===																																																					===
+	===	OPERATIONS																																															===
+	===																																																					===
+	============================================================================================================= -->
+	<xs:complexType name="ConsultCareerRequestType">
+		<xs:sequence>
+			<xs:element name="informationCustomer" type="bcsscommon:InformationCustomerType"/>
+			<xs:element name="informationCBSS" type="bcsscommon:InformationCBSSType" minOccurs="0"/>
+			<xs:element name="legalContext" type="bcsscommon:LegalContextType"/>
+			<xs:element name="criteria" type="tns:ConsultCareerCriteriaType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConsultCareerResponseType">
+		<xs:sequence>
+			<xs:element name="informationCustomer" type="bcsscommon:InformationCustomerType"/>
+			<xs:element name="informationCBSS" type="bcsscommon:InformationCBSSType"/>
+			<xs:element name="legalContext" type="bcsscommon:LegalContextType"/>
+			<xs:element name="criteria" type="tns:ConsultCareerCriteriaType"/>
+			<xs:element name="status" type="bcsscommon:StatusType"/>
+			<xs:element name="ssin" type="tns:SsinWithCanceledAndReplacesStatusType" minOccurs="0"/>
+			<xs:element name="dataFilters" type="bcsscommon:DataFiltersType" minOccurs="0"/>
+			<xs:element name="career" type="nissecommon:CareerType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConsultContributionsRequestType">
+		<xs:sequence>
+			<xs:element name="informationCustomer" type="bcsscommon:InformationCustomerType"/>
+			<xs:element name="informationCBSS" type="bcsscommon:InformationCBSSType" minOccurs="0"/>
+			<xs:element name="legalContext" type="bcsscommon:LegalContextType"/>
+			<xs:element name="criteria" type="tns:ConsultContributionsCriteriaType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConsultContributionsResponseType">
+		<xs:sequence>
+			<xs:element name="informationCustomer" type="bcsscommon:InformationCustomerType"/>
+			<xs:element name="informationCBSS" type="bcsscommon:InformationCBSSType"/>
+			<xs:element name="legalContext" type="bcsscommon:LegalContextType"/>
+			<xs:element name="criteria" type="tns:ConsultContributionsCriteriaType"/>
+			<xs:element name="status" type="bcsscommon:StatusType"/>
+			<xs:element name="ssin" type="tns:SsinWithCanceledAndReplacesStatusType" minOccurs="0"/>
+			<xs:element name="contributions" type="nissecommon:ContributionsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ============================================================================================================
+	===																																																					===
+	===																							CONSULT CAREER																							===
+	===																																																					===
+	============================================================================================================= -->
+	<xs:complexType name="ConsultCareerCriteriaType">
+		<xs:sequence>
+			<xs:element name="ssin" type="bcsscommon:SsinType"/>
+			<xs:element name="period" type="bcsscommon:OpenPeriodType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ============================================================================================================
+	===																																																					===
+	===																							CONSULT CONTRIBUTION																				===
+	===																																																					===
+	============================================================================================================= -->
+	<xs:complexType name="ConsultContributionsCriteriaType">
+		<xs:sequence>
+			<xs:element name="ssin" type="bcsscommon:SsinType"/>
+			<xs:element name="period" type="bcsscommon:OpenQuarterPeriodType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ============================================================================================================
+	===																																																					===
+	===																							TYPES																				===
+	===																																																					===
+	============================================================================================================= -->
+	<xs:complexType name="SsinWithCanceledAndReplacesStatusType">
+		<xs:simpleContent>
+			<xs:extension base="bcsscommon:SsinType">
+				<xs:attribute name="canceled" type="xs:boolean"/>
+				<xs:attribute name="replaces" type="bcsscommon:SsinType"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

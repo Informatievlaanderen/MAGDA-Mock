@@ -1,0 +1,197 @@
+<xs:schema targetNamespace="http://volwassenenonderwijs-02_01.onderwijs.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01" xmlns="http://volwassenenonderwijs-02_01.onderwijs.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:onderwijs="http://onderwijs-02_01.onderwijs.vlaanderen.be">
+	<xs:include schemaLocation="VolwassenenonderwijsEnum.xsd"/>
+	<xs:include schemaLocation="VolwassenenonderwijsSimple.xsd"/>
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xs:import namespace="http://onderwijs-02_01.onderwijs.vlaanderen.be" schemaLocation="../Onderwijs-02.01/Onderwijs.xsd"/>
+	<!-- GeefInschrijvingshistoriek : Repliek -->
+	<xs:complexType name="VolwassenenonderwijsInschrijvingType">
+		<xs:annotation>
+			<xs:documentation>Vertegenwoordigt de specifieke onderdelen van een inschrijving in het volwassenen onderwijs.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Status" type="PlaatsingsstatusType"/>
+			<xs:element name="DatumInschrijving" type="generiek:VolledigDatumType"/>
+			<xs:element name="DatumUitschrijving" type="generiek:VolledigDatumType" minOccurs="0"/>
+			<xs:element name="Opleiding" type="OpleidingType"/>
+			<xs:element name="Module" type="ModuleType"/>
+			<xs:element name="Resultaat" type="InschrijvingResultaatType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PlaatsingsstatusType">
+		<xs:annotation>
+			<xs:documentation>Plaatsingsstatus van de Plaatsing.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="generiek:Tekst2_0Type"/>
+			<xs:element name="Omschrijving" type="generiek:Tekst2_0Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OpleidingType">
+		<xs:annotation>
+			<xs:documentation>Opleiding gegevens.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="generiek:Tekst2_0Type"/>
+			<xs:element name="Naam" type="generiek:Tekst2_0Type"/>
+			<xs:element name="Omschrijving" type="generiek:TekstLang2_0Type"/>
+			<xs:element name="Diplomagericht" type="generiek:VlagEnumType"/>
+			<xs:element name="Opleidingsvariant" type="OpleidingsvariantType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OpleidingsvariantType">
+		<xs:annotation>
+			<xs:documentation>Opleidingsvariant gegevens.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="generiek:Tekst2_0Type"/>
+			<xs:element name="Naam" type="generiek:Tekst2_0Type"/>
+			<xs:element name="Traject" type="TrajectType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TrajectType">
+		<xs:annotation>
+			<xs:documentation>Trajecttype</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="generiek:Tekst2_0Type"/>
+			<xs:element name="Omschrijving" type="generiek:Tekst2_0Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InschrijvingResultaatType">
+		<xs:annotation>
+			<xs:documentation>Resultaat gegevens van een Inschrijving.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EvaluatieResultaat" type="EvalutatieResultaatType"/>
+			<xs:element name="Studiebewijzen" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Studiebewijs" type="onderwijs:StudiebewijsType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EvalutatieResultaatType">
+		<xs:annotation>
+			<xs:documentation>EvaluatieResultaat gegevens.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="generiek:Tekst2_0Type"/>
+			<xs:element name="Omschrijving" type="generiek:Tekst2_0Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ZoekParticipaties : Vraag -->
+	<xs:complexType name="CriteriaZoekParticipatiesType">
+		<xs:annotation>
+			<xs:documentation>Bevat de input elementen/data die nodig zijn om de zoekparticipatiesoperatie uit te kunnen voeren.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Instellingsnummer" type="onderwijs:InstellingsnummerType" minOccurs="0"/>
+			<xs:element name="DatumWijziging" type="generiek:VolledigDatumType" minOccurs="0"/>
+			<xs:element name="ModuleVariant" type="ModuleVariantVraagType" minOccurs="0"/>
+			<xs:element name="Module" type="ModuleVraagType" minOccurs="0"/>
+			<xs:element name="OpleidingsVariant" type="OpleidingsVariantVraagType" minOccurs="0"/>
+			<xs:element name="Opleiding" type="OpleidingsVraagType" minOccurs="0"/>
+			<xs:element name="OpleidingsGebied" type="OpleidingsGebiedVraagType" minOccurs="0"/>
+			<xs:element name="OpleidingsType" type="OpleidingsTypeVraagType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ModuleVariantVraagType">
+		<xs:annotation>
+			<xs:documentation>ModuleVariant</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="ModuleVariantCodeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ModuleVraagType">
+		<xs:annotation>
+			<xs:documentation>Module</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="ModulecodeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OpleidingsVariantVraagType">
+		<xs:annotation>
+			<xs:documentation>OpleidingsVariant</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="OpleidingsVariantCodeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OpleidingsVraagType">
+		<xs:annotation>
+			<xs:documentation>Opleiding</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="OpleidingsCodeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OpleidingsGebiedVraagType">
+		<xs:annotation>
+			<xs:documentation>Opleidingsgebied</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="OpleidingsGebiedCodeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OpleidingsTypeVraagType">
+		<xs:annotation>
+			<xs:documentation>OpleidingsType</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="OpleidingsCodeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ZoekParticipaties : Antwoord -->
+	<xs:complexType name="ParticipatieType">
+		<xs:sequence>
+			<xs:element name="Module" type="ModuleType"/>
+			<xs:element name="IngerichteModuleVariant" type="IngerichteModuleVariantType"/>
+			<xs:element name="Les" type="LesType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IngerichteModuleVariantType">
+		<xs:sequence>
+			<xs:element name="CommunicatieCode" type="CommunicatieCodeIngerichteModuleVariantType" minOccurs="0"/>
+			<xs:element name="CursusCode" type="CursusCodeIngerichteModuleVariantType"/>
+			<xs:element name="Instellingsnummer" type="onderwijs:InstellingsnummerType"/>
+			<xs:element name="Instellingsnaam" type="onderwijs:InstellingsnaamType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LesType">
+		<xs:sequence>
+			<xs:element name="Aanvangstijd" type="generiek:Tijd2_0Type"/>
+			<xs:element name="Eindtijd" type="generiek:Tijd2_0Type"/>
+			<xs:element name="Duurtijd" type="onderwijs:NatuurlijkGetalType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+                        De duurtijd van een Les in minuten. Deze duurtijd kan soms afwijken
+                        van de tijd tussen begin- en eindtijdstip van de Les.
+                    </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Gemeenschappelijk voor beide diensten : Antwoord -->
+	<xs:complexType name="ModuleType">
+		<xs:sequence>
+			<xs:element name="Code" type="ModulecodeType"/>
+			<xs:element name="Naam" type="ModulenaamType"/>
+			<xs:element name="Omschrijving" type="generiek:TekstLang2_0Type"/>
+			<xs:element name="ModuleVariant" type="ModuleVariantType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ModuleVariantType">
+		<xs:annotation>
+			<xs:documentation>Modulevariant gegevens.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="ModuleVariantCodeType"/>
+			<xs:element name="Traject" type="TrajectType"/>
+			<xs:element name="Studiepunten" type="xs:int" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

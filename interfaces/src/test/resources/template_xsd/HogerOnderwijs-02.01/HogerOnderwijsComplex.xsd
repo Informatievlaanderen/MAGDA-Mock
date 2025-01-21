@@ -1,0 +1,81 @@
+<xs:schema targetNamespace="http://hogeronderwijs-02_01.onderwijs.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01.201603011007" xmlns="http://hogeronderwijs-02_01.onderwijs.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:onderwijs="http://onderwijs-02_01.onderwijs.vlaanderen.be" xmlns:inschrijving="http://inschrijving-02_01.onderwijs.vlaanderen.be">
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xs:import namespace="http://inschrijving-02_01.onderwijs.vlaanderen.be" schemaLocation="../Inschrijving-02.01/Inschrijving.xsd"/>
+	<xs:import namespace="http://onderwijs-02_01.onderwijs.vlaanderen.be" schemaLocation="../Onderwijs-02.01/Onderwijs.xsd"/>
+	<xs:include schemaLocation="HogerOnderwijsEnum.xsd"/>
+	<xs:include schemaLocation="HogerOnderwijsSimple.xsd"/>
+	<xs:complexType name="HogerOnderwijsType">
+		<xs:annotation>
+			<xs:documentation>Vertegenwoordigt de specifieke onderdelen van een inschrijving in het hoger onderwijs.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Academiejaar" type="generiek:JaarType"/>
+			<xs:element name="Status" type="StatusType"/>
+			<xs:element name="DatumInschrijving" type="generiek:VolledigDatumType"/>
+			<xs:element name="DatumUitschrijving" type="generiek:VolledigDatumType" minOccurs="0"/>
+			<xs:element name="Opleiding" type="OpleidingType" minOccurs="0"/>
+			<xs:element name="SoortContract" type="SoortContractType"/>
+			<xs:element name="Studiepunten" type="StudiepuntenType"/>
+			<xs:element name="Studieomvang" type="generiek:CijferTripleType" minOccurs="0"/>
+			<xs:element name="ToereikendeStudieomvang" type="generiek:VlagEnumType"/>
+			<xs:element name="StudiebewijsHaalbaar" type="generiek:VlagEnumType"/>
+			<xs:element name="Studiebewijzen" type="StudiebewijzenType" minOccurs="0"/>
+			<xs:element name="VolgendeOpleiding" type="OpleidingType" minOccurs="0"/>
+			<xs:element name="VorigeOpleiding" type="OpleidingType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- HogerOnderwijs types -->
+	<xs:complexType name="StatusType">
+		<xs:sequence>
+			<xs:element name="Code" type="generiek:Tekst2_0Type"/>
+			<xs:element name="Omschrijving" type="generiek:Tekst2_0Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OpleidingType">
+		<xs:sequence>
+			<xs:element name="Code" type="generiek:CijferSextupleVariabelType"/>
+			<xs:element name="VolledigeNaam" type="generiek:TekstLang2_0Type"/>
+			<xs:element name="NaamElementen" type="NaamElementType"/>
+			<xs:element name="Soort" type="SoortOpleidingType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NaamElementType">
+		<xs:sequence>
+			<xs:element name="PrefixGraad" type="generiek:Tekst2_0Type" minOccurs="0"/>
+			<xs:element name="Graad" type="generiek:Tekst2_0Type" minOccurs="0"/>
+			<xs:element name="SpecificatieGraad" type="generiek:Tekst2_0Type" minOccurs="0"/>
+			<xs:element name="PrefixKwalificatie" type="generiek:Tekst2_0Type" minOccurs="0"/>
+			<xs:element name="Kwalificatie" type="generiek:Tekst2_0Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SoortOpleidingType">
+		<xs:sequence>
+			<xs:element name="Code" type="generiek:CijferQuintupleVariabelType"/>
+			<xs:element name="Omschrijving" type="generiek:Tekst2_0Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SoortContractType">
+		<xs:sequence>
+			<xs:element name="Code" type="generiek:Tekst2_0Type"/>
+			<xs:element name="Omschrijving" type="generiek:Tekst2_0Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StudiebewijzenType">
+		<xs:sequence>
+			<xs:element name="Studiebewijs" type="onderwijs:StudiebewijsType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StudiepuntenType">
+		<xs:sequence>
+			<xs:element name="Opgenomen" type="generiek:CijferTripleVariabelType"/>
+			<xs:element name="Verworven" type="generiek:CijferTripleVariabelType"/>
+			<xs:element name="Gedelibereerd" type="generiek:CijferTripleVariabelType"/>
+			<xs:element name="GeenResultaat" type="generiek:CijferTripleVariabelType"/>
+			<xs:element name="NietDeelgenomen" type="generiek:CijferTripleVariabelType" minOccurs="0"/>
+			<xs:element name="NietGeslaagd" type="generiek:CijferTripleVariabelType" minOccurs="0"/>
+			<xs:element name="NietVerworven" type="generiek:CijferTripleVariabelType"/>
+			<xs:element name="Vrijgesteld" type="generiek:CijferTripleVariabelType"/>
+			<xs:element name="Uitgeschreven" type="generiek:CijferTripleVariabelType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

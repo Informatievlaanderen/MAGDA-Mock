@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://leerplichtonderwijs-02_01.onderwijs.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://leerplichtonderwijs-02_01.onderwijs.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01">
+	<xs:include schemaLocation="LeerplichtOnderwijsEnum.xsd"/>
+	<xs:simpleType name="AdmgrNummerType">
+		<xs:annotation>
+			<xs:documentation>Administratieve groep nummer (max 6 numeriek)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="6"/>
+			<xs:pattern value="(\d{1,6})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AdmgrNiveauCodeType">
+		<xs:annotation>
+			<xs:documentation>Type AdmgrNiveau code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="([1234569])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AdmgrSoortOnderwijsCodeType">
+		<xs:annotation>
+			<xs:documentation>Type AdmgrSoortOnderwijs code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="(1|2)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AnderstaligeNieuwkomerType">
+		<xs:annotation>
+			<xs:documentation>Anderstalige nieuwkomer
+J = Ja
+N = Neen</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="J|N"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GewezenAnderstaligeNieuwkomerType">
+		<xs:annotation>
+			<xs:documentation>Gewezen anderstalige nieuwkomer
+J = Ja
+N = Neen</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="J|N"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SoortOnderwijsType">
+		<xs:annotation>
+			<xs:documentation>Soort Onderwijs behorend bij een instelling uit Discimus
+1 = gewoon 
+2 = buitengewoon</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="(1|2)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeBuitengewoonCodeType">
+		<xs:annotation>
+			<xs:documentation>Type Buitengewoon code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="2"/>
+			<xs:whiteSpace value="collapse"/>
+			<xs:pattern value="(\d{1,2}|[A-Z]{2})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SoortProgrammaCodeType">
+		<xs:annotation>
+			<xs:documentation>Type SoortProgramma code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:pattern value="([1-8])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AanleidingUitschrijvingCodeType">
+		<xs:annotation>
+			<xs:documentation>Type Aanleiding uitschrijving code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+			<xs:whiteSpace value="collapse"/>
+			<xs:pattern value="([A-Z]{1})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SituatieNaUitschrijvingCodeType">
+		<xs:annotation>
+			<xs:documentation>Type Situatie na uitschrijving code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="2"/>
+			<xs:whiteSpace value="collapse"/>
+			<xs:pattern value="(\d{1,2})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DiscimusReferteType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+		<xs:simpleType name="LeerwegCodeType">
+		<xs:annotation>
+			<xs:documentation>Leerweg code</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+			<xs:whiteSpace value="collapse"/>
+			<xs:pattern value="([A-Z]{1})"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

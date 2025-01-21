@@ -10,8 +10,8 @@
                     <Bericht>
                         <Type>VRAAG</Type>
                         <Tijdstip>
-                            <Datum>Datum</Datum>
-                            <Tijd>Tijd</Tijd>
+                            <Datum>2025-01-01</Datum>
+                            <Tijd>12:00</Tijd>
                         </Tijdstip>
                         <Afzender>
                             <Identificatie>Identificatie</Identificatie>
@@ -25,8 +25,8 @@
                         <Referte>Referte</Referte>
                         <Inhoud>
                             <Criteria>
-                                <INSZ>INSZ</INSZ>
-                                <Datum Op="0">Datum</Datum>
+                                <INSZ>90010100123</INSZ>
+                                <Datum Op="0">2025-01-01</Datum>
                             </Criteria>
                             <Taal>nl</Taal>
                         </Inhoud>

@@ -1,0 +1,127 @@
+<xs:schema targetNamespace="http://onderwijs-02_01.onderwijs.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01" xmlns="http://onderwijs-02_01.onderwijs.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be">
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xs:include schemaLocation="OnderwijsEnum.xsd"/>
+	<xs:include schemaLocation="OnderwijsSimple.xsd"/>
+	<xs:complexType name="PeriodeType">
+		<xs:annotation>
+			<xs:documentation>Periode waarbij begin- en einddatum verplicht zijn.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Begin" type="generiek:VolledigDatumType">
+				<xs:annotation>
+					<xs:documentation>Begindatum</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Einde" type="generiek:VolledigDatumType">
+				<xs:annotation>
+					<xs:documentation>Einddatum</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PresentieType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="AantalHalveDagen" type="xs:nonNegativeInteger"/>
+			<xs:element name="TijdstipGegevens" type="generiek:TijdstipType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--Onderwijs gegevens-->
+	<xs:complexType name="InstellingType">
+		<xs:annotation>
+			<xs:documentation>Vertegenwoordigt een Instelling
+            </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Instellingsnummer" type="InstellingsnummerType"/>
+			<xs:element name="OfficieleNaam" type="generiek:TekstLangType" minOccurs="1"/>
+			<xs:element name="Instantie" type="InstantieType" minOccurs="0"/>
+			<xs:element name="Adres" type="OnderwijsAdresType" minOccurs="0"/>
+			<xs:element name="Contactgegevens" type="ContactType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContactType">
+		<xs:annotation>
+			<xs:documentation>Vertegenwoordigt alle contactgegevens 
+            </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Telefoonnummer" type="generiek:TekstType" minOccurs="0"/>
+			<xs:element name="Email" type="generiek:TekstLangType" minOccurs="0"/>
+			<xs:element name="Website" type="generiek:TekstLangType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OnderwijsLocatieType">
+		<xs:annotation>
+			<xs:documentation>Vertegenwoordigt een generieke leslocatie
+            </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Nummer" type="xs:nonNegativeInteger"/>
+			<xs:element name="Omschrijving" type="generiek:Tekst2_0Type" minOccurs="0"/>
+			<xs:element name="Adres" type="OnderwijsAdresType" minOccurs="0"/>
+			<xs:element name="Contactgegevens" type="ContactType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OnderwijsAdresType">
+		<xs:annotation>
+			<xs:documentation>OnderwijsAdresType</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Straat" type="StraatRR2_0Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Straat</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Huisnummer" type="NummerHuisType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Huisnummer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Busnummer" type="NummerBusType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Bus van het huisnummer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Gemeente" type="GemeenteOptioneel2_0Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gemeente</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Land" type="LandOptioneel2_0Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Land</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="DatumModificatie" type="generiek:Datum2_0Type"/>
+	</xs:complexType>
+	<!--OnderwijsAdresType-->
+	<xs:complexType name="StraatRR2_0Type">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeRRStraatType" minOccurs="0"/>
+			<xs:element name="Naam" type="generiek:TekstKort2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GemeenteOptioneel2_0Type">
+		<xs:sequence>
+			<xs:element name="NISCode" type="CodeNISGemeenteType" minOccurs="0"/>
+			<xs:element name="PostCode" type="CodePostType" minOccurs="0"/>
+			<xs:element name="Naam" type="generiek:TekstKort2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LandOptioneel2_0Type">
+		<xs:sequence>
+			<xs:element name="NISCode" type="CodeNISLandType" minOccurs="0"/>
+			<xs:element name="ISOCode" type="CodeISOLandType" minOccurs="0"/>
+			<xs:element name="Naam" type="generiek:TekstKort2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StudiebewijsType">
+		<xs:sequence>
+			<xs:element name="Referte" type="generiek:Tekst2_0Type"/>
+			<xs:element name="LEDReferte" type="generiek:Tekst2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

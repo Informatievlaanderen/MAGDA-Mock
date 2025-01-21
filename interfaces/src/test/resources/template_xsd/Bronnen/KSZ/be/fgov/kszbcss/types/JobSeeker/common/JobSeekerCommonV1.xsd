@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by USER (KSZ-BCSS) -->
+<!-- ============================================================================================================
+         * File Name :             JobSeekerTypesV1.xsd
+         * Author :                  Cerberus Team
+         * Owner :                   KSZ / CBSS
+         * Creation date :           2015-10-14
+         * Last revision date :    2015-04-15
+         * Status :                  Planned
+         * Description :           This service aggregates and supplies the information for a jobseeker
+         * Current version :         0.1
+         * Revision History :   
+2015-03-13 : (BNA)
+			enlever tous les complexType et simpleType anonymes et en définir avec nom explicites
+2015-04-15 : (BNA)
+			Retrait de l'attribut "source" dans les éléments de réponses qui sont déplacés plus haut dans la réponse
+============================================================================================================= -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://kszbcss.fgov.be/types/JobSeeker/common/v1" xmlns:common="http://kszbcss.fgov.be/types/common/v3" targetNamespace="http://kszbcss.fgov.be/types/JobSeeker/common/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2015-04-15">
+	<!--========= imports ===========-->
+	<xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../../common/CommonV3.xsd"/>
+	<!--========= complex types ===========-->
+	<xsd:complexType name="ConsultContactAndInscriptionResultType">
+		<xsd:sequence>
+			<xsd:element name="contact" type="tns:ContactType" minOccurs="0"/>
+			<xsd:element name="inscriptions" type="tns:InscriptionsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContactType">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element name="belgianAddress" type="tns:BelgianAddressType"/>
+				<xsd:element name="foreignAddress" type="tns:ForeignAddressType"/>
+			</xsd:choice>
+			<xsd:element name="phoneNumber" type="tns:PhoneType" minOccurs="0" maxOccurs="2"/>
+			<xsd:element name="emailAddress" type="tns:emailAddressType" minOccurs="0"/>
+			<xsd:element name="updateTimestamp" type="xsd:dateTime" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BelgianAddressType">
+		<xsd:sequence>
+			<xsd:element name="postalCode" type="tns:PostalCodeType"/>
+			<xsd:element name="cityName" type="common:DescriptionType"/>
+			<xsd:element name="cityCode" type="tns:CityCodeType" minOccurs="0"/>
+			<xsd:element name="streetName" type="common:DescriptionType"/>
+			<xsd:element name="streetCode" type="tns:StreetCodeType" minOccurs="0"/>
+			<xsd:element name="houseNumber" type="tns:HouseNumberType" minOccurs="0"/>
+			<xsd:element name="boxNumber" type="tns:BoxNumberType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="ForeignAddressType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:complexType name="PhoneType">
+		<xsd:annotation>
+			<xsd:documentation>GSM or fix</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="tns:PhoneNumberType">
+				<xsd:attribute name="fix">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:boolean"/>
+					</xsd:simpleType>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="InscriptionsType">
+		<xsd:sequence>
+			<xsd:element name="inscription" type="tns:InscriptionType" maxOccurs="20"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InscriptionType">
+		<xsd:sequence>
+			<xsd:element name="inceptionTimestamp" type="xsd:dateTime"/>
+			<xsd:element name="categoryNEO" type="tns:CategoryNEOType" minOccurs="0" maxOccurs="2"/>
+			<xsd:element name="categoryPES" type="tns:CategoryPESType" maxOccurs="2"/>
+			<xsd:element name="eurostatDate" type="xsd:date" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CategoryNEOType">
+		<xsd:sequence>
+			<xsd:element name="code" type="tns:CodeNEOType"/>
+			<xsd:element name="description" type="tns:DescriptionLanguageType" minOccurs="0" maxOccurs="3"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CategoryPESType">
+		<xsd:sequence>
+			<xsd:element name="code" type="tns:CodePESType"/>
+			<xsd:element name="description" type="tns:DescriptionLanguageType" minOccurs="0" maxOccurs="3"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--========= simple types ===========-->
+	<xsd:simpleType name="PESValueType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ACTIRIS"/>
+			<xsd:enumeration value="VDAB"/>
+			<xsd:enumeration value="FOREM"/>
+			<xsd:enumeration value="ADG"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="StreetCodeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="HouseNumberType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="FR">Numero de la maison</xsd:documentation>
+			<xsd:documentation xml:lang="NL">Huisnummer</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="12"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BoxNumberType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="FR">Numero de la boite aux lettres</xsd:documentation>
+			<xsd:documentation xml:lang="NL">Busnummer</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CityCodeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PostalCodeType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="FR">Code postal</xsd:documentation>
+			<xsd:documentation xml:lang="NL">Postcode</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CountryCodeType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="FR">Code INS du pays</xsd:documentation>
+			<xsd:documentation xml:lang="NL">NIS code van de land</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="3"/>
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PhoneNumberType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="9"/>
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="emailAddressType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[^@]+@[^\.]+\..+"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodePESType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="ACTIRIS[0-9]{3}"/>
+			<xsd:pattern value="ADG[0-9]{3}"/>
+			<xsd:pattern value="FOREM[0-9]{3}"/>
+			<xsd:pattern value="VDAB[0-9]{3}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodeNEOType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{3}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="DescriptionLanguageType">
+		<xsd:annotation>
+			<xsd:documentation>Type specifying how a value that can exist in several languages will be modelled</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="common:DescriptionType">
+				<xsd:attribute name="language" type="common:LanguageType" use="required"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+</xsd:schema>

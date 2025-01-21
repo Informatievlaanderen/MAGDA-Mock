@@ -1,0 +1,56 @@
+<xs:schema targetNamespace="http://repertorium-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00.201304291023" xmlns="http://repertorium-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be">
+           
+    <xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+    <xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+    <xs:include schemaLocation="RepertoriumEnum.xsd"/>
+    <xs:include schemaLocation="RepertoriumSimple.xsd"/>
+    
+    <!--****************************************-->
+    <!--* Segmenten - Niveau 1 (Hoofd)         *-->
+    <!--****************************************-->
+	<xs:complexType name="InschrijvingType">
+		<xs:sequence>
+			<xs:element name="Identificatie" type="generiek:ApplicatieIdentificatieType"/>
+			<xs:element name="Hoedanigheid" type="generiek:NaamKortType"/>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Periode" type="generiek:PeriodeVerplichtBeginType"/>			
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UitschrijvingType">
+		<xs:sequence>
+			<xs:element name="Identificatie" type="generiek:ApplicatieIdentificatieType"/>
+			<xs:element name="Hoedanigheid" type="generiek:NaamKortType"/>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Periode" type="generiek:PeriodeOptioneelType" minOccurs="0" nillable="false"/>			
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PubliceerInschrijvingType">
+		<xs:sequence>
+			<xs:element name="Identificatie" type="generiek:ApplicatieIdentificatieType" minOccurs="0"/>
+			<xs:element name="Hoedanigheid" type="generiek:NaamKortType" minOccurs="0"/>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Periode" type="generiek:PeriodeOptioneelType" minOccurs="0"/>			
+		</xs:sequence>
+	</xs:complexType>
+    
+    <!--****************************************-->
+    <!--* Segmenten - Niveau 2 (Sub)           *-->
+    <!--****************************************-->
+
+    <!--****************************************-->
+    <!--* Segmenten - Niveau 3 (Samengesteld)  *-->
+    <!--****************************************-->
+    <!--========================================-->
+    
+    <!--****************************************-->
+    <!--* Segmenten - Niveau 4 (Enkelvoudug)   *-->
+    <!--****************************************-->
+    <!--========================================-->
+    
+    <!--****************************************-->
+    <!--* Segmenten - Niveau 5 (Simple Extend) *-->
+    <!--****************************************-->
+    <!--========================================-->
+    <!--========================================-->
+
+</xs:schema>

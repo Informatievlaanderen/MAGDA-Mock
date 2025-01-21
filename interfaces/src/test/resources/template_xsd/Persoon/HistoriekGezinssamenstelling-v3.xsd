@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 rel. 2 sp1 (http://www.altova.com) by Stefan Vleugels (AGENTSCHAP FACILITAIR BEDRIJF) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/persoon-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/persoon-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:include schemaLocation="PersoonGemeenschappelijk-v3.xsd"/>
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<!--=> SAMENGESTELDE TYPE DEFINITES-->
+	<!-- ======================== REQUEST TYPES ======================= -->
+	<xs:complexType name="CriteriaGeefHistoriekGezinssamenstellingType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Datum" type="DatumOpType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ======================== RESPONSE TYPES ======================= -->
+	<xs:complexType name="HistoriekGezinssamenstellingType">
+		<xs:sequence>
+			<xs:element name="Gezinssamenstelling" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Gezinsleden">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Gezinslid" type="GezinslidVerplichtINSZType" minOccurs="1" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

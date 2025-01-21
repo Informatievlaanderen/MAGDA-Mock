@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 rel. 2 sp1 (http://www.altova.com) by Stefan Vleugels (AGENTSCHAP FACILITAIR BEDRIJF) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/persoon-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/persoon-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:include schemaLocation="PersoonGemeenschappelijk-v3.xsd"/>
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<!--=> SAMENGESTELDE TYPE DEFINITES-->
+	<xs:complexType name="CriteriaGeefHistoriekPersoonType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Datum" type="DatumOpType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ======================== RESPONSE TYPES ======================= -->
+	<xs:complexType name="HistoriekPersoonType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="HistoriekNaam" type="NaamPersoonLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekPseudoniem" type="PseudoniemLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekAdellijkeTitel" type="AdellijkeTitelLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekNaamswijziging" type="NaamswijzigingLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekGeslacht" type="GeslachtPersoonLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekGeslachtsverandering" type="GeslachtsveranderingLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekVerklaringInschrijving" type="VerklaringInschrijvingLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekStatus" type="StatusPersoonLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekBeheerder" type="BeheerderLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekReferentiedossier" type="ReferentiedossierLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekRegister" type="RegisterLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekVoorlopigeInschrijving" type="VoorlopigeInschrijvingLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekNationaliteit" type="NationaliteitLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekGeboorte" type="GeboorteLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekOverlijden" type="OverlijdenLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekBurgerlijkeStaat" type="BurgerlijkeStaatLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekAdressen" type="HistoriekAdressenPersoonType" minOccurs="0"/>
+			<xs:element name="HistoriekAfstamming" type="AfstammingLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekAfstammingDalendeLijn" type="AfstammingDalendeLijnLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekReferentiepersoon" type="ReferentiepersoonLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekGezinsleden" type="GezinslidLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekWettelijkeSamenwoning" type="WettelijkeSamenwoningLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekAfwezigheid" type="AfwezigheidLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekIdentiteitsbewijs" type="IdentiteitsbewijsLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekBeroepskaart" type="BeroepskaartLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekArbeidskaart" type="ArbeidskaartLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekBepalingHoofdverblijfplaats" type="BepalingHoofdverblijfplaatsLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekBewindvoerder" type="BewindvoerderLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekJuridischStatuut" type="JuridischStatuutLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekWettigVerblijf" type="WettigVerblijfLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekGedeeldVerblijf" type="GedeeldVerblijfLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekTypeVluchteling" type="TypeVluchtelingLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekEIDCertificaten" type="EIDCertificatenLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekNummerDienstVreemdelingenzaken" type="NummerDienstVreemdelingenzakenLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekVoorlopigInschrijvingsnummer" type="VoorlopigInschrijvingsnummerLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekIdentiteitsdocument" type="IdentiteitsdocumentLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekGekozenWoonplaats" type="GekozenWoonplaatsLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekAlias" type="AliasLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekAdministratieveToestand" type="AdministratieveToestandLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekPlaatsInschrijving" type="PlaatsInschrijvingLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekContactgegevens" type="ContactgegevensLijstType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="DatumCreatie" type="generiek:DatumType"/>
+		<xs:attribute name="DatumModificatie" type="generiek:DatumType"/>
+		<xs:attribute name="Bron" type="generiek:BronType"/>
+	</xs:complexType>
+	<!-- PseudoniemPersoonLijstType werd hier verwijderd en verplaatst naar PersoonGemeenschappelijk-v3. De naam werd ook veranderd naar PseudoniemLijstType. -->
+	<xs:complexType name="AdellijkeTitelLijstType">
+		<xs:sequence>
+			<xs:element name="AdellijkeTitel" type="AdellijkeTitelPersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NaamswijzigingLijstType">
+		<xs:sequence>
+			<xs:element name="Naamswijziging" type="NaamswijzigingPersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GeslachtsveranderingLijstType">
+		<xs:sequence>
+			<xs:element name="Geslachtsverandering" type="GeslachtsveranderingPersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerklaringInschrijvingLijstType">
+		<xs:sequence>
+			<xs:element name="VerklaringInschrijving" type="VerklaringInschrijvingPersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BeheerderLijstType">
+		<xs:sequence>
+			<xs:element name="Beheerder" type="BeheerderType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferentiedossierLijstType">
+		<xs:sequence>
+			<xs:element name="Referentiedossier" type="ReferentiedossierPersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegisterLijstType">
+		<xs:sequence>
+			<xs:element name="Register" type="RegisterPersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VoorlopigeInschrijvingLijstType">
+		<xs:sequence>
+			<xs:element name="VoorlopigeInschrijving" type="VoorlopigeInschrijvingPersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GeboorteLijstType">
+		<xs:sequence>
+			<xs:element name="Geboorte" type="GeboorteType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OverlijdenLijstType">
+		<xs:sequence>
+			<xs:element name="Overlijden" type="OverlijdenType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HistoriekAdressenPersoonType">
+		<xs:sequence>
+			<xs:element name="HistoriekHoofdverblijfplaats" type="HoofdverblijfplaatsLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekVerblijfplaatsBuitenland" type="VerblijfplaatsBuitenlandLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekPostadresBuitenland" type="PostadresBuitenlandLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekOpgegevenAdres" type="OpgegevenAdresLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekAangifteAdreswijziging" type="AangifteAdreswijzigingLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekAangifteAdresBuitenland" type="AangifteAdresBuitenlandLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekTijdelijkeAfwezigheid" type="TijdelijkeAfwezigheidLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekPlaatsHerkomst" type="PlaatsHerkomstLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekNietMededeelbaarAdres" type="NietMededeelbaarAdresLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekWettelijkeWoonplaats" type="WettelijkeWoonplaatsLijstType" minOccurs="0"/>
+			<xs:element name="HistoriekContactAdres" type="ContactAdresLijstType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HoofdverblijfplaatsLijstType">
+		<xs:sequence>
+			<xs:element name="Hoofdverblijfplaats" type="HoofdverblijfplaatsType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerblijfplaatsBuitenlandLijstType">
+		<xs:sequence>
+			<xs:element name="VerblijfplaatsBuitenland" type="VerblijfplaatsBuitenlandType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PostadresBuitenlandLijstType">
+		<xs:sequence>
+			<xs:element name="PostadresBuitenland" type="PostadresBuitenlandType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OpgegevenAdresLijstType">
+		<xs:sequence>
+			<xs:element name="OpgegevenAdres" type="OpgegevenAdresType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AangifteAdreswijzigingLijstType">
+		<xs:sequence>
+			<xs:element name="AangifteAdreswijziging" type="AangifteAdreswijzigingType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AangifteAdresBuitenlandLijstType">
+		<xs:sequence>
+			<xs:element name="AangifteAdresBuitenland" type="AangifteAdresBuitenlandType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TijdelijkeAfwezigheidLijstType">
+		<xs:sequence>
+			<xs:element name="TijdelijkeAfwezigheid" type="TijdelijkeAfwezigheidType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PlaatsHerkomstLijstType">
+		<xs:sequence>
+			<xs:element name="PlaatsHerkomst" type="PlaatsHerkomstType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NietMededeelbaarAdresLijstType">
+		<xs:sequence>
+			<xs:element name="NietMededeelbaarAdres" type="NietMededeelbaarAdresType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WettelijkeWoonplaatsLijstType">
+		<xs:sequence>
+			<xs:element name="WettelijkeWoonplaats" type="WettelijkeWoonplaatsAdresType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContactAdresLijstType">
+		<xs:sequence>
+			<xs:element name="ContactAdres" type="ContactAdresType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferentiepersoonLijstType">
+		<xs:sequence>
+			<xs:element name="Referentiepersoon" type="ReferentiepersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WettelijkeSamenwoningLijstType">
+		<xs:sequence>
+			<xs:element name="WettelijkeSamenwoning" type="WettelijkeSamenwoningType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AfwezigheidLijstType">
+		<xs:sequence>
+			<xs:element name="Afwezigheden" type="AfwezigheidPersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TypeVluchtelingLijstType">
+		<xs:sequence>
+			<xs:element name="TypeVluchteling" type="TypeVluchtelingType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IdentiteitsdocumentLijstType">
+		<xs:sequence>
+			<xs:element name="Identiteitsdocument" type="IdentiteitsdocumentPersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GekozenWoonplaatsLijstType">
+		<xs:sequence>
+			<xs:element name="GekozenWoonplaats" type="GekozenWoonplaatsPersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContactgegevensLijstType">
+		<xs:sequence>
+			<xs:element name="Contactgegevens" type="ContactgegevensType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EIDCertificatenLijstType">
+		<xs:sequence>
+			<xs:element name="EIDCertificaten" type="EIDCertificatenType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VoorlopigInschrijvingsnummerLijstType">
+		<xs:sequence>
+			<xs:element name="VoorlopigInschrijvingsnummer" type="VoorlopigInschrijvingsnummerPersoonType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

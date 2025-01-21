@@ -26,12 +26,12 @@
                             <Criteria>
                                 <Adres>
                                     <PostCode>POSTCODE</PostCode>
-                                    <Straatcode>STRAATCODE</Straatcode>
+                                    <Straatcode>1234</Straatcode>
                                     <Huisnummer>HUISNUMMER</Huisnummer>
                                 </Adres>
-                                <EnkelReferentiepersoon>REFERENTIEPERSOON</EnkelReferentiepersoon>
+                                <EnkelReferentiepersoon>0</EnkelReferentiepersoon>
                             </Criteria>
-                            <Bron>BRON</Bron>
+                            <Bron>RR</Bron>
                             <Taal>nl</Taal>
                         </Inhoud>
                     </Vraag>
