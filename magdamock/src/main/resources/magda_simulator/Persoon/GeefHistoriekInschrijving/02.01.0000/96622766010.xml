@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2025-01-29</Datum>
+          <Tijd>13:30:30.096</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>8b782ce5-f7b7-4ed9-b9c2-5348da4288d9</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>004b6d96-bd53-4802-9eaa-bfc3490c405e</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>004b6d96-bd53-4802-9eaa-bfc3490c405e</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>64aeaf9b-04e7-44eb-8248-a36b1c2997af</Referte>
+              <Instelling>
+                <Instellingsnummer>43026</Instellingsnummer>
+                <OfficieleNaam>TechniGO! campus Ledebaan Aalst</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Ledebaan</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41002</NISCode>
+                    <PostCode>9300</PostCode>
+                    <Naam>AALST</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 76 92 50</Telefoonnummer>
+                  <Email>info@technigo.be</Email>
+                  <Website>http://www.technigo.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Ledebaan</Naam>
+                  </Straat>
+                  <Huisnummer>101</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41002</NISCode>
+                    <PostCode>9300</PostCode>
+                    <Naam>AALST</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 76 92 50</Telefoonnummer>
+                  <Email>info@technigo.be</Email>
+                  <Website>http://www.technigo.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-08-17</DatumInschrijving>
+                <DatumEersteLes>2015-09-01</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>afb08bd8-13a8-44d4-96f4-15d91c23de76</Referte>
+                  <Periode>
+                    <Begin>2015-09-01</Begin>
+                    <Einde>2015-12-06</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>21922</Nummer>
+                    <Naam>1e leerjaar in de 3e graad Brood- en banketbakkerij en confiserie BSO
+                    </Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>E</Code>
+                      <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>12</Code>
+                      <Omschrijving>Wijziging binnen de eigen school of naar andere Vlaamse
+                        school
+                      </Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>c47dcb77-69f9-4b92-add4-60e7295a70a8</Referte>
+              <Instelling>
+                <Instellingsnummer>117762</Instellingsnummer>
+                <OfficieleNaam>GO! atheneum Herzele</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>De Tramzate</Naam>
+                  </Straat>
+                  <Huisnummer>9</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41027</NISCode>
+                    <PostCode>9550</PostCode>
+                    <Naam>HERZELE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 62 23 71</Telefoonnummer>
+                  <Email>info@atheneum-herzele.be</Email>
+                  <Website>http://www.atheneum-herzele.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>De Tramzate</Naam>
+                  </Straat>
+                  <Huisnummer>9</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41027</NISCode>
+                    <PostCode>9550</PostCode>
+                    <Naam>HERZELE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 62 23 71</Telefoonnummer>
+                  <Email>info@atheneum-herzele.be</Email>
+                  <Website>http://www.atheneum-herzele.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-08-30</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>d54a090d-64f4-487e-89a9-23ae9ea6cc07</Referte>
+                  <Periode>
+                    <Begin>2014-09-01</Begin>
+                    <Einde>2015-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>25699</Nummer>
+                    <Naam>3e leerjaar in de 3e graad Verkoop en vertegenwoordiging BSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>6a20e3a4-bff1-48ad-8f41-7c73dee890f1</Referte>
+              <Instelling>
+                <Instellingsnummer>117762</Instellingsnummer>
+                <OfficieleNaam>GO! atheneum Herzele</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>De Tramzate</Naam>
+                  </Straat>
+                  <Huisnummer>9</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41027</NISCode>
+                    <PostCode>9550</PostCode>
+                    <Naam>HERZELE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 62 23 71</Telefoonnummer>
+                  <Email>info@atheneum-herzele.be</Email>
+                  <Website>http://www.atheneum-herzele.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>De Tramzate</Naam>
+                  </Straat>
+                  <Huisnummer>9</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41027</NISCode>
+                    <PostCode>9550</PostCode>
+                    <Naam>HERZELE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 62 23 71</Telefoonnummer>
+                  <Email>info@atheneum-herzele.be</Email>
+                  <Website>http://www.atheneum-herzele.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-08-30</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2016</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>38ae29c0-a221-4b7b-ba82-019816c1ee2f</Referte>
+                  <Periode>
+                    <Begin>2016-09-05</Begin>
+                    <Einde>2016-10-07</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>26397</Nummer>
+                    <Naam>3e leerjaar in de 3e graad Kinderzorg BSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>E</Code>
+                      <Omschrijving>Initiatief van leerling of ouders</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>5</Code>
+                      <Omschrijving>Werken</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>ec353014-41a6-4942-a895-181f6bacb5e9</Referte>
+              <Instelling>
+                <Instellingsnummer>117762</Instellingsnummer>
+                <OfficieleNaam>GO! atheneum Herzele</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>De Tramzate</Naam>
+                  </Straat>
+                  <Huisnummer>9</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41027</NISCode>
+                    <PostCode>9550</PostCode>
+                    <Naam>HERZELE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 62 23 71</Telefoonnummer>
+                  <Email>info@atheneum-herzele.be</Email>
+                  <Website>http://www.atheneum-herzele.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>De Tramzate</Naam>
+                  </Straat>
+                  <Huisnummer>9</Huisnummer>
+                  <Gemeente>
+                    <NISCode>41027</NISCode>
+                    <PostCode>9550</PostCode>
+                    <Naam>HERZELE</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>053 62 23 71</Telefoonnummer>
+                  <Email>info@atheneum-herzele.be</Email>
+                  <Website>http://www.atheneum-herzele.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2011-08-30</DatumInschrijving>
+                <DatumEersteLes>2011-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>13087cae-a318-4c43-95fb-f002958c0cd0</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>22311</Nummer>
+                    <Naam>2e leerjaar in de 3e graad Kantoor BSO</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>08680d8d-7e3b-4c2c-8f4c-ca2cb8ace521</Referte>
+              <Instelling>
+                <Instellingsnummer>127415</Instellingsnummer>
+                <OfficieleNaam>SYNTRA Vlaanderen</OfficieleNaam>
+                <Instantie>SYNTRA Vlaanderen</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Kanselarijstraat</Naam>
+                  </Straat>
+                  <Huisnummer>19</Huisnummer>
+                  <Gemeente>
+                    <NISCode>23025</NISCode>
+                    <PostCode>1000</PostCode>
+                    <Naam>BRUSSEL</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>02 227 49 65</Telefoonnummer>
+                  <Email>ingrid.heiremans@syntravlaanderen.be</Email>
+                  <Website>http://www.syntravlaanderen.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Kanselarijstraat</Naam>
+                  </Straat>
+                  <Huisnummer>19</Huisnummer>
+                  <Gemeente>
+                    <NISCode>23025</NISCode>
+                    <PostCode>1000</PostCode>
+                    <Naam>BRUSSEL</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>02 227 49 65</Telefoonnummer>
+                  <Email>ingrid.heiremans@syntravlaanderen.be</Email>
+                  <Website>http://www.syntravlaanderen.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>5</Code>
+                  <Omschrijving>Syntra</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2015-11-27</DatumInschrijving>
+                <DatumEersteLes>2015-11-27</DatumEersteLes>
+                <Schooljaar>2015</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>e0c574cc-8e8e-49b4-ab5f-3d3e2768cd45</Referte>
+                  <Periode>
+                    <Begin>2015-11-27</Begin>
+                    <Einde>2015-12-06</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>37200</Nummer>
+                    <Naam>Leertijd administratieve groep</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
+</web:GeefHistoriekInschrijvingResponse>

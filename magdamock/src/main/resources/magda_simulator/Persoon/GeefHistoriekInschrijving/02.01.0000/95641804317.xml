@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2025-01-29</Datum>
+          <Tijd>13:30:30.093</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>5366e383-a3d5-47b3-9e42-dac575d8ce53</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>8f51604b-290a-409f-985c-472ab424eaca</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>8f51604b-290a-409f-985c-472ab424eaca</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>157938f8-611d-4723-9838-fbfea1394373</Referte>
+              <Instelling>
+                <Instellingsnummer>27755</Instellingsnummer>
+                <OfficieleNaam>Instituut Mevrouw Govaerts Buitengewoon</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Kastanjedreef</Naam>
+                  </Straat>
+                  <Huisnummer>12</Huisnummer>
+                  <Gemeente>
+                    <NISCode>12014</NISCode>
+                    <PostCode>2220</PostCode>
+                    <Naam>HEIST-OP-DEN-BERG</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>015 24 42 85</Telefoonnummer>
+                  <Email>secretariaat.buso@img-heist.be</Email>
+                  <Website>http://www.img-heist.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Kastanjedreef</Naam>
+                  </Straat>
+                  <Huisnummer>12</Huisnummer>
+                  <Gemeente>
+                    <NISCode>12014</NISCode>
+                    <PostCode>2220</PostCode>
+                    <Naam>HEIST-OP-DEN-BERG</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>015 24 42 85</Telefoonnummer>
+                  <Email>secretariaat.buso@img-heist.be</Email>
+                  <Website>http://www.img-heist.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2010-09-01</DatumInschrijving>
+                <DatumEersteLes>2010-09-01</DatumEersteLes>
+                <Schooljaar>2013</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>d0a51cbc-6552-494a-a48c-a0f3a547108f</Referte>
+                  <Periode>
+                    <Begin>2013-09-01</Begin>
+                    <Einde>2014-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>15244</Nummer>
+                    <Naam>BuSO Opleidingsvorm 2 fase 2</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>2</Code>
+                      <Omschrijving>Buitengewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <TypeBuitengewoon>
+                    <Code>2</Code>
+                    <Omschrijving>Matige of ernstige mentale handicap</Omschrijving>
+                  </TypeBuitengewoon>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
+</web:GeefHistoriekInschrijvingResponse>

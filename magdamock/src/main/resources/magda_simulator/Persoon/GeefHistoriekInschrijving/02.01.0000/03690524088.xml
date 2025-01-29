@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2025-01-29</Datum>
+          <Tijd>13:30:30.092</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>df2a0cc0-e579-42b4-bf11-8e5a31ba2879</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>ef7033e8-1c40-430e-8722-02278c26bf72</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>ef7033e8-1c40-430e-8722-02278c26bf72</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>VWO</Bron>
+              <Referte>4a8eabc9-4cdc-4c33-969d-b537156d692b</Referte>
+              <Instelling>
+                <Instellingsnummer>123992</Instellingsnummer>
+                <OfficieleNaam>centrum voor volwassenenonderwijs KISP - Gent</OfficieleNaam>
+                <Instantie>Centrum voor Volwassenenonderwijs</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Industrieweg</Naam>
+                  </Straat>
+                  <Huisnummer>228</Huisnummer>
+                  <Gemeente>
+                    <NISCode>44021</NISCode>
+                    <PostCode>9030</PostCode>
+                    <Naam>Gent</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                    <ISOCode>BEL</ISOCode>
+                    <Naam>Belgie</Naam>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>092168484</Telefoonnummer>
+                  <Email>stephan.devreese@kisp.be</Email>
+                  <Website>http://www.kisp.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>4</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Sint-Lievenspoortstraat</Naam>
+                  </Straat>
+                  <Huisnummer>142</Huisnummer>
+                  <Gemeente>
+                    <PostCode>9000</PostCode>
+                    <Naam>Gent</Naam>
+                  </Gemeente>
+                </Adres>
+              </OnderwijsLocatie>
+              <Volwassenenonderwijs>
+                <Status>
+                  <Code>INGESCHREVEN</Code>
+                  <Omschrijving>Ingeschreven</Omschrijving>
+                </Status>
+                <DatumInschrijving>2022-09-01</DatumInschrijving>
+                <Opleiding>
+                  <Code>831</Code>
+                  <Naam>Koken</Naam>
+                  <Omschrijving>In deze opleiding worden diverse kook- en baktechnieken aangeleerd. Na
+                    het beëindigen van deze opleiding kan de cursist voor een maaltijd zorgen in het
+                    dagelijkse gebruik.
+
+                    Daarnaast is er aandacht voor het meer familiaal feestelijk gebruik van kook- en
+                    presentatietechnieken bij specifieke gelegenheden zoals feestdagen, verjaardagen
+                    enz.
+                  </Omschrijving>
+                  <Diplomagericht>0</Diplomagericht>
+                  <Opleidingsvariant>
+                    <Code>10111</Code>
+                    <Naam>Koken</Naam>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </Opleidingsvariant>
+                </Opleiding>
+                <Module>
+                  <Code>70000364</Code>
+                  <Naam>Basis koken</Naam>
+                  <Omschrijving>Basis koken</Omschrijving>
+                  <ModuleVariant>
+                    <Code>10462</Code>
+                    <Traject>
+                      <Code>STANDAARD</Code>
+                      <Omschrijving>Standaard</Omschrijving>
+                    </Traject>
+                  </ModuleVariant>
+                </Module>
+                <Resultaat>
+                  <EvaluatieResultaat>
+                    <Code>GESLAAGD</Code>
+                    <Omschrijving>Geslaagd</Omschrijving>
+                  </EvaluatieResultaat>
+                  <Studiebewijzen>
+                    <Studiebewijs>
+                      <Referte>e330b3c6-f33f-470f-93ba-a10ee4efd6ad:14e2095e5e9</Referte>
+                      <LEDReferte>66567d75-a223-4c12-959e-6560e3d0f0e5</LEDReferte>
+                    </Studiebewijs>
+                  </Studiebewijzen>
+                </Resultaat>
+              </Volwassenenonderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
+</web:GeefHistoriekInschrijvingResponse>
