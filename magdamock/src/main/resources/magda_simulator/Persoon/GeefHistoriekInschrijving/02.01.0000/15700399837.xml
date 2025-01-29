@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web:GeefHistoriekInschrijvingResponse xmlns:web="http://webservice.geefhistoriekinschrijvingdienst-02_01.onderwijs.vlaanderen.be">
+  <Repliek>
+    <Context>
+      <Naam>GeefHistoriekInschrijving</Naam>
+      <Versie>02.01.0000</Versie>
+      <Bericht>
+        <Type>ANTWOORD</Type>
+        <Tijdstip>
+          <Datum>2025-01-29</Datum>
+          <Tijd>13:30:30.090</Tijd>
+        </Tijdstip>
+        <Afzender>
+          <Identificatie>vip.vlaanderen.be</Identificatie>
+          <Naam>MagdaGateway</Naam>
+          <Referte>cc217e25-f633-4349-943b-2bd4350cbb1b</Referte>
+        </Afzender>
+        <Ontvanger>
+          <Identificatie>vip.vlaanderen.be/vkbp-aip-bo</Identificatie>
+          <Referte>165a2561-7706-457d-b79a-385be4581ffa</Referte>
+          <Hoedanigheid>101</Hoedanigheid>
+        </Ontvanger>
+      </Bericht>
+    </Context>
+    <Antwoorden>
+      <Antwoord>
+        <Referte>165a2561-7706-457d-b79a-385be4581ffa</Referte>
+        <Inhoud>
+          <Inschrijvingen>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>d47f81e2-5ee1-4f1e-8f8c-5ef8d1511c96</Referte>
+              <Instelling>
+                <Instellingsnummer>48033</Instellingsnummer>
+                <OfficieleNaam>Instituut Zusters Maricolen - Middenscho</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Marktstraat</Naam>
+                  </Straat>
+                  <Huisnummer>15</Huisnummer>
+                  <Gemeente>
+                    <NISCode>43010</NISCode>
+                    <PostCode>9990</PostCode>
+                    <Naam>MALDEGEM</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>050 72 98 86</Telefoonnummer>
+                  <Email>middenschool@maricolen.be</Email>
+                  <Website>http://www.maricolen.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Marktstraat</Naam>
+                  </Straat>
+                  <Huisnummer>15</Huisnummer>
+                  <Gemeente>
+                    <NISCode>43010</NISCode>
+                    <PostCode>9990</PostCode>
+                    <Naam>MALDEGEM</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>050 72 98 86</Telefoonnummer>
+                  <Email>middenschool@maricolen.be</Email>
+                  <Website>http://www.maricolen.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2020-08-25</DatumInschrijving>
+                <DatumEersteLes>2020-09-01</DatumEersteLes>
+                <Schooljaar>2014</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>0769beaa-2c17-4192-bad5-2956b57b445d</Referte>
+                  <Periode>
+                    <Begin>2023-09-01</Begin>
+                    <Einde>2024-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>6246</Nummer>
+                    <Naam>1ste leerjaar A</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+            <Inschrijving>
+              <Bron>LP</Bron>
+              <Referte>19d95e8d-958c-415b-9194-6cf89e36015e</Referte>
+              <Instelling>
+                <Instellingsnummer>48033</Instellingsnummer>
+                <OfficieleNaam>Instituut Zusters Maricolen - Middenscho</OfficieleNaam>
+                <Instantie>Secundaire school</Instantie>
+                <Adres>
+                  <Straat>
+                    <Naam>Marktstraat</Naam>
+                  </Straat>
+                  <Huisnummer>15</Huisnummer>
+                  <Gemeente>
+                    <NISCode>43010</NISCode>
+                    <PostCode>9990</PostCode>
+                    <Naam>MALDEGEM</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>050 72 98 86</Telefoonnummer>
+                  <Email>middenschool@maricolen.be</Email>
+                  <Website>http://www.maricolen.be</Website>
+                </Contactgegevens>
+              </Instelling>
+              <OnderwijsLocatie>
+                <Nummer>1</Nummer>
+                <Adres>
+                  <Straat>
+                    <Naam>Marktstraat</Naam>
+                  </Straat>
+                  <Huisnummer>15</Huisnummer>
+                  <Gemeente>
+                    <NISCode>43010</NISCode>
+                    <PostCode>9990</PostCode>
+                    <Naam>MALDEGEM</Naam>
+                  </Gemeente>
+                  <Land>
+                    <NISCode>150</NISCode>
+                  </Land>
+                </Adres>
+                <Contactgegevens>
+                  <Telefoonnummer>050 72 98 86</Telefoonnummer>
+                  <Email>middenschool@maricolen.be</Email>
+                  <Website>http://www.maricolen.be</Website>
+                </Contactgegevens>
+              </OnderwijsLocatie>
+              <LeerplichtOnderwijs>
+                <SoortProgramma>
+                  <Code>1</Code>
+                  <Omschrijving>Voltijds</Omschrijving>
+                </SoortProgramma>
+                <DatumInschrijving>2020-08-25</DatumInschrijving>
+                <DatumEersteLes>2020-09-01</DatumEersteLes>
+                <Schooljaar>2025</Schooljaar>
+                <InschrijvingAdministratieveGroep>
+                  <Referte>bea0fc3b-3df6-4689-b38c-3e776b127056</Referte>
+                  <Periode>
+                    <Begin>2024-09-01</Begin>
+                    <Einde>2025-08-31</Einde>
+                  </Periode>
+                  <AdministratieveGroep>
+                    <Nummer>20098</Nummer>
+                    <Naam>2e leerjaar in de 1e graad Moderne wetenschappen</Naam>
+                    <Niveau>
+                      <Code>3</Code>
+                      <Omschrijving>Secundair onderwijs</Omschrijving>
+                    </Niveau>
+                    <SoortOnderwijs>
+                      <Code>1</Code>
+                      <Omschrijving>Gewoon onderwijs</Omschrijving>
+                    </SoortOnderwijs>
+                  </AdministratieveGroep>
+                  <Uitschrijving>
+                    <Aanleiding>
+                      <Code>X</Code>
+                      <Omschrijving>Normaal einde schooljaar of module</Omschrijving>
+                    </Aanleiding>
+                    <SituatieNa>
+                      <Code>10</Code>
+                      <Omschrijving>Geen informatie</Omschrijving>
+                    </SituatieNa>
+                  </Uitschrijving>
+                </InschrijvingAdministratieveGroep>
+              </LeerplichtOnderwijs>
+            </Inschrijving>
+          </Inschrijvingen>
+        </Inhoud>
+      </Antwoord>
+    </Antwoorden>
+  </Repliek>
+</web:GeefHistoriekInschrijvingResponse>
