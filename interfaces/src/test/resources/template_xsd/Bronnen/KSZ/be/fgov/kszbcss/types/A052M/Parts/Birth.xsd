@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Development (Ksz-Bcss) -->
+<xs:schema targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:include schemaLocation="BirthDate.xsd"/>
+	<xs:include schemaLocation="Sex.xsd"/>
+	<xs:complexType name="BirthType">
+		<xs:sequence>
+			<xs:element ref="BirthDate"/>
+			<xs:element ref="Sex" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

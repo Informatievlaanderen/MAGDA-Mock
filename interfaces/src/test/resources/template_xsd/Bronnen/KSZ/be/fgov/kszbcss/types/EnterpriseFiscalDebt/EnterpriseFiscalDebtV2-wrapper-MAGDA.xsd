@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by USER (KSZ-BCSS) -->
+<!-- ============================================================================================================
+         * File Name :               EnterpriseFiscalDebtService.xsd
+         * Author :                  Matthias De Scheerder
+         * Owner :                   KSZ / CBSS
+         * Creation date :           07-09-11
+         * Last revision date :      07-09-11
+         * Status :                  Planned
+         * Description :             Describes data exchange related to the debt of an enterprise between RVA and CBSS.
+         * Current version :         0.1
+         * Revision History : 
+============================================================================================================= -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://kszbcss.fgov.be/intf/EnterpriseFiscalDebtService/v2" xmlns:efd="http://kszbcss.fgov.be/types/EnterpriseFiscalDebt/v2" xmlns:com="http://kszbcss.fgov.be/types/common/v3" targetNamespace="http://kszbcss.fgov.be/intf/EnterpriseFiscalDebtService/v2" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://kszbcss.fgov.be/types/EnterpriseFiscalDebt/v2" schemaLocation="EnterpriseFiscalDebtV2.xsd"/>
+	<xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../common/CommonV3.xsd"/>
+	<xsd:element name="checkEnterpriseDebtRequest" type="efd:CheckEnterpriseDebtRequestType"/>
+	<xsd:element name="checkEnterpriseDebtResponse" type="efd:CheckEnterpriseDebtResponseType"/>
+	<xsd:element name="checkEnterpriseDebtFault" type="com:CBSSFaultType"/>
+</xsd:schema>

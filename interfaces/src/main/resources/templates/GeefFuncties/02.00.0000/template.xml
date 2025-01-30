@@ -10,8 +10,8 @@
                     <Bericht>
                         <Type>VRAAG</Type>
                         <Tijdstip>
-                            <Datum>Datum</Datum>
-                            <Tijd>Tijd</Tijd>
+                            <Datum>2025-01-01</Datum>
+                            <Tijd>12:00</Tijd>
                         </Tijdstip>
                         <Afzender>
                             <Identificatie>Identificatie</Identificatie>
@@ -26,12 +26,12 @@
                         <Inhoud>
                             <Criteria>
                                 <Persoon>
-                                    <INSZ>INSZ</INSZ>
-                                    <Ondernemingsnummer>Ondernemingsnummer</Ondernemingsnummer>
+                                    <INSZ>90010100123</INSZ>
+                                    <Ondernemingsnummer>0123456789</Ondernemingsnummer>
                                 </Persoon>
                                 <AardFuncties>
-                                    <AardFunctie>AardFunctie1</AardFunctie>
-                                    <AardFunctie>AardFunctie2</AardFunctie>
+                                    <AardFunctie>01234</AardFunctie>
+                                    <AardFunctie>56789</AardFunctie>
                                 </AardFuncties>
                             </Criteria>
                         </Inhoud>

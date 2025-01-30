@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Bert Van Kets (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/generiek-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://magda.vlaanderen.be/generiek-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<!--ENKELVOUDIGE TYPE DEFINITES-->
+	<xs:simpleType name="DatumType">
+		<xs:annotation>
+			<xs:documentation>Voorstelling van een datum volgens de Gregoriaanse kalender, formaat JJJJ-MM-DD, optioneel gevolgd door een tijdzone expressie</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="OnvolledigeDatumType">
+		<xs:annotation>
+			<xs:documentation>Voorstelling van een datum met mogelijkheid om 0 mee te geven in de dag, maand of jaar. Dit om een onbekend gegeven te definiëren.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}-[0-1,9][0-9]-[0-3,9][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="JaarMaandType">
+		<xs:annotation>
+			<xs:documentation>Voorstelling van een jaar en maand volgens de Gregoriaanse kalender, formaat JJJJ-MM, optioneel gevolgd door een tijdzone expressie</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:gYearMonth"/>
+	</xs:simpleType>
+	<xs:simpleType name="JaarType">
+		<xs:annotation>
+			<xs:documentation>Voorstelling van een jaar volgens de Gregoriaanse kalender, formaat JJJJ-MM, optioneel gevolgd door een tijdzone expressie</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:gYear"/>
+	</xs:simpleType>
+	<xs:simpleType name="TijdstipType">
+		<xs:annotation>
+			<xs:documentation>Voorstelling van een datum en tijd volgens de Gregoriaanse kalender, formaat JJJJ-MM-DDTuu:mm:ss.sss, optioneel gevolgd door een tijdzone expressie</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="TijdType">
+		<xs:annotation>
+			<xs:documentation>Voorstelling van een tijd volgens de Gregoriaanse kalender, formaat uu:mm:ss.sss, optioneel gevolgd door een tijdzone expressie</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:time"/>
+	</xs:simpleType>
+	<xs:simpleType name="KwartaalType">
+		<xs:annotation>
+			<xs:documentation>Aanduiding van een kwartaal binnen een jaar; geheel getal tussen 1 en 4</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--SAMENGESTELDE TYPE DEFINITES-->
+	<!--=> GestructureerdTijdstip type definitie-->
+	<xs:complexType name="GestructureerdTijdstipType">
+		<xs:annotation>
+			<xs:documentation>Definite van een tijdstip in een sequentie van 2 elementen Datum en optionele Tijd</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Datum" type="DatumType"/>
+			<xs:element name="Tijd" type="TijdType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--=> Jaar/Kwartaal type definitie-->
+	<xs:complexType name="JaarKwartaalType">
+		<xs:annotation>
+			<xs:documentation>Definitie van een kwartaal in een seuentie van 2 elementen Jaar en Kwartaal</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Jaar" type="JaarType"/>
+			<xs:element name="Kwartaal" type="KwartaalType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--=> Periode datum type definities-->
+	<xs:group name="PeriodeDatum">
+		<xs:annotation>
+			<xs:documentation>Groep constructie voor periode gebaseerd op DatumType met optionele begin- en einddatum</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Begindatum" type="DatumType" minOccurs="0"/>
+			<xs:element name="Einddatum" type="DatumType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="PeriodeDatumType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeDatum groep</xs:documentation>
+		</xs:annotation>
+		<xs:group ref="PeriodeDatum"/>
+	</xs:complexType>
+	<xs:complexType name="PeriodeDatumBeginVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeDatum groep met verplichte begindatum</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeDatumType">
+				<xs:sequence>
+					<xs:element name="Begindatum" type="DatumType"/>
+					<xs:element name="Einddatum" type="DatumType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PeriodeDatumEindeVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeDatum groep met verplichte einddatum</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeDatumType">
+				<xs:sequence>
+					<xs:element name="Begindatum" type="DatumType" minOccurs="0"/>
+					<xs:element name="Einddatum" type="DatumType"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PeriodeDatumBeginEnEindeVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeDatum groep met verplichte begin- en einddatum</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeDatumType">
+				<xs:sequence>
+					<xs:element name="Begindatum" type="DatumType"/>
+					<xs:element name="Einddatum" type="DatumType"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--=> Periode jaar/maand type definities-->
+	<xs:group name="PeriodeJaarMaand">
+		<xs:annotation>
+			<xs:documentation>Groep constructie voor periode gebaseerd op JaarMaandType met optionele begin- en eindmaand</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Beginmaand" type="JaarMaandType" minOccurs="0"/>
+			<xs:element name="Eindmaand" type="JaarMaandType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="PeriodeJaarMaandType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeJaarMaand groep</xs:documentation>
+		</xs:annotation>
+		<xs:group ref="PeriodeJaarMaand"/>
+	</xs:complexType>
+	<xs:complexType name="PeriodeJaarMaandBeginVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeJaarMaand groep met verplichte beginmaand</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeJaarMaandType">
+				<xs:sequence>
+					<xs:element name="Beginmaand" type="JaarMaandType"/>
+					<xs:element name="Eindmaand" type="JaarMaandType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PeriodeJaarMaandEindeVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeJaarMaand groep met verplichte eindmaand</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeJaarMaandType">
+				<xs:sequence>
+					<xs:element name="Beginmaand" type="JaarMaandType" minOccurs="0"/>
+					<xs:element name="Eindmaand" type="JaarMaandType"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PeriodeJaarMaandBeginEnEindeVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeJaarMaand groep met verplichte begin- en eindmaand</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeJaarMaandType">
+				<xs:sequence>
+					<xs:element name="Beginmaand" type="JaarMaandType"/>
+					<xs:element name="Eindmaand" type="JaarMaandType"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--=> Periode jaar type definities-->
+	<xs:group name="PeriodeJaar">
+		<xs:annotation>
+			<xs:documentation>Groep constructie voor periode gebaseerd op JaarType met optionele begin- en eindjaar</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Beginjaar" type="JaarType" minOccurs="0"/>
+			<xs:element name="Eindjaar" type="JaarType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="PeriodeJaarType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeJaar groep</xs:documentation>
+		</xs:annotation>
+		<xs:group ref="PeriodeJaar"/>
+	</xs:complexType>
+	<xs:complexType name="PeriodeJaarBeginVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeJaar groep met verplicht beginjaar</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeJaarType">
+				<xs:sequence>
+					<xs:element name="Beginjaar" type="JaarType"/>
+					<xs:element name="Eindjaar" type="JaarType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PeriodeJaarEindeVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeJaar groep met verplicht eindjaar</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeJaarType">
+				<xs:sequence>
+					<xs:element name="Beginjaar" type="JaarType" minOccurs="0"/>
+					<xs:element name="Eindjaar" type="JaarType"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PeriodeJaarBeginEnEindeVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeJaar groep met verplicht begin- en eindjaar</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeJaarType">
+				<xs:sequence>
+					<xs:element name="Beginjaar" type="JaarType"/>
+					<xs:element name="Eindjaar" type="JaarType"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--=> Periode tijdstip type definities-->
+	<xs:group name="PeriodeGestructureerdeTijdstip">
+		<xs:annotation>
+			<xs:documentation>Groep constructie voor tijdstip gebaseerd op GestructureerdTijdstipType met optionele begin- en eindtijdstip</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Begintijdstip" type="GestructureerdTijdstipType" minOccurs="0"/>
+			<xs:element name="Eindtijdstip" type="GestructureerdTijdstipType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="PeriodeGestructureerdeTijdstipType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeGestructureerdeTijdstip groep</xs:documentation>
+		</xs:annotation>
+		<xs:group ref="PeriodeGestructureerdeTijdstip"/>
+	</xs:complexType>
+	<xs:complexType name="PeriodeGestructureerdeTijdstipBeginVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeGestructureerdeTijdstip groep met verplicht begintijdstip</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeGestructureerdeTijdstipType">
+				<xs:sequence>
+					<xs:element name="Begintijdstip" type="GestructureerdTijdstipType"/>
+					<xs:element name="Eindtijdstip" type="GestructureerdTijdstipType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PeriodeGestructureerdeTijdstipEindeVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeGestructureerdeTijdstip groep met verplicht begintijdstip</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeGestructureerdeTijdstipType">
+				<xs:sequence>
+					<xs:element name="Begintijdstip" type="GestructureerdTijdstipType" minOccurs="0"/>
+					<xs:element name="Eindtijdstip" type="GestructureerdTijdstipType"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PeriodeGestructureerdeTijdstipBeginEnEindeVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeGestructureerdeTijdstip groep met verplicht begin- en eindtijdstip</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeGestructureerdeTijdstipType">
+				<xs:sequence>
+					<xs:element name="Begintijdstip" type="GestructureerdTijdstipType"/>
+					<xs:element name="Eindtijdstip" type="GestructureerdTijdstipType"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<!--=> Periode jaar/kwartaal type definities-->
+	<xs:group name="PeriodeKwartaal">
+		<xs:annotation>
+			<xs:documentation>Groep constructie voor periode gebaseerd op JaarKwartaalType met optionele begin- en eindkwartaal</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Beginkwartaal" type="JaarKwartaalType" minOccurs="0"/>
+			<xs:element name="Eindkwartaal" type="JaarKwartaalType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="PeriodeKwartaalType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeJaarKwartaal groep</xs:documentation>
+		</xs:annotation>
+		<xs:group ref="PeriodeKwartaal"/>
+	</xs:complexType>
+	<xs:complexType name="PeriodeKwartaalBeginVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeJaarKwartaal groep met verplicht beginkwartaal</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeKwartaalType">
+				<xs:sequence>
+					<xs:element name="Beginkwartaal" type="JaarKwartaalType"/>
+					<xs:element name="Eindkwartaal" type="JaarKwartaalType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PeriodeKwartaalEindeVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeJaarKwartaal groep met verplicht eindkwartaal</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeKwartaalType">
+				<xs:sequence>
+					<xs:element name="Beginkwartaal" type="JaarKwartaalType"/>
+					<xs:element name="Eindkwartaal" type="JaarKwartaalType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PeriodeKwartaalBeginEnEindeVerplichtType">
+		<xs:annotation>
+			<xs:documentation>Periode blok gebaseerd op PeriodeJaarKwartaal groep met verplicht begin- en eindkwartaal</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="PeriodeKwartaalType">
+				<xs:sequence>
+					<xs:element name="Beginkwartaal" type="JaarKwartaalType"/>
+					<xs:element name="Eindkwartaal" type="JaarKwartaalType"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

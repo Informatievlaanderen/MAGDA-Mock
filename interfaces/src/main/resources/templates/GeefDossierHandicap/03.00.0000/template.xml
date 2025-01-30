@@ -10,8 +10,8 @@
                     <Bericht>
                         <Type>VRAAG</Type>
                         <Tijdstip>
-                            <Datum>Datum</Datum>
-                            <Tijd>Tijd</Tijd>
+                            <Datum>2025-01-01</Datum>
+                            <Tijd>12:00</Tijd>
                         </Tijdstip>
                         <Afzender>
                             <Identificatie>Identificatie</Identificatie>
@@ -25,14 +25,13 @@
                         <Referte>Referte</Referte>
                             <Criteria>
                                 <ConsultFilesByDateCriteria>
-                                    <ssin>INSZ</ssin>
+                                    <ssin>90010100123</ssin>
                                     <handicapAuthenticSources></handicapAuthenticSources>
-                                    <referenceDate>ReferenceDate</referenceDate>
+                                    <referenceDate>2025-01-01</referenceDate>
                                     <parts></parts>
                                     <decisionStatus>false</decisionStatus>
                                     <enrichedRecognition>false</enrichedRecognition>
                                 </ConsultFilesByDateCriteria>
-                                <ConsultFilesByPeriodCriteria></ConsultFilesByPeriodCriteria>
                             </Criteria>
                     </Vraag>
                 </Vragen>

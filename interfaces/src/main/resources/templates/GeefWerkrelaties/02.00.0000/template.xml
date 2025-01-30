@@ -10,8 +10,8 @@
                     <Bericht>
                         <Type>VRAAG</Type>
                         <Tijdstip>
-                            <Datum>Datum</Datum>
-                            <Tijd>Tijd</Tijd>
+                            <Datum>2025-01-01</Datum>
+                            <Tijd>12:00</Tijd>
                         </Tijdstip>
                         <Afzender>
                             <Identificatie>Identificatie</Identificatie>
@@ -28,13 +28,13 @@
                             <Criteria>
                                 <Relatie>
                                     <Werknemer>
-                                        <INSZ>INSZ</INSZ>
+                                        <INSZ>90010100123</INSZ>
                                     </Werknemer>
                                 </Relatie>
-                                <Bron>BRON</Bron>
+                                <Bron>RSZ</Bron>
                                 <Periode>
-                                    <Begin>BeginDatum</Begin>
-                                    <Einde>EindDatum</Einde>
+                                    <Begin>2025-01-01</Begin>
+                                    <Einde>2026-01-01</Einde>
                                 </Periode>
                                 <EnkelGestartOfBeeindigd>0</EnkelGestartOfBeeindigd>
                                 <SchrappingsIndicatie>0</SchrappingsIndicatie>

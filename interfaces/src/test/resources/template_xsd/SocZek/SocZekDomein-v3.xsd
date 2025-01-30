@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://magda.vlaanderen.be/soczek-v3" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://magda.vlaanderen.be/soczek-v3" 
+	elementFormDefault="unqualified" 
+	attributeFormDefault="unqualified">
+	<xs:include schemaLocation="VervanginginkomenUitWerkloosheid-v3.xsd"/>
+	<xs:include schemaLocation="SociaalStatuut-v3.xsd"/>
+	<xs:include schemaLocation="TijdelijkeWerkloosheid-v3.xsd"/>
+	<xs:include schemaLocation="AttestArbeidsongeval-v3.xsd"/>
+	<xs:include schemaLocation="AttestBeroepsziekte-v3.xsd"/>
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<!--=> SAMENGESTELDE TYPE DEFINITES-->
+</xs:schema>

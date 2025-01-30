@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Bart Olaerts (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xsd:schema xmlns="http://magda.vlaanderen.be/generiek-v3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://magda.vlaanderen.be/generiek-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="Bericht-v3.xsd"/>
+	<xsd:include schemaLocation="Common-v3.xsd"/>
+</xsd:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Bert Van Kets (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/generiek-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://magda.vlaanderen.be/generiek-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:simpleType name="TekstType">
+		<xs:annotation>
+			<xs:documentation>TekstType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="120"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TekstLangType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value=".*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="TekstLangLijstType">
+		<xs:sequence>
+			<xs:element name="Tekst" type="TekstLangType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

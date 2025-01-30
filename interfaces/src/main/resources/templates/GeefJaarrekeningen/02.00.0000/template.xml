@@ -10,8 +10,8 @@
                     <Bericht>
                         <Type>VRAAG</Type>
                         <Tijdstip>
-                            <Datum>DATUM</Datum>
-                            <Tijd>TIJD</Tijd>
+                            <Datum>2025-01-01</Datum>
+                            <Tijd>12:00</Tijd>
                         </Tijdstip>
                         <Afzender>
                             <Identificatie>Identificatie</Identificatie>
@@ -25,7 +25,7 @@
                         <Referte>Referte</Referte>
                         <Inhoud>
                             <Criteria>
-                                <Ondernemingsnummer>KboNumber</Ondernemingsnummer>
+                                <Ondernemingsnummer>1234567890</Ondernemingsnummer>
                                 <Boekjaar>2024</Boekjaar>
                                 <AlleRubrieken>1</AlleRubrieken>
                                 <Benamingen Taal="nl">1</Benamingen>

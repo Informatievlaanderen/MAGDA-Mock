@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by PSI (I.M. vzw) -->
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by BANQUE CARREFOUR DE LA SECURITE SOCIALE (BCSS) -->
+<xs:schema xmlns="http://www.ksz-bcss.fgov.be/XmlSchema/A052" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ksz-bcss.fgov.be/XmlSchema/A052" elementFormDefault="qualified" attributeFormDefault="unqualified" version="002">
+	<xs:include schemaLocation="Parts/AttestationIdentification.xsd"/>
+	<xs:include schemaLocation="Parts/Employer.xsd"/>
+	<xs:include schemaLocation="Parts/Worker.xsd"/>
+	<xs:include schemaLocation="Parts/Period.xsd"/>
+	<xs:include schemaLocation="Parts/Duration.xsd"/>
+	<xs:include schemaLocation="Parts/Quarter.xsd"/>
+	<xs:include schemaLocation="Parts/X001.xsd"/>
+	<!--In release of 17/03/2005 : remove enuration of processType attribute on root-->
+	<!--In release of 18/10/2004 : 
+	+ Add INSS and SearchPeriod under Request
+	+ Add Quarter under AttestationIdentification -->
+	<!--In release of 08/10/2004 : 
+	+ Alignment with inhouse version
+		- EmployerClass with 3 digits, 
+		- Permutation of JointCommissionNbr and WorkerCode
+		- OccupationPeriod moved before MeanWorkingHours 
+		- Activity/Employer and Activity/Worker are set optional. Normally it could not happen.
+	+ Set Duration/Unit optional
+	+ Add attribute version on the root element
+	+ Remove NextAnswerReference under Request and Attestation
+	+ Remove AttestationIdentification under Request
+	+ Add under Request ResumptionDate
+	+ Add a complex element C006Complement
+	+ Add a first element Identifier to permit on institutions to store some mailbox information -->
+	<!--In release of 30/09/2003 : Creation of a global complexType A052Type-->
+	<!--In release of 18/03/2003 :
+	+ Add InternalOccupationNbr under 'Activity'
+	+ The Employer element has no more a global definition, but a local one. No changes for the xml instances. -->
+	<!--In release of 14/02/2003 :
+	 + Redefine JointCommissionNbr to align on inhouse (num 3) so now int with range 0 - 999-->
+	<!--In release of 30/01/2003 :
+	 + Add "N001" facility with xsd equivalent X001. This replace the Result element
+	 -->
+	<!--In release 21/11/2002 :
+	  + Replace SituationID (11pos) by SituationNbr (2pos)
+	  + Add under worker  MeanWorkingHours, RefMeanWorkingHours and WorkerStatus
+	  + Change structure to include consultation facility (Request, Attestation and Result)-->
+	<!--In release 15/01/2003 :
+	  + Add "Quarter" element under "AttestationIdentification", under "Request"
+  	  + Correct the type of "NextAnswerReference"
+	  + Now the request element will also be in the inhouse version-->
+	<xs:element name="A052" type="A052Type">
+		<xs:annotation>
+			<xs:documentation xml:lang="FR">A052 - DRS CIN - Maladie</xs:documentation>
+			<xs:documentation xml:lang="NL">A052 - DRS NIC - Ziekte</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="A052Type">
+		<xs:sequence>
+			<xs:element name="Identifier" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Request" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="INSS"/>
+						<xs:element name="SearchPeriod">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="BeginDate">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:length value="10"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="EndDate">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:length value="10"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="C006Ind">
+							<xs:annotation>
+								<xs:documentation>Indicateur C006</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:length value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="ResumptionDate" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>(C006) Date de reprise</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Attestation" type="AttestationType" minOccurs="0"/>
+			<xs:element name="C006Complement" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="LabourAptitudeDecisionSource" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Source de decision de la capacite de travail</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="9"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="LabourAptitudeDate" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Date de capacite de travail</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AccouchementDate" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Date d accouchement</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="X001" minOccurs="0">
+				<xs:complexType/>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="processType" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:length value="1"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="version" type="xs:string" use="optional" fixed="002"/>
+	</xs:complexType>
+	<xs:complexType name="AttestationType">
+		<xs:sequence>
+			<xs:element name="AttestationIdentification">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="INSS"/>
+						<xs:element ref="AttestationID"/>
+						<xs:element ref="SituationNbr"/>
+						<xs:element ref="AttestationStatus"/>
+						<xs:element ref="CreationDate" minOccurs="0"/>
+						<xs:element ref="Quarter" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Activity" minOccurs="0" maxOccurs="5">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Employer" minOccurs="0">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:restriction base="EmployerType">
+										<xs:sequence>
+											<xs:element ref="EmployerID"/>
+											<xs:element ref="EmployerClass" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Categorie de l employeur</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Worker" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element ref="WorkerCode" minOccurs="0"/>
+									<xs:element name="JointCommissionNbr" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="FR">No de commission paritaire - Format local
+</xs:documentation>
+											<xs:documentation xml:lang="NL">Paritaircomite - Locaal formaat</xs:documentation>
+											<xs:documentation source="KszBcssGlossary">140001/A052</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:int">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="999"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="OccupationPeriod" minOccurs="0">
+										<xs:complexType/>
+									</xs:element>
+									<xs:element ref="MeanWorkingHours" minOccurs="0"/>
+									<xs:element ref="RefMeanWorkingHours" minOccurs="0"/>
+									<xs:element ref="WorkerStatus" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="InternalOccupationNbr" minOccurs="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="13"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Risk" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Risk like for IFW</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="GeneralIncapacityForWork">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Dossier">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Reference"/>
+												<xs:element name="Annulation">
+													<xs:annotation>
+														<xs:documentation>True of False. Indien False, moet de administratieve blok altijd aanwezig zijn.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:boolean"/>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="InitialRelapseReference" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="TransfertReference" minOccurs="0" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="GeneralIncapacityForWorkAdministration" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Period" minOccurs="0">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="StartDate"/>
+															<xs:element name="EndDate"/>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="ActivityCode"/>
+												<xs:element name="ExitCode" minOccurs="0"/>
+												<xs:element name="SocialStatus"/>
+												<xs:element name="Invalidity" minOccurs="0">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="StartDate"/>
+															<xs:element name="InvalidityType">
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:length value="1"/>
+																		<xs:pattern value="\d"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="InitialRelapseStartDate" minOccurs="1" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Payment" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Document"/>
+												<xs:element name="Reference"/>
+												<xs:element name="IncapacityCategory"/>
+												<xs:element name="FamilySituation"/>
+												<xs:element name="AllowanceType"/>
+												<xs:element name="AllowanceCode"/>
+												<xs:element name="Period"/>
+												<xs:element name="Amount" type="xs:decimal"/>
+												<xs:choice>
+													<xs:element name="Days" type="xs:integer"/>
+													<xs:element name="Hours" type="xs:decimal"/>
+												</xs:choice>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="IndependentIncapacityForWork">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Dossier">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Reference"/>
+												<xs:element name="Annulation">
+													<xs:annotation>
+														<xs:documentation>True of False. Indien False, moet de administratieve blok altijd aanwezig zijn.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:boolean"/>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="InitialRelapseReference" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="TransfertReference" minOccurs="0" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="IndependentIncapacityForWorkAdministration" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Period">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="StartDate"/>
+															<xs:element name="EndDate"/>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="ExitCode" minOccurs="0"/>
+												<xs:element name="SocialStatus"/>
+												<xs:element name="Invalidity" minOccurs="0">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="StartDate"/>
+															<xs:element name="InvalidityType">
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:length value="1"/>
+																		<xs:pattern value="\d"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="InitialRelapseStartDate" minOccurs="1" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Payment" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Document"/>
+												<xs:element name="Reference"/>
+												<xs:element name="IncapacityCategory"/>
+												<xs:element name="FamilySituation"/>
+												<xs:element name="AllowanceType"/>
+												<xs:element name="AllowanceCode"/>
+												<xs:element name="Period"/>
+												<xs:element name="Amount"/>
+												<xs:choice>
+													<xs:element name="Days" type="xs:integer"/>
+													<xs:element name="Hours" type="xs:decimal"/>
+												</xs:choice>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="GeneralPregnancy">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Dossier">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Reference"/>
+												<xs:element name="Annulation">
+													<xs:annotation>
+														<xs:documentation>True of False. Indien False, moet de administratieve blok altijd aanwezig zijn.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:boolean"/>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="InitialRelapseReference" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="TransfertReference" minOccurs="0" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="GeneralPregnancyAdministration" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Period">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="StartDate"/>
+															<xs:element name="EndDate"/>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="ActivityCode"/>
+												<xs:element name="ExitCode" minOccurs="0"/>
+												<xs:element name="SocialStatus"/>
+												<xs:element name="DeliveryDate" minOccurs="0"/>
+												<xs:element name="SupposedDeliveryDate" minOccurs="0"/>
+												<xs:element name="InitialRelapseStartDate" minOccurs="1" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Payment" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Document"/>
+												<xs:element name="Reference"/>
+												<xs:element name="IncapacityCategory"/>
+												<xs:element name="FamilySituation"/>
+												<xs:element name="AllowanceType"/>
+												<xs:element name="AllowanceCode"/>
+												<xs:element name="Period"/>
+												<xs:element name="Amount"/>
+												<xs:choice>
+													<xs:element name="Days" type="xs:integer"/>
+													<xs:element name="Hours" type="xs:decimal"/>
+												</xs:choice>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="IndependentPregnancy">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Dossier">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Reference"/>
+												<xs:element name="Annulation">
+													<xs:annotation>
+														<xs:documentation>True of False. Indien False, moet de administratieve blok altijd aanwezig zijn.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:boolean"/>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="InitialRelapseReference" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="TransfertReference" minOccurs="0" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="IndependentPregnancyAdministration" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Period">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="StartDate"/>
+															<xs:element name="EndDate"/>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="ExitCode" minOccurs="0"/>
+												<xs:element name="SocialStatus"/>
+												<xs:element name="DeliveryDate" minOccurs="0"/>
+												<xs:element name="InitialRelapseStartDate" minOccurs="1" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Payment" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Document"/>
+												<xs:element name="Reference"/>
+												<xs:element name="IncapacityCategory"/>
+												<xs:element name="FamilySituation"/>
+												<xs:element name="AllowanceType"/>
+												<xs:element name="AllowanceCode"/>
+												<xs:element name="Period"/>
+												<xs:element name="Amount"/>
+												<xs:choice>
+													<xs:element name="Days" type="xs:integer"/>
+													<xs:element name="Hours" type="xs:decimal"/>
+												</xs:choice>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="GeneralBreastFeeding">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Dossier">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Reference"/>
+												<xs:element name="Annulation">
+													<xs:annotation>
+														<xs:documentation>True of False. Indien False, moet de administratieve blok altijd aanwezig zijn.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:boolean"/>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="InitialRelapseReference" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="TransfertReference" minOccurs="0" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="GeneralBreastFeedingAdministration" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="SocialStatus"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Payment" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Document"/>
+												<xs:element name="Reference"/>
+												<xs:element name="IncapacityCategory"/>
+												<xs:element name="FamilySituation"/>
+												<xs:element name="AllowanceType"/>
+												<xs:element name="AllowanceCode"/>
+												<xs:element name="Period"/>
+												<xs:element name="Amount" type="xs:decimal"/>
+												<xs:choice>
+													<xs:element name="Days" type="xs:integer"/>
+													<xs:element name="Hours" type="xs:decimal"/>
+												</xs:choice>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="GeneralPaternity">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Dossier">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Reference"/>
+												<xs:element name="Annulation">
+													<xs:annotation>
+														<xs:documentation>True of False. Indien False, moet de administratieve blok altijd aanwezig zijn.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:boolean"/>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="InitialRelapseReference" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="TransfertReference" minOccurs="0" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="GeneralPaternityAdministration" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="SocialStatus"/>
+												<xs:element name="DeliveryDate"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Payment" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Document"/>
+												<xs:element name="Reference"/>
+												<xs:element name="IncapacityCategory"/>
+												<xs:element name="FamilySituation"/>
+												<xs:element name="AllowanceType"/>
+												<xs:element name="AllowanceCode"/>
+												<xs:element name="Period"/>
+												<xs:element name="Amount"/>
+												<xs:choice>
+													<xs:element name="Days" type="xs:integer"/>
+													<xs:element name="Hours" type="xs:decimal"/>
+												</xs:choice>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="GeneralAdoption">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Dossier">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Reference"/>
+												<xs:element name="Annulation">
+													<xs:annotation>
+														<xs:documentation>True of False. Indien False, moet de administratieve blok altijd aanwezig zijn.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:boolean"/>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="InitialRelapseReference" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="TransfertReference" minOccurs="0" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="GeneralAdoptionAdministration" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="SocialStatus"/>
+												<xs:element name="AdoptionDate"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Payment" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Document"/>
+												<xs:element name="Reference"/>
+												<xs:element name="IncapacityCategory"/>
+												<xs:element name="FamilySituation"/>
+												<xs:element name="AllowanceType"/>
+												<xs:element name="AllowanceCode"/>
+												<xs:element name="Period"/>
+												<xs:element name="Amount"/>
+												<xs:choice>
+													<xs:element name="Days" type="xs:integer"/>
+													<xs:element name="Hours" type="xs:decimal"/>
+												</xs:choice>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="IndependentAdoption">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Dossier">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Reference"/>
+												<xs:element name="Annulation">
+													<xs:annotation>
+														<xs:documentation>True of False. Indien False, moet de administratieve blok altijd aanwezig zijn.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:boolean"/>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="InitialRelapseReference" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="TransfertReference" minOccurs="0" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="IndependentAdoptionAdministration" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="SocialStatus"/>
+												<xs:element name="AdoptionDate"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Payment" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Document"/>
+												<xs:element name="Reference"/>
+												<xs:element name="IncapacityCategory"/>
+												<xs:element name="FamilySituation"/>
+												<xs:element name="AllowanceType"/>
+												<xs:element name="AllowanceCode"/>
+												<xs:element name="Period"/>
+												<xs:element name="Amount"/>
+												<xs:choice>
+													<xs:element name="Days" type="xs:integer"/>
+													<xs:element name="Hours" type="xs:decimal"/>
+												</xs:choice>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="GeneralFuneral">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Dossier">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Reference"/>
+												<xs:element name="Annulation">
+													<xs:annotation>
+														<xs:documentation>True of False. Indien False, moet de administratieve blok altijd aanwezig zijn.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:boolean"/>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="InitialRelapseReference" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="TransfertReference" minOccurs="0" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="GeneralFuneralAdministration" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="SocialStatus"/>
+												<xs:element name="InvalidityType" minOccurs="0">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:length value="1"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Payment" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Document"/>
+												<xs:element name="Reference"/>
+												<xs:element name="IncapacityCategory"/>
+												<xs:element name="FamilySituation"/>
+												<xs:element name="AllowanceType"/>
+												<xs:element name="AllowanceCode"/>
+												<xs:element name="Period"/>
+												<xs:element name="Amount"/>
+												<xs:choice>
+													<xs:element name="Days" type="xs:integer"/>
+													<xs:element name="Hours" type="xs:decimal"/>
+												</xs:choice>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DecisionNicCin" minOccurs="0" maxOccurs="79">
+				<xs:annotation>
+					<xs:documentation xml:lang="FR">Decision CIN</xs:documentation>
+					<xs:documentation xml:lang="NL">Beslissing NIC</xs:documentation>
+					<xs:documentation source="KszBcss">250000</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="DayType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="FR">Type de jours AMI (remboursé ou pas)</xs:documentation>
+								<xs:documentation xml:lang="NL">Type ZIV dagen (al dan niet vergoed)</xs:documentation>
+								<xs:documentation source="KszBcssGlossary">250001</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="99"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Duration" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="FR">Nombre de jours AMI (remboursés ou pas)</xs:documentation>
+								<xs:documentation xml:lang="NL">Aantal ZIV dagen (al dan niet vergoed)</xs:documentation>
+								<xs:documentation source="KszBcssGlossary">250010</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Unit" minOccurs="0">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Day"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Value">
+										<xs:simpleType>
+											<xs:restriction base="xs:int">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="999"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AllowanceType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="FR">Type d'allocation</xs:documentation>
+								<xs:documentation xml:lang="NL">Allocatietype</xs:documentation>
+								<xs:documentation source="KszBcssGlossary">250002</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="9"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="KindOfAllowance" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="FR">Nature de l'allocation</xs:documentation>
+								<xs:documentation xml:lang="NL">Aard van allocatie</xs:documentation>
+								<xs:documentation source="KszBcssGlossary">250003</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:int">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="9"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Period" type="PeriodType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="FR">Periode</xs:documentation>
+								<xs:documentation xml:lang="NL">Periode</xs:documentation>
+								<xs:documentation source="KszBcssGlossary">250020</xs:documentation>
+								<xs:documentation xml:lang="FR">Periode</xs:documentation>
+								<xs:documentation xml:lang="NL">Periode</xs:documentation>
+								<xs:documentation source="KszBcssGlossary">250020</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

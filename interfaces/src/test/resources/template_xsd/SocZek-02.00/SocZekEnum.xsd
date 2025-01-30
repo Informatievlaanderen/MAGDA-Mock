@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://soczek-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://soczek-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00">
+	<xs:simpleType name="OptieEnumType">
+		<xs:annotation>
+			<xs:documentation>
+				1 | 2 | 3.
+				Indicator die aangeeft welke gegevens worden opgevraagd
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeUitkeringEnumType">
+		<xs:annotation>
+			<xs:documentation>
+				1 | 2.
+				Aanduiding van het type activeringsuitkering waarvoor de gegevens worden opgevraagd
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WerkzoekendeClassificatieType">
+		<xs:annotation>
+			<xs:documentation>
+				Lijst van de mogelijke classificaties van de werkzoekende
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FIN_VO"/>
+			<xs:enumeration value="DGB"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

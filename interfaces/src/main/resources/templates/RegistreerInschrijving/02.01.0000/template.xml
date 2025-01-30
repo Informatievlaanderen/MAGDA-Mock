@@ -26,7 +26,7 @@
                         <Inhoud>
                             <Inschrijving>
                                 <Identificatie>URI van de afnemer</Identificatie>
-                                <Hoedanigheid>Hoedanigheidcode van de afnemer</Hoedanigheid>
+                                <Hoedanigheid>Hoedanigheidcode afnemer</Hoedanigheid>
                                 <BetrokkenSubject>
                                     <Type>PERS</Type>
                                     <Subjecten>

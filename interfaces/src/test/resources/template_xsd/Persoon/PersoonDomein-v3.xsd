@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 rel. 2 sp1 (http://www.altova.com) by Stefan Vleugels (AGENTSCHAP FACILITAIR BEDRIJF) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/persoon-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/persoon-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:include schemaLocation="Persoon-v3.xsd"/>
+	<xs:include schemaLocation="HistoriekPersoon-v3.xsd"/>
+	<xs:include schemaLocation="ZoekPersoon-v3.xsd"/>
+	<xs:include schemaLocation="Gezinssamenstelling-v3.xsd"/>
+	<xs:include schemaLocation="HistoriekGezinssamenstelling-v3.xsd"/>
+	<xs:include schemaLocation="KSZPersoon-v3.xsd"/>
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<!--=> SAMENGESTELDE TYPE DEFINITES-->
+</xs:schema>

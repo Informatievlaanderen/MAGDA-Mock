@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Bert Van Kets (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/persoon-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bericht="http://generiek-02_00.vip.vlaanderen.be" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/persoon-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xs:include schemaLocation="PersoonGemeenschappelijk-v3.xsd"/>
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<!--=> SAMENGESTELDE TYPE DEFINITES-->
+	<!-- ======================== REQUEST TYPES ======================= -->
+	<xs:complexType name="CriteriaGeefGezinssamenstellingType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ======================== RESPONSE TYPES ======================= -->
+	<xs:complexType name="GezinssamenstellingType">
+		<xs:sequence>
+			<xs:element name="Gezinslid" type="GezinslidVerplichtINSZType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ======================== PUBLICATIE TYPES ======================= -->
+	<xs:complexType name="MutatieGezinssamenstellingType">
+		<xs:sequence>
+			<xs:element name="MutatieInformatie" type="bericht:MutatieInformatieType"/>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Gezinssamenstelling" type="GezinssamenstellingType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

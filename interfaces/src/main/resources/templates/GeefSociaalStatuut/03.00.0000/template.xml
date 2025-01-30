@@ -9,8 +9,8 @@
                     <Bericht>
                         <Type>VRAAG</Type>
                         <Tijdstip>
-                            <Datum>Datum</Datum>
-                            <Tijd>Tijd</Tijd>
+                            <Datum>2025-01-01</Datum>
+                            <Tijd>12:00</Tijd>
                         </Tijdstip>
                         <Afzender>
                             <Identificatie>Identificatie</Identificatie>
@@ -24,16 +24,12 @@
                         <Referte>Referte</Referte>
                         <Inhoud>
                             <Criteria>
-                                <INSZ>INSZ</INSZ>
+                                <INSZ>90010100123</INSZ>
                                 <SocialeStatuten>
                                     <SociaalStatuut>
                                         <Naam>Naam</Naam>
                                         <Datum>
-                                            <Datum>Datum</Datum>
-                                            <Periode>
-                                                <Begindatum>Begindatum</Begindatum>
-                                                <Einddatum>Einddatum</Einddatum>
-                                            </Periode>
+                                            <Datum>2025-01-01</Datum>
                                         </Datum>
                                         <Locatie>
                                             <Naam>Locatie</Naam>

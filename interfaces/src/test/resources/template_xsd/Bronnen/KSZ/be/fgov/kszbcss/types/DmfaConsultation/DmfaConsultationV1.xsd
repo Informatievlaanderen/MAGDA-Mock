@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================================================================
+    * Owner:            KSZ / CBSS
+    * Creation date:    2016-09-01
+    * Description:      Request and response types for DmfaConsultationService
+    * Revision History:
+          * 2018-05-30: replace dmfacommon:DataFiltersType by common:DataFiltersType
+          * 2019-01-14: replace dmfacommon:SsinWithCanceledAndReplacesStatusType by common:SsinWithCanceledAndReplacesStatusType,
+                        add RESPONSE_IN_BATCH to StatusType enumeration
+                        add ConsultPersonnelByEmployerRequestType and ConsultPersonnelByEmployerResponseType
+-->
+<xsd:schema xmlns="http://kszbcss.fgov.be/types/DmfaConsultation/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://kszbcss.fgov.be/types/common/v3" xmlns:dmfa="http://kszbcss.fgov.be/types/dmfa/attestation/v1" xmlns:dmfacommon="http://kszbcss.fgov.be/types/dmfa/common/v1" targetNamespace="http://kszbcss.fgov.be/types/DmfaConsultation/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2019-01-14">
+	<xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../common/CommonV3.xsd"/>
+	<xsd:import namespace="http://kszbcss.fgov.be/types/dmfa/attestation/v1" schemaLocation="../dmfa/attestation/DmfaAttestationV1.xsd"/>
+	<xsd:import namespace="http://kszbcss.fgov.be/types/dmfa/common/v1" schemaLocation="../dmfa/common/DmfaCommonV1.xsd"/>
+	<xsd:complexType name="ConsultDmfaAttestationsBySsinRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="common:BaseRequestType">
+				<xsd:sequence>
+					<xsd:element name="criteria" type="dmfacommon:BySsinCriteriaType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultDmfaAttestationsBySsinResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="common:BaseResponseType">
+				<xsd:sequence>
+					<xsd:element name="criteria" type="dmfacommon:BySsinCriteriaType"/>
+					<xsd:element name="status" type="StatusType"/>
+					<xsd:element name="ssin" type="common:SsinWithCanceledAndReplacesStatusType" minOccurs="0"/>
+					<xsd:element name="dataFilters" type="common:DataFiltersType" minOccurs="0"/>
+					<xsd:element name="unsupportedData" type="dmfacommon:UnsupportedDataType" minOccurs="0"/>
+					<xsd:element name="dmfaAttestations" type="dmfa:DmfaAttestationsType" minOccurs="0"/>
+					<xsd:element name="next" type="dmfacommon:NextType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultPersonnelByEmployerRequestType">
+		<xsd:complexContent>
+			<xsd:extension base="common:BaseRequestType">
+				<xsd:sequence>
+					<xsd:element name="criteria" type="dmfacommon:ByEmployerCriteriaType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultPersonnelByEmployerResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="common:BaseResponseType">
+				<xsd:sequence>
+					<xsd:element name="criteria" type="dmfacommon:ByEmployerCriteriaType"/>
+					<xsd:element name="status" type="BatchOnlyStatusType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="StatusType">
+		<xsd:sequence>
+			<xsd:element name="value">
+				<xsd:annotation>
+					<xsd:documentation>global status of the result</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="DATA_FOUND"/>
+						<xsd:enumeration value="PARTIAL_RESULT"/>
+						<xsd:enumeration value="NO_DATA_FOUND"/>
+						<xsd:enumeration value="NO_RESULT"/>
+						<xsd:enumeration value="RESPONSE_IN_BATCH"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="code">
+				<xsd:annotation>
+					<xsd:documentation>the code of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="description" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the description of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="256"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="information" type="common:InformationType" minOccurs="0" maxOccurs="15"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BatchOnlyStatusType">
+		<xsd:sequence>
+			<xsd:element name="value">
+				<xsd:annotation>
+					<xsd:documentation>global status of the result</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="RESPONSE_IN_BATCH"/>
+						<xsd:enumeration value="NO_RESULT"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="code">
+				<xsd:annotation>
+					<xsd:documentation>the code of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="description" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the description of the status</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="256"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="information" type="common:InformationType" minOccurs="0" maxOccurs="15"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

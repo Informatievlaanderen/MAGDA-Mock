@@ -1,0 +1,4 @@
+<xsd:schema targetNamespace="http://repertorium-02_01.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.01" xmlns="http://repertorium-02_01.vip.vlaanderen.be" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	 	   
+	<xsd:include schemaLocation="RepertoriumComplex.xsd"/>
+</xsd:schema>
