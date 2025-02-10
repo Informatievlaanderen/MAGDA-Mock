@@ -24,7 +24,7 @@ class SimulatorXmlStructuralConstraintTest {
                 .map(File::getName)
                 .toList();
 
-        var allInszFiles = findInszXmlsInDirectoryRecursively(mainFile(BASE_XML));
+        var allInszFiles = findInszXmlsInDirectoryRecursively(mainFile(BASE_XML + "Persoon"));
 
         var filesWithMissingPerson = allInszFiles.stream()
                 .filter(inszFile -> !geefPersoonInszFilenames.contains(inszFile.getName()))
