@@ -32,10 +32,14 @@ class SimulatorXmlStructuralConstraintTest {
 
         assertTrue(
                 filesWithMissingPerson.isEmpty(),
-                () -> "Some of the response XMLs associated with an INSZ number do not contain an according GeefPersoon XML. (in total: %s)%n%s".formatted(
-                        filesWithMissingPerson.size(),
+                () -> "Some of the response XMLs associated with an INSZ number do not contain an according GeefPersoon XML.%n%s%n%nGeefPersoon requires the following additional filenames:%n%s".formatted(
                         filesWithMissingPerson.stream()
                                 .map(File::getPath)
+                                .sorted()
+                                .collect(Collectors.joining("\n")),
+                        filesWithMissingPerson.stream()
+                                .map(File::getName)
+                                .distinct()
                                 .sorted()
                                 .collect(Collectors.joining("\n"))));
     }
