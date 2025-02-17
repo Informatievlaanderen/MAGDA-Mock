@@ -20,7 +20,6 @@ import java.util.UUID;
 import static be.vlaanderen.vip.magda.legallogging.model.UitzonderingType.FOUT;
 import static be.vlaanderen.vip.magda.legallogging.model.UitzonderingType.WAARSCHUWING;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -73,19 +72,7 @@ class MagdaClientGiveProofDiplomasServiceTest {
         }
 
         @Test
-        void throwsNoException_ifContainsLevel3Error30101() throws MagdaClientException {
-            when(magdaClient.send(request)).thenReturn(new MagdaResponseWrapper(MagdaResponse.builder()
-                    .responseUitzonderingEntries(List.of(UitzonderingEntry.builder()
-                            .identification("30101")
-                            .uitzonderingType(FOUT)
-                            .build()))
-                    .build()));
-
-            assertDoesNotThrow(() -> service.getProofDiplomas(request));
-        }
-
-        @Test
-        void throwsException_ifContainsOtherLevel3Error() throws MagdaClientException {
+        void throwsNoException_ifContainsLevel3Error() throws MagdaClientException {
             when(magdaClient.send(request)).thenReturn(new MagdaResponseWrapper(MagdaResponse.builder()
                     .responseUitzonderingEntries(List.of(UitzonderingEntry.builder()
                             .identification("12345")
@@ -93,7 +80,7 @@ class MagdaClientGiveProofDiplomasServiceTest {
                             .build()))
                     .build()));
 
-            assertThrows(MagdaClientException.class, () -> service.getProofDiplomas(request));
+            assertDoesNotThrow(() -> service.getProofDiplomas(request));
         }
     }
 
@@ -137,19 +124,7 @@ class MagdaClientGiveProofDiplomasServiceTest {
         }
 
         @Test
-        void throwsNoException_ifContainsLevel3Error30101() throws MagdaClientException {
-            when(magdaClient.send(request, REQUEST_ID)).thenReturn(new MagdaResponseWrapper(MagdaResponse.builder()
-                    .responseUitzonderingEntries(List.of(UitzonderingEntry.builder()
-                            .identification("30101")
-                            .uitzonderingType(FOUT)
-                            .build()))
-                    .build()));
-
-            assertDoesNotThrow(() -> service.getProofDiplomas(request, REQUEST_ID));
-        }
-
-        @Test
-        void throwsException_ifContainsOtherLevel3Error() throws MagdaClientException {
+        void throwsNoException_ifContainsOtherLevel3Error() throws MagdaClientException {
             when(magdaClient.send(request, REQUEST_ID)).thenReturn(new MagdaResponseWrapper(MagdaResponse.builder()
                     .responseUitzonderingEntries(List.of(UitzonderingEntry.builder()
                             .identification("12345")
@@ -157,7 +132,7 @@ class MagdaClientGiveProofDiplomasServiceTest {
                             .build()))
                     .build()));
 
-            assertThrows(MagdaClientException.class, () -> service.getProofDiplomas(request, REQUEST_ID));
+            assertDoesNotThrow(() -> service.getProofDiplomas(request, REQUEST_ID));
         }
     }
 }
