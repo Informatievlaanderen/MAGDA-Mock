@@ -136,7 +136,7 @@ pipelines:
           script:
             - export TESTCONTAINERS_RYUK_DISABLED=true
             - export MAVEN_OPTS="-Xmx1024m"
-            - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD}
+            - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.token=${SONAR_APITOKEN}
             - mkdir -p target
             - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
             - mvn dependency:tree > maven.tree
@@ -163,7 +163,7 @@ pipelines:
           script:
             - export TESTCONTAINERS_RYUK_DISABLED=true
             - export MAVEN_OPTS="-Xmx1024m"
-            - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.target=master -Dsonar.branch.name="$BITBUCKET_BRANCH"
+            - mvn -B -U clean deploy sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Pdocker -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.token=${SONAR_APITOKEN} -Dsonar.branch.target=master -Dsonar.branch.name="$BITBUCKET_BRANCH"
             - mkdir -p target
             - mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout > target/pom_version
           artifacts:
@@ -194,7 +194,7 @@ pipelines:
                 script:
                   - export TESTCONTAINERS_RYUK_DISABLED=true
                   - export MAVEN_OPTS="-Xmx1024m"
-                  - mvn -B -U clean verify sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_USERNAME} -Dsonar.password=${SONAR_PASSWORD} -Dsonar.branch.name="$BITBUCKET_BRANCH"
+                  - mvn -B -U clean verify sonar:sonar -s .m2/settings.xml -Dbuild=bitbucket  -Dsonar.host.url=${SONAR_HOST} -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.token=${SONAR_APITOKEN} -Dsonar.branch.name="$BITBUCKET_BRANCH"
                 artifacts:
                   - "**/*.jar"
             - step:
