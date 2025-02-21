@@ -54,7 +54,7 @@ class GeefHistoriekPersoonRequestTest {
             LocalDate localDate = LocalDate.of(2024, 1, 1);
 
             builder.insz(TEST_INSZ);
-            builder.vanDatum(localDate);
+            builder.vanafDatum(localDate);
             var request = builder.build();
 
             assertNotNull(request);
@@ -76,7 +76,7 @@ class GeefHistoriekPersoonRequestTest {
 
             builder.insz(TEST_INSZ)
                     .opDatum(localDate)
-                    .vanDatum(localDate);
+                    .vanafDatum(localDate);
 
             assertThrows(IllegalStateException.class, () -> builder.build());
         }
@@ -107,13 +107,13 @@ class GeefHistoriekPersoonRequestTest {
             builder = GeefHistoriekPersoonRequest.builder()
                     .insz(TEST_INSZ)
                     .opDatum(LocalDate.of(2024, 1, 1))
-                    .vanDatum(LocalDate.of(2024, 12, 31))
+                    .vanafDatum(LocalDate.of(2024, 12, 31))
                     .bron(PersonSource.RR);
         }
 
         @Test
         void fillsInValuesOpDatum() {
-            var document = builder.vanDatum(null).build()
+            var document = builder.vanafDatum(null).build()
                     .toMagdaDocument(REQUEST_ID, magdaRegistrationInfo);
 
             assertNotNull(document);

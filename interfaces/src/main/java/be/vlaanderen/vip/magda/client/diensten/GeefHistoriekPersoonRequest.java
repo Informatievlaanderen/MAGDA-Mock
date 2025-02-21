@@ -42,7 +42,7 @@ public class GeefHistoriekPersoonRequest extends PersonMagdaRequest {
         @Getter(AccessLevel.PROTECTED)
         private LocalDate opDatum;
 
-        public GeefHistoriekPersoonRequest.Builder vanDatum(LocalDate vanafDatum) {
+        public GeefHistoriekPersoonRequest.Builder vanafDatum(LocalDate vanafDatum) {
             this.vanafDatum = vanafDatum;
             return this;
         }
