@@ -16,8 +16,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 /**
+ * A request to the "Onderwijs.GeefHistoriekPersoon" MAGDA service, this service offers a customer the possibility to request historical personal data
+ * Adds the following fields to the {@link PersonMagdaRequest}:
+ * <ul>
+ * <li>vanafDatum: the start date of the period</li>
+ * <li>opDatum: on date</li>
+ * <li>bron: the sources to be consulted (optional)</li>
+ * </ul>
+ *
  * @see <a href="file:resources/templates/GeefHistoriekPersoon/02.02.0000/template.xml">XML template for this request type</a>
  * @see <a href="https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/1121977193/Persoon.GeefHistoriekPersoon-02.02">More information on this request type</a>
+
  */
 @Getter
 @ToString
@@ -29,12 +38,12 @@ public class GeefHistoriekPersoonRequest extends PersonMagdaRequest {
         @Getter(AccessLevel.PROTECTED)
         private PersonSource bron;
         @Getter(AccessLevel.PROTECTED)
-        private LocalDate vanDatum;
+        private LocalDate vanafDatum;
         @Getter(AccessLevel.PROTECTED)
         private LocalDate opDatum;
 
-        public GeefHistoriekPersoonRequest.Builder vanDatum(LocalDate vanDatum) {
-            this.vanDatum = vanDatum;
+        public GeefHistoriekPersoonRequest.Builder vanDatum(LocalDate vanafDatum) {
+            this.vanafDatum = vanafDatum;
             return this;
         }
 
@@ -51,13 +60,13 @@ public class GeefHistoriekPersoonRequest extends PersonMagdaRequest {
         public GeefHistoriekPersoonRequest build() {
             if(getInsz() == null) { throw new IllegalStateException("INSZ moet aanwezig zijn"); }
             if(getBron() == null) { throw new IllegalStateException("Bron moet aanwezig zijn"); }
-            if(getVanDatum() == null && getOpDatum() == null) { throw new IllegalStateException("VanDatum of OpDatum moet aanwezig zijn"); }
-            if(getVanDatum() != null && getOpDatum() != null) { throw new IllegalStateException("VanDatum of OpDatum kunnen niet beide aanwezig zijn."); }
+            if(getVanafDatum() == null && getOpDatum() == null) { throw new IllegalStateException("VanafDatum of OpDatum moet aanwezig zijn"); }
+            if(getVanafDatum() != null && getOpDatum() != null) { throw new IllegalStateException("VanafDatum of OpDatum kunnen niet beide aanwezig zijn."); }
 
             return new GeefHistoriekPersoonRequest(
                     getInsz(),
                     getRegistration(),
-                    getVanDatum(),
+                    getVanafDatum(),
                     getOpDatum(),
                     getBron()
             );
@@ -69,7 +78,7 @@ public class GeefHistoriekPersoonRequest extends PersonMagdaRequest {
     }
 
     private final PersonSource bron;
-    private final LocalDate vanDatum;
+    private final LocalDate vanafDatum;
     private final LocalDate opDatum;
 
     @Override
@@ -83,18 +92,18 @@ public class GeefHistoriekPersoonRequest extends PersonMagdaRequest {
 
         request.setValue("//Inhoud/Bron", bron.getValue());
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        request.setValue("//Vragen/Vraag/Inhoud/Criteria/Datum", getVanDatum() != null ? getVanDatum().format(dateFormatter) : getOpDatum().format(dateFormatter));
+        request.setValue("//Vragen/Vraag/Inhoud/Criteria/Datum", getVanafDatum() != null ? getVanafDatum().format(dateFormatter) : getOpDatum().format(dateFormatter));
         request.removeAttribute("//Vragen/Vraag/Inhoud/Criteria/Datum/@Op");
         request.createAttribute("//Vragen/Vraag/Inhoud/Criteria/Datum", "Op", getOpDatum() != null ? "1" : "0");
     }
 
     private GeefHistoriekPersoonRequest(@NotNull INSZNumber inszNumber,
                                         @NotNull String registration,
-                                        @NotNull LocalDate vanDatum,
+                                        @NotNull LocalDate vanafDatum,
                                         @Nullable LocalDate opDatum,
                                         @NotNull PersonSource personSource) {
         super(inszNumber, registration);
-        this.vanDatum = vanDatum;
+        this.vanafDatum = vanafDatum;
         this.opDatum = opDatum;
         this.bron = personSource;
     }

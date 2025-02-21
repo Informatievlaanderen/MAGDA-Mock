@@ -43,7 +43,7 @@ class GeefHistoriekPersoonRequestTest {
 
             assertNotNull(request);
             assertEquals(INSZNumber.of(TEST_INSZ), request.getInsz());
-            assertNull(request.getVanDatum());
+            assertNull(request.getVanafDatum());
             assertEquals(LocalDate.of(2024, 1, 1), request.getOpDatum());
             assertEquals(PersonSource.RR, request.getBron());
         }
@@ -59,7 +59,7 @@ class GeefHistoriekPersoonRequestTest {
 
             assertNotNull(request);
             assertEquals(INSZNumber.of(TEST_INSZ), request.getInsz());
-            assertEquals(LocalDate.of(2024, 1, 1), request.getVanDatum());
+            assertEquals(LocalDate.of(2024, 1, 1), request.getVanafDatum());
             assertNull(request.getOpDatum());
             assertEquals(PersonSource.RR, request.getBron());
         }
