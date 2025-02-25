@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.magda.client.domain.giveproofdiplomas;
+package be.vlaanderen.vip.magda.client.domain.geefbewijzen;
 
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
@@ -8,13 +8,13 @@ import lombok.SneakyThrows;
 
 import java.util.Optional;
 
-public class MagdaResponseProofDiplomasAdapterJaxbImpl implements MagdaResponseProofDiplomasAdapter {
+public class MagdaResponseBewijzenAdapterJaxbImpl implements MagdaResponseBewijzenAdapter {
 
-    private static MagdaResponseProofDiplomasAdapterJaxbImpl instance;
+    private static MagdaResponseBewijzenAdapterJaxbImpl instance;
 
-    public static MagdaResponseProofDiplomasAdapterJaxbImpl getInstance() {
+    public static MagdaResponseBewijzenAdapterJaxbImpl getInstance() {
         if(instance == null) {
-            instance = new MagdaResponseProofDiplomasAdapterJaxbImpl();
+            instance = new MagdaResponseBewijzenAdapterJaxbImpl();
         }
 
         return instance;
@@ -23,12 +23,12 @@ public class MagdaResponseProofDiplomasAdapterJaxbImpl implements MagdaResponseP
     private final JAXBContext context;
 
     @SneakyThrows
-    private MagdaResponseProofDiplomasAdapterJaxbImpl() {
-        context = JAXBContext.newInstance(ProofDiplomasJaxb.class);
+    private MagdaResponseBewijzenAdapterJaxbImpl() {
+        context = JAXBContext.newInstance(BewijzenJaxb.class);
     }
 
     @Override
-    public Optional<ProofDiplomas> adapt(MagdaResponseWrapper wrapper) throws MagdaClientException {
+    public Optional<Bewijzen> adapt(MagdaResponseWrapper wrapper) throws MagdaClientException {
         try {
             var node = Optional.ofNullable(wrapper
                     .getResponse()
@@ -36,7 +36,7 @@ public class MagdaResponseProofDiplomasAdapterJaxbImpl implements MagdaResponseP
                     .xpath("//Inhoud")
                     .item(0));
             if(node.isPresent()) {
-                return Optional.of((ProofDiplomas) context.createUnmarshaller().unmarshal(node.get()));
+                return Optional.of((Bewijzen) context.createUnmarshaller().unmarshal(node.get()));
             } else {
                 return Optional.empty();
             }

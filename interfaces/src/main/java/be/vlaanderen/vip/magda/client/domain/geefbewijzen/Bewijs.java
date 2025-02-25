@@ -1,39 +1,20 @@
-package be.vlaanderen.vip.magda.client.domain.giveproofdiplomas;
+package be.vlaanderen.vip.magda.client.domain.geefbewijzen;
 
-import be.vlaanderen.vip.magda.client.MagdaClientException;
-import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.magda.client.MagdaResponse;
-import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
 import jakarta.annotation.Nullable;
 
 import java.time.Month;
 import java.time.Year;
 import java.util.List;
-import java.util.Optional;
 
-/**
- * Information on a citizen's diploma proofs.
- */
-public interface ProofDiplomas {
+public interface Bewijs {
 
-    static Optional<ProofDiplomas> ofMagdaDocument(MagdaDocument magdaDocument) throws MagdaClientException {
-        return MagdaResponseProofDiplomasAdapterJaxbImpl.getInstance().adapt(new MagdaResponseWrapper(MagdaResponse.builder()
-                .document(magdaDocument)
-                .build()));
-    }
+    BewijsrefertesLed bewijsrefertesled();
 
-    List<Bewijs> bewijzen();
+    Naam leverancier();
 
-    interface Bewijs {
+    Afgeleid afgeleid();
 
-        BewijsrefertesLed bewijsrefertesled();
-
-        Naam leverancier();
-
-        Afgeleid afgeleid();
-
-        Basis basis();
-    }
+    Basis basis();
 
     interface BewijsrefertesLed {
 
