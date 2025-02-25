@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.magda.client.domain.giveproofdiplomas;
+package be.vlaanderen.vip.magda.client.domain.geefbewijzen;
 
 import be.vlaanderen.vip.magda.client.domain.model.shared.MonthXmlAdapter;
 import be.vlaanderen.vip.magda.client.domain.model.shared.YearXmlAdapter;
@@ -17,10 +17,12 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
+import static be.vlaanderen.vip.magda.client.domain.geefbewijzen.Bewijs.*;
+
 @XmlRootElement(name = "Inhoud")
 @Accessors(fluent = true)
 @Getter
-public class ProofDiplomasJaxb implements ProofDiplomas, Serializable {
+public class BewijzenJaxb implements Bewijzen, Serializable {
 
     @Serial
     private static final long serialVersionUID = -714593557838815590L;
