@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
@@ -69,7 +70,7 @@ public class GeefMultipleSociaalStatuutRequest extends PersonMagdaRequest {
 
     public GeefMultipleSociaalStatuutRequest(
             @NotNull INSZNumber insz,
-            @NotNull String registration,
+            @NotNull Registration registration,
             @NotNull Set<SociaalStatuutRequestCriteria> socialStatutes) {
         super(insz, registration);
         this.socialStatutes = socialStatutes;

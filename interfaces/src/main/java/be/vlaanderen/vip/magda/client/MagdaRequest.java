@@ -28,17 +28,36 @@ import java.util.UUID;
 @EqualsAndHashCode
 public abstract class MagdaRequest {
 
-    protected abstract static class Builder<SELF extends Builder<SELF>> {
-        private String registration;
+    protected abstract static class Builder<SELF extends Builder<SELF>> { // XXX javadoc
+        private String registrationKey;
+        private MagdaRegistrationInfo registrationInfo;
 
         @SuppressWarnings("unchecked")
-        public SELF registration(String registration) {
-            this.registration = registration;
+        public SELF registration(String registrationKey) {
+            this.registrationKey = registrationKey;
             return (SELF) this;
         }
 
-        protected String getRegistration() {
-            return Objects.toString(registration, DEFAULT_REGISTRATION);
+        @SuppressWarnings("unchecked")
+        public SELF registration(MagdaRegistrationInfo registrationInfo) {
+            this.registrationInfo = registrationInfo;
+            return (SELF) this;
+        }
+
+        protected Registration getRegistration() { // XXX test
+            if(registrationKey != null) {
+                if(registrationInfo != null) {
+                    throw new IllegalStateException("Cannot provide both registration key and registration info.");
+                } else {
+                    return new KeyRegistration(registrationKey);
+                }
+            } else {
+                if(registrationInfo != null) {
+                    return new DirectRegistration(registrationInfo);
+                } else {
+                    return new KeyRegistration(DEFAULT_REGISTRATION);
+                }
+            }
         }
     }
 
@@ -47,9 +66,9 @@ public abstract class MagdaRequest {
     @Setter
     private UUID correlationId;
     @NotNull
-    private final String registration;
+    private final Registration registration;
 
-    protected MagdaRequest(@NotNull String registration) {
+    protected MagdaRequest(@NotNull Registration registration) {
         this.registration = registration;
     }
 

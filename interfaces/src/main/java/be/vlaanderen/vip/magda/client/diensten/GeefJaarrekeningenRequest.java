@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
@@ -59,7 +60,7 @@ public class GeefJaarrekeningenRequest extends CompanyMagdaRequest {
 
     private GeefJaarrekeningenRequest(
             @NotNull KBONumber kboNumber,
-            @NotNull String registratie,
+            @NotNull Registration registratie,
             @NotNull Year financialYear) {
         super(kboNumber, registratie);
         this.financialYear = financialYear;

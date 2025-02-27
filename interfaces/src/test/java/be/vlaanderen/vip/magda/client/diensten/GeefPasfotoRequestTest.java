@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
+import be.vlaanderen.vip.magda.client.KeyRegistration;
 import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import org.junit.jupiter.api.Nested;
@@ -21,7 +22,8 @@ class GeefPasfotoRequestTest {
 
             assertNull(request.getCorrelationId());
             assertEquals(INSZNumber.of("123"), request.getInsz());
-            assertEquals("456", request.getRegistration());
+            var keyRegistration = assertInstanceOf(KeyRegistration.class, request.getRegistration());
+            assertEquals("456", keyRegistration.getKey());
         }
 
         @Test
@@ -30,7 +32,8 @@ class GeefPasfotoRequestTest {
                     .insz(INSZNumber.of("123"));
             var request = builder.build();
 
-            assertEquals(MagdaRequest.DEFAULT_REGISTRATION, request.getRegistration());
+            var keyRegistration = assertInstanceOf(KeyRegistration.class, request.getRegistration());
+            assertEquals(MagdaRequest.DEFAULT_REGISTRATION, keyRegistration.getKey());
         }
 
         @Test
