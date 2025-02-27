@@ -21,14 +21,14 @@ import java.util.UUID;
  * <ul>
  * <li>correlationId: unique correlation ID of the request</li>
  * <li>requestId: unique ID of the request</li>
- * <li>registration: registration code that can be resolved by a MagdaHoedanigService to obtain registration info (defaults to code "default" if not specified)</li>
+ * <li>registration: registration code that can be resolved by a MagdaHoedanigService to obtain registration info (defaults to code "default" if not specified); a MagdaRegistrationInfo object can be directly given too.</li>
  * </ul>
  */
 @Getter
 @EqualsAndHashCode
 public abstract class MagdaRequest {
 
-    protected abstract static class Builder<SELF extends Builder<SELF>> { // XXX javadoc
+    protected abstract static class Builder<SELF extends Builder<SELF>> {
         private String registrationKey;
         private MagdaRegistrationInfo registrationInfo;
 
@@ -44,7 +44,7 @@ public abstract class MagdaRequest {
             return (SELF) this;
         }
 
-        protected Registration getRegistration() { // XXX test
+        protected Registration getRegistration() {
             if(registrationKey != null) {
                 if(registrationInfo != null) {
                     throw new IllegalStateException("Cannot provide both registration key and registration info.");
