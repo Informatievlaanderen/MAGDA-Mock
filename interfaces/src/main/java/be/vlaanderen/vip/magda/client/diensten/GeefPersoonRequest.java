@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
@@ -56,7 +57,7 @@ public class GeefPersoonRequest extends PersonMagdaRequest {
 
     private GeefPersoonRequest(
             @NotNull INSZNumber insz,
-            @NotNull String registratie,
+            @NotNull Registration registratie,
             @Nullable PersonSource source) {
         super(insz, registratie);
         this.source = source;

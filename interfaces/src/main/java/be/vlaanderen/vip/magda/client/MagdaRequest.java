@@ -21,7 +21,7 @@ import java.util.UUID;
  * <ul>
  * <li>correlationId: unique correlation ID of the request</li>
  * <li>requestId: unique ID of the request</li>
- * <li>registration: registration code that can be resolved by a MagdaHoedanigService to obtain registration info (defaults to code "default" if not specified)</li>
+ * <li>registration: registration code that can be resolved by a MagdaHoedanigService to obtain registration info (defaults to code "default" if not specified); a MagdaRegistrationInfo object can be directly given too.</li>
  * </ul>
  */
 @Getter
@@ -29,16 +29,35 @@ import java.util.UUID;
 public abstract class MagdaRequest {
 
     protected abstract static class Builder<SELF extends Builder<SELF>> {
-        private String registration;
+        private String registrationKey;
+        private MagdaRegistrationInfo registrationInfo;
 
         @SuppressWarnings("unchecked")
-        public SELF registration(String registration) {
-            this.registration = registration;
+        public SELF registration(String registrationKey) {
+            this.registrationKey = registrationKey;
             return (SELF) this;
         }
 
-        protected String getRegistration() {
-            return Objects.toString(registration, DEFAULT_REGISTRATION);
+        @SuppressWarnings("unchecked")
+        public SELF registration(MagdaRegistrationInfo registrationInfo) {
+            this.registrationInfo = registrationInfo;
+            return (SELF) this;
+        }
+
+        protected Registration getRegistration() {
+            if(registrationKey != null) {
+                if(registrationInfo != null) {
+                    throw new IllegalStateException("Cannot provide both registration key and registration info.");
+                } else {
+                    return new KeyRegistration(registrationKey);
+                }
+            } else {
+                if(registrationInfo != null) {
+                    return new DirectRegistration(registrationInfo);
+                } else {
+                    return new KeyRegistration(DEFAULT_REGISTRATION);
+                }
+            }
         }
     }
 
@@ -47,9 +66,9 @@ public abstract class MagdaRequest {
     @Setter
     private UUID correlationId;
     @NotNull
-    private final String registration;
+    private final Registration registration;
 
-    protected MagdaRequest(@NotNull String registration) {
+    protected MagdaRequest(@NotNull Registration registration) {
         this.registration = registration;
     }
 

@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
@@ -71,7 +72,7 @@ public class RegistreerInschrijving0201Request extends SubjectMagdaRequest {
 
     private RegistreerInschrijving0201Request(
             @NotNull SubjectIdentificationNumber subject,
-            @NotNull String registratie,
+            @NotNull Registration registratie,
             @NotNull LocalDate startDate,
             @NotNull LocalDate endDate) {
         super(subject, registratie);
