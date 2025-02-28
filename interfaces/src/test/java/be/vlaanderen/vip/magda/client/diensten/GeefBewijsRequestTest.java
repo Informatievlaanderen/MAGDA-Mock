@@ -1,9 +1,14 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
+import be.vlaanderen.vip.magda.client.DirectRegistration;
+import be.vlaanderen.vip.magda.client.KeyRegistration;
 import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,7 +26,8 @@ class GeefBewijsRequestTest {
 
             assertNull(request.getCorrelationId());
             assertEquals(INSZNumber.of("123"), request.getInsz());
-            assertEquals("456", request.getRegistration());
+            var keyRegistration = assertInstanceOf(KeyRegistration.class, request.getRegistration());
+            assertEquals("456", keyRegistration.getKey());
         }
 
         @Test
@@ -30,7 +36,37 @@ class GeefBewijsRequestTest {
                     .insz(INSZNumber.of("123"));
             var request = builder.build();
 
-            assertEquals(MagdaRequest.DEFAULT_REGISTRATION, request.getRegistration());
+            var keyRegistration = assertInstanceOf(KeyRegistration.class, request.getRegistration());
+            assertEquals(MagdaRequest.DEFAULT_REGISTRATION, keyRegistration.getKey());
+        }
+
+        @Test
+        void registration_canBeGivenDirectlyAsInfo() {
+            var builder = GeefBewijsRequest.builder()
+                    .insz(INSZNumber.of("123"))
+                    .registration(MagdaRegistrationInfo.builder()
+                            .identification("identification")
+                            .hoedanigheidscode("hoedanigheidscode")
+                            .build());
+            var request = builder.build();
+
+            var directRegistration = assertInstanceOf(DirectRegistration.class, request.getRegistration());
+            var registrationInfo = directRegistration.getInfo();
+            assertEquals("identification", registrationInfo.getIdentification());
+            assertEquals(Optional.of("hoedanigheidscode"), registrationInfo.getHoedanigheidscode());
+        }
+
+        @Test
+        void registration_cannotBeGivenBothAsKeyAndAsInfo() {
+            var builder = GeefBewijsRequest.builder()
+                    .insz(INSZNumber.of("123"))
+                    .registration("456")
+                    .registration(MagdaRegistrationInfo.builder()
+                            .identification("identification")
+                            .hoedanigheidscode("hoedanigheidscode")
+                            .build());
+
+            assertThrows(IllegalStateException.class, builder::build);
         }
 
         @Test

@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
@@ -70,7 +71,7 @@ public class GeefFunctiesByPersonRequest extends PersonMagdaRequest{
 
     public GeefFunctiesByPersonRequest(
             @NotNull INSZNumber insz,
-            @NotNull String registration,
+            @NotNull Registration registration,
             @Nullable KBONumber kboNumber,
             @Nullable Set<String> functionTypes) {
         super(insz, registration);

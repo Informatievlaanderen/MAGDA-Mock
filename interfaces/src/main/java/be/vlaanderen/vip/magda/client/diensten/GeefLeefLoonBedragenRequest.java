@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
@@ -85,7 +86,7 @@ public class GeefLeefLoonBedragenRequest extends PersonMagdaRequest {
 
     public GeefLeefLoonBedragenRequest(
             @NotNull INSZNumber insz,
-            @NotNull String registration,
+            @NotNull Registration registration,
             @Nullable Year currentYear,
             @Nullable Year referenceYear,
             @Nullable Integer numberOfYearsAgo) {
