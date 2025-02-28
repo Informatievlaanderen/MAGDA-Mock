@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domain.geefbewijzen.Bewijs;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
@@ -84,7 +85,7 @@ public class RegistreerBewijsRequest extends PersonMagdaRequest {
 
     public RegistreerBewijsRequest(
             @NotNull INSZNumber insz,
-            @NotNull String registration,
+            @NotNull Registration registration,
             @NotNull String leverancierNaam,
             @NotNull String leverancierBewijsreferte,
             @NotNull Bewijs.Basis bewijsBasis) {
