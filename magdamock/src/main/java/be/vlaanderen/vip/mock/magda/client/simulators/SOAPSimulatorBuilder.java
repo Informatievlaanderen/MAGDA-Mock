@@ -60,6 +60,7 @@ public class SOAPSimulatorBuilder {
         simulator.register("RegistreerInschrijving", VERSION_02_01, new StaticResponseSimulator(finder, PERSOON, "//Subject/Type", "//Subject/Sleutel"));
         simulator.register("RegistreerUitschrijving", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
 
+        simulator.register("RegistreerBewijs", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefBewijs", VERSION_02_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefHistoriekInschrijving", VERSION_02_01, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("RaadpleegLeerkredietsaldo", VERSION_01_00, new StaticResponseSimulator(finder, PERSOON, KEY_INSZ));

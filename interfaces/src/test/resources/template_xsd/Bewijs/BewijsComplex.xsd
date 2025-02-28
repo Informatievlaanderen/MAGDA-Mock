@@ -1,0 +1,984 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://bewijs.led.vlaanderen.be" version="2.00" xmlns="http://bewijs.led.vlaanderen.be" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+ 
+	<xs:include schemaLocation="BewijsSimple.xsd"/> 
+	<xs:include schemaLocation="BewijsEnum.xsd"/>
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+ 
+	<xs:complexType name="BewijsType">
+		<xs:annotation>
+			<xs:documentation>
+				Bevat alle informatie omtrent een bepaald bewijs:
+				de refertes waarmee het bewijs kan geïdentificeerd worden,
+				de status waarin het zich bevindt,
+				de leverancier (bron),
+				aan wie het werd uitgereikt,
+				de eigenlijke basisdata en de door LED afgeleide bewijsdata.
+				
+				De validatie gebeurt door de LED Dienstenimplementatie en niet o.b.v.
+				schemagebaseerde enumeraties.
+				
+				De toegelaten waarden van de dimensies (bv. Categorie, Graad, ...) van een Bewijs,
+				van haar basisattributen (bv. Leverancier, Land, Taal, ...), en van de toegelaten
+				dimensiecombinaties (bv. een bepaalde CategorieGraad combinatie), worden beheerd door
+				het AKOV d.m.v. de zogenaamde Taxonomiebeheer applicatie.
+				
+				De lijst van toegelaten waarden en combinaties wordt door het AKOV 
+				in samenwerking met de verschillende partijen op afgesproken tijdstippen 
+				gepubliceerd.							
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence> 
+			<xs:element name="BewijsrefertesLed" type="BewijsrefertesLedType"/>
+			<xs:element name="BewijsstatusLed" type="BewijsstatusLedType"/>
+			<xs:element name="Leverancier" type="LeverancierType"/>
+			<xs:element name="PersoonUitgereikt" type="PersoonUitgereiktType"/>						
+			<xs:element name="Basis" type="BewijsBasisType"/>
+			<xs:element name="Afgeleid" type="BewijsAfgeleidType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TijdstipType">
+		<xs:annotation>
+			<xs:documentation>
+				Tijdstip: bevat zowel een Datum als Tijd element.
+				 DD.MM.JJJJ HH:MM:SS.sss
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Datum" type="DatumType"/>
+			<xs:element name="Tijd" type="generiek:TijdType"/>
+		</xs:sequence>
+	</xs:complexType>	
+
+	<xs:complexType name="BewijsrefertesLedType">
+		<xs:annotation>
+			<xs:documentation>
+				LED refertes van een Bewijs.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Bewijsreferte" type="BewijsreferteLedType" minOccurs="1"/>
+	 		<xs:element name="Bewijsmutatiereferte" type="BewijsmutatiereferteLedType" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="BewijsstatusLedType">
+		<xs:annotation>
+			<xs:documentation>
+				Status van een Bewijs.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="StatusEnumType" minOccurs="1"/> 
+			<xs:element name="DatumModificatie" type="TijdstipType" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="BewijsBasisType">
+		<xs:annotation>
+			<xs:documentation>
+				Bevat de basis attributen van een Bewijs.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Authenticiteit" type="AuthenticiteitType">
+				<xs:annotation>
+					<xs:documentation>
+						Authenticiteit.
+						De authenticiteit van een bepaalde Leverancier wordt bepaald door de Leverancier zelf en/maar 
+						dient te worden vastgelegd.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="Categorie" type="CategorieType">
+				<xs:annotation>
+					<xs:documentation>
+						Een Dimensie waarmee het Bewijs geclassificeerd
+						wordt.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="Graad" type="GraadType">
+				<xs:annotation>
+					<xs:documentation>
+						Een Dimensie waarmee het Bewijs geclassificeerd
+						wordt.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="Onderwijsvorm" type="OnderwijsvormType">
+				<xs:annotation>
+					<xs:documentation>
+						Een Dimensie waarmee het Bewijs geclassificeerd
+						wordt.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>			
+
+			<xs:element name="Bewijstype" type="BewijstypeType">
+				<xs:annotation>
+					<xs:documentation>
+						Een Dimensie waarmee het Bewijs geclassificeerd
+						wordt. Beschrijft het soort document dat uitgereikt werd.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="Bewijsstaat" type="BewijsstaatType">
+				<xs:annotation>
+					<xs:documentation>
+						Een Dimensie waarmee het Bewijs geclassificeerd
+						wordt. De bewijsstaat is een verdere specificatie van het type bewijs. 
+						Meer bepaald geeft de staat aan of het bewijs een "eindbewijs" dan 
+						wel "tussenbewijs" betreft.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>		
+			
+			<xs:element name="Instantie" type="InstantieType">
+				<xs:annotation>
+					<xs:documentation>
+						Een Dimensie waarmee het Bewijs geclassificeerd
+						wordt.  
+						De instantie is de organisatie die het bewijs uitreikt. 
+						Merk op dat het hier een hogere classificatie betreft (bv. Hogeschool) 
+						en dus niet de naam van de instantie zelf, deze bevindt zich op het niveau van het bewijs zelf.
+						Het is de instantie verantwoordelijk voor het organiseren, uitreiken en erkennen van een bepaald type bewijs
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>			
+			
+			<xs:element name="Onderwerp" type="OnderwerpType">
+				<xs:annotation>
+					<xs:documentation>
+						Een Dimensie waarmee het Bewijs geclassificeerd
+						wordt. Het onderwerp is een verdere opdeling van de ISCED Studiegebieden, 
+						aangepast aan de specifieke situatie van de leer- en ervaringsbewijzendatabank.
+						Hoewel het ISCED Studiegebied hoger staat in de hiërarchie van de gegevens, 
+						zullen de bronnen van de LED alleen het onderwerp meegeven en zal het 
+						bijhorende ISCED Studiegebied op basis hiervan afgeleid worden.	
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.					
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>				
+
+			<xs:element name="Uitreikingsdatum" type="UitreikingsdatumType">
+				<xs:annotation>
+					<xs:documentation>
+						Het jaar en eventueel de maand en de dag van
+						uitreiking van het Bewijs.
+						Verplicht.						
+        			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="VolledigeNaam" type="VolledigeNaamType">
+				<xs:annotation>
+					<xs:documentation>
+						De volledige naam van het Bewijs.
+						Volledige naam/benaming zoals vermeld op het uitgereikt (papieren) bewijs. 
+						Wordt bijgehouden tevens als hulp voor de burger die het bewijs kent onder 
+						de vermelde benaming. 
+						Dit is een vrij tekstveld (en kan dus de inhoud van een aantal andere dimensies bevatten). 
+						Mogelijk kan dit ook in een andere taal zijn opgetekend.
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="Land" type="LandType">
+				<xs:annotation>
+					<xs:documentation>
+						De Landcode (ISO 3166-1 alpha 3) van het Bewijs.
+						De landcode van het land waar het bewijs werd uitgereikt: UPPERCASE verplicht, of
+						de pseudowaarden "Niet van toepassing", "Niet beschikbaar".
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="Taal" type="TaalType">
+				<xs:annotation>
+					<xs:documentation>
+						De Taalcode (ISO 639-3 alpha 3) van het Bewijs.
+						De taal waarin het bewijs onderricht werd.
+						LOWERCASE verplicht
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="Instelling" type="InstellingType">
+				<xs:annotation>
+					<xs:documentation>
+						De Instelling van het Bewijs.
+						Omvat de naam van de instelling waar het bewijs behaald werd en het nummer.
+						De naam is de specifieke instelling, lesplaats, centrum waar de opleiding gevolgd werd.
+						Het nummer is het nummer waaronder de naam van de instelling gekend is bij de bron. 
+						Het nummer wordt opgenomen voor die gevallen waar de naam van de instelling, 
+						hoewel het een andere instelling betreft, dezelfde blijkt.  Bijvoorbeeld.  Sint-Jozefscollege, 
+						zonder specificatie van gemeente id naam van de instelling. 
+						Er wordt geen controle en of "update" van deze instellingsnummers voorzien, 
+						het instellingsnummer dat wordt opgenomen is deze zoals bekend op het moment van uitreiking van het bewijs.						
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+
+			<xs:element name="Schooltype" type="SchooltypeType">
+				<xs:annotation>
+					<xs:documentation>
+						Een Dimensie waarmee het Bewijs geclassificeerd
+						wordt.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>			
+
+			<xs:element name="Studierichting" type="StudierichtingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Studierichting(en). 
+						De studierichting(en), of het/de vakgebied is een verdere verfijning van het onderwerp en 
+						het ISCED studiegebied uit de taxonomie.  
+						Hoewel er in de praktijk dus een relatie bestaat tussen de studierichting en het onderwerp, 
+						wordt deze omwille van de schier eindeloze combinatiemogelijkheden niet geïmplementeerd op 
+						het niveau van de LED Taxonomie of de LED databank.
+						De omschrijving is een tekstuele omschrijving van de studierichting.
+						Het codeveld is een vrij, optioneel veld. Dit bevat bronspecifieke codes bij de tekstuele omschrijving, 
+						dewelke toekomstige opzoekingen of evaluaties vergemakkelijken. 
+						Het opgeven van een code is slechts zinvol indien ook een tekstuele omschrijving werd opgegeven.
+						Mogelijke waarden: 
+						De studierichting is als vrij tekstveld (omschrijving) invulbaar. 
+						Meerdere waarden kunnen gescheiden door een ";" ingevoerd worden. 
+						Daarenboven kan de studierichting als een vrije –bronafhankelijke– code opgegeven worden. 
+						Merk op dat er geen controle of "update" van deze codes voorzien is
+						Gescheiden door ";".
+						Optioneel.						
+        			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="Specialisatie" type="SpecialisatieType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Specialisatie(s). 
+						De specialisatie is op zijn beurt een verdere verfijning van de studierichting(en). 
+						Hoewel er in de praktijk dus een relatie bestaat tussen de specialisatie en de studierichting, 
+						wordt deze niet geïmplementeerd op het niveau van de LED Taxonomie of de LED databank.
+						De omschrijving is een tekstuele omschrijving van de specialisatie. 
+						Het codeveld is een vrij, optioneel veld. Dit bevat bronspecifieke codes bij de tekstuele omschrijving, 
+						dewelke toekomstige opzoekingen of evaluaties vergemakkelijken. 
+						Het opgeven van een code is slechts zinvol indien ook een tekstuele omschrijving werd opgegeven.
+						Mogelijke waarden:
+						De specialisatie is als vrij tekstveld invulbaar. Meerdere waarden kunnen gescheiden door een ";" ingevoerd worden. 
+						Daarenboven kan de specialisatie als een vrije –bronafhankelijke– code opgegeven worden. 
+						Merk op dat er geen controle of "update" van deze codes voorzien is.
+						Gescheiden door ";".						
+						Optioneel.						
+        			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="DetailOnderwerp" type="DetailOnderwerpType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						DetailOnderwerp(en).
+						Het/De detailonderwerp(en) zijn op hun beurt een verdere verfijning van de specialisatie(s). 
+						Hoewel er in de praktijk dus een relatie bestaat tussen het detailonderwerp en de specialisatie, 
+						wordt deze niet geïmplementeerd op het niveau van de LED Taxonomie of de LED databank.
+						De omschrijving is een tekstuele omschrijving van het detailonderwerp. 
+						Het codeveld is een vrij, optioneel veld. Dit bevat bronspecifieke codes bij de tekstuele omschrijving, 
+						dewelke toekomstige opzoekingen of evaluaties vergemakkelijken. 
+						Het opgeven van een code is slechts zinvol indien ook een tekstuele omschrijving werd opgegeven.
+						Mogelijke waarden:
+						Het detailonderwerp is als vrij tekstveld invulbaar. Meerdere waarden kunnen gescheiden door een ";" ingevoerd worden. 
+						Daarenboven kan het detailonderwerp als een vrije –bronafhankelijke– code opgegeven worden. 
+						Merk op dat er geen controle of "update" van deze codes voorzien is.
+						Gescheiden door ";".						
+						Optioneel.						
+        			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="Vervalperiode" type="VervalPeriodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						De vervalperiode van het Bewijs.
+						Verwijzing naar de geldigheidsduur van het uitgereikt bewijs 
+						(gerekend vanaf de dag van uitreiking). 						
+						Vrij tekst. Bijvoorbeeld "6 maanden", "5 jaar", etc.						
+						Optioneel.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="UrenVolwassenenonderwijs" type="generiek:NumeriekLangType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Aantal uren Volwassenonderwijs.
+						Dit is het aantal lestijden waaruit de opleiding bestaat. 
+						Enkel van toepassing voor bewijzen uitgereikt in  het onderwijs voor 
+						sociale promotie of door een centrum voor volwassenenonderwijs.
+						Mogelijke waarden:
+						Het aantal uren is een vrij, numeriek veld: GEEN decimale getallen toegelaten.
+						Optioneel.						
+        			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="AlternatieveInstanties" type="AlternatieveInstantiesType" minOccurs="0">
+				<xs:unique name="Instantieroluniek">
+					<xs:selector xpath="Instantierol"/>
+					<xs:field xpath="Naam"/>
+				</xs:unique>
+			</xs:element>
+			
+			<xs:element name="BijkomendeInformaties" type="BijkomendeInformatiesType" minOccurs="0">
+				<xs:unique name="BijkomendeInformatieuniek">
+					<xs:selector xpath="BijkomendeInformatie"/>
+					<xs:field xpath="Naam"/>
+				</xs:unique>
+			</xs:element>			
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="BewijsAfgeleidType">
+		<xs:annotation>
+			<xs:documentation>
+				Bevat de door LED afgeleide elementen van een
+				Bewijs.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ISCEDStudiegebied" type="ISCEDStudiegebiedType">
+				<xs:annotation>
+					<xs:documentation>
+						Een afgeleide Dimensie waarmee het Bewijs
+						geclassificeerd wordt.
+						De indeling van de studiegebieden volgens ISCED is een opdeling 
+						die internationale statistieken en vergelijkingen in verband met 
+						onderwijs en opleidingen mogelijk maakt. 
+						De standaard is in de loop van de jaren 1970 door de UNESCO in het 
+						leven geroepen en later verder ontwikkeld.
+						De standaard biedt niet alleen een omschrijving van de studiegebieden, 
+						maar ordent deze ook op diverse diepteniveau’s aan de hand van een 
+						driecijferige code waarbij elk volgend cijfer een volgend niveau voorstelt.
+						Hoewel het ISCED Studiegebied hoger staat in de hiërarchie van de gegevens, 
+						wordt dit gegeven afgeleid door LED aan de hand van de tijdens registratie
+						opgegeven waarde voor de dimensie "Onderwerp". 	
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation> 
+			</xs:element>
+			<xs:element name="ISCEDNiveau" type="ISCEDNiveauType">
+				<xs:annotation>
+					<xs:documentation>
+						Een afgeleide Dimensie waarmee het Bewijs
+						geclassificeerd wordt.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.						
+					</xs:documentation> 
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VKSNiveauOnderwijskwalificatie" type="VKSNiveauOnderwijskwalificatieType">
+				<xs:annotation>
+					<xs:documentation>
+						Een afgeleide Dimensie waarmee het Bewijs
+						geclassificeerd wordt.
+						De VKS biedt een classificatie van onderwijsprogramma’s op het Vlaamse niveau.
+						Dit is binnen de LED Taxonomie een afgeleid gegeven en wordt gekoppeld aan 
+						een combinatie van andere bestaande dimensies met hun bepaalde waarden.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation> 
+			</xs:element>
+			<xs:element name="VKSNiveauBeroepskwalificatie" type="VKSNiveauBeroepskwalificatieType">
+				<xs:annotation>
+					<xs:documentation>
+						Een afgeleide Dimensie waarmee het Bewijs
+						geclassificeerd wordt.
+						De VKS biedt een classificatie van de beroepen op het Vlaamse niveau.
+						Dit is binnen de LED Taxonomie een afgeleid gegeven en wordt gekoppeld 
+						aan een combinatie van andere bestaande dimensies met hun bepaalde waarden.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.						
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	
+	<xs:complexType name="LeverancierType">
+		<xs:annotation>
+			<xs:documentation>
+				De Leverancier die de informatie rond de persoon/het bewijs heeft aangereikt.				
+    	</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="LeverancierNaamType">
+				<xs:annotation>
+					<xs:documentation>
+						De Naam van de Leverancier dit het Bewijs registreert.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bewijsreferte" type="generiek:ReferteType">
+				<xs:annotation>
+					<xs:documentation>
+						Het UUID (Universally Unique ID) waarmee de Leverancier
+						het Bewijs in kwestie uniek
+						identificeert. De combinatie Leverancier en
+						bewijsreferte van de Leverancier moet uniek zijn.
+						Als een leverancier verschillende systemen heeft dan moet de
+						Leverancier ervoor zorgen dat al haar systemen dezelfde unieke
+						combinatie gebruiken om hetzelfde bewijs te duiden.
+						Verplicht.						
+        			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InstellingType">
+		<xs:annotation>
+			<xs:documentation>
+				Instelling: de naam en eventueel het nummer van de Instelling.
+				De Instelling van het Bewijs.
+				Omvat de naam van de instelling waar het bewijs behaald werd en het nummer.
+				De naam is de specifieke instelling, lesplaats, centrum waar de opleiding gevolgd werd.
+				Het nummer is het nummer waaronder de naam van de instelling gekend is bij de bron. 
+				Het nummer wordt opgenomen voor die gevallen waar de naam van de instelling, 
+				hoewel het een andere instelling betreft, dezelfde blijkt.  Bijvoorbeeld.  Sint-Jozefscollege, 
+				zonder specificatie van gemeente id naam van de instelling. 
+				Er wordt geen controle en of "update" van deze instellingsnummers voorzien, 
+				het instellingsnummer dat wordt opgenomen is deze zoals bekend op het moment van uitreiking van het bewijs.					
+    	</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="InstellingsnaamType"/>
+			<xs:element name="Nummer" type="InstellingsnummerType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="UitreikingsdatumType">
+		<xs:annotation>
+			<xs:documentation> 
+				Datum dat het Bewijs werd uitgereikt.
+				Mag niet in de toekomst liggen.
+				Jaar is verplicht.
+				Maand is verplicht indien dag is opgegeven.
+				
+			</xs:documentation>
+		</xs:annotation>
+			<xs:sequence>
+				<xs:element name="Jaar" type="JaarType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Maand" type="MaandType" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="Dag" type="DagType" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>					
+	</xs:complexType>
+
+	<xs:complexType name="PersoonUitgereiktType">
+		<xs:annotation>
+			<xs:documentation>
+				De Persoon aan wie het Bewijs werd uitgereikt.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="INSZ" type="generiek:INSZType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CategorieType">
+		<xs:annotation>
+			<xs:documentation>
+				Een Dimensie waarmee het Bewijs geclassificeerd
+				wordt.
+				Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="CategorieNaamType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GraadType">
+		<xs:annotation>
+			<xs:documentation>
+				Een Dimensie waarmee het Bewijs geclassificeerd
+				wordt.
+				Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="GraadNaamType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="OnderwijsvormType">
+		<xs:annotation>
+			<xs:documentation>
+				Een Dimensie waarmee het Bewijs geclassificeerd
+				wordt.
+				Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="OnderwijsvormNaamType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="BewijstypeType">
+		<xs:annotation>
+			<xs:documentation>
+				Een Dimensie waarmee het Bewijs geclassificeerd
+				wordt. Beschrijft het soort document dat uitgereikt werd.
+				Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="BewijstypeNaamType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InstantieType">
+		<xs:annotation>
+			<xs:documentation>
+				Een Dimensie waarmee het Bewijs geclassificeerd
+				wordt.  
+				De instantie is de organisatie die het bewijs uitreikt. 
+				Merk op dat het hier een hogere classificatie betreft (bv. Hogeschool) 
+				en dus niet de naam van de instantie zelf, deze bevindt zich op het niveau van het bewijs zelf.
+				Het is de instantie verantwoordelijk voor het organiseren, uitreiken en erkennen van een bepaald type bewijs
+				Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.	
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="InstantieNaamType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="OnderwerpType">
+		<xs:annotation>
+			<xs:documentation>
+				Een Dimensie waarmee het Bewijs geclassificeerd
+				wordt. Het onderwerp is een verdere opdeling van de ISCED Studiegebieden, 
+				aangepast aan de specifieke situatie van de leer- en ervaringsbewijzendatabank.
+				Hoewel het ISCED Studiegebied hoger staat in de hiërarchie van de gegevens, 
+				zullen de bronnen van de LED alleen het onderwerp meegeven en zal het 
+				bijhorende ISCED Studiegebied op basis hiervan afgeleid worden.	
+				Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.	
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="OnderwerpCodeType">
+				<xs:annotation>
+					<xs:documentation>
+						De code van het Onderwerp.
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation> 			
+			</xs:element>		
+			<xs:element name="Naam" type="OnderwerpNaamType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						De naam die overeenstemt met de code van het Onderwerp.
+						Optioneel.					
+        			</xs:documentation>
+				</xs:annotation>			
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ISCEDStudiegebiedType">
+		<xs:annotation>
+			<xs:documentation>
+				Een afgeleide Dimensie waarmee het Bewijs geclassificeerd wordt.
+    	</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="ISCEDStudiegebiedCodeType">
+				<xs:annotation>
+					<xs:documentation>
+						De code van het IscedStudiegebied.
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation> 
+			</xs:element>
+			<xs:element name="Naam" type="ISCEDStudiegebiedNaamType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						De naam die overeenstemt met de code van het IscedStudiegebied.
+						Optioneel.					
+        			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ISCEDNiveauType">
+		<xs:annotation>
+			<xs:documentation>
+				Een afgeleide Dimensie waarmee het Bewijs geclassificeerd wordt.
+    	</xs:documentation>
+		</xs:annotation>
+		<xs:sequence> 
+			<xs:element name="Code" type="ISCEDNiveauCodeType">
+				<xs:annotation>
+					<xs:documentation>
+						De code van het ISCEDNiveau.
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation> 
+			</xs:element>
+			<xs:element name="Naam" type="ISCEDNiveauNaamType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						De naam die overeenstemt met de code van het ISCEDNiveau.
+						Verplicht.					
+        			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>	
+	
+	<xs:complexType name="VKSNiveauOnderwijskwalificatieType">
+		<xs:annotation>
+			<xs:documentation>
+				Een afgeleide Dimensie waarmee het Bewijs geclassificeerd wordt.
+    	</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>   
+			<xs:element name="Code" type="VKSNiveauOnderwijskwalificatieCodeType">
+				<xs:annotation>
+					<xs:documentation>
+						De code van het VKSNiveau.
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation> 
+			</xs:element>
+			<xs:element name="Naam" type="VKSNiveauOnderwijskwalificatieNaamType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						De naam die overeenstemt met de code van het VKSNiveau.
+						Verplicht.					
+        			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="VKSNiveauBeroepskwalificatieType">
+		<xs:annotation>
+			<xs:documentation>
+				Een afgeleide Dimensie waarmee het Bewijs geclassificeerd wordt.
+    	</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>   
+			<xs:element name="Code" type="VKSNiveauBeroepskwalificatieCodeType">
+				<xs:annotation>
+					<xs:documentation>
+						De code van het VKSNiveau.
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation> 
+			</xs:element>
+			<xs:element name="Naam" type="VKSNiveauBeroepskwalificatieNaamType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						De naam die overeenstemt met de code van het VKSNiveau.
+						Verplicht.					
+        			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>		
+		
+	<xs:complexType name="LandType">
+		<xs:annotation>
+			<xs:documentation>
+			Het land waar het bewijs werd uitgereikt.
+			Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+			Verplicht.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="LandCodeType">
+				<xs:annotation>
+					<xs:documentation>
+						De Landcode (ISO 3166-1 alpha 3) van het Bewijs.
+						UPPERCASE is verplicht, ofwel
+						de pseudowaarden "Niet van toepassing", "Niet beschikbaar".
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.					
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TaalType">
+		<xs:annotation>
+			<xs:documentation>
+			De taal waarin het bewijs onderricht werd.
+			Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+			Verplicht.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="TaalCodeType">
+				<xs:annotation>
+					<xs:documentation>
+						De Taalcode (ISO 639-3 alpha 3) van het Bewijs.
+						De taal waarin het bewijs onderricht werd.
+						LOWERCASE is verplicht, ofwel 
+						de pseudowaarden "Niet van toepassing", "Niet beschikbaar".						
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
+						Verplicht.					
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>	
+			
+
+	<xs:complexType name="BewijsstaatType">
+		<xs:annotation>
+			<xs:documentation>
+				Een Dimensie waarmee het Bewijs geclassificeerd
+				wordt. De bewijsstaat is een verdere specificatie van het type bewijs. 
+				Meer bepaald geeft de staat aan of het bewijs een "eindbewijs" dan 
+				wel "tussenbewijs" betreft.
+				Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.	
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="BewijsstaatNaamType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="SchooltypeType">
+		<xs:annotation>
+			<xs:documentation>
+				Een Dimensie waarmee het Bewijs wordt
+				geclassificeerd.
+				Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.					
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="SchooltypeNaamType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AuthenticiteitType">
+		<xs:annotation>
+			<xs:documentation>
+				AuthenticiteitType.
+				De authenticiteit van een bepaalde Leverancier wordt bepaald door de Leverancier zelf en/maar 
+				dient te worden vastgelegd.
+				Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.				
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="AuthenticiteitNaamType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InstantierolType">
+		<xs:annotation>
+			<xs:documentation>
+				Een rol die een Instantie heeft t.o.v een Bewijs.
+				Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.				
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="InstantierolNaamType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AlternatieveInstantiesType">
+		<xs:annotation>
+			<xs:documentation>
+			Bevat een lijst van één of meerdere alternatieve Instanties voor een Bewijs.  
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AlternatieveInstantie" type="AlternatieveInstantieType" minOccurs="1" maxOccurs="50"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AlternatieveInstantieType">
+		<xs:annotation>
+			<xs:documentation>
+			De instantie (zie Instantie element/type) is de instantie verantwoordelijk 
+			voor het organiseren, uitreiken en erkennen van een bepaald type bewijs. 
+			In bepaalde gevallen kan het echter zijn dat een andere, derde instantie één 
+			of meer van deze rollen waarneemt: alternatieve instantie kan hiervoor gebruikt worden.
+			
+			Het gegeven is complementair met de rol van de alternatieve instantie en kan repetitief zijn, 
+			d.w.z. dat voor elke rol een andere instantie opgegeven kan worden. 
+			Mogelijke waarden: identiek aan de dimensie ‘Instantie’.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence> 
+			<xs:element name="Instantierol" type="InstantierolType"/>
+			<xs:element name="Instantie" type="InstantieType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="BijkomendeInformatiesType">
+		<xs:annotation>
+			<xs:documentation>
+			Bevat een lijst van één of meerdere bijkomende informatie elementen voor een Bewijs.  
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BijkomendeInformatie" type="BijkomendeInformatieType" minOccurs="1" maxOccurs="50"/>
+		</xs:sequence>
+	</xs:complexType>	
+		
+	<xs:complexType name="BijkomendeInformatieType">
+		<xs:annotation>
+			<xs:documentation>
+			Kan gebruikt worden om vrije commentaar door te geven bij een bewijs.
+			Voor elke Inhoud moet een Type opgegeven worden.
+			Elk type mag slechts één keer gebruikt worden binnen de context van een bewijs.
+			Toegelaten waarden voor het type: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence> 
+			<xs:element name="Naam" type="BijkomendeInformatieNaamType"/>
+			<xs:element name="Inhoud" type="BijkomendeInformatieInhoudType"/>
+		</xs:sequence>
+	</xs:complexType>	
+	
+
+	<xs:complexType name="StudierichtingType">
+		<xs:annotation>
+			<xs:documentation>
+				Een Studierichting van een Bewijs.
+				De studierichting(en), of het/de vakgebied is een verdere verfijning van het onderwerp en 
+				het ISCED studiegebied uit de taxonomie.  
+				Hoewel er in de praktijk dus een relatie bestaat tussen de studierichting en het onderwerp, 
+				wordt deze omwille van de schier eindeloze combinatiemogelijkheden niet geïmplementeerd op 
+				het niveau van de LED Taxonomie of de LED databank.
+				De omschrijving is een tekstuele omschrijving van de studierichting.
+				Het codeveld is een vrij, optioneel veld. Dit bevat bronspecifieke codes bij de tekstuele omschrijving, 
+				dewelke toekomstige opzoekingen of evaluaties vergemakkelijken. 
+				Het opgeven van een code is slechts zinvol indien ook een tekstuele omschrijving (=Naam) werd opgegeven.
+				Mogelijke waarden: 
+				De studierichting is als vrij tekstveld (= naam) invulbaar. 
+				Meerdere waarden kunnen gescheiden door een ";" ingevoerd worden. 
+				Daarenboven kan de studierichting als een vrije –bronafhankelijke– code opgegeven worden. 
+				Merk op dat er geen controle of "update" van deze codes voorzien is
+				Gescheiden door ";".
+				Naam=verplicht.
+				Code=optioneel.				
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="StudierichtingNaamType" minOccurs="1"/>
+			<xs:element name="Code" type="StudierichtingCodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SpecialisatieType">
+		<xs:annotation>
+			<xs:documentation>
+				Specialisatie(s). 
+				De specialisatie is op zijn beurt een verdere verfijning van de studierichting(en). 
+				Hoewel er in de praktijk dus een relatie bestaat tussen de specialisatie en de studierichting, 
+				wordt deze niet geïmplementeerd op het niveau van de LED Taxonomie of de LED databank.
+				De omschrijving is een tekstuele omschrijving van de specialisatie. 
+				Het codeveld is een vrij, optioneel veld. Dit bevat bronspecifieke codes bij de tekstuele omschrijving, 
+				dewelke toekomstige opzoekingen of evaluaties vergemakkelijken. 
+				Het opgeven van een code is slechts zinvol indien ook een tekstuele omschrijving werd opgegeven.
+				Mogelijke waarden:
+				De specialisatie is als vrij tekstveld invulbaar. Meerdere waarden kunnen gescheiden door een ";" ingevoerd worden. 
+				Daarenboven kan de specialisatie als een vrije –bronafhankelijke– code opgegeven worden. 
+				Merk op dat er geen controle of "update" van deze codes voorzien is.
+				Gescheiden door ";".	
+				Naam=verplicht.
+				Code=optioneel.					
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="SpecialisatieNaamType" minOccurs="1"/>
+			<xs:element name="Code" type="SpecialisatieCodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DetailOnderwerpType">
+		<xs:annotation>
+			<xs:documentation>
+				Een DetailOnderwerp van een Bewijs.
+				DetailOnderwerp(en).
+				Het/De detailonderwerp(en) zijn op hun beurt een verdere verfijning van de specialisatie(s). 
+				Hoewel er in de praktijk dus een relatie bestaat tussen het detailonderwerp en de specialisatie, 
+				wordt deze niet geïmplementeerd op het niveau van de LED Taxonomie of de LED databank.
+				De omschrijving is een tekstuele omschrijving van het detailonderwerp. 
+				Het codeveld is een vrij, optioneel veld. Dit bevat bronspecifieke codes bij de tekstuele omschrijving, 
+				dewelke toekomstige opzoekingen of evaluaties vergemakkelijken. 
+				Het opgeven van een code is slechts zinvol indien ook een tekstuele omschrijving werd opgegeven.
+				Mogelijke waarden:
+				Het detailonderwerp is als vrij tekstveld invulbaar. Meerdere waarden kunnen gescheiden door een ";" ingevoerd worden. 
+				Daarenboven kan het detailonderwerp als een vrije –bronafhankelijke– code opgegeven worden. 
+				Merk op dat er geen controle of "update" van deze codes voorzien is.
+				Gescheiden door ";".	
+				Naam=verplicht.
+				Code=optioneel.									
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="DetailOnderwerpNaamType" minOccurs="1"/>
+			<xs:element name="Code" type="DetailOnderwerpCodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="BewijzenLijstType">
+		<xs:annotation>
+			<xs:documentation>
+				Een lijst van 1 of meer Bewijzen.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Bewijs" type="BewijsType" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Eén Bewijs.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

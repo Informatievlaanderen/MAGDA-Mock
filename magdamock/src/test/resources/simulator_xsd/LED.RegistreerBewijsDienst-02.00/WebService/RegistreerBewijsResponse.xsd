@@ -1,0 +1,62 @@
+<xs:schema targetNamespace="http://registreerbewijs.bewijsregistratiedienst.led.vlaanderen.be"
+		   elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns="http://registreerbewijs.bewijsregistratiedienst.led.vlaanderen.be"
+		   xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be">
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../../Generiek-02.00/Generiek.xsd"/>
+	<xs:import namespace="http://bewijs.led.vlaanderen.be" schemaLocation="../../Bewijs/Bewijs.xsd"/>
+	<xs:element name="RegistreerBewijsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Repliek" type="RepliekType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="RepliekType">
+		<xs:sequence>
+			<xs:element name="Context" type="generiek:ContextType"/>
+			<xs:element name="Antwoorden" type="AntwoordenType" minOccurs="0"/>
+			<xs:element name="Uitzonderingen" type="generiek:UitzonderingenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fouten die voorkomen na de verwerking van de Context maar voor de verwerking van Vraag of Antwoord bv: XSD Validatie fouten</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AntwoordenType">
+		<xs:sequence>
+			<xs:element name="Antwoord" type="AntwoordType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AntwoordType">
+		<xs:sequence>
+			<xs:element name="Referte" type="generiek:ReferteType"/>
+			<xs:element name="Inhoud" type="AntwoordInhoudType" minOccurs="0"/>
+			<xs:element name="Uitzonderingen" type="generiek:UitzonderingenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fouten die voorkomen na de verwerking van Vraag of Antwoord bv: warnings rond ontbrekende data en fouten gelinked aan 1 antwoord</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AntwoordInhoudType">
+		<xs:annotation>
+			<xs:documentation>
+			Indien de registratie lukte dan zal er een Inhoud met een AntwoordInhoud zijn en
+			geen Uitzonderingen element.
+			Indien de registratie mislukte dan zal er GEEN Inhoud met een AntwoordInhoud zijn, en
+			enkel een Uitzonderingen element.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Melding" type="xs:string" fixed="OK">
+				<xs:annotation>
+					<xs:documentation>
+						De melding dat de registratie van het Bewijs gelukt is.
+						Altijd "OK".
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -67,7 +67,7 @@ class MagdaResponseAnnualAccountsIntegrationTest {
         @Test
         void mapsNatureCode() {
             var nature = header.nature();
-            assertNull(nature); // XXX we seem to have no examples at all of documents that have this field?
+            assertNull(nature); // FIXME we seem to have no examples at all of documents that have this field?
         }
     }
 

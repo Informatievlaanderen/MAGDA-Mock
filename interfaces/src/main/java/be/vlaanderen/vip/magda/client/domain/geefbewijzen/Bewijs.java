@@ -32,7 +32,17 @@ public interface Bewijs {
         CodeEnNaam vksNiveauBeroepskwalificatie();
     }
 
+    interface AlternatieveInstantie {
+
+        Naam instantierol();
+
+        Naam instantie();
+    }
+
     interface Basis {
+
+        @Nullable
+        List<AlternatieveInstantie> alternatieveInstanties();
 
         Naam authenticiteit();
 
@@ -40,6 +50,7 @@ public interface Bewijs {
 
         Naam bewijstype();
 
+        @Nullable
         List<BijkomendeInformatie> bijkomendeInformaties();
 
         Naam categorie();
@@ -69,7 +80,15 @@ public interface Bewijs {
 
         Code taal();
 
+        @Nullable
+        String vervalperiode();
+
+        String volledigeNaam();
+
         Uitreikingsdatum uitreikingsdatum();
+
+        @Nullable
+        Integer urenVolwassenenonderwijs();
     }
 
     interface BijkomendeInformatie {
@@ -83,6 +102,7 @@ public interface Bewijs {
 
         String naam();
 
+        @Nullable
         String nummer();
     }
 
