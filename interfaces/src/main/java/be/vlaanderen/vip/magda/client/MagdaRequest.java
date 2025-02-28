@@ -76,20 +76,23 @@ public abstract class MagdaRequest {
 
     public abstract SubjectIdentificationNumber getSubject();
 
-    public MagdaDocument toMagdaDocument(UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+    public MagdaDocument toMagdaDocument(UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
         var serviceId = magdaServiceIdentification();
         var document = Objects.requireNonNull(MagdaDocument.fromResource(MagdaDocument.class, "/templates/" + serviceId.getName() + "/" + serviceId.getVersion() + "/template.xml"));
-        fillIn(document, requestId, magdaRegistrationInfo);
+        fillIn(document, requestId, magdaRegistrationInfo, instant);
 
         return document;
     }
 
-    protected void fillInCommonFields(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+    public MagdaDocument toMagdaDocument(UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
+        return toMagdaDocument(requestId, magdaRegistrationInfo, Instant.now());
+    }
+
+    protected void fillInCommonFields(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
         request.setValue("//Referte", requestId.toString());
         request.setValue(getSubject().getXPathExpression(), getSubject().getValue());
 
-        final var now = Instant.now();
-        var ldt = LocalDateTime.ofInstant(now, ZoneId.of("Europe/Brussels"));
+        var ldt = LocalDateTime.ofInstant(instant, ZoneId.of("Europe/Brussels"));
 
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         var today = ldt.format(dateFormatter);
@@ -111,5 +114,5 @@ public abstract class MagdaRequest {
         }
     }
 
-    protected abstract void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo);
+    protected abstract void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant);
 }
