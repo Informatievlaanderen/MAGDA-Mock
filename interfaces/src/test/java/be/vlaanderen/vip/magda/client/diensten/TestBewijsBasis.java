@@ -157,18 +157,18 @@ class TestBewijsBasis implements Bewijs.Basis {
     }
 
     @Override
-    public Bewijs.NaamEnOptioneleCode onderwerp() {
-        return new Bewijs.NaamEnOptioneleCode() {
+    public Bewijs.CodeEnOptioneleNaam onderwerp() {
+        return new Bewijs.CodeEnOptioneleNaam() {
+
+            @Override
+            public String code() {
+                return "onderwerp code";
+            }
 
             @Nullable
             @Override
-            public String code() {
-                return complete ? "onderwerp code" : null;
-            }
-
-            @Override
             public String naam() {
-                return "onderwerp naam";
+                return complete ? "onderwerp naam" : null;
             }
         };
     }

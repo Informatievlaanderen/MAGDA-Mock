@@ -166,7 +166,7 @@ public class BewijzenJaxb implements Bewijzen, Serializable {
         CodeJaxb land;
 
         @XmlElement(name = "Onderwerp")
-        NaamEnOptioneleCodeJaxb onderwerp;
+        CodeEnOptioneleNaamJaxb onderwerp;
 
         @XmlElement(name = "Onderwijsvorm")
         NaamJaxb onderwijsvorm;

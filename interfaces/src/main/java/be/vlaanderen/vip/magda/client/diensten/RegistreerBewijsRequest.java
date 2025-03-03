@@ -115,8 +115,8 @@ public class RegistreerBewijsRequest extends PersonMagdaRequest {
         request.setValue("//Bewijsregistratie/Bewijs/Bewijstype/Naam", bewijsBasis.bewijstype().naam());
         request.setValue("//Bewijsregistratie/Bewijs/Bewijsstaat/Naam", bewijsBasis.bewijsstaat().naam());
         request.setValue("//Bewijsregistratie/Bewijs/Instantie/Naam", bewijsBasis.instantie().naam());
-        request.setValueOrRemoveNode("//Bewijsregistratie/Bewijs/Onderwerp/Code", bewijsBasis.onderwerp().code());
-        request.setValue("//Bewijsregistratie/Bewijs/Onderwerp/Naam", bewijsBasis.onderwerp().naam());
+        request.setValue("//Bewijsregistratie/Bewijs/Onderwerp/Code", bewijsBasis.onderwerp().code());
+        request.setValueOrRemoveNode("//Bewijsregistratie/Bewijs/Onderwerp/Naam", bewijsBasis.onderwerp().naam());
         request.setValue("//Bewijsregistratie/Bewijs/Uitreikingsdatum/Jaar", bewijsBasis.uitreikingsdatum().jaar().toString());
         request.setValueOrRemoveNode("//Bewijsregistratie/Bewijs/Uitreikingsdatum/Maand", Optional.ofNullable(bewijsBasis.uitreikingsdatum().maand())
                 .map(month -> String.format("%02d", month.getValue()))

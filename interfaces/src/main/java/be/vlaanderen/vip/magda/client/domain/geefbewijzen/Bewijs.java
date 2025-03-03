@@ -66,7 +66,7 @@ public interface Bewijs {
 
         Code land();
 
-        NaamEnOptioneleCode onderwerp();
+        CodeEnOptioneleNaam onderwerp();
 
         Naam onderwijsvorm();
 
