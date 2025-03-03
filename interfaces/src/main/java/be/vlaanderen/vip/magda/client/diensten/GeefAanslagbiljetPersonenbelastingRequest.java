@@ -12,6 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.Instant;
 import java.time.Year;
 import java.util.List;
 import java.util.UUID;
@@ -100,8 +101,8 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends PersonMagdaReques
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, requestId, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo, instant);
 
         request.setValue("//Vragen/Vraag/Inhoud/Criteria/Inkomensjaar", incomeYear.toString());
 

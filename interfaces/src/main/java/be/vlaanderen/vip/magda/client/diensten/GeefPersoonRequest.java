@@ -7,8 +7,12 @@ import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 
+import java.time.Instant;
 import java.util.UUID;
 
 import static be.vlaanderen.vip.magda.client.diensten.PersonSource.RR;
@@ -69,8 +73,8 @@ public class GeefPersoonRequest extends PersonMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, requestId, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo, instant);
 
         var sourceValue = source != null ? source : RR;
         request.setValue("//Inhoud/Bron", sourceValue.getValue());
