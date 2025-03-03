@@ -11,6 +11,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
@@ -85,8 +86,8 @@ public class RegistreerInschrijvingRequest extends PersonMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, requestId, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo, instant);
 
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Begin", getStartDate().format(dateFormatter));

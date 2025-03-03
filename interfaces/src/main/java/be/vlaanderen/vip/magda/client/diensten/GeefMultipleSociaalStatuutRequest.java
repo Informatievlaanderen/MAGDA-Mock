@@ -11,6 +11,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 import java.util.UUID;
@@ -82,8 +83,8 @@ public class GeefMultipleSociaalStatuutRequest extends PersonMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, requestId, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo, instant);
 
         //Remove dummy from template
         request.removeNode("//SociaalStatuut");

@@ -12,6 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.Instant;
 import java.time.Year;
 import java.util.UUID;
 
@@ -102,8 +103,8 @@ public class GeefLeefLoonBedragenRequest extends PersonMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, requestId, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo, instant);
         request.setValue("//Criteria/Jaar", getCurrentYear() != null ? getCurrentYear().toString() : getReferenceYear().toString());
         request.setValue("//Criteria/Jaar/@Huidig", getCurrentYear() == null ? "0" : "1" );
         request.removeNode("//Criteria/AantalJaarTerug");

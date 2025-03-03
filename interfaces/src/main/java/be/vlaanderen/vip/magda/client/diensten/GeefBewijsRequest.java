@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.Instant;
 import java.util.UUID;
 
 /**
@@ -54,7 +55,7 @@ public class GeefBewijsRequest extends PersonMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, requestId, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo, instant);
     }
 }
