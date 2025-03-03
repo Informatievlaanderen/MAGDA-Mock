@@ -132,22 +132,22 @@ public class RegistreerBewijsRequest extends PersonMagdaRequest {
         request.setValue("//Bewijsregistratie/Bewijs/Schooltype/Naam", bewijsBasis.schooltype().naam());
         var studierichting = bewijsBasis.studierichting();
         if(studierichting != null) {
-            request.setValueOrRemoveNode("//Bewijsregistratie/Bewijs/Studierichting/Naam", studierichting.naam());
-            request.setValue("//Bewijsregistratie/Bewijs/Studierichting/Code", studierichting.code());
+            request.setValue("//Bewijsregistratie/Bewijs/Studierichting/Naam", studierichting.naam());
+            request.setValueOrRemoveNode("//Bewijsregistratie/Bewijs/Studierichting/Code", studierichting.code());
         } else {
             request.removeNode("//Bewijsregistratie/Bewijs/Studierichting");
         }
         var specialisatie = bewijsBasis.specialisatie();
         if(specialisatie != null) {
-            request.setValueOrRemoveNode("//Bewijsregistratie/Bewijs/Specialisatie/Naam", specialisatie.naam());
-            request.setValue("//Bewijsregistratie/Bewijs/Specialisatie/Code", specialisatie.code());
+            request.setValue("//Bewijsregistratie/Bewijs/Specialisatie/Naam", specialisatie.naam());
+            request.setValueOrRemoveNode("//Bewijsregistratie/Bewijs/Specialisatie/Code", specialisatie.code());
         } else {
             request.removeNode("//Bewijsregistratie/Bewijs/Specialisatie");
         }
         var detailOnderwerp = bewijsBasis.detailOnderwerp();
         if(detailOnderwerp != null) {
-            request.setValueOrRemoveNode("//Bewijsregistratie/Bewijs/DetailOnderwerp/Naam", detailOnderwerp.naam());
-            request.setValue("//Bewijsregistratie/Bewijs/DetailOnderwerp/Code", detailOnderwerp.code());
+            request.setValue("//Bewijsregistratie/Bewijs/DetailOnderwerp/Naam", detailOnderwerp.naam());
+            request.setValueOrRemoveNode("//Bewijsregistratie/Bewijs/DetailOnderwerp/Code", detailOnderwerp.code());
         } else {
             request.removeNode("//Bewijsregistratie/Bewijs/DetailOnderwerp");
         }
