@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.domain.model.enterprise;
 
 import be.vlaanderen.vip.magda.client.domain.giveenterprise.Enterprise;
 import be.vlaanderen.vip.magda.client.domain.model.shared.*;
+import jakarta.annotation.Nullable;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import lombok.Getter;
@@ -39,6 +40,7 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
 
     @XmlElement(name = "Namen")
     @Getter
+    @Nullable
     CompanyNames companyNames;
 
     @XmlElement(name = "SoortOnderneming")
@@ -69,10 +71,16 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
 
         @XmlElementWrapper(name = "MaatschappelijkeNamen")
         @XmlElement(name = "MaatschappelijkeNaam")
+        @Nullable
         List<CompanyName> registeredNames;
 
         @Override
+        @Nullable
         public List<Enterprise.CompanyName> registeredNames() {
+            if(registeredNames == null) {
+                return null;
+            }
+
             return registeredNames.stream().map(o -> (Enterprise.CompanyName) o).toList();
         }
     }
