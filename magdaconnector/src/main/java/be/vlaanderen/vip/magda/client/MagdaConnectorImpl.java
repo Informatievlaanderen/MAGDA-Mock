@@ -50,7 +50,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             logRequest(magdaRequest, requestId);
 
-            var magdaRegistrationInfo = magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration());
+            var magdaRegistrationInfo = magdaRequest.getRegistration().resolve(magdaHoedanigheidService);
             var requestDocument = magdaRequest.toMagdaDocument(requestId, magdaRegistrationInfo);
 
             magdaRequestLoggingEventBuilder(log, Level.INFO, magdaRequest)
@@ -123,7 +123,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 requestId,
                 magdaRequest.magdaServiceIdentification().getName(),
                 magdaRequest.magdaServiceIdentification().getVersion(),
-                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration())));
+                magdaRequest.getRegistration().resolve(magdaHoedanigheidService)));
     }
 
     private void logRequest(MagdaRequest magdaRequest, UUID requestId) {
@@ -133,7 +133,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 requestId,
                 magdaRequest.magdaServiceIdentification().getName(),
                 magdaRequest.magdaServiceIdentification().getVersion(),
-                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration())));
+                magdaRequest.getRegistration().resolve(magdaHoedanigheidService)));
 
     }
 
@@ -145,7 +145,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 duration,
                 magdaRequest.magdaServiceIdentification().getName(),
                 magdaRequest.magdaServiceIdentification().getVersion(),
-                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration())));
+                magdaRequest.getRegistration().resolve(magdaHoedanigheidService)));
     }
 
     private void logAllUitzonderingEntries(MagdaRequest magdaRequest, UUID requestId, Duration duration, List<UitzonderingEntry> uitzonderingEntries) {
@@ -156,7 +156,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
                 uitzonderingEntries,
                 magdaRequest.magdaServiceIdentification().getName(),
                 magdaRequest.magdaServiceIdentification().getVersion(),
-                magdaHoedanigheidService.getDomeinService(magdaRequest.getRegistration())));
+                magdaRequest.getRegistration().resolve(magdaHoedanigheidService)));
     }
 
 

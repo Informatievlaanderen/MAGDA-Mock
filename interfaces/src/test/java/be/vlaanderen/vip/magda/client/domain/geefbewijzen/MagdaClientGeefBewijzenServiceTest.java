@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.magda.client.domain.giveproofdiplomas;
+package be.vlaanderen.vip.magda.client.domain.geefbewijzen;
 
 import be.vlaanderen.vip.magda.client.MagdaClient;
 import be.vlaanderen.vip.magda.client.MagdaClientException;
@@ -24,18 +24,18 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class MagdaClientGiveProofDiplomasServiceTest {
+class MagdaClientGeefBewijzenServiceTest {
 
     @Mock
     private MagdaClient magdaClient;
     @Mock
-    private MagdaResponseProofDiplomasAdapter adapter;
+    private MagdaResponseBewijzenAdapter adapter;
 
     @InjectMocks
-    private MagdaClientGiveProofDiplomasService service;
+    private MagdaClientGeefBewijzenService service;
 
     @Nested
-    class GetProofDiplomas {
+    class GetBewijzen {
 
         private GeefBewijsRequest request;
 
@@ -54,7 +54,7 @@ class MagdaClientGiveProofDiplomasServiceTest {
                     .responseUitzonderingEntries(List.of())
                     .build()));
 
-            service.getProofDiplomas(request);
+            service.geefBewijzen(request);
 
             verify(magdaClient).send(request);
         }
@@ -68,7 +68,7 @@ class MagdaClientGiveProofDiplomasServiceTest {
                             .build()))
                     .build()));
 
-            assertDoesNotThrow(() -> service.getProofDiplomas(request));
+            assertDoesNotThrow(() -> service.geefBewijzen(request));
         }
 
         @Test
@@ -80,12 +80,12 @@ class MagdaClientGiveProofDiplomasServiceTest {
                             .build()))
                     .build()));
 
-            assertDoesNotThrow(() -> service.getProofDiplomas(request));
+            assertDoesNotThrow(() -> service.geefBewijzen(request));
         }
     }
 
     @Nested
-    class GetProofDiplomasWithRequestId {
+    class GetBewijzenWithRequestId {
 
         private final UUID REQUEST_ID = UUID.fromString("a887b321-c320-42e9-9fb2-c82834016894");
 
@@ -106,7 +106,7 @@ class MagdaClientGiveProofDiplomasServiceTest {
                     .responseUitzonderingEntries(List.of())
                     .build()));
 
-            service.getProofDiplomas(request, REQUEST_ID);
+            service.geefBewijzen(request, REQUEST_ID);
 
             verify(magdaClient).send(request, REQUEST_ID);
         }
@@ -120,7 +120,7 @@ class MagdaClientGiveProofDiplomasServiceTest {
                             .build()))
                     .build()));
 
-            assertDoesNotThrow(() -> service.getProofDiplomas(request, REQUEST_ID));
+            assertDoesNotThrow(() -> service.geefBewijzen(request, REQUEST_ID));
         }
 
         @Test
@@ -132,7 +132,7 @@ class MagdaClientGiveProofDiplomasServiceTest {
                             .build()))
                     .build()));
 
-            assertDoesNotThrow(() -> service.getProofDiplomas(request, REQUEST_ID));
+            assertDoesNotThrow(() -> service.geefBewijzen(request, REQUEST_ID));
         }
     }
 }

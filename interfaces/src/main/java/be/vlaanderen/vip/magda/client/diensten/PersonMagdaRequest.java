@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaRequest;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
@@ -41,7 +42,7 @@ public abstract class PersonMagdaRequest extends MagdaRequest {
 
     protected PersonMagdaRequest(
             @NotNull INSZNumber insz,
-            @NotNull String registration) {
+            @NotNull Registration registration) {
         super(registration);
         this.insz = insz;
     }

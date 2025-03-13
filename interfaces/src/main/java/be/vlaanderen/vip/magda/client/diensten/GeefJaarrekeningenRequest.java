@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.Instant;
 import java.time.Year;
 import java.util.UUID;
 
@@ -59,7 +61,7 @@ public class GeefJaarrekeningenRequest extends CompanyMagdaRequest {
 
     private GeefJaarrekeningenRequest(
             @NotNull KBONumber kboNumber,
-            @NotNull String registratie,
+            @NotNull Registration registratie,
             @NotNull Year financialYear) {
         super(kboNumber, registratie);
         this.financialYear = financialYear;
@@ -71,8 +73,8 @@ public class GeefJaarrekeningenRequest extends CompanyMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, requestId, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo, instant);
 
 
         request.setValue("//Criteria/Boekjaar", getFinancialYear().toString());

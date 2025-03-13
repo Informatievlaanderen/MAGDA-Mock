@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
@@ -11,6 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.Instant;
 import java.time.Year;
 import java.util.UUID;
 
@@ -85,7 +87,7 @@ public class GeefLeefLoonBedragenRequest extends PersonMagdaRequest {
 
     public GeefLeefLoonBedragenRequest(
             @NotNull INSZNumber insz,
-            @NotNull String registration,
+            @NotNull Registration registration,
             @Nullable Year currentYear,
             @Nullable Year referenceYear,
             @Nullable Integer numberOfYearsAgo) {
@@ -101,8 +103,8 @@ public class GeefLeefLoonBedragenRequest extends PersonMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, requestId, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo, instant);
         request.setValue("//Criteria/Jaar", getCurrentYear() != null ? getCurrentYear().toString() : getReferenceYear().toString());
         request.setValue("//Criteria/Jaar/@Huidig", getCurrentYear() == null ? "0" : "1" );
         request.removeNode("//Criteria/AantalJaarTerug");
