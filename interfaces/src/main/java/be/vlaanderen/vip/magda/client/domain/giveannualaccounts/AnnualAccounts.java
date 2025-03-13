@@ -4,6 +4,7 @@ import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaResponse;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
+import jakarta.annotation.Nullable;
 
 import java.time.Year;
 import java.util.List;
@@ -20,6 +21,7 @@ public interface AnnualAccounts {
 
     interface AnnualAccount {
 
+        @Nullable
         Header header();
 
         List<Element> elements();
