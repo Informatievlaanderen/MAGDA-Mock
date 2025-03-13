@@ -50,6 +50,7 @@ class TemplateXmlValidationTest {
             "GeefSociaalStatuut/03.00.0000", "GeefSociaalStatuutDienst-03.00/WebService/GeefSociaalStatuut.xsd",
             "GeefWerkrelaties/02.00.0000", "GeefWerkrelatiesDienst-02.00/WebService/GeefWerkrelaties.xsd",
             "Onderwijs.GeefHistoriekInschrijving/02.01.0000", "GeefHistoriekInschrijvingDienst-02.01/WebService/GeefHistoriekInschrijving.xsd",
+            "RegistreerBewijs/02.00.0000", "RegistreerBewijsDienst-02.00/WebService/RegistreerBewijs.xsd",
             "RegistreerInschrijving/02.00.0000", "RegistreerInschrijvingDienst-02.00/WebService/RegistreerInschrijving.xsd",
             "RegistreerInschrijving/02.01.0000", "RegistreerInschrijvingDienst-02.01/WebService/RegistreerInschrijving.xsd",
             "RegistreerUitschrijving/02.00.0000", "RegistreerUitschrijvingDienst-02.00/WebService/RegistreerUitschrijving.xsd",

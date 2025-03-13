@@ -1,0 +1,16 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://bewijs.led.vlaanderen.be" version="2.00" xmlns="http://bewijs.led.vlaanderen.be" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	
+	<!-- Enumeraties worden niet gebruikt voor input LED -->
+	
+	<xs:simpleType name="StatusEnumType">
+		<xs:annotation>
+			<xs:documentation>1=Geregistreerd, 10=Geannuleerd</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

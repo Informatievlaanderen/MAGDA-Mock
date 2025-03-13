@@ -1,0 +1,98 @@
+<xs:schema targetNamespace="http://registreerbewijs.bewijsregistratiedienst.led.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://registreerbewijs.bewijsregistratiedienst.led.vlaanderen.be" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:bewijs="http://bewijs.led.vlaanderen.be">
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../../Generiek-02.00/Generiek.xsd"/>
+	<xs:import namespace="http://bewijs.led.vlaanderen.be" schemaLocation="../../Bewijs/Bewijs.xsd"/>
+	<xs:element name="RegistreerBewijs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Verzoek" type="VerzoekType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="VerzoekType">
+		<xs:sequence>
+			<xs:element name="Context" type="generiek:ContextType"/>
+			<xs:element name="Vragen" type="VragenType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VragenType">
+		<xs:sequence>
+			<xs:element name="Vraag" type="VraagType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VraagType">
+		<xs:sequence>
+			<xs:element name="Referte" type="generiek:ReferteType"/>
+			<xs:element name="Inhoud" type="VraagInhoudType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VraagInhoudType">
+		<xs:sequence>
+			<xs:element name="Bewijsregistratie" type="BewijsregistratieType">
+				<xs:annotation>
+					<xs:documentation>					
+						Het detail van de registratie.
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BewijsregistratieType">
+		<xs:annotation>
+			<xs:documentation>
+			Moet de gegevens bevatten die nodig zijn om een Bewijs in de LED te registreren.
+			Het Leveranciers element moet de unieke leveranciercode-bewijsreferteleverancier
+			combinatie bevatten waarmee de leverancier over haar systemen heen een bepaald
+			bewijs uniek identificeert. Het is o.b.v. deze unieke combinatie dat een bewijs 
+			geregistreerd wordt en later eventueel geannuleerd kan worden. Deze combinatie
+			moet globaal uniek zijn.
+
+			De LED gebruikt de leveranciercode én de afzenderidentificatie uit het AfzenderAdres
+			element (zie Context element) om te bepalen of de verzoeker gerechtigd is
+			om bewijzen te registreren.  
+			
+			De lijst van leveranciercodes en afzenderidentificaties wordt door LED en CORVE
+			onderhouden.
+						
+			Het PersoonUitgereikt element moet aangeven aan welke Persoon het Bewijs werd 
+			uitgereikt. Meer bepaald moet dit element het INSZ van de Persoon in kwestie
+			bevatten.  De Leverancier moet er alles aan doen om ervoor te 
+			zorgen dat dit het actuele INSZ van de Persoon in kwestie is.
+			
+			Het Bewijs element tenslotte moet alle data van het bewijs bevatten. Dit element
+			vormt het eigenlijke kernonderwerp van de registratie. Het moet ondermeer voor
+			elke dimensie van het bewijs een toegelaten waarde bevatten en de opgegeven waarden
+			moeten ook deel uitmaken van de lijst van toegelaten binaire (bv. CategorieGraad) en
+			meervoudige combinaties.  De lijsten van toegelaten waarden en combinaties wordt
+			in samenspraak met de verschillende partijen door het AKOV beheerd.
+			In samenspraak met de verschillende partijen zal het AKOV volgens een welbepaalde
+			manuele procedure op gezette tijdstippen de lijsten kenbaar maken.
+			
+			De LED zal o.b.v. de ontvangen registratievraag het bewijs registreren onder de
+			unieke leveranciercode-bewijsreferteleverancie combinatie en de
+			zogenaamde afgeleide dimensiewaarden aanvullen. Zo zal de LED bijvoorbeeld 
+			voor elk onderwerp een overeenkomstig ISCED Studiegebied afleiden.
+			
+			Een succesvolle registratie leidt altijd tot een Inhoud element met daarin 
+			een AntwoordInhoud met daarin de vaste waarde "OK".  
+			
+			Een niet succesvolle registratie leidt altijd tot een Uitzonderingen element en dus
+			nooit tot een Inhoud element. 			
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Leverancier" type="bewijs:LeverancierType"/>
+			<xs:element name="PersoonUitgereikt" type="bewijs:PersoonUitgereiktType">
+				<xs:annotation>
+					<xs:documentation>					
+						Het PersoonUitgereikt element bevat het INSZ van de Persoon 
+						waaraan het bewijs werd uitgereikt.
+						De Leverancier moet er alles aan doen om ervoor te zorgen dat dit
+						het actuele INSZ van de Persoon in kwestie is, zodat de registratie
+						kan gebeuren o.b.v. dit actuele INSZ i.p.v. o.b.v. een verouderd INSZ.					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bewijs" type="bewijs:BewijsBasisType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
