@@ -87,10 +87,39 @@ public class BewijzenJaxb implements Bewijzen, Serializable {
     }
 
     @Getter
+    private static class AlternatieveInstantieJaxb implements AlternatieveInstantie, Serializable {
+
+        @Serial
+        private static final long serialVersionUID = -8928018348109913431L;
+
+        @XmlElement(name = "Instantierol")
+        NaamJaxb instantierol;
+
+        @XmlElement(name = "Instantie")
+        NaamJaxb instantie;
+    }
+
+    @Getter
     private static class BasisJaxb implements Basis, Serializable {
 
         @Serial
         private static final long serialVersionUID = 2038089676881615361L;
+
+        @XmlElementWrapper(name = "AlternatieveInstanties")
+        @XmlElement(name = "AlternatieveInstantie")
+        @Nullable
+        ArrayList<AlternatieveInstantieJaxb> alternatieveInstanties;
+
+        @Override
+        public List<AlternatieveInstantie> alternatieveInstanties() {
+            if(alternatieveInstanties != null) {
+                return alternatieveInstanties.stream()
+                        .map(x -> (AlternatieveInstantie) x)
+                        .toList();
+            } else {
+                return List.of();
+            }
+        }
 
         @XmlElement(name = "Authenticiteit")
         NaamJaxb authenticiteit;
@@ -103,13 +132,18 @@ public class BewijzenJaxb implements Bewijzen, Serializable {
 
         @XmlElementWrapper(name = "BijkomendeInformaties")
         @XmlElement(name = "BijkomendeInformatie")
+        @Nullable
         ArrayList<BijkomendeInformatieJaxb> bijkomendeInformaties;
 
         @Override
         public List<BijkomendeInformatie> bijkomendeInformaties() {
-            return bijkomendeInformaties.stream()
-                    .map(x -> (BijkomendeInformatie) x)
-                    .toList();
+            if(bijkomendeInformaties != null) {
+                return bijkomendeInformaties.stream()
+                        .map(x -> (BijkomendeInformatie) x)
+                        .toList();
+            } else {
+                return List.of();
+            }
         }
 
         @XmlElement(name = "Categorie")
@@ -132,7 +166,7 @@ public class BewijzenJaxb implements Bewijzen, Serializable {
         CodeJaxb land;
 
         @XmlElement(name = "Onderwerp")
-        NaamEnOptioneleCodeJaxb onderwerp;
+        CodeEnOptioneleNaamJaxb onderwerp;
 
         @XmlElement(name = "Onderwijsvorm")
         NaamJaxb onderwijsvorm;
@@ -151,8 +185,19 @@ public class BewijzenJaxb implements Bewijzen, Serializable {
         @XmlElement(name = "Taal")
         CodeJaxb taal;
 
+        @XmlElement(name = "VervalPeriode")
+        @Nullable
+        String vervalperiode;
+
+        @XmlElement(name = "VolledigeNaam")
+        String volledigeNaam;
+
         @XmlElement(name = "Uitreikingsdatum")
         UitreikingsdatumJaxb uitreikingsdatum;
+
+        @XmlElement(name = "UrenVolwassenenonderwijs")
+        @Nullable
+        Integer urenVolwassenenonderwijs;
     }
 
     @Getter
@@ -178,6 +223,7 @@ public class BewijzenJaxb implements Bewijzen, Serializable {
         String naam;
 
         @XmlElement(name = "Nummer")
+        @Nullable
         String nummer;
     }
 
