@@ -1,9 +1,6 @@
 package be.vlaanderen.vip.mock.starter.connector;
 
-import be.vlaanderen.vip.magda.client.MagdaConnector;
-import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
-import be.vlaanderen.vip.magda.client.MagdaSignedConnection;
-import be.vlaanderen.vip.magda.client.MagdaSoapConnection;
+import be.vlaanderen.vip.magda.client.*;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceImpl;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
@@ -56,7 +53,7 @@ public class RemoteMagdaConnectionBuilder {
     
     private MagdaSoapConnection createSoapConnection() throws TwoWaySslException {
         if(tracing != null) {
-            return new MagdaSoapConnection(endpoints, magdaConfig, tracing);
+            return new MagdaBraveTracingSoapConnection(endpoints, magdaConfig.getKeystore(), tracing);
         }
         return new MagdaSoapConnection(endpoints, magdaConfig);
     }
