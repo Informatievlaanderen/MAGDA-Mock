@@ -20,19 +20,25 @@ public interface Enterprise {
 
     String enterpriseNumber();
 
+    @Nullable
     List<BranchOffice> branchOffices();
 
+    @Nullable
     List<Address> addresses();
 
+    @Nullable
     CodeAndDescription statusKBO();
 
+    @Nullable
     DateContainer startDate();
 
     @Nullable
     CompanyNames companyNames();
 
+    @Nullable
     CodeAndDescription enterpriseType();
 
+    @Nullable
     List<CodeAndDescription> legalForms();
 
     interface LegalSituation {
@@ -88,8 +94,10 @@ public interface Enterprise {
     interface Address extends BaseAddress {
         Type type();
 
+        @Nullable
         List<Description> descriptions();
 
+        @Nullable
         List<Cancellation> cancellations();
 
         OffsetDateTime startDate();
@@ -101,6 +109,7 @@ public interface Enterprise {
 
         ValueAndDescription code();
 
+        @Nullable
         TypeDescription description();
     }
 
@@ -115,40 +124,55 @@ public interface Enterprise {
 
     interface Description {
 
+        @Nullable
         BaseAddress address();
 
+        @Nullable
         ContactInfo contactInfo();
 
+        @Nullable
         String languageCode();
 
+        @Nullable
         String supplement();
     }
 
     interface BaseAddress {
 
+        @Nullable
         Street street();
 
+        @Nullable
         String houseNumber();
 
+        @Nullable
         String busNumber();
 
+        @Nullable
         Municipality municipality();
 
+        @Nullable
         String state();
 
+        @Nullable
         Country country();
     }
 
     interface ContactInfo {
 
+        @Nullable
         String phoneNumber();
 
+        @Nullable
         String faxNumber();
 
+        @Nullable
         String mobileNumber();
 
+        @Nullable
         String emailAddress();
 
+        @Nullable
         String website();
     }
 
