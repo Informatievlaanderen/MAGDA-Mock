@@ -235,7 +235,7 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
             @XmlElement(name = "Code")
             ValueAndDescriptionJaxb code;
             @XmlElement(name = "Omschrijving")
-            @Nullable // XXX
+            @Nullable
             TypeDescription description;
 
             @Getter
