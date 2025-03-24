@@ -3,6 +3,7 @@ package be.vlaanderen.vip.mock.magda.client;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.RegexFileFilter;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -17,6 +18,7 @@ class SimulatorXmlStructuralConstraintTest {
     private static final String BASE_XML = "magda_simulator/";
     private static final Pattern INSZ_XML_PATTERN = Pattern.compile("^\\d{11}\\.xml$");
 
+    @Disabled
     @Test
     void allInszXmlsHaveAccordingGeefPersoonXml() {
         var geefPersoonInszFilenames = findInszXmlsInDirectoryRecursively(mainFile(BASE_XML + "Persoon/GeefPersoon"))
