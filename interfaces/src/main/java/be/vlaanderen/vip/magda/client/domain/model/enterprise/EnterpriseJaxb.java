@@ -24,18 +24,22 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
 
     @XmlElementWrapper(name = "Vestigingen")
     @XmlElement(name = "Vestiging")
+    @Nullable
     ArrayList<BranchOffice> branchOffices = new ArrayList<>();
 
     @XmlElementWrapper(name = "Adressen")
     @XmlElement(name = "Adres")
+    @Nullable
     ArrayList<BaseAddress> addresses = new ArrayList<>();
 
     @XmlElement(name = "StatusKBO")
     @Getter
+    @Nullable
     CodeAndDescriptionJaxb statusKBO;
 
     @XmlElement(name = "Start")
     @Getter
+    @Nullable
     DateContainerJaxb startDate;
 
     @XmlElement(name = "Namen")
@@ -45,24 +49,41 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
 
     @XmlElement(name = "SoortOnderneming")
     @Getter
+    @Nullable
     CodeAndDescriptionJaxb enterpriseType;
 
     @XmlElementWrapper(name = "Rechtsvormen")
     @XmlElement(name = "Rechtsvorm")
+    @Nullable
     ArrayList<CodeAndDescriptionJaxb> legalForms = new ArrayList<>();
 
     @Override
+    @Nullable
     public List<Enterprise.BranchOffice> branchOffices() {
+        if(branchOffices == null) {
+            return null;
+        }
+
         return branchOffices.stream().map(o -> (Enterprise.BranchOffice) o).toList();
     }
 
     @Override
+    @Nullable
     public List<Enterprise.CodeAndDescription> legalForms() {
+        if(legalForms == null) {
+            return null;
+        }
+
         return legalForms.stream().map(o -> (Enterprise.CodeAndDescription) o).toList();
     }
 
     @Override
+    @Nullable
     public List<Address> addresses() {
+        if(addresses == null) {
+            return null;
+        }
+
         return addresses.stream().map(o -> (Enterprise.Address) o).toList();
     }
 
@@ -126,6 +147,7 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
         @Getter
         private static class OfficeAddress implements Enterprise.Address, Serializable {
             @XmlElement(name = "Gemeente")
+            @Nullable
             AddressJaxb.Municipality municipality;
             @XmlAttribute(name = "DatumBegin")
             @XmlJavaTypeAdapter(OffsetDateXmlAdapter.class)
@@ -183,18 +205,28 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
         Type type;
         @XmlElementWrapper(name = "Descripties")
         @XmlElement(name = "Descriptie")
+        @Nullable
         ArrayList<Descriptie> descripties = new ArrayList<>();
         @XmlElementWrapper(name = "Doorhalingen")
         @XmlElement(name = "Doorhaling")
+        @Nullable
         ArrayList<Cancellation> cancellations = new ArrayList<>();
 
         @Override
         public List<Description> descriptions() {
+            if(descripties == null) {
+                return null;
+            }
+
             return descripties.stream().map(o -> (Enterprise.Description) o).toList();
         }
 
         @Override
         public List<Enterprise.Cancellation> cancellations() {
+            if(cancellations == null) {
+                return null;
+            }
+
             return cancellations.stream().map(o -> (Enterprise.Cancellation) o).toList();
         }
 
@@ -203,6 +235,7 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
             @XmlElement(name = "Code")
             ValueAndDescriptionJaxb code;
             @XmlElement(name = "Omschrijving")
+            @Nullable
             TypeDescription description;
 
             @Getter
@@ -220,25 +253,34 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
         @Getter
         private static class Descriptie implements Enterprise.Description, Serializable {
             @XmlElement(name = "Adres")
+            @Nullable
             AddressJaxb address;
             @XmlElement(name = "Contact")
+            @Nullable
             ContactInfo contactInfo;
             @XmlElement(name = "Taalcode")
+            @Nullable
             String languageCode;
             @XmlElement(name = "Aanvulling")
+            @Nullable
             String supplement;
 
             @Getter
             private static class ContactInfo implements Enterprise.ContactInfo, Serializable {
                 @XmlElement(name = "Telefoonnummer")
+                @Nullable
                 String phoneNumber;
                 @XmlElement(name = "Faxnummer")
+                @Nullable
                 String faxNumber;
                 @XmlElement(name = "GSM")
+                @Nullable
                 String mobileNumber;
                 @XmlElement(name = "Email")
+                @Nullable
                 String emailAddress;
                 @XmlElement(name = "Website")
+                @Nullable
                 String website;
             }
         }
