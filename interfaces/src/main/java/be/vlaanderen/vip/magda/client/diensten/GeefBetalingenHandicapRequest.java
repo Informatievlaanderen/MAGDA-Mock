@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
@@ -11,6 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -86,7 +88,7 @@ public class GeefBetalingenHandicapRequest extends PersonMagdaRequest {
 
     public GeefBetalingenHandicapRequest(
             @NotNull INSZNumber insz,
-            @NotNull String registration,
+            @NotNull Registration registration,
             @NotNull LocalDate startDate,
             @NotNull LocalDate endDate,
             @Nullable Set<HandicapAuthenticSourceType> sources) {
@@ -102,8 +104,8 @@ public class GeefBetalingenHandicapRequest extends PersonMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, requestId, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo, instant);
 
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//ConsultPaymentsCriteria/ssin", getInsz().getValue());

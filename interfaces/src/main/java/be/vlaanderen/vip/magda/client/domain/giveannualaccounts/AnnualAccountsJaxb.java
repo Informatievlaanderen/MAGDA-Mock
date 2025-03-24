@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.domain.giveannualaccounts;
 
 import be.vlaanderen.vip.magda.client.domain.model.shared.CodeAndDescriptionJaxb;
 import be.vlaanderen.vip.magda.client.domain.model.shared.YearXmlAdapter;
+import jakarta.annotation.Nullable;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementWrapper;
 import jakarta.xml.bind.annotation.XmlRootElement;
@@ -33,6 +34,7 @@ public class AnnualAccountsJaxb implements AnnualAccounts, Serializable {
     private static class AnnualAccountJaxb implements AnnualAccounts.AnnualAccount, Serializable {
 
         @XmlElement(name = "Hoofding")
+        @Nullable
         HeaderJaxb header;
 
         @XmlElementWrapper(name = "Elementen")

@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
+import be.vlaanderen.vip.magda.client.KeyRegistration;
 import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
@@ -26,7 +27,8 @@ class RegistreerInschrijving0201RequestTest {
 
             assertNull(request.getCorrelationId());
             assertEquals(INSZNumber.of("123"), request.getSubject());
-            assertEquals("456", request.getRegistration());
+            var keyRegistration = assertInstanceOf(KeyRegistration.class, request.getRegistration());
+            assertEquals("456", keyRegistration.getKey());
         }
 
         @Test
@@ -37,7 +39,8 @@ class RegistreerInschrijving0201RequestTest {
                     .endDate(LocalDate.of(2023, 4, 1));
             var request = builder.build();
 
-            assertEquals(MagdaRequest.DEFAULT_REGISTRATION, request.getRegistration());
+            var keyRegistration = assertInstanceOf(KeyRegistration.class, request.getRegistration());
+            assertEquals(MagdaRequest.DEFAULT_REGISTRATION, keyRegistration.getKey());
         }
 
         @Test

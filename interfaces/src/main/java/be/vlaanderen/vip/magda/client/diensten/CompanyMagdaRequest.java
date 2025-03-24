@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaRequest;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
@@ -41,7 +42,7 @@ public abstract class CompanyMagdaRequest extends MagdaRequest {
 
     protected CompanyMagdaRequest(
             @NotNull KBONumber kboNumber,
-            @NotNull String registration) {
+            @NotNull Registration registration) {
         super(registration);
         this.kboNumber = kboNumber;
     }

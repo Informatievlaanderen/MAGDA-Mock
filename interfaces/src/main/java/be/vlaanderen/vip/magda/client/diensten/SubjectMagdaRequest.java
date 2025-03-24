@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaRequest;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
@@ -44,7 +45,7 @@ public abstract class SubjectMagdaRequest extends MagdaRequest {
 
     protected SubjectMagdaRequest(
             @NotNull SubjectIdentificationNumber subject,
-            @NotNull String registration) {
+            @NotNull Registration registration) {
         super(registration);
         this.subject = subject;
     }

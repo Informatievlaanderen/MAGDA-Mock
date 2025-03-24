@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
+import be.vlaanderen.vip.magda.client.KeyRegistration;
 import be.vlaanderen.vip.magda.client.MagdaRequest;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import org.junit.jupiter.api.Nested;
@@ -26,7 +27,8 @@ class GeefAanslagbiljetPersonenbelastingRequestTest {
 
             assertNull(request.getCorrelationId());
             assertEquals(INSZNumber.of("123"), request.getInsz());
-            assertEquals("456", request.getRegistration());
+            var keyRegistration = assertInstanceOf(KeyRegistration.class, request.getRegistration());
+            assertEquals("456", keyRegistration.getKey());
             assertEquals(Year.of(2021), request.getIncomeYear());
             assertEquals(List.of("7001", "7002", "7003"), request.getIpcalCodes());
         }
@@ -38,7 +40,8 @@ class GeefAanslagbiljetPersonenbelastingRequestTest {
                     .incomeYear(Year.of(2021));
             var request = builder.build();
 
-            assertEquals(MagdaRequest.DEFAULT_REGISTRATION, request.getRegistration());
+            var keyRegistration = assertInstanceOf(KeyRegistration.class, request.getRegistration());
+            assertEquals(MagdaRequest.DEFAULT_REGISTRATION, keyRegistration.getKey());
         }
 
         @Test
@@ -93,7 +96,8 @@ class GeefAanslagbiljetPersonenbelastingRequestTest {
 
                 assertNull(request.getCorrelationId());
                 assertEquals(INSZNumber.of("123"), request.getInsz());
-                assertEquals("456", request.getRegistration());
+                var keyRegistration = assertInstanceOf(KeyRegistration.class, request.getRegistration());
+                assertEquals("456", keyRegistration.getKey());
             }
 
             @Test
@@ -102,7 +106,8 @@ class GeefAanslagbiljetPersonenbelastingRequestTest {
                         .insz(INSZNumber.of("123"));
                 var request = builder.build();
 
-                assertEquals(MagdaRequest.DEFAULT_REGISTRATION, request.getRegistration());
+                var keyRegistration = assertInstanceOf(KeyRegistration.class, request.getRegistration());
+                assertEquals(MagdaRequest.DEFAULT_REGISTRATION, keyRegistration.getKey());
             }
 
             @Test

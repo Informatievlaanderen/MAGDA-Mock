@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.annotation.Nullable;
@@ -11,6 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.Instant;
 import java.time.Year;
 import java.util.List;
 import java.util.UUID;
@@ -85,7 +87,7 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends PersonMagdaReques
 
     private GeefAanslagbiljetPersonenbelastingRequest(
             @NotNull INSZNumber insz,
-            @NotNull String registratie,
+            @NotNull Registration registratie,
             @NotNull Year incomeYear,
             @Nullable List<String> ipcalCodes) {
         super(insz, registratie);
@@ -99,8 +101,8 @@ public class GeefAanslagbiljetPersonenbelastingRequest extends PersonMagdaReques
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, requestId, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo, instant);
 
         request.setValue("//Vragen/Vraag/Inhoud/Criteria/Inkomensjaar", incomeYear.toString());
 

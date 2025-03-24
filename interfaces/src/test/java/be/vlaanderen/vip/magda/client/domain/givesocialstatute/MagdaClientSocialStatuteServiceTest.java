@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client.domain.givesocialstatute;
 
+import be.vlaanderen.vip.magda.client.KeyRegistration;
 import be.vlaanderen.vip.magda.client.MagdaClient;
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.diensten.GeefMultipleSociaalStatuutRequest;
@@ -107,7 +108,7 @@ class MagdaClientSocialStatuteServiceTest {
         verify(magdaClient).send(argThat(magdaRequest -> {
             if (magdaRequest instanceof GeefMultipleSociaalStatuutRequest request) {
                 return request.getInsz().getValue().equals("insz") &&
-                        request.getRegistration().equals("registration") &&
+                        request.getRegistration().equals(new KeyRegistration("registration")) &&
                         request.getSocialStatutes().equals(requestCriteria) &&
                         request.getCorrelationId().equals(UUID.fromString("6469cd5e-e8ed-43f7-a91e-48fdfbb76e0f"));
 

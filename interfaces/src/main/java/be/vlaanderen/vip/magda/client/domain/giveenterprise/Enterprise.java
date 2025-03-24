@@ -4,6 +4,7 @@ import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaResponse;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
+import jakarta.annotation.Nullable;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -27,6 +28,7 @@ public interface Enterprise {
 
     DateContainer startDate();
 
+    @Nullable
     CompanyNames companyNames();
 
     CodeAndDescription enterpriseType();
@@ -68,6 +70,7 @@ public interface Enterprise {
 
     interface CompanyNames {
 
+        @Nullable
         List<CompanyName> registeredNames();
     }
 

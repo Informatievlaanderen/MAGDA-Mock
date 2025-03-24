@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.magda.client.domeinservice;
 
 import jakarta.annotation.Nullable;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -20,6 +21,7 @@ import java.util.Optional;
  */
 @Getter
 @ToString
+@EqualsAndHashCode
 public class MagdaRegistrationInfo {
     private String identification;
     @Nullable private String hoedanigheidscode;

@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import jakarta.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
@@ -71,7 +73,7 @@ public class RegistreerInschrijving0201Request extends SubjectMagdaRequest {
 
     private RegistreerInschrijving0201Request(
             @NotNull SubjectIdentificationNumber subject,
-            @NotNull String registratie,
+            @NotNull Registration registratie,
             @NotNull LocalDate startDate,
             @NotNull LocalDate endDate) {
         super(subject, registratie);
@@ -85,8 +87,8 @@ public class RegistreerInschrijving0201Request extends SubjectMagdaRequest {
     }
 
     @Override
-    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo) {
-        fillInCommonFields(request, requestId, magdaRegistrationInfo);
+    protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
+        fillInCommonFields(request, requestId, magdaRegistrationInfo, instant);
 
         var dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         request.setValue("//Vraag/Inhoud/Inschrijving/Periode/Start", getStartDate().format(dateFormatter));
