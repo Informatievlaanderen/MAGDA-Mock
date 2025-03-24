@@ -7,6 +7,7 @@ import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.legallogging.service.ClientLogService;
 import brave.Tracing;
+import io.micrometer.observation.ObservationRegistry;
 import org.springframework.util.Assert;
 
 public class RemoteMagdaConnectionBuilder {
@@ -14,6 +15,7 @@ public class RemoteMagdaConnectionBuilder {
     private MagdaConfigDto magdaConfig;
     private MagdaEndpoints endpoints;
     private Tracing tracing;
+    private ObservationRegistry observationRegistry;
     
     RemoteMagdaConnectionBuilder() {}
     
@@ -36,6 +38,11 @@ public class RemoteMagdaConnectionBuilder {
         this.tracing = tracing;
         return this;
     }
+
+    public RemoteMagdaConnectionBuilder micrometer(ObservationRegistry observationRegistry) {
+        this.observationRegistry = observationRegistry;
+        return this;
+    }
     
     public MagdaConnector build() throws TwoWaySslException {
         Assert.notNull(magdaConfig, "magdaConfig must be supplied");
@@ -52,8 +59,11 @@ public class RemoteMagdaConnectionBuilder {
     }
     
     private MagdaSoapConnection createSoapConnection() throws TwoWaySslException {
-        if(tracing != null) {
+        if (tracing != null) {
             return new MagdaBraveTracingSoapConnection(endpoints, magdaConfig.getKeystore(), tracing);
+        }
+        if (observationRegistry != null) {
+            return new MagdaMicrometerObservableSoapConnection(endpoints, magdaConfig.getKeystore(), observationRegistry);
         }
         return new MagdaSoapConnection(endpoints, magdaConfig);
     }
