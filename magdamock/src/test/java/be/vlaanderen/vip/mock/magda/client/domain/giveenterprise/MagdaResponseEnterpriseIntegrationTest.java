@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MagdaResponseEnterpriseIntegrationTest {
 
@@ -72,6 +71,11 @@ class MagdaResponseEnterpriseIntegrationTest {
         var startDate = enterprise.startDate();
         assertNotNull(startDate);
         assertEquals(LocalDate.of(1930, 7, 19), startDate.value());
+    }
+
+    @Test
+    void returnsNullIfEnterpriseIsAbsent() throws MagdaClientException {
+        assertNull(enterprise("0874713140"));
     }
 
     private Enterprise enterprise(String kboNumber) throws MagdaClientException {
