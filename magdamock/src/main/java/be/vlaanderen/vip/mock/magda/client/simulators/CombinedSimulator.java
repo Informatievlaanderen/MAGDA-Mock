@@ -10,8 +10,10 @@ import java.util.Map;
 public class CombinedSimulator implements SOAPSimulator {
     private final Map<MagdaServiceIdentification, SOAPSimulator> simulators = new HashMap<>();
 
-    public void register(String service, String version, SOAPSimulator simulator) {
+    public CombinedSimulator register(String service, String version, SOAPSimulator simulator) {
         simulators.put(new MagdaServiceIdentification(service, version), simulator);
+
+        return this;
     }
 
     @Override

@@ -30,7 +30,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class StaticResponseSimulatorTest {
+class PathBasedStaticResponseSimulatorTest {
     
     private static final Map<Object, Object> GIVE_PROOF_CONTEXT = Map.of("Naam", "GeefBewijs",
                                                                          "Versie", "02.00.0000");
@@ -47,7 +47,7 @@ class StaticResponseSimulatorTest {
     @Test
     @SneakyThrows
     void respondsWithStaticResource() {
-        var simulator = new StaticResponseSimulator(ResourceFinders.magdaSimulator(), PERSOON, KEY_INSZ);
+        var simulator = new PathBasedStaticResponseSimulator(ResourceFinders.magdaSimulator(), PERSOON, KEY_INSZ);
         var request = makeGeefBewijsRequest("00671031676");
 
         var response = simulator.send(request);
@@ -59,7 +59,7 @@ class StaticResponseSimulatorTest {
     @MethodSource("throwsExceptionIfRequestContainsIllegalValues_parameters")
     @SneakyThrows
     void throwsExceptionIfRequestContainsIllegalValues(String serviceName, String serviceVersion, String insz) {
-        var simulator = new StaticResponseSimulator(ResourceFinders.magdaSimulator(), PERSOON, KEY_INSZ);
+        var simulator = new PathBasedStaticResponseSimulator(ResourceFinders.magdaSimulator(), PERSOON, KEY_INSZ);
         var request = MagdaDocumentBuilder.request(Map.of(
                 "Context", Map.of(
                         "Naam", serviceName,
@@ -98,7 +98,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/notfound.xml")).thenReturn(mockDocumentB);
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/success.xml")).thenReturn(mockDocumentC);
 
-            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
+            var simulator = new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
@@ -115,7 +115,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/notfound.xml")).thenReturn(mockDocumentA);
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/success.xml")).thenReturn(mockDocumentB);
 
-            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
+            var simulator = new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
@@ -131,7 +131,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/notfound.xml")).thenReturn(null);
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/success.xml")).thenReturn(mockDocument);
 
-            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
+            var simulator = new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
@@ -149,7 +149,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/00071031644.xml")).thenReturn(mockDocumentB);
             when(finder.loadSimulatorResource("Persoon", "00071031644.xml")).thenReturn(mockDocumentC);
 
-            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
+            var simulator = new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
@@ -166,7 +166,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/00071031644.xml")).thenReturn(mockDocumentA);
             when(finder.loadSimulatorResource("Persoon", "00071031644.xml")).thenReturn(mockDocumentB);
 
-            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
+            var simulator = new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
@@ -182,7 +182,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/00071031644.xml")).thenReturn(null);
             when(finder.loadSimulatorResource("Persoon", "00071031644.xml")).thenReturn(mockDocument);
 
-            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
+            var simulator = new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
@@ -200,7 +200,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/deep/00071031644.xml")).thenReturn(mockDocumentB);
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00071031644.xml")).thenReturn(mockDocumentC);
 
-            var simulator = new StaticResponseSimulator(finder, "Persoon", "//LV1", "//LV2", "//INSZ");
+            var simulator = new PathBasedStaticResponseSimulator(finder, "Persoon", "//LV1", "//LV2", "//INSZ");
 
             var request = MagdaDocumentBuilder.request(Map.of("Context", GIVE_PROOF_CONTEXT,
                                                               "Vragen", questionInsz("00071031644"),
@@ -225,7 +225,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/notfound.xml")).thenReturn(mockDocumentB);
             when(finder.loadSimulatorResource("Persoon", "notfound.xml")).thenReturn(mockDocumentC);
 
-            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
+            var simulator = new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
@@ -245,7 +245,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/notfound.xml")).thenReturn(mockDocumentA);
             when(finder.loadSimulatorResource("Persoon", "notfound.xml")).thenReturn(mockDocumentB);
 
-            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
+            var simulator = new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
@@ -264,7 +264,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/notfound.xml")).thenReturn(null);
             when(finder.loadSimulatorResource("Persoon", "notfound.xml")).thenReturn(mockDocument);
 
-            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
+            var simulator = new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
@@ -281,7 +281,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/00071031644.xml")).thenReturn(mockDocumentA);
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/notfound.xml")).thenReturn(mockDocumentB);
 
-            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
+            var simulator = new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var response = simulator.send(makeGeefBewijsRequest("00071031644"));
 
@@ -302,7 +302,7 @@ class StaticResponseSimulatorTest {
             when(finder.loadSimulatorResource("Persoon", "GeefBewijs/success.xml")).thenReturn(null);
             when(finder.loadSimulatorResource("Persoon", "success.xml")).thenReturn(null);
 
-            var simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
+            var simulator = new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ);
 
             var request = makeGeefBewijsRequest("00071031644");
             assertThrows(MagdaMockException.class, () -> simulator.send(request));
@@ -313,11 +313,11 @@ class StaticResponseSimulatorTest {
     class PatchResponse {
         @Mock private ResourceFinder finder;
         
-        private StaticResponseSimulator simulator;
+        private PathBasedStaticResponseSimulator simulator;
         
         @BeforeEach
         void setup() {
-            simulator = new StaticResponseSimulator(finder, PERSOON, KEY_INSZ);
+            simulator = new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ);
             
             when(finder.loadSimulatorResource(eq(PERSOON), anyString())).thenAnswer(iom -> new ByteArrayInputStream("""
 <geef:GeefBewijsResponse xmlns:geef="http://geefbewijs.bewijsraadplegingdienst.led.vlaanderen.be">
