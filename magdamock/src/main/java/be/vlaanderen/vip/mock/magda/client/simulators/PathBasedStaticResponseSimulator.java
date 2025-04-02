@@ -1,52 +1,38 @@
 package be.vlaanderen.vip.mock.magda.client.simulators;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
-import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockException;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
+import jakarta.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class StaticResponseSimulator extends BaseSOAPSimulator {
-    private final String type;
-    private final List<String> keys;
+public class PathBasedStaticResponseSimulator extends BaseStaticResponseSimulator {
 
-    public StaticResponseSimulator(ResourceFinder finder, String type, List<String> keys) {
-        super(finder);
+    private final String type;
+
+    public PathBasedStaticResponseSimulator(ResourceFinder finder, String type, List<String> keys) {
+        super(finder, keys);
         this.type = type;
-        this.keys = keys;
     }
 
-    public StaticResponseSimulator(ResourceFinder finder, String type, String... keys) {
+    public PathBasedStaticResponseSimulator(ResourceFinder finder, String type, String... keys) {
         this(finder, type, Arrays.asList(keys));
     }
 
     @Override
-    public MagdaDocument send(MagdaDocument request) throws MagdaMockException {
-        var serviceName = request.getValue("//Verzoek/Context/Naam");
-        var serviceVersion = request.getValue("//Verzoek/Context/Versie");
-        var values = keys.stream().map(request::getValue).toList();
-
-        validatePathElement(serviceName);
-        validatePathElement(serviceVersion);
-        values.forEach(this::validatePathElement);
-
-        var responseBody = loadResource(serviceName, serviceVersion, values);
+    @Nullable
+    protected MagdaDocument loadResource(String serviceName, String serviceVersion, List<String> values) {
+        var responseBody = loadPathBasedResource(serviceName, serviceVersion, values);
         if (responseBody == null) {
-            responseBody = loadResource(serviceName, serviceVersion, replaceLastKey(values, "notfound"));
+            responseBody = loadPathBasedResource(serviceName, serviceVersion, replaceLastKey(values, "notfound"));
         }
         if (responseBody == null) {
-            responseBody = loadResource(serviceName, serviceVersion, replaceLastKey(values, "success"));
+            responseBody = loadPathBasedResource(serviceName, serviceVersion, replaceLastKey(values, "success"));
         }
 
-        if (responseBody != null) {
-            patchResponse(request, responseBody);
-
-            return wrapInEnvelope(responseBody);
-        } else {
-            throw new MagdaMockException("No mock data found for request to %s %s".formatted(serviceName, serviceVersion));
-        }
+        return responseBody;
     }
 
     private List<String> replaceLastKey(List<String> original, String replaceFinal) {
@@ -58,7 +44,7 @@ public class StaticResponseSimulator extends BaseSOAPSimulator {
         return result;
     }
 
-    private MagdaDocument loadResource(String serviceName, String serviceVersion, List<String> keys) {
+    private MagdaDocument loadPathBasedResource(String serviceName, String serviceVersion, List<String> keys) {
         var dirs = new ArrayList<String>();
         dirs.add(serviceName);
         dirs.add(serviceVersion);

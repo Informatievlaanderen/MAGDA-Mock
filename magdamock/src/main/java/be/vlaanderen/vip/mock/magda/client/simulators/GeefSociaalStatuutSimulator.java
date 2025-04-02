@@ -6,7 +6,7 @@ import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import java.util.Arrays;
 import java.util.List;
 
-public class GeefSociaalStatuutSimulator extends StaticResponseSimulator {
+public class GeefSociaalStatuutSimulator extends PathBasedStaticResponseSimulator {
     public GeefSociaalStatuutSimulator(ResourceFinder finder, String type, List<String> keys) {
         super(finder, type, keys);
     }
