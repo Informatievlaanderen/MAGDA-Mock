@@ -6,7 +6,7 @@ import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import java.util.Arrays;
 import java.util.List;
 
-public class GeefAanslagbiljetPersonenbelastingSimulator extends StaticResponseSimulator {
+public class GeefAanslagbiljetPersonenbelastingSimulator extends PathBasedStaticResponseSimulator {
     boolean patchInkomensjaar;
 
     public GeefAanslagbiljetPersonenbelastingSimulator(ResourceFinder finder, String type, boolean patchInkomensjaar, List<String> keys) {

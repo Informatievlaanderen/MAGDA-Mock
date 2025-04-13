@@ -43,9 +43,9 @@ class CombinedSimulatorTest {
         var simulatorC = mockSimulator(requestC, responseC);
 
         var combinedSimulator = new CombinedSimulator();
-        combinedSimulator.register("foo", "1", simulatorA);
-        combinedSimulator.register("foo", "2", simulatorB);
-        combinedSimulator.register("bar", "1", simulatorC);
+        combinedSimulator.register("foo", "1", simulatorA)
+                         .register("foo", "2", simulatorB)
+                         .register("bar", "1", simulatorC);
 
         assertEquals(responseA, combinedSimulator.send(requestA));
         assertEquals(responseB, combinedSimulator.send(requestB));
