@@ -84,9 +84,7 @@ class ClasspathResourceFinderTest {
         void returnsServiceDirectory_forType() {
             var result = finder.listServicesDirectories("Persoon");
             
-            assertThat(result, contains(serviceDirectoryFor("GeefAanslagbiljetPersonenbelasting"),
-                                        serviceDirectoryFor("GeefAttest"),
-                                        serviceDirectoryFor("GeefBewijs"),
+            assertThat(result, contains(serviceDirectoryFor("GeefAttest"),
                                         serviceDirectoryFor("GeefPasfoto")));
         }
         
@@ -198,7 +196,7 @@ class ClasspathResourceFinderTest {
             
             @Test
             void isFileName() {
-                assertThat(sd.service(), is(equalTo("GeefAanslagbiljetPersonenbelasting")));
+                assertThat(sd.service(), is(equalTo("GeefAttest")));
             }
             
         }
@@ -256,10 +254,10 @@ class ClasspathResourceFinderTest {
                 
                 @Test
                 void isAListOfFilesInDir() {
-                    assertThat(vd.cases(), contains(caseDir("00010122374.xml"), 
-                                                    caseDir("00122099768.xml"), 
-                                                    caseDir("51042500288.xml"), 
-                                                    caseDir("57082300172.xml")));
+                    assertThat(vd.cases(), contains(caseDir("01010100126.xml"),
+                                                    caseDir("02051615157.xml"),
+                                                    caseDir("07112008256.xml"),
+                                                    caseDir("14021699823.xml")));
                 }
                 
                 private Matcher<CaseFile> caseDir(String name) {
@@ -297,7 +295,7 @@ class ClasspathResourceFinderTest {
                     
                     @Test
                     void isFileName() {
-                        assertThat(cf.name(), is(equalTo("00010122374.xml")));
+                        assertThat(cf.name(), is(equalTo("01010100126.xml")));
                     }
                     
                 }

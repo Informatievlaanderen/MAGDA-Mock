@@ -9,7 +9,7 @@ import java.net.URISyntaxException;
 import java.util.Map;
 
 import static be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder.KEY_INSZ;
-import static be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder.PERSOON;
+import static be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder.INKOMEN;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GeefAanslagbiljetPersonenbelastingSimulatorTest {
@@ -30,7 +30,7 @@ class GeefAanslagbiljetPersonenbelastingSimulatorTest {
                                         "Criteria", Map.of(
                                                 "Inkomensjaar", incomeYear))))));
 
-        var simulator = new GeefAanslagbiljetPersonenbelastingSimulator(ResourceFinders.magdaSimulator(), PERSOON, true, KEY_INSZ);
+        var simulator = new GeefAanslagbiljetPersonenbelastingSimulator(ResourceFinders.magdaSimulator(), INKOMEN, true, KEY_INSZ);
 
         var response = simulator.send(request);
 
@@ -50,7 +50,7 @@ class GeefAanslagbiljetPersonenbelastingSimulatorTest {
                                         "Criteria", Map.of(
                                                 "Inkomensjaar", "2021"))))));
 
-        var simulator = new GeefAanslagbiljetPersonenbelastingSimulator(ResourceFinders.magdaSimulator(), PERSOON, false, KEY_INSZ);
+        var simulator = new GeefAanslagbiljetPersonenbelastingSimulator(ResourceFinders.magdaSimulator(), INKOMEN, false, KEY_INSZ);
 
         var response = simulator.send(request);
 
