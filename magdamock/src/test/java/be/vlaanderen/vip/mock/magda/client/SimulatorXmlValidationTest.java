@@ -27,7 +27,7 @@ class SimulatorXmlValidationTest {
     // some xml files we don't want to validate
     private final List<String> EXCLUSIONS = Stream.of(
             "Vastgoed/GeefEpc/02.01.0000/9470/Leeuwbrugstraat/21.xml",                 // contains SOAP-ENV:Fault, which is not covered by the xsd
-            "Persoon/GeefAanslagbiljetPersonenbelasting/02.00.0000/70021500155.xml"    // contains SOAP-ENV:Fault, which is not covered by the xsd
+            "Inkomen/GeefAanslagbiljetPersonenbelasting/02.00.0000/70021500155.xml"    // contains SOAP-ENV:Fault, which is not covered by the xsd
             ).map(exclusion -> exclusion.replace("/", File.separator)).toList();
 
     private static final String baseXsd = "simulator_xsd/";
@@ -37,39 +37,51 @@ class SimulatorXmlValidationTest {
             // folder inside of magdasimulator                        path to xsd file inside of simulator xsd
             // that will be validated against                         the format inside that folder is expected to be the same as
             // xsds on the right                                      in https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/487620609/Overzicht+testdata+endpoints+en+XSD+s#Diensten-alle-versies-samen
-            "GeefVipAdmGegevens/02.00.0000",                          "VipAdm.GeefVipAdmGegevensDienst-02.00/WebService/GeefVipAdmGegevensResponse.xsd",
-            "Onderneming/GeefOnderneming/02.00.0000",                 "Onderneming.GeefOndernemingDienst-02.00/WebService/GeefOndernemingResponse.xsd",
+            "Dossier/GeefDossiers/02.00.0000",                        "Dossier.GeefDossiersDienst-02.00/WebService/GeefDossiersResponse.xsd",
+
+            "Gezin/GeefKindVoordelen/02.00.0000",                   "Gezin.GeefKindVoordelenDienst-02.00/WebService/GeefKindVoordelenResponse.xsd",
+
+            "Inkomen/GeefAanslagbiljetPersonenbelasting/02.00.0000",  "Inkomen.GeefAanslagbiljetPersonenbelastingDienst-02.00/WebService/GeefAanslagbiljetPersonenbelastingResponse.xsd",
+
+            "Kadaster/ZoekEigendomstoestanden/02.00.0000",             "Kadaster.ZoekEigendomstoestandenDienst-02.00/WebService/ZoekEigendomstoestandenResponse.xsd",
+
+            "LED/GeefBewijs/02.00.0000",                          "LED.GeefBewijsDienst-02.00/WebService/GeefBewijsResponse.xsd",
+            "LED/RegistreerBewijs/02.00.0000",                    "LED.RegistreerBewijsDienst-02.00/WebService/RegistreerBewijsResponse.xsd",
+
+            "Onderneming/GeefFuncties/02.00.0000",                        "Onderneming.GeefFunctiesDienst-02.00/WebService/GeefFunctiesResponse.xsd",
             "Onderneming/GeefJaarrekeningen/02.00.0000",              "Onderneming.GeefJaarrekeningenDienst-02.00/WebService/GeefJaarrekeningenResponse.xsd",
-            "Persoon/GeefAanslagbiljetPersonenbelasting/02.00.0000",  "Inkomen.GeefAanslagbiljetPersonenbelastingDienst-02.00/WebService/GeefAanslagbiljetPersonenbelastingResponse.xsd",
+            "Onderneming/GeefOnderneming/02.00.0000",                 "Onderneming.GeefOndernemingDienst-02.00/WebService/GeefOndernemingResponse.xsd",
+            "Onderneming/GeefOndernemingVKBO/02.00.0000",             "Onderneming.GeefOndernemingVKBODienst-02.00/WebService/GeefOndernemingVKBOResponse.xsd",
+
+            "Onderwijs/GeefHistoriekInschrijving/02.01.0000",           "Onderwijs.GeefHistoriekInschrijvingDienst-02.01/WebService/GeefHistoriekInschrijvingResponse.xsd",
+
             "Persoon/GeefAttest/02.00.0000",                          "Persoon.GeefAttestDienst-02.00/WebService/GeefAttestResponse.xsd",
-            "Persoon/GeefBetalingenHandicap/03.00.0000",              "SocZek.GeefBetalingenHandicapDienst-03.00/WebService/GeefBetalingenHandicapResponse.xsd",
-            "Persoon/GeefBewijs/02.00.0000",                          "LED.GeefBewijsDienst-02.00/WebService/GeefBewijsResponse.xsd",
-            "Persoon/GeefDossiers/02.00.0000",                        "Dossier.GeefDossiersDienst-02.00/WebService/GeefDossiersResponse.xsd",
-            "Persoon/GeefFuncties/02.00.0000",                        "Onderneming.GeefFunctiesDienst-02.00/WebService/GeefFunctiesResponse.xsd",
             "Persoon/GeefGezinssamenstelling/02.00.0000",             "Persoon.GeefGezinssamenstellingDienst-02.00/WebService/GeefGezinssamenstellingResponse.xsd",
             "Persoon/GeefGezinssamenstelling/02.02.0000",             "Persoon.GeefGezinssamenstellingDienst-02.02/WebService/GeefGezinssamenstellingResponse.xsd",
             "Persoon/GeefHistoriekGezinssamenstelling/02.02.0000",    "Persoon.GeefHistoriekGezinssamenstellingDienst-02.02/WebService/GeefHistoriekGezinssamenstellingResponse.xsd",
-            "Persoon/GeefHistoriekInschrijving/02.01.0000",           "Onderwijs.GeefHistoriekInschrijvingDienst-02.01/WebService/GeefHistoriekInschrijvingResponse.xsd",
             "Persoon/GeefHistoriekPersoon/02.00.0000",                "Persoon.GeefHistoriekPersoonDienst-02.00/WebService/GeefHistoriekPersoonResponse.xsd",
             "Persoon/GeefHistoriekPersoon/02.02.0000",                "Persoon.GeefHistoriekPersoonDienst-02.02/WebService/GeefHistoriekPersoonResponse.xsd",
-            "Persoon/GeefKindVoordelen/02.00.0000",                   "Gezin.GeefKindVoordelenDienst-02.00/WebService/GeefKindVoordelenResponse.xsd",
-            "Persoon/GeefLeefloonbedragen/02.00.0000",                "SocZek.GeefLeefloonbedragenDienst-02.00/WebService/GeefLeefloonbedragenResponse.xsd",
-            "Persoon/GeefLoopbaanARZA/02.01.0000",                    "Werk.GeefLoopbaanARZADienst-02.01/WebService/GeefLoopbaanARZAResponse.xsd",
-            "Persoon/GeefLoopbaanonderbrekingen/02.00.0000",          "Werk.GeefLoopbaanonderbrekingenDienst-02.00/WebService/GeefLoopbaanonderbrekingenResponse.xsd",
             "Persoon/GeefPasfoto/02.00.0000",                         "Persoon.GeefPasfotoDienst-02.00/WebService/GeefPasfotoResponse.xsd",
             "Persoon/GeefPersoon/02.02.0000",                         "Persoon.GeefPersoonDienst-02.02/WebService/GeefPersoonResponse.xsd",
-            "Persoon/GeefSociaalStatuut/03.00.0000",                  "SocZek.GeefSociaalStatuutDienst-03.00/WebService/GeefSociaalStatuutResponse.xsd",
-            "Persoon/GeefWerkrelaties/02.00.0000",                    "Werk.GeefWerkrelatiesDienst-02.00/WebService/GeefWerkrelatiesResponse.xsd",
-            "Persoon/GeefVolledigDossierHandicap/03.00.0000",         "SocZek.GeefVolledigDossierHandicapDienst-03.00/WebService/GeefVolledigDossierHandicapResponse.xsd",
-            "Persoon/RegistreerBewijs/02.00.0000",                    "LED.RegistreerBewijsDienst-02.00/WebService/RegistreerBewijsResponse.xsd",
-            "Persoon/RegistreerInschrijving/02.00.0000",              "Repertorium.RegistreerInschrijvingDienst-02.00/WebService/RegistreerInschrijvingResponse.xsd",
-            "Persoon/RegistreerInschrijving/02.01.0000",              "Repertorium.RegistreerInschrijvingDienst-02.01/WebService/RegistreerInschrijvingResponse.xsd",
-            "Persoon/RegistreerUitschrijving/02.00.0000",             "Repertorium.RegistreerUitschrijvingDienst-02.00/WebService/RegistreerUitschrijvingResponse.xsd",
-            "Persoon/ZoekEigendomstoestanden/02.00.0000",             "Kadaster.ZoekEigendomstoestandenDienst-02.00/WebService/ZoekEigendomstoestandenResponse.xsd",
             "Persoon/ZoekPersoonOpAdres/02.02.0000",                  "Persoon.ZoekPersoonOpAdresDienst-02.02/WebService/ZoekPersoonOpAdresResponse.xsd",
+
+            "Repertorium/RegistreerInschrijving/02.00.0000",              "Repertorium.RegistreerInschrijvingDienst-02.00/WebService/RegistreerInschrijvingResponse.xsd",
+            "Repertorium/RegistreerInschrijving/02.01.0000",              "Repertorium.RegistreerInschrijvingDienst-02.01/WebService/RegistreerInschrijvingResponse.xsd",
+            "Repertorium/RegistreerUitschrijving/02.00.0000",             "Repertorium.RegistreerUitschrijvingDienst-02.00/WebService/RegistreerUitschrijvingResponse.xsd",
+
+            "SocEcon/GeefStatusRechtOndersteuningen/02.00.0000",      "SocEcon.GeefStatusRechtOndersteuningenDienst-02.00/WebService/GeefStatusRechtOndersteuningenResponse.xsd",
+
+            "SocZek/GeefBetalingenHandicap/03.00.0000",              "SocZek.GeefBetalingenHandicapDienst-03.00/WebService/GeefBetalingenHandicapResponse.xsd",
+            "SocZek/GeefDossierHandicap/03.00.0000",                 "SocZek.GeefDossierHandicapDienst-03.00/WebService/GeefDossierHandicapResponse.xsd",
+            "SocZek/GeefLeefloonbedragen/02.00.0000",                "SocZek.GeefLeefloonbedragenDienst-02.00/WebService/GeefLeefloonbedragenResponse.xsd",
+            "SocZek/GeefSociaalStatuut/03.00.0000",                  "SocZek.GeefSociaalStatuutDienst-03.00/WebService/GeefSociaalStatuutResponse.xsd",
+            "SocZek/GeefVolledigDossierHandicap/03.00.0000",         "SocZek.GeefVolledigDossierHandicapDienst-03.00/WebService/GeefVolledigDossierHandicapResponse.xsd",
+
             "Vastgoed/GeefEpc/02.01.0000",                            "Energie.GeefEpcDienst-02.01/WebService/GeefEpcResponse.xsd",
-            "Onderneming/GeefOndernemingVKBO/02.00.0000",             "Onderneming.GeefOndernemingVKBODienst-02.00/WebService/GeefOndernemingVKBOResponse.xsd",
-            "Persoon/GeefStatusRechtOndersteuningen/02.00.0000",      "SocEcon.GeefStatusRechtOndersteuningenDienst-02.00/WebService/GeefStatusRechtOndersteuningenResponse.xsd");
+
+            "Werk/GeefLoopbaanARZA/02.01.0000",                    "Werk.GeefLoopbaanARZADienst-02.01/WebService/GeefLoopbaanARZAResponse.xsd",
+            "Werk/GeefLoopbaanonderbrekingen/02.00.0000",          "Werk.GeefLoopbaanonderbrekingenDienst-02.00/WebService/GeefLoopbaanonderbrekingenResponse.xsd",
+            "Werk/GeefWerkrelaties/02.00.0000",                    "Werk.GeefWerkrelatiesDienst-02.00/WebService/GeefWerkrelatiesResponse.xsd");
     
     @TestFactory
     Stream<DynamicNode> validateXmls() {
@@ -91,14 +103,16 @@ class SimulatorXmlValidationTest {
     
     @SneakyThrows
     private Stream<File> findXmls(File file) {
-        if(file.isDirectory()) {
+        if(!file.exists()) {
+            throw new IllegalStateException("Not found: %s".formatted(file.getPath()));
+        } else if(file.isDirectory()) {
             return Arrays.stream(Objects.requireNonNull(file.listFiles()))
-                         .flatMap(this::findXmls);
-        }
-        else if(isXml(file) && isNotExcluded(file)) {
+                    .flatMap(this::findXmls);
+        }  else if(isXml(file) && isNotExcluded(file)) {
             return Stream.of(file);
+        } else {
+            return Stream.of();
         }
-        return Stream.empty();
     }
     
     private boolean isXml(File file) {

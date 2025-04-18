@@ -37,7 +37,7 @@ class MappedStaticResponseSimulatorTest {
     @BeforeEach
     public void setup() {
         simulator = new MappedStaticResponseSimulator(KEY_INSZ)
-                .add(MagdaDocument.fromResource(getClass(), "/magda_simulator/Persoon/GeefBewijs/02.00.0000/00671031676.xml"), "00671031676");
+                .add(MagdaDocument.fromResource(getClass(), "/magda_simulator/LED/GeefBewijs/02.00.0000/00671031676.xml"), "00671031676");
     }
 
     @Test
@@ -74,7 +74,7 @@ class MappedStaticResponseSimulatorTest {
     private static Stream<Arguments> throwsExceptionIfRequestContainsIllegalValues_parameters() {
         return Stream.of(
                 Arguments.of("GeefBewijs/02.00.0000", "", "00671031647"),
-                Arguments.of("..", "Persoon/GeefBewijs/02.00.0000", "00671031647"),
+                Arguments.of("..", "LED/GeefBewijs/02.00.0000", "00671031647"),
                 Arguments.of(".", "GeefBewijs/02.00.0000", "00671031647"),
                 Arguments.of("", "GeefBewijs/02.00.0000", "00671031647"),
                 Arguments.of("GeefBewijs", "02.00.0000", "00671031647/../00671031647")
