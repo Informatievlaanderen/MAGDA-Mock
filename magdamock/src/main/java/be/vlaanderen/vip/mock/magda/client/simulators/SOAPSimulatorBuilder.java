@@ -10,9 +10,19 @@ import java.time.Duration;
 
 public class SOAPSimulatorBuilder {
     // Subcategories for MAGDA services
-    public static final String PERSOON = "Persoon";
+    public static final String DOSSIER = "Dossier";
+    public static final String GEZIN = "Gezin";
+    public static final String INKOMEN = "Inkomen";
+    public static final String KADASTER = "Kadaster";
+    public static final String LED = "LED";
     public static final String ONDERNEMING = "Onderneming";
+    public static final String ONDERWIJS = "Onderwijs";
+    public static final String PERSOON = "Persoon";
+    public static final String REPERTORIUM = "Repertorium";
+    public static final String SOCECON = "SocEcon";
+    public static final String SOCZEK = "SocZek";
     public static final String VASTGOED = "Vastgoed";
+    public static final String WERK = "Werk";
 
     public static final String KEY_INSZ = "//INSZ";
     public static final String KEY_ONDERNEMINGSNUMMER = "//Ondernemingsnummer";
@@ -55,58 +65,65 @@ public class SOAPSimulatorBuilder {
      * @return The builder
      */
     public SOAPSimulatorBuilder magdaMockSimulator(boolean copyPropertiesFromRequest) {
-        // PERSOON Standaard
-        simulator.register("RegistreerInschrijving", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("RegistreerInschrijving", VERSION_02_01, new PathBasedStaticResponseSimulator(finder, PERSOON, "//Subject/Type", "//Subject/Sleutel"));
-        simulator.register("RegistreerUitschrijving", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        // Dossier
+        simulator.register("GeefDossiers", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, DOSSIER, KEY_INSZ));
 
-        simulator.register("RegistreerBewijs", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefBewijs", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefHistoriekInschrijving", VERSION_02_01, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("RaadpleegLeerkredietsaldo", VERSION_01_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        // Gezin
+        simulator.register("GeefKindVoordelen", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, GEZIN, KEY_INSZ));
 
-        simulator.register("GeefLoopbaanOnderbrekingen", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefStatusRechtOndersteuningen", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefFuncties", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefDossiers", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefKindVoordelen", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefVolledigDossierHandicap", VERSION_03_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_RRNR));
+        // Inkomen
+        simulator.register("GeefAanslagbiljetPersonenbelasting", VERSION_02_00, new GeefAanslagbiljetPersonenbelastingSimulator(finder, INKOMEN, copyPropertiesFromRequest, KEY_INSZ));
 
-        simulator.register("GeefPersoon", VERSION_02_02, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefHistoriekPersoon", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefHistoriekPersoon", VERSION_02_02, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        // Kadaster
+        simulator.register("ZoekEigendomstoestanden", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, KADASTER, KEY_INSZ));
+
+        // LED
+        simulator.register("GeefBewijs", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, LED, KEY_INSZ));
+        simulator.register("RegistreerBewijs", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, LED, KEY_INSZ));
+
+        // Onderneming
+        simulator.register("GeefFuncties", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, ONDERNEMING, KEY_INSZ));
+        simulator.register("GeefJaarrekeningen", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER, KEY_BOEKJAAR));
+        simulator.register("GeefOnderneming", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
+        simulator.register("GeefOndernemingVKBO", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
+
+        // Onderwijs
+        simulator.register("GeefHistoriekInschrijving", VERSION_02_01, new PathBasedStaticResponseSimulator(finder, ONDERWIJS, KEY_INSZ));
+
+        // Persoon
+        simulator.register("GeefAttest", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefGezinssamenstelling", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefGezinssamenstelling", VERSION_02_02, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefHistoriekGezinssamenstelling", VERSION_02_02, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefBetalingenHandicap", VERSION_03_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_SSIN));
-        simulator.register("GeefDossierHandicap", VERSION_03_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_SSIN));
-        simulator.register("GeefLeefloonbedragen", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-
-        simulator.register("GeefDossierKBI", VERSION_01_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-
-        simulator.register("ZoekEigendomstoestanden", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-
-        simulator.register("ZoekPersoonOpAdres", VERSION_02_02, new PathBasedStaticResponseSimulator(finder, PERSOON, "//Inhoud/Bron","//Criteria/Adres/PostCode", "//Criteria/Adres/Straatcode", "//Criteria/Adres/Huisnummer", "//Criteria/EnkelReferentiepersoon"));
-        
-        //simulator.register("GeefSociaalStatuut", VERSION_03_00, new GeefSociaalStatuutSimulator(finder, PERSOON, "//SociaalStatuut/Naam", KEY_INSZ));
-        simulator.register("GeefSociaalStatuut", VERSION_03_00, new GeefSociaalStatuutSimulator(finder, PERSOON, KEY_INSZ));
-
-        simulator.register("GeefLoopbaanARZA", VERSION_02_01, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefWerkrelaties", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
-
-        // PERSOON Custom
-        simulator.register("GeefAttest", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefHistoriekPersoon", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("GeefHistoriekPersoon", VERSION_02_02, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
         simulator.register("GeefPasfoto", VERSION_02_00, new RandomPasfotoSimulator(finder, PERSOON, KEY_INSZ));
-        simulator.register("GeefAanslagbiljetPersonenbelasting", VERSION_02_00, new GeefAanslagbiljetPersonenbelastingSimulator(finder, PERSOON, copyPropertiesFromRequest, KEY_INSZ));
+        simulator.register("GeefPersoon", VERSION_02_02, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("RaadpleegLeerkredietsaldo", VERSION_01_00, new PathBasedStaticResponseSimulator(finder, PERSOON, KEY_INSZ));
+        simulator.register("ZoekPersoonOpAdres", VERSION_02_02, new PathBasedStaticResponseSimulator(finder, PERSOON, "//Inhoud/Bron","//Criteria/Adres/PostCode", "//Criteria/Adres/Straatcode", "//Criteria/Adres/Huisnummer", "//Criteria/EnkelReferentiepersoon"));
 
-        // ONDERNEMING
-        simulator.register("GeefOnderneming", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
-        simulator.register("GeefOndernemingVKBO", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER));
-        simulator.register("GeefJaarrekeningen", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, ONDERNEMING, KEY_ONDERNEMINGSNUMMER, KEY_BOEKJAAR));
+        // Repertorium
+        simulator.register("RegistreerInschrijving", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, REPERTORIUM, KEY_INSZ));
+        simulator.register("RegistreerInschrijving", VERSION_02_01, new PathBasedStaticResponseSimulator(finder, REPERTORIUM, "//Subject/Type", "//Subject/Sleutel"));
+        simulator.register("RegistreerUitschrijving", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, REPERTORIUM, KEY_INSZ));
 
-        // GEBOUW
-        simulator.register("GeefEpc", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, VASTGOED, "//Criteria/Attesten", "//Criteria/GebouweenheidId"));
+        // SocEcon
+        simulator.register("GeefStatusRechtOndersteuningen", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, SOCECON, KEY_INSZ));
+
+        // SocZek
+        simulator.register("GeefBetalingenHandicap", VERSION_03_00, new PathBasedStaticResponseSimulator(finder, SOCZEK, KEY_SSIN));
+        simulator.register("GeefDossierHandicap", VERSION_03_00, new PathBasedStaticResponseSimulator(finder, SOCZEK, KEY_SSIN));
+        simulator.register("GeefLeefloonbedragen", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, SOCZEK, KEY_INSZ));
+        simulator.register("GeefSociaalStatuut", VERSION_03_00, new GeefSociaalStatuutSimulator(finder, SOCZEK, KEY_INSZ));
+        simulator.register("GeefVolledigDossierHandicap", VERSION_03_00, new PathBasedStaticResponseSimulator(finder, SOCZEK, KEY_RRNR));
+
+        // Vastgoed
         simulator.register("GeefEpc", VERSION_02_01, new PathBasedStaticResponseSimulator(finder, VASTGOED,  "//Criteria/Adres/Postcode", "//Criteria/Adres/Straat", "//Criteria/Adres/Huisnummer"));
+
+        // Werk
+        simulator.register("GeefLoopbaanARZA", VERSION_02_01, new PathBasedStaticResponseSimulator(finder, WERK, KEY_INSZ));
+        simulator.register("GeefLoopbaanOnderbrekingen", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, WERK, KEY_INSZ));
+        simulator.register("GeefWerkrelaties", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, WERK, KEY_INSZ));
 
         return this;
     }

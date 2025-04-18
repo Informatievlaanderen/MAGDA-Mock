@@ -18,6 +18,7 @@ import java.time.Year;
 import java.util.Objects;
 import java.util.UUID;
 
+import static be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder.LED;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -52,8 +53,8 @@ class MagdaMockConnectionConfigTest {
             
             @Test
             void returnsValueFromMagdaSimulator() throws IOException {
-                try(var result = finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00671031676.xml")) {
-                    assertThat(new String(result.readAllBytes()), is(equalTo(getResourceContent("magda_simulator/Persoon/GeefBewijs/02.00.0000/00671031676.xml"))));
+                try(var result = finder.loadSimulatorResource(LED, "GeefBewijs/02.00.0000/00671031676.xml")) {
+                    assertThat(new String(result.readAllBytes()), is(equalTo(getResourceContent("magda_simulator/LED/GeefBewijs/02.00.0000/00671031676.xml"))));
                 }
             }
             
@@ -72,19 +73,19 @@ class MagdaMockConnectionConfigTest {
             @Test
             void returnsValueFromTestcasePath() throws IOException {
                 // this file is also present in the simulator
-                var file = new File(dir, "Persoon/GeefBewijs/02.00.0000/00671031647.xml");
+                var file = new File(dir, "LED/GeefBewijs/02.00.0000/00671031647.xml");
                 provideParentDirectories(file.getParentFile());
                 Files.writeString(file.toPath(), "content");
                 
-                try(var result = finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00671031647.xml")) {
+                try(var result = finder.loadSimulatorResource(LED, "GeefBewijs/02.00.0000/00671031647.xml")) {
                     assertThat(new String(result.readAllBytes()), is(equalTo("content")));
                 }
             }
             
             @Test
             void fallsbackToMagdaSimulator() throws IOException {
-                try(var result = finder.loadSimulatorResource("Persoon", "GeefBewijs/02.00.0000/00671031676.xml")) {
-                    assertThat(new String(result.readAllBytes()), is(equalTo(getResourceContent("magda_simulator/Persoon/GeefBewijs/02.00.0000/00671031676.xml"))));
+                try(var result = finder.loadSimulatorResource(LED, "GeefBewijs/02.00.0000/00671031676.xml")) {
+                    assertThat(new String(result.readAllBytes()), is(equalTo(getResourceContent("magda_simulator/LED/GeefBewijs/02.00.0000/00671031676.xml"))));
                 }
             }
 
