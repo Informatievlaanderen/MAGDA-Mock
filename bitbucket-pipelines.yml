@@ -19,9 +19,12 @@ definitions:
             fi
           - echo $NAMESPACE > target/namespace  # Necessary for passing namespace to the next steps
           - chmod +x deploy-with-argocd.sh
+          # Deploy for ourselves
           - export INFRA_REPO='magdamock.service-infra'
           - ./deploy-with-argocd.sh
+          # Deploy for Athumi
           - export INFRA_REPO='magdamock.service.athumi-infra'
+          - export APPS='magdamock-service-athumi'
           - ./deploy-with-argocd.sh
         artifacts:
           - target/namespace
