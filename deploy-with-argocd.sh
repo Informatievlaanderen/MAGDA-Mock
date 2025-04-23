@@ -24,6 +24,11 @@ if [[ -z ${NAMESPACE} ]]; then
   exit 1;
 fi
 
+# check if the AZURE_DEPLOY_DIR var is set, if not default to azure-<env>
+if [[ -z ${AZURE_DEPLOY_DIR} ]]; then
+  export AZURE_DEPLOY_DIR="azure-${BITBUCKET_DEPLOYMENT_ENVIRONMENT}"
+fi
+
 # check if the INFRA_REPO var is set
 if [[ -z ${INFRA_REPO} ]]; then
   echo "Failed to deploy application, missing variable 'INFRA_REPO'";
@@ -60,14 +65,27 @@ rm -rf "${INFRA_REPO}"
 git clone "git@bitbucket.org:vlaamseoverheid/${INFRA_REPO}.git" || exit 1
 cd "${INFRA_REPO}"
 
+function updateAppVersion {
+  local base_directory=$1
+  local app=$2
+  echo "Updating version of ${base_directory}/${app} to ${VERSION}";
+  # update version.
+  yq -i '.version = strenv(VERSION)' "./${base_directory}/${app}/Chart.yaml" || exit 1;
+  #update lastDeploymentDate
+  DATE=$(date '+%Y-%m-%dT%H:%M:%S') yq -i '.deployment.lastDeploymentDate = strenv(DATE)' "./${base_directory}/${app}/values.yaml" || exit 1;
+}
+
 # loop over the apps
 for app in ${APPS}
 do
-  echo "Updating chart information of ${app}";
-  # update version.
-  yq -i '.version = strenv(VERSION)' "./$NAMESPACE/${app}/Chart.yaml" || exit 1;
-  #update lastDeploymentDate
-  DATE=$(date '+%Y-%m-%dT%H:%M:%S') yq -i '.deployment.lastDeploymentDate = strenv(DATE)' "./$NAMESPACE/${app}/values.yaml" || exit 1;
+  # Update CPC app
+  updateAppVersion "$NAMESPACE" "$app"
+
+  # Update Azure app, if there is an azure directory
+  if [ -d "./$AZURE_DEPLOY_DIR" ] && [ -d "./$AZURE_DEPLOY_DIR/$app" ]; then
+    echo "Update Azure version of app ${app}"
+    updateAppVersion "$AZURE_DEPLOY_DIR" "$app"
+  fi
 done
 
 ## commit and push changes
