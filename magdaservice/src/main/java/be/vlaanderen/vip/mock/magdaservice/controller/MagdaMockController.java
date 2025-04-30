@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.springframework.http.MediaType.APPLICATION_XML;
+import static org.springframework.http.MediaType.TEXT_XML;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_XML_VALUE;
 import static org.springframework.util.MimeTypeUtils.TEXT_XML_VALUE;
 
@@ -47,7 +47,7 @@ public class MagdaMockController {
 
     private ResponseEntity<String> parseInputstream(MagdaDocument magdaDocument) {
         if (magdaDocument != null) {
-              return ResponseEntity.ok().contentType(APPLICATION_XML).body(magdaDocument.toString());
+              return ResponseEntity.ok().contentType(TEXT_XML).body(magdaDocument.toString());
         } else {
             log.error("Could not find XML");
 
