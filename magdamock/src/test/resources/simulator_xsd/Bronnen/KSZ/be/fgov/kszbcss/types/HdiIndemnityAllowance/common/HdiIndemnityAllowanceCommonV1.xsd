@@ -4,7 +4,7 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:common="http://kszbcss.fgov.be/types/common/v3"
   xmlns:commonA="http://cinnic.fgov.be/types/allowance/commonTypes/v1"
   targetNamespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/common/v1" elementFormDefault="unqualified"
-  attributeFormDefault="unqualified" version="20220422">
+  attributeFormDefault="unqualified" version="20240304">
   <!--========= imports ===========-->
   <xs:import namespace="http://kszbcss.fgov.be/types/common/v3"
     schemaLocation="../../../../kszbcss/types/common/CommonV3.xsd" />
@@ -92,7 +92,41 @@
         - the payments done by the mutuality in the context of the social Risk</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="socialRisk" type="SocialRiskType" />
+      <xs:element name="socialRisk" type="SocialRiskType" minOccurs="0" />
+      <xs:element name="payments" type="PaymentsType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <!--========= AllowanceAttestationPeriod ===========-->
+  <xs:complexType name="AllowanceAttestationPeriodsType">
+    <xs:sequence>
+      <xs:element name="attestationIdentification" type="AttestationIdentificationType" />
+      <xs:element name="allowances" type="AllowancesPeriodsType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">the social risks periods covered by this attest</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AllowancesPeriodsType">
+    <xs:sequence>
+      <xs:element name="allowance" type="AllowancePeriodType" maxOccurs="100" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AllowancePeriodType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        A hdiIndemnityAllowance period is composed of 3 parts :
+        - the period of
+        a social risk
+        - the initial start date of a social risk
+        - the exit code of a social risk
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="period" type="common:OpenPeriodType" />
+      <xs:element name="initialStartDate" type="xs:date" minOccurs="0" />
+      <xs:element name="invalidityStartDate" type="xs:date" minOccurs="0" />
+      <xs:element name="exitCode" type="commonA:ExitCodeType" minOccurs="0" />
       <xs:element name="payments" type="PaymentsType" minOccurs="0" />
     </xs:sequence>
   </xs:complexType>
@@ -291,16 +325,16 @@
   </xs:complexType>
   <xs:complexType name="PaymentType">
     <xs:sequence>
-      <xs:element name="document" type="commonA:DocumentType" />
-      <xs:element name="incapacityCategory" type="commonA:IncapacityCategoryType" />
-      <xs:element name="familySituation" type="commonA:FamilySituationType" />
-      <xs:element name="allowanceCategory" type="commonA:AllowanceTypeType" />
-      <xs:element name="allowanceCode" type="commonA:AllowanceCodeType" />
+      <xs:element name="document" type="commonA:DocumentType" minOccurs="0" />
+      <xs:element name="incapacityCategory" type="commonA:IncapacityCategoryType" minOccurs="0" />
+      <xs:element name="familySituation" type="commonA:FamilySituationType" minOccurs="0" />
+      <xs:element name="allowanceCategory" type="commonA:AllowanceTypeType" minOccurs="0" />
+      <xs:element name="allowanceCode" type="commonA:AllowanceCodeType" minOccurs="0" />
       <xs:element name="period" type="common:PeriodType" />
-      <xs:element name="amount" type="common:EuroAmountType" />
+      <xs:element name="amount" type="common:EuroAmountType" minOccurs="0" />
       <xs:choice>
-        <xs:element name="days" type="xs:integer" />
-        <xs:element name="hours" type="xs:decimal" />
+        <xs:element name="days" type="xs:integer" minOccurs="0" />
+        <xs:element name="hours" type="xs:decimal" minOccurs="0" />
       </xs:choice>
     </xs:sequence>
   </xs:complexType>

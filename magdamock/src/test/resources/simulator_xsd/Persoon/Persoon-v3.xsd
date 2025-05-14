@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2016 rel. 2 sp1 (http://www.altova.com) by Stefan Vleugels (AGENTSCHAP FACILITAIR BEDRIJF) -->
+<!-- edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Bart Olaerts (Facilipunt - Agentschap Facilitair Bedrijf) -->
 <xs:schema xmlns="http://magda.vlaanderen.be/persoon-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:bericht="http://generiek-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/persoon-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
 	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
@@ -24,6 +24,7 @@
 			<xs:element name="WettigVerblijf" type="generiek:VlagCodeType" minOccurs="0"/>
 			<xs:element name="AdministratieveToestand" type="generiek:VlagCodeType" minOccurs="0"/>
 			<xs:element name="PlaatsInschrijving" type="generiek:VlagCodeType" minOccurs="0"/>
+			<xs:element name="WettelijkeVertegenwoordiging" type="generiek:VlagCodeType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- ======================== RESPONSE TYPES ======================= -->
@@ -53,6 +54,8 @@
 			<xs:element name="Gezinsleden" type="GezinslidLijstType" minOccurs="0"/>
 			<xs:element name="WettelijkeSamenwoning" type="WettelijkeSamenwoningType" minOccurs="0"/>
 			<xs:element name="Afwezigheid" type="AfwezigheidPersoonType" minOccurs="0"/>
+			<xs:element name="Begraving" type="BegravingType" minOccurs="0"/>
+			<xs:element name="LijkbezorgingEnRitueel" type="LijkbezorgingEnRitueelType" minOccurs="0"/>
 			<xs:element name="Identiteitsbewijzen" type="IdentiteitsbewijsLijstType" minOccurs="0"/>
 			<xs:element name="Beroepskaarten" type="BeroepskaartLijstType" minOccurs="0"/>
 			<xs:element name="Arbeidskaarten" type="ArbeidskaartLijstType" minOccurs="0"/>
@@ -71,6 +74,8 @@
 			<xs:element name="Aliassen" type="AliasLijstType" minOccurs="0"/>
 			<xs:element name="PlaatsenInschrijving" type="PlaatsInschrijvingLijstType" minOccurs="0"/>
 			<xs:element name="Contactgegevens" type="ContactgegevensType" minOccurs="0"/>
+			<xs:element name="BewindvoerdersNietBegeleideMinderjarigeVreemdeling" type="BewindvoerderNietBegeleideMinderjarigeVreemdelingLijstType" minOccurs="0"/>
+			<xs:element name="GeannuleerdDossier" type="GeannuleerdDossierType" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="DatumCreatie" type="generiek:DatumType"/>
 		<xs:attribute name="DatumModificatie" type="generiek:DatumType"/>

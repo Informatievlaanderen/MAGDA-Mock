@@ -38,7 +38,7 @@
 							</Voornamen>
 						</Naam>
 						<Geslacht>
-							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+							<Code>2</Code>
 							<Omschrijving>Vrouwelijk</Omschrijving>
 						</Geslacht>
 						<Beheerder DatumBegin="1987-08-12">
@@ -102,7 +102,7 @@
 										</Voornamen>
 									</Naam>
 									<Geslacht>
-										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+										<Code>1</Code>
 										<Omschrijving>Mannelijk</Omschrijving>
 									</Geslacht>
 									<Geboortedatum>1962-09-16</Geboortedatum>
@@ -124,22 +124,22 @@
 						<Adressen>
 							<Hoofdverblijfplaats DatumBegin="1987-08-12">							
                                 <Straatnaam>
-                                    <String>Dorpsstraat</String>
+                                    <String>Kazernestraat</String>
                                     <Taal>nl</Taal>
                                 </Straatnaam>
-                                <Huisnummer>405</Huisnummer>
+                                <Huisnummer>11</Huisnummer>
                                 <Gemeentenaam>
-                                    <String>Kortenberg</String>
+                                    <String>Gent</String>
                                     <Taal>nl</Taal>
                                 </Gemeentenaam>
 								<Land>
                                     <String>BELGIE</String>
                                     <Taal>nl</Taal>
                                 </Land>
-                                <Postcode>2340</Postcode>
+                                <Postcode>9000</Postcode>
 								<NISCodeLand>150</NISCodeLand>
 								<ISOCodeLand>BEL</ISOCodeLand>
-								<NISCodeGemeente>24055</NISCodeGemeente>
+								<NISCodeGemeente>44021</NISCodeGemeente>
 							</Hoofdverblijfplaats>
 						</Adressen>
 						<Afstammingen>
@@ -162,7 +162,7 @@
 											</Voornamen>
 										</Naam>
 										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+											<Code>1</Code>
 											<Omschrijving>Mannelijk</Omschrijving>
 										</Geslacht>
 										<Geboortedatum>1939-11-19</Geboortedatum>
@@ -180,7 +180,7 @@
 											</Voornamen>
 										</Naam>
 										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+											<Code>2</Code>
 											<Omschrijving>Vrouwelijk</Omschrijving>
 										</Geslacht>
 										<Geboortedatum>1941-03-08</Geboortedatum>
@@ -199,7 +199,7 @@
 								</Voornamen>
 							</Naam>
 							<Geslacht>
-								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+								<Code>1</Code>
 								<Omschrijving>Mannelijk</Omschrijving>
 							</Geslacht>
 							<Geboortedatum>1962-09-16</Geboortedatum>
@@ -208,6 +208,61 @@
 								<Omschrijving>Echtgenote</Omschrijving>
 							</Positie>
 						</Referentiepersoon>
+						<Begraving DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>5</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door verstrooiïng van de as in de strooiweide van de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+							<WettelijkeVertegenwoordiger>
+								<INSZ>48610999771</INSZ>
+								<Geboortedatum>1948-01-09</Geboortedatum>
+								<Geslacht>
+									<Code>1</Code>
+									<Omschrijving>Mannelijk</Omschrijving>
+								</Geslacht>
+							</WettelijkeVertegenwoordiger>
+						</Begraving>
+						<LijkbezorgingEnRitueel DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>05</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door verstrooiïng van de as in de strooiweide van de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+							<Ritueel>
+								<Code>06</Code>
+								<Omschrijving>een uitvaartplechtigheid volgens de Islamitische Godsdienst</Omschrijving>
+							</Ritueel>
+							<PlaatsRegistratie>
+								<Naam>Gent</Naam>
+								<NISCode>44021</NISCode>
+							</PlaatsRegistratie>
+							<DatumDocument>2025-05-12</DatumDocument>
+							<WettelijkeVertegenwoordiger>
+								<INSZ>62691699717</INSZ>
+								<Geboortedatum>1962-09-16</Geboortedatum>
+								<Geslacht>
+									<Code>1</Code>
+									<Omschrijving>Mannelijk</Omschrijving>
+								</Geslacht>
+							</WettelijkeVertegenwoordiger>
+							<Contract>
+								<Situatie>
+									<Code>00</Code>
+									<Omschrijving>geen uitvaartcontract</Omschrijving>
+								</Situatie>
+							</Contract>
+							<Begraafplaats>
+								<Gemeente>
+									<NISCode>44021</NISCode>
+									<Naam>Gent</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+								<Tekst>Zuiderbegraafplaats</Tekst>
+							</Begraafplaats>
+						</LijkbezorgingEnRitueel>
 						<Identiteitsbewijzen>
 							<Identiteitsbewijs DatumBegin="1997-09-02">
 								<Type>

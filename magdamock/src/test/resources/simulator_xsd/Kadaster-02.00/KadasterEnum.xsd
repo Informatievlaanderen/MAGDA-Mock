@@ -21,9 +21,7 @@
   limitations under the Licence.
   #L%
   -->
-
 <xs:schema xmlns="http://kadaster-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://kadaster-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00">
-
 	<xs:simpleType name="PartijIdLijstTypeType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Gemeenschap"/>
@@ -31,5 +29,4 @@
 			<xs:enumeration value="Individueel"/>
 		</xs:restriction>
 	</xs:simpleType>
-
 </xs:schema>

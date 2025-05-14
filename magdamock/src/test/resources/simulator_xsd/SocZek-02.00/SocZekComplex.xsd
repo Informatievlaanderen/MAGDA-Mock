@@ -305,6 +305,7 @@
 	<!---->
 	<xs:complexType name="MutatieHandicapType">
 		<xs:sequence>
+			<xs:element name="IdentificatieBericht" type="generiek:AttestPrefixType" minOccurs="0"/>
 			<xs:element name="Attest" type="AttestHandicapType"/>
 			<xs:element name="IdentificatieKind" type="IdentificatieKindType" minOccurs="0"/>
 			<xs:element name="IdentificatieAanvraag" type="IdentificatieAanvraagHandicapType" minOccurs="0"/>

@@ -30,16 +30,16 @@
 						<INSZ>70621199594</INSZ>
 						<Naam DatumBegin="1970-02-11">
 							<Achternamen>
-								<Achternaam>Janssens</Achternaam>
-								<Achternaam>Dubois</Achternaam>
-								<Achternaam>Peeters</Achternaam>
+								<Achternaam>Loukili</Achternaam>
+								<Achternaam>Salhi</Achternaam>
+								<Achternaam>El Idrissi</Achternaam>
 							</Achternamen>
 							<Voornamen>
 								<Voornaam>Jamal</Voornaam>
 							</Voornamen>
 						</Naam>
 						<Geslacht>
-							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+							<Code>1</Code>
 							<Omschrijving>Mannelijk</Omschrijving>
 						</Geslacht>
 						<Beheerder DatumBegin="1998-04-28">
@@ -66,9 +66,7 @@
 						<Register DatumBegin="1980-04-09">
 							<Code >2</Code>
 							<Omschrijving>Bevolkingsregister</Omschrijving>
-
 						</Register>
-						
 						<Nationaliteiten>
 							<Nationaliteit DatumBegin="1991-10-17">
 								<Code>150</Code>
@@ -83,13 +81,11 @@
 								<Omschrijving>Marokko</Omschrijving>
 							</Nationaliteit>
 						</Nationaliteiten>
-						
-						
 						<Geboorte DatumBegin="1970-02-11">
 							<Datum>1970-02-11</Datum>
 							<Plaats>
 								<Gemeente>
-									<Naam>Riemst</Naam>
+									<Naam>Casablanca</Naam>
 								</Gemeente>
 								<Land>
 									<NISCode>354</NISCode>
@@ -108,22 +104,22 @@
 						<Adressen>
 							<Hoofdverblijfplaats DatumBegin="2014-05-23">								
 								<Straatnaam>
-									<String>Dorpsstraat</String>
+									<String>Kleine Dam</String>
 									<Taal>nl</Taal>
 								</Straatnaam>
-								<Huisnummer>405</Huisnummer>
+								<Huisnummer>29</Huisnummer>
 								<Gemeentenaam>
-									<String>Kortenberg</String>
+									<String>Lokeren</String>
 									<Taal>nl</Taal>
 								</Gemeentenaam>
 								<Land>
 									<String>BELGIE</String>
 									<Taal>nl</Taal>
 								</Land>
-								<Postcode>2340</Postcode>
+								<Postcode>9160</Postcode>
 								<NISCodeLand>150</NISCodeLand>
 								<ISOCodeLand>BEL</ISOCodeLand>
-								<NISCodeGemeente>24055</NISCodeGemeente>
+								<NISCodeGemeente>46014</NISCodeGemeente>
 							</Hoofdverblijfplaats>
 						</Adressen>
 						<Afstammingen>
@@ -137,7 +133,8 @@
 										<INSZ>34600699754</INSZ>
 										<Naam>
 											<Achternamen>
-												<Achternaam>Janssens</Achternaam>
+												<Achternaam>Loukili</Achternaam>
+												<Achternaam>Salhi</Achternaam>
 											</Achternamen>
 											<Voornamen>
 												<Voornaam>Laarbi</Voornaam>
@@ -146,7 +143,7 @@
 											</Voornamen>
 										</Naam>
 										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+											<Code>1</Code>
 											<Omschrijving>Mannelijk</Omschrijving>
 										</Geslacht>
 										<Geboortedatum>1934-01-06</Geboortedatum>
@@ -155,7 +152,7 @@
 										<INSZ>41600099889</INSZ>
 										<Naam>
 											<Achternamen>
-												<Achternaam>Dubois</Achternaam>
+												<Achternaam>El Idrissi</Achternaam>
 											</Achternamen>
 											<Voornamen>
 												<Voornaam>Fettouma</Voornaam>
@@ -163,7 +160,7 @@
 											</Voornamen>
 										</Naam>
 										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+											<Code>2</Code>
 											<Omschrijving>Vrouwelijk</Omschrijving>
 										</Geslacht>
 										<Geboortedatum>1941-01-01</Geboortedatum>
@@ -175,7 +172,9 @@
 							<INSZ>62642499733</INSZ>
 							<Naam>
 								<Achternamen>
-									<Achternaam>Janssens</Achternaam>
+									<Achternaam>Loukili</Achternaam>
+									<Achternaam>Salhi</Achternaam>
+									<Achternaam>El Idrissi</Achternaam>
 								</Achternamen>
 								<Voornamen>
 									<Voornaam>El</Voornaam>
@@ -183,7 +182,7 @@
 								</Voornamen>
 							</Naam>
 							<Geslacht>
-								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+								<Code>1</Code>
 								<Omschrijving>Mannelijk</Omschrijving>
 							</Geslacht>
 							<Geboortedatum>1962-04-24</Geboortedatum>
@@ -200,6 +199,33 @@
 								</Positie>
 							</Gezinslid>
 						</Gezinsleden>
+						<Begraving DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>9</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door bewaring van de as op een andere plaats dan de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+						</Begraving>
+						<LijkbezorgingEnRitueel DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>09</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door bewaring van de as op een andere plaats dan de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+							<Ritueel>
+								<Code>06</Code>
+								<Omschrijving>een uitvaartplechtigheid volgens de Islamitische Godsdienst</Omschrijving>
+							</Ritueel>
+							<PlaatsRegistratie>
+								<Naam>Lokeren</Naam>
+								<NISCode>46014</NISCode>
+							</PlaatsRegistratie>
+							<DatumDocument>2025-05-12</DatumDocument>
+							<Contract>
+								<Situatie>
+									<Code>00</Code>
+									<Omschrijving>geen uitvaartcontract</Omschrijving>
+								</Situatie>
+							</Contract>
+						</LijkbezorgingEnRitueel>
 						<Identiteitsbewijzen>
 							<Identiteitsbewijs DatumBegin="2010-04-01">
 								<Type>
@@ -213,8 +239,8 @@
 								</Vervalgegevens>
 								<Plaats>
 									<Gemeente>
-										<NISCode>24055</NISCode>
-										<Naam>Kortenberg</Naam>
+										<NISCode>46014</NISCode>
+										<Naam>Lokeren</Naam>
 									</Gemeente>
 									<Land>
 										<NISCode>150</NISCode>

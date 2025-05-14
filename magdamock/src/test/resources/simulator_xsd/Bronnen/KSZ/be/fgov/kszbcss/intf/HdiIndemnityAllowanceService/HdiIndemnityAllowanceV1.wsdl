@@ -3,7 +3,6 @@
       * Owner :               KSZ / CBSS
      * Creation date :       2022-03-17
      * Description :         Interface for the HdiIndemnityAllowance web service.
-     * Revision History : 	 2022-03-17: Initial version
 ======================================================================== -->
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:common="http://kszbcss.fgov.be/types/common/v3"
@@ -13,7 +12,7 @@
   <wsdl:types>
     <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified"
       xmlns:an="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/v1"
-      targetNamespace="http://kszbcss.fgov.be/intf/HdiIndemnityAllowanceService/v1" version="20220317">
+      targetNamespace="http://kszbcss.fgov.be/intf/HdiIndemnityAllowanceService/v1" version="20230612">
       <xsd:import namespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/v1"
         schemaLocation="../../types/HdiIndemnityAllowance/HdiIndemnityAllowanceV1.xsd" />
       <xsd:import namespace="http://kszbcss.fgov.be/types/common/v3"
@@ -21,6 +20,9 @@
       <xsd:element name="consultAttestRequest" type="an:ConsultAttestRequestType" />
       <xsd:element name="consultAttestResponse" type="an:ConsultAttestResponseType" />
       <xsd:element name="consultAttestFault" type="common:CBSSFaultType" />
+      <xsd:element name="consultIndemnityPeriodsRequest" type="an:ConsultIndemnityPeriodsRequestType" />
+      <xsd:element name="consultIndemnityPeriodsResponse" type="an:ConsultIndemnityPeriodsResponseType" />
+      <xsd:element name="consultIndemnityPeriodsFault" type="common:CBSSFaultType" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="consultAttestRequestMsg">
@@ -32,11 +34,25 @@
   <wsdl:message name="consultAttestFaultMsg">
     <wsdl:part element="tns:consultAttestFault" name="consultAttestFaultParameters" />
   </wsdl:message>
+  <wsdl:message name="consultIndemnityPeriodsRequestMsg">
+    <wsdl:part element="tns:consultIndemnityPeriodsRequest" name="consultIndemnityPeriodsRequestParameters" />
+  </wsdl:message>
+  <wsdl:message name="consultIndemnityPeriodsResponseMsg">
+    <wsdl:part element="tns:consultIndemnityPeriodsResponse" name="consultIndemnityPeriodsResponseParameters" />
+  </wsdl:message>
+  <wsdl:message name="consultIndemnityPeriodsFaultMsg">
+    <wsdl:part element="tns:consultIndemnityPeriodsFault" name="consultIndemnityPeriodsFaultParameters" />
+  </wsdl:message>
   <wsdl:portType name="HdiIndemnityAllowancePortType">
     <wsdl:operation name="consultAttest">
       <wsdl:input message="tns:consultAttestRequestMsg" name="consultAttestRequest" />
       <wsdl:output message="tns:consultAttestResponseMsg" name="consultAttestResponse" />
       <wsdl:fault message="tns:consultAttestFaultMsg" name="consultAttestFault" />
+    </wsdl:operation>
+    <wsdl:operation name="consultIndemnityPeriods">
+      <wsdl:input message="tns:consultIndemnityPeriodsRequestMsg" name="consultIndemnityPeriodsRequest" />
+      <wsdl:output message="tns:consultIndemnityPeriodsResponseMsg" name="consultIndemnityPeriodsResponse" />
+      <wsdl:fault message="tns:consultIndemnityPeriodsFaultMsg" name="consultIndemnityPeriodsFault" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="HdiIndemnityAllowanceServiceHTTPBinding" type="tns:HdiIndemnityAllowancePortType">
@@ -51,6 +67,19 @@
       </wsdl:output>
       <wsdl:fault name="consultAttestFault">
         <soap:fault name="consultAttestFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultIndemnityPeriods">
+      <soap:operation
+        soapAction="http://kszbcss.fgov.be/HdiIndemnityAllowanceService/consultIndemnityPeriods" />
+      <wsdl:input name="consultIndemnityPeriodsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="consultIndemnityPeriodsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="consultIndemnityPeriodsFault">
+        <soap:fault name="consultIndemnityPeriodsFault" use="literal" />
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>

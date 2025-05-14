@@ -6,11 +6,12 @@
    * Description :
    * Revision History :
     05/02/2019 : evolutionofrequest mandatory in filetype
+    26/09/2023 : [CR202300318] Adding biiReady field in resultChildRecognition
 -->
 <xsd:schema xmlns:tns="http://kszbcss.fgov.be/types/Handi/kindengezin/common/v1"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:commonhandi="http://kszbcss.fgov.be/types/Handi/common/v1"
   targetNamespace="http://kszbcss.fgov.be/types/Handi/kindengezin/common/v1" elementFormDefault="unqualified"
-  attributeFormDefault="unqualified" version="2019-02-01">
+  attributeFormDefault="unqualified" version="2023-09-26">
   <xsd:import namespace="http://kszbcss.fgov.be/types/Handi/common/v1"
     schemaLocation="../../common/HandiCommonV1.xsd" />
   <xsd:complexType name="FileType">
