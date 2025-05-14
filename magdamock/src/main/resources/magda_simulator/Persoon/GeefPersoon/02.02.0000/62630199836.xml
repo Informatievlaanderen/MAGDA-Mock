@@ -305,20 +305,6 @@
 
 							</Gezinslid>
 						</Gezinsleden>
-						<Identiteitsbewijzen>
-							<Identiteitsbewijs DatumBegin="1994-02-11">
-								<Type>
-									<Code>0000</Code>
-									<Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
-								</Type>
-								<Nummer>735274363764</Nummer>
-
-								<Vervalgegevens>
-									<Vervaldatum>1994-02-11</Vervaldatum>
-									<Tekst>Tekst</Tekst>
-								</Vervalgegevens>
-							</Identiteitsbewijs>
-						</Identiteitsbewijzen>
 						<Begraving DatumBegin="2025-05-12">
 							<WijzeVanLijkbezorging>
 								<Code>4</Code>
@@ -359,6 +345,20 @@
 								</Land>
 							</Begraafplaats>
 						</LijkbezorgingEnRitueel>
+						<Identiteitsbewijzen>
+							<Identiteitsbewijs DatumBegin="1994-02-11">
+								<Type>
+									<Code>0000</Code>
+									<Omschrijving Taal="nl">identiteitsbewijs van Belg</Omschrijving>
+								</Type>
+								<Nummer>735274363764</Nummer>
+
+								<Vervalgegevens>
+									<Vervaldatum>1994-02-11</Vervaldatum>
+									<Tekst>Tekst</Tekst>
+								</Vervalgegevens>
+							</Identiteitsbewijs>
+						</Identiteitsbewijzen>
 					</Persoon>
 				</Inhoud>
 			</Antwoord>
