@@ -1,32 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!--
-  #%L
-  VIPInterfaces-generiek
-  %%
-  Copyright (C) 2016 - 2018 Vlaamse Overheid
-  %%
-  Licensed under the EUPL, Version 1.1 or – as soon they will be
-  approved by the European Commission - subsequent versions of the
-  EUPL (the "Licence");
-  
-  You may not use this work except in compliance with the Licence.
-  You may obtain a copy of the Licence at:
-  
-  http://ec.europa.eu/idabc/eupl5
-  
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the Licence is distributed on an "AS IS" basis,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the Licence for the specific language governing permissions and
-  limitations under the Licence.
-  #L%
-  -->
-
 <xs:schema xmlns="http://bewijs.led.vlaanderen.be"
 	xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be"
 	attributeFormDefault="unqualified" elementFormDefault="unqualified"
 	targetNamespace="http://bewijs.led.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	version="2.00"> 
+	version="2.00">
 	
 	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd" />
 
@@ -48,7 +25,7 @@
 		</xs:annotation>
 		<xs:restriction base="generiek:ReferteType">
 		</xs:restriction>
-	</xs:simpleType>	
+	</xs:simpleType>
 	
 	<xs:simpleType name="AuthenticiteitNaamType">
 		<xs:annotation>
@@ -86,6 +63,16 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:simpleType name="BehaaldViaEvcType">
+		<xs:annotation>
+			<xs:documentation>
+				Een Dimensie waarmee het Bewijs geclassificeerd
+				wordt. Beschrijft het soort document dat uitgereikt werd.
+				Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
 
 	<xs:simpleType name="OnderwijsvormNaamType">
 		<xs:annotation>
@@ -99,10 +86,10 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="BewijstypeNaamType">
+	<xs:simpleType name="FinaliteitNaamType">
 		<xs:annotation>
 			<xs:documentation>
-				Naam van een dimensie om het Bewijs te categoriseren.				
+				Naam van een dimensie om het Bewijs te categoriseren.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -110,6 +97,19 @@
 			<xs:maxLength value="255" />
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:simpleType name="BewijstypeNaamType">
+		<xs:annotation>
+			<xs:documentation>
+				Naam van een dimensie om het Bewijs te categoriseren.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:simpleType name="InstantieNaamType">
 		<xs:annotation>
 			<xs:documentation>
@@ -124,7 +124,7 @@
 
 	<xs:simpleType name="OnderwerpCodeType">
 		<xs:annotation>
-			<xs:documentation> 
+			<xs:documentation>
 				Code van het Onderwerp.
 			</xs:documentation>
 		</xs:annotation>
@@ -138,6 +138,18 @@
 		<xs:annotation>
 			<xs:documentation>
 				Naam van een dimensie om het Bewijs te categoriseren.				
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="LedOnderwerpNummerType">
+		<xs:annotation>
+			<xs:documentation>
+				Naam van een dimensie om het Bewijs te categoriseren.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -196,7 +208,7 @@
 			<xs:minLength value="3" />
 			<xs:maxLength value="255" />
 		</xs:restriction>
-	</xs:simpleType>		
+	</xs:simpleType>
 	
 	<xs:simpleType name="InstantierolNaamType">
 		<xs:annotation>
@@ -208,7 +220,7 @@
 			<xs:minLength value="1" />
 			<xs:maxLength value="255" />
 		</xs:restriction>
-	</xs:simpleType>	
+	</xs:simpleType>
 	
 	<xs:simpleType name="BijkomendeInformatieNaamType">
 		<xs:annotation>
@@ -222,7 +234,7 @@
 			<xs:minLength value="1" />
 			<xs:maxLength value="255" />
 		</xs:restriction>
-	</xs:simpleType>	
+	</xs:simpleType>
 		
 	<xs:simpleType name="BijkomendeInformatieInhoudType">
 		<xs:annotation>
@@ -235,8 +247,8 @@
 			<xs:minLength value="1" />
 			<xs:maxLength value="1000" />
 		</xs:restriction>
-	</xs:simpleType>		
-	
+	</xs:simpleType>
+
 	<xs:simpleType name="ISCEDStudiegebiedCodeType">
 		<xs:annotation>
 			<xs:documentation>
@@ -249,20 +261,46 @@
 			<xs:maxLength value="255" />
 		</xs:restriction>
 	</xs:simpleType>
-		 
+
 	<xs:simpleType name="ISCEDStudiegebiedNaamType">
 		<xs:annotation>
 			<xs:documentation>
 				Naam van een ISCED Studiegebied.
-				NaamLangType van Creon en VIP NIET overgenomen, want kan volgens mij langer zijn dan de daar voorziene 48 karakters.				
+				NaamLangType van Creon en VIP NIET overgenomen, want kan volgens mij langer zijn dan de daar voorziene 48 karakters.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1" />
 			<xs:maxLength value="500" />
 		</xs:restriction>
-	</xs:simpleType>	
-	
+	</xs:simpleType>
+
+	<xs:simpleType name="ISCEDStudiegebied2013CodeType">
+		<xs:annotation>
+			<xs:documentation>
+				Code van een ISCED Studiegebied2013.
+				Niet van toepassing en Niet beschikbaar worden doorgegeven d.m.v. een ISCED Studiegebied code (zie de ISCED standaard).
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ISCEDStudiegebied2013NaamType">
+		<xs:annotation>
+			<xs:documentation>
+				Naam van een ISCED Studiegebied 2013.
+				NaamLangType van Creon en VIP NIET overgenomen, want kan volgens mij langer zijn dan de daar voorziene 48 karakters.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="500" />
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:simpleType name="ISCEDNiveauCodeType">
 		<xs:annotation>
 			<xs:documentation>
@@ -275,11 +313,11 @@
 			<xs:maxLength value="255" />
 		</xs:restriction>
 	</xs:simpleType>
-		
+
 	<xs:simpleType name="ISCEDNiveauNaamType">
 		<xs:annotation>
 			<xs:documentation>
-				Naam van een ISCEDNiveau.				
+				Naam van een ISCEDNiveau.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -287,8 +325,32 @@
 			<xs:maxLength value="500" />
 		</xs:restriction>
 	</xs:simpleType>
-		
-	
+
+	<xs:simpleType name="ISCEDNiveau2011CodeType">
+		<xs:annotation>
+			<xs:documentation>
+				Code van een ISCEDNiveau2011: max. 5 karakters, of
+				de waarden "Niet van toepassing", of "Niet beschikbaar".
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ISCEDNiveau2011NaamType">
+		<xs:annotation>
+			<xs:documentation>
+				Naam van een ISCEDNiveau2011.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="500" />
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:simpleType name="VKSNiveauOnderwijskwalificatieCodeType">
 		<xs:annotation>
 			<xs:documentation>
@@ -337,7 +399,7 @@
 			<xs:minLength value="1" />
 			<xs:maxLength value="500" />
 		</xs:restriction>
-	</xs:simpleType>		
+	</xs:simpleType>
 
 	<xs:simpleType name="VervalPeriodeType">
 		<xs:annotation>
@@ -409,7 +471,7 @@
 			<xs:minLength value="1" />
 			<xs:maxLength value="2000" />
 		</xs:restriction>
-	</xs:simpleType>	
+	</xs:simpleType>
 
 	<xs:simpleType name="SpecialisatieCodeType">
 		<xs:annotation>
@@ -449,6 +511,28 @@
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1" />
 			<xs:maxLength value="1000" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="BronBewijsNaamType">
+		<xs:annotation>
+			<xs:documentation>
+				Naam van Bron, is altijd LED
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LED"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="BronBewijsCodeType">
+		<xs:annotation>
+			<xs:documentation>
+				Code van Bron, is altijd LED
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LED"/>
 		</xs:restriction>
 	</xs:simpleType>
 	

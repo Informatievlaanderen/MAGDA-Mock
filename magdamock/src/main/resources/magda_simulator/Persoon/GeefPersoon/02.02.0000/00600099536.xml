@@ -95,7 +95,6 @@
 								<Omschrijving>Ongehuwd</Omschrijving>
 							</BurgerlijkeStaat>
 						</BurgerlijkeStaten>
-
 						<Adressen>
 							<Hoofdverblijfplaats DatumBegin="2014-05-23">								
                                 <Straatnaam>
@@ -111,7 +110,7 @@
                                     <String>BELGIE</String>
                                     <Taal>nl</Taal>
                                 </Land>
-                                <Postcode>2340</Postcode>
+                                <Postcode>3070</Postcode>
 								<NISCodeLand>150</NISCodeLand>
 								<ISOCodeLand>BEL</ISOCodeLand>
 								<NISCodeGemeente>24055</NISCodeGemeente>
@@ -125,7 +124,7 @@
                                 </Type>
                                 <Ouders>
                                     <Ouder>
-                                        <INSZ>48600999764</INSZ>
+                                        <INSZ>48610999771</INSZ>
                                         <Naam>
                                             <Achternamen>
                                                 <Achternaam>Daoud</Achternaam>
@@ -141,7 +140,7 @@
                                         <Geboortedatum>1948-01-09</Geboortedatum>
                                     </Ouder>
                                     <Ouder>
-                                        <INSZ>53601699855</INSZ>
+                                        <INSZ>53611699862</INSZ>
                                         <Naam>
                                             <Achternamen>
                                                 <Achternaam>Daoud</Achternaam>
@@ -160,7 +159,7 @@
                             </Afstamming>
                         </Afstammingen>
                         <Referentiepersoon DatumBegin="2014-05-23">
-                            <INSZ>48600999764</INSZ>
+                            <INSZ>48610999771</INSZ>
                             <Naam>
                                 <Achternamen>
                                     <Achternaam>Daoud</Achternaam>
@@ -182,7 +181,62 @@
                                 <Code>00</Code>
                             </Woonvorm>
                         </Referentiepersoon>
-						
+						<Begraving DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>9</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door bewaring van de as op een andere plaats dan de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+							<WettelijkeVertegenwoordiger>
+								<INSZ>48610999771</INSZ>
+								<Geboortedatum>1948-01-09</Geboortedatum>
+								<Geslacht>
+									<Code>1</Code>
+									<Omschrijving>Mannelijk</Omschrijving>
+								</Geslacht>
+							</WettelijkeVertegenwoordiger>
+						</Begraving>
+						<LijkbezorgingEnRitueel DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>09</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door bewaring van de as op een andere plaats dan de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+							<Ritueel>
+								<Code>06</Code>
+								<Omschrijving>een uitvaartplechtigheid volgens de Islamitische Godsdienst</Omschrijving>
+							</Ritueel>
+							<PlaatsRegistratie>
+								<NISCode>24055</NISCode>
+								<Naam>Kortenberg</Naam>
+							</PlaatsRegistratie>
+							<DatumDocument>2025-05-12</DatumDocument>
+							<WettelijkeVertegenwoordiger>
+								<INSZ>48610999771</INSZ>
+								<Geboortedatum>1948-01-09</Geboortedatum>
+								<Geslacht>
+									<Code>1</Code>
+									<Omschrijving>Mannelijk</Omschrijving>
+								</Geslacht>
+							</WettelijkeVertegenwoordiger>
+							<Contract>
+								<Situatie>
+									<Code>01</Code>
+									<Omschrijving>uitvaartcontract</Omschrijving>
+								</Situatie>
+								<Nummer>123456789</Nummer>
+								<CBENummer>0412937710</CBENummer>
+							</Contract>
+							<Begraafplaats>
+								<Gemeente>
+									<NISCode>24055</NISCode>
+									<Naam>Kortenberg</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Begraafplaats>
+						</LijkbezorgingEnRitueel>
                         <Identiteitsbewijzen>
                             <Identiteitsbewijs DatumBegin="2014-09-17">
                                 <Type>
@@ -210,7 +264,6 @@
                                 </Duurtijd>
                             </Identiteitsbewijs>
                         </Identiteitsbewijzen>
-						
                         <WettigeVerblijven>
                             <WettigVerblijf DatumBegin="2014-09-05">
                                 <Redenen>
@@ -225,12 +278,10 @@
                                 </Redenen>
                             </WettigVerblijf>
                         </WettigeVerblijven>
-						
                         <TypeVluchteling DatumBegin="2011-07-11">
                             <Code>2</Code>
                             <Omschrijving>Kind of echtgenoot kandidaat vluchteling</Omschrijving>
                         </TypeVluchteling>
-                        
 					</Persoon>
 				</Inhoud>
 			</Antwoord>

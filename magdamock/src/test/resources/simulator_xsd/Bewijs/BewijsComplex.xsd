@@ -1,34 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!--
-  #%L
-  VIPInterfaces-generiek
-  %%
-  Copyright (C) 2016 - 2018 Vlaamse Overheid
-  %%
-  Licensed under the EUPL, Version 1.1 or – as soon they will be
-  approved by the European Commission - subsequent versions of the
-  EUPL (the "Licence");
-  
-  You may not use this work except in compliance with the Licence.
-  You may obtain a copy of the Licence at:
-  
-  http://ec.europa.eu/idabc/eupl5
-  
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the Licence is distributed on an "AS IS" basis,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the Licence for the specific language governing permissions and
-  limitations under the Licence.
-  #L%
-  -->
-
 <xs:schema xmlns="http://bewijs.led.vlaanderen.be"
-	xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" 
+	xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be"
 	attributeFormDefault="unqualified" elementFormDefault="unqualified"
 	targetNamespace="http://bewijs.led.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	version="2.00">
  
-	<xs:include schemaLocation="BewijsSimple.xsd" /> 
+	<xs:include schemaLocation="BewijsSimple.xsd" />
 	<xs:include schemaLocation="BewijsEnum.xsd" />
 	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd" />
  
@@ -55,11 +32,11 @@
 				gepubliceerd.							
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence> 
+		<xs:sequence>
 			<xs:element name="BewijsrefertesLed" type="BewijsrefertesLedType" />
 			<xs:element name="BewijsstatusLed" type="BewijsstatusLedType" />
 			<xs:element name="Leverancier" type="LeverancierType" />
-			<xs:element name="PersoonUitgereikt" type="PersoonUitgereiktType" />						
+			<xs:element name="PersoonUitgereikt" type="PersoonUitgereiktType" />
 			<xs:element name="Basis" type="BewijsBasisType" />
 			<xs:element name="Afgeleid" type="BewijsAfgeleidType" />
 		</xs:sequence>
@@ -76,7 +53,7 @@
 			<xs:element name="Datum" type="DatumType" />
 			<xs:element name="Tijd" type="generiek:TijdType" />
 		</xs:sequence>
-	</xs:complexType>	
+	</xs:complexType>
 
 	<xs:complexType name="BewijsrefertesLedType">
 		<xs:annotation>
@@ -97,7 +74,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Code" type="StatusEnumType" minOccurs="1" /> 
+			<xs:element name="Code" type="StatusEnumType" minOccurs="1" />
 			<xs:element name="DatumModificatie" type="TijdstipType" minOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
@@ -153,7 +130,29 @@
 						Verplicht.						
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>			
+			</xs:element>
+
+			<xs:element name="Finaliteit" type="FinaliteitType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Een Dimensie waarmee het Bewijs geclassificeerd
+						wordt.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="BehaaldViaEvc" type="BehaaldViaEvcType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Een Dimensie waarmee het Bewijs geclassificeerd
+						wordt.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="Bewijstype" type="BewijstypeType">
 				<xs:annotation>
@@ -177,7 +176,7 @@
 						Verplicht.						
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>		
+			</xs:element>
 			
 			<xs:element name="Instantie" type="InstantieType">
 				<xs:annotation>
@@ -192,7 +191,7 @@
 						Verplicht.						
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>			
+			</xs:element>
 			
 			<xs:element name="Onderwerp" type="OnderwerpType">
 				<xs:annotation>
@@ -207,7 +206,7 @@
 						Verplicht.						
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>				
+			</xs:element>
 
 			<xs:element name="Uitreikingsdatum" type="UitreikingsdatumType">
 				<xs:annotation>
@@ -284,7 +283,7 @@
 						Verplicht.						
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>			
+			</xs:element>
 
 			<xs:element name="Studierichting" type="StudierichtingType" minOccurs="0">
 				<xs:annotation>
@@ -390,7 +389,7 @@
 					<xs:selector xpath="BijkomendeInformatie"></xs:selector>
 					<xs:field xpath="Naam"></xs:field>
 				</xs:unique>
-			</xs:element>			
+			</xs:element>
 
 		</xs:sequence>
 	</xs:complexType>
@@ -422,7 +421,28 @@
 						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
 						Verplicht.						
 					</xs:documentation>
-				</xs:annotation> 
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ISCEDStudiegebied2013" type="ISCEDStudiegebied2013Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Een afgeleide Dimensie waarmee het Bewijs
+						geclassificeerd wordt.
+						De indeling van de studiegebieden volgens ISCED 2013 is een opdeling
+						die internationale statistieken en vergelijkingen in verband met
+						onderwijs en opleidingen mogelijk maakt.
+						De standaard is in de loop van de jaren 1970 door de UNESCO in het
+						leven geroepen en later verder ontwikkeld.
+						De standaard biedt niet alleen een omschrijving van de studiegebieden,
+						maar ordent deze ook op diverse diepteniveau’s aan de hand van een
+						viercijferige code waarbij elk volgend cijfer een volgend niveau voorstelt.
+						Hoewel het ISCED Studiegebied hoger staat in de hiërarchie van de gegevens,
+						wordt dit gegeven afgeleid door LED aan de hand van de tijdens registratie
+						opgegeven waarde voor de dimensie "Onderwerp".
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="ISCEDNiveau" type="ISCEDNiveauType">
 				<xs:annotation>
@@ -431,7 +451,17 @@
 						geclassificeerd wordt.
 						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.						
 						Verplicht.						
-					</xs:documentation> 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ISCEDNiveau2011" type="ISCEDNiveau2011Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Een afgeleide Dimensie waarmee het Bewijs
+						geclassificeerd wordt. Dit is de opvolger van ISCED 1997.
+						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+						Verplicht.
+					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="VKSNiveauOnderwijskwalificatie" type="VKSNiveauOnderwijskwalificatieType">
@@ -445,7 +475,7 @@
 						Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
 						Verplicht.						
 					</xs:documentation>
-				</xs:annotation> 
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="VKSNiveauBeroepskwalificatie" type="VKSNiveauBeroepskwalificatieType">
 				<xs:annotation>
@@ -520,7 +550,7 @@
 
 	<xs:complexType name="UitreikingsdatumType">
 		<xs:annotation>
-			<xs:documentation> 
+			<xs:documentation>
 				Datum dat het Bewijs werd uitgereikt.
 				Mag niet in de toekomst liggen.
 				Jaar is verplicht.
@@ -532,7 +562,7 @@
 				<xs:element name="Jaar" type="JaarType" minOccurs="1" maxOccurs="1" />
 				<xs:element name="Maand" type="MaandType" minOccurs="0" maxOccurs="1" />
 				<xs:element name="Dag" type="DagType" minOccurs="0" maxOccurs="1" />
-			</xs:sequence>					
+			</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="PersoonUitgereiktType">
@@ -585,6 +615,19 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:complexType name="FinaliteitType">
+		<xs:annotation>
+			<xs:documentation>
+				Een Dimensie waarmee het Bewijs geclassificeerd
+				wordt.
+				Toegelaten waarden: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="FinaliteitNaamType" />
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:complexType name="BewijstypeType">
 		<xs:annotation>
 			<xs:documentation>
@@ -634,15 +677,23 @@
 						De code van het Onderwerp.
 						Verplicht.
 					</xs:documentation>
-				</xs:annotation> 			
-			</xs:element>		
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Naam" type="OnderwerpNaamType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
 						De naam die overeenstemt met de code van het Onderwerp.
 						Optioneel.					
         			</xs:documentation>
-				</xs:annotation>			
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LedOnderwerpNummer" type="LedOnderwerpNummerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						De code die overeenstemt met het onderwerpnummer.
+						Optioneel.
+        			</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -660,7 +711,7 @@
 						De code van het IscedStudiegebied.
 						Verplicht.
 					</xs:documentation>
-				</xs:annotation> 
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="Naam" type="ISCEDStudiegebiedNaamType" minOccurs="0">
 				<xs:annotation>
@@ -672,21 +723,47 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
+
+	<xs:complexType name="ISCEDStudiegebied2013Type">
+		<xs:annotation>
+			<xs:documentation>
+				Een afgeleide Dimensie waarmee het Bewijs geclassificeerd wordt.
+    	</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="ISCEDStudiegebied2013CodeType">
+				<xs:annotation>
+					<xs:documentation>
+						De code van het IscedStudiegebied2013.
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Naam" type="ISCEDStudiegebied2013NaamType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						De naam die overeenstemt met de code van het IscedStudiegebied2013.
+						Optioneel.
+        			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:complexType name="ISCEDNiveauType">
 		<xs:annotation>
 			<xs:documentation>
 				Een afgeleide Dimensie waarmee het Bewijs geclassificeerd wordt.
     	</xs:documentation>
 		</xs:annotation>
-		<xs:sequence> 
+		<xs:sequence>
 			<xs:element name="Code" type="ISCEDNiveauCodeType">
 				<xs:annotation>
 					<xs:documentation>
 						De code van het ISCEDNiveau.
 						Verplicht.
 					</xs:documentation>
-				</xs:annotation> 
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="Naam" type="ISCEDNiveauNaamType" minOccurs="0">
 				<xs:annotation>
@@ -697,22 +774,48 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>	
-	
+	</xs:complexType>
+
+	<xs:complexType name="ISCEDNiveau2011Type">
+		<xs:annotation>
+			<xs:documentation>
+				Een afgeleide Dimensie waarmee het Bewijs geclassificeerd wordt.
+    	</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="ISCEDNiveau2011CodeType">
+				<xs:annotation>
+					<xs:documentation>
+						De code van het ISCEDNiveau2011.
+						Verplicht.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Naam" type="ISCEDNiveau2011NaamType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						De naam die overeenstemt met de code van het ISCEDNiveau2011.
+						Verplicht.
+        			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:complexType name="VKSNiveauOnderwijskwalificatieType">
 		<xs:annotation>
 			<xs:documentation>
 				Een afgeleide Dimensie waarmee het Bewijs geclassificeerd wordt.
     	</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>   
+		<xs:sequence>
 			<xs:element name="Code" type="VKSNiveauOnderwijskwalificatieCodeType">
 				<xs:annotation>
 					<xs:documentation>
 						De code van het VKSNiveau.
 						Verplicht.
 					</xs:documentation>
-				</xs:annotation> 
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="Naam" type="VKSNiveauOnderwijskwalificatieNaamType" minOccurs="0">
 				<xs:annotation>
@@ -731,14 +834,14 @@
 				Een afgeleide Dimensie waarmee het Bewijs geclassificeerd wordt.
     	</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>   
+		<xs:sequence>
 			<xs:element name="Code" type="VKSNiveauBeroepskwalificatieCodeType">
 				<xs:annotation>
 					<xs:documentation>
 						De code van het VKSNiveau.
 						Verplicht.
 					</xs:documentation>
-				</xs:annotation> 
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="Naam" type="VKSNiveauBeroepskwalificatieNaamType" minOccurs="0">
 				<xs:annotation>
@@ -749,7 +852,7 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>		
+	</xs:complexType>
 		
 	<xs:complexType name="LandType">
 		<xs:annotation>
@@ -796,7 +899,7 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>	
+	</xs:complexType>
 			
 
 	<xs:complexType name="BewijsstaatType">
@@ -878,7 +981,7 @@
 			Mogelijke waarden: identiek aan de dimensie ‘Instantie’.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence> 
+		<xs:sequence>
 			<xs:element name="Instantierol" type="InstantierolType" />
 			<xs:element name="Instantie" type="InstantieType" />
 		</xs:sequence>
@@ -893,7 +996,7 @@
 		<xs:sequence>
 			<xs:element name="BijkomendeInformatie" type="BijkomendeInformatieType" minOccurs="1" maxOccurs="50" />
 		</xs:sequence>
-	</xs:complexType>	
+	</xs:complexType>
 		
 	<xs:complexType name="BijkomendeInformatieType">
 		<xs:annotation>
@@ -904,11 +1007,11 @@
 			Toegelaten waarden voor het type: zie LED Taxonomie gepubliceerd door Kwaliteitsagentschap Onderwijs en Vorming.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence> 
+		<xs:sequence>
 			<xs:element name="Naam" type="BijkomendeInformatieNaamType" />
 			<xs:element name="Inhoud" type="BijkomendeInformatieInhoudType" />
 		</xs:sequence>
-	</xs:complexType>	
+	</xs:complexType>
 	
 
 	<xs:complexType name="StudierichtingType">
@@ -1000,13 +1103,25 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Bewijs" type="BewijsType" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="Bewijs" type="BewijsType" minOccurs="1" maxOccurs="99">
 				<xs:annotation>
 					<xs:documentation>
 						Eén Bewijs.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="BronBewijsType">
+		<xs:annotation>
+			<xs:documentation>
+				Bron van het bewijs
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Naam" type="BronBewijsNaamType" />
+			<xs:element name="Code" type="BronBewijsCodeType" />
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

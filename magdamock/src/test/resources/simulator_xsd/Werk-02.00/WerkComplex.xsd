@@ -113,8 +113,39 @@
 				<xs:element name="RSZNummer" type="RSZNummerType"/>
 			</xs:choice>
 			<xs:element name="DeelEntiteit" type="DeelEntiteitType" minOccurs="0"/>
+			<xs:element name="SectorIndicatoren" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SectorIndicator" type="SectorIndicatorRequestType" minOccurs="1" maxOccurs="2"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+
+	<xs:simpleType name="SectorIndicatorRequestType">
+		<xs:annotation>
+			<xs:documentation>01242 - New v020 20221</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PRI">
+				<xs:annotation>
+					<xs:documentation xml:lang="NL">Gegevens van werkgevers in de particuliere sector</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PFR">
+				<xs:annotation>
+					<xs:documentation xml:lang="NL">Gegevens van werkgevers in de federale publieke sector</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PLP">
+				<xs:annotation>
+					<xs:documentation xml:lang="NL">Gegevens van werkgevers in de provinciale en lokale publieke sector</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:complexType name="WerknemerVraagType">
 		<xs:sequence>
 			<xs:element name="INSZ" type="sleutel:INSZType"/>
@@ -154,6 +185,11 @@
 			<xs:element name="RSZNummer" type="RSZNummerType" minOccurs="0"/>
 			<xs:element name="Ondernemingsnummer" type="sleutel:OndernemingsnummerType" minOccurs="0"/>
 			<xs:element name="DeelEntiteit" type="DeelEntiteitType" minOccurs="0"/>
+			<xs:element name="SectorIndicator" type="generiek:TekstType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01242 - New v020 20221</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="WerknemerAntwoordType">

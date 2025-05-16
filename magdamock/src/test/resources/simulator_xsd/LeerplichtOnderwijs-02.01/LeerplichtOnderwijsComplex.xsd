@@ -78,6 +78,9 @@
 			<xs:element name="Uitschrijving" type="UitschrijvingType" minOccurs="0"/>
 			<xs:element name="AnderstaligeNieuwkomer" type="generiek:VlagEnumType" minOccurs="0"/>
 			<xs:element name="GewezenAnderstaligeNieuwkomer" type="generiek:VlagEnumType" minOccurs="0"/>
+			<xs:element name="Studiepunten" type="StudiepuntenType" minOccurs="0"/>
+			<xs:element name="DiplomaHaalbaarInSchooljaar" type="generiek:VlagEnumType" minOccurs="0"/>
+			<xs:element name="CursistVolgtStandaardtraject" type="generiek:VlagEnumType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="UitschrijvingType">
@@ -107,6 +110,13 @@
 		<xs:sequence>
 			<xs:element name="Code" type="LeerwegCodeType"/>
 			<xs:element name="Omschrijving" type="generiek:TekstLang2_0Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StudiepuntenType">
+		<xs:sequence>
+			<xs:element name="Opgenomen" type="generiek:NumeriekLangType" minOccurs="0"/>
+			<xs:element name="VoordienVerworven" type="generiek:NumeriekLangType" minOccurs="0"/>
+			<xs:element name="Behaalde" type="generiek:NumeriekLangType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

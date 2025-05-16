@@ -39,7 +39,7 @@
 							</Voornamen>
 						</Naam>
 						<Geslacht>
-							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+							<Code>2</Code>
 							<Omschrijving>Vrouwelijk</Omschrijving>
 						</Geslacht>
 						<Beheerder DatumBegin="2003-08-19">
@@ -105,7 +105,7 @@
 										</Voornamen>
 									</Naam>
 									<Geslacht>
-										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+										<Code>1</Code>
 										<Omschrijving>Mannelijk</Omschrijving>
 									</Geslacht>
 									<Geboortedatum>1966-12-23</Geboortedatum>
@@ -127,22 +127,23 @@
 						<Adressen>
 							<Hoofdverblijfplaats DatumBegin="2014-05-23">								
 								<Straatnaam>
-									<String>Dorpsstraat</String>
+									<String>Lippenslaan</String>
 									<Taal>nl</Taal>
 								</Straatnaam>
-								<Huisnummer>405</Huisnummer>
+								<Huisnummer>478</Huisnummer>
+								<Busnummer>F</Busnummer>
 								<Gemeentenaam>
-									<String>Kortenberg</String>
+									<String>Knokke-Heist</String>
 									<Taal>nl</Taal>
 								</Gemeentenaam>
 								<Land>
 									<String>BELGIE</String>
 									<Taal>nl</Taal>
 								</Land>
-								<Postcode>2340</Postcode>
+								<Postcode>8300</Postcode>
 								<NISCodeLand>150</NISCodeLand>
 								<ISOCodeLand>BEL</ISOCodeLand>
-								<NISCodeGemeente>24055</NISCodeGemeente>
+								<NISCodeGemeente>31043</NISCodeGemeente>
 							</Hoofdverblijfplaats>
 						</Adressen>
 						<Afstammingen>
@@ -165,7 +166,7 @@
 											</Voornamen>
 										</Naam>
 										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+											<Code>1</Code>
 											<Omschrijving>Mannelijk</Omschrijving>
 										</Geslacht>
 										<Geboortedatum>1943-10-18</Geboortedatum>
@@ -183,7 +184,7 @@
 											</Voornamen>
 										</Naam>
 										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+											<Code>2</Code>
 											<Omschrijving>Vrouwelijk</Omschrijving>
 										</Geslacht>
 										<Geboortedatum>1944-05-13</Geboortedatum>
@@ -204,7 +205,7 @@
 								</Voornamen>
 							</Naam>
 							<Geslacht>
-								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+								<Code>1</Code>
 								<Omschrijving>Mannelijk</Omschrijving>
 							</Geslacht>
 							<Geboortedatum>1966-12-23</Geboortedatum>
@@ -213,6 +214,63 @@
 								<Omschrijving>Echtgenote</Omschrijving>
 							</Positie>
 						</Referentiepersoon>
+						<Begraving DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>9</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door bewaring van de as op een andere plaats dan de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+							<WettelijkeVertegenwoordiger>
+								<INSZ>66722399709</INSZ>
+								<Geboortedatum>1966-12-23</Geboortedatum>
+								<Geslacht>
+									<Code>1</Code>
+									<Omschrijving>Mannelijk</Omschrijving>
+								</Geslacht>
+							</WettelijkeVertegenwoordiger>
+						</Begraving>
+						<LijkbezorgingEnRitueel DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>09</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door bewaring van de as op een andere plaats dan de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+							<Ritueel>
+								<Code>01</Code>
+								<Omschrijving>een uitvaartplechtigheid volgens de Katholieke Godsdienst</Omschrijving>
+							</Ritueel>
+							<PlaatsRegistratie>
+								<NISCode>31043</NISCode>
+								<Naam>Knokke-Heist</Naam>
+							</PlaatsRegistratie>
+							<DatumDocument>2025-05-12</DatumDocument>
+							<WettelijkeVertegenwoordiger>
+								<INSZ>66722399709</INSZ>
+								<Geboortedatum>1966-12-23</Geboortedatum>
+								<Geslacht>
+									<Code>1</Code>
+									<Omschrijving>Mannelijk</Omschrijving>
+								</Geslacht>
+							</WettelijkeVertegenwoordiger>
+							<Contract>
+								<Situatie>
+									<Code>01</Code>
+									<Omschrijving>uitvaartcontract</Omschrijving>
+								</Situatie>
+								<Nummer>123456789</Nummer>
+								<CBENummer>0412937710</CBENummer>
+							</Contract>
+							<Begraafplaats>
+								<Gemeente>
+									<NISCode>31043</NISCode>
+									<Naam>Knokke-Heist</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+								<Tekst>Begraafplaats Heist</Tekst>
+							</Begraafplaats>
+						</LijkbezorgingEnRitueel>
 						<Identiteitsbewijzen>
 							<Identiteitsbewijs DatumBegin="2008-08-01">
 								<Type>
@@ -222,8 +280,8 @@
 								<Nummer>666943776671</Nummer>
 								<Plaats>
 									<Gemeente>
-										<NISCode>24055</NISCode>
-										<Naam>Kortenberg</Naam>
+										<NISCode>31043</NISCode>
+										<Naam>Knokke-Heist</Naam>
 									</Gemeente>
 									<Land>
 										<NISCode>150</NISCode>

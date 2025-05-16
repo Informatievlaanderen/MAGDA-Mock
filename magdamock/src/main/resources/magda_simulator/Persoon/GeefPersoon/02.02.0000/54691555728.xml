@@ -113,6 +113,45 @@
 								<NISCodeGemeente>31005</NISCodeGemeente>
 							</Hoofdverblijfplaats>
 						</Adressen>
+						<Begraving DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>4</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door bijzetting van de as in het columbarium van de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+						</Begraving>
+						<LijkbezorgingEnRitueel DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>04</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door bijzetting van de as in het columbarium van de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+							<Ritueel>
+								<Code>08</Code>
+								<Omschrijving>een uitvaartplechtigheid volgens Neutraal Filosofische overtuiging</Omschrijving>
+							</Ritueel>
+							<PlaatsRegistratie>
+								<NISCode>44021</NISCode>
+								<Naam>Gent</Naam>
+							</PlaatsRegistratie>
+							<DatumDocument>2025-05-12</DatumDocument>
+							<Contract>
+								<Situatie>
+									<Code>00</Code>
+									<Omschrijving>geen uitvaartcontract</Omschrijving>
+								</Situatie>
+							</Contract>
+							<Begraafplaats>
+								<Gemeente>
+									<NISCode>31005</NISCode>
+									<Naam>Brugge</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+								<Tekst>Begraafplaats Brugge-Sint-Michiels</Tekst>
+							</Begraafplaats>
+						</LijkbezorgingEnRitueel>
 						<Identiteitsbewijzen>
 							<Identiteitsbewijs DatumBegin="2016-04-05">
 								<Type>
