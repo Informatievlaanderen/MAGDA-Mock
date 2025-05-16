@@ -124,6 +124,7 @@ public class SOAPSimulatorBuilder {
         simulator.register("GeefLoopbaanARZA", VERSION_02_01, new PathBasedStaticResponseSimulator(finder, WERK, KEY_INSZ));
         simulator.register("GeefLoopbaanOnderbrekingen", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, WERK, KEY_INSZ));
         simulator.register("GeefWerkrelaties", VERSION_02_00, new PathBasedStaticResponseSimulator(finder, WERK, KEY_INSZ));
+        simulator.register("GeefDmfaVoorWerknemer", VERSION_03_00, new PathBasedStaticResponseSimulator(finder, WERK, KEY_INSZ));
 
         return this;
     }
