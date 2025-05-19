@@ -39,7 +39,7 @@
 							</Voornamen>
 						</Naam>
 						<Geslacht>
-							<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+							<Code>2</Code>
 							<Omschrijving>Vrouwelijk</Omschrijving>
 						</Geslacht>
 						<Beheerder DatumBegin="1993-11-22">
@@ -104,7 +104,7 @@
 										</Voornamen>
 									</Naam>
 									<Geslacht>
-										<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+										<Code>1</Code>
 										<Omschrijving>Mannelijk</Omschrijving>
 									</Geslacht>
 									<Geboortedatum>1952-03-04</Geboortedatum>
@@ -126,22 +126,22 @@
 						<Adressen>
 							<Hoofdverblijfplaats DatumBegin="1996-01-29">						
 								<Straatnaam>
-									<String>Dorpsstraat</String>
+									<String>Boudewijnstraat</String>
 									<Taal>nl</Taal>
 								</Straatnaam>
-								<Huisnummer>405</Huisnummer>
+								<Huisnummer>14</Huisnummer>
 								<Gemeentenaam>
-									<String>Kortenberg</String>
+									<String>Antwerpen</String>
 									<Taal>nl</Taal>
 								</Gemeentenaam>
 								<Land>
 									<String>BELGIE</String>
 									<Taal>nl</Taal>
 								</Land>
-								<Postcode>2340</Postcode>
+								<Postcode>2018</Postcode>
 								<NISCodeLand>150</NISCodeLand>
 								<ISOCodeLand>BEL</ISOCodeLand>
-								<NISCodeGemeente>24055</NISCodeGemeente>
+								<NISCodeGemeente>11002</NISCodeGemeente>
 							</Hoofdverblijfplaats>
 						</Adressen>
 						<Afstammingen>
@@ -164,7 +164,7 @@
 											</Voornamen>
 										</Naam>
 										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+											<Code>1</Code>
 											<Omschrijving>Mannelijk</Omschrijving>
 										</Geslacht>
 										<Geboortedatum>1941-10-18</Geboortedatum>
@@ -182,7 +182,7 @@
 											</Voornamen>
 										</Naam>
 										<Geslacht>
-											<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+											<Code>2</Code>
 											<Omschrijving>Vrouwelijk</Omschrijving>
 										</Geslacht>
 										<Geboortedatum>1941-05-20</Geboortedatum>
@@ -203,7 +203,7 @@
 								</Voornamen>
 							</Naam>
 							<Geslacht>
-								<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+								<Code>1</Code>
 								<Omschrijving>Mannelijk</Omschrijving>
 							</Geslacht>
 							<Geboortedatum>1961-01-25</Geboortedatum>
@@ -226,7 +226,7 @@
 									</Voornamen>
 								</Naam>
 								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+									<Code>2</Code>
 									<Omschrijving>Vrouwelijk</Omschrijving>
 								</Geslacht>
 								<Geboortedatum>1985-03-27</Geboortedatum>
@@ -249,7 +249,7 @@
 									</Voornamen>
 								</Naam>
 								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+									<Code>1</Code>
 									<Omschrijving>Mannelijk</Omschrijving>
 								</Geslacht>
 								<Geboortedatum>1989-08-03</Geboortedatum>
@@ -272,7 +272,7 @@
 									</Voornamen>
 								</Naam>
 								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">1</Code>
+									<Code>1</Code>
 									<Omschrijving>Mannelijk</Omschrijving>
 								</Geslacht>
 								<Geboortedatum>1992-03-03</Geboortedatum>
@@ -294,7 +294,7 @@
 									</Voornamen>
 								</Naam>
 								<Geslacht>
-									<Code xmlns:v02="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">2</Code>
+									<Code>2</Code>
 									<Omschrijving>Vrouwelijk</Omschrijving>
 								</Geslacht>
 								<Geboortedatum>1995-08-18</Geboortedatum>
@@ -305,6 +305,46 @@
 
 							</Gezinslid>
 						</Gezinsleden>
+						<Begraving DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>4</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door bijzetting van de as in het columbarium van de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+						</Begraving>
+						<LijkbezorgingEnRitueel DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>04</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door bijzetting van de as in het columbarium van de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+							<Ritueel>
+								<Code>07</Code>
+								<Omschrijving>een uitvaartplechtigheid volgens de Vrijzinnige levensovertuiging</Omschrijving>
+							</Ritueel>
+							<PlaatsRegistratie>
+								<NISCode>11002</NISCode>
+								<Naam>Antwerpen</Naam>
+							</PlaatsRegistratie>
+							<DatumDocument>2025-05-12</DatumDocument>
+							<Contract>
+								<Situatie>
+									<Code>01</Code>
+									<Omschrijving>uitvaartcontract</Omschrijving>
+								</Situatie>
+								<Nummer>123456</Nummer>
+								<CBENummer>0412937710</CBENummer>
+							</Contract>
+							<Begraafplaats>
+								<Gemeente>
+									<NISCode>11002</NISCode>
+									<Naam>Antwerpen</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+							</Begraafplaats>
+						</LijkbezorgingEnRitueel>
 						<Identiteitsbewijzen>
 							<Identiteitsbewijs DatumBegin="1994-02-11">
 								<Type>

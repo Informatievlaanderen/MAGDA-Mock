@@ -48,7 +48,7 @@
 			<xs:element name="KadastraleAfdeling" type="KadastraleAfdelingType"/>
 			<xs:element name="Sectie" type="SectieType"/>
 			<xs:element name="Grondnummer" type="GrondnummerType"/>
-			<xs:element name="Bisnummer" type="BisnummerType" minOccurs="0"/>
+			<xs:element name="Bisnummer" type="GeefEigendomstoestandenBisnummerType" minOccurs="0"/>
 			<xs:element name="Cijferexponent" type="CijferexponentType" minOccurs="0"/>
 			<xs:element name="Letterexponent" type="LetterexponentType" minOccurs="0"/>
 			<xs:element name="Partitie" type="PartitieType"/>
@@ -122,7 +122,7 @@
 			<xs:element name="Geboortedatum" type="generiek:Datum2_0Type" minOccurs="0"/>
 			<xs:element name="Gemeente" type="Gemeente2_0Type" minOccurs="0"/>
 			<xs:element name="Land" type="Land2_0Type" minOccurs="0"/>
-			<xs:element name="Adres" type="generiekv3:AdresVoorstellingUitbreidingType" minOccurs="0"/>				
+			<xs:element name="Adres" type="generiekv3:AdresVoorstellingUitbreidingType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PersoonNaamType">
@@ -159,7 +159,7 @@
 			<xs:element name="PartijId" type="PartijIdType" minOccurs="0"/>
 			<xs:element name="Ondernemingsnummer" type="OndernemingsnummerType" minOccurs="0"/>
 			<xs:element name="Naam" type="generiek:TekstKort2_0Type" minOccurs="0"/>
-			<xs:element name="Adres" type="generiekv3:AdresVoorstellingUitbreidingType" minOccurs="0"/>	
+			<xs:element name="Adres" type="generiekv3:AdresVoorstellingUitbreidingType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EigendomstoestandType">
@@ -222,6 +222,7 @@
 			<xs:element name="AlgemeneInformaties" type="AlgemeneInformatiesType" minOccurs="0"/>
 			<xs:element name="AantalLiften" type="AantalLiftenType" minOccurs="0"/>
 			<xs:element name="BeschrijvingPrivatiefGedeelte" type="BeschrijvingPrivatiefGedeelteType" minOccurs="0"/>
+			<xs:element name="Omschrijving" type="xs:string" minOccurs="0"/>
 			<xs:element name="BeschrijvingTweedeAardBassin" type="BeschrijvingTweedeAardBassinType" minOccurs="0"/>
 			<xs:element name="DatumValidatieDossier" type="DatumTijdType" minOccurs="0"/>
 			<xs:element name="PeriodeVersie" type="PeriodeVersieType" minOccurs="0"/>
@@ -286,6 +287,9 @@
 			<xs:element name="Lettercode" type="LettercodeType" minOccurs="0"/>
 			<xs:element name="CijferCode" type="CijferCode" minOccurs="0"/>
 			<xs:element name="DatumEindeVrijstelling" type="generiek:Datum2_0Type" minOccurs="0"/>
+			<xs:element name="DatumDefinitieveKI" type="generiek:Datum2_0Type" minOccurs="0"/>
+			<xs:element name="DatumEersteGebruik" type="generiek:Datum2_0Type" minOccurs="0"/>
+			
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AlgemeneInformatieOppervlakteType">
@@ -466,6 +470,9 @@
 			<xs:element name="MedeEigenaars" type="MedeEigenaarsType" minOccurs="0"/>
 			<xs:element name="Beheerder" type="BeheerderType" minOccurs="0"/>
 			<xs:element name="ZakelijkRecht" type="ZakelijkRechtType" minOccurs="0"/>
+			<xs:element name="Consessiehouder"  type="ConsessiehouderType" minOccurs="0"/>
+			<xs:element name="OverledenPersoon" type="OverledenPersoonType" minOccurs="0"/>
+			<xs:element name="ClausuleID" type="xs:integer" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ZakelijkRechtType">
@@ -1030,6 +1037,7 @@
 		<xs:sequence>
 			<xs:element name="Code" type="CodeOngestructureerdRechtTypeType"/>
 			<xs:element name="Omschrijving" type="generiek:OmschrijvingAlgemeenType" minOccurs="0"/>
+			<xs:element name="Afkorting" type="generiek:Tekst2_0Type" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CodeOngestructureerdRechtTypeType">

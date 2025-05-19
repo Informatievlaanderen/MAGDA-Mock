@@ -1,29 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  #%L
-  VIPInterfaces-generiek
-  %%
-  Copyright (C) 2016 - 2018 Vlaamse Overheid
-  %%
-  Licensed under the EUPL, Version 1.1 or – as soon they will be
-  approved by the European Commission - subsequent versions of the
-  EUPL (the "Licence");
-  
-  You may not use this work except in compliance with the Licence.
-  You may obtain a copy of the Licence at:
-  
-  http://ec.europa.eu/idabc/eupl5
-  
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the Licence is distributed on an "AS IS" basis,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the Licence for the specific language governing permissions and
-  limitations under the Licence.
-  #L%
-  -->
-<xs:schema xmlns="http://onderneming-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" targetNamespace="http://onderneming-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00">
+<xs:schema xmlns="http://onderneming-02_00.vip.vlaanderen.be" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://generiek-02_00.vip.vlaanderen.be" xmlns:oslo="http://magda.vlaanderen.be/generiek/oslo-v3" targetNamespace="http://onderneming-02_00.vip.vlaanderen.be" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2.00">
 	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
 	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xs:import namespace="http://magda.vlaanderen.be/generiek/oslo-v3" schemaLocation="../Generiek/oslo/OSLODomein-v3.xsd"/>
 	<xs:include schemaLocation="OndernemingEnum.xsd"/>
 	<xs:include schemaLocation="OndernemingSimple.xsd"/>
 	<!--****************************************-->
@@ -122,6 +101,7 @@
 			<xs:element name="Rechtsvorm" type="generiek:CijferTripleType" minOccurs="0"/>
 			<xs:element name="Adres" type="CriteriaAdresOndernemingType" nillable="false" minOccurs="0"/>
 			<xs:element name="Omschrijvingen" type="CriteriaOmschrijvingenType" minOccurs="0"/>
+			<xs:element name="ExacteBenaming" type="generiek:VlagEnumType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!--========================================-->
@@ -911,6 +891,7 @@
 			<xs:element name="Busnummer" type="NummerBusType" minOccurs="0"/>
 			<xs:element name="Gemeente" type="GemeenteOptioneel2_0Type" nillable="false" minOccurs="0"/>
 			<xs:element name="Staat" type="generiek:TekstKort2_0Type" minOccurs="0"/>
+			<xs:element name="BeStAdres" type="oslo:GestructureerdeIdentificatorMetVersieType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="AdresOndernemingBasisType">
@@ -1098,6 +1079,11 @@
 			<xs:element name="GemeenteNISCode" type="CodeNISGemeenteType" minOccurs="0"/>
 			<xs:element name="GemeentePostCode" type="CodePostType" minOccurs="0"/>
 			<xs:element name="LandNISCode" type="CodeNISLandType" minOccurs="0"/>
+			<xs:element name="BeStAdres" type="oslo:GestructureerdeIdentificatorMetVersieType" minOccurs="0"/>
+			<xs:element name="BeStGemeente" type="oslo:GestructureerdeIdentificatorMetVersieType" minOccurs="0"/>
+			<xs:element name="BeStDeelgemeente" type="oslo:GestructureerdeIdentificatorMetVersieType" minOccurs="0"/>
+			<xs:element name="BeStPostcode" type="oslo:GestructureerdeIdentificatorMetVersieType" minOccurs="0"/>
+			<xs:element name="BeStStraat" type="oslo:GestructureerdeIdentificatorMetVersieType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="HandelsregisterType">

@@ -6,7 +6,7 @@
   xmlns:hiaCommon="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/common/v1"
   xmlns:commonA="http://cinnic.fgov.be/types/allowance/commonTypes/v1"
   targetNamespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowanceNotifications/v1" elementFormDefault="unqualified"
-  attributeFormDefault="unqualified" version="20220422">
+  attributeFormDefault="unqualified" version="20230612">
   <!--========= imports =========== -->
   <xs:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../common/CommonV3.xsd" />
   <xs:import namespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/common/v1"
@@ -30,12 +30,18 @@
       <xs:element name="receiver" type="common:SenderReceiverType" />
       <xs:element name="legalContext" type="common:LegalContextType" />
       <xs:element name="sequenceNumber" type="common:SequenceNumberType" />
-      <xs:element name="dataFilters" type="common:DataFiltersType" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Not sure whether filters are needed on period level</xs:documentation>
-        </xs:annotation>
-      </xs:element>
+      <xs:element name="dataFilters" type="common:DataFiltersType" minOccurs="0" />
       <xs:element name="hiaPeriodNotifications" type="tns:HiaPeriodNotificationsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NotifyHdiIndemnityAllowanceIndemnityPeriodsType">
+    <xs:sequence>
+      <xs:element name="sender" type="common:SenderReceiverType" />
+      <xs:element name="receiver" type="common:SenderReceiverType" />
+      <xs:element name="legalContext" type="common:LegalContextType" />
+      <xs:element name="sequenceNumber" type="common:SequenceNumberType" />
+      <xs:element name="dataFilters" type="common:DataFiltersType" minOccurs="0" />
+      <xs:element name="hiaIndemnityPeriodsNotifications" type="tns:HiaIndemnityPeriodsNotificationsType" />
     </xs:sequence>
   </xs:complexType>
   <!--========= DataTypes Attest =========== -->
@@ -66,9 +72,33 @@
   </xs:complexType>
   <xs:complexType name="HiaPeriodNotificationType">
     <xs:sequence>
-      <xs:element name="ssin" type="common:SsinType" />
+      <xs:element name="ssin" type="common:SsinWithCanceledAndReplacedByStatusType">
+        <xs:annotation>
+          <xs:documentation>Canceled and replaced ssins received from NIC will be pushed as is, but CBSS will annotate
+            them with attributes canceled and/or replacedBy to indicate their status and potential replacing (new) ssin.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="attestationIdentification" type="hiaCommon:PeriodAttestationIdentificationType" />
       <xs:element name="socialRisk" type="hiaCommon:SocialRiskPeriodType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <!--========= DataTypes Indemnity Periodq =========== -->
+  <xs:complexType name="HiaIndemnityPeriodsNotificationsType">
+    <xs:sequence>
+      <xs:element name="hiaIndemnityPeriodsNotification" type="tns:HiaIndemnityPeriodsNotificationType"
+        minOccurs="1" maxOccurs="5000" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HiaIndemnityPeriodsNotificationType">
+    <xs:sequence>
+      <xs:element name="ssin" type="common:SsinWithCanceledAndReplacedByStatusType">
+        <xs:annotation>
+          <xs:documentation>Canceled and replaced ssins received from NIC will be pushed as is, but CBSS will annotate
+            them with attributes canceled and/or replacedBy to indicate their status and potential replacing (new) ssin.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="attestationIdentification" type="hiaCommon:AttestationIdentificationType" />
+      <xs:element name="allowances" type="hiaCommon:AllowancesPeriodsType" minOccurs="0" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

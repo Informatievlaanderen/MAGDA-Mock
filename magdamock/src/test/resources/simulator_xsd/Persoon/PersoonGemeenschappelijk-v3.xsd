@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Katleen (Facilipunt - Agentschap Facilitair Bedrijf) -->
-<xs:schema xmlns="http://magda.vlaanderen.be/persoon-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/persoon-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://magda.vlaanderen.be/persoon-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:oslo="http://magda.vlaanderen.be/generiek/oslo-v3" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" xmlns:ns1="http://magda.vlaanderen.be/generiek/oslo-v3" targetNamespace="http://magda.vlaanderen.be/persoon-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
 	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
 	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:import namespace="http://magda.vlaanderen.be/generiek/oslo-v3" schemaLocation="../Generiek/oslo/OSLODomein-v3.xsd"/>
 	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
 	<xs:simpleType name="CodeBronType">
 		<xs:restriction base="xs:string">
@@ -234,7 +235,7 @@
 	</xs:complexType>
 	<xs:complexType name="BeheerderType">
 		<xs:sequence>
-			<xs:element name="Plaats" type="generiek:PlaatsType"/>
+			<xs:element name="Plaats" type="generiek:PlaatsBeStAddType"/>
 			<xs:element name="Fusie" type="generiek:CodeOmschrijvingType" minOccurs="0"/>
 			<xs:element name="Taalregime" type="generiek:CodeOmschrijvingType" minOccurs="0"/>
 		</xs:sequence>
@@ -304,7 +305,7 @@
 	</xs:complexType>
 	<xs:complexType name="GeboorteType">
 		<xs:complexContent>
-			<xs:extension base="GebeurtenisType">
+			<xs:extension base="GebeurtenisBeStAddType">
 				<xs:sequence>
 					<xs:element name="DabsDocumentReferte" type="DabsDocumentReferteType" minOccurs="0"/>
 					<xs:element name="Bewijsstuk" type="generiek:CodeOmschrijvingType" minOccurs="0"/>
@@ -314,10 +315,18 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="GebeurtenisBeStAddType">
+		<xs:sequence>
+			<xs:element name="Datum" type="generiek:OnvolledigeDatumType"/>
+			<xs:element name="Plaats" type="PlaatsMetTekstBeStAddType" minOccurs="0"/>
+			<xs:element name="Aktenummer" type="AktenummerType" minOccurs="0"/>
+			<xs:element name="AanvullendRegister" type="AanvullendRegisterType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="GebeurtenisType">
 		<xs:sequence>
 			<xs:element name="Datum" type="generiek:OnvolledigeDatumType"/>
-			<xs:element name="Plaats" type="PlaatsMetTekstType" minOccurs="0"/>
+			<xs:element name="Plaats" type="PlaatsMetTekstBeStAddType" minOccurs="0"/>
 			<xs:element name="Aktenummer" type="AktenummerType" minOccurs="0"/>
 			<xs:element name="AanvullendRegister" type="AanvullendRegisterType" minOccurs="0"/>
 		</xs:sequence>
@@ -331,9 +340,18 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="PlaatsMetTekstBeStAddType">
+		<xs:complexContent>
+			<xs:extension base="generiek:PlaatsBeStAddType">
+				<xs:sequence>
+					<xs:element name="Tekst" type="generiek:TekstType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="OverlijdenType">
 		<xs:complexContent>
-			<xs:extension base="GebeurtenisType">
+			<xs:extension base="GebeurtenisBeStAddType">
 				<xs:sequence>
 					<xs:element name="DabsDocumentReferte" type="DabsDocumentReferteType" minOccurs="0"/>
 					<xs:element name="Beslissing" type="BeslissingOverlijdenType" minOccurs="0"/>
@@ -366,7 +384,7 @@
 			<xs:extension base="generiek:CodeOmschrijvingType">
 				<xs:sequence>
 					<xs:element name="Partner" type="PartnerType" minOccurs="0"/>
-					<xs:element name="Plaats" type="generiek:PlaatsType" minOccurs="0"/>
+					<xs:element name="Plaats" type="generiek:PlaatsBeStAddType" minOccurs="0"/>
 					<xs:element name="Aktenummer" type="AktenummerType" minOccurs="0"/>
 					<xs:element name="AanvullendRegister" type="AanvullendRegisterType" minOccurs="0"/>
 					<xs:element name="DabsDocumentReferte" type="DabsDocumentReferteType" minOccurs="0"/>
@@ -409,10 +427,35 @@
 		<xs:complexContent>
 			<xs:extension base="generiek:AdresVoorstellingUitbreidingType">
 				<xs:sequence>
-					<xs:element name="ReferentieAdres" type="generiek:PeriodeDatumBeginVerplichtType" minOccurs="0"/>
+					<xs:element name="ReferentieAdres" type="ReferentieAdresType" minOccurs="0"/>
 				</xs:sequence>
 				<xs:attribute name="DatumBegin" type="generiek:OnvolledigeDatumType"/>
 				<xs:attribute name="DatumEinde" type="generiek:OnvolledigeDatumType"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ReferentieAdresType">
+		<xs:complexContent>
+			<xs:extension base="generiek:PeriodeDatumBeginVerplichtType">
+				<xs:sequence>
+					<xs:element name="Details" type="ReferenceAdresDetailType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ReferenceAdresDetailType">
+		<xs:sequence>
+			<xs:element name="Situatie" type="generiek:CodeOmschrijvingType" minOccurs="0"/>
+			<xs:element name="Plaats" type="ReferenceAdresDetailPlaatsType" minOccurs="0"/>
+			<xs:element name="Verantwoording" type="generiek:CodeOmschrijvingType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReferenceAdresDetailPlaatsType">
+		<xs:complexContent>
+			<xs:extension base="generiek:CodeOmschrijvingType">
+				<xs:sequence>
+					<xs:element name="GemeenteBeStAddId" type="oslo:GestructureerdeIdentificatorType" minOccurs="0"/>
+				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -649,7 +692,7 @@
 		<xs:sequence>
 			<xs:element name="Datum" type="generiek:DatumType" minOccurs="0"/>
 			<xs:element name="Partner" type="PartnerType" minOccurs="0"/>
-			<xs:element name="Plaats" type="generiek:PlaatsType"/>
+			<xs:element name="Plaats" type="generiek:PlaatsBeStAddType"/>
 			<xs:element name="Notariaat" type="NotariaatType" minOccurs="0"/>
 			<xs:element name="Beeindiging" type="BeeindigingWettelijkeSamenwoningType" minOccurs="0"/>
 		</xs:sequence>
@@ -967,6 +1010,74 @@
 			<xs:element name="GSM" type="generiek:TekstType" minOccurs="0"/>
 			<xs:element name="Telefoon" type="generiek:TekstType" minOccurs="0"/>
 			<xs:element name="Fax" type="generiek:TekstType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:OnvolledigeDatumType"/>
+		<xs:attribute name="DatumEinde" type="generiek:OnvolledigeDatumType"/>
+	</xs:complexType>
+	<xs:complexType name="BewindvoerderNietBegeleideMinderjarigeVreemdelingLijstType">
+		<xs:sequence>
+			<xs:element name="BewindvoerderNietBegeleideMinderjarigeVreemdeling" type="BewindvoerderNietBegeleideMinderjarigeVreemdelingType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BewindvoerderNietBegeleideMinderjarigeVreemdelingType">
+		<xs:sequence>
+			<xs:element name="GeplandeDatumEinde" type="generiek:OnvolledigeDatumType" minOccurs="0"/>
+			<xs:element name="JuridischStatuut" type="generiek:CodeOmschrijvingType"/>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:OnvolledigeDatumType"/>
+		<xs:attribute name="DatumEinde" type="generiek:OnvolledigeDatumType"/>
+	</xs:complexType>
+	<xs:complexType name="BegravingType">
+		<xs:sequence>
+			<xs:element name="WijzeVanLijkbezorging" type="generiek:CodeOmschrijvingType"/>
+			<xs:element name="WettelijkeVertegenwoordiger" type="WettelijkeVertegenwoordigerType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:OnvolledigeDatumType"/>
+		<xs:attribute name="DatumEinde" type="generiek:OnvolledigeDatumType"/>
+	</xs:complexType>
+	<xs:complexType name="WettelijkeVertegenwoordigerType">
+		<xs:complexContent>
+			<xs:extension base="PersoonINSZType">
+				<xs:sequence>
+				<xs:element name="Tekst" type="generiek:TekstType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PersoonINSZType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Geboortedatum" type="generiek:OnvolledigeDatumType" minOccurs="0"/>
+			<xs:element name="Geslacht" type="generiek:CodeOmschrijvingType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LijkbezorgingEnRitueelType">
+		<xs:sequence>
+			<xs:element name="WijzeVanLijkbezorging" type="generiek:CodeOmschrijvingType"/>
+			<xs:element name="Ritueel" type="generiek:CodeOmschrijvingType" minOccurs="0"/>
+			<xs:element name="PlaatsRegistratie" type="generiek:GemeenteType"/>
+			<xs:element name="DatumDocument" type="generiek:DatumType"/>
+			<xs:element name="WettelijkeVertegenwoordiger" type="WettelijkeVertegenwoordigerType" minOccurs="0"/>
+			<xs:element name="Contract" type="LijkbezorgingContractType" minOccurs="0"/>
+			<xs:element name="Begraafplaats" type="PlaatsMetTekstType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:OnvolledigeDatumType"/>
+		<xs:attribute name="DatumEinde" type="generiek:OnvolledigeDatumType"/>
+	</xs:complexType>
+	<xs:complexType name="LijkbezorgingContractType">
+		<xs:sequence>
+			<xs:element name="Situatie" type="generiek:CodeOmschrijvingType"/>
+			<xs:element name="Nummer" type="generiek:TekstType" minOccurs="0"/>
+			<xs:element name="CBENummer" type="generiek:TekstType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="DatumBegin" type="generiek:OnvolledigeDatumType"/>
+	</xs:complexType>
+	<xs:complexType name="GeannuleerdDossierType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Geboortedatum" type="generiek:OnvolledigeDatumType" minOccurs="0"/>
+			<xs:element name="Geslacht" type="generiek:CodeOmschrijvingType" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="DatumBegin" type="generiek:OnvolledigeDatumType"/>
 		<xs:attribute name="DatumEinde" type="generiek:OnvolledigeDatumType"/>

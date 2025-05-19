@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema 
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	xmlns:tns="http://kszbcss.fgov.be/types" 
-	xmlns:emplcontr="http://kszbcss.fgov.be/types/EmployeeContribution/notify/v1" 
-	xmlns:common="http://kszbcss.fgov.be/types/common/v3" 
-	xmlns:handi="http://kszbcss.fgov.be/types/Handi/v2" 
-	xmlns:nissecommon="http://rsvz-inasti.fgov.be/types/common/SelfEmployed/v1" 
-	xmlns:ssdncommon="http://www.ksz-bcss.fgov.be/XmlSchema" 
-	xmlns:jobseeker="http://kszbcss.fgov.be/types/JobSeeker/v1" 
-	xmlns:hiaCommon="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/common/v1"
-	targetNamespace="http://kszbcss.fgov.be/types" 
-	elementFormDefault="unqualified" 
-	attributeFormDefault="unqualified">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://kszbcss.fgov.be/types" xmlns:emplcontr="http://kszbcss.fgov.be/types/EmployeeContribution/notify/v1" xmlns:common="http://kszbcss.fgov.be/types/common/v3" xmlns:handi="http://kszbcss.fgov.be/types/Handi/v2" xmlns:nissecommon="http://rsvz-inasti.fgov.be/types/common/SelfEmployed/v1" xmlns:ssdncommon="http://www.ksz-bcss.fgov.be/XmlSchema" xmlns:jobseeker="http://kszbcss.fgov.be/types/JobSeeker/v1" xmlns:hiaCommon="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/common/v1" targetNamespace="http://kszbcss.fgov.be/types" elementFormDefault="unqualified" attributeFormDefault="unqualified">
 	<xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="be/fgov/kszbcss/types/common/CommonV3.xsd"/>
 	<xsd:import namespace="http://kszbcss.fgov.be/types/Handi/v2" schemaLocation="be/fgov/kszbcss/types/Handi/HandiV2.xsd"/>
 	<xsd:import namespace="http://kszbcss.fgov.be/types/EmployeeContribution/notify/v1" schemaLocation="be/fgov/kszbcss/types/EmployeeContribution/notify/EmployeeContributionDeductionNotificationsV1.xsd"/>
@@ -20,10 +8,6 @@
 	<xsd:import namespace="http://ksz-bcss.fgov.be/connectors/WebServiceConnector" schemaLocation="KSZSSDN.xsd"/>
 	<xsd:import namespace="http://kszbcss.fgov.be/types/JobSeeker/v1" schemaLocation="be/fgov/kszbcss/types/JobSeeker/JobSeekerTypesV1.xsd"/>
 	<xsd:import namespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/common/v1" schemaLocation="be/fgov/kszbcss/types/HdiIndemnityAllowance/common/HdiIndemnityAllowanceCommonV1.xsd"/>
-<!--
-	<xsd:import namespace="http://kszbcss.fgov.be/types/DmfaConsultation/v1" schemaLocation="be/fgov/kszbcss/types/DmfaConsultation/DmfaConsultationV1.xsd"/>
-	<xsd:import namespace="http://kszbcss.fgov.be/types/EnterpriseFiscalDebt/v2" schemaLocation="be/fgov/kszbcss/types/EnterpriseFiscalDebt/EnterpriseFiscalDebtV2.xsd"/>
--->
 	<!--Magda types-->
 	<xsd:complexType name="GlobalStatusMagdaType">
 		<xsd:sequence>
@@ -87,6 +71,7 @@
 			<xsd:element name="nicCinResult" type="handi:NicCinFileResultType" minOccurs="0"/>
 			<xsd:element name="aviqResult" type="handi:AviqFileResultType" minOccurs="0"/>
 			<xsd:element name="dslResult" type="handi:DslFileResultType" minOccurs="0"/>
+			<xsd:element name="mdgResult" type="handi:MdgFileResultType" minOccurs="0"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:complexType name="ConsultFilesByPeriodMagdaAntwoordInhoudType">
@@ -105,6 +90,7 @@
 			<xsd:element name="nicCinResult" type="handi:NicCinFileByPeriodResultType" minOccurs="0"/>
 			<xsd:element name="aviqResult" type="handi:AviqFileByPeriodResultType" minOccurs="0"/>
 			<xsd:element name="dslResult" type="handi:DslFileByPeriodResultType" minOccurs="0"/>
+			<xsd:element name="mdgResult" type="handi:MdgFileByPeriodResultType" minOccurs="0"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:complexType name="ConsultPaymentsMagdaAntwoordInhoudType">
@@ -173,7 +159,7 @@
 		<xsd:sequence>
 			<xsd:element name="status" type="tns:GlobalStatusMagdaType"/>
 			<xsd:element name="ssin" type="tns:SsinWithCanceledAndReplacedByStatusMagdaType" minOccurs="0"/>
-			<xsd:element name="attest" type="hiaCommon:AllowanceAttestationType" minOccurs="0"/>
+			<xsd:element name="attest" type="hiaCommon:AllowanceAttestationPeriodsType" minOccurs="0"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:complexType name="HandicapAuthenticSourcesMagdaType">
@@ -184,6 +170,7 @@
 			<xsd:element name="NicCin" type="xsd:boolean" default="false" minOccurs="0"/>
 			<xsd:element name="AVIQ" type="xsd:boolean" default="false" minOccurs="0"/>
 			<xsd:element name="DSL" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="MDG" type="xsd:boolean" default="false" minOccurs="0"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:complexType name="ConsultA011SourcesMagdaType">
