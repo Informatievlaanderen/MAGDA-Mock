@@ -308,8 +308,8 @@
       <xsd:documentation>Quarter period containing a quarter begin date and an optional quarter end date.</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="beginKwartaal" type="tns:YearQuarterType" />
-      <xsd:element name="endKwartaal" type="tns:YearQuarterType" minOccurs="0" />
+      <xsd:element name="beginQuarter" type="tns:YearQuarterType" />
+      <xsd:element name="endQuarter" type="tns:YearQuarterType" minOccurs="0" />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="QuarterPeriodType">
@@ -317,8 +317,8 @@
       <xsd:documentation>Quarter period containing a quarter begin date and a quarter end date.</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="beginKwartaal" type="tns:YearQuarterType" />
-      <xsd:element name="endKwartaal" type="tns:YearQuarterType" />
+      <xsd:element name="beginQuarter" type="tns:YearQuarterType" />
+      <xsd:element name="endQuarter" type="tns:YearQuarterType" />
     </xsd:sequence>
   </xsd:complexType>
   <xsd:simpleType name="YearQuarterType">
