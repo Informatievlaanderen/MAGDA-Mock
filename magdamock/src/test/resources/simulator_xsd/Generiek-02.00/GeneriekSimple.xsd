@@ -296,6 +296,11 @@
 			<xs:pattern value=".+"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="TekstExtraLang2_1Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="OmschrijvingOorsprongType">
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[0-9a-zA-Z_]{1,10}"/>

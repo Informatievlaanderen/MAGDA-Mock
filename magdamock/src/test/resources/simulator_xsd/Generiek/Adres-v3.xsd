@@ -85,6 +85,19 @@
 			<xs:element name="Land" type="LandType"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="PlaatsBeStAddType">
+		<xs:sequence>
+			<xs:element name="Gemeente" type="GemeenteBeStAddType" minOccurs="0"/>
+			<xs:element name="Land" type="LandType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GemeenteBeStAddType">
+		<xs:sequence>
+			<xs:element name="NISCode" type="NISCodeGemeenteType" minOccurs="0"/>
+			<xs:element name="Naam" type="GemeenteNaamType" minOccurs="0"/>
+			<xs:element name="GemeenteBeStAddId" type="oslo:GestructureerdeIdentificatorType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="GemeenteType">
 		<xs:sequence>
 			<xs:element name="NISCode" type="NISCodeGemeenteType" minOccurs="0"/>

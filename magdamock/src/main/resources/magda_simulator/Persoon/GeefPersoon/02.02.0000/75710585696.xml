@@ -107,6 +107,62 @@
                                 <Omschrijving Taal="nl">Echtgenoot</Omschrijving>
                             </Positie>
                         </Referentiepersoon>
+                        <Begraving DatumBegin="2025-05-12">
+                            <WijzeVanLijkbezorging>
+                                <Code>5</Code>
+                                <Omschrijving Taal="nl">Crematie gevolgd door verstrooiing van de as in de strooiweide van de begraafplaats</Omschrijving>
+                            </WijzeVanLijkbezorging>
+                            <WettelijkeVertegenwoordiger>
+                                <INSZ>73640618960</INSZ>
+                                <Geboortedatum>1973-04-06</Geboortedatum>
+                                <Geslacht>
+                                    <Code>1</Code>
+                                    <Omschrijving>Mannelijk</Omschrijving>
+                                </Geslacht>
+                            </WettelijkeVertegenwoordiger>
+                        </Begraving>
+                        <LijkbezorgingEnRitueel DatumBegin="2025-05-12">
+                            <WijzeVanLijkbezorging>
+                                <Code>05</Code>
+                                <Omschrijving Taal="nl">Crematie gevolgd door verstrooiing van de as in de strooiweide van de begraafplaats</Omschrijving>
+                            </WijzeVanLijkbezorging>
+                            <Ritueel>
+                                <Code>02</Code>
+                                <Omschrijving>een uitvaartplechtigheid volgens de Protestantse Godsdienst</Omschrijving>
+                            </Ritueel>
+                            <PlaatsRegistratie>
+                                <NISCode>44013</NISCode>
+                                <Naam>Destelbergen</Naam>
+                            </PlaatsRegistratie>
+                            <DatumDocument>2025-05-12</DatumDocument>
+                            <WettelijkeVertegenwoordiger>
+                                <INSZ>73640618960</INSZ>
+                                <Geboortedatum>1973-04-06</Geboortedatum>
+                                <Geslacht>
+                                    <Code>1</Code>
+                                    <Omschrijving>Mannelijk</Omschrijving>
+                                </Geslacht>
+                            </WettelijkeVertegenwoordiger>
+                            <Contract>
+                                <Situatie>
+                                    <Code>01</Code>
+                                    <Omschrijving>uitvaartcontract</Omschrijving>
+                                </Situatie>
+                                <Nummer>123456789</Nummer>
+                                <CBENummer>0412937710</CBENummer>
+                            </Contract>
+                            <Begraafplaats>
+                                <Gemeente>
+                                    <NISCode>44013</NISCode>
+                                    <Naam>Destelbergen</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Begraafplaats>
+                        </LijkbezorgingEnRitueel>
                     </Persoon>
                 </Inhoud>
             </Antwoord>

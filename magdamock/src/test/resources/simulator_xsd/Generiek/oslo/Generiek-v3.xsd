@@ -10,7 +10,13 @@
 			<xs:element name="VersieIdentificator" type="xs:string" minOccurs="0" maxOccurs="1" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#versieIdentificator"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CodeOmschrijvingType" sawsdl:modelReference="">
+	<xs:complexType name="GestructureerdeIdentificatorMetVersieType" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#gestructureerdedentificator">
+		<xs:sequence>
+			<xs:element name="LokaleIdentificator" type="xs:string" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#lokaleIdentificator"/>
+			<xs:element name="Naamruimte" type="xs:string" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#naamruimte"/>
+			<xs:element name="VersieIdentificator" type="xs:string" sawsdl:modelReference="https://data.vlaanderen.be/ns/generiek#versieIdentificator"/>
+		</xs:sequence>
+	</xs:complexType>	<xs:complexType name="CodeOmschrijvingType" sawsdl:modelReference="">
 		<xs:sequence>
 			<xs:element name="Code" type="xs:string" minOccurs="1" maxOccurs="1" sawsdl:modelReference=""/>
 			<xs:element name="Omschrijving" type="TaalstringType" minOccurs="0" maxOccurs="1" sawsdl:modelReference=""/>

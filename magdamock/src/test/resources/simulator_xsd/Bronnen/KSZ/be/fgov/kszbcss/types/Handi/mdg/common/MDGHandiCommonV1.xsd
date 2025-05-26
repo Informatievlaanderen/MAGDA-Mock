@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by  (Kruispuntbank van de Sociale Zekerheid) -->
+<!-- ========================================================================
+   * Owner :					KSZ / CBSS
+   * Creation date :		22/11/2022
+   * Description :
+   * Revision History :
+-->
+<xsd:schema xmlns:tns="http://kszbcss.fgov.be/types/Handi/mdg/common/v1"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:commonhandi="http://kszbcss.fgov.be/types/Handi/common/v1"
+  targetNamespace="http://kszbcss.fgov.be/types/Handi/mdg/common/v1" elementFormDefault="unqualified"
+  attributeFormDefault="unqualified" version="2022-11-22">
+  <xsd:import namespace="http://kszbcss.fgov.be/types/Handi/common/v1"
+    schemaLocation="../../common/HandiCommonV1.xsd" />
+  <xsd:complexType name="FileType">
+    <xsd:sequence>
+      <xsd:element name="evolutionOfRequest" type="tns:EvolutionOfRequestType" minOccurs="0" />
+      <xsd:element name="right" type="tns:RightType" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FileByPeriodType">
+    <xsd:sequence>
+      <xsd:element name="evolutionOfRequest" type="tns:EvolutionOfRequestType" minOccurs="0" />
+      <xsd:element name="rights" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="right" type="tns:RightType" maxOccurs="50" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Types for the evolution of the request -->
+  <xsd:complexType name="EvolutionOfRequestType">
+    <xsd:sequence>
+      <xsd:element name="legislation" type="commonhandi:EORLegislationType" />
+      <xsd:element name="requestDate" type="xsd:date" minOccurs="0" />
+      <xsd:element name="administrativePendingRequest" type="xsd:boolean" />
+      <xsd:element name="fileCompletionDate" type="xsd:date" minOccurs="0" />
+      <xsd:element name="appeal" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Types for the rights -->
+  <xsd:complexType name="RightType">
+    <xsd:sequence>
+      <xsd:element name="period" type="commonhandi:OpenPeriodType" />
+      <xsd:element name="legislation" type="commonhandi:RightsLegislationType" />
+      <xsd:element name="totalMonthAmount" type="commonhandi:MoneyAmountType" />
+      <xsd:element name="decisionStatus" type="commonhandi:DecisionStatusType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Type for the payments -->
+  <xsd:complexType name="PaymentsType">
+    <xsd:sequence>
+      <xsd:element name="payment" type="commonhandi:PaymentType" maxOccurs="24" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

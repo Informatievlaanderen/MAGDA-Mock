@@ -167,6 +167,61 @@
 								</Land>
 							</Plaats>
 						</WettelijkeSamenwoning>
+						<Begraving DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>5</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door verstrooiïng van de as in de strooiweide van de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+							<WettelijkeVertegenwoordiger>
+								<INSZ>78680699764</INSZ>
+								<Geboortedatum>1978-08-06</Geboortedatum>
+								<Geslacht>
+									<Code>1</Code>
+									<Omschrijving>Mannelijk</Omschrijving>
+								</Geslacht>
+							</WettelijkeVertegenwoordiger>
+						</Begraving>
+						<LijkbezorgingEnRitueel DatumBegin="2025-05-12">
+							<WijzeVanLijkbezorging>
+								<Code>05</Code>
+								<Omschrijving Taal="nl">Crematie gevolgd door verstrooiïng van de as in de strooiweide van de begraafplaats</Omschrijving>
+							</WijzeVanLijkbezorging>
+							<Ritueel>
+								<Code>07</Code>
+								<Omschrijving>een uitvaartplechtigheid volgens de Vrijzinnige Godsdienst</Omschrijving>
+							</Ritueel>
+							<PlaatsRegistratie>
+								<NISCode>43005</NISCode>
+								<Naam>Eeklo</Naam>
+							</PlaatsRegistratie>
+							<DatumDocument>2025-05-12</DatumDocument>
+							<WettelijkeVertegenwoordiger>
+								<INSZ>78680699764</INSZ>
+								<Geboortedatum>1978-08-06</Geboortedatum>
+								<Geslacht>
+									<Code>1</Code>
+									<Omschrijving>Mannelijk</Omschrijving>
+								</Geslacht>
+							</WettelijkeVertegenwoordiger>
+							<Contract>
+								<Situatie>
+									<Code>00</Code>
+									<Omschrijving>geen uitvaartcontract</Omschrijving>
+								</Situatie>
+							</Contract>
+							<Begraafplaats>
+								<Gemeente>
+									<NISCode>43005</NISCode>
+									<Naam>Eeklo</Naam>
+								</Gemeente>
+								<Land>
+									<NISCode>150</NISCode>
+									<ISOCode>BEL</ISOCode>
+									<Naam>BELGIE</Naam>
+								</Land>
+								<Tekst>Bomenbegraafplaats</Tekst>
+							</Begraafplaats>
+						</LijkbezorgingEnRitueel>
 						<Identiteitsbewijzen>
 							<Identiteitsbewijs DatumBegin="2015-04-16">
 								<Type>

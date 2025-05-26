@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================================================================
+    * Description:      Wrapper xsd used for validation
+    					The request and response elements are declared here for validation purpose
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:an="http://kszbcss.fgov.be/types/HdiIndemnityAllowanceNotifications/v1" targetNamespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowanceNotificationsService/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="2024-02-05">
+    <xsd:import namespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowanceNotifications/v1" schemaLocation="HdiIndemnityAllowanceNotificationsV1.xsd"/>
+    <!--========= xsd:element ===========-->
+    <xsd:element name="notifyHdiIndemnityAllowanceIndemnityPeriods" type="an:NotifyHdiIndemnityAllowanceIndemnityPeriodsType"/>
+</xsd:schema>

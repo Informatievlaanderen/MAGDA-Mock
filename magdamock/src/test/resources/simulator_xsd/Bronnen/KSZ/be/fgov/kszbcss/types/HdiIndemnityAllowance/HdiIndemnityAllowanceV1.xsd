@@ -4,7 +4,7 @@
   xmlns:common="http://kszbcss.fgov.be/types/common/v3" xmlns="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/v1"
   xmlns:puo="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/v1"
   xmlns:hiaCommon="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/common/v1"
-  targetNamespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/v1" version="20220422">
+  targetNamespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/v1" version="20230612">
   <xsd:import namespace="http://kszbcss.fgov.be/types/common/v3" schemaLocation="../common/CommonV3.xsd" />
   <xsd:import namespace="http://kszbcss.fgov.be/types/HdiIndemnityAllowance/common/v1"
     schemaLocation="common/HdiIndemnityAllowanceCommonV1.xsd" />
@@ -64,6 +64,46 @@
           </xsd:element>
           <xsd:element name="dataFilters" type="common:DataFiltersType" minOccurs="0" />
           <xsd:element name="attest" type="hiaCommon:AllowanceAttestationType" minOccurs="0" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ConsultIndemnityPeriodsRequestType">
+    <xsd:complexContent>
+      <xsd:extension base="puo:AbstractRequestCustomerType">
+        <xsd:sequence>
+          <xsd:element name="criteria">
+            <xsd:complexType>
+              <xsd:complexContent>
+                <xsd:extension base="CriteriaAttestType" />
+              </xsd:complexContent>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ConsultIndemnityPeriodsResponseType">
+    <xsd:complexContent>
+      <xsd:extension base="puo:AbstractResponseCustomerType">
+        <xsd:sequence>
+          <xsd:element name="criteria">
+            <xsd:complexType>
+              <xsd:complexContent>
+                <xsd:extension base="CriteriaAttestType" />
+              </xsd:complexContent>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="status" type="common:StatusType" />
+          <xsd:element name="ssin" type="common:SsinWithCanceledAndReplacedByStatusType" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Canceled and replaced ssin will be allowed in the consultation and sent to NIC as is.
+                CBSS will however annotate the response to the client with attributes canceled and/or replacedBy to
+                indicate the actual status of the ssin and potential replacing (new) ssin.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="dataFilters" type="common:DataFiltersType" minOccurs="0" />
+          <xsd:element name="attest" type="hiaCommon:AllowanceAttestationPeriodsType" minOccurs="0" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
