@@ -35,7 +35,7 @@ public class MagdaResponseDmfaVoorWerknemerAdapterTest {
         var status = identificatie.status();
         assertEquals(status.codeValue(), "0");
         assertEquals(status.descriptionValue(), "Nieuw");
-        assertEquals(identificatie.dateumCreatie(), LocalDate.of(2023, 10, 22));
+        assertEquals(identificatie.datumCreatie(), LocalDate.of(2023, 10, 22));
 
         var aangifteWerkgever = attest.aangifteWerkgever();
         assertEquals(aangifteWerkgever.kwartaal(), "20233");

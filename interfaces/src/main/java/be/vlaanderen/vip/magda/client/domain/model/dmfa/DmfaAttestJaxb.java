@@ -44,7 +44,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Getter
     private static class Attest implements DmfaAttest.Attest, Serializable {
         @XmlElement(name = "Identificatie")
-        private Identification identificatie;
+        private Identificatie identificatie;
         @XmlElement(name = "Versie")
         private Versie versie;
         @XmlElement(name = "AangifteWerkgever")
@@ -58,7 +58,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     }
 
     @Getter
-    private static class Identification implements DmfaAttest.Identification, Serializable {
+    private static class Identificatie implements DmfaAttest.Identificatie, Serializable {
         @XmlElement(name = "Versie")
         public String versie;
         @XmlElement(name = "Status")
@@ -129,7 +129,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "VorigINSZ")
         public String vorigINSZ;
         @XmlElement(name = "naam")
-        public Name naam;
+        public Naam naam;
         @XmlElement(name = "Werknemerslijn")
         public Werknemerslijn werknemerslijn;
     }
@@ -153,7 +153,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "SpecialeBijdrage")
         public Double specialeBijdrage;
         @XmlElement(name = "Pensioen")
-        public Pension pensioen;
+        public Pensioen pensioen;
         @XmlElement(name = "Staving")
         public Staving staving;
         @XmlElementWrapper(name = "Tewerkstellingen")
@@ -184,7 +184,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     }
 
     @Getter
-    private static class Pension implements DmfaAttest.Pension, Serializable {
+    private static class Pensioen implements DmfaAttest.Pensioen, Serializable {
         @XmlElement(name = "Bediende")
         public Double bediende;
         @XmlElement(name = "Arbeider")
@@ -192,7 +192,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     }
 
     @Getter
-    private static class Name implements DmfaAttest.Name, Serializable {
+    private static class Naam implements DmfaAttest.Naam, Serializable {
         @XmlElement(name = "Voornaam")
         public String voornaam;
         @XmlElement(name = "Achternaam")
