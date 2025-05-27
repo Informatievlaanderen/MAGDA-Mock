@@ -95,7 +95,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "Ondernemingsnummer")
         public String ondernemingsNummer;
         @XmlElement(name = "VerschuldigdNettoBedrag")
-        public int verschuldigdNettoBedrag;
+        public Integer verschuldigdNettoBedrag;
         @XmlElement(name = "ConversieNaarRegime5")
         public String conversieNaarRegime5;
         @XmlElement(name = "DatumBeginVakantie")
@@ -151,7 +151,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "NummerLokaleEenheid")
         public String nummerLokaleEenheid;
         @XmlElement(name = "SpecialeBijdrage")
-        public String specialeBijdrage;
+        public Double specialeBijdrage;
         @XmlElement(name = "Pensioen")
         public Pension pensioen;
         @XmlElement(name = "Staving")
@@ -186,9 +186,9 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Getter
     private static class Pension implements DmfaAttest.Pension, Serializable {
         @XmlElement(name = "Bediende")
-        public String bediende;
+        public Double bediende;
         @XmlElement(name = "Arbeider")
-        public String arbeider;
+        public Double arbeider;
     }
 
     @Getter
@@ -225,7 +225,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "ParitairComite")
         public String paritairComite;
         @XmlElement(name = "AantalWerkdagenPerWeek")
-        public int aantalWerkdagenPerWeek;
+        public Double aantalWerkdagenPerWeek;
         @XmlElement(name = "TypeContract")
         public String typeContract;
         @XmlElement(name = "GemiddeldAantalUrenPerWeek")
@@ -244,9 +244,9 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Getter
     private static class GemiddeldAantalUrenPerWeek implements DmfaAttest.GemiddeldAantalUrenPerWeek, Serializable {
         @XmlElement(name = "Referentiepersoon")
-        public int referentiePersoon;
+        public Double referentiePersoon;
         @XmlElement(name = "Werknemer")
-        public int werkNemer;
+        public Double werkNemer;
     }
 
     @Getter
@@ -256,7 +256,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "Code")
         public String code;
         @XmlElement(name = "Dagen")
-        public int dagen;
+        public Integer dagen;
     }
 
     @Getter
@@ -270,7 +270,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Getter
     public static class Informatie implements DmfaAttest.Informatie, Serializable {
         @XmlElement(name = "BrutoLoonZiekte")
-        public int brutoLoonZiekte;
+        public Double brutoLoonZiekte;
     }
 
     @Getter
@@ -280,9 +280,9 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "Type")
         public String type;
         @XmlElement(name = "BasisVoorBerekening")
-        public double basisVoorBerekening;
+        public Long basisVoorBerekening;
         @XmlElement(name = "Amount")
-        public double amount;
+        public Long bedrag;
         @XmlElement(name = "Versie")
         public String versie;
     }

@@ -37,7 +37,7 @@ public interface DmfaAttest {
         String sectorIndicator();
         String onderCuratele();
         String ondernemingsNummer();
-        int verschuldigdNettoBedrag();
+        Integer verschuldigdNettoBedrag();
         String conversieNaarRegime5();
         LocalDate datumBeginVakantie();
         String versie();
@@ -79,7 +79,7 @@ public interface DmfaAttest {
         String grensarbeider();
         String activiteitIvmRisico();
         String nummerLokaleEenheid();
-        String specialeBijdrage();
+        Double specialeBijdrage();
         Pension pensioen();
         Staving staving();
         List<Tewerkstelling> tewerkstellingen();
@@ -92,8 +92,8 @@ public interface DmfaAttest {
     }
 
     interface Pension {
-        String bediende();
-        String arbeider();
+        Double bediende();
+        Double arbeider();
     }
 
     interface Tewerkstelling {
@@ -103,7 +103,7 @@ public interface DmfaAttest {
         String activiteit();
         Periode periode();
         String paritairComite();
-        int aantalWerkdagenPerWeek();
+        Double aantalWerkdagenPerWeek();
         String typeContract();
         GemiddeldAantalUrenPerWeek gemiddeldAantalUrenPerWeek();
         Informatie infomatie();
@@ -111,18 +111,18 @@ public interface DmfaAttest {
     }
 
     interface Informatie {
-        int brutoLoonZiekte();
+        Double brutoLoonZiekte();
     }
 
     interface GemiddeldAantalUrenPerWeek {
-        int referentiePersoon();
-        int werkNemer();
+        Double referentiePersoon();
+        Double werkNemer();
     }
 
     interface Prestatie {
         String volgnummer();
         String code();
-        int dagen();
+        Integer dagen();
     }
 
     interface LokaleEenheid {
@@ -133,8 +133,8 @@ public interface DmfaAttest {
     interface Bijdrage {
         String code();
         String type();
-        double basisVoorBerekening();
-        double amount();
+        Long basisVoorBerekening();
+        Long bedrag();
         String versie();
     }
 
