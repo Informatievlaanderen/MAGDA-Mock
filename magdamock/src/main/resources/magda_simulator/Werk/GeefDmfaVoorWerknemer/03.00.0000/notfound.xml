@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<web:GeefDmfaVoorWerknemerResponse xmlns:web="http://webservice.GeefDmfaVoorWerknemer-03_00.werk-02_00.vip.vlaanderen.be">
+<web:GeefDmfaVoorWerknemerResponse xmlns:web="http://magda.vlaanderen.be/werk/soap/geefdmfavoorwerknemer/v03_00">
     <Repliek>
         <Context>
             <Naam>GeefDmfaVoorWerknemer</Naam>

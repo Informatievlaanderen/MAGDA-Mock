@@ -39,7 +39,7 @@ public class MagdaResponseDmfaVoorWerknemerAdapterTest {
 
         var aangifteWerkgever = attest.aangifteWerkgever();
         assertEquals(aangifteWerkgever.kwartaal(), "20233");
-        assertEquals(aangifteWerkgever.RSZNummer(), "88681575651");
+        assertEquals(aangifteWerkgever.RSZNummer(), "8868157565");
         assertEquals(aangifteWerkgever.bron(), "RSZ");
         assertEquals(aangifteWerkgever.sectorIndicator(), "PRI");
         assertEquals(aangifteWerkgever.onderCuratele(), "0");

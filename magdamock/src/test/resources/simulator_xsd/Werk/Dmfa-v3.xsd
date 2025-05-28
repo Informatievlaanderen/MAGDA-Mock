@@ -1,0 +1,2459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Bert Van Kets (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/werk-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:bericht="http://generiek-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/werk-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://generiek-02_00.vip.vlaanderen.be" schemaLocation="../Generiek-02.00/Generiek.xsd"/>
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:include schemaLocation="WerkGemeenschappelijk-v3.xsd"/>
+	<xs:element name="Attesten" type="AttestenType"/>
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<xs:simpleType name="IdentificatieType">
+		<xs:restriction base="xs:string">
+			<xs:whiteSpace value="collapse"/>
+			<xs:pattern value="DMFA(P|T|A)\d{9}(\d|[A-Z])"/>
+			<xs:pattern value="DPPL(P|T|A)\d{9}(\d|[A-Z])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NummerAttestType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VersieStringType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CategorieType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KerngetalType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VraagBronEnumType">
+		<xs:annotation>
+			<xs:documentation> | RSZ (RSZ) | DIBISS (RSZPPO + DOSZ) | </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RSZ"/>
+			<xs:enumeration value="DIBISS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VolgendeType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BloknummerType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LijnnummerType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NummerType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StatusType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerschuldigdBedragType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KwaliteitType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StavingCodeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WerknemerslijnCategorieType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WerknemerslijnKerngetalType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GrensarbeiderType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ActiviteitIvmRisicoType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SpecialeBijdrageType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BijdrageCodeType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BijdrageTypeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BedragType">
+		<xs:restriction base="xs:long">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="99999999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PensioenBediendeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PensioenArbeiderType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerminderingDetailVolgnummerType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerminderingCodeType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AantalMaandenBeheerskostRSZType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HerkomstAttestType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GemiddeldeArbeidsduurVoorVerminderingType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GemiddeldeArbeidsduurNaVerminderingType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LoonType">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="999999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReferteAantalDagenDmfaType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReferteAantalDagenType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BijdrageStudentAantalDagenType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BijdrageStudentAantalUrenType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BijdrageBruggepensioneerdeCodeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BijdrageBruggepensioneerdeAantalMaandenType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VergoedingArbeidsongevalBeroepsziekteRedenType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ArbeidsongeschiktheidType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IdentificatienummerType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,20}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ParitairComiteType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeSchuldenaarType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeAkkoordType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HalftijdseLoopbaanonderbrekingType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VrijstellingPrestatiesType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VervangingInOvereenkomstMetCAOType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RegelingBijWerkhervattingType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AantalOnderdelenSchadevergoedingType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OndernemingInMoeilijkhedenType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodeActiviteitKernType">
+		<xs:restriction base="xs:string">
+			<xs:length value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WerknemerKengetalType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AanvullendeVergoedingBijdrageTypeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VolgnummerType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NotieKapitalisatieType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AantalMaandenType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AantalMaandenDecimalenType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ToepassingVanDeDrempelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AantalDagenType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RedenType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TewerkstellingVolgnummerType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InternNummerType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ActiviteitType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AantalWerkdagenPerWeekType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeContractType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StatuutWerknemerType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GepensioneerdType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeLeerlingType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WijzeBezoldigingType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FunctienummerType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KlasseVliegendPersoneelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BetalingIn10denOf12denType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StavingDagenType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UurloonType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PercentageVerminderingType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PersoneelsklasseType">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="9999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GemiddeldAantalGesubsidieerdeUrenType">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="5000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RegionalisatieDoelgroepVerminderingType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GemiddeldAantalUrenPerWeekType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReorganisatieArbeidstijdType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BevorderingWerkgelegenheidType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HorecaExtraType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TerbeschikkingstellingType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UurloonInDuizendstenType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GewaardborgdloonEersteWeekType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BrutoLoonZiekteType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LoopbaanmaatregelType">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AantalvakantiedagenType">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SectordetailType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VanAangifteGegevensTewerkstellingPSDType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VanBijdrageAanvullendPensioenType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UrenType">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="9999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AantalVluchtminutenType">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="9999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PrestatieVolgnummerType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PrestatieCodeType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PrestatieDagenType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BezoldigingVolgnummerType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BezoldigingCodeType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BezoldigingFrequentieBetalingPremieType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BezoldigingPercentageJaarbasisType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TewerkstellingOverheidssectorTypeInstellingType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TewerkstellingOverheidssectorTypePersoneelType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TewerkstellingOverheidssectorOfficieleTaalType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TweedePijlerInformatieOfficieleTaalType">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="3"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TewerkstellingOverheidssectorTypeOpdrachtType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TewerkstellingOverheidssectorAardFunctieType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TewerkstellingOverheidssectorRedenEindeStatutaireRelatieType">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StartAncienniteitType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerwijzingType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LoonschaalUrenPerWeekType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LoonschaalUurloonPerWeekType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AanvullendeLoonschaalPercentageType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReorganisatieArbeidstijd">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PercentageReorganisatieArbeidstijd">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AntwoordInBatchType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AlleVersiesType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="JaarType">
+		<xs:restriction base="xs:string">
+			<xs:length value="4"/>
+			<xs:pattern value="[0-2,9][0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RSZNummerType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KwartaalcijferType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-4]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CategorieWerkgeverType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IdentificatieNrPersoonType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+			<xs:pattern value="[0-9]{1,11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AantalUrenVlaamsOpleidingsverlofType">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="9999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReferentieJaarMaandType">
+		<xs:restriction base="xs:string">
+			<xs:length value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MaandbedragType">
+		<xs:restriction base="xs:long">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="99999999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BijkomendMaandbedragType">
+		<xs:restriction base="xs:long">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="99999999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MaandelijkseHuisvergoedingType">
+		<xs:restriction base="xs:long">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="99999999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodeAntwoordInBatchResultaatType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestDelenNummerType">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="01"/>
+			<xs:maxInclusive value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttestDelenTotaalType">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="01"/>
+			<xs:maxInclusive value="99"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RegionaleSteunmaatregelType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InzetbaarheidsmaatregelType">
+		<xs:restriction base="xs:long">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="99999999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--=> COMPLEXE TYPE DEFINITES-->
+	<!-- =========================== -->
+	<!--      GeefDmfa Request       -->
+	<!-- =========================== -->
+	<xs:complexType name="CriteriaGeefDmfaVoorWerknemerType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Kwartaal" type="KwartaalVerplichtType"/>
+			<xs:choice minOccurs="0">
+				<xs:element name="Attest" type="DmfaVoorWerknemerAttestType"/>
+				<xs:element name="Werkgever" type="WerkgeverType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DmfaVoorWerknemerAttestType">
+		<xs:sequence>
+			<xs:element name="Nummer" type="NummerAttestType"/>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WerkgeverType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="RSZNummer" type="sleutel:RSZNummerType"/>
+				<xs:element name="Ondernemingsnummer" type="sleutel:OndernemingsnummerType"/>
+			</xs:choice>
+			<xs:element name="Categorie" type="CategorieType" minOccurs="0"/>
+			<xs:element name="Kerngetal" type="KerngetalType" minOccurs="0"/>
+			<xs:element name="SectorIndicatoren" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SectorIndicator" type="SectorIndicatorRequestType" minOccurs="1" maxOccurs="2"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="SectorIndicatorRequestType">
+		<xs:annotation>
+			<xs:documentation>01242 - New v020 20221</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PRI">
+				<xs:annotation>
+					<xs:documentation xml:lang="NL">Gegevens van werkgevers in de particuliere sector</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PFR">
+				<xs:annotation>
+					<xs:documentation xml:lang="NL">Gegevens van werkgevers in de federale publieke sector</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PLP">
+				<xs:annotation>
+					<xs:documentation xml:lang="NL">Gegevens van werkgevers in de provinciale en lokale publieke sector</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="KwartaalVerplichtType">
+		<xs:sequence>
+			<xs:element name="Begin" type="KwartaalSpecifiekType"/>
+			<xs:element name="Einde" type="KwartaalSpecifiekType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KwartaalSpecifiekType">
+		<xs:sequence>
+			<xs:element name="Jaar" type="JaarType"/>
+			<xs:element name="Kwartaalcijfer" type="KwartaalcijferType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AttestenType">
+		<xs:sequence>
+			<xs:element name="Attest" type="AttestType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AttestDelenType">
+		<xs:sequence>
+			<xs:element name="Nummer" type="AttestDelenNummerType">
+				<xs:annotation>
+					<xs:documentation>100056</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Totaal" type="AttestDelenTotaalType">
+				<xs:annotation>
+					<xs:documentation>100057</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- =========================== -->
+	<!--      GeefDmfa Response      -->
+	<!-- =========================== -->
+	<xs:complexType name="GeefAntwoordInBatchType">
+		<xs:sequence>
+			<xs:element name="Resultaat" type="GeefAntwoordInBatchResultaatType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GeefAntwoordInBatchResultaatType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeAntwoordInBatchResultaatType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ================================ -->
+	<!--      PubliceerDmfa Response      -->
+	<!-- ================================ -->
+	<xs:complexType name="PubliceerDmfaVoorWerknemerType">
+		<xs:sequence>
+			<xs:element name="Metadata" type="bericht:MetadataType" minOccurs="0"/>
+			<xs:element name="Vraag" type="PubliceerDmfaVraagType"/>
+			<xs:element name="Attesten" type="AttestenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PubliceerDmfaVraagType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType"/>
+			<xs:element name="Kwartaal" type="KwartaalVerplichtType"/>
+			<xs:element name="AntwoordInBatch" type="AntwoordInBatchType" minOccurs="0"/>
+			<xs:element name="AlleVersies" type="AlleVersiesType"/>
+			<xs:element name="Bron" type="generiek:BronType" minOccurs="0"/>
+			<xs:element name="SectorIndicatoren" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SectorIndicator" type="SectorIndicatorRequestType" minOccurs="1" maxOccurs="2"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CriteriaAttestAangifte" type="CriteriaAttestAangifteType" minOccurs="0"/>
+			<xs:element name="VolgendAttest" type="generiek:TekstType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CriteriaAttestAangifteType">
+		<xs:choice>
+			<xs:element name="Attest" type="AttestInputType"/>
+			<xs:element name="AangifteWerkgever" type="AangifteWerkgeverInputType"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="AttestInputType">
+		<xs:sequence>
+			<xs:element name="Nummer" type="NummerAttestType"/>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AangifteWerkgeverInputType">
+		<xs:sequence>
+			<xs:element name="RSZNummer" type="RSZNummerType" minOccurs="0"/>
+			<xs:element name="Ondernemingsnummer" type="sleutel:OndernemingsnummerType" minOccurs="0"/>
+			<xs:element name="CategorieWerkgever" type="CategorieWerkgeverType" minOccurs="0"/>
+			<xs:element name="WerknemerKengetal" type="WerknemerKengetalType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MutatieAttestType">
+		<xs:sequence>
+			<xs:element name="IdentificatieBericht" type="bericht:AttestPrefixType" minOccurs="0"/>
+			<xs:element name="Identificatie" type="IdentificatieType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100034</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Attest" type="AttestType"/>
+			<xs:element name="Delen" type="AttestDelenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ******************************************** -->
+	<!-- Attest START                                 -->
+	<!-- Wordt gebruikt in GeefDmfa en PubliceerDmfa  -->
+	<!-- ******************************************** -->
+	<xs:complexType name="AttestType">
+		<xs:sequence>
+			<xs:element name="Identificatie" type="DmfaIdentificatieType"/>
+			<xs:element name="Versie" type="VersieVorigeVolgendeType" minOccurs="0"/>
+			<xs:element name="AangifteWerkgever" type="AangifteWerkgeverType">
+				<xs:annotation>
+					<xs:documentation>90007</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Anomalien" type="AnomalienType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DmfaIdentificatieType">
+		<xs:sequence>
+			<xs:element name="Nummer" type="NummerAttestType">
+				<xs:annotation>
+					<xs:documentation>100040</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType">
+				<xs:annotation>
+					<xs:documentation>100041</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Status" type="StatusCodeOmschrijvingType">
+				<xs:annotation>
+					<xs:documentation>100003</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DatumCreatie" type="generiek:DatumType">
+				<xs:annotation>
+					<xs:documentation>100043</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VersieVorigeVolgendeType">
+		<xs:sequence>
+			<xs:element name="Vorige" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100044</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Volgende" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100045</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AangifteWerkgeverType">
+		<xs:sequence>
+			<xs:element name="Kwartaal" type="JaarKwartaalType">
+				<xs:annotation>
+					<xs:documentation>00013</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RSZNummer" type="sleutel:RSZNummerType">
+				<xs:annotation>
+					<xs:documentation>121008</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VorigRSZNummer" type="sleutel:RSZNummerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100073</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bron" type="generiek:TekstType">
+				<xs:annotation>
+					<xs:documentation>121005</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SectorIndicator" type="generiek:TekstType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01242 - New v020 20221</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OnderCuratele" type="generiek:VlagCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00012</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Ondernemingsnummer" type="sleutel:OndernemingsnummerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00014</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VerschuldigdNettoBedrag" type="VerschuldigdBedragType">
+				<xs:annotation>
+					<xs:documentation>00015</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ConversieNaarRegime5" type="generiek:VlagCodeType">
+				<xs:annotation>
+					<xs:documentation>00016</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DatumBeginVakantie" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00017</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Kwaliteit" type="KwaliteitType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00486</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AangeverID" type="generiek:TekstType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100047</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Staving" type="StavingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>2013/4</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Werknemer" type="WerknemerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>90017</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StavingType">
+		<xs:sequence>
+			<xs:element name="Code" type="StavingCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00536</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00545</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Datum" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00537</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StatusCodeOmschrijvingType">
+		<xs:sequence>
+			<xs:element name="Code" type="generiek:CodeType" minOccurs="0"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WerknemerType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="sleutel:INSZType">
+				<xs:annotation>
+					<xs:documentation>00024</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OriolusValidatie" type="generiek:VlagCodeType">
+				<xs:annotation>
+					<xs:documentation>100048</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VorigINSZ" type="sleutel:INSZType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100074</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Naam" type="NaamType" minOccurs="0"/>
+			<xs:element name="Werknemerslijn" type="WerknemerslijnType">
+				<xs:annotation>
+					<xs:documentation>90012</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NaamType">
+		<xs:sequence>
+			<xs:element name="Achternaam" type="generiek:NaamLangType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00025</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Voornaam" type="generiek:NaamKortType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00026</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WerknemerslijnType">
+		<xs:sequence>
+			<xs:element name="Categorie" type="WerknemerslijnCategorieType">
+				<xs:annotation>
+					<xs:documentation>00036</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Kerngetal" type="WerknemerslijnKerngetalType">
+				<xs:annotation>
+					<xs:documentation>00037</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Periode" type="WerknemerslijnPeriodeType"/>
+			<xs:element name="Grensarbeider" type="GrensarbeiderType">
+				<xs:annotation>
+					<xs:documentation>00040</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ActiviteitIvmRisico" type="ActiviteitIvmRisicoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00041</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NummerLokaleEenheid" type="sleutel:OndernemingsnummerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00042</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SpecialeBijdrage" type="SpecialeBijdrageType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>UPD 100075</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Pensioen" type="PensioenType" minOccurs="0"/>
+			<xs:element name="Staving" type="StavingType" minOccurs="0"/>
+			<xs:element name="Tewerkstellingen" type="TewerkstellingenType" minOccurs="0"/>
+			<xs:element name="Bijdragen" type="BijdragenType" minOccurs="0"/>
+			<xs:element name="Verminderingen" type="VerminderingenType" minOccurs="0"/>
+			<xs:element name="BijzondereBijdrageOntslagenStatutaireWerknemer" type="BijzondereBijdrageOntslagenStatutaireWerknemerType" minOccurs="0"/>
+			<xs:element name="BijdrageStudent" type="BijdrageStudentType" minOccurs="0"/>
+			<xs:element name="BijdragenBruggepensioneerde" type="BijdragenBruggepensioneerdeType" minOccurs="0"/>
+			<xs:element name="VergoedingenArbeidsongevalBeroepsziekte" type="VergoedingenArbeidsongevalBeroepsziekteType" minOccurs="0"/>
+			<xs:element name="AanvullendeVergoedingen" type="AanvullendeVergoedingenType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WerknemerslijnPeriodeType">
+		<xs:sequence>
+			<xs:element name="Begin" type="generiek:DatumType">
+				<xs:annotation>
+					<xs:documentation>00038</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Einde" type="generiek:DatumType">
+				<xs:annotation>
+					<xs:documentation>00039</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PensioenType">
+		<xs:sequence>
+			<xs:element name="Bediende" type="PensioenBediendeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>NEW 100076</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Arbeider" type="PensioenArbeiderType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>NEW 100077</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TewerkstellingenType">
+		<xs:sequence>
+			<xs:element name="Tewerkstelling" type="TewerkstellingType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90015</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ==================== -->
+	<!-- Tewerkstelling START -->
+	<!-- ==================== -->
+	<xs:complexType name="TewerkstellingType">
+		<xs:sequence>
+			<xs:element name="Volgnummer" type="TewerkstellingVolgnummerType">
+				<xs:annotation>
+					<xs:documentation>00043</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InternNummer" type="InternNummerType">
+				<xs:annotation>
+					<xs:documentation>00217</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LokaleEenheid" type="LokaleEenheidType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00042</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Activiteit" type="ActiviteitType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00228</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Periode" type="TewerkstellingPeriodeType" minOccurs="0"/>
+			<xs:element name="ParitairComite" type="ParitairComiteType">
+				<xs:annotation>
+					<xs:documentation>00046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AantalWerkdagenPerWeek" type="AantalWerkdagenPerWeekType">
+				<xs:annotation>
+					<xs:documentation>00047</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TypeContract" type="TypeContractType">
+				<xs:annotation>
+					<xs:documentation>00050</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GemiddeldAantalUrenPerWeek" type="GemiddeldAantalUrenPerWeekComplexType" minOccurs="0"/>
+			<xs:element name="Maatregel" type="MaatregelType" minOccurs="0"/>
+			<xs:element name="StatuutWerknemer" type="StatuutWerknemerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00053</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Gepensioneerd" type="GepensioneerdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00054</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TypeLeerling" type="TypeLeerlingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00051</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WijzeBezoldiging" type="WijzeBezoldigingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00051</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Functienummer" type="FunctienummerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00057</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="KlasseVliegendPersoneel" type="KlasseVliegendPersoneelType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00059</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BetalingIn10denOf12den" type="BetalingIn10denOf12denType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00060</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StavingDagen" type="StavingDagenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00625</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Uurloon" type="UurloonType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00812</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PercentageVermindering" type="PercentageVerminderingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>10065</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Personeelsklasse" type="PersoneelsklasseType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01199 (new 20181)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GemiddeldAantalGesubsidieerdeUren" type="GemiddeldAantalGesubsidieerdeUrenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01203 - NEW v014 20184</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RegionalisatieDoelgroepVermindering" type="RegionalisatieDoelgroepVerminderingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>New 20141</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GemeenteNISCode" type="generiek:NISCodeGemeenteType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>New 20141</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Informatie" type="InformatieType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>90313</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Prestaties" type="PrestatiesType" minOccurs="0"/>
+			<xs:element name="Bezoldigingen" type="BezoldigingenType" minOccurs="0"/>
+			<xs:element name="Overheidssectoren" type="TewerkstellingOverheidssectorenType" minOccurs="0"/>
+			<xs:element name="ReorganisatiesArbeidstijdInfo" type="ReorganisatiesArbeidstijdInfoType" minOccurs="0"/>
+			<xs:element name="TweedePijlerInformatie" type="TweedePijlerInformatieType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>90172</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GebruikendeOnderneming" type="GebruikendeOndernemingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>90107</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Verminderingen" type="VerminderingenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>90109</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TewerkstellingPeriodeType">
+		<xs:sequence>
+			<xs:element name="Begin" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00044</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Einde" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00045</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LokaleEenheidType">
+		<xs:sequence>
+			<xs:element name="Nummer" type="sleutel:OndernemingsnummerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00042</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NISCode" type="generiek:NISCodeGemeenteType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GemiddeldAantalUrenPerWeekComplexType">
+		<xs:sequence>
+			<xs:element name="Referentiepersoon" type="GemiddeldAantalUrenPerWeekType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00049</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Werknemer" type="GemiddeldAantalUrenPerWeekType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00048</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MaatregelType">
+		<xs:sequence>
+			<xs:element name="ReorganisatieArbeidstijd" type="ReorganisatieArbeidstijdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00051</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BevorderingWerkgelegenheid" type="BevorderingWerkgelegenheidType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00052</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InformatieType">
+		<xs:sequence>
+			<xs:element name="DatumZesMaandenZiek" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00728</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HorecaExtra" type="HorecaExtraType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00795</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Terbeschikkingstelling" type="TerbeschikkingstellingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00893</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UurloonInDuizendsten" type="UurloonInDuizendstenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00862 from 2007/3 expressed in thousanth of euro</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GewaardborgdloonEersteWeek" type="GewaardborgdloonEersteWeekType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01010</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BrutoLoonZiekte" type="BrutoLoonZiekteType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01011</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Vrijstelling" type="VrijstellingType" minOccurs="0"/>
+			<xs:element name="DatumVasteBenoeming" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01092</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>10046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Loopbaanmaatregel" type="LoopbaanmaatregelType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01194 (new 20181)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Aantalvakantiedagen" type="AantalvakantiedagenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00197 (new 20181)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Sectordetail" type="SectordetailType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01215 - NEW v015 20191</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Mobiliteitsbudget" type="BedragType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01216 - NEW v015 20191</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AantalUrenVlaamsOpleidingsverlof" type="AantalUrenVlaamsOpleidingsverlofType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01232 - NEW v017 20201</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RegionaleSteunmaatregel" type="RegionaleSteunmaatregelType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01237 - NEW v019 20211</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Inzetbaarheidsmaatregel" type="InzetbaarheidsmaatregelType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01243 - NEW v021 20231</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PrestatiesType">
+		<xs:sequence>
+			<xs:element name="Prestatie" type="PrestatieType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90018</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PrestatieType">
+		<xs:sequence>
+			<xs:element name="Volgnummer" type="PrestatieVolgnummerType">
+				<xs:annotation>
+					<xs:documentation>00061</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Code" type="PrestatieCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00062</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Dagen" type="PrestatieDagenType">
+				<xs:annotation>
+					<xs:documentation>00063</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Uren" type="UrenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00064</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AantalVluchtminuten" type="AantalVluchtminutenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00065</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BezoldigingenType">
+		<xs:sequence>
+			<xs:element name="Bezoldiging" type="BezoldigingType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90019</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BezoldigingType">
+		<xs:sequence>
+			<xs:element name="Volgnummer" type="BezoldigingVolgnummerType">
+				<xs:annotation>
+					<xs:documentation>00066</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Code" type="BezoldigingCodeType">
+				<xs:annotation>
+					<xs:documentation>00067</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FrequentieBetalingPremie" type="BezoldigingFrequentieBetalingPremieType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00068</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PercentageJaarbasis" type="BezoldigingPercentageJaarbasisType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00069</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FictiefSalaris" type="BedragType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01065</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bedrag" type="BedragType">
+				<xs:annotation>
+					<xs:documentation>00070</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VrijstellingType">
+		<xs:sequence>
+			<xs:element name="VanAangifteGegevensTewerkstellingPSD" type="VanAangifteGegevensTewerkstellingPSDType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01012</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VanBijdrageAanvullendPensioen" type="VanBijdrageAanvullendPensioenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01013</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TewerkstellingOverheidssectorenType">
+		<xs:sequence>
+			<xs:element name="Overheidssector" type="TewerkstellingOverheidssectorType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90411 - NEW v007</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TewerkstellingOverheidssectorType">
+		<xs:sequence>
+			<xs:element name="Periode" type="TewerkstellingOverheidssectorPeriodeType"/>
+			<xs:element name="TypeInstelling" type="TewerkstellingOverheidssectorTypeInstellingType">
+				<xs:annotation>
+					<xs:documentation>00961</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TypePersoneel" type="TewerkstellingOverheidssectorTypePersoneelType">
+				<xs:annotation>
+					<xs:documentation>00962</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GraadOfFunctie" type="generiek:TekstType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00963</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OfficieleTaal" type="TewerkstellingOverheidssectorOfficieleTaalType">
+				<xs:annotation>
+					<xs:documentation>00966</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TypeOpdracht" type="TewerkstellingOverheidssectorTypeOpdrachtType">
+				<xs:annotation>
+					<xs:documentation>00967</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AardFunctie" type="TewerkstellingOverheidssectorAardFunctieType">
+				<xs:annotation>
+					<xs:documentation>00968</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RedenEindeStatutaireRelatie" type="TewerkstellingOverheidssectorRedenEindeStatutaireRelatieType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00969 - New v011 enlarge maxIncl</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Loonschalen" type="LoonschalenType"/>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TewerkstellingOverheidssectorPeriodeType">
+		<xs:sequence>
+			<xs:element name="Begin" type="generiek:DatumType">
+				<xs:annotation>
+					<xs:documentation>00964</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Einde" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00965</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LoonschalenType">
+		<xs:sequence>
+			<xs:element name="Loonschaal" type="LoonschaalType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90412</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LoonschaalType">
+		<xs:sequence>
+			<xs:element name="Periode" type="LoonschaalPeriodeType"/>
+			<xs:element name="StartAncienniteit" type="StartAncienniteitType">
+				<xs:annotation>
+					<xs:documentation>00972</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Verwijzing" type="VerwijzingType">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bedrag" type="BedragType">
+				<xs:annotation>
+					<xs:documentation>00974</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UrenPerWeek" type="LoonschaalUrenPerWeekType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00975</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UurloonPerWeek" type="LoonschaalUurloonPerWeekType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00976</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VerminderdeLoonschaalNotificatie" type="generiek:TekstType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01235 - New v020 20221</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AanvullendeLoonschalen" type="AanvullendeLoonschalenType" minOccurs="0"/>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanvullendeLoonschalenType">
+		<xs:sequence>
+			<xs:element name="AanvullendeLoonschaal" type="AanvullendeLoonschaalType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90413</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanvullendeLoonschaalType">
+		<xs:sequence>
+			<xs:element name="Periode" type="AanvullendeLoonschaalPeriodeType"/>
+			<xs:element name="Verwijzing" type="VerwijzingType">
+				<xs:annotation>
+					<xs:documentation>00977</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Basisloon" type="BedragType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00980</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Percentage" type="AanvullendeLoonschaalPercentageType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00981</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AantalDiensturen" type="UrenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00982</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bedrag" type="BedragType">
+				<xs:annotation>
+					<xs:documentation>00983</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LoonschaalPeriodeType">
+		<xs:sequence>
+			<xs:element name="Begin" type="generiek:DatumType">
+				<xs:annotation>
+					<xs:documentation>00970</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Einde" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00971</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanvullendeLoonschaalPeriodeType">
+		<xs:sequence>
+			<xs:element name="Begin" type="generiek:DatumType">
+				<xs:annotation>
+					<xs:documentation>00978</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Einde" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00979</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReorganisatiesArbeidstijdInfoType">
+		<xs:sequence>
+			<xs:element name="ReorganisatieArbeidstijdInfo" type="ReorganisatieArbeidstijdInfoType" minOccurs="1" maxOccurs="9">
+				<xs:annotation>
+					<xs:documentation>90438 New v008</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReorganisatieArbeidstijdInfoType">
+		<xs:sequence>
+			<xs:element name="ReorganisatieArbeidstijd" type="ReorganisatieArbeidstijd">
+				<xs:annotation>
+					<xs:documentation>00051</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PercentageReorganisatieArbeidstijd" type="PercentageReorganisatieArbeidstijd">
+				<xs:annotation>
+					<xs:documentation>01030</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TweedePijlerInformatieType">
+		<xs:sequence>
+			<xs:element name="ReferentieJaarMaand" type="ReferentieJaarMaandType">
+				<xs:annotation>
+					<xs:documentation>01219 - NEW v017 20201</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Maandbedrag" type="MaandbedragType">
+				<xs:annotation>
+					<xs:documentation>01220 - NEW v017 20201</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BijkomendMaandbedrag" type="BijkomendMaandbedragType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01221 - NEW v017 20201</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaandelijkseHuisvergoeding" type="MaandelijkseHuisvergoedingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01222 - NEW v017 20201</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OfficieleTaal" type="TweedePijlerInformatieOfficieleTaalType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00966</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ==================== -->
+	<!-- Tewerkstelling EINDE -->
+	<!-- ==================== -->
+	<!-- =============== -->
+	<!-- Bijdragen START -->
+	<!-- =============== -->
+	<xs:complexType name="BijdragenType">
+		<xs:sequence>
+			<xs:element name="Bijdrage" type="BijdrageType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90001</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BijdrageType">
+		<xs:sequence>
+			<xs:element name="Code" type="BijdrageCodeType">
+				<xs:annotation>
+					<xs:documentation>00082</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Type" type="BijdrageTypeType">
+				<xs:annotation>
+					<xs:documentation>00083</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BasisVoorBerekening" type="BedragType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00084</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bedrag" type="BedragType">
+				<xs:annotation>
+					<xs:documentation>00085</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- =============== -->
+	<!-- Bijdragen EINDE -->
+	<!-- =============== -->
+	<!-- ==================== -->
+	<!-- Verminderingen START -->
+	<!-- ==================== -->
+	<xs:complexType name="VerminderingenType">
+		<xs:sequence>
+			<xs:element name="Vermindering" type="VerminderingType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90109</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerminderingType">
+		<xs:sequence>
+			<xs:element name="Code" type="VerminderingCodeType">
+				<xs:annotation>
+					<xs:documentation>00086</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BasisVoorBerekening" type="BedragType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00088</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BedragVermindering" type="BedragType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00089</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DatumBeginRecht" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00090</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AantalMaandenBeheerskostRSZ" type="AantalMaandenBeheerskostRSZType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00091</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VervangenINSZ" type="sleutel:INSZType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00092</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="INSZRechtOpenend" type="sleutel:INSZType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00093</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HerkomstAttest" type="HerkomstAttestType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00094</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Details" type="VerminderingDetailsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerminderingDetailsType">
+		<xs:sequence>
+			<xs:element name="Detail" type="VerminderingDetailType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90250 in Tewerkstelling/Verminering / 90108 in Werknemerslijn/Vermindering</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VerminderingDetailType">
+		<xs:sequence>
+			<xs:element name="Volgnummer" type="VerminderingDetailVolgnummerType">
+				<xs:annotation>
+					<xs:documentation>00138</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bedrag" type="BedragType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00141</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NummerRegistratieArbeidsreglement" type="generiek:TekstType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00142</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DatumBeginArbeidsregeling" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00143</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GemiddeldeArbeidsduur" type="GemiddeldeArbeidsduurType" minOccurs="0"/>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GemiddeldeArbeidsduurType">
+		<xs:sequence>
+			<xs:element name="VoorVermindering" type="GemiddeldeArbeidsduurVoorVerminderingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00147</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NaVermindering" type="GemiddeldeArbeidsduurNaVerminderingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00148</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ==================== -->
+	<!-- Verminderingen EINDE -->
+	<!-- ==================== -->
+	<!-- =============== -->
+	<!-- Bijdragen START -->
+	<!-- =============== -->
+	<xs:complexType name="BijzondereBijdrageOntslagenStatutaireWerknemerType">
+		<xs:sequence>
+			<xs:element name="ReferentieBrutoloon" type="LoonType">
+				<xs:annotation>
+					<xs:documentation>00071</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReferentieBrutoloonBijdrage" type="BedragType">
+				<xs:annotation>
+					<xs:documentation>00072</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReferentieAantalDagen" type="ReferteAantalDagenType">
+				<xs:annotation>
+					<xs:documentation>00073</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PeriodeOnderwerping" type="BijzondereBijdragePeriodeOnderwerpingType"/>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BijzondereBijdragePeriodeOnderwerpingType">
+		<xs:sequence>
+			<xs:element name="Begin" type="generiek:DatumType">
+				<xs:annotation>
+					<xs:documentation>00127</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Einde" type="generiek:DatumType">
+				<xs:annotation>
+					<xs:documentation>00129</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BijdrageStudentType">
+		<xs:sequence>
+			<xs:element name="Loon" type="LoonType">
+				<xs:annotation>
+					<xs:documentation>00076</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bedrag" type="BedragType">
+				<xs:annotation>
+					<xs:documentation>00077</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AantalDagen" type="BijdrageStudentAantalDagenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Upd 20171 00078 now opt</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AantalUren" type="BijdrageStudentAantalUrenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01158</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NummerLokaleEenheid" type="sleutel:OndernemingsnummerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>New 20171 00042</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GebruikendeOndernemingen" type="GebruikendeOndernemingenType" minOccurs="0"/>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BijdragenBruggepensioneerdeType">
+		<xs:sequence>
+			<xs:element name="BijdrageBruggepensioneerde" type="BijdrageBruggepensioneerdeType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90042 suppressed from 2007/4</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BijdrageBruggepensioneerdeType">
+		<xs:sequence>
+			<xs:element name="Code" type="BijdrageBruggepensioneerdeCodeType">
+				<xs:annotation>
+					<xs:documentation>00079</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AantalMaanden" type="BijdrageBruggepensioneerdeAantalMaandenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00080</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bedrag" type="BedragType">
+				<xs:annotation>
+					<xs:documentation>00081</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- =============== -->
+	<!-- Bijdragen EINDE -->
+	<!-- =============== -->
+	<!-- ============================================= -->
+	<!-- VergoedingenArbeidsongevalBeroepsziekte START -->
+	<!-- ============================================= -->
+	<xs:complexType name="VergoedingenArbeidsongevalBeroepsziekteType">
+		<xs:sequence>
+			<xs:element name="VergoedingArbeidsongevalBeroepsziekte" type="VergoedingArbeidsongevalBeroepsziekteType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90011</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VergoedingArbeidsongevalBeroepsziekteType">
+		<xs:sequence>
+			<xs:element name="Reden" type="VergoedingArbeidsongevalBeroepsziekteRedenType">
+				<xs:annotation>
+					<xs:documentation>00144</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GraadArbeidsongeschiktheid" type="ArbeidsongeschiktheidType">
+				<xs:annotation>
+					<xs:documentation>00145</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bedrag" type="BedragType">
+				<xs:annotation>
+					<xs:documentation>00146</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ============================================= -->
+	<!-- VergoedingenArbeidsongevalBeroepsziekte EINDE -->
+	<!-- ============================================= -->
+	<!-- ============================= -->
+	<!-- AanvullendeVergoedingen START -->
+	<!-- ============================= -->
+	<xs:complexType name="AanvullendeVergoedingenType">
+		<xs:sequence>
+			<xs:element name="Vergoeding" type="AanvullendeVergoedingType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90336</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanvullendeVergoedingType">
+		<xs:sequence>
+			<xs:element name="Basis" type="AanvullendeVergoedingBasisType"/>
+			<xs:element name="Bijdragen" type="AanvullendeVergoedingBijdragenType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanvullendeVergoedingBasisType">
+		<xs:sequence>
+			<xs:element name="IdentificatieWerkgever" type="IdentificatienummerType">
+				<xs:annotation>
+					<xs:documentation>00815</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ParitairComite" type="ParitairComiteType">
+				<xs:annotation>
+					<xs:documentation>00046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Activiteit" type="PubliceerActiviteitType">
+				<xs:annotation>
+					<xs:documentation>00228</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TypeSchuldenaar" type="TypeSchuldenaarType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00949</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DatumEersteVergoeding" type="generiek:DatumType">
+				<xs:annotation>
+					<xs:documentation>00823</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TypeAkkoord" type="TypeAkkoordType">
+				<xs:annotation>
+					<xs:documentation>00824</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HalftijdseLoopbaanonderbreking" type="HalftijdseLoopbaanonderbrekingType">
+				<xs:annotation>
+					<xs:documentation>00825</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VrijstellingPrestaties" type="VrijstellingPrestatiesType">
+				<xs:annotation>
+					<xs:documentation>00826</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VervangingInOvereenkomstMetCAO" type="VervangingInOvereenkomstMetCAOType">
+				<xs:annotation>
+					<xs:documentation>00827</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Vervanger" type="sleutel:INSZType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00749</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RegelingBijWerkhervatting" type="RegelingBijWerkhervattingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00853</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AantalOnderdelenSchadevergoeding" type="AantalOnderdelenSchadevergoedingType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00950</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DatumBetekeningOpzegging" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00951</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OndernemingInMoeilijkheden" type="OndernemingInMoeilijkhedenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00952</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PeriodeErkenning" type="PeriodeErkenningType" minOccurs="0"/>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PeriodeErkenningType">
+		<xs:sequence>
+			<xs:element name="Begin" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00953</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Einde" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00954</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PubliceerActiviteitType">
+		<xs:sequence>
+			<xs:element name="Code" type="CodeActiviteitType"/>
+			<xs:element name="Omschrijving" type="generiek:OmschrijvingType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CodeActiviteitType">
+		<xs:simpleContent>
+			<xs:extension base="CodeActiviteitKernType">
+				<xs:attribute name="Beschrijving" type="generiek:TekstType"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AanvullendeVergoedingBijdragenType">
+		<xs:sequence>
+			<xs:element name="Bijdrage" type="AanvullendeVergoedingBijdrageType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90337</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AanvullendeVergoedingBijdrageType">
+		<xs:sequence>
+			<xs:element name="WerknemerKengetal" type="WerknemerKengetalType">
+				<xs:annotation>
+					<xs:documentation>00082</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Type" type="AanvullendeVergoedingBijdrageTypeType">
+				<xs:annotation>
+					<xs:documentation>00083</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BedragModificatie" type="BedragType">
+				<xs:annotation>
+					<xs:documentation>00829</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Volgnummer" type="VolgnummerType">
+				<xs:annotation>
+					<xs:documentation>00955</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Vergoeding" type="LoonType">
+				<xs:annotation>
+					<xs:documentation>00830</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NotieKapitalisatie" type="NotieKapitalisatieType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00892</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TheoretischBedragBijstanduitkering" type="LoonType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00148</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AantalMaanden" type="AantalMaandenType">
+				<xs:annotation>
+					<xs:documentation>00831</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AantalMaandenDecimalen" type="AantalMaandenDecimalenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00957</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OnvolledigeMaand" type="OnvolledigeMaandType" minOccurs="0"/>
+			<xs:element name="ToepassingVanDeDrempel" type="ToepassingVanDeDrempelType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00960</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bedrag" type="BedragType">
+				<xs:annotation>
+					<xs:documentation>00085</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OnvolledigeMaandType">
+		<xs:sequence>
+			<xs:element name="AantalDagen" type="AantalDagenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00958</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Reden" type="RedenType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00959</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GebruikendeOndernemingenType">
+		<xs:sequence>
+			<xs:element name="GebruikendeOnderneming" type="GebruikendeOndernemingType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>90107</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GebruikendeOndernemingType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="generiek:INSZType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00024</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Ondernemingsnummer" type="generiek:OndernemingsnummerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00131</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NaamOnderneming" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>00153</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BTWnummer" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01185</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DagContractNummer" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>01254</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Adres" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>90022</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="generiek:AdresKernType">
+							<xs:sequence minOccurs="0">
+								<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>100046</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ============================= -->
+	<!-- AanvullendeVergoedingen EINDE -->
+	<!-- ============================= -->
+	<!-- ==================== -->
+	<!--   Anomalien START    -->
+	<!-- ==================== -->
+	<xs:complexType name="AnomalienType">
+		<xs:sequence>
+			<xs:element name="Anomalie" type="AnomalieType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AnomalieType">
+		<xs:sequence>
+			<xs:element name="Bloknummer" type="BloknummerType">
+				<xs:annotation>
+					<xs:documentation>100050</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Lijnnummer" type="LijnnummerType">
+				<xs:annotation>
+					<xs:documentation>100051</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Nummer" type="NummerType">
+				<xs:annotation>
+					<xs:documentation>100052</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Status" type="StatusType">
+				<xs:annotation>
+					<xs:documentation>100053</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Versie" type="VersieStringType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100046</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DatumCreatie" type="generiek:DatumType">
+				<xs:annotation>
+					<xs:documentation>100054</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DatumBehandeling" type="generiek:DatumType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>100055</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- ==================== -->
+	<!--   Anomalien EINDE    -->
+	<!-- ==================== -->
+</xs:schema>

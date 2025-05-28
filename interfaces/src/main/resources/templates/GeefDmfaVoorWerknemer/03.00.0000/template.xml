@@ -1,5 +1,5 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-                  xmlns:web="http://webservice.geefdmfavoorwerknemer-03_00.werk-03_00.vip.vlaanderen.be">
+                  xmlns:web="http://magda.vlaanderen.be/werk/soap/geefdmfavoorwerknemer/v03_00">
     <soapenv:Header/>
     <soapenv:Body>
         <web:GeefDmfaVoorWerknemer>
@@ -25,15 +25,15 @@
                         <Referte>${REFERTE}</Referte>
                         <Inhoud>
                             <Criteria>
-                                <INSZ>${INSZ}</INSZ>
+                                <INSZ>00000000000</INSZ>
                                 <Kwartaal>
                                     <Begin>
-                                        <Jaar>${START_YEAR}</Jaar>
-                                        <Kwartaalcijfer>${START_QUARTER}</Kwartaalcijfer>
+                                        <Jaar>0000</Jaar>
+                                        <Kwartaalcijfer>0</Kwartaalcijfer>
                                     </Begin>
                                     <Einde>
-                                        <Jaar>${END_YEAR}</Jaar>
-                                        <Kwartaalcijfer>${END_QUARTER}</Kwartaalcijfer>
+                                        <Jaar>0000</Jaar>
+                                        <Kwartaalcijfer>0</Kwartaalcijfer>
                                     </Einde>
                                 </Kwartaal>
                             </Criteria>

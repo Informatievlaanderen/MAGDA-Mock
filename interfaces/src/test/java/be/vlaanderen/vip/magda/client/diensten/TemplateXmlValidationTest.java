@@ -37,6 +37,7 @@ class TemplateXmlValidationTest {
             "GeefAanslagbiljetPersonenbelasting/02.00.0000", "GeefAanslagbiljetPersonenbelastingDienst-02.00/WebService/GeefAanslagbiljetPersonenbelasting.xsd",
             "GeefBetalingenHandicap/03.00.0000", "GeefBetalingenHandicapDienst-03.00/WebService/GeefBetalingenHandicap.xsd",
             "GeefBewijs/02.00.0000", "GeefBewijsDienst-02.00/WebService/GeefBewijs.xsd",
+            "GeefDmfaVoorWerknemer/03.00.0000", "GeefDmfaVoorWerknemer-03.00/WebService/GeefDmfaVoorWerknemer.xsd",
             "GeefDossierHandicap/03.00.0000", "GeefDossierHandicapDienst-03.00/WebService/GeefDossierHandicap.xsd",
             "GeefFuncties/02.00.0000", "GeefFunctiesDienst-02.00/WebService/GeefFuncties.xsd",
             "GeefHistoriekGezinssamenstelling/02.02.0000", "GeefHistoriekGezinssamenstellingDienst-02.02/WebService/GeefHistoriekGezinssamenstelling.xsd",
