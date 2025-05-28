@@ -22,8 +22,8 @@ class GeefDmfaVoorWerknemerTest extends MockTestBase {
     @Test
     void GeefDmfaVoorWerknemerGeeftAntwoord() {
         final var requestInsz = "71640618918";
-        final Kwartaal beginKwartaal = new Kwartaal(2023, 1);
-        final Kwartaal eindeKwartaal = new Kwartaal(2025, 2);
+        final Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
+        final Kwartaal eindeKwartaal = new Kwartaal(2025, 2).verify();
         var request = GeefDmfaVoorWerknemerRequest.builder()
                 .insz(requestInsz)
                 .beginKwartaal(beginKwartaal)
@@ -55,8 +55,8 @@ class GeefDmfaVoorWerknemerTest extends MockTestBase {
     @Test
     void GeefDmfaVoorWerknemerGeeftGeenAntwoord() {
         final var requestInsz = "00000000000";
-        final Kwartaal beginKwartaal = new Kwartaal(2023, 1);
-        final Kwartaal eindeKwartaal = new Kwartaal(2025, 2);
+        final Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
+        final Kwartaal eindeKwartaal = new Kwartaal(2025, 2).verify();
         var request = GeefDmfaVoorWerknemerRequest.builder()
                 .insz(requestInsz)
                 .beginKwartaal(beginKwartaal)

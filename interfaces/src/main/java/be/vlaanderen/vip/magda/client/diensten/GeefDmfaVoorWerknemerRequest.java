@@ -20,14 +20,14 @@ import java.util.UUID;
  * Een request voor de "GeefDmfaVoorWerknemer" MAGDA Service, deze biedt DmfA informatie voor een gegeven INSZ nummer.
  * Bovenop de {@link PersonMagdaRequest} zijn er volgende velden:
  * <ul>
- *   <li>beginQuarter: begin van de periode waarop de vraag betrekking heeft (jaar en kwartaal)</li>
- *   <li>endQuarter: einde van de periode waarop de vraag betrekking heeft (jaar en kwartaal)</li>
+ *   <li>beginKwartaal: begin van de periode waarop de vraag betrekking heeft (jaar en kwartaal)</li>
+ *   <li>eindKwartaal: einde van de periode waarop de vraag betrekking heeft (jaar en kwartaal)</li>
  *   <li>typeAntwoord: online (onmiddelijk) antwoord of semi-online</li>
  *   <li>laatsteSituatie: alle situaties of enkel de huidige situatie</li>
  *   <li>bron: attesten bij RSZ of DIBISS (lokale sociale zekerheid) ophalen</li>
  * </ul>
  *
- * @see <a href="file:resources/templates/GeefDmfaVoorWerknemer/03.00.0000/template.xml">XML template for this request type</a>
+ * @see <a href="file:resources/templates/GeefDmfaVoorWerknemer/03.00.0000/template.xml">XML template for dit requesttype</a>
  * @see <a href="https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/1355220729/Werk.GeefDmfaVoorWerknemer-03.00">Meer info over deze request</a>
  */
 @Getter
@@ -38,7 +38,7 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
     @NotNull
     private final Kwartaal beginKwartaal;
     @NotNull
-    private final Kwartaal eindeKwartaal;
+    private final Kwartaal eindKwartaal;
     @Nullable
     private final TypeAntwoord typeAntwoord;
     @Nullable
@@ -46,18 +46,17 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
     @Nullable
     private final Bron bron;
 
-    @Nullable
     private GeefDmfaVoorWerknemerRequest(
             @NotNull INSZNumber insz,
             @NotNull Registration registratie,
             @NotNull Kwartaal beginKwartaal,
-            @NotNull Kwartaal eindeKwartaal,
+            @NotNull Kwartaal eindKwartaal,
             @Nullable TypeAntwoord typeAntwoord,
             @Nullable LaatsteSituatie laatsteSituatie,
             @Nullable Bron bron) {
         super(insz, registratie);
         this.beginKwartaal = beginKwartaal;
-        this.eindeKwartaal = eindeKwartaal;
+        this.eindKwartaal = eindKwartaal;
         this.typeAntwoord = typeAntwoord;
         this.laatsteSituatie = laatsteSituatie;
         this.bron = bron;
@@ -76,10 +75,10 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
     protected void fillIn(MagdaDocument request, UUID requestId, MagdaRegistrationInfo magdaRegistrationInfo, Instant instant) {
         fillInCommonFields(request, requestId, magdaRegistrationInfo, instant);
 
-        request.setValue("//Criteria/Kwartaal/Begin/Jaar", String.valueOf(beginKwartaal.getJaar()));
-        request.setValue("//Criteria/Kwartaal/Begin/Kwartaalcijfer", String.valueOf(beginKwartaal.getKwartaalcijfer()));
-        request.setValue("//Criteria/Kwartaal/Einde/Jaar", String.valueOf(eindeKwartaal.getJaar()));
-        request.setValue("//Criteria/Kwartaal/Einde/Kwartaalcijfer", String.valueOf(eindeKwartaal.getKwartaalcijfer()));
+        request.setValue("//Criteria/Kwartaal/Begin/Jaar", String.valueOf(beginKwartaal.jaar()));
+        request.setValue("//Criteria/Kwartaal/Begin/Kwartaalcijfer", String.valueOf(beginKwartaal.kwartaalcijfer()));
+        request.setValue("//Criteria/Kwartaal/Einde/Jaar", String.valueOf(eindKwartaal.jaar()));
+        request.setValue("//Criteria/Kwartaal/Einde/Kwartaalcijfer", String.valueOf(eindKwartaal.kwartaalcijfer()));
 
         if (typeAntwoord != null) {
             request.setValue("//TypeAntwoord", typeAntwoord.getTypeString());
@@ -140,8 +139,6 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
     public static class Builder extends PersonMagdaRequest.Builder<Builder> {
 
         @Getter(AccessLevel.PROTECTED)
-        private PersonSource source;
-        @Getter(AccessLevel.PROTECTED)
         private Kwartaal beginKwartaal;
         @Getter(AccessLevel.PROTECTED)
         private Kwartaal endKwartaal;
@@ -151,11 +148,6 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
         private LaatsteSituatie laatsteSituatie;
         @Getter(AccessLevel.PROTECTED)
         private Bron bron;
-
-        public GeefDmfaVoorWerknemerRequest.Builder source(PersonSource source) {
-            this.source = source;
-            return this;
-        }
 
         public GeefDmfaVoorWerknemerRequest.Builder beginKwartaal(Kwartaal beginKwartaal) {
             this.beginKwartaal = beginKwartaal;
@@ -187,7 +179,7 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
                 throw new IllegalStateException("INSZ number must be given");
             }
             if (beginKwartaal == null || endKwartaal == null) {
-                throw new IllegalStateException("Begin en eindkwartaal moeten gegeven zijn");
+                throw new IllegalStateException("Begin- en eindkwartaal moeten gegeven zijn");
             }
 
             return new GeefDmfaVoorWerknemerRequest(

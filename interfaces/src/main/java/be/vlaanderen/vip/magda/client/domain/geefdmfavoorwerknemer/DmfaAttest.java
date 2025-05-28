@@ -32,7 +32,7 @@ public interface DmfaAttest {
 
     interface AangifteWerkgever{
         String kwartaal();
-        String rSZNummer();
+        String RSZNummer();
         String vorigRSZNummer();
         String bron();
         String sectorIndicator();

@@ -73,9 +73,9 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
 
     @Getter
     private static class Versie implements DmfaAttest.Versie, Serializable {
-        @XmlElement(name = "vorige")
+        @XmlElement(name = "Vorige")
         public String vorigeVersie;
-        @XmlElement(name = "volgende")
+        @XmlElement(name = "Volgende")
         public String volgendeVersie;
     }
 
@@ -84,7 +84,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "Kwartaal")
         public String kwartaal;
         @XmlElement(name = "RSZNummer")
-        public String rSZNummer;
+        public String RSZNummer;
         @XmlElement(name = "VorigRSZNummer")
         public String vorigRSZNummer;
         @XmlElement(name = "Bron")
@@ -129,7 +129,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         public String oriolusValidatie;
         @XmlElement(name = "VorigINSZ")
         public String vorigINSZ;
-        @XmlElement(name = "naam")
+        @XmlElement(name = "Naam")
         public Naam naam;
         @XmlElement(name = "Werknemerslijn")
         public Werknemerslijn werknemerslijn;
@@ -169,7 +169,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "Tewerkstelling")
         public List<Tewerkstelling> tewerkstellingen;
         @XmlElementWrapper(name = "Bijdragen")
-        @XmlElement(name = "Bijdrag")
+        @XmlElement(name = "Bijdrage")
         public List<Bijdrage> bijdragen;
         @XmlElementWrapper(name = "Verminderingen")
         @XmlElement(name = "Vermindering")
