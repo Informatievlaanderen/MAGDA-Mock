@@ -129,12 +129,12 @@ public interface DmfaAttest {
         String versie();
         String regionalisatieDoelgroepVermindering();
         String gemeenteNISCode();
-        Informatie infomatie();
+        Informatie informatie();
         List<Prestatie> prestaties();
         List<Bezoldiging> bezoldigingen();
         List<Overheidssector> overheidssectoren();
         List<ReorganisatieArbeidstijdInfo> reorganisatiesArbeidstijdInfo();
-        TweedepijlerInformatie tweepijlerInformatie();
+        TweedepijlerInformatie tweedepijlerInformatie();
         GebruikendeOnderneming gebruikendeOnderneming();
         List<Vermindering> verminderingen();
     }
@@ -191,7 +191,7 @@ public interface DmfaAttest {
         Periode periode();
         String startAncienniteit();
         String verwijzing();
-        Double debdrag();
+        Double bedrag();
         Double urenPerWeek();
         Double uurloonPerWeek();
         String versie();
@@ -255,7 +255,7 @@ public interface DmfaAttest {
 
     interface GemiddeldeArbeidsDuur {
         Double voorVermindering();
-        Double NaVermindering();
+        Double naVermindering();
     }
 
     interface BijzondereBijdrageOntslagenStatutaireWerknemer {
@@ -297,7 +297,7 @@ public interface DmfaAttest {
 
     interface Straat {
         String code();
-        String name();
+        String naam();
     }
 
     interface Gemeente {

@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +66,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         public CodeAndDescriptionJaxb status;
         @XmlElement(name = "DatumCreatie")
         @XmlJavaTypeAdapter(LocalDateXmlAdapter.class)
-        public LocalDate dateumCreatie;
+        public LocalDate datumCreatie;
         @XmlElement(name = "Nummer")
         private String nummer;
     }
@@ -135,6 +136,14 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     }
 
     @Getter
+    private static class Naam implements DmfaAttest.Naam, Serializable {
+        @XmlElement(name = "Voornaam")
+        public String voornaam;
+        @XmlElement(name = "Achternaam")
+        public String achternaam;
+    }
+
+    @Getter
     private static class Werknemerslijn implements DmfaAttest.Werknemerslijn, Serializable {
         @XmlElement(name = "Volgnummer")
         public String volgnummer;
@@ -162,6 +171,23 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElementWrapper(name = "Bijdragen")
         @XmlElement(name = "Bijdrag")
         public List<Bijdrage> bijdragen;
+        @XmlElementWrapper(name = "Verminderingen")
+        @XmlElement(name = "Vermindering")
+        List<Vermindering> verminderingen;
+        @XmlElement(name = "BijzondereBijdrageOntslagenStatutaireWerknemer")
+        BijzondereBijdrageOntslagenStatutaireWerknemer bijzondereBijdrageOntslagenStatutaire;
+        @XmlElement(name = "BijdrageStudent")
+        BijdrageStudent bijdrageStudent;
+        @XmlElementWrapper(name = "BijdragenBruggepensioneerde")
+        @XmlElement(name = "BijdrageBruggepensioneerde")
+        List<BijdrageBruggepensioneerde> bijdragenBruggepensioneerde;
+        @XmlElementWrapper(name = "VergoedingenArbeidsongevalBeroepsziekte")
+        @XmlElement(name = "VergoedingArbeidsongevalBeroepsziekte")
+        List<VergoedingArbeidsongevalBeroepsziekte> vergoedingenArbeidsongevalBeroepsziekte;
+        @XmlElementWrapper(name = "AanvullendeVergoedingen")
+        @XmlElement(name = "AanvullendeVergoeding")
+        List<Vergoeding> aanvullendeVergoedingen;
+
 
         public List<DmfaAttest.Tewerkstelling> tewerkstellingen() {
             return tewerkstellingen.stream().map(o -> (DmfaAttest.Tewerkstelling) o).collect(Collectors.toList());
@@ -169,6 +195,22 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
 
         public List<DmfaAttest.Bijdrage> bijdragen() {
             return bijdragen.stream().map(o -> (DmfaAttest.Bijdrage) o).collect(Collectors.toList());
+        }
+
+        public List<DmfaAttest.Vermindering> verminderingen() {
+            return verminderingen.stream().map(o -> (DmfaAttest.Vermindering) o).collect(Collectors.toList());
+        }
+
+        public List<DmfaAttest.BijdrageBruggepensioneerde> bijdragenBruggepensioneerde() {
+            return bijdragenBruggepensioneerde.stream().map(o -> (DmfaAttest.BijdrageBruggepensioneerde) o).collect(Collectors.toList());
+        }
+
+        public List<DmfaAttest.VergoedingArbeidsongevalBeroepsziekte> vergoedingenArbeidsongevalBeroepsziekte() {
+            return vergoedingenArbeidsongevalBeroepsziekte.stream().map(o -> (DmfaAttest.VergoedingArbeidsongevalBeroepsziekte) o).collect(Collectors.toList());
+        }
+
+        public List<DmfaAttest.Vergoeding> aanvullendeVergoedingen() {
+            return aanvullendeVergoedingen.stream().map(o -> (DmfaAttest.Vergoeding) o).collect(Collectors.toList());
         }
     }
 
@@ -192,25 +234,6 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     }
 
     @Getter
-    private static class Naam implements DmfaAttest.Naam, Serializable {
-        @XmlElement(name = "Voornaam")
-        public String voornaam;
-        @XmlElement(name = "Achternaam")
-        public String achternaam;
-    }
-
-    @Getter
-    private static class Result implements DmfaAttest.Result, Serializable {
-        @XmlElementWrapper(name = "Resultaten")
-        @XmlElement(name = "Resultaat")
-        public List<CodeAndDescriptionJaxb> resultaten;
-
-        public List<CodeAndDescription> resultaten() {
-            return resultaten.stream().map(o -> (CodeAndDescription) o).toList();
-        }
-    }
-
-    @Getter
     private static class Tewerkstelling implements DmfaAttest.Tewerkstelling, Serializable {
         @XmlElement(name = "Volgnummer")
         public String volgnummer;
@@ -230,15 +253,83 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         public String typeContract;
         @XmlElement(name = "GemiddeldAantalUrenPerWeek")
         public GemiddeldAantalUrenPerWeek gemiddeldAantalUrenPerWeek;
+        @XmlElement(name = "Maatregel")
+        public MaatRegel maatregel;
+        @XmlElement(name = "StatuutWerknemer")
+        public String statuutWerknemer;
+        @XmlElement(name = "Gepensioneerd")
+        public Integer gepensioneerd;
+        @XmlElement(name = "TypeLeerling")
+        public String typeLeerling;
+        @XmlElement(name = "WijzeBezoldiging")
+        public String wijzeBezoldiging;
+        @XmlElement(name = "Functienummer")
+        public String functienummer;
+        @XmlElement(name = "KlasseVliegendPersoneel")
+        public String klasseVliegendPersoneel;
+        @XmlElement(name = "BetalingIn10denOf12den")
+        public String betalingIn10denOf12den;
+        @XmlElement(name = "StavingDagen")
+        public String stavingDagen;
+        @XmlElement(name = "Uurloon")
+        public Double uurloon;
+        @XmlElement(name = "PercentageVermindering")
+        public Double percentageVermindering;
+        @XmlElement(name = "Personeelklasse")
+        public String personeelklasse;
+        @XmlElement(name = "GemiddeldAantalGesubsidieerdeUren")
+        public String gemiddeldAantalGesubsidieerdeUren;
+        @XmlElement(name = "Versie")
+        public String versie;
+        @XmlElement(name = "RegionalisatieDoelgroepVermindering")
+        public String regionalisatieDoelgroepVermindering;
+        @XmlElement(name = "GemeenteNISCode")
+        public String gemeenteNISCode;
+        @XmlElement(name = "Informatie")
+        public Informatie informatie;
         @XmlElementWrapper(name = "Prestaties")
         @XmlElement(name = "Prestatie")
         public List<Prestatie> prestaties;
-        @XmlElement(name = "Informatie")
-        public Informatie infomatie;
+        @XmlElementWrapper(name = "Bezoldigingen")
+        @XmlElement(name = "Bezoldiging")
+        public List<Bezoldiging> bezoldigingen;
+        @XmlElementWrapper(name = "Overheidssectoren")
+        @XmlElement(name = "Overheidssector")
+        public List<Overheidssector> overheidssectoren;
+        @XmlElementWrapper(name = "ReorganisatiesArbeidstijdInfo")
+        @XmlElement(name = "ReorganisatieArbeidstijdInfo")
+        public List<ReorganisatieArbeidstijdInfo> reorganisatiesArbeidstijdInfo;
+        @XmlElement(name = "TweedepijlerInformatie")
+        public TweedepijlerInformatie tweedepijlerInformatie;
+        @XmlElement(name = "GebruikendeOnderneming")
+        private GebruikendeOnderneming gebruikendeOnderneming;
+        @XmlElementWrapper(name = "Verminderingen")
+        @XmlElement(name = "Vermindering")
+        public List<Vermindering> verminderingen;
 
         public List<DmfaAttest.Prestatie> prestaties() {
             return prestaties.stream().map(o -> (DmfaAttest.Prestatie) o).collect(Collectors.toList());
         }
+        public List<DmfaAttest.Bezoldiging> bezoldigingen(){
+            return bezoldigingen.stream().map(o -> (DmfaAttest.Bezoldiging) o).collect(Collectors.toList());
+        }
+        public List<DmfaAttest.Overheidssector> overheidssectoren(){
+            return overheidssectoren.stream().map(o -> (DmfaAttest.Overheidssector) o).collect(Collectors.toList());
+        }
+        public List<DmfaAttest.ReorganisatieArbeidstijdInfo> reorganisatiesArbeidstijdInfo(){
+            return reorganisatiesArbeidstijdInfo.stream().map(o -> (DmfaAttest.ReorganisatieArbeidstijdInfo) o).collect(Collectors.toList());
+        }
+        public List<DmfaAttest.Vermindering> verminderingen(){
+            return verminderingen.stream().map(o -> (DmfaAttest.Vermindering) o).collect(Collectors.toList());
+        }
+    }
+
+    @Getter
+    private static class LokaleEenheid implements DmfaAttest.LokaleEenheid, Serializable {
+        @XmlElement(name = "Nummer")
+        public String nummer;
+        @XmlElement(name = "NISCode")
+        public String nisCode;
     }
 
     @Getter
@@ -247,6 +338,20 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         public Double referentiePersoon;
         @XmlElement(name = "Werknemer")
         public Double werkNemer;
+    }
+
+    @Getter
+    private static class MaatRegel implements DmfaAttest.MaatRegel, Serializable {
+        @XmlElement(name = "ReorganisatieArbeidstijd")
+        private String reorganisatieArbeidstijd;
+        @XmlElement(name = "BevorderingWerkgelegenheid")
+        private String bevorderingWerkgelegenheid;
+    }
+
+    @Getter
+    public static class Informatie implements DmfaAttest.Informatie, Serializable {
+        @XmlElement(name = "BrutoLoonZiekte")
+        public Double brutoLoonZiekte;
     }
 
     @Getter
@@ -260,17 +365,118 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     }
 
     @Getter
-    private static class LokaleEenheid implements DmfaAttest.LokaleEenheid, Serializable {
-        @XmlElement(name = "Nummer")
-        public String nummer;
-        @XmlElement(name = "NISCode")
-        public String nisCode;
+    private static class Bezoldiging implements DmfaAttest.Bezoldiging, Serializable {
+        @XmlElement(name = "Volgnummer")
+        private String volgnummer;
+        @XmlElement(name = "Code")
+        private String code;
+        @XmlElement(name = "FrequentieBetalingPremie")
+        private String frequentieBetalingPremie;
+        @XmlElement(name = "PercentageJaarbasis")
+        private Integer percentageJaarbasis;
+        @XmlElement(name = "FictiefSalaris")
+        private Double fictiefSalaris;
+        @XmlElement(name = "Bedrag")
+        private BigInteger bedrag;
+        @XmlElement(name = "Versie")
+        private String versie;
     }
 
     @Getter
-    public static class Informatie implements DmfaAttest.Informatie, Serializable {
-        @XmlElement(name = "BrutoLoonZiekte")
-        public Double brutoLoonZiekte;
+    private static class Overheidssector implements DmfaAttest.Overheidssector, Serializable {
+        @XmlElement(name = "Periode")
+        private Periode periode;
+        @XmlElement(name = "TypeInstelling")
+        private String typeInstelling;
+        @XmlElement(name = "TypePersoneel")
+        private String typePersoneel;
+        @XmlElement(name = "GraadOfFunctie")
+        private String graadOfFunctie;
+        @XmlElement(name = "OfficieleTaal")
+        private String officieleTaal;
+        @XmlElement(name = "TypeOpdracht")
+        private String typeOpdracht;
+        @XmlElement(name = "AardFunctie")
+        private String aardFunctie;
+        @XmlElement(name = "RedenEindeStatutaireRelatie")
+        private String redenEindeStatutaireRelatie;
+        @XmlElement(name = "Versie")
+        private String versie;
+        @XmlElementWrapper(name = "Loonschalen")
+        @XmlElement(name = "Loonschaal")
+        private List<Loonschaal> loonschalen;
+        public List<DmfaAttest.Loonschaal> loonschalen() {
+            return loonschalen.stream().map(o -> (DmfaAttest.Loonschaal) o).collect(Collectors.toList());
+        }
+    }
+
+    @Getter
+    private static class Loonschaal implements DmfaAttest.Loonschaal, Serializable {
+        @XmlElement(name = "Periode")
+        private Periode periode;
+        @XmlElement(name = "StartAncienniteit")
+        private String startAncienniteit;
+        @XmlElement(name = "Verwijzing")
+        private String verwijzing;
+        @XmlElement(name = "Bedrag")
+        private Double bedrag;
+        @XmlElement(name = "UrenPerWeek")
+        private Double urenPerWeek;
+        @XmlElement(name = "UurloonPerWeek")
+        private Double uurloonPerWeek;
+        @XmlElement(name = "Versie")
+        private String versie;
+        @XmlElementWrapper(name = "AanvullendeLoonschalen")
+        @XmlElement(name = "AanvullendeLoonschaal")
+        private List<AanvullendeLoonschaal> aanvullendeLoonschalen;
+
+        public List<DmfaAttest.AanvullendeLoonschaal> aanvullendeLoonschalen() {
+            return aanvullendeLoonschalen.stream().map(o -> (DmfaAttest.AanvullendeLoonschaal) o).collect(Collectors.toList());
+        }
+    }
+
+    @Getter
+    private static class AanvullendeLoonschaal implements DmfaAttest.AanvullendeLoonschaal, Serializable {
+        @XmlElement(name = "Periode")
+        private Periode periode;
+        @XmlElement(name = "Verwijzing")
+        private String verwijzing;
+        @XmlElement(name = "Basisloon")
+        private Double basisloon;
+        @XmlElement(name = "Percentage")
+        private Double percentage;
+        @XmlElement(name = "AantalDiensturen")
+        private Double aantalDiensturen;
+        @XmlElement(name = "Bedrag")
+        private Double bedrag;
+        @XmlElement(name = "Versie")
+        private String versie;
+    }
+
+    @Getter
+    private static class ReorganisatieArbeidstijdInfo implements DmfaAttest.ReorganisatieArbeidstijdInfo, Serializable {
+        @XmlElement(name = "ReorganisatieArbeidstijd")
+        private String reorganisatieArbeidstijd;
+        @XmlElement(name = "PercentageReorganisatieArbeidstijd")
+        private Double percentageReorganisatieArbeidstijd;
+        @XmlElement(name = "Versie")
+        private String versie;
+    }
+
+    @Getter
+    private static class TweedepijlerInformatie implements DmfaAttest.TweedepijlerInformatie, Serializable {
+        @XmlElement(name = "ReferentieJaarMaand")
+        String referentieJaarMaand;
+        @XmlElement(name = "MaandBedrag")
+        Double maandBedrag;
+        @XmlElement(name = "BijkomendMaandBedrag")
+        Double bijkomendMaandbedrag;
+        @XmlElement(name = "MaandelijkseHuisvergoeding")
+        Double maandelijkseHuisvergoeding;
+        @XmlElement(name = "OfficieleTaal")
+        String officieleTaal;
+        @XmlElement(name = "Versie")
+        String versie;
     }
 
     @Getter
@@ -285,6 +491,285 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         public Long bedrag;
         @XmlElement(name = "Versie")
         public String versie;
+    }
+
+    @Getter
+    private static class Vermindering implements DmfaAttest.Vermindering, Serializable {
+        @XmlElement(name = "Code")
+        public String code;
+        @XmlElement(name = "BasisVoorBerekening")
+        public Double basisVoorBerekening;
+        @XmlElement(name = "BedragVermindering")
+        public Double bedragVermindering;
+        @XmlElement(name = "DatumBeginRecht")
+        @XmlJavaTypeAdapter(LocalDateXmlAdapter.class)
+        public LocalDate datumBeginRecht;
+        @XmlElement(name = "AantalMaandenBeheerskostRSZ")
+        public Double aantalMaandenBeheerskostRSZ;
+        @XmlElement(name = "VervangenINSZ")
+        public String vervangenINSZ;
+        @XmlElement(name = "INSZRechtOpenend")
+        public String INSZRechtOpenend;
+        @XmlElement(name = "HerkomstAttest")
+        public String herkomstAttest;
+        @XmlElement(name = "Versie")
+        public String versie;
+        @XmlElementWrapper(name = "Details")
+        @XmlElement(name = "Detail")
+        private List<Detail> details;
+        @Override
+        public List<DmfaAttest.Detail> details() {
+            return details.stream().map(o -> (DmfaAttest.Detail) o).collect(Collectors.toList());
+        }
+    }
+
+    @Getter
+    private static class Detail implements DmfaAttest.Detail, Serializable {
+        @XmlElement(name = "Volgnummer")
+        private String volgnummer;
+        @XmlElement(name = "Bedrag")
+        private Double bedrag;
+        @XmlElement(name = "NummerRegistratieArbeidsreglement")
+        private String nummerRegistratieArbeidsreglement;
+        @XmlElement(name = "DatumBeginArbeidsregeling")
+        @XmlJavaTypeAdapter(LocalDateXmlAdapter.class)
+        private LocalDate datumBeginArbeidsregeling;
+        @XmlElement(name = "GemiddeldeArbeidsDuur")
+        private GemiddeldeArbeidsDuur gemiddeldeArbeidsduur;
+        @XmlElement(name = "Versie")
+        private String versie;
+    }
+
+    @Getter
+    private static class GemiddeldeArbeidsDuur implements DmfaAttest.GemiddeldeArbeidsDuur, Serializable {
+        @XmlElement(name = "VoorVermindering")
+        private Double voorVermindering;
+        @XmlElement(name = "NaVermindering")
+        private Double naVermindering;
+    }
+
+    @Getter
+    private static class BijzondereBijdrageOntslagenStatutaireWerknemer implements DmfaAttest.BijzondereBijdrageOntslagenStatutaireWerknemer, Serializable {
+        @XmlElement(name = "ReferentieBrutoloon")
+        private Double referentieBrutoloon;
+        @XmlElement(name = "ReferentieBrutoloonBijdrage")
+        private Double referentieBrutoloonBijdrage;
+        @XmlElement(name = "ReferentieAantalDagen")
+        private Integer referentieAantalDagen;
+        @XmlElement(name = "PeriodeOnderwerping")
+        private Periode periodeOnderwerping;
+        @XmlElement(name = "Versie")
+        private String versie;
+    }
+
+    @Getter
+    private static class BijdrageStudent implements DmfaAttest.BijdrageStudent, Serializable {
+        @XmlElement(name = "Loon")
+        private Double loon;
+        @XmlElement(name = "Bedrag")
+        private Double bedrag;
+        @XmlElement(name = "AantalDagen")
+        private Integer aantalDagen;
+        @XmlElement(name = "AantalUren")
+        private Integer aantalUren;
+        @XmlElement(name = "NummerLokaleEenheid")
+        private String nummerLokaleEenheid;
+        @XmlElementWrapper(name = "GebruikendeOndermingen")
+        @XmlElement(name = "GebruikendeOnderneming")
+        private List<GebruikendeOnderneming> gebruikendeOndernemingen;
+        @XmlElement(name = "Versie")
+        private String versie;
+
+        @Override
+        public List<DmfaAttest.GebruikendeOnderneming> gebruikendeOndernemingen() {
+            return gebruikendeOndernemingen.stream().map(o -> ((DmfaAttest.GebruikendeOnderneming) o)).collect(Collectors.toList());
+        }
+    }
+
+    @Getter
+    private static class GebruikendeOnderneming implements DmfaAttest.GebruikendeOnderneming, Serializable {
+        @XmlElement(name = "INSZ")
+        private String INSZ;
+        @XmlElement(name = "Ondernemingsnummer")
+        private String ondernemingsnummer;
+        @XmlElement(name = "NaamOnderneming")
+        private String naamOnderneming;
+        @XmlElement(name = "BTWNummer")
+        private String BTWnummer;
+        @XmlElement(name = "DagContractNummer")
+        private String dagContractNummer;
+        @XmlElement(name = "Adres")
+        private Adres adres;
+        @XmlElement(name = "Versie")
+        private String versie;
+    }
+
+    @Getter
+    private static class Adres implements DmfaAttest.Adres, Serializable {
+        @XmlElement(name = "Straat")
+        private Straat straat;
+        @XmlElement(name = "Huisnummer")
+        private String huisnummer;
+        @XmlElement(name = "Busnummer")
+        private String busnummer;
+        @XmlElement(name = "Gemeente")
+        private Gemeente gemeente;
+        @XmlElement(name = "Land")
+        private Land land;
+        @XmlElement(name = "Versie")
+        private String versie;
+    }
+
+    @Getter
+    private static class Straat implements DmfaAttest.Straat, Serializable {
+        @XmlElement(name = "Code")
+        private String code;
+        @XmlElement(name = "Naam")
+        private String naam;
+    }
+
+    @Getter
+    private static class Gemeente implements DmfaAttest.Gemeente, Serializable {
+        @XmlElement(name = "NISCode")
+        private String NISCode;
+        @XmlElement(name = "PostCode")
+        private String postCode;
+        @XmlElement(name = "Naam")
+        private String naam;
+    }
+
+    @Getter
+    private static class Land implements DmfaAttest.Land, Serializable {
+        @XmlElement(name = "NISCode")
+        private String NISCode;
+        @XmlElement(name = "ISOCode")
+        private String ISOCode;
+        @XmlElement(name = "Naam")
+        private String naam;
+    }
+
+    @Getter
+    private static class BijdrageBruggepensioneerde implements DmfaAttest.BijdrageBruggepensioneerde, Serializable {
+        @XmlElement(name = "Code")
+        private String code;
+        @XmlElement(name = "AantalMaanden")
+        private Integer aantalMaanden;
+        @XmlElement(name = "Bedrag")
+        private Double bedrag;
+        @XmlElement(name = "Versie")
+        private String versie;
+    }
+
+    @Getter
+    private static class VergoedingArbeidsongevalBeroepsziekte implements DmfaAttest.VergoedingArbeidsongevalBeroepsziekte, Serializable {
+        @XmlElement(name = "Reden")
+        private String reden;
+        @XmlElement(name = "GraadArbeidsOngeschikdheid")
+        private Double graadArbeidsOngeschikdheid;
+        @XmlElement(name = "Bedrag")
+        private Double bedrag;
+        @XmlElement(name = "Versie")
+        private String versie;
+    }
+
+    @Getter
+    private static class Vergoeding implements DmfaAttest.Vergoeding, Serializable {
+        @XmlElement(name = "Basis")
+        private VergoedingBasis basis;
+        @XmlElementWrapper(name = "Bijdragen")
+        @XmlElement(name = "Bijdrage")
+        private List<Bijdrage> bijdragen;
+
+        public List<DmfaAttest.VergoedingBijdrage> bijdragen() {
+            return bijdragen.stream().map(o -> (DmfaAttest.VergoedingBijdrage) o).collect(Collectors.toList());
+        }
+    }
+
+    @Getter
+    private static class VergoedingBasis implements DmfaAttest.VergoedingBasis, Serializable {
+        @XmlElement(name = "IdentificatieWerkgever")
+        private String identificatieWerkgever;
+        @XmlElement(name = "ParitairComite")
+        private String paritairComite;
+        @XmlElement(name = "Activiteit")
+        private CodeAndDescriptionJaxb activiteit;
+        @XmlElement(name = "TypeSchuldenaar")
+        private String typeSchuldenaar;
+        @XmlElement(name = "DatumEersteVergoeding")
+        @XmlJavaTypeAdapter(LocalDateXmlAdapter.class)
+        private LocalDate datumEersteVergoeding;
+        @XmlElement(name = "TypeAkkoord")
+        private String typeAkkoord;
+        @XmlElement(name = "HalftijdseLoopbaanonderbreking")
+        private String halftijdseLoopbaanonderbreking;
+        @XmlElement(name = "VrijstellingPrestaties")
+        private String vrijstellingPrestaties;
+        @XmlElement(name = "VervangingInOvereenkomstMetCAO")
+        private String vervangingInOvereenkomstMetCAO;
+        @XmlElement(name = "Vervanger")
+        private String vervanger;
+        @XmlElement(name = "RegelingBijWerkhervatting")
+        private String regelingBijWerkhervatting;
+        @XmlElement(name = "AantalOnderdelenSchadevergoeding")
+        private Double aantalOnderdelenSchadevergoeding;
+        @XmlElement(name = "DatumBetekeningOpzegging")
+        @XmlJavaTypeAdapter(LocalDateXmlAdapter.class)
+        private LocalDate datumBetekeningOpzegging;
+        @XmlElement(name = "OndernemingInMoeilijkheden")
+        private String ondernemingInMoeilijkheden;
+        @XmlElement(name = "PeriodeErkenning")
+        private Periode periodeErkenning;
+        @XmlElement(name = "Versie")
+        private String versie;
+    }
+
+    @Getter
+    private static class VergoedingBijdrage implements DmfaAttest.VergoedingBijdrage, Serializable {
+        @XmlElement(name = "WerknemerKengetal")
+        private String werknemerKengetal;
+        @XmlElement(name = "Type")
+        private String type;
+        @XmlElement(name = "BedragModificatie")
+        private Integer bedragModificatie;
+        @XmlElement(name = "Volgnummer")
+        private String volgnummer;
+        @XmlElement(name = "Vergoeding")
+        private Double vergoeding;
+        @XmlElement(name = "NotieKapitalisatie")
+        private Integer notieKapitalisatie;
+        @XmlElement(name = "TheoretischBedragBijdstanduitkering")
+        private Double theoretischBedragBijstanduitkering;
+        @XmlElement(name = "AantalMaanden")
+        private Double aantalMaanden;
+        @XmlElement(name = "AantalMaandenDecimaal")
+        private Double aantalMaandenDecimaal;
+        @XmlElement(name = "Onvolledigemaand")
+        private OnvolledigeMaand onvolledigeMaand;
+        @XmlElement(name = "ToepassingVanDeDrempel")
+        private String toepassingVanDeDrempel;
+        @XmlElement(name = "Bedrag")
+        private Double bedrag;
+        @XmlElement(name = "Versie")
+        private String versie;
+    }
+
+    @Getter
+    private static class OnvolledigeMaand implements DmfaAttest.OnvolledigeMaand, Serializable {
+        @XmlElement(name = "AantalDagen")
+        Double aantalDagen;
+        @XmlElement(name = "Reden")
+        String reden;
+    }
+
+    @Getter
+    private static class Result implements DmfaAttest.Result, Serializable {
+        @XmlElementWrapper(name = "Resultaten")
+        @XmlElement(name = "Resultaat")
+        public List<CodeAndDescriptionJaxb> resultaten;
+
+        public List<CodeAndDescription> resultaten() {
+            return resultaten.stream().map(o -> (CodeAndDescription) o).toList();
+        }
     }
 
     @Getter
