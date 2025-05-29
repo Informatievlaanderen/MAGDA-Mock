@@ -1,10 +1,24 @@
 package be.vlaanderen.vip.magda.client.domain.geefdmfavoorwerknemer;
 
+import be.vlaanderen.vip.magda.client.MagdaClientException;
+import be.vlaanderen.vip.magda.client.MagdaDocument;
+import be.vlaanderen.vip.magda.client.MagdaResponse;
+import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
+import be.vlaanderen.vip.magda.client.domain.giveenterprise.Enterprise;
+import be.vlaanderen.vip.magda.client.domain.giveenterprise.MagdaResponseEnterpriseAdapterJaxbImpl;
+
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.List;
 
 public interface DmfaAttest {
+
+    static DmfaAttest ofMagdaDocument(MagdaDocument magdaDocument) throws MagdaClientException {
+        return new MagdaResponseDmfaVoorWerknemerAdapterJaxbImpl().adapt(new MagdaResponseWrapper(MagdaResponse.builder()
+                .document(magdaDocument)
+                .build()));
+    }
+
     List<Attest> attesten();
 
     String volgendAttest();

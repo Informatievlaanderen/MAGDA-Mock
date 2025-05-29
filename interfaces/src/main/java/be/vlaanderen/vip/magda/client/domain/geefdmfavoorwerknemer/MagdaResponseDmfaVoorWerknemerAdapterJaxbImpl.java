@@ -26,6 +26,10 @@ public class MagdaResponseDmfaVoorWerknemerAdapterJaxbImpl implements MagdaRespo
                     .getDocument()
                     .xpath("//Inhoud")
                     .item(0));
+
+            if(contentNode.isEmpty()) {
+                return null;
+            }
             return (DmfaAttest) context.createUnmarshaller()
                     .unmarshal(contentNode.orElseThrow());
         } catch (NoSuchElementException | JAXBException e) {

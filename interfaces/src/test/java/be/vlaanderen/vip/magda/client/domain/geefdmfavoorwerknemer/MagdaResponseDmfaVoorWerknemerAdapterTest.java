@@ -27,54 +27,54 @@ public class MagdaResponseDmfaVoorWerknemerAdapterTest {
 
         assertNotNull(dmfaAttest);
         var attesten = dmfaAttest.attesten();
-        assertEquals(attesten.size(), 7);
+        assertEquals(7, attesten.size());
         var attest = attesten.get(0);
         var identificatie = attest.identificatie();
-        assertEquals(identificatie.nummer(), "7847048323");
-        assertEquals(identificatie.versie(), "7847048323");
+        assertEquals("7847048323", identificatie.nummer());
+        assertEquals("7847048323", identificatie.versie());
         var status = identificatie.status();
-        assertEquals(status.codeValue(), "0");
-        assertEquals(status.descriptionValue(), "Nieuw");
-        assertEquals(identificatie.datumCreatie(), LocalDate.of(2023, 10, 22));
+        assertEquals("0", status.codeValue());
+        assertEquals("Nieuw", status.descriptionValue());
+        assertEquals(LocalDate.of(2023, 10, 22), identificatie.datumCreatie());
 
         var aangifteWerkgever = attest.aangifteWerkgever();
-        assertEquals(aangifteWerkgever.kwartaal(), "20233");
-        assertEquals(aangifteWerkgever.RSZNummer(), "8868157565");
-        assertEquals(aangifteWerkgever.bron(), "RSZ");
-        assertEquals(aangifteWerkgever.sectorIndicator(), "PRI");
-        assertEquals(aangifteWerkgever.onderCuratele(), "0");
-        assertEquals(aangifteWerkgever.ondernemingsNummer(), "0454394421");
-        assertEquals(aangifteWerkgever.verschuldigdNettoBedrag(), 970521);
-        assertEquals(aangifteWerkgever.conversieNaarRegime5(), "0");
+        assertEquals("20233", aangifteWerkgever.kwartaal());
+        assertEquals("8868157565", aangifteWerkgever.RSZNummer());
+        assertEquals("RSZ", aangifteWerkgever.bron());
+        assertEquals("PRI", aangifteWerkgever.sectorIndicator());
+        assertEquals("0", aangifteWerkgever.onderCuratele());
+        assertEquals("0454394421", aangifteWerkgever.ondernemingsNummer());
+        assertEquals(970521, aangifteWerkgever.verschuldigdNettoBedrag());
+        assertEquals("0", aangifteWerkgever.conversieNaarRegime5());
 
         var werknemer = aangifteWerkgever.werknemer();
-        assertEquals(werknemer.insz(), "71640618918");
-        assertEquals(werknemer.oriolusValidatie(), "0");
+        assertEquals("71640618918", werknemer.insz());
+        assertEquals("0", werknemer.oriolusValidatie());
 
         var werknemerslijn = werknemer.werknemerslijn();
-        assertEquals(werknemerslijn.categorie(), "10");
-        assertEquals(werknemerslijn.kernGetal(), "495");
-        assertEquals(werknemerslijn.periode().begin(), LocalDate.of(2023, 7, 1));
-        assertEquals(werknemerslijn.periode().einde(), LocalDate.of(2023, 9, 30));
-        assertEquals(werknemerslijn.grensarbeider(), "0");
+        assertEquals("10", werknemerslijn.categorie());
+        assertEquals("495", werknemerslijn.kernGetal());
+        assertEquals(LocalDate.of(2023, 7, 1), werknemerslijn.periode().begin());
+        assertEquals(LocalDate.of(2023, 9, 30), werknemerslijn.periode().einde());
+        assertEquals("0", werknemerslijn.grensarbeider());
 
         var tewerkstelling = werknemerslijn.tewerkstellingen().get(0);
-        assertEquals(tewerkstelling.volgnummer(), "1");
-        assertEquals(tewerkstelling.internNummer(), "3303YCWFLQMZ");
-        assertEquals(tewerkstelling.lokaleEenheid().nummer(), "2070345333");
-        assertEquals(tewerkstelling.lokaleEenheid().nisCode(), "31005");
-        assertEquals(tewerkstelling.periode().begin(), LocalDate.of(2020, 9, 1));
-        assertEquals(tewerkstelling.paritairComite(), "200");
-        assertEquals(tewerkstelling.aantalWerkdagenPerWeek(), 500);
-        assertEquals(tewerkstelling.typeContract(), "0");
-        assertEquals(tewerkstelling.gemiddeldAantalUrenPerWeek().referentiePersoon(), 4000);
-        assertEquals(tewerkstelling.gemiddeldAantalUrenPerWeek().werkNemer(), 4000);
-        assertEquals(tewerkstelling.informatie().brutoLoonZiekte(), 24103);
+        assertEquals("1", tewerkstelling.volgnummer());
+        assertEquals("3303YCWFLQMZ", tewerkstelling.internNummer());
+        assertEquals("2070345333", tewerkstelling.lokaleEenheid().nummer());
+        assertEquals("31005", tewerkstelling.lokaleEenheid().nisCode());
+        assertEquals(LocalDate.of(2020, 9, 1), tewerkstelling.periode().begin());
+        assertEquals("200", tewerkstelling.paritairComite());
+        assertEquals(500, tewerkstelling.aantalWerkdagenPerWeek());
+        assertEquals("0", tewerkstelling.typeContract());
+        assertEquals(4000, tewerkstelling.gemiddeldAantalUrenPerWeek().referentiePersoon());
+        assertEquals(4000, tewerkstelling.gemiddeldAantalUrenPerWeek().werkNemer());
+        assertEquals(24103, tewerkstelling.informatie().brutoLoonZiekte());
 
         var prestatie = tewerkstelling.prestaties().get(0);
-        assertEquals(prestatie.volgnummer(), "1");
-        assertEquals(prestatie.code(), "1");
-        assertEquals(prestatie.dagen(), 6500);
+        assertEquals("1", prestatie.volgnummer());
+        assertEquals("1", prestatie.code());
+        assertEquals(6500, prestatie.dagen());
     }
 
     @Test
