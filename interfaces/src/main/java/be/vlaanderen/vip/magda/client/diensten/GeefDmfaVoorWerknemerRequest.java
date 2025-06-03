@@ -24,7 +24,7 @@ import java.util.UUID;
  *   <li>eindKwartaal: einde van de periode waarop de vraag betrekking heeft (jaar en kwartaal)</li>
  *   <li>typeAntwoord: online (onmiddelijk) antwoord of semi-online</li>
  *   <li>laatsteSituatie: alle situaties of enkel de huidige situatie</li>
- *   <li>bron: attesten bij RSZ of DIBISS (lokale sociale zekerheid) ophalen</li>
+ *   <li>bron: attesten bij RSZ of DIBISS (lokale sociale zekerheid) ophalen; kan ook "Niet opgegeven" zijn</li>
  * </ul>
  *
  * @see <a href="file:resources/templates/GeefDmfaVoorWerknemer/03.00.0000/template.xml">XML template for dit requesttype</a>
