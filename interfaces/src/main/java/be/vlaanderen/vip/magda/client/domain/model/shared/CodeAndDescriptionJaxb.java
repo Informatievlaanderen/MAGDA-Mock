@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client.domain.model.shared;
 
+import be.vlaanderen.vip.magda.client.domain.geefdmfavoorwerknemer.DmfaAttest;
 import be.vlaanderen.vip.magda.client.domain.giveannualaccounts.AnnualAccounts;
 import be.vlaanderen.vip.magda.client.domain.givearzacareer.ARZACareer;
 import be.vlaanderen.vip.magda.client.domain.giveenterprise.Enterprise;
@@ -9,7 +10,7 @@ import jakarta.xml.bind.annotation.XmlValue;
 
 import java.io.Serializable;
 
-public class CodeAndDescriptionJaxb implements Enterprise.CodeAndDescription, ARZACareer.CodeAndDescription, AnnualAccounts.CodeAndDescription, Serializable {
+public class CodeAndDescriptionJaxb implements DmfaAttest.CodeAndDescription, Enterprise.CodeAndDescription, ARZACareer.CodeAndDescription, AnnualAccounts.CodeAndDescription, Serializable {
     @XmlElement(name = "Code")
     Code code;
     @XmlElement(name = "Omschrijving")

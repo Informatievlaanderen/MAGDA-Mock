@@ -80,6 +80,7 @@ class SimulatorXmlValidationTest {
             "Vastgoed/GeefEpc/02.01.0000",                            "Energie.GeefEpcDienst-02.01/WebService/GeefEpcResponse.xsd",
 
             "Werk/GeefLoopbaanARZA/02.01.0000",                    "Werk.GeefLoopbaanARZADienst-02.01/WebService/GeefLoopbaanARZAResponse.xsd",
+            "Werk/GeefDmfaVoorWerknemer/03.00.0000",               "Werk.GeefDmfaVoorWerknemer-03.00/WebService/GeefDmfaVoorWerknemerResponse.xsd",
             "Werk/GeefLoopbaanonderbrekingen/02.00.0000",          "Werk.GeefLoopbaanonderbrekingenDienst-02.00/WebService/GeefLoopbaanonderbrekingenResponse.xsd",
             "Werk/GeefWerkrelaties/02.00.0000",                    "Werk.GeefWerkrelatiesDienst-02.00/WebService/GeefWerkrelatiesResponse.xsd");
     

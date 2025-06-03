@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns="http://magda.vlaanderen.be/werk-v3" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" 
+	xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" 
+	targetNamespace="http://magda.vlaanderen.be/werk-v3" 
+	elementFormDefault="unqualified" 
+	attributeFormDefault="unqualified">
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:include schemaLocation="Dmfa-v3.xsd"/>
+	<xs:include schemaLocation="Verrichtingen-v3.xsd"/>
+</xs:schema>
