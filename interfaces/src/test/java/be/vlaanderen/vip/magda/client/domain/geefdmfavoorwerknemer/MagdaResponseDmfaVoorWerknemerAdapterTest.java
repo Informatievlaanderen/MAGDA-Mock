@@ -65,11 +65,11 @@ public class MagdaResponseDmfaVoorWerknemerAdapterTest {
         assertEquals("31005", tewerkstelling.lokaleEenheid().nisCode());
         assertEquals(LocalDate.of(2020, 9, 1), tewerkstelling.periode().begin());
         assertEquals("200", tewerkstelling.paritairComite());
-        assertEquals(500, tewerkstelling.aantalWerkdagenPerWeek());
+        assertEquals(500, tewerkstelling.aantalWerkdagenPerWeek().intValue());
         assertEquals("0", tewerkstelling.typeContract());
-        assertEquals(4000, tewerkstelling.gemiddeldAantalUrenPerWeek().referentiePersoon());
-        assertEquals(4000, tewerkstelling.gemiddeldAantalUrenPerWeek().werkNemer());
-        assertEquals(24103, tewerkstelling.informatie().brutoLoonZiekte());
+        assertEquals(4000, tewerkstelling.gemiddeldAantalUrenPerWeek().referentiePersoon().intValue());
+        assertEquals(4000, tewerkstelling.gemiddeldAantalUrenPerWeek().werkNemer().intValue());
+        assertEquals(24103, tewerkstelling.informatie().brutoLoonZiekte().intValue());
 
         var prestatie = tewerkstelling.prestaties().get(0);
         assertEquals("1", prestatie.volgnummer());

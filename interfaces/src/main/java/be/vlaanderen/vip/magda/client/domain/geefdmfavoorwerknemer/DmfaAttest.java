@@ -4,9 +4,8 @@ import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.MagdaResponse;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
-import be.vlaanderen.vip.magda.client.domain.giveenterprise.Enterprise;
-import be.vlaanderen.vip.magda.client.domain.giveenterprise.MagdaResponseEnterpriseAdapterJaxbImpl;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.List;
@@ -94,7 +93,7 @@ public interface DmfaAttest {
         String grensarbeider();
         String activiteitIvmRisico();
         String nummerLokaleEenheid();
-        Double specialeBijdrage();
+        BigDecimal specialeBijdrage();
         Pensioen pensioen();
         Staving staving();
         List<Tewerkstelling> tewerkstellingen();
@@ -113,8 +112,8 @@ public interface DmfaAttest {
     }
 
     interface Pensioen {
-        Double bediende();
-        Double arbeider();
+        BigDecimal bediende();
+        BigDecimal arbeider();
     }
 
     interface Tewerkstelling {
@@ -124,7 +123,7 @@ public interface DmfaAttest {
         String activiteit();
         Periode periode();
         String paritairComite();
-        Double aantalWerkdagenPerWeek();
+        BigDecimal aantalWerkdagenPerWeek();
         String typeContract();
         GemiddeldAantalUrenPerWeek gemiddeldAantalUrenPerWeek();
         MaatRegel maatregel();
@@ -136,8 +135,8 @@ public interface DmfaAttest {
         String klasseVliegendPersoneel();
         String betalingIn10denOf12den();
         String stavingDagen();
-        Double uurloon();
-        Double percentageVermindering();
+        BigDecimal uurloon();
+        BigDecimal percentageVermindering();
         String personeelklasse();
         String gemiddeldAantalGesubsidieerdeUren();
         String versie();
@@ -159,8 +158,8 @@ public interface DmfaAttest {
     }
 
     interface GemiddeldAantalUrenPerWeek {
-        Double referentiePersoon();
-        Double werkNemer();
+        BigDecimal referentiePersoon();
+        BigDecimal werkNemer();
     }
 
     interface MaatRegel {
@@ -169,7 +168,7 @@ public interface DmfaAttest {
     }
 
     interface Informatie {
-        Double brutoLoonZiekte();
+        BigDecimal brutoLoonZiekte();
     }
 
     interface Prestatie {
@@ -183,7 +182,7 @@ public interface DmfaAttest {
         String code();
         String frequentieBetalingPremie();
         Integer percentageJaarbasis();
-        Double fictiefSalaris();
+        BigDecimal fictiefSalaris();
         BigInteger bedrag();
         String versie();
     }
@@ -205,9 +204,9 @@ public interface DmfaAttest {
         Periode periode();
         String startAncienniteit();
         String verwijzing();
-        Double bedrag();
-        Double urenPerWeek();
-        Double uurloonPerWeek();
+        BigDecimal bedrag();
+        BigDecimal urenPerWeek();
+        BigDecimal uurloonPerWeek();
         String versie();
         List<AanvullendeLoonschaal> aanvullendeLoonschalen();
     }
@@ -215,24 +214,24 @@ public interface DmfaAttest {
     interface AanvullendeLoonschaal {
         Periode periode();
         String verwijzing();
-        Double basisloon();
-        Double percentage();
-        Double aantalDiensturen();
-        Double bedrag();
+        BigDecimal basisloon();
+        BigDecimal percentage();
+        BigDecimal aantalDiensturen();
+        BigDecimal bedrag();
         String versie();
     }
 
     interface ReorganisatieArbeidstijdInfo {
         String reorganisatieArbeidstijd();
-        Double percentageReorganisatieArbeidstijd();
+        BigDecimal percentageReorganisatieArbeidstijd();
         String versie();
     }
 
     interface TweedepijlerInformatie {
         String referentieJaarMaand();
-        Double maandBedrag();
-        Double bijkomendMaandbedrag();
-        Double maandelijkseHuisvergoeding();
+        BigDecimal maandBedrag();
+        BigDecimal bijkomendMaandbedrag();
+        BigDecimal maandelijkseHuisvergoeding();
         String officieleTaal();
         String versie();
     }
@@ -247,10 +246,10 @@ public interface DmfaAttest {
 
     interface Vermindering {
         String code();
-        Double basisVoorBerekening();
-        Double bedragVermindering();
+        BigDecimal basisVoorBerekening();
+        BigDecimal bedragVermindering();
         LocalDate datumBeginRecht();
-        Double aantalMaandenBeheerskostRSZ();
+        BigDecimal aantalMaandenBeheerskostRSZ();
         String vervangenINSZ();
         String INSZRechtOpenend();
         String herkomstAttest();
@@ -260,7 +259,7 @@ public interface DmfaAttest {
 
     interface Detail {
         String volgnummer();
-        Double bedrag();
+        BigDecimal bedrag();
         String nummerRegistratieArbeidsreglement();
         LocalDate datumBeginArbeidsregeling();
         GemiddeldeArbeidsDuur gemiddeldeArbeidsduur();
@@ -268,21 +267,21 @@ public interface DmfaAttest {
     }
 
     interface GemiddeldeArbeidsDuur {
-        Double voorVermindering();
-        Double naVermindering();
+        BigDecimal voorVermindering();
+        BigDecimal naVermindering();
     }
 
     interface BijzondereBijdrageOntslagenStatutaireWerknemer {
-        Double referentieBrutoloon();
-        Double referentieBrutoloonBijdrage();
+        BigDecimal referentieBrutoloon();
+        BigDecimal referentieBrutoloonBijdrage();
         Integer referentieAantalDagen();
         Periode periodeOnderwerping();
         String versie();
     }
 
     interface BijdrageStudent {
-        Double loon();
-        Double bedrag();
+        BigDecimal loon();
+        BigDecimal bedrag();
         Integer aantalDagen();
         Integer aantalUren();
         String nummerLokaleEenheid();
@@ -329,14 +328,14 @@ public interface DmfaAttest {
     interface BijdrageBruggepensioneerde {
         String code();
         Integer aantalMaanden();
-        Double bedrag();
+        BigDecimal bedrag();
         String versie();
     }
 
     interface VergoedingArbeidsongevalBeroepsziekte {
         String reden();
-        Double graadArbeidsOngeschikdheid();
-        Double bedrag();
+        BigDecimal graadArbeidsOngeschikdheid();
+        BigDecimal bedrag();
         String versie();
     }
 
@@ -357,7 +356,7 @@ public interface DmfaAttest {
         String vervangingInOvereenkomstMetCAO();
         String vervanger();
         String regelingBijWerkhervatting();
-        Double aantalOnderdelenSchadevergoeding();
+        BigDecimal aantalOnderdelenSchadevergoeding();
         LocalDate datumBetekeningOpzegging();
         String ondernemingInMoeilijkheden();
         Periode periodeErkenning();
@@ -369,19 +368,19 @@ public interface DmfaAttest {
         String type();
         Integer bedragModificatie();
         String volgnummer();
-        Double vergoeding();
+        BigDecimal vergoeding();
         Integer notieKapitalisatie();
-        Double theoretischBedragBijstanduitkering();
-        Double aantalMaanden();
-        Double aantalMaandenDecimaal();
+        BigDecimal theoretischBedragBijstanduitkering();
+        BigDecimal aantalMaanden();
+        BigDecimal aantalMaandenDecimaal();
         OnvolledigeMaand onvolledigeMaand();
         String toepassingVanDeDrempel();
-        Double bedrag();
+        BigDecimal bedrag();
         String versie();
     }
 
     interface OnvolledigeMaand {
-        Double aantalDagen();
+        BigDecimal aantalDagen();
         String reden();
     }
 

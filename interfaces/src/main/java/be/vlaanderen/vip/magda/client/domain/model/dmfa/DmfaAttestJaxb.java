@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -160,7 +161,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "NummerLokaleEenheid")
         public String nummerLokaleEenheid;
         @XmlElement(name = "SpecialeBijdrage")
-        public Double specialeBijdrage;
+        public BigDecimal specialeBijdrage;
         @XmlElement(name = "Pensioen")
         public Pensioen pensioen;
         @XmlElement(name = "Staving")
@@ -228,9 +229,9 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Getter
     private static class Pensioen implements DmfaAttest.Pensioen, Serializable {
         @XmlElement(name = "Bediende")
-        public Double bediende;
+        public BigDecimal bediende;
         @XmlElement(name = "Arbeider")
-        public Double arbeider;
+        public BigDecimal arbeider;
     }
 
     @Getter
@@ -248,7 +249,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "ParitairComite")
         public String paritairComite;
         @XmlElement(name = "AantalWerkdagenPerWeek")
-        public Double aantalWerkdagenPerWeek;
+        public BigDecimal aantalWerkdagenPerWeek;
         @XmlElement(name = "TypeContract")
         public String typeContract;
         @XmlElement(name = "GemiddeldAantalUrenPerWeek")
@@ -272,9 +273,9 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "StavingDagen")
         public String stavingDagen;
         @XmlElement(name = "Uurloon")
-        public Double uurloon;
+        public BigDecimal uurloon;
         @XmlElement(name = "PercentageVermindering")
-        public Double percentageVermindering;
+        public BigDecimal percentageVermindering;
         @XmlElement(name = "Personeelklasse")
         public String personeelklasse;
         @XmlElement(name = "GemiddeldAantalGesubsidieerdeUren")
@@ -335,9 +336,9 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Getter
     private static class GemiddeldAantalUrenPerWeek implements DmfaAttest.GemiddeldAantalUrenPerWeek, Serializable {
         @XmlElement(name = "Referentiepersoon")
-        public Double referentiePersoon;
+        public BigDecimal referentiePersoon;
         @XmlElement(name = "Werknemer")
-        public Double werkNemer;
+        public BigDecimal werkNemer;
     }
 
     @Getter
@@ -351,7 +352,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Getter
     public static class Informatie implements DmfaAttest.Informatie, Serializable {
         @XmlElement(name = "BrutoLoonZiekte")
-        public Double brutoLoonZiekte;
+        public BigDecimal brutoLoonZiekte;
     }
 
     @Getter
@@ -375,7 +376,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "PercentageJaarbasis")
         private Integer percentageJaarbasis;
         @XmlElement(name = "FictiefSalaris")
-        private Double fictiefSalaris;
+        private BigDecimal fictiefSalaris;
         @XmlElement(name = "Bedrag")
         private BigInteger bedrag;
         @XmlElement(name = "Versie")
@@ -419,11 +420,11 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "Verwijzing")
         private String verwijzing;
         @XmlElement(name = "Bedrag")
-        private Double bedrag;
+        private BigDecimal bedrag;
         @XmlElement(name = "UrenPerWeek")
-        private Double urenPerWeek;
+        private BigDecimal urenPerWeek;
         @XmlElement(name = "UurloonPerWeek")
-        private Double uurloonPerWeek;
+        private BigDecimal uurloonPerWeek;
         @XmlElement(name = "Versie")
         private String versie;
         @XmlElementWrapper(name = "AanvullendeLoonschalen")
@@ -442,13 +443,13 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "Verwijzing")
         private String verwijzing;
         @XmlElement(name = "Basisloon")
-        private Double basisloon;
+        private BigDecimal basisloon;
         @XmlElement(name = "Percentage")
-        private Double percentage;
+        private BigDecimal percentage;
         @XmlElement(name = "AantalDiensturen")
-        private Double aantalDiensturen;
+        private BigDecimal aantalDiensturen;
         @XmlElement(name = "Bedrag")
-        private Double bedrag;
+        private BigDecimal bedrag;
         @XmlElement(name = "Versie")
         private String versie;
     }
@@ -458,7 +459,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "ReorganisatieArbeidstijd")
         private String reorganisatieArbeidstijd;
         @XmlElement(name = "PercentageReorganisatieArbeidstijd")
-        private Double percentageReorganisatieArbeidstijd;
+        private BigDecimal percentageReorganisatieArbeidstijd;
         @XmlElement(name = "Versie")
         private String versie;
     }
@@ -468,11 +469,11 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "ReferentieJaarMaand")
         String referentieJaarMaand;
         @XmlElement(name = "MaandBedrag")
-        Double maandBedrag;
+        BigDecimal maandBedrag;
         @XmlElement(name = "BijkomendMaandBedrag")
-        Double bijkomendMaandbedrag;
+        BigDecimal bijkomendMaandbedrag;
         @XmlElement(name = "MaandelijkseHuisvergoeding")
-        Double maandelijkseHuisvergoeding;
+        BigDecimal maandelijkseHuisvergoeding;
         @XmlElement(name = "OfficieleTaal")
         String officieleTaal;
         @XmlElement(name = "Versie")
@@ -498,14 +499,14 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "Code")
         public String code;
         @XmlElement(name = "BasisVoorBerekening")
-        public Double basisVoorBerekening;
+        public BigDecimal basisVoorBerekening;
         @XmlElement(name = "BedragVermindering")
-        public Double bedragVermindering;
+        public BigDecimal bedragVermindering;
         @XmlElement(name = "DatumBeginRecht")
         @XmlJavaTypeAdapter(LocalDateXmlAdapter.class)
         public LocalDate datumBeginRecht;
         @XmlElement(name = "AantalMaandenBeheerskostRSZ")
-        public Double aantalMaandenBeheerskostRSZ;
+        public BigDecimal aantalMaandenBeheerskostRSZ;
         @XmlElement(name = "VervangenINSZ")
         public String vervangenINSZ;
         @XmlElement(name = "INSZRechtOpenend")
@@ -528,7 +529,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "Volgnummer")
         private String volgnummer;
         @XmlElement(name = "Bedrag")
-        private Double bedrag;
+        private BigDecimal bedrag;
         @XmlElement(name = "NummerRegistratieArbeidsreglement")
         private String nummerRegistratieArbeidsreglement;
         @XmlElement(name = "DatumBeginArbeidsregeling")
@@ -543,17 +544,17 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Getter
     private static class GemiddeldeArbeidsDuur implements DmfaAttest.GemiddeldeArbeidsDuur, Serializable {
         @XmlElement(name = "VoorVermindering")
-        private Double voorVermindering;
+        private BigDecimal voorVermindering;
         @XmlElement(name = "NaVermindering")
-        private Double naVermindering;
+        private BigDecimal naVermindering;
     }
 
     @Getter
     private static class BijzondereBijdrageOntslagenStatutaireWerknemer implements DmfaAttest.BijzondereBijdrageOntslagenStatutaireWerknemer, Serializable {
         @XmlElement(name = "ReferentieBrutoloon")
-        private Double referentieBrutoloon;
+        private BigDecimal referentieBrutoloon;
         @XmlElement(name = "ReferentieBrutoloonBijdrage")
-        private Double referentieBrutoloonBijdrage;
+        private BigDecimal referentieBrutoloonBijdrage;
         @XmlElement(name = "ReferentieAantalDagen")
         private Integer referentieAantalDagen;
         @XmlElement(name = "PeriodeOnderwerping")
@@ -565,9 +566,9 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Getter
     private static class BijdrageStudent implements DmfaAttest.BijdrageStudent, Serializable {
         @XmlElement(name = "Loon")
-        private Double loon;
+        private BigDecimal loon;
         @XmlElement(name = "Bedrag")
-        private Double bedrag;
+        private BigDecimal bedrag;
         @XmlElement(name = "AantalDagen")
         private Integer aantalDagen;
         @XmlElement(name = "AantalUren")
@@ -655,7 +656,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "AantalMaanden")
         private Integer aantalMaanden;
         @XmlElement(name = "Bedrag")
-        private Double bedrag;
+        private BigDecimal bedrag;
         @XmlElement(name = "Versie")
         private String versie;
     }
@@ -665,9 +666,9 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "Reden")
         private String reden;
         @XmlElement(name = "GraadArbeidsOngeschikdheid")
-        private Double graadArbeidsOngeschikdheid;
+        private BigDecimal graadArbeidsOngeschikdheid;
         @XmlElement(name = "Bedrag")
-        private Double bedrag;
+        private BigDecimal bedrag;
         @XmlElement(name = "Versie")
         private String versie;
     }
@@ -711,7 +712,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "RegelingBijWerkhervatting")
         private String regelingBijWerkhervatting;
         @XmlElement(name = "AantalOnderdelenSchadevergoeding")
-        private Double aantalOnderdelenSchadevergoeding;
+        private BigDecimal aantalOnderdelenSchadevergoeding;
         @XmlElement(name = "DatumBetekeningOpzegging")
         @XmlJavaTypeAdapter(LocalDateXmlAdapter.class)
         private LocalDate datumBetekeningOpzegging;
@@ -734,21 +735,21 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         @XmlElement(name = "Volgnummer")
         private String volgnummer;
         @XmlElement(name = "Vergoeding")
-        private Double vergoeding;
+        private BigDecimal vergoeding;
         @XmlElement(name = "NotieKapitalisatie")
         private Integer notieKapitalisatie;
         @XmlElement(name = "TheoretischBedragBijdstanduitkering")
-        private Double theoretischBedragBijstanduitkering;
+        private BigDecimal theoretischBedragBijstanduitkering;
         @XmlElement(name = "AantalMaanden")
-        private Double aantalMaanden;
+        private BigDecimal aantalMaanden;
         @XmlElement(name = "AantalMaandenDecimaal")
-        private Double aantalMaandenDecimaal;
+        private BigDecimal aantalMaandenDecimaal;
         @XmlElement(name = "Onvolledigemaand")
         private OnvolledigeMaand onvolledigeMaand;
         @XmlElement(name = "ToepassingVanDeDrempel")
         private String toepassingVanDeDrempel;
         @XmlElement(name = "Bedrag")
-        private Double bedrag;
+        private BigDecimal bedrag;
         @XmlElement(name = "Versie")
         private String versie;
     }
@@ -756,7 +757,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Getter
     private static class OnvolledigeMaand implements DmfaAttest.OnvolledigeMaand, Serializable {
         @XmlElement(name = "AantalDagen")
-        Double aantalDagen;
+        BigDecimal aantalDagen;
         @XmlElement(name = "Reden")
         String reden;
     }
