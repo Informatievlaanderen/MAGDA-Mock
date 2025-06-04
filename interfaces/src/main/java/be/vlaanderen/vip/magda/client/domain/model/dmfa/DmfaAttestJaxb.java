@@ -351,8 +351,46 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
 
     @Getter
     public static class Informatie implements DmfaAttest.Informatie, Serializable {
+        @XmlElement(name = "DatumZesMaandenZiek")
+        @XmlJavaTypeAdapter(LocalDateXmlAdapter.class)
+        public LocalDate datumZesMaandenZiek;
+        @XmlElement(name = "HorecaExtra")
+        public String horecaExtra;
+        @XmlElement(name = "Terbeschikkingstelling")
+        public String terbeschikkingstelling;
+        @XmlElement(name = "UurloonInDuizendsten")
+        public String uurloonInDuizendsten;
+        @XmlElement(name = "GewaardborgdloonEersteWeek")
+        public String gewaardborgdloonEersteWeek;
         @XmlElement(name = "BrutoLoonZiekte")
         public BigDecimal brutoLoonZiekte;
+        @XmlElement(name = "Vrijstelling")
+        public Vrijstelling vrijstelling;
+        @XmlElement(name = "DatumVasteBenoeming")
+        @XmlJavaTypeAdapter(LocalDateXmlAdapter.class)
+        public LocalDate datumVasteBenoeming;
+        @XmlElement(name = "Versie")
+        public String versie;
+        @XmlElement(name = "Loopbaanmaatregel")
+        public Integer loopbaanmaatregel;
+        @XmlElement(name = "Aantalvakantiedagen")
+        public Integer aantalvakantiedagen;
+        @XmlElement(name = "Sectordetail")
+        public String sectordetail;
+        @XmlElement(name = "Mobiliteitsbudget")
+        public Long mobiliteitsbudget;
+        @XmlElement(name = "AantalUrenVlaamsOpleidingsverlof")
+        public Integer aantalUrenVlaamsOpleidingsverlof;
+        @XmlElement(name = "RegionaleSteunmaatregel")
+        public String regionaleSteunmaatregel;
+    }
+
+    @Getter
+    public static class Vrijstelling implements DmfaAttest.Vrijstelling, Serializable {
+        @XmlElement(name = "VanAangifteGegevensTewerkstellingPSD")
+        public String vanAangifteGegevensTewerkstellingPSD;
+        @XmlElement(name = "VanBijdrageAanvullendPensioen")
+        public String vanBijdrageAanvullendPensioen;
     }
 
     @Getter
@@ -425,6 +463,8 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         private String urenPerWeek;
         @XmlElement(name = "UurloonPerWeek")
         private String uurloonPerWeek;
+        @XmlElement(name = "VerminderdeLoonschaalNotificatie")
+        private String verminderdeLoonschaalNotificatie;
         @XmlElement(name = "Versie")
         private String versie;
         @XmlElementWrapper(name = "AanvullendeLoonschalen")

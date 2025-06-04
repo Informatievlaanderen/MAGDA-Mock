@@ -6,7 +6,6 @@ import be.vlaanderen.vip.magda.client.MagdaResponse;
 import be.vlaanderen.vip.magda.client.MagdaResponseWrapper;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -168,7 +167,26 @@ public interface DmfaAttest {
     }
 
     interface Informatie {
+        LocalDate datumZesMaandenZiek();
+        String horecaExtra();
+        String terbeschikkingstelling();
+        String uurloonInDuizendsten();
+        String gewaardborgdloonEersteWeek();
         BigDecimal brutoLoonZiekte();
+        Vrijstelling vrijstelling();
+        LocalDate datumVasteBenoeming();
+        String versie();
+        Integer loopbaanmaatregel();
+        Integer aantalvakantiedagen();
+        String sectordetail();
+        Long mobiliteitsbudget();
+        Integer aantalUrenVlaamsOpleidingsverlof();
+        String regionaleSteunmaatregel();
+    }
+
+    interface Vrijstelling {
+        String vanAangifteGegevensTewerkstellingPSD();
+        String vanBijdrageAanvullendPensioen();
     }
 
     interface Prestatie {
@@ -207,6 +225,7 @@ public interface DmfaAttest {
         Long bedrag();
         String urenPerWeek();
         String uurloonPerWeek();
+        String verminderdeLoonschaalNotificatie();
         String versie();
         List<AanvullendeLoonschaal> aanvullendeLoonschalen();
     }
