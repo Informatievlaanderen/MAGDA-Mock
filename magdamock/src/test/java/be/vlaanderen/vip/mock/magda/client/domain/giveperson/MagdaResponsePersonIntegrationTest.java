@@ -92,11 +92,13 @@ class MagdaResponsePersonIntegrationTest {
 
             assertNotNull(address);
             Assertions.assertEquals("Rue de la Station", address.street());
+            Assertions.assertEquals(null, address.streetLang());
             Assertions.assertEquals("13", address.houseNumber());
             Assertions.assertEquals(Optional.of("2.02"), address.postalBoxNumber());
             Assertions.assertEquals(Optional.of("52011"), address.nisCode());
             Assertions.assertEquals(Optional.of("6043"), address.zipCode());
             Assertions.assertEquals(Optional.of("Charleroi"), address.municipality());
+            Assertions.assertEquals(Optional.empty(), address.municipalityLang());
         }
 
         @Test
@@ -105,11 +107,13 @@ class MagdaResponsePersonIntegrationTest {
 
             assertNotNull(address);
             assertEquals("Dorpsstraat", address.street());
+            assertEquals("nl", address.streetLang());
             assertEquals("405", address.houseNumber());
             assertEquals(Optional.empty(), address.postalBoxNumber());
             assertEquals(Optional.of("24055"), address.nisCode());
             assertEquals(Optional.of("2340"), address.zipCode());
             assertEquals(Optional.of("Kortenberg"), address.municipality());
+            assertEquals(Optional.of("nl"), address.municipalityLang());
         }
 
         @Test
@@ -123,6 +127,31 @@ class MagdaResponsePersonIntegrationTest {
             assertEquals(Optional.of("44021"), address.nisCode());
             assertEquals(Optional.of("9000"), address.zipCode());
             assertEquals(Optional.of("Gent"), address.municipality());
+            assertEquals(Optional.of("nl"), address.municipalityLang());
+            assertEquals(Optional.of("nl"), address.countryNameLang());
+        }
+
+        @Test
+        void mapsLegalHabitationAddress() {
+            var address = person("83320675958").self().legalHabidationAddress();
+
+            assertNull(address);
+        }
+
+        @Test
+        void mapsSpecifiedAddress() {
+            var address = person("81702299254").self().specifiedAddress();
+
+            assertNotNull(address);
+            assertEquals("Antwerpsesteenweg", address.streetName().value());
+            assertEquals("8", address.houseNumber());
+            assertEquals(Optional.empty(), address.postalBoxNumber());
+            assertEquals(Optional.empty(), address.nisCode());
+            assertEquals(Optional.empty(), address.zipCode());
+            assertEquals("Brussel", address.municipalityName().value());
+            assertEquals("nl", address.municipalityName().language());
+            assertEquals("BELGIE", address.country().value());
+            assertEquals("nl", address.country().language());
         }
     }
 
