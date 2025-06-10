@@ -55,7 +55,12 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
     @XmlElementWrapper(name = "Rechtsvormen")
     @XmlElement(name = "Rechtsvorm")
     @Nullable
-    ArrayList<CodeAndDescriptionJaxb> legalForms = new ArrayList<>();
+    ArrayList<LegalForm> legalForms = new ArrayList<>();
+
+    @XmlElement(name = "OndernemingOfVestiging")
+    @Getter
+    @Nullable
+    CodeAndDescriptionJaxb enterpriseOrBranch;
 
     @Override
     @Nullable
@@ -69,12 +74,12 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
 
     @Override
     @Nullable
-    public List<Enterprise.CodeAndDescription> legalForms() {
+    public List<Enterprise.LegalForm> legalForms() {
         if(legalForms == null) {
             return null;
         }
 
-        return legalForms.stream().map(o -> (Enterprise.CodeAndDescription) o).toList();
+        return legalForms.stream().map(o -> (Enterprise.LegalForm) o).toList();
     }
 
     @Override
@@ -95,6 +100,16 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
         @Nullable
         List<CompanyName> registeredNames;
 
+        @XmlElementWrapper(name = "AfgekorteNamen")
+        @XmlElement(name = "AfgekorteNaan")
+        @Nullable
+        List<CompanyName> abbreviatedNames;
+
+        @XmlElementWrapper(name = "CommercieleNamen")
+        @XmlElement(name = "CommercieleNaam")
+        @Nullable
+        List<CompanyName> commercialNames;
+
         @Override
         @Nullable
         public List<Enterprise.CompanyName> registeredNames() {
@@ -103,6 +118,26 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
             }
 
             return registeredNames.stream().map(o -> (Enterprise.CompanyName) o).toList();
+        }
+
+        @Override
+        @Nullable
+        public List<Enterprise.CompanyName> abbreviatedNames() {
+            if(abbreviatedNames == null) {
+                return null;
+            }
+
+            return abbreviatedNames.stream().map(o -> (Enterprise.CompanyName) o).toList();
+        }
+
+        @Override
+        @Nullable
+        public List<Enterprise.CompanyName> commercialNames() {
+            if(commercialNames == null) {
+                return null;
+            }
+
+            return commercialNames.stream().map(o -> (Enterprise.CompanyName) o).toList();
         }
     }
 
@@ -297,6 +332,18 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
             OffsetDateTime endDate;
         }
 
+    }
+
+    @Getter
+    private static class LegalForm extends CodeAndDescriptionJaxb implements Enterprise.LegalForm, Serializable {
+        @XmlElement(name = "Afkorting")
+        private String abbreviation;
+        @XmlElement(name = "DatumBegin")
+        @XmlJavaTypeAdapter(OffsetDateXmlAdapter.class)
+        private OffsetDateTime startDate;
+        @XmlElement(name = "DatumEinde")
+        @XmlJavaTypeAdapter(OffsetDateXmlAdapter.class)
+        private OffsetDateTime endDate;
     }
 
     @Getter
