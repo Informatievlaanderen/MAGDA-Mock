@@ -133,7 +133,7 @@ class MagdaResponsePersonIntegrationTest {
 
         @Test
         void mapsLegalHabitationAddress() {
-            var address = person("83320675958").self().legalHabidationAddress();
+            var address = person("83320675958").self().legalHabitationAddress();
 
             assertNull(address);
         }

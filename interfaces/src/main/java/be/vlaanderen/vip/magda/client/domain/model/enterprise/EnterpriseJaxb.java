@@ -101,7 +101,7 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
         List<CompanyName> registeredNames;
 
         @XmlElementWrapper(name = "AfgekorteNamen")
-        @XmlElement(name = "AfgekorteNaan")
+        @XmlElement(name = "AfgekorteNaam")
         @Nullable
         List<CompanyName> abbreviatedNames;
 

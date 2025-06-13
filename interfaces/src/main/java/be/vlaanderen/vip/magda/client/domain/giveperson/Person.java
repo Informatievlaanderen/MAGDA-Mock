@@ -122,7 +122,7 @@ public interface Person {
         /**
          * Legal habitation address
          */
-        LegalHabidationAddress legalHabidationAddress();
+        LegalHabitationAddress legalHabitationAddress();
 
         /**
          * Specified address
@@ -212,7 +212,7 @@ public interface Person {
 
     }
 
-    interface LegalHabidationAddress {
+    interface LegalHabitationAddress {
 
         /**
          * The start date of the validity period for this address.

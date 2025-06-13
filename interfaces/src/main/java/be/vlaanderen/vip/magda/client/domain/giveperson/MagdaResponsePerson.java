@@ -171,9 +171,9 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
         }
 
         @Override
-        public LegalHabidationAddress legalHabidationAddress() {
+        public LegalHabitationAddress legalHabitationAddress() {
             return node.get("Adressen/WettelijkeWoonplaats")
-                    .map(NodeLegalHabidationAddress::new)
+                    .map(NodeLegalHabitationAddress::new)
                     .orElse(null);
         }
 
@@ -324,7 +324,7 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
         }
     }
 
-    private record NodeLegalHabidationAddress(Node node) implements LegalHabidationAddress {
+    private record NodeLegalHabitationAddress(Node node) implements LegalHabitationAddress {
         @Override
         public Optional<IncompleteDate> startDate() {
             return node.get("@DatumBegin")
