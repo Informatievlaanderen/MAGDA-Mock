@@ -118,6 +118,16 @@ public interface Person {
          * The person's contact address
          */
         Address contactAddress();
+
+        /**
+         * Legal habitation address
+         */
+        LegalHabitationAddress legalHabitationAddress();
+
+        /**
+         * Specified address
+         */
+        SpecifiedAddress specifiedAddress();
     }
 
     /**
@@ -163,6 +173,7 @@ public interface Person {
          * Street name.
          */
         String street();
+        String streetLang();
 
         /**
          * House number.
@@ -190,12 +201,170 @@ public interface Person {
          * Name of the municipality.
          */
         Optional<String> municipality();
+        Optional<String> municipalityLang();
 
         Optional<String> nisCodeCountry();
 
         Optional<String> isoCodeCountry();
 
         Optional<String> countryName();
+        Optional<String> countryNameLang();
 
+    }
+
+    interface LegalHabitationAddress {
+
+        /**
+         * The start date of the validity period for this address.
+         * This field should in principle always be present, but it's technically possible for it to be missing from a document.
+         */
+        Optional<IncompleteDate> startDate();
+
+        /**
+         * The end date of the validity period for this address.
+         * If there is no end date, then the address is still valid to this day.
+         */
+        Optional<IncompleteDate> endDate();
+
+        /**
+         * The text field where the adres is filled in.
+         */
+        String text();
+    }
+
+    interface SpecifiedAddress {
+
+        /**
+         * The start date of the validity period for this address.
+         * This field should in principle always be present, but it's technically possible for it to be missing from a document.
+         */
+        Optional<IncompleteDate> startDate();
+
+        /**
+         * The end date of the validity period for this address.
+         * If there is no end date, then the address is still valid to this day.
+         */
+        Optional<IncompleteDate> endDate();
+
+        /**
+         * The full address string
+         */
+        LanguageString fullAddress();
+
+        /**
+         * The postbox of the address
+         */
+        String postBus();
+
+        /**
+         * The street name of the address
+         */
+        LanguageString streetName();
+
+        /**
+         * The non-standardized version of the street name of the address
+         */
+        LanguageString nonStandardizedStreetName();
+
+        /**
+         * The street code
+         */
+        String streetCode();
+
+        /**
+         * The indication of the location
+         */
+        String locationIndication();
+
+        /**
+         * House number.
+         */
+        String houseNumber();
+
+        /**
+         * PO box number.
+         */
+        Optional<String> postalBoxNumber();
+
+        /**
+         * The name of the location
+         */
+        LanguageString locationName();
+
+        /**
+         * The region of the address
+         */
+        LanguageString addressRegion();
+
+        /**
+         * The postal name
+         */
+        LanguageString postalName();
+
+        /**
+         * The municipality name
+         */
+        LanguageString municipalityName();
+
+        /**
+         * The non-standardized municipality name
+         */
+        LanguageString nonStandardizedMunicipalityName();
+
+        /**
+         * NIS code; a numeric code for regional areas in Belgium.
+         *
+         * @see <a href="https://statbel.fgov.be/sites/default/files/Over_Statbel_FR/Nomenclaturen/REFNIS_2019.csv">List of NIS codes</a>
+         */
+        Optional<String> nisCode();
+
+        /**
+         * Postal or ZIP code of the region.
+         */
+        Optional<String> zipCode();
+
+        /**
+         * The first administrative unit where a member state has jurisdiction over
+         */
+        LanguageString administrativeUnitLevel1();
+
+        /**
+         * The second administrative unit where a member state has jurisdiction over
+         */
+        LanguageString administrativeUnitLevel2();
+
+        /**
+         * The country name
+         */
+        LanguageString country();
+
+        Optional<String> nisCodeCountry();
+
+        Optional<String> isoCodeCountry();
+
+        BeStAddId refersTo();
+
+        BeStAddId municipalityBeStAddId();
+
+        BeStAddId streetBeStAddId();
+    }
+
+    interface LanguageString {
+
+        /**
+         * The actual string value
+         */
+        String value();
+
+        /**
+         * The language code linked to the string value
+         */
+        String language();
+    }
+
+    interface BeStAddId {
+        String localIdentificator();
+        String namespace();
+        String versionIdentificator();
     }
 }

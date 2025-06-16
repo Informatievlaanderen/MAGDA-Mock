@@ -39,7 +39,10 @@ public interface Enterprise {
     CodeAndDescription enterpriseType();
 
     @Nullable
-    List<CodeAndDescription> legalForms();
+    List<LegalForm> legalForms();
+
+    @Nullable
+    CodeAndDescription enterpriseOrBranch();
 
     interface LegalSituation {
 
@@ -78,6 +81,13 @@ public interface Enterprise {
 
         @Nullable
         List<CompanyName> registeredNames();
+
+        @Nullable
+        List<CompanyName> abbreviatedNames();
+
+        @Nullable
+        List<CompanyName> commercialNames();
+
     }
 
     interface CompanyName {
@@ -343,7 +353,7 @@ public interface Enterprise {
         OffsetDateTime endDate();
     }
 
-    interface LegalForm {
+    interface LegalForm extends CodeAndDescription {
 
         String abbreviation();
 
@@ -351,7 +361,6 @@ public interface Enterprise {
 
         OffsetDateTime endDate();
 
-        CodeAndDescription legalForm();
     }
 
     interface Street {
