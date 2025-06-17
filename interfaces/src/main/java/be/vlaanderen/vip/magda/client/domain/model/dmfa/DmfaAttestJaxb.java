@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @XmlRootElement(name = "Inhoud")
@@ -57,7 +58,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         private List<Anomalie> anomalien;
 
         public List<DmfaAttest.Anomalie> anomalien() {
-            return anomalien.stream().map(o -> (DmfaAttest.Anomalie) o).toList();
+            return Optional.ofNullable(anomalien).stream().map(o -> (DmfaAttest.Anomalie) o).toList();
         }
     }
 
@@ -237,23 +238,23 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         }
 
         public List<DmfaAttest.Bijdrage> bijdragen() {
-            return bijdragen.stream().map(o -> (DmfaAttest.Bijdrage) o).collect(Collectors.toList());
+            return Optional.ofNullable(bijdragen).stream().map(o -> (DmfaAttest.Bijdrage) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.Vermindering> verminderingen() {
-            return verminderingen.stream().map(o -> (DmfaAttest.Vermindering) o).collect(Collectors.toList());
+            return Optional.ofNullable(verminderingen).stream().map(o -> (DmfaAttest.Vermindering) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.BijdrageBruggepensioneerde> bijdragenBruggepensioneerde() {
-            return bijdragenBruggepensioneerde.stream().map(o -> (DmfaAttest.BijdrageBruggepensioneerde) o).collect(Collectors.toList());
+            return Optional.ofNullable(bijdragenBruggepensioneerde).stream().map(o -> (DmfaAttest.BijdrageBruggepensioneerde) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.VergoedingArbeidsongevalBeroepsziekte> vergoedingenArbeidsongevalBeroepsziekte() {
-            return vergoedingenArbeidsongevalBeroepsziekte.stream().map(o -> (DmfaAttest.VergoedingArbeidsongevalBeroepsziekte) o).collect(Collectors.toList());
+            return Optional.ofNullable(vergoedingenArbeidsongevalBeroepsziekte).stream().map(o -> (DmfaAttest.VergoedingArbeidsongevalBeroepsziekte) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.Vergoeding> aanvullendeVergoedingen() {
-            return aanvullendeVergoedingen.stream().map(o -> (DmfaAttest.Vergoeding) o).collect(Collectors.toList());
+            return Optional.ofNullable(aanvullendeVergoedingen).stream().map(o -> (DmfaAttest.Vergoeding) o).collect(Collectors.toList());
         }
     }
 
@@ -387,19 +388,19 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         }
 
         public List<DmfaAttest.Bezoldiging> bezoldigingen() {
-            return bezoldigingen.stream().map(o -> (DmfaAttest.Bezoldiging) o).collect(Collectors.toList());
+            return Optional.ofNullable(bezoldigingen).stream().map(o -> (DmfaAttest.Bezoldiging) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.Overheidssector> overheidssectoren() {
-            return overheidssectoren.stream().map(o -> (DmfaAttest.Overheidssector) o).collect(Collectors.toList());
+            return Optional.ofNullable(overheidssectoren).stream().map(o -> (DmfaAttest.Overheidssector) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.ReorganisatieArbeidstijdInfo> reorganisatiesArbeidstijdInfo() {
-            return reorganisatiesArbeidstijdInfo.stream().map(o -> (DmfaAttest.ReorganisatieArbeidstijdInfo) o).collect(Collectors.toList());
+            return Optional.ofNullable(reorganisatiesArbeidstijdInfo).stream().map(o -> (DmfaAttest.ReorganisatieArbeidstijdInfo) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.Vermindering> verminderingen() {
-            return verminderingen.stream().map(o -> (DmfaAttest.Vermindering) o).collect(Collectors.toList());
+            return Optional.ofNullable(verminderingen).stream().map(o -> (DmfaAttest.Vermindering) o).collect(Collectors.toList());
         }
     }
 
@@ -910,7 +911,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         private List<Bijdrage> bijdragen;
 
         public List<DmfaAttest.VergoedingBijdrage> bijdragen() {
-            return bijdragen.stream().map(o -> (DmfaAttest.VergoedingBijdrage) o).collect(Collectors.toList());
+            return Optional.ofNullable(bijdragen).stream().map(o -> (DmfaAttest.VergoedingBijdrage) o).collect(Collectors.toList());
         }
     }
 
