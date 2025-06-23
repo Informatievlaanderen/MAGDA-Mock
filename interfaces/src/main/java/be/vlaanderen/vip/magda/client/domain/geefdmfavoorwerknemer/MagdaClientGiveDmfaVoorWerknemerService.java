@@ -23,7 +23,7 @@ public class MagdaClientGiveDmfaVoorWerknemerService implements GiveDmfaVoorWerk
     }
 
     @Override
-    public WithMagdaResponse<DmfaAttest> getDmfaAttestsWithSourceResponse(GeefDmfaVoorWerknemerRequest request) throws MagdaClientException { // XXX test
+    public WithMagdaResponse<DmfaAttest> getDmfaAttestsWithSourceResponse(GeefDmfaVoorWerknemerRequest request) throws MagdaClientException {
         var magdaResponseWrapper = service.send(request);
 
         return new WithMagdaResponse<>(adapter.adapt(magdaResponseWrapper), magdaResponseWrapper.getResponse());
