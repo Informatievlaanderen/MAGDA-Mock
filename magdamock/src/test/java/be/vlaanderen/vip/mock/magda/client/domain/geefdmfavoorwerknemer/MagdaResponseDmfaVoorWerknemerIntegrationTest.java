@@ -71,7 +71,7 @@ class MagdaResponseDmfaVoorWerknemerIntegrationTest {
         var response = MagdaMock.getInstance().send(GeefDmfaVoorWerknemerRequest.builder()
                 .insz(insz)
                 .beginKwartaal(new Kwartaal(0, 0))
-                .eindeKwartaal(new Kwartaal(1, 0))
+                .eindKwartaal(new Kwartaal(1, 0))
                 .build());
 
         return DmfaAttest.ofMagdaDocument(response.getDocument());

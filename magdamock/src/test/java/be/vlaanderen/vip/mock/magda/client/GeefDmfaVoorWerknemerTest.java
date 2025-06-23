@@ -23,11 +23,11 @@ class GeefDmfaVoorWerknemerTest extends MockTestBase {
     void GeefDmfaVoorWerknemerGeeftAntwoord() {
         final var requestInsz = "71640618918";
         final Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
-        final Kwartaal eindeKwartaal = new Kwartaal(2025, 2).verify();
+        final Kwartaal eindKwartaal = new Kwartaal(2025, 2).verify();
         var request = GeefDmfaVoorWerknemerRequest.builder()
                 .insz(requestInsz)
                 .beginKwartaal(beginKwartaal)
-                .eindeKwartaal(eindeKwartaal)
+                .eindKwartaal(eindKwartaal)
                 .bron(GeefDmfaVoorWerknemerRequest.Bron.DIBISS)
                 .typeAntwoord(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE)
                 .laatsteSituatie(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES)
@@ -56,11 +56,11 @@ class GeefDmfaVoorWerknemerTest extends MockTestBase {
     void GeefDmfaVoorWerknemerGeeftGeenAntwoord() {
         final var requestInsz = "00000000000";
         final Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
-        final Kwartaal eindeKwartaal = new Kwartaal(2025, 2).verify();
+        final Kwartaal eindKwartaal = new Kwartaal(2025, 2).verify();
         var request = GeefDmfaVoorWerknemerRequest.builder()
                 .insz(requestInsz)
                 .beginKwartaal(beginKwartaal)
-                .eindeKwartaal(eindeKwartaal)
+                .eindKwartaal(eindKwartaal)
                 .bron(GeefDmfaVoorWerknemerRequest.Bron.DIBISS)
                 .typeAntwoord(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE)
                 .laatsteSituatie(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES)
