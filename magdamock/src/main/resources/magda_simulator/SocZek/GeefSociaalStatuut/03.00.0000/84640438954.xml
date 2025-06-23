@@ -46,6 +46,19 @@
                                     <Waarde></Waarde>
                                 </Status>
                             </SociaalStatuut>
+                            <SociaalStatuut>
+                                <Naam>BIM_BVT</Naam>
+                                <Resultaat>
+                                    <Code>1</Code>
+                                    <Omschrijving>Van toepassing</Omschrijving>
+                                </Resultaat>
+                                <Periodes>
+                                    <Periode>
+                                        <Begindatum>2024-01-01</Begindatum>
+                                        <Einddatum>2030-01-01</Einddatum>
+                                    </Periode>
+                                </Periodes>
+                            </SociaalStatuut>
                         </SocialeStatuten>
                     </Persoon>
                 </Inhoud>
