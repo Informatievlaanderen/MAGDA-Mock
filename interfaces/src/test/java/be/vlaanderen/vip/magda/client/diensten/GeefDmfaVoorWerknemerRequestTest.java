@@ -22,11 +22,11 @@ public class GeefDmfaVoorWerknemerRequestTest {
         @Test
         void buildsRequest() {
             Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
-            Kwartaal eindeKwartaal = new Kwartaal(2025, 2).verify();
+            Kwartaal eindKwartaal = new Kwartaal(2025, 2).verify();
             var request = GeefDmfaVoorWerknemerRequest.builder()
                     .insz(TestBase.TEST_INSZ)
                     .beginKwartaal(beginKwartaal)
-                    .eindeKwartaal(eindeKwartaal)
+                    .eindKwartaal(eindKwartaal)
                     .bron(GeefDmfaVoorWerknemerRequest.Bron.RSZ)
                     .typeAntwoord(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE)
                     .laatsteSituatie(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES)
@@ -34,7 +34,7 @@ public class GeefDmfaVoorWerknemerRequestTest {
 
             assertEquals(INSZNumber.of(TestBase.TEST_INSZ), request.getInsz());
             assertEquals(beginKwartaal, request.getBeginKwartaal());
-            assertEquals(eindeKwartaal, request.getEindKwartaal());
+            assertEquals(eindKwartaal, request.getEindKwartaal());
             assertEquals(GeefDmfaVoorWerknemerRequest.Bron.RSZ, request.getBron());
             assertEquals(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE, request.getTypeAntwoord());
             assertEquals(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES, request.getLaatsteSituatie());
@@ -43,10 +43,10 @@ public class GeefDmfaVoorWerknemerRequestTest {
         @Test
         void throwsExceptionWhenInszNull() {
             Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
-            Kwartaal eindeKwartaal = new Kwartaal(2025, 2).verify();
+            Kwartaal eindKwartaal = new Kwartaal(2025, 2).verify();
             var builder = GeefDmfaVoorWerknemerRequest.builder()
                     .beginKwartaal(beginKwartaal)
-                    .eindeKwartaal(eindeKwartaal)
+                    .eindKwartaal(eindKwartaal)
                     .bron(GeefDmfaVoorWerknemerRequest.Bron.RSZ)
                     .typeAntwoord(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE)
                     .laatsteSituatie(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES);
@@ -55,10 +55,10 @@ public class GeefDmfaVoorWerknemerRequestTest {
 
         @Test
         void throwsExceptionWhenBeginKwartaalNull() {
-            Kwartaal eindeKwartaal = new Kwartaal(2025, 2).verify();
+            Kwartaal eindKwartaal = new Kwartaal(2025, 2).verify();
             var builder = GeefDmfaVoorWerknemerRequest.builder()
                     .insz(TestBase.TEST_INSZ)
-                    .eindeKwartaal(eindeKwartaal)
+                    .eindKwartaal(eindKwartaal)
                     .bron(GeefDmfaVoorWerknemerRequest.Bron.RSZ)
                     .typeAntwoord(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE)
                     .laatsteSituatie(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES);
@@ -66,7 +66,7 @@ public class GeefDmfaVoorWerknemerRequestTest {
         }
 
         @Test
-        void throwsExceptionWhenEindeKwartaalNull() {
+        void throwsExceptionWheneindKwartaalNull() {
             Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
             var builder = GeefDmfaVoorWerknemerRequest.builder()
                     .insz(TestBase.TEST_INSZ)
@@ -80,11 +80,11 @@ public class GeefDmfaVoorWerknemerRequestTest {
         @Test
         void bronIsOptional() {
             Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
-            Kwartaal eindeKwartaal = new Kwartaal(2025, 2).verify();
+            Kwartaal eindKwartaal = new Kwartaal(2025, 2).verify();
             var request = GeefDmfaVoorWerknemerRequest.builder()
                     .insz(TestBase.TEST_INSZ)
                     .beginKwartaal(beginKwartaal)
-                    .eindeKwartaal(eindeKwartaal)
+                    .eindKwartaal(eindKwartaal)
                     .typeAntwoord(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE)
                     .laatsteSituatie(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES)
                     .build();
@@ -95,11 +95,11 @@ public class GeefDmfaVoorWerknemerRequestTest {
         @Test
         void typeAntwoordIsOptional() {
             Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
-            Kwartaal eindeKwartaal = new Kwartaal(2025, 2).verify();
+            Kwartaal eindKwartaal = new Kwartaal(2025, 2).verify();
             var request = GeefDmfaVoorWerknemerRequest.builder()
                     .insz(TestBase.TEST_INSZ)
                     .beginKwartaal(beginKwartaal)
-                    .eindeKwartaal(eindeKwartaal)
+                    .eindKwartaal(eindKwartaal)
                     .bron(GeefDmfaVoorWerknemerRequest.Bron.RSZ)
                     .laatsteSituatie(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES)
                     .build();
@@ -110,11 +110,11 @@ public class GeefDmfaVoorWerknemerRequestTest {
         @Test
         void laatsteSituatieIsOptional() {
             Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
-            Kwartaal eindeKwartaal = new Kwartaal(2025, 2).verify();
+            Kwartaal eindKwartaal = new Kwartaal(2025, 2).verify();
             var request = GeefDmfaVoorWerknemerRequest.builder()
                     .insz(TestBase.TEST_INSZ)
                     .beginKwartaal(beginKwartaal)
-                    .eindeKwartaal(eindeKwartaal)
+                    .eindKwartaal(eindKwartaal)
                     .bron(GeefDmfaVoorWerknemerRequest.Bron.RSZ)
                     .typeAntwoord(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE)
                     .build();
@@ -130,7 +130,7 @@ public class GeefDmfaVoorWerknemerRequestTest {
         private MagdaRegistrationInfo info;
         private GeefDmfaVoorWerknemerRequest.Builder builder;
         private final Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
-        private final Kwartaal eindeKwartaal = new Kwartaal(2025, 2).verify();
+        private final Kwartaal eindKwartaal = new Kwartaal(2025, 2).verify();
 
         @BeforeEach
         void setup() {
@@ -141,7 +141,7 @@ public class GeefDmfaVoorWerknemerRequestTest {
             builder = GeefDmfaVoorWerknemerRequest.builder()
                     .insz(TestBase.TEST_INSZ)
                     .beginKwartaal(beginKwartaal)
-                    .eindeKwartaal(eindeKwartaal);
+                    .eindKwartaal(eindKwartaal);
         }
 
         @Test
@@ -155,8 +155,8 @@ public class GeefDmfaVoorWerknemerRequestTest {
             assertThat(request.getValue("//Criteria/INSZ"), is(equalTo(TestBase.TEST_INSZ)));
             assertThat(request.getValue("//Criteria/Kwartaal/Begin/Jaar"), is(equalTo(String.valueOf(beginKwartaal.jaar()))));
             assertThat(request.getValue("//Criteria/Kwartaal/Begin/Kwartaalcijfer"), is(equalTo(String.valueOf(beginKwartaal.kwartaalcijfer()))));
-            assertThat(request.getValue("//Criteria/Kwartaal/Einde/Jaar"), is(equalTo(String.valueOf(eindeKwartaal.jaar()))));
-            assertThat(request.getValue("//Criteria/Kwartaal/Einde/Kwartaalcijfer"), is(equalTo(String.valueOf(eindeKwartaal.kwartaalcijfer()))));
+            assertThat(request.getValue("//Criteria/Kwartaal/Einde/Jaar"), is(equalTo(String.valueOf(eindKwartaal.jaar()))));
+            assertThat(request.getValue("//Criteria/Kwartaal/Einde/Kwartaalcijfer"), is(equalTo(String.valueOf(eindKwartaal.kwartaalcijfer()))));
             assertThat(request.getValue("//Bron"), is(equalTo(GeefDmfaVoorWerknemerRequest.Bron.DIBISS.getTypeString())));
             assertThat(request.getValue("//TypeAntwoord"), is(equalTo(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE.getTypeString())));
             assertThat(request.getValue("//LaatsteSituatie"), is(equalTo(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES.getTypeString())));
@@ -167,7 +167,7 @@ public class GeefDmfaVoorWerknemerRequestTest {
             builder = GeefDmfaVoorWerknemerRequest.builder()
                     .insz(TestBase.TEST_INSZ)
                     .beginKwartaal(beginKwartaal)
-                    .eindeKwartaal(eindeKwartaal);
+                    .eindKwartaal(eindKwartaal);
             var request = builder
                     .typeAntwoord(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE)
                     .laatsteSituatie(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES)
