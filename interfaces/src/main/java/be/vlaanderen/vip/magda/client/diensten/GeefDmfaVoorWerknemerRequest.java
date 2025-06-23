@@ -154,7 +154,7 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
             return this;
         }
 
-        public GeefDmfaVoorWerknemerRequest.Builder eindeKwartaal(Kwartaal endKwartaal) {
+        public GeefDmfaVoorWerknemerRequest.Builder eindKwartaal(Kwartaal endKwartaal) {
             this.endKwartaal = endKwartaal;
             return this;
         }
