@@ -22,8 +22,6 @@ class GeefOndernemingRequestTest {
     @Nested
     class GeefOndernemingRequestBuilder {
 
-
-
         @Test
         void buildsRequest() {
             var startDate = LocalDate.of(2023, 1,18);
@@ -33,6 +31,7 @@ class GeefOndernemingRequestTest {
                     .kboNumber(KBONumber.of(kboNumber))
                     .includeBasicData(true)
                     .includeJuridicalSituations(true)
+                    .includeActivities(true)
                     .includeEstablishments(true)
                     .includeEstablishmentsDetails(true)
                     .includeDescriptions(true)
@@ -43,6 +42,7 @@ class GeefOndernemingRequestTest {
             assertEquals(KBONumber.of(kboNumber), request.getKboNumber());
             assertEquals(true, request.getIncludeBasicData());
             assertEquals(true, request.getIncludeJuridicalSituations());
+            assertEquals(true, request.getIncludeActivities());
             assertEquals(true, request.getIncludeEstablishments());
             assertEquals(true, request.getIncludeEstablishmentsDetails());
             assertEquals(true, request.getIncludeDescriptions());
@@ -58,6 +58,7 @@ class GeefOndernemingRequestTest {
             var builder = GeefOndernemingRequest.builder()
                     .includeBasicData(true)
                     .includeJuridicalSituations(true)
+                    .includeActivities(true)
                     .includeEstablishments(true)
                     .includeEstablishmentsDetails(true)
                     .includeDescriptions(true)
@@ -68,13 +69,13 @@ class GeefOndernemingRequestTest {
 
         @Test
         void fieldsOptional() {
-
             var request = GeefOndernemingRequest.builder()
                     .kboNumber(KBONumber.of(kboNumber))
                     .build();
 
             assertNull(request.getIncludeBasicData());
             assertNull(request.getIncludeJuridicalSituations());
+            assertNull(request.getIncludeActivities());
             assertNull(request.getIncludeEstablishments());
             assertNull(request.getIncludeEstablishmentsDetails());
             assertNull(request.getIncludeDescriptions());
@@ -92,7 +93,6 @@ class GeefOndernemingRequestTest {
 
         @BeforeEach
         void setup() {
-
             info = MagdaRegistrationInfo.builder()
                     .identification("identification")
                     .hoedanigheidscode("identification")
@@ -110,6 +110,7 @@ class GeefOndernemingRequestTest {
             var request = builder
                     .includeBasicData(true)
                     .includeJuridicalSituations(true)
+                    .includeActivities(true)
                     .includeEstablishments(true)
                     .includeEstablishmentsDetails(true)
                     .includeDescriptions(true)
@@ -121,6 +122,7 @@ class GeefOndernemingRequestTest {
             assertThat(request.getValue("//Criteria/Ondernemingsnummer"), is(equalTo(kboNumber)));
             assertThat(request.getValue("//Criteria/Basisgegevens"), is(equalTo("1")));
             assertThat(request.getValue("//Criteria/Rechtstoestanden"), is(equalTo("1")));
+            assertThat(request.getValue("//Criteria/Activiteiten"), is(equalTo("1")));
             assertThat(request.getValue("//Criteria/Vestigingen/Aanduiding"), is(equalTo("1")));
             assertThat(request.getValue("//Criteria/Vestigingen/Details"), is(equalTo("1")));
             assertThat(request.getValue("//Criteria/Omschrijvingen/Aanduiding"), is(equalTo("1")));
@@ -129,13 +131,13 @@ class GeefOndernemingRequestTest {
         }
 
         @Test
-        void doesNotSetFieldsIfNotSpecified(){
-
+        void doesNotSetFieldsIfNotSpecified() {
             var request = builder
                     .build()
                     .toMagdaDocument(REQUEST_ID, info);
             assertNull(request.getValue("//Criteria/Basisgegevens"));
             assertNull(request.getValue("//Criteria/Rechtstoestanden"));
+            assertNull(request.getValue("//Criteria/Activiteiten"));
             assertNull(request.getValue("//Criteria/Vestigingen"));
             assertNull(request.getValue("//Criteria/Omschrijvingen"));
             assertNull(request.getValue("//Criteria/Datums"));
