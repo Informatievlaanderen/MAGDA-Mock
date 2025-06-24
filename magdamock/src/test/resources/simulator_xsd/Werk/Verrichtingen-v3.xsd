@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 (http://www.altova.com) by Bert Van Kets (Facilipunt - Agentschap Facilitair Bedrijf) -->
+<xs:schema xmlns="http://magda.vlaanderen.be/werk-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/werk-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<xs:complexType name="VerrichtingType">
+		<xs:sequence>
+			<xs:element name="INSZ" type="generiek:INSZType" minOccurs="1"/>
+			<xs:element name="Maatregel" type="VerrichtingMaatregelEnumType" minOccurs="1"/>
+			<xs:element name="FiscaalJaar" type="generiek:JaarType" minOccurs="1"/>
+			<xs:element name="FiscaalJaarBegin" type="generiek:DatumType" minOccurs="0"/>
+			<xs:element name="FiscaalJaarEinde" type="generiek:DatumType" minOccurs="0"/>
+			<xs:element name="DetailVerrichtingen" type="DetailVerrichtingenType" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DetailVerrichtingenType">
+		<xs:sequence>
+			<xs:element name="DetailVerrichting" minOccurs="1" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="DetailVerrichtingType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DetailVerrichtingType">
+		<xs:sequence>
+			<xs:element name="BedragType" type="generiek:TekstType" minOccurs="1"/>
+			<xs:element name="EffectieveVerrichtingDatum" type="generiek:DatumType" minOccurs="0"/>
+			<xs:element name="VerrichtingBedrag" type="VerrichtingBedragType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="VerrichtingBedragType">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"/>
+			<xs:totalDigits value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VerrichtingMaatregelEnumType">
+		<xs:annotation>
+			<xs:documentation>JBPLUS</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="JBPLUS"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

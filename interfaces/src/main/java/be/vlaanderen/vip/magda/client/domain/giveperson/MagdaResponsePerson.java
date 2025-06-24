@@ -169,6 +169,20 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
                     .map(NodeAddress::new)
                     .orElse(null);
         }
+
+        @Override
+        public LegalHabitationAddress legalHabitationAddress() {
+            return node.get("Adressen/WettelijkeWoonplaats")
+                    .map(NodeLegalHabitationAddress::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public SpecifiedAddress specifiedAddress() {
+            return node.get("Adressen/OpgegevenAdres")
+                    .map(NodeSpecifiedAddress::new)
+                    .orElse(null);
+        }
     }
 
     private static class NodeFamilyMemberPerson extends NodeRelatedPerson implements FamilyMemberPerson {
@@ -215,8 +229,21 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
                     .orElseGet(this::standardizedStreet);
         }
 
+        @Override
+        public String streetLang() {
+            return node.get("NietGestandaardiseerdeStraatnaam/Taal")
+                    .flatMap(Node::getValue)
+                    .orElseGet(this::standardizedStreetLang);
+        }
+
         private String standardizedStreet() {
             return node.get("Straatnaam/String")
+                    .flatMap(Node::getValue)
+                    .orElse(null);
+        }
+
+        private String standardizedStreetLang() {
+            return node.get("Straatnaam/Taal")
                     .flatMap(Node::getValue)
                     .orElse(null);
         }
@@ -254,6 +281,13 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
         }
 
         @Override
+        public Optional<String> municipalityLang() {
+            return Optional.ofNullable(node.get("NietGestandaardiseerdeGemeentenaam/Taal")
+                    .flatMap(Node::getValue)
+                    .orElseGet(this::standardizedMunicipalityLang));
+        }
+
+        @Override
         public Optional<String> nisCodeCountry() {
             return node.get("NISCodeLand")
                     .flatMap(Node::getValue);
@@ -271,8 +305,253 @@ public record MagdaResponsePerson(MagdaResponseWrapper response) implements Pers
                     .flatMap(Node::getValue);
         }
 
+        @Override
+        public Optional<String> countryNameLang() {
+            return node.get("Land/Taal")
+                    .flatMap(Node::getValue);
+        }
+
         private String standardizedMunicipality() {
             return node.get("Gemeentenaam/String")
+                    .flatMap(Node::getValue)
+                    .orElse(null);
+        }
+
+        private String standardizedMunicipalityLang() {
+            return node.get("Gemeentenaam/Taal")
+                    .flatMap(Node::getValue)
+                    .orElse(null);
+        }
+    }
+
+    private record NodeLegalHabitationAddress(Node node) implements LegalHabitationAddress {
+        @Override
+        public Optional<IncompleteDate> startDate() {
+            return node.get("@DatumBegin")
+                    .flatMap(Node::getValue)
+                    .map(IncompleteDate::fromString);
+        }
+
+        @Override
+        public Optional<IncompleteDate> endDate() {
+            return node.get("@DatumEinde")
+                    .flatMap(Node::getValue)
+                    .map(IncompleteDate::fromString);
+        }
+
+        @Override
+        public String text() {
+            return node.get("Tekst")
+                    .flatMap(Node::getValue)
+                    .orElse(null);
+        }
+
+    }
+
+    private record NodeSpecifiedAddress(Node node) implements SpecifiedAddress {
+
+        @Override
+        public Optional<IncompleteDate> startDate() {
+            return node.get("@DatumBegin")
+                    .flatMap(Node::getValue)
+                    .map(IncompleteDate::fromString);
+        }
+
+        @Override
+        public Optional<IncompleteDate> endDate() {
+            return node.get("@DatumEinde")
+                    .flatMap(Node::getValue)
+                    .map(IncompleteDate::fromString);
+        }
+
+        @Override
+        public LanguageString fullAddress() {
+            return node.get("VolledigAdres")
+                    .map(NodeLanguageString::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public String postBus() {
+            return node.get("Postbus")
+                    .flatMap(Node::getValue)
+                    .orElse(null);
+        }
+
+        @Override
+        public LanguageString streetName() {
+            return node.get("Straatnaam")
+                    .map(NodeLanguageString::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public LanguageString nonStandardizedStreetName() {
+            return node.get("NietGestandaardiseerdeStraatnaam")
+                    .map(NodeLanguageString::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public String streetCode() {
+            return node.get("Straatcode")
+                    .flatMap(Node::getValue)
+                    .orElse(null);
+        }
+
+        @Override
+        public String locationIndication() {
+            return node.get("Locatieaanduiding")
+                    .flatMap(Node::getValue)
+                    .orElse(null);
+        }
+
+        @Override
+        public String houseNumber() {
+            return node.get("Huisnummer")
+                    .flatMap(Node::getValue)
+                    .orElse(null);
+        }
+
+        @Override
+        public Optional<String> postalBoxNumber() {
+            return node.get("Busnummer").flatMap(Node::getValue);
+        }
+
+        @Override
+        public LanguageString locationName() {
+            return node.get("Locatienaam")
+                    .map(NodeLanguageString::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public LanguageString addressRegion() {
+            return node.get("Adresgebied")
+                    .map(NodeLanguageString::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public LanguageString postalName() {
+            return node.get("Postnaam")
+                    .map(NodeLanguageString::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public LanguageString municipalityName() {
+            return node.get("Gemeentenaam")
+                    .map(NodeLanguageString::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public LanguageString nonStandardizedMunicipalityName() {
+            return node.get("NietGestandaardiseerdeGemeentenaam")
+                    .map(NodeLanguageString::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public Optional<String> nisCode() {
+            return node.get("NISCodeGemeente").flatMap(Node::getValue);
+        }
+
+        @Override
+        public Optional<String> zipCode() {
+            return node.get("PostCode").flatMap(Node::getValue);
+        }
+
+        @Override
+        public LanguageString administrativeUnitLevel1() {
+            return node.get("AdministratieveEenheidNiveau1")
+                    .map(NodeLanguageString::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public LanguageString administrativeUnitLevel2() {
+            return node.get("AdministratieveEenheidNiveau2")
+                    .map(NodeLanguageString::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public LanguageString country() {
+            return node.get("Land")
+                    .map(NodeLanguageString::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public Optional<String> nisCodeCountry() {
+            return node.get("NisCodeLand").flatMap(Node::getValue);
+        }
+
+        @Override
+        public Optional<String> isoCodeCountry() {
+            return node.get("ISOCodeLand").flatMap(Node::getValue);
+        }
+
+        @Override
+        public BeStAddId refersTo() {
+            return node.get("VerwijstNaar")
+                    .map(NodeBeStAddId::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public BeStAddId municipalityBeStAddId() {
+            return node.get("GemeenteBeStAddId")
+                    .map(NodeBeStAddId::new)
+                    .orElse(null);
+        }
+
+        @Override
+        public BeStAddId streetBeStAddId() {
+            return node.get("StraatBeStAddId")
+                    .map(NodeBeStAddId::new)
+                    .orElse(null);
+        }
+    }
+
+    private record NodeLanguageString(Node node) implements LanguageString {
+
+        @Override
+        public String value() {
+            return node.get("String")
+                    .flatMap(Node::getValue)
+                    .orElse(null);
+        }
+
+        @Override
+        public String language() {
+            return node.get("Taal")
+                    .flatMap(Node::getValue)
+                    .orElse(null);
+        }
+    }
+
+    private record NodeBeStAddId(Node node) implements BeStAddId {
+
+        @Override
+        public String localIdentificator() {
+            return node.get("LokaleIdentificator")
+                    .flatMap(Node::getValue)
+                    .orElse(null);
+        }
+
+        @Override
+        public String namespace() {
+            return node.get("Naamruimte")
+                    .flatMap(Node::getValue)
+                    .orElse(null);
+        }
+
+        @Override
+        public String versionIdentificator() {
+            return node.get("VersieIdentificator")
                     .flatMap(Node::getValue)
                     .orElse(null);
         }

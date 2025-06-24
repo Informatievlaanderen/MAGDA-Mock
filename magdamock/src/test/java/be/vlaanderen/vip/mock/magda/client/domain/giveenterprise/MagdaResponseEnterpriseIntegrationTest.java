@@ -8,6 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -56,6 +58,7 @@ class MagdaResponseEnterpriseIntegrationTest {
         assertNotNull(legalForm);
         assertEquals("114", legalForm.codeValue());
         assertEquals("Naamloze vennootschap van publiek recht", legalForm.descriptionValue());
+        assertEquals("NV PR", legalForm.abbreviation());
     }
 
     @Test
@@ -64,6 +67,14 @@ class MagdaResponseEnterpriseIntegrationTest {
         assertNotNull(statusKBO);
         assertEquals("AC", statusKBO.codeValue());
         assertEquals("Actief", statusKBO.descriptionValue());
+    }
+
+    @Test
+    void mapsEnterpriseOrBranch() {
+        var enterpriseOrBranch = enterprise.enterpriseOrBranch();
+        assertNotNull(enterpriseOrBranch);
+        assertEquals("1", enterpriseOrBranch.codeValue());
+        assertEquals("Onderneming", enterpriseOrBranch.codeDescription());
     }
 
     @Test

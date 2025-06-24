@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://magda.vlaanderen.be/werk-v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sleutel="http://sleutel-02_00.vip.vlaanderen.be" xmlns:generiek="http://magda.vlaanderen.be/generiek-v3" targetNamespace="http://magda.vlaanderen.be/werk-v3" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://sleutel-02_00.vip.vlaanderen.be" schemaLocation="../Sleutel-02.00/Sleutel.xsd"/>
+	<xs:import namespace="http://magda.vlaanderen.be/generiek-v3" schemaLocation="../Generiek/GeneriekDomein-v3.xsd"/>
+	<!--=> ENKELVOUDIGE TYPE DEFINITES-->
+	<xs:simpleType name="JaarKwartaalType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[1-2][0-9]{3}[1-4]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeAntwoordEnumType">
+		<xs:annotation>
+			<xs:documentation> | 0 (online) | 1 (batch) | 2 (batch indien resultaat te groot) | </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1"/>
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--=> COMPLEXE TYPE DEFINITES-->
+	<xs:complexType name="KwartaalType">
+		<xs:sequence>
+			<xs:element name="Begin" type="JaarKwartaalType"/>
+			<xs:element name="Einde" type="JaarKwartaalType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
