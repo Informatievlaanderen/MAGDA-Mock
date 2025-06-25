@@ -23,6 +23,7 @@ import java.util.UUID;
  * <ul>
  * <li>includeBasicData: optional, specify whether to include the 'basic' company data or not: status, juridical forms, names, addresses,...</li>
  * <li>includeJuridicalSituations: optional, specify whether to include the juridical situations or not.</li>
+ * <li>includeActivities: optional, specify whether to include the activities or not.</li>
  * <li>includeEstablishments: optional, specify whether to include the 'basic' establishments data or not.</li>
  * <li>includeEstablishmentsDetails: optional, specify whether to include the 'detailed' establishments data or not.</li>
  * <li>includeDescriptions: optional, specify whether to include the descriptions of specific codes or not.</li>
@@ -47,6 +48,9 @@ public class GeefOndernemingRequest extends CompanyMagdaRequest {
         private Boolean includeJuridicalSituations;
 
         @Getter(AccessLevel.PROTECTED)
+        private Boolean includeActivities;
+
+        @Getter(AccessLevel.PROTECTED)
         private Boolean includeEstablishments;
 
         @Getter(AccessLevel.PROTECTED)
@@ -68,6 +72,11 @@ public class GeefOndernemingRequest extends CompanyMagdaRequest {
 
         public Builder includeJuridicalSituations(Boolean includeJuridicalSituations) {
             this.includeJuridicalSituations = includeJuridicalSituations;
+            return this;
+        }
+
+        public Builder includeActivities(Boolean includeActivities) {
+            this.includeActivities = includeActivities;
             return this;
         }
 
@@ -104,6 +113,7 @@ public class GeefOndernemingRequest extends CompanyMagdaRequest {
                     getRegistration(),
                     getIncludeBasicData(),
                     getIncludeJuridicalSituations(),
+                    getIncludeActivities(),
                     getIncludeEstablishments(),
                     getIncludeEstablishmentsDetails(),
                     getIncludeDescriptions(),
@@ -117,6 +127,8 @@ public class GeefOndernemingRequest extends CompanyMagdaRequest {
     private final Boolean includeBasicData;
     @Nullable
     private final Boolean includeJuridicalSituations;
+    @Nullable
+    private final Boolean includeActivities;
     @Nullable
     private final Boolean includeEstablishments;
     @Nullable
@@ -137,6 +149,7 @@ public class GeefOndernemingRequest extends CompanyMagdaRequest {
             @NotNull Registration registratie,
             @Nullable Boolean includeBasicData,
             @Nullable Boolean includeJuridicalSituations,
+            @Nullable Boolean includeActivities,
             @Nullable Boolean includeEstablishments,
             @Nullable Boolean includeEstablishmentsDetails,
             @Nullable Boolean includeDescriptions,
@@ -145,6 +158,7 @@ public class GeefOndernemingRequest extends CompanyMagdaRequest {
         super(kboNumber, registratie);
         this.includeBasicData = includeBasicData;
         this.includeJuridicalSituations = includeJuridicalSituations;
+        this.includeActivities = includeActivities;
         this.includeEstablishments = includeEstablishments;
         this.includeEstablishmentsDetails = includeEstablishmentsDetails;
         this.includeDescriptions = includeDescriptions;
@@ -164,6 +178,7 @@ public class GeefOndernemingRequest extends CompanyMagdaRequest {
 
         request.setValueOrRemoveNode("//Criteria/Basisgegevens", getStringValue(getIncludeBasicData()));
         request.setValueOrRemoveNode("//Criteria/Rechtstoestanden", getStringValue(getIncludeJuridicalSituations()));
+        request.setValueOrRemoveNode("//Criteria/Activiteiten", getStringValue(getIncludeActivities()));
 
         if(getIncludeEstablishments() != null || getIncludeEstablishmentsDetails() != null)
         {
