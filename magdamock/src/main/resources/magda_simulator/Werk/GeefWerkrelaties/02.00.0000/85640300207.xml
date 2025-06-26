@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefWerkrelatiesResponse xmlns:web="http://webservice.geefwerkrelatiesdienst-02_00.werk-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefWerkrelaties</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2024-01-16</Datum>
+                    <Tijd>12:12</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>0b5dd542-bb43-48da-ae49-d06b69cc593a</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>wse.vlaanderen.be/dwse/ipdc2480</Identificatie>
+                    <Referte>c2d3e4f5-a6b7-48c9-8d0e-1f2a3b4c5d6e</Referte>
+                    <Hoedanigheid>ipdc2480</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>5e8051fb-d346-459a-87b1-69f4e9e3cbc3</Referte>
+                <Inhoud>
+                    <Contracten>
+                        <Contract>
+                            <Relatie>
+                                <Werkgever>
+                                    <RSZNummer>836209471</RSZNummer>
+                                    <Ondernemingsnummer>0207451227</Ondernemingsnummer>
+                                </Werkgever>
+                                <Werknemer>
+                                    <INSZ>85640300207</INSZ>
+                                    <IdentificatiePersoonGevalideerd Beschrijving="Identificatie persoon OK">1</IdentificatiePersoonGevalideerd>
+                                </Werknemer>
+                            </Relatie>
+                            <Bron Beschrijving="Rijksdienst voor sociale zekerheid">RSZ</Bron>
+                            <Aangifte>
+                                <DimonaNummer>4789201360</DimonaNummer>
+                                <PeriodeTijdstip>
+                                    <Begin>
+                                        <Datum>2023-04-01</Datum>
+                                    </Begin>
+                                    <Einde>
+                                        <Datum>2031-01-01</Datum>
+                                    </Einde>
+                                </PeriodeTijdstip>
+                                <ParitairComite>XXX</ParitairComite>
+                                <Geannuleerd>0</Geannuleerd>
+                                <LaatsteDimonaActie Beschrijving="Wijziging">U</LaatsteDimonaActie>
+                            </Aangifte>
+                        </Contract>
+                    </Contracten>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefWerkrelatiesResponse>

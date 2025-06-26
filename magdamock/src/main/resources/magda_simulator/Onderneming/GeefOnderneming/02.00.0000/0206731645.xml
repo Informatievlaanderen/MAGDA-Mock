@@ -1,0 +1,182 @@
+<?xml version="1.0" standalone="no"?>
+<web:GeefOndernemingResponse xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+            <Repliek>
+                <Context>
+                    <Naam>GeefOnderneming</Naam>
+                    <Versie>02.00.0000</Versie>
+                    <Bericht>
+                        <Type>ANTWOORD</Type>
+                        <Tijdstip>
+                            <Datum>2025-06-24</Datum>
+                            <Tijd>13:49:33.702</Tijd>
+                        </Tijdstip>
+                        <Afzender>
+                            <Identificatie>vip.vlaanderen.be</Identificatie>
+                            <Naam>MagdaGateway</Naam>
+                            <Referte>9a5ec3bd-acc4-4433-960e-857cd0ff04b1</Referte>
+                        </Afzender>
+                        <Ontvanger>
+                            <Identificatie>kb.vlaanderen.be/aiv/stress-testing-magda-aip</Identificatie>
+                            <Referte>test1</Referte>
+                            <Hoedanigheid>101</Hoedanigheid>
+                        </Ontvanger>
+                    </Bericht>
+                </Context>
+                <Antwoorden>
+                    <Antwoord>
+                        <Referte>test1</Referte>
+                        <Inhoud>
+                            <Onderneming>
+                                <Ondernemingsnummer>0206731645</Ondernemingsnummer>
+                                <AuthentiekBron>
+                                    <Code>03</Code>
+                                    <Omschrijving>KBO</Omschrijving>
+                                </AuthentiekBron>
+                                <OndernemingOfVestiging>
+                                    <Code Beschrijving="Onderneming">1</Code>
+                                </OndernemingOfVestiging>
+                                <StatusKBO>
+                                    <Code>AC</Code>
+                                </StatusKBO>
+                                <SoortOnderneming>
+                                    <Code Beschrijving="Rechtspersoon">2</Code>
+                                </SoortOnderneming>
+                                <Namen>
+                                    <MaatschappelijkeNamen>
+                                        <MaatschappelijkeNaam DatumBegin="1968-01-01">
+                                            <Naam>Rijksdienst voor Sociale Zekerheid</Naam>
+                                            <Taalcode>nl</Taalcode>
+                                        </MaatschappelijkeNaam>
+                                        <MaatschappelijkeNaam DatumBegin="1968-01-01">
+                                            <Naam>Office National de Sécurité Sociale</Naam>
+                                            <Taalcode>fr</Taalcode>
+                                        </MaatschappelijkeNaam>
+                                        <MaatschappelijkeNaam DatumBegin="1968-01-01">
+                                            <Naam>Landesamt für soziale Sicherheit</Naam>
+                                            <Taalcode>de</Taalcode>
+                                        </MaatschappelijkeNaam>
+                                    </MaatschappelijkeNamen>
+                                    <AfgekorteNamen>
+                                        <AfgekorteNaam DatumBegin="1968-01-01">
+                                            <Naam>RSZ</Naam>
+                                            <Taalcode>nl</Taalcode>
+                                        </AfgekorteNaam>
+                                        <AfgekorteNaam DatumBegin="1968-01-01">
+                                            <Naam>ONSS</Naam>
+                                            <Taalcode>fr</Taalcode>
+                                        </AfgekorteNaam>
+                                        <AfgekorteNaam DatumBegin="1968-01-01">
+                                            <Naam>LSS</Naam>
+                                            <Taalcode>de</Taalcode>
+                                        </AfgekorteNaam>
+                                    </AfgekorteNamen>
+                                </Namen>
+                                <Adressen>
+                                    <Adres DatumBegin="2003-07-15">
+                                        <Straat>
+                                            <Code>1160</Code>
+                                        </Straat>
+                                        <Huisnummer>11</Huisnummer>
+                                        <Gemeente>
+                                            <NISCode>21013</NISCode>
+                                            <PostCode>1060</PostCode>
+                                        </Gemeente>
+                                        <Land>
+                                            <NISCode>150</NISCode>
+                                            <ISOCode>BE</ISOCode>
+                                            <Naam>BELGIE</Naam>
+                                        </Land>
+                                        <Type>
+                                            <Code>001</Code>
+                                        </Type>
+                                        <Descripties>
+                                            <Descriptie>
+                                                <Adres>
+                                                    <Straat>
+                                                        <Naam>Place Victor Horta</Naam>
+                                                    </Straat>
+                                                    <Gemeente>
+                                                        <Naam>Saint-Gilles</Naam>
+                                                    </Gemeente>
+                                                    <Land>
+                                                        <NISCode>150</NISCode>
+                                                        <Naam>België</Naam>
+                                                    </Land>
+                                                </Adres>
+                                                <Contact>
+                                                    <Telefoonnummer>+3225095959</Telefoonnummer>
+                                                    <Faxnummer>+3225093019</Faxnummer>
+                                                    <Email>webmaster@onssrszlss.fgov.be</Email>
+                                                    <Website>http://www.onssrszlss.fgov.be</Website>
+                                                </Contact>
+                                                <Taalcode>FR</Taalcode>
+                                            </Descriptie>
+                                            <Descriptie>
+                                                <Adres>
+                                                    <Straat>
+                                                        <Naam>Victor Hortaplein</Naam>
+                                                    </Straat>
+                                                    <Gemeente>
+                                                        <Naam>Sint-Gillis (bij-Brussel)</Naam>
+                                                    </Gemeente>
+                                                    <Land>
+                                                        <NISCode>150</NISCode>
+                                                        <Naam>België</Naam>
+                                                    </Land>
+                                                </Adres>
+                                                <Contact>
+                                                    <Telefoonnummer>+3225095959</Telefoonnummer>
+                                                    <Faxnummer>+3225093019</Faxnummer>
+                                                    <Email>webmaster@onssrszlss.fgov.be</Email>
+                                                    <Website>http://www.onssrszlss.fgov.be</Website>
+                                                </Contact>
+                                                <Taalcode>NL</Taalcode>
+                                            </Descriptie>
+                                        </Descripties>
+                                    </Adres>
+                                </Adressen>
+                                <Start>
+                                    <Datum>1968-01-01</Datum>
+                                </Start>
+                                <Inschrijving>
+                                    <Datum>2003-01-18</Datum>
+                                </Inschrijving>
+                                <Rechtsvormen>
+                                    <Rechtsvorm DatumBegin="2015-01-26">
+                                        <Code>303</Code>
+                                    </Rechtsvorm>
+                                </Rechtsvormen>
+                                <Rechtstoestanden>
+                                    <Rechtstoestand DatumBegin="2009-01-08">
+                                        <Code>000</Code>
+                                        <InstrumenterendeOverheid>206731645</InstrumenterendeOverheid>
+                                    </Rechtstoestand>
+                                </Rechtstoestanden>
+                                <Activiteiten>
+                                    <Activiteit DatumBegin="2008-01-01">
+                                        <Nace>
+                                            <Code>84301</Code>
+                                            <Versie>2008</Versie>
+                                        </Nace>
+                                        <Type>
+                                            <Code Beschrijving="Hoofdactiviteit">P</Code>
+                                        </Type>
+                                        <Groep>001</Groep>
+                                    </Activiteit>
+                                    <Activiteit DatumBegin="2001-08-01" DatumEinde="2007-12-31">
+                                        <Nace>
+                                            <Code>75301</Code>
+                                            <Versie>2003</Versie>
+                                        </Nace>
+                                        <Type>
+                                            <Code Beschrijving="Hoofdactiviteit">P</Code>
+                                        </Type>
+                                        <Groep>001</Groep>
+                                    </Activiteit>
+                                </Activiteiten>
+                            </Onderneming>
+                        </Inhoud>
+                    </Antwoord>
+                </Antwoorden>
+            </Repliek>
+</web:GeefOndernemingResponse>
