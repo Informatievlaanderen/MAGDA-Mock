@@ -1,0 +1,207 @@
+<?xml version="1.0" standalone="no"?>
+<web:GeefOndernemingResponse
+                xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+            <Repliek>
+                <Context>
+                    <Naam>GeefOnderneming</Naam>
+                    <Versie>02.00.0000</Versie>
+                    <Bericht>
+                        <Type>ANTWOORD</Type>
+                        <Tijdstip>
+                            <Datum>2025-06-25</Datum>
+                            <Tijd>11:56:33.950</Tijd>
+                        </Tijdstip>
+                        <Afzender>
+                            <Identificatie>vip.vlaanderen.be</Identificatie>
+                            <Naam>MagdaGateway</Naam>
+                            <Referte>3e4320f8-efa1-48a9-ac6c-93c404943654</Referte>
+                        </Afzender>
+                        <Ontvanger>
+                            <Identificatie>kb.vlaanderen.be/aiv/stress-testing-magda-aip</Identificatie>
+                            <Referte>test1</Referte>
+                            <Hoedanigheid>101</Hoedanigheid>
+                        </Ontvanger>
+                    </Bericht>
+                </Context>
+                <Antwoorden>
+                    <Antwoord>
+                        <Referte>test1</Referte>
+                        <Inhoud>
+                            <Onderneming>
+                                <Ondernemingsnummer xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">0332582613</Ondernemingsnummer>
+                                <AuthentiekBron xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                                    <Code>03</Code>
+                                    <Omschrijving>KBO</Omschrijving>
+                                </AuthentiekBron>
+                                <OndernemingOfVestiging xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                                                        xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                                    <Code Beschrijving="Onderneming">1</Code>
+                                </OndernemingOfVestiging>
+                                <StatusKBO xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                                           xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                                    <Code>AC</Code>
+                                </StatusKBO>
+                                <SoortOnderneming xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                                                  xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                                    <Code Beschrijving="Rechtspersoon">2</Code>
+                                </SoortOnderneming>
+                                <Namen xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                                       xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                                    <MaatschappelijkeNamen>
+                                        <MaatschappelijkeNaam DatumBegin="1983-12-31">
+                                            <Naam>Ministère de la Communauté germanophone</Naam>
+                                            <Taalcode>fr</Taalcode>
+                                        </MaatschappelijkeNaam>
+                                        <MaatschappelijkeNaam DatumBegin="1983-12-31">
+                                            <Naam>Ministerie van de Duitstalige Gemeenschap</Naam>
+                                            <Taalcode>nl</Taalcode>
+                                        </MaatschappelijkeNaam>
+                                        <MaatschappelijkeNaam DatumBegin="1983-12-31">
+                                            <Naam>Ministerium des Deutschsprachigen Gemeinschaft</Naam>
+                                            <Taalcode>de</Taalcode>
+                                        </MaatschappelijkeNaam>
+                                    </MaatschappelijkeNamen>
+                                </Namen>
+                                <Adressen xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                                          xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                                    <Adres DatumBegin="1983-12-31">
+                                        <Straat>
+                                            <Code>1741</Code>
+                                        </Straat>
+                                        <Huisnummer>1-5</Huisnummer>
+                                        <Gemeente>
+                                            <NISCode>63023</NISCode>
+                                            <PostCode>4700</PostCode>
+                                        </Gemeente>
+                                        <Land>
+                                            <NISCode>150</NISCode>
+                                            <ISOCode>BE</ISOCode>
+                                            <Naam>BELGIE</Naam>
+                                        </Land>
+                                        <Type>
+                                            <Code>001</Code>
+                                        </Type>
+                                        <Descripties>
+                                            <Descriptie>
+                                                <Adres>
+                                                    <Straat>
+                                                        <Naam>Gospertstrasse</Naam>
+                                                    </Straat>
+                                                    <Gemeente>
+                                                        <Naam>Eupen</Naam>
+                                                    </Gemeente>
+                                                    <Land>
+                                                        <NISCode>150</NISCode>
+                                                        <Naam>België</Naam>
+                                                    </Land>
+                                                </Adres>
+                                                <Taalcode>DE</Taalcode>
+                                            </Descriptie>
+                                            <Descriptie>
+                                                <Adres>
+                                                    <Straat>
+                                                        <Naam>Gospertstrasse</Naam>
+                                                    </Straat>
+                                                    <Gemeente>
+                                                        <Naam>Eupen</Naam>
+                                                    </Gemeente>
+                                                    <Land>
+                                                        <NISCode>150</NISCode>
+                                                        <Naam>België</Naam>
+                                                    </Land>
+                                                </Adres>
+                                                <Taalcode>FR</Taalcode>
+                                            </Descriptie>
+                                        </Descripties>
+                                    </Adres>
+                                </Adressen>
+                                <Start xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                                       xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                                    <Datum>1983-12-31</Datum>
+                                </Start>
+                                <Inschrijving xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                                              xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                                    <Datum>2003-01-18</Datum>
+                                </Inschrijving>
+                                <Rechtsvormen xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                                              xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                                    <Rechtsvorm DatumBegin="2003-07-01">
+                                        <Code>350</Code>
+                                    </Rechtsvorm>
+                                </Rechtsvormen>
+                                <Rechtstoestanden xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                                                  xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                                    <Rechtstoestand DatumBegin="1983-12-31">
+                                        <Code>000</Code>
+                                        <InstrumenterendeOverheid>332582613</InstrumenterendeOverheid>
+                                    </Rechtstoestand>
+                                </Rechtstoestanden>
+                                <Activiteiten xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                                              xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+                                    <Activiteit DatumBegin="2025-01-01">
+                                        <Nace>
+                                            <Code>84112</Code>
+                                            <Versie>2025</Versie>
+                                        </Nace>
+                                        <Type>
+                                            <Code Beschrijving="Hoofdactiviteit">P</Code>
+                                        </Type>
+                                        <Groep>001</Groep>
+                                    </Activiteit>
+                                    <Activiteit DatumBegin="2008-01-01" DatumEinde="2024-12-31">
+                                        <Nace>
+                                            <Code>84112</Code>
+                                            <Versie>2008</Versie>
+                                        </Nace>
+                                        <Type>
+                                            <Code Beschrijving="Hoofdactiviteit">P</Code>
+                                        </Type>
+                                        <Groep>001</Groep>
+                                    </Activiteit>
+                                    <Activiteit DatumBegin="1996-01-01" DatumEinde="2007-12-31">
+                                        <Nace>
+                                            <Code>75112</Code>
+                                            <Versie>2003</Versie>
+                                        </Nace>
+                                        <Type>
+                                            <Code Beschrijving="Hoofdactiviteit">P</Code>
+                                        </Type>
+                                        <Groep>001</Groep>
+                                    </Activiteit>
+                                    <Activiteit DatumBegin="2025-01-01">
+                                        <Nace>
+                                            <Code>84112</Code>
+                                            <Versie>2025</Versie>
+                                        </Nace>
+                                        <Type>
+                                            <Code Beschrijving="Hoofdactiviteit">P</Code>
+                                        </Type>
+                                        <Groep>006</Groep>
+                                    </Activiteit>
+                                    <Activiteit DatumBegin="2008-01-01" DatumEinde="2024-12-31">
+                                        <Nace>
+                                            <Code>84112</Code>
+                                            <Versie>2008</Versie>
+                                        </Nace>
+                                        <Type>
+                                            <Code Beschrijving="Hoofdactiviteit">P</Code>
+                                        </Type>
+                                        <Groep>006</Groep>
+                                    </Activiteit>
+                                    <Activiteit DatumBegin="2003-01-01" DatumEinde="2007-12-31">
+                                        <Nace>
+                                            <Code>75112</Code>
+                                            <Versie>2003</Versie>
+                                        </Nace>
+                                        <Type>
+                                            <Code Beschrijving="Hoofdactiviteit">P</Code>
+                                        </Type>
+                                        <Groep>006</Groep>
+                                    </Activiteit>
+                                </Activiteiten>
+                            </Onderneming>
+                        </Inhoud>
+                    </Antwoord>
+                </Antwoorden>
+            </Repliek>
+</web:GeefOndernemingResponse>

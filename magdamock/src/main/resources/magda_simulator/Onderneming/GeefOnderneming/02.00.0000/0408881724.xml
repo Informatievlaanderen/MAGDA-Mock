@@ -1,0 +1,105 @@
+<?xml version="1.0" standalone="no"?>
+<web:GeefOndernemingResponse xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+            <Repliek>
+                <Context>
+                    <Naam>GeefOnderneming</Naam>
+                    <Versie>02.00.0000</Versie>
+                    <Bericht>
+                        <Type>ANTWOORD</Type>
+                        <Tijdstip>
+                            <Datum>2025-06-24</Datum>
+                            <Tijd>13:47:03.105</Tijd>
+                        </Tijdstip>
+                        <Afzender>
+                            <Identificatie>vip.vlaanderen.be</Identificatie>
+                            <Naam>MagdaGateway</Naam>
+                            <Referte>d6ee2ce7-351b-42d5-bf9c-59cee172f600</Referte>
+                        </Afzender>
+                        <Ontvanger>
+                            <Identificatie>kb.vlaanderen.be/aiv/stress-testing-magda-aip</Identificatie>
+                            <Referte>test1</Referte>
+                            <Hoedanigheid>101</Hoedanigheid>
+                        </Ontvanger>
+                    </Bericht>
+                </Context>
+                <Antwoorden>
+                    <Antwoord>
+                        <Referte>test1</Referte>
+                        <Inhoud>
+                            <Onderneming>
+                                <Ondernemingsnummer>0408881724</Ondernemingsnummer>
+                                <AuthentiekBron>
+                                    <Code>03</Code>
+                                    <Omschrijving>KBO</Omschrijving>
+                                </AuthentiekBron>
+                                <OndernemingOfVestiging>
+                                    <Code Beschrijving="Onderneming">1</Code>
+                                </OndernemingOfVestiging>
+                                <StatusKBO>
+                                    <Code>AC</Code>
+                                </StatusKBO>
+                                <SoortOnderneming>
+                                    <Code Beschrijving="Rechtspersoon">2</Code>
+                                </SoortOnderneming>
+                                <Namen>
+                                    <MaatschappelijkeNamen>
+                                        <MaatschappelijkeNaam DatumBegin="1962-05-28">
+                                            <Naam>Geneeskungige Vereniging van de Provincie West-Vlaanderen</Naam>
+                                            <Taalcode>xx</Taalcode>
+                                        </MaatschappelijkeNaam>
+                                    </MaatschappelijkeNamen>
+                                </Namen>
+                                <Adressen>
+                                    <Adres DatumBegin="1962-05-28">
+                                        <Gemeente>
+                                            <NISCode>31005</NISCode>
+                                            <PostCode>8000</PostCode>
+                                        </Gemeente>
+                                        <Land>
+                                            <NISCode>150</NISCode>
+                                            <ISOCode>BE</ISOCode>
+                                            <Naam>BELGIE</Naam>
+                                        </Land>
+                                        <Type>
+                                            <Code>001</Code>
+                                        </Type>
+                                        <Descripties>
+                                            <Descriptie>
+                                                <Adres>
+                                                    <Straat/>
+                                                    <Gemeente>
+                                                        <Naam>Brugge</Naam>
+                                                    </Gemeente>
+                                                    <Land>
+                                                        <NISCode>150</NISCode>
+                                                        <Naam>België</Naam>
+                                                    </Land>
+                                                </Adres>
+                                                <Taalcode>NL</Taalcode>
+                                            </Descriptie>
+                                        </Descripties>
+                                    </Adres>
+                                </Adressen>
+                                <Start>
+                                    <Datum>1962-05-28</Datum>
+                                </Start>
+                                <Inschrijving>
+                                    <Datum>2003-01-18</Datum>
+                                </Inschrijving>
+                                <Rechtsvormen>
+                                    <Rechtsvorm DatumBegin="1962-05-28">
+                                        <Code>017</Code>
+                                    </Rechtsvorm>
+                                </Rechtsvormen>
+                                <Rechtstoestanden>
+                                    <Rechtstoestand DatumBegin="1962-05-28">
+                                        <Code>000</Code>
+                                        <InstrumenterendeOverheid>408881724</InstrumenterendeOverheid>
+                                    </Rechtstoestand>
+                                </Rechtstoestanden>
+                            </Onderneming>
+                        </Inhoud>
+                    </Antwoord>
+                </Antwoorden>
+            </Repliek>
+</web:GeefOndernemingResponse>

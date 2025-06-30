@@ -1,0 +1,156 @@
+<?xml version="1.0" standalone="no"?>
+<web:GeefOndernemingResponse xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+            <Repliek>
+                <Context>
+                    <Naam>GeefOnderneming</Naam>
+                    <Versie>02.00.0000</Versie>
+                    <Bericht>
+                        <Type>ANTWOORD</Type>
+                        <Tijdstip>
+                            <Datum>2025-06-25</Datum>
+                            <Tijd>11:55:11.919</Tijd>
+                        </Tijdstip>
+                        <Afzender>
+                            <Identificatie>vip.vlaanderen.be</Identificatie>
+                            <Naam>MagdaGateway</Naam>
+                            <Referte>5447b53f-fc33-4b61-b57d-df5284c47c89</Referte>
+                        </Afzender>
+                        <Ontvanger>
+                            <Identificatie>kb.vlaanderen.be/aiv/stress-testing-magda-aip</Identificatie>
+                            <Referte>test1</Referte>
+                            <Hoedanigheid>101</Hoedanigheid>
+                        </Ontvanger>
+                    </Bericht>
+                </Context>
+                <Antwoorden>
+                    <Antwoord>
+                        <Referte>test1</Referte>
+                        <Inhoud>
+                            <Onderneming>
+                                <Ondernemingsnummer>0836948464</Ondernemingsnummer>
+                                <AuthentiekBron>
+                                    <Code>03</Code>
+                                    <Omschrijving>KBO</Omschrijving>
+                                </AuthentiekBron>
+                                <OndernemingOfVestiging>
+                                    <Code Beschrijving="Onderneming">1</Code>
+                                </OndernemingOfVestiging>
+                                <StatusKBO>
+                                    <Code>AC</Code>
+                                </StatusKBO>
+                                <SoortOnderneming>
+                                    <Code Beschrijving="Rechtspersoon">2</Code>
+                                </SoortOnderneming>
+                                <Namen>
+                                    <MaatschappelijkeNamen>
+                                        <MaatschappelijkeNaam DatumBegin="2011-05-31">
+                                            <Naam>Facebook Belgium</Naam>
+                                            <Taalcode>fr</Taalcode>
+                                        </MaatschappelijkeNaam>
+                                    </MaatschappelijkeNamen>
+                                </Namen>
+                                <Adressen>
+                                    <Adres DatumBegin="2011-05-31">
+                                        <Straat>
+                                            <Code>5096</Code>
+                                        </Straat>
+                                        <Huisnummer>11</Huisnummer>
+                                        <Gemeente>
+                                            <NISCode>21004</NISCode>
+                                            <PostCode>1040</PostCode>
+                                        </Gemeente>
+                                        <Land>
+                                            <NISCode>150</NISCode>
+                                            <ISOCode>BE</ISOCode>
+                                            <Naam>BELGIE</Naam>
+                                        </Land>
+                                        <Type>
+                                            <Code>001</Code>
+                                        </Type>
+                                        <Descripties>
+                                            <Descriptie>
+                                                <Adres>
+                                                    <Straat>
+                                                        <Naam>Rond-point Robert Schuman</Naam>
+                                                    </Straat>
+                                                    <Gemeente>
+                                                        <Naam>Bruxelles</Naam>
+                                                    </Gemeente>
+                                                    <Land>
+                                                        <NISCode>150</NISCode>
+                                                        <Naam>België</Naam>
+                                                    </Land>
+                                                </Adres>
+                                                <Taalcode>FR</Taalcode>
+                                            </Descriptie>
+                                            <Descriptie>
+                                                <Adres>
+                                                    <Straat>
+                                                        <Naam>Robert Schumanplein</Naam>
+                                                    </Straat>
+                                                    <Gemeente>
+                                                        <Naam>Brussel</Naam>
+                                                    </Gemeente>
+                                                    <Land>
+                                                        <NISCode>150</NISCode>
+                                                        <Naam>België</Naam>
+                                                    </Land>
+                                                </Adres>
+                                                <Taalcode>NL</Taalcode>
+                                            </Descriptie>
+                                        </Descripties>
+                                    </Adres>
+                                </Adressen>
+                                <Start>
+                                    <Datum>2011-05-31</Datum>
+                                </Start>
+                                <Inschrijving>
+                                    <Datum>2011-06-14</Datum>
+                                </Inschrijving>
+                                <Rechtsvormen>
+                                    <Rechtsvorm DatumBegin="2011-05-31">
+                                        <Code>015</Code>
+                                    </Rechtsvorm>
+                                </Rechtsvormen>
+                                <Rechtstoestanden>
+                                    <Rechtstoestand DatumBegin="2011-06-14">
+                                        <Code>000</Code>
+                                        <InstrumenterendeOverheid>836948464</InstrumenterendeOverheid>
+                                    </Rechtstoestand>
+                                </Rechtstoestanden>
+                                <Bankrekeningen>
+                                    <Bankrekeningnummer DatumBegin="2011-07-01">
+                                        <Rekeningnummer>685 7638012 09</Rekeningnummer>
+                                        <Doel>003</Doel>
+                                        <IBAN>BE52685763801209</IBAN>
+                                        <BIC>BOFABE3X</BIC>
+                                    </Bankrekeningnummer>
+                                </Bankrekeningen>
+                                <Activiteiten>
+                                    <Activiteit DatumBegin="2011-09-01">
+                                        <Nace>
+                                            <Code>70210</Code>
+                                            <Versie>2008</Versie>
+                                        </Nace>
+                                        <Type>
+                                            <Code Beschrijving="Hoofdactiviteit">P</Code>
+                                        </Type>
+                                        <Groep>001</Groep>
+                                    </Activiteit>
+                                    <Activiteit DatumBegin="2011-10-31">
+                                        <Nace>
+                                            <Code>70210</Code>
+                                            <Versie>2008</Versie>
+                                        </Nace>
+                                        <Type>
+                                            <Code Beschrijving="Hoofdactiviteit">P</Code>
+                                        </Type>
+                                        <Groep>006</Groep>
+                                    </Activiteit>
+                                </Activiteiten>
+                            </Onderneming>
+                        </Inhoud>
+                    </Antwoord>
+                </Antwoorden>
+            </Repliek>
+</web:GeefOndernemingResponse>
