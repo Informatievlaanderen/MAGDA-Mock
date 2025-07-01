@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>be.vlaanderen.vip.mock</groupId>
 	<artifactId>magda</artifactId>
-	<version>2.71.0-SNAPSHOT</version>
+	<version>3.1.0-SNAPSHOT</version>
 	<name>magdaservice</name>
 	<description>MAGDA diensten Mock voor afnemers</description>
 	<properties>
@@ -34,12 +34,12 @@
 		<mapstruct-lombok.version>0.2.0</mapstruct-lombok.version>
 		<mockito.version>5.3.1</mockito.version>
 		<org.apache.wss4j.version>2.4.1</org.apache.wss4j.version>
-		<spring-cloud.version>2023.0.3</spring-cloud.version>
+		<spring-cloud.version>2025.0.0</spring-cloud.version>
 		<springdoc.api>1.8.0</springdoc.api>
 		<springfox-swagger2.version>3.0.0</springfox-swagger2.version>
 		<testrunner.version>0.2.0</testrunner.version>
-		<apache.httpcomponents.version>5.4.1</apache.httpcomponents.version>
-		<brave.version>6.0.3</brave.version>
+		<apache.httpcomponents.version>5.5</apache.httpcomponents.version>
+		<brave.version>6.3.0</brave.version>
 		<sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco-aggregated/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 		<sonar.language>java</sonar.language>
 	</properties>
