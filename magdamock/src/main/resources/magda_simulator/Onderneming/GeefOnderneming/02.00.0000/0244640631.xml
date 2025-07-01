@@ -1,0 +1,154 @@
+<?xml version="1.0" standalone="no"?>
+<web:GeefOndernemingResponse xmlns:web="http://webservice.geefondernemingdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+            <Repliek>
+                <Context>
+                    <Naam>GeefOnderneming</Naam>
+                    <Versie>02.00.0000</Versie>
+                    <Bericht>
+                        <Type>ANTWOORD</Type>
+                        <Tijdstip>
+                            <Datum>2025-06-24</Datum>
+                            <Tijd>13:50:11.669</Tijd>
+                        </Tijdstip>
+                        <Afzender>
+                            <Identificatie>vip.vlaanderen.be</Identificatie>
+                            <Naam>MagdaGateway</Naam>
+                            <Referte>adf8dd16-d92b-435f-9a4b-cc869bb915a8</Referte>
+                        </Afzender>
+                        <Ontvanger>
+                            <Identificatie>kb.vlaanderen.be/aiv/stress-testing-magda-aip</Identificatie>
+                            <Referte>test1</Referte>
+                            <Hoedanigheid>101</Hoedanigheid>
+                        </Ontvanger>
+                    </Bericht>
+                </Context>
+                <Antwoorden>
+                    <Antwoord>
+                        <Referte>test1</Referte>
+                        <Inhoud>
+                            <Onderneming>
+                                <Ondernemingsnummer>0244640631</Ondernemingsnummer>
+                                <AuthentiekBron>
+                                    <Code>03</Code>
+                                    <Omschrijving>KBO</Omschrijving>
+                                </AuthentiekBron>
+                                <OndernemingOfVestiging>
+                                    <Code Beschrijving="Onderneming">1</Code>
+                                </OndernemingOfVestiging>
+                                <StatusKBO>
+                                    <Code>AC</Code>
+                                </StatusKBO>
+                                <SoortOnderneming>
+                                    <Code Beschrijving="Rechtspersoon">2</Code>
+                                </SoortOnderneming>
+                                <Namen>
+                                    <MaatschappelijkeNamen>
+                                        <MaatschappelijkeNaam DatumBegin="1990-01-15">
+                                            <Naam>Banque-carrefour de la Sécurite sociale</Naam>
+                                            <Taalcode>fr</Taalcode>
+                                        </MaatschappelijkeNaam>
+                                        <MaatschappelijkeNaam DatumBegin="1990-01-15">
+                                            <Naam>Kruispuntbank van de Sociale Zekerheid</Naam>
+                                            <Taalcode>nl</Taalcode>
+                                        </MaatschappelijkeNaam>
+                                        <MaatschappelijkeNaam DatumBegin="1990-01-15">
+                                            <Naam>Zentrale Datenbank der sozialen Sicherheit</Naam>
+                                            <Taalcode>de</Taalcode>
+                                        </MaatschappelijkeNaam>
+                                    </MaatschappelijkeNamen>
+                                    <AfgekorteNamen>
+                                        <AfgekorteNaam DatumBegin="2015-01-01">
+                                            <Naam>Babibel</Naam>
+                                            <Taalcode>fr</Taalcode>
+                                        </AfgekorteNaam>
+                                    </AfgekorteNamen>
+                                    <CommercieleNamen>
+                                        <CommercieleNaam DatumBegin="1990-01-15">
+                                            <Naam>B.C.S.S.</Naam>
+                                            <Taalcode>fr</Taalcode>
+                                        </CommercieleNaam>
+                                        <CommercieleNaam DatumBegin="1990-01-15">
+                                            <Naam>K.S.Z.</Naam>
+                                            <Taalcode>nl</Taalcode>
+                                        </CommercieleNaam>
+                                        <CommercieleNaam DatumBegin="1990-01-15">
+                                            <Naam>ZDSS</Naam>
+                                            <Taalcode>de</Taalcode>
+                                        </CommercieleNaam>
+                                    </CommercieleNamen>
+                                </Namen>
+                                <Adressen>
+                                    <Adres DatumBegin="1990-01-15">
+                                        <Straat>
+                                            <Code>1152</Code>
+                                        </Straat>
+                                        <Huisnummer>375</Huisnummer>
+                                        <Gemeente>
+                                            <NISCode>21005</NISCode>
+                                            <PostCode>1040</PostCode>
+                                        </Gemeente>
+                                        <Land>
+                                            <NISCode>150</NISCode>
+                                            <ISOCode>BE</ISOCode>
+                                            <Naam>BELGIE</Naam>
+                                        </Land>
+                                        <Type>
+                                            <Code>001</Code>
+                                        </Type>
+                                        <Descripties>
+                                            <Descriptie>
+                                                <Adres>
+                                                    <Straat>
+                                                        <Naam>Chaussée Saint-Pierre</Naam>
+                                                    </Straat>
+                                                    <Gemeente>
+                                                        <Naam>Etterbeek</Naam>
+                                                    </Gemeente>
+                                                    <Land>
+                                                        <NISCode>150</NISCode>
+                                                        <Naam>België</Naam>
+                                                    </Land>
+                                                </Adres>
+                                                <Taalcode>FR</Taalcode>
+                                            </Descriptie>
+                                            <Descriptie>
+                                                <Adres>
+                                                    <Straat>
+                                                        <Naam>Sint-Pieterssteenweg</Naam>
+                                                    </Straat>
+                                                    <Gemeente>
+                                                        <Naam>Etterbeek</Naam>
+                                                    </Gemeente>
+                                                    <Land>
+                                                        <NISCode>150</NISCode>
+                                                        <Naam>België</Naam>
+                                                    </Land>
+                                                </Adres>
+                                                <Taalcode>NL</Taalcode>
+                                            </Descriptie>
+                                        </Descripties>
+                                    </Adres>
+                                </Adressen>
+                                <Start>
+                                    <Datum>1990-01-15</Datum>
+                                </Start>
+                                <Inschrijving>
+                                    <Datum>2003-01-18</Datum>
+                                </Inschrijving>
+                                <Rechtsvormen>
+                                    <Rechtsvorm DatumBegin="1990-01-15">
+                                        <Code>124</Code>
+                                    </Rechtsvorm>
+                                </Rechtsvormen>
+                                <Rechtstoestanden>
+                                    <Rechtstoestand DatumBegin="1990-01-15">
+                                        <Code>000</Code>
+                                        <InstrumenterendeOverheid>244640631</InstrumenterendeOverheid>
+                                    </Rechtstoestand>
+                                </Rechtstoestanden>
+                            </Onderneming>
+                        </Inhoud>
+                    </Antwoord>
+                </Antwoorden>
+            </Repliek>
+</web:GeefOndernemingResponse>
