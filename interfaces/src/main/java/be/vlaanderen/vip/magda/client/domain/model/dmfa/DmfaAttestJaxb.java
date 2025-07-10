@@ -14,9 +14,11 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @XmlRootElement(name = "Inhoud")
 @Accessors(fluent = true)
@@ -35,7 +37,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
 
     @Override
     public List<DmfaAttest.Attest> attesten() {
-        return attesten.stream().map(o -> (DmfaAttest.Attest) o).toList();
+        return Optional.ofNullable(attesten).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Attest) o).toList();
     }
 
     @Override
