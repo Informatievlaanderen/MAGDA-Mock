@@ -1,6 +1,5 @@
 <web:GeefDmfaVoorWerknemerResponse
             xmlns:web="http://magda.vlaanderen.be/werk/soap/geefdmfavoorwerknemer/v03_00">
-            <!-- template_7_attesten -->
             <Repliek>
                 <Context>
                     <Naam>GeefDmfaVoorWerknemer</Naam>
