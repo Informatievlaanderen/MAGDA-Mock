@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
-	<!-- template: template_wettelijk_samenw_met_kinderen -->
 	<Repliek>
 		<Context>
 			<Naam>GeefPersoon</Naam>

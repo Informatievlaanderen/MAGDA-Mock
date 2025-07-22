@@ -1,6 +1,5 @@
 <web:GeefDmfaVoorWerknemerResponse
             xmlns:web="http://magda.vlaanderen.be/werk/soap/geefdmfavoorwerknemer/v03_00">
-            <!-- template_7_attesten -->
             <Repliek>
                 <Context>
                     <Naam>GeefDmfaVoorWerknemer</Naam>
@@ -44,7 +43,7 @@
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>SEC</SectorIndicator>
                                         <OnderCuratele>1</OnderCuratele>
-                                        <Ondernemingsnummer>0123456789</Ondernemingsnummer>
+                                        <Ondernemingsnummer>0207451227</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>555555</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>1</ConversieNaarRegime5>
                                         <Werknemer>
@@ -108,7 +107,7 @@
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>SEC</SectorIndicator>
                                         <OnderCuratele>0</OnderCuratele>
-                                        <Ondernemingsnummer>0123456789</Ondernemingsnummer>
+                                        <Ondernemingsnummer>0207451227</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>888888</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>0</ConversieNaarRegime5>
                                         <DatumBeginVakantie>2024-05-01</DatumBeginVakantie>
@@ -173,7 +172,7 @@
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
                                         <OnderCuratele>0</OnderCuratele>
-                                        <Ondernemingsnummer>0123456789</Ondernemingsnummer>
+                                        <Ondernemingsnummer>0207451227</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>777777</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>0</ConversieNaarRegime5>
                                         <DatumBeginVakantie>2024-09-01</DatumBeginVakantie>
@@ -238,7 +237,7 @@
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
                                         <OnderCuratele>1</OnderCuratele>
-                                        <Ondernemingsnummer>0123456789</Ondernemingsnummer>
+                                        <Ondernemingsnummer>0207451227</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>666666</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>1</ConversieNaarRegime5>
                                         <Werknemer>
@@ -302,7 +301,7 @@
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
                                         <OnderCuratele>0</OnderCuratele>
-                                        <Ondernemingsnummer>0123456789</Ondernemingsnummer>
+                                        <Ondernemingsnummer>0207451227</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>555555</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>0</ConversieNaarRegime5>
                                         <Werknemer>
@@ -363,7 +362,7 @@
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
                                         <OnderCuratele>1</OnderCuratele>
-                                        <Ondernemingsnummer>0123456789</Ondernemingsnummer>
+                                        <Ondernemingsnummer>0207451227</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>444444</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>1</ConversieNaarRegime5>
                                         <Werknemer>
@@ -424,7 +423,7 @@
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
                                         <OnderCuratele>0</OnderCuratele>
-                                        <Ondernemingsnummer>0123456789</Ondernemingsnummer>
+                                        <Ondernemingsnummer>0207451227</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>333333</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>0</ConversieNaarRegime5>
                                         <DatumBeginVakantie>2025-05-01</DatumBeginVakantie>

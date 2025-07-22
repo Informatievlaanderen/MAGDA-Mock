@@ -50,11 +50,11 @@
                                     </Einde>
                                 </PeriodeTijdstip>
                                 <ParitairComite>XXX</ParitairComite>
+                                <AardWerknemer>OTH</AardWerknemer>
                                 <Geannuleerd>0</Geannuleerd>
                                 <LaatsteDimonaActie Beschrijving="Wijziging">U</LaatsteDimonaActie>
                             </Aangifte>
                         </Contract>
-
                         <Contract>
                             <Relatie>
                                 <Werkgever>
@@ -78,6 +78,7 @@
                                     </Einde>
                                 </PeriodeTijdstip>
                                 <ParitairComite>XXX</ParitairComite>
+                                <AardWerknemer>OTH</AardWerknemer>
                                 <Geannuleerd>0</Geannuleerd>
                                 <LaatsteDimonaActie Beschrijving="Wijziging">U</LaatsteDimonaActie>
                             </Aangifte>
