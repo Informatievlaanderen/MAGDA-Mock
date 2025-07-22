@@ -14,9 +14,11 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @XmlRootElement(name = "Inhoud")
 @Accessors(fluent = true)
@@ -35,12 +37,12 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
 
     @Override
     public List<DmfaAttest.Attest> attesten() {
-        return attesten.stream().map(o -> (DmfaAttest.Attest) o).toList();
+        return Optional.ofNullable(attesten).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Attest) o).toList();
     }
 
     @Override
     public List<DmfaAttest.Result> antwoordInBatch() {
-        return antwoordInBatch.stream().map(o -> (DmfaAttest.Result) o).toList();
+        return Optional.ofNullable(antwoordInBatch).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Result) o).toList();
     }
 
     @Getter
@@ -234,27 +236,27 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
 
 
         public List<DmfaAttest.Tewerkstelling> tewerkstellingen() {
-            return tewerkstellingen.stream().map(o -> (DmfaAttest.Tewerkstelling) o).collect(Collectors.toList());
+            return Optional.ofNullable(tewerkstellingen).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Tewerkstelling) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.Bijdrage> bijdragen() {
-            return Optional.ofNullable(bijdragen).stream().map(o -> (DmfaAttest.Bijdrage) o).collect(Collectors.toList());
+            return Optional.ofNullable(bijdragen).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Bijdrage) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.Vermindering> verminderingen() {
-            return Optional.ofNullable(verminderingen).stream().map(o -> (DmfaAttest.Vermindering) o).collect(Collectors.toList());
+            return Optional.ofNullable(verminderingen).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Vermindering) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.BijdrageBruggepensioneerde> bijdragenBruggepensioneerde() {
-            return Optional.ofNullable(bijdragenBruggepensioneerde).stream().map(o -> (DmfaAttest.BijdrageBruggepensioneerde) o).collect(Collectors.toList());
+            return Optional.ofNullable(bijdragenBruggepensioneerde).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.BijdrageBruggepensioneerde) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.VergoedingArbeidsongevalBeroepsziekte> vergoedingenArbeidsongevalBeroepsziekte() {
-            return Optional.ofNullable(vergoedingenArbeidsongevalBeroepsziekte).stream().map(o -> (DmfaAttest.VergoedingArbeidsongevalBeroepsziekte) o).collect(Collectors.toList());
+            return Optional.ofNullable(vergoedingenArbeidsongevalBeroepsziekte).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.VergoedingArbeidsongevalBeroepsziekte) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.Vergoeding> aanvullendeVergoedingen() {
-            return Optional.ofNullable(aanvullendeVergoedingen).stream().map(o -> (DmfaAttest.Vergoeding) o).collect(Collectors.toList());
+            return Optional.ofNullable(aanvullendeVergoedingen).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Vergoeding) o).collect(Collectors.toList());
         }
     }
 
@@ -384,23 +386,23 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         private GebruikendeOnderneming gebruikendeOnderneming;
 
         public List<DmfaAttest.Prestatie> prestaties() {
-            return prestaties.stream().map(o -> (DmfaAttest.Prestatie) o).collect(Collectors.toList());
+            return Optional.ofNullable(prestaties).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Prestatie) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.Bezoldiging> bezoldigingen() {
-            return Optional.ofNullable(bezoldigingen).stream().map(o -> (DmfaAttest.Bezoldiging) o).collect(Collectors.toList());
+            return Optional.ofNullable(bezoldigingen).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Bezoldiging) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.Overheidssector> overheidssectoren() {
-            return Optional.ofNullable(overheidssectoren).stream().map(o -> (DmfaAttest.Overheidssector) o).collect(Collectors.toList());
+            return Optional.ofNullable(overheidssectoren).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Overheidssector) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.ReorganisatieArbeidstijdInfo> reorganisatiesArbeidstijdInfo() {
-            return Optional.ofNullable(reorganisatiesArbeidstijdInfo).stream().map(o -> (DmfaAttest.ReorganisatieArbeidstijdInfo) o).collect(Collectors.toList());
+            return Optional.ofNullable(reorganisatiesArbeidstijdInfo).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.ReorganisatieArbeidstijdInfo) o).collect(Collectors.toList());
         }
 
         public List<DmfaAttest.Vermindering> verminderingen() {
-            return Optional.ofNullable(verminderingen).stream().map(o -> (DmfaAttest.Vermindering) o).collect(Collectors.toList());
+            return Optional.ofNullable(verminderingen).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Vermindering) o).collect(Collectors.toList());
         }
     }
 
@@ -710,7 +712,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
 
         @Override
         public List<DmfaAttest.Detail> details() {
-            return details.stream().map(o -> (DmfaAttest.Detail) o).collect(Collectors.toList());
+            return Optional.ofNullable(details).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Detail) o).collect(Collectors.toList());
         }
     }
 
