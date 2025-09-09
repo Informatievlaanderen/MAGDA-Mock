@@ -78,13 +78,17 @@ function updateAppVersion {
 # loop over the apps
 for app in ${APPS}
 do
-  # Update CPC app
-  updateAppVersion "$NAMESPACE" "$app"
-
   # Update Azure app, if there is an azure directory
+  # Optional because DEV env isn't used anymore, but still deploys by defaults to it
   if [ -d "./$AZURE_DEPLOY_DIR" ] && [ -d "./$AZURE_DEPLOY_DIR/$app" ]; then
     echo "Update Azure version of app ${app}"
     updateAppVersion "$AZURE_DEPLOY_DIR" "$app"
+  fi
+
+  # LEGACY: Update CPC app, if there is an namespace directory.
+  if [ -d "./$NAMESPACE" ] && [ -d "./$NAMESPACE/$app" ]; then
+    echo "LEGACY CPC app detected, consider removing it: ${app}"
+    updateAppVersion "$NAMESPACE" "$app"
   fi
 done
 
