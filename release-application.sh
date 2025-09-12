@@ -15,7 +15,7 @@ mvn -B com.amashchenko.maven.plugin:gitflow-maven-plugin:1.19.0:release \
   -DdevelopmentBranch="develop" \
   -DversionTagPrefix="" \
   -DpreReleaseGoals="" \
-  -DpostReleaseGoals="clean verify deploy -Pcucumber-tests -Pdocker,docker-release" \
+  -DpostReleaseGoals="clean deploy -Pcucumber-tests -Pdocker,docker-release" \
   -DversionsForceUpdate="true" \
   -DversionDigitToIncrement="1" \
   -DargLine="-B -U -s .m2/settings.xml"

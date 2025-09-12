@@ -1,6 +1,5 @@
 <web:GeefDmfaVoorWerknemerResponse
             xmlns:web="http://magda.vlaanderen.be/werk/soap/geefdmfavoorwerknemer/v03_00">
-            <!-- template_7_attesten -->
             <Repliek>
                 <Context>
                     <Naam>GeefDmfaVoorWerknemer</Naam>
@@ -44,7 +43,7 @@
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
                                         <OnderCuratele>0</OnderCuratele>
-                                        <Ondernemingsnummer>1023456789</Ondernemingsnummer>
+                                        <Ondernemingsnummer>0332582613</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>482315</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>0</ConversieNaarRegime5>
                                         <Werknemer>
@@ -108,7 +107,7 @@
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
                                         <OnderCuratele>0</OnderCuratele>
-                                        <Ondernemingsnummer>1023456789</Ondernemingsnummer>
+                                        <Ondernemingsnummer>0332582613</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>512384</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>0</ConversieNaarRegime5>
                                         <DatumBeginVakantie>2023-08-01</DatumBeginVakantie>
@@ -173,7 +172,7 @@
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
                                         <OnderCuratele>0</OnderCuratele>
-                                        <Ondernemingsnummer>1023456789</Ondernemingsnummer>
+                                        <Ondernemingsnummer>0332582613</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>498213</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>0</ConversieNaarRegime5>
                                         <DatumBeginVakantie>2023-11-01</DatumBeginVakantie>
@@ -238,7 +237,7 @@
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
                                         <OnderCuratele>1</OnderCuratele>
-                                        <Ondernemingsnummer>1023456789</Ondernemingsnummer>
+                                        <Ondernemingsnummer>0332582613</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>512398</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>1</ConversieNaarRegime5>
                                         <Werknemer>
@@ -302,7 +301,7 @@
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
                                         <OnderCuratele>0</OnderCuratele>
-                                        <Ondernemingsnummer>1023456789</Ondernemingsnummer>
+                                        <Ondernemingsnummer>0332582613</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>482319</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>0</ConversieNaarRegime5>
                                         <Werknemer>
