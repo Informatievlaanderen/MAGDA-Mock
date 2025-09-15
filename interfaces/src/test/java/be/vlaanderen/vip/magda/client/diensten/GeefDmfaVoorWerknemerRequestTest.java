@@ -78,7 +78,7 @@ public class GeefDmfaVoorWerknemerRequestTest {
         }
 
         @Test
-        void bronIsOptional() {
+        void throwsExceptionWhenBronIsNull() {
             Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
             Kwartaal eindKwartaal = new Kwartaal(2025, 2).verify();
             var request = GeefDmfaVoorWerknemerRequest.builder()
@@ -93,33 +93,31 @@ public class GeefDmfaVoorWerknemerRequestTest {
         }
 
         @Test
-        void typeAntwoordIsOptional() {
+        void throwsExceptionWhenTypeAntwoordIsNull() {
             Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
             Kwartaal eindKwartaal = new Kwartaal(2025, 2).verify();
-            var request = GeefDmfaVoorWerknemerRequest.builder()
+            var builder = GeefDmfaVoorWerknemerRequest.builder()
                     .insz(TestBase.TEST_INSZ)
                     .beginKwartaal(beginKwartaal)
                     .eindKwartaal(eindKwartaal)
                     .bron(GeefDmfaVoorWerknemerRequest.Bron.RSZ)
-                    .laatsteSituatie(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES)
-                    .build();
+                    .laatsteSituatie(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES);
 
-            assertNull(request.getTypeAntwoord());
+            assertThrows(IllegalStateException.class, builder::build);
         }
 
         @Test
-        void laatsteSituatieIsOptional() {
+        void throwsExceptionWhenLaatsteSituatieIsNull() {
             Kwartaal beginKwartaal = new Kwartaal(2023, 1).verify();
             Kwartaal eindKwartaal = new Kwartaal(2025, 2).verify();
-            var request = GeefDmfaVoorWerknemerRequest.builder()
+            var builder = GeefDmfaVoorWerknemerRequest.builder()
                     .insz(TestBase.TEST_INSZ)
                     .beginKwartaal(beginKwartaal)
                     .eindKwartaal(eindKwartaal)
                     .bron(GeefDmfaVoorWerknemerRequest.Bron.RSZ)
-                    .typeAntwoord(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE)
-                    .build();
+                    .typeAntwoord(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE);
 
-            assertNull(request.getLaatsteSituatie());
+            assertNull(builder.getLaatsteSituatie());
         }
     }
 
@@ -174,24 +172,6 @@ public class GeefDmfaVoorWerknemerRequestTest {
                     .build()
                     .toMagdaDocument(REQUEST_ID, info);
             assertThat(request.xpath("//Bron").getLength(), is(0));
-        }
-        @Test
-        void typeAntwoordEmpty(){
-            var request = builder
-                    .bron(GeefDmfaVoorWerknemerRequest.Bron.RSZ)
-                    .laatsteSituatie(GeefDmfaVoorWerknemerRequest.LaatsteSituatie.ALLE_SITUATIES)
-                    .build()
-                    .toMagdaDocument(REQUEST_ID, info);
-            assertThat(request.xpath("//TypeAntwoord").getLength(), is(0));
-        }
-        @Test
-        void laatsteSituatieEmpty(){
-            var request = builder
-                    .bron(GeefDmfaVoorWerknemerRequest.Bron.RSZ)
-                    .typeAntwoord(GeefDmfaVoorWerknemerRequest.TypeAntwoord.ONLINE)
-                    .build()
-                    .toMagdaDocument(REQUEST_ID, info);
-            assertThat(request.xpath("//LaatsteSituatie").getLength(), is(0));
         }
     }
 }
