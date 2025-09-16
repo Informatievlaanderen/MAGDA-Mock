@@ -79,17 +79,9 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
         request.setValue("//Criteria/Kwartaal/Begin/Kwartaalcijfer", String.valueOf(beginKwartaal.kwartaalcijfer()));
         request.setValue("//Criteria/Kwartaal/Einde/Jaar", String.valueOf(eindKwartaal.jaar()));
         request.setValue("//Criteria/Kwartaal/Einde/Kwartaalcijfer", String.valueOf(eindKwartaal.kwartaalcijfer()));
+        request.setValue("//TypeAntwoord", typeAntwoord.getTypeString());
+        request.setValue("//LaatsteSituatie", laatsteSituatie.getTypeString());
 
-        if (typeAntwoord != null) {
-            request.setValue("//TypeAntwoord", typeAntwoord.getTypeString());
-        } else {
-            request.removeNode("//TypeAntwoord");
-        }
-        if (laatsteSituatie != null) {
-            request.setValue("//LaatsteSituatie", laatsteSituatie.getTypeString());
-        } else {
-            request.removeNode("//LaatsteSituatie");
-        }
         if (bron != null) {
             request.setValue("//Bron", bron.getTypeString());
         } else {
@@ -180,6 +172,12 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
             }
             if (beginKwartaal == null || endKwartaal == null) {
                 throw new IllegalStateException("Begin- en eindkwartaal moeten gegeven zijn");
+            }
+            if (typeAntwoord == null) {
+                throw new IllegalStateException("TypeAntwoord moeten gegeven zijn");
+            }
+            if (laatsteSituatie == null) {
+                throw new IllegalStateException("Laatste Situatie moeten gegeven zijn");
             }
 
             return new GeefDmfaVoorWerknemerRequest(
