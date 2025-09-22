@@ -59,12 +59,12 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
     /**
      * Use this constructor in the subclasses to define own extensions on the HttpClient via the HttpClientBuilder.
      */
-    protected MagdaSoapConnection(MagdaEndpoints magdaEndpoints, TwoWaySslProperties config, UnaryOperator<HttpClientBuilder> extraOptions) throws TwoWaySslException {
+    MagdaSoapConnection(MagdaEndpoints magdaEndpoints, TwoWaySslProperties config, UnaryOperator<HttpClientBuilder> extraOptions) throws TwoWaySslException {
         this(magdaEndpoints, buildHttpClient(buildHttpClientBuilder(buildSslConnectionFactoryFromConfig(config)), extraOptions));
     }
 
     /**
-     * @deprecated Use {@link MagdaBraveTracingSoapConnection}
+     * @deprecated Use {@link MagdaSoapConnectionBuilder#withTracing}
      */
     @Deprecated(forRemoval = true)
     public MagdaSoapConnection(MagdaEndpoints magdaEndpoints, MagdaConfigDto config, Tracing tracing) throws TwoWaySslException {

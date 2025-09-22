@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>be.vlaanderen.vip.mock</groupId>
 	<artifactId>magda</artifactId>
-	<version>3.3.0</version>
+	<version>3.4.0</version>
 	<name>magdaservice</name>
 	<description>MAGDA diensten Mock voor afnemers</description>
 	<properties>
@@ -40,6 +40,7 @@
 		<testrunner.version>0.2.0</testrunner.version>
 		<apache.httpcomponents.version>5.5</apache.httpcomponents.version>
 		<brave.version>6.3.0</brave.version>
+        <logbook.version>3.12.3</logbook.version>
 		<sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco-aggregated/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 		<sonar.language>java</sonar.language>
 	</properties>
