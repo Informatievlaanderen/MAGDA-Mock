@@ -60,6 +60,13 @@
           <artifactId>micrometer-core</artifactId>
           <optional>true</optional>
       </dependency>
+
+      <dependency>
+          <groupId>org.zalando</groupId>
+          <artifactId>logbook-httpclient5</artifactId>
+          <version>${logbook.version}</version>
+          <optional>true</optional>
+      </dependency>
   </dependencies>
 
   <build>

@@ -11,6 +11,7 @@ import org.springframework.cloud.vault.config.VaultAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.lang.Nullable;
 import org.springframework.vault.core.VaultTemplate;
+import org.zalando.logbook.Logbook;
 
 @AutoConfiguration(after = {VaultAutoConfiguration.class})
 @EnableConfigurationProperties(MagdaConnectorConfig.class)
@@ -21,9 +22,10 @@ public class MagdaConnectorAutoConfiguration {
     public MagdaConnector magdaConnector(
             MagdaConnectorConfig config,
             @Nullable VaultTemplate template,
+            @Nullable Logbook logbook,
             @Nullable Tracing tracing,
             @Nullable ObservationRegistry observationRegistry) {
-        return config.connector(template, tracing, observationRegistry);
+        return config.connector(template, logbook, tracing, observationRegistry);
     }
 
 }
