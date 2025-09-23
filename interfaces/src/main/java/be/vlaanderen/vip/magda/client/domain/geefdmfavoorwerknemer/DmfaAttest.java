@@ -111,8 +111,8 @@ public interface DmfaAttest {
     }
 
     interface Pensioen {
-        BigDecimal bediende();
-        BigDecimal arbeider();
+        String bediende();
+        String arbeider();
     }
 
     interface Tewerkstelling {
@@ -127,7 +127,7 @@ public interface DmfaAttest {
         GemiddeldAantalUrenPerWeek gemiddeldAantalUrenPerWeek();
         MaatRegel maatregel();
         String statuutWerknemer();
-        Integer gepensioneerd();
+        String gepensioneerd();
         String typeLeerling();
         String wijzeBezoldiging();
         String functienummer();
@@ -172,7 +172,7 @@ public interface DmfaAttest {
         String terbeschikkingstelling();
         String uurloonInDuizendsten();
         String gewaardborgdloonEersteWeek();
-        BigDecimal brutoLoonZiekte();
+        String brutoLoonZiekte();
         Vrijstelling vrijstelling();
         LocalDate datumVasteBenoeming();
         String versie();
@@ -394,12 +394,12 @@ public interface DmfaAttest {
         String aantalMaandenDecimaal();
         OnvolledigeMaand onvolledigeMaand();
         String toepassingVanDeDrempel();
-        Integer bedrag();
+        Long bedrag();
         String versie();
     }
 
     interface OnvolledigeMaand {
-        BigDecimal aantalDagen();
+        String aantalDagen();
         String reden();
     }
 

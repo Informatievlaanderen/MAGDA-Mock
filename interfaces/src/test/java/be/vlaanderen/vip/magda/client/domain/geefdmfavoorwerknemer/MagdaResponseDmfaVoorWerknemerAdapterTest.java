@@ -69,7 +69,7 @@ public class MagdaResponseDmfaVoorWerknemerAdapterTest {
         assertEquals("0", tewerkstelling.typeContract());
         assertEquals("4000", tewerkstelling.gemiddeldAantalUrenPerWeek().referentiePersoon());
         assertEquals("4000", tewerkstelling.gemiddeldAantalUrenPerWeek().werkNemer());
-        assertEquals(24103, tewerkstelling.informatie().brutoLoonZiekte().intValue());
+        assertEquals("24103", tewerkstelling.informatie().brutoLoonZiekte());
 
         var prestatie = tewerkstelling.prestaties().get(0);
         assertEquals("1", prestatie.volgnummer());
