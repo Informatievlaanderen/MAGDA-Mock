@@ -274,9 +274,9 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Getter
     private static class Pensioen implements DmfaAttest.Pensioen, Serializable {
         @XmlElement(name = "Bediende")
-        public BigDecimal bediende;
+        public String bediende;
         @XmlElement(name = "Arbeider")
-        public BigDecimal arbeider;
+        public String arbeider;
     }
 
     @Getter
@@ -315,7 +315,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         public String statuutWerknemer;
 
         @XmlElement(name = "Gepensioneerd")
-        public Integer gepensioneerd;
+        public String gepensioneerd;
 
         @XmlElement(name = "TypeLeerling")
         public String typeLeerling;
@@ -452,7 +452,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         public String gewaardborgdloonEersteWeek;
 
         @XmlElement(name = "BrutoLoonZiekte")
-        public BigDecimal brutoLoonZiekte;
+        public String brutoLoonZiekte;
 
         @XmlElement(name = "Vrijstelling")
         public Vrijstelling vrijstelling;
@@ -1006,7 +1006,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
         private String toepassingVanDeDrempel;
 
         @XmlElement(name = "Bedrag")
-        private Integer bedrag;
+        private Long bedrag;
 
         @XmlElement(name = "Versie")
         private String versie;
@@ -1015,7 +1015,7 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Getter
     private static class OnvolledigeMaand implements DmfaAttest.OnvolledigeMaand, Serializable {
         @XmlElement(name = "AantalDagen")
-        BigDecimal aantalDagen;
+        String aantalDagen;
 
         @XmlElement(name = "Reden")
         String reden;
