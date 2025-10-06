@@ -82,6 +82,9 @@
                                                         <Volgnummer>1</Volgnummer>
                                                         <Code>1</Code>
                                                         <Dagen>6500</Dagen>
+                                                        <AantalVluchtminuten>100</AantalVluchtminuten>
+                                                        <Versie>9</Versie>
+                                                        <Uren>10</Uren>
                                                     </Prestatie>
                                                 </Prestaties>
                                             </Tewerkstelling>

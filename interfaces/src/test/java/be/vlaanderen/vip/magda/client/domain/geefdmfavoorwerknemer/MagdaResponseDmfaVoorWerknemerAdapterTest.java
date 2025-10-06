@@ -75,6 +75,9 @@ public class MagdaResponseDmfaVoorWerknemerAdapterTest {
         assertEquals("1", prestatie.volgnummer());
         assertEquals("1", prestatie.code());
         assertEquals("6500", prestatie.dagen());
+        assertEquals(10, prestatie.uren());
+        assertEquals(100, prestatie.aantalVluchtminuten());
+        assertEquals("9", prestatie.versie());
     }
 
     @Test
