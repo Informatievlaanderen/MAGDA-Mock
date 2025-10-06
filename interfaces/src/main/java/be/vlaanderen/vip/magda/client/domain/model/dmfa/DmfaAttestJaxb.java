@@ -502,6 +502,15 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
 
         @XmlElement(name = "Dagen")
         public String dagen;
+
+        @XmlElement(name = "Uren")
+        public Integer uren;
+
+        @XmlElement(name = "AantalVluchtminuten")
+        public Integer aantalVluchtminuten;
+
+        @XmlElement(name = "Versie")
+        private String versie;
     }
 
     @Getter

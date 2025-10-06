@@ -193,6 +193,9 @@ public interface DmfaAttest {
         String volgnummer();
         String code();
         String dagen();
+        Integer uren();
+        Integer aantalVluchtminuten();
+        String versie();
     }
 
     interface Bezoldiging {
