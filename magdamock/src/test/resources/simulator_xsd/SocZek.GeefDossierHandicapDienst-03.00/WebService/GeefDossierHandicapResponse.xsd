@@ -11,7 +11,7 @@
         </xsd:complexType>
     </xsd:element>
 	<!--Response types-->
-	<xsd:complexType name="RepliekType">
+	<xsd:complexType name="GeefDossierHandicapReponseRepliekType">
 		<xsd:sequence>
 			<xsd:element name="Context" type="generiek:ContextType"/>
 			<xsd:element name="Antwoorden" type="AntwoordLijstType" minOccurs="0"/>

@@ -17,7 +17,7 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:complexType name="RepliekType">
+	<xs:complexType name="GeefDossierHandicapReponseRepliekType">
 		<xs:sequence>
 			<xs:element name="Context" type="generiek:ContextType"/>
 			<xs:element name="Antwoorden" type="AntwoordenType" minOccurs="0"/>

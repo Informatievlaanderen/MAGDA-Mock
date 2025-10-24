@@ -33,7 +33,7 @@
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
-	<xsd:complexType name="RepliekType">
+	<xsd:complexType name="GeefDossierHandicapReponseRepliekType">
 		<xsd:sequence>
 			<xsd:element name="Context" type="generiek:ContextType"/>
 			<xsd:element name="Antwoorden" type="AntwoordenType" minOccurs="0"/>
