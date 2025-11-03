@@ -88,8 +88,14 @@ public class MobilityRegistrationRequest {
 
     public static class MobilityRegistrationRequestBuilder {
         public MobilityRegistrationRequest build() {
-            if (this.unifier != null && !this.unifier.trim().isEmpty() && (this.vin != null || this.vin.trim().isEmpty())) {
+            if (this.unifier != null && !this.unifier.trim().isEmpty() && (this.vin == null || this.vin.trim().isEmpty())) {
                 throw new IllegalArgumentException("Unifier cannot be given without vin");
+            }
+            if (correlationId == null) {
+                correlationId = UUID.randomUUID();
+            }
+            if (registrationInfo == null) {
+                throw new IllegalArgumentException("RegistrationInfo must be given");
             }
 
             return this.internalBuild();
