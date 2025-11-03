@@ -100,7 +100,8 @@
 		<module>magdaservice</module>
 		<module>magdamock</module>
 		<module>magdamock-starter</module>
-		<module>magdaconnector</module>
+        <module>magdaconnector</module>
+        <module>magdaconnector-rest</module>
 		<module>interfaces</module>
 		<module>tester</module>
 	</modules>
