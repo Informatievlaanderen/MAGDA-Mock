@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.magda.restclient;
+package be.vlaanderen.vip.magda.client.rest;
 
 import com.fasterxml.jackson.databind.JsonNode;
 

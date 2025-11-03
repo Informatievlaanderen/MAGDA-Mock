@@ -1,51 +1,72 @@
 package be.vlaanderen.vip.magda.client.domain.mobility;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
+
 import java.util.List;
 
-public interface Registration {
-    Titular titular();
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Registration {
+    Titular titular;
 
-    interface Titular {
-        Person person();
+    @Data
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class Titular {
 
-        Organisation organisation();
-    }
+        Person person;
+        Organisation organisation;
 
-    interface Person {
-        NationalNr nationalNr();
+        @Data
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        public static class Person {
+            NationalNr nationalNr;
 
-        List<String> lastnames();
+            List<String> lastnames;
 
-        List<String> firstnames();
+            List<String> firstnames;
 
-        Integer birthYear();
+            Integer birthYear;
 
-        interface NationalNr {
-            String identificator();
-        }
-    }
+            @Data
+            @JsonIgnoreProperties(ignoreUnknown = true)
+            public static class NationalNr {
+                String identificator;
+            }
 
-    interface Organisation {
-        CompanyNr companyNr();
-
-        LanguageString organisationName();
-
-        Boolean isLeaseCompany();
-
-        LegalFormCode legalFormCode();
-
-        interface CompanyNr {
-            String identificator();
         }
 
-        interface LegalFormCode {
-            LanguageString preflabel();
+        @Data
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        public static class Organisation {
+            CompanyNr companyNr;
+
+            LanguageString organisationName;
+
+            Boolean isLeaseCompany;
+
+            LegalFormCode legalFormCode;
+
+            @Data
+            @JsonIgnoreProperties(ignoreUnknown = true)
+            public static class CompanyNr {
+                String identificator;
+            }
+
+            @Data
+            @JsonIgnoreProperties(ignoreUnknown = true)
+            public static class LegalFormCode {
+                LanguageString preflabel;
+            }
         }
+
     }
 
-    interface LanguageString {
-        String value();
+    @Data
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class LanguageString {
+        String value;
 
-        String lang();
+        String lang;
     }
 }

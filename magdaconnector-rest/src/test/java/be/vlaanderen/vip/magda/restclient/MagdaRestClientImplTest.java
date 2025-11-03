@@ -3,6 +3,8 @@ package be.vlaanderen.vip.magda.restclient;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoint;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
+import be.vlaanderen.vip.magda.client.rest.MagdaResponseJson;
+import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.tomakehurst.wiremock.WireMockServer;
@@ -38,12 +40,12 @@ import static org.mockito.Mockito.when;
 // TEST endpoint not in list
 
 @ExtendWith(MockitoExtension.class)
-class MagdaRestConnectionTest {
-    private MagdaRestConnection magdaRestConnection;
+class MagdaRestClientImplTest {
+    private MagdaRestClientImpl magdaRestClientImpl;
 
     @BeforeEach
     void setUp() {
-        magdaRestConnection = null;
+        magdaRestClientImpl = null;
     }
 
     @Test
@@ -52,7 +54,7 @@ class MagdaRestConnectionTest {
         MagdaEndpoints endpoints = mock(MagdaEndpoints.class);
         CloseableHttpClient httpClient = mock(CloseableHttpClient.class);
         CloseableHttpResponse response = mock(CloseableHttpResponse.class);
-        magdaRestConnection = new MagdaRestTestConnection(endpoints, httpClient);
+        magdaRestClientImpl = new MagdaRestTestClientImpl(endpoints, httpClient);
 
         MagdaServiceIdentification dienst = new MagdaServiceIdentification("mobility-registrations", "00.01");
         MagdaRestRequest request = MagdaRestRequest.builder()
@@ -73,7 +75,7 @@ class MagdaRestConnectionTest {
                 """;
         when(response.getEntity()).thenReturn(new BasicHttpEntity(IOUtils.toInputStream(input, Charset.defaultCharset()), ContentType.APPLICATION_JSON));
 
-        MagdaResponseJson magdaResponseJson = magdaRestConnection.sendRestRequest(request);
+        MagdaResponseJson magdaResponseJson = magdaRestClientImpl.sendRestRequest(request);
         Assertions.assertNotNull(magdaResponseJson);
         JsonNode json = magdaResponseJson.json();
         assertEquals("b", json.get("a").asText());
@@ -116,8 +118,8 @@ class MagdaRestConnectionTest {
         MagdaEndpoints endpoints = MagdaEndpoints.builder()
                 .addMapping(dienst.getName(), dienst.getVersion(), MagdaEndpoint.of(wireMockServer.baseUrl() + "/v1/mobility/registrations"))
                 .build();
-        magdaRestConnection = new MagdaRestConnectionBuilder().withEndpoints(endpoints).build();
-        MagdaResponseJson magdaResponseJson = magdaRestConnection.sendRestRequest(request);
+        magdaRestClientImpl = new MagdaRestClientBuilder().withEndpoints(endpoints).build();
+        MagdaResponseJson magdaResponseJson = magdaRestClientImpl.sendRestRequest(request);
         JsonNode json = magdaResponseJson.json();
         assertEquals("b", json.get("a").asText());
         assertEquals(1, json.get("c").asInt());
@@ -136,7 +138,7 @@ class MagdaRestConnectionTest {
         MagdaEndpoints endpoints = mock(MagdaEndpoints.class);
         CloseableHttpClient httpClient = mock(CloseableHttpClient.class);
         CloseableHttpResponse response = mock(CloseableHttpResponse.class);
-        magdaRestConnection = new MagdaRestTestConnection(endpoints, httpClient);
+        magdaRestClientImpl = new MagdaRestTestClientImpl(endpoints, httpClient);
 
         MagdaServiceIdentification dienst = new MagdaServiceIdentification("mobility-registrations", "00.01");
         MagdaRestRequest request = MagdaRestRequest.builder()
@@ -157,7 +159,7 @@ class MagdaRestConnectionTest {
                 """;
         when(response.getEntity()).thenReturn(new BasicHttpEntity(IOUtils.toInputStream(input, Charset.defaultCharset()), ContentType.APPLICATION_JSON));
 
-        assertThrows(MagdaConnectionException.class, () -> magdaRestConnection.sendRestRequest(request));
+        assertThrows(MagdaConnectionException.class, () -> magdaRestClientImpl.sendRestRequest(request));
     }
 
     @Test
@@ -166,7 +168,7 @@ class MagdaRestConnectionTest {
         MagdaEndpoints endpoints = mock(MagdaEndpoints.class);
         CloseableHttpClient httpClient = mock(CloseableHttpClient.class);
         CloseableHttpResponse response = mock(CloseableHttpResponse.class);
-        magdaRestConnection = new MagdaRestTestConnection(endpoints, httpClient);
+        magdaRestClientImpl = new MagdaRestTestClientImpl(endpoints, httpClient);
 
         MagdaServiceIdentification dienst = new MagdaServiceIdentification("mobility-registrations", "00.01");
         MagdaRestRequest request = MagdaRestRequest.builder()
@@ -187,7 +189,7 @@ class MagdaRestConnectionTest {
                 """;
         when(response.getEntity()).thenReturn(new BasicHttpEntity(IOUtils.toInputStream(input, Charset.defaultCharset()), ContentType.APPLICATION_JSON));
 
-        MagdaResponseJson magdaResponseJson = magdaRestConnection.sendRestRequest(request);
+        MagdaResponseJson magdaResponseJson = magdaRestClientImpl.sendRestRequest(request);
         Assertions.assertNotNull(magdaResponseJson);
         JsonNode json = magdaResponseJson.json();
         assertEquals("b", json.get("a").asText());
@@ -206,7 +208,7 @@ class MagdaRestConnectionTest {
         MagdaEndpoints endpoints = mock(MagdaEndpoints.class);
         CloseableHttpClient httpClient = mock(CloseableHttpClient.class);
         CloseableHttpResponse response = mock(CloseableHttpResponse.class);
-        magdaRestConnection = new MagdaRestTestConnection(endpoints, httpClient);
+        magdaRestClientImpl = new MagdaRestTestClientImpl(endpoints, httpClient);
 
         MagdaServiceIdentification dienst = new MagdaServiceIdentification("mobility-registrations", "00.01");
         MagdaRestRequest request = MagdaRestRequest.builder()
@@ -226,11 +228,11 @@ class MagdaRestConnectionTest {
                 """;
         when(response.getEntity()).thenReturn(new BasicHttpEntity(IOUtils.toInputStream(input, Charset.defaultCharset()), ContentType.APPLICATION_JSON));
 
-        assertThrows(MagdaConnectionException.class, () -> magdaRestConnection.sendRestRequest(request));
+        assertThrows(MagdaConnectionException.class, () -> magdaRestClientImpl.sendRestRequest(request));
     }
 
-    static class MagdaRestTestConnection extends MagdaRestConnection {
-        public MagdaRestTestConnection(MagdaEndpoints magdaEndpoints, CloseableHttpClient httpClient) {
+    static class MagdaRestTestClientImpl extends MagdaRestClientImpl {
+        public MagdaRestTestClientImpl(MagdaEndpoints magdaEndpoints, CloseableHttpClient httpClient) {
             super(magdaEndpoints, httpClient);
         }
     }

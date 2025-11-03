@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client.domain.mobility;
 
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.diensten.MobilityRegistrationRequest;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 
 import java.util.List;
 

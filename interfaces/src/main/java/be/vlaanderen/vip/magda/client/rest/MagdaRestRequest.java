@@ -1,4 +1,4 @@
-package be.vlaanderen.vip.magda.restclient;
+package be.vlaanderen.vip.magda.client.rest;
 
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import lombok.Builder;

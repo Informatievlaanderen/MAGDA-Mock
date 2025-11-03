@@ -1,5 +1,6 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -7,6 +8,9 @@ import lombok.Getter;
 import lombok.ToString;
 
 import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * A request to a "mobility/registrations" MAGDA REST service allows you to consult the registration details of a vehicle.
@@ -62,6 +66,14 @@ public class MobilityRegistrationRequest {
     private EnrichmentSource addressEnrichmentPerson;
     @Getter(AccessLevel.PROTECTED)
     private String addressEnrichmentOrganization;
+
+    @Getter
+    private UUID correlationId;
+    @Getter
+    private MagdaRegistrationInfo registrationInfo;
+    @Getter
+    private String enduserId;
+
     @Getter
     public enum EnrichmentSource {
         RR("RR"),
@@ -76,11 +88,55 @@ public class MobilityRegistrationRequest {
 
     public static class MobilityRegistrationRequestBuilder {
         public MobilityRegistrationRequest build() {
-            if (this.unifier.trim().isEmpty() && this.vin.trim().isEmpty()) {
+            if (this.unifier != null && !this.unifier.trim().isEmpty() && (this.vin != null || this.vin.trim().isEmpty())) {
                 throw new IllegalArgumentException("Unifier cannot be given without vin");
             }
 
             return this.internalBuild();
         }
+    }
+
+    public Map<String, String> getQueryParameters() {
+        HashMap<String, String> map = new HashMap<>();
+        if (this.plateNr != null) {
+            map.put("plateNr", this.plateNr);
+        }
+        if (this.plateUID != null) {
+            map.put("plateUID", this.plateUID);
+        }
+        if (this.vin != null) {
+            map.put("vin", this.vin);
+        }
+        if (this.unifier != null) {
+            map.put("unifier", this.unifier);
+        }
+        if (this.certificateId != null) {
+            map.put("certificateId", this.certificateId);
+        }
+        if (this.nationalNr != null) {
+            map.put("nationalNr", this.nationalNr);
+        }
+        if (this.companyNr != null) {
+            map.put("companyNr", this.companyNr);
+        }
+        if (this.dateTime != null) {
+            map.put("dateTime", this.dateTime.toString());
+        }
+        if (this.transactionUID != null) {
+            map.put("transactionUID", this.transactionUID);
+        }
+        if (this.pageSize != null) {
+            map.put("pageSize", this.pageSize);
+        }
+        if (this.after != null) {
+            map.put("after", this.after);
+        }
+        if (this.addressEnrichmentPerson != null) {
+            map.put("addressEnrichmentPerson", this.addressEnrichmentPerson.toString());
+        }
+        if (this.addressEnrichmentOrganization != null) {
+            map.put("addressEnrichmentOrganization", this.addressEnrichmentOrganization);
+        }
+        return map;
     }
 }

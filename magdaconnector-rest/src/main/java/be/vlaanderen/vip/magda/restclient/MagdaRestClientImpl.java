@@ -1,6 +1,9 @@
 package be.vlaanderen.vip.magda.restclient;
 
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
+import be.vlaanderen.vip.magda.client.rest.MagdaResponseJson;
+import be.vlaanderen.vip.magda.client.rest.MagdaRestClient;
+import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
@@ -35,11 +38,11 @@ import java.util.UUID;
 import java.util.function.UnaryOperator;
 
 @Slf4j
-public class MagdaRestConnection implements Closeable {
+public class MagdaRestClientImpl implements MagdaRestClient, Closeable {
     private final MagdaEndpoints magdaEndpoints;
     private final CloseableHttpClient httpClient;
 
-    protected MagdaRestConnection(MagdaEndpoints magdaEndpoints, CloseableHttpClient httpClient) {
+    protected MagdaRestClientImpl(MagdaEndpoints magdaEndpoints, CloseableHttpClient httpClient) {
         this.magdaEndpoints = magdaEndpoints;
         this.httpClient = httpClient;
     }
@@ -47,7 +50,7 @@ public class MagdaRestConnection implements Closeable {
     /**
      * Use this constructor in the subclasses to define own extensions on the HttpClient via the HttpClientBuilder.
      */
-    MagdaRestConnection(MagdaEndpoints magdaEndpoints, TwoWaySslProperties config, UnaryOperator<HttpClientBuilder> extraOptions) throws TwoWaySslException {
+    MagdaRestClientImpl(MagdaEndpoints magdaEndpoints, TwoWaySslProperties config, UnaryOperator<HttpClientBuilder> extraOptions) throws TwoWaySslException {
         this(magdaEndpoints, buildHttpClient(buildHttpClientBuilder(buildSslConnectionFactoryFromConfig(config)), extraOptions));
     }
 
