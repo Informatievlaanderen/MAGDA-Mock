@@ -33,11 +33,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-// TEST ALL-OK; connection, mockito httpclient, endpoints, check response
-// TEST ALL-OK; endpoints created, httpclient with 'mocked' server (like okhttp.MockHttpServer)
-// TEST json wrong
-// TEST connection wrong
-// TEST endpoint not in list
 
 @ExtendWith(MockitoExtension.class)
 class MagdaRestClientImplTest {
