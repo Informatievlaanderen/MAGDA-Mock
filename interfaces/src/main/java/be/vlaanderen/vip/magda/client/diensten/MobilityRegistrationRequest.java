@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,7 +56,7 @@ public class MobilityRegistrationRequest {
     @Getter(AccessLevel.PROTECTED)
     private String companyNr;
     @Getter(AccessLevel.PROTECTED)
-    private OffsetDateTime dateTime;
+    private LocalDate dateTime;
     @Getter(AccessLevel.PROTECTED)
     private String transactionUID;
     @Getter(AccessLevel.PROTECTED)

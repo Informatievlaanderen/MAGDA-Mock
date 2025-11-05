@@ -3,6 +3,7 @@ package be.vlaanderen.vip.magda.client.diensten;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Map;
 import java.util.UUID;
@@ -77,7 +78,7 @@ public class MobilityRegistrationRequestTest {
         builder.certificateId("ID");
         builder.nationalNr("12345678900");
         builder.companyNr("12345678900");
-        OffsetDateTime now = OffsetDateTime.now();
+        LocalDate now = LocalDate.now();
         builder.dateTime(now);
         builder.transactionUID("transactionUID");
         builder.pageSize("3");
