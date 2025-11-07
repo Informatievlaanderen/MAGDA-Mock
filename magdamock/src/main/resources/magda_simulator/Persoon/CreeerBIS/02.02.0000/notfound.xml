@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web:CreeerBisResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/CreeerBis/v02_02">
+    <Repliek>
+        <Context xmlns:v02="http://magda.vlaanderen.be/persoon/soap/CreeerBis/v02_02">
+            <Naam>CreeerBis</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2021-04-19</Datum>
+                    <Tijd>12:47:42.361</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>159d70b1-a6ba-45b6-ba97-cba30d17e065</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-aip</Identificatie>
+                    <Referte>0437dd31-9d7b-469f-90d4-b021f4e39bdb</Referte>
+                    <Hoedanigheid>1303</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>2020-08-12 14:08:0.281</Referte>
+                <Inhoud>
+                    <Resultaat>
+                        <Code>0</Code>
+                        <Omschrijving Taal="nl">Niet geslaagd</Omschrijving>
+                    </Resultaat>
+                </Inhoud>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>48023</Identificatie>
+                        <Oorsprong>KSZ</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2020-08-12</Datum>
+                            <Tijd>14:08:01.581</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geboorte: De ingangsdatum ligt in de toekomst</Diagnose>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:CreeerBisResponse>

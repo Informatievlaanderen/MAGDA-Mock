@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web:ZoekPersoonOpNaamResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/ZoekPersoonOpNaam/v02_02">
+    <Repliek>
+        <Context xmlns:v02="http://magda.vlaanderen.be/persoon/soap/ZoekPersoonOpNaam/v02_02">
+            <Naam>ZoekPersoonOpNaam</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2021-04-19</Datum>
+                    <Tijd>12:47:42.361</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>159d70b1-a6ba-45b6-ba97-cba30d17e065</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-aip</Identificatie>
+                    <Referte>0437dd31-9d7b-469f-90d4-b021f4e39bdb</Referte>
+                    <Hoedanigheid>1303</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte xmlns:v02="http://magda.vlaanderen.be/persoon/soap/ZoekPersoonOpNaam/v02_02">0437dd31-9d7b-469f-90d4-b021f4e39bdb</Referte>
+                <Uitzonderingen xmlns:v02="http://magda.vlaanderen.be/persoon/soap/ZoekPersoonOpNaam/v02_02">
+                    <Uitzondering>
+                        <Identificatie>30001</Identificatie>
+                        <Oorsprong>RR</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2021-04-19</Datum>
+                            <Tijd>12:47:42.361</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+                        <Omstandigheid>140</Omstandigheid>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:ZoekPersoonOpNaamResponse>
