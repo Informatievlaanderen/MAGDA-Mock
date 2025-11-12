@@ -39,3 +39,7 @@ registratie:
   key-alias: ${MAGDA_KEY_ALIAS}
   key-password : ${MAGDA_KEY_PASSWORD}
   keystore-password : ${MAGDA_KEYSTORE_PASSWORD}
+
+wiremock:
+  port: 18081
+  mappings-path: "classpath:/wiremock"

@@ -31,7 +31,6 @@ public class MagdaMockController {
         return processMagdaMockRequest(request);
     }
 
-
     private ResponseEntity<String> processMagdaMockRequest(String request) throws MagdaConnectionException {
         //TODO: handle request parsing errors and return Magda Uitzondering error
         var requestDocument = MagdaDocument.fromString(request);
@@ -47,7 +46,7 @@ public class MagdaMockController {
 
     private ResponseEntity<String> parseInputstream(MagdaDocument magdaDocument) {
         if (magdaDocument != null) {
-              return ResponseEntity.ok().contentType(TEXT_XML).body(magdaDocument.toString());
+            return ResponseEntity.ok().contentType(TEXT_XML).body(magdaDocument.toString());
         } else {
             log.error("Could not find XML");
 

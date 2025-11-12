@@ -86,6 +86,12 @@
         <artifactId>springfox-swagger2</artifactId>
         <version>${springfox-swagger2.version}</version>
       </dependency>
+
+      <dependency>
+          <groupId>org.wiremock</groupId>
+          <artifactId>wiremock-jetty12</artifactId>
+          <version>3.13.1</version>
+      </dependency>
   </dependencies>
 
   <build>
