@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web:GeefGezinssamenstellingResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/GeefGezinssamenstelling/v02_02">
+<web:GeefGezinssamenstellingResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefgezinssamenstelling/v02_02">
     <Repliek>
-        <Context xmlns:v02="http://magda.vlaanderen.be/persoon/soap/GeefGezinssamenstelling/v02_02">
+        <Context>
             <Naam>GeefGezinssamenstelling</Naam>
             <Versie>02.02.0000</Versie>
             <Bericht>

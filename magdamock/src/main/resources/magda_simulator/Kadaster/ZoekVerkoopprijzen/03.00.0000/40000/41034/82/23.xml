@@ -1,30 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web:GeefGezinssamenstellingResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefgezinssamenstelling/v02_02">
+<web:ZoekVerkoopprijzenResponse
+        xmlns:web="http://webservice.zoekverkoopprijzendienst-03_00.kadaster-03_00.vip.vlaanderen.be">
     <Repliek>
         <Context>
-            <Naam>GeefGezinssamenstelling</Naam>
-            <Versie>02.02.0000</Versie>
+            <Naam>ZoekVerkoopprijzen</Naam>
+            <Versie>03.00.0000</Versie>
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
-                    <Datum>2021-04-19</Datum>
-                    <Tijd>12:47:42.361</Tijd>
+                    <Datum>2017-03-21</Datum>
+                    <Tijd>11:26:37.960</Tijd>
                 </Tijdstip>
                 <Afzender>
                     <Identificatie>vip.vlaanderen.be</Identificatie>
                     <Naam>MagdaGateway</Naam>
-                    <Referte>159d70b1-a6ba-45b6-ba97-cba30d17e065</Referte>
+                    <Referte>0f82bc0c-e54a-4ba3-955c-344bd3485bf1</Referte>
                 </Afzender>
                 <Ontvanger>
-                    <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-aip</Identificatie>
-                    <Referte>0437dd31-9d7b-469f-90d4-b021f4e39bdb</Referte>
-                    <Hoedanigheid>1303</Hoedanigheid>
+                    <Identificatie>ov.vlaanderen.be/studietoelagen/daf-aip-jg</Identificatie>
+                    <Referte>XE:1047:24558:5780</Referte>
+                    <Hoedanigheid>102</Hoedanigheid>
                 </Ontvanger>
             </Bericht>
         </Context>
         <Antwoorden>
             <Antwoord>
-                <Referte>10552</Referte>
+                <Referte>5800</Referte>
                 <Uitzonderingen>
                     <Uitzondering>
                         <Identificatie>30001</Identificatie>
@@ -40,4 +40,4 @@
             </Antwoord>
         </Antwoorden>
     </Repliek>
-</web:GeefGezinssamenstellingResponse>
+</web:ZoekVerkoopprijzenResponse>

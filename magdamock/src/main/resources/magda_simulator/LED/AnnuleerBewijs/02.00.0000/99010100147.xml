@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web:AnnuleerBewijsResponse>
+<web:AnnuleerBewijsResponse xmlns:web="http://webservice.annuleerbewijsdienst-02_00.led-02_00.vip.vlaanderen.be">
     <Repliek>
         <Context>
             <Naam>AnnuleerBewijs</Naam>

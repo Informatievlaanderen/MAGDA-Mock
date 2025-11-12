@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web:RegistreerBewijsResponse>
+<p:RegistreerBewijsResponse xmlns:p="http://registreerbewijs.bewijsregistratiedienst.led.vlaanderen.be">
     <Repliek>
         <Context>
             <Naam>todo</Naam>
@@ -40,4 +40,4 @@
             </Antwoord>
         </Antwoorden>
     </Repliek>
-</web:RegistreerBewijsResponse>
+</p:RegistreerBewijsResponse>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<p:RegistreerBewijsResponse xmlns:p="http://registreerbewijs.bewijsregistratiedienst.led.vlaanderen.be">
+<web:GeefPersoonMutatiesNotificatiesResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/GeefPersoonMutatiesNotificaties/v02_00">
     <Repliek>
-        <Context>
-            <Naam>todo</Naam>
-            <Versie>02.02.0000</Versie>
+        <Context xmlns:v02="http://magda.vlaanderen.be/persoon/soap/GeefPersoonMutatiesNotificaties/v02_00">
+            <Naam>GeefPersoonMutatiesNotificaties</Naam>
+            <Versie>02.00.0000</Versie>
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
@@ -27,17 +27,17 @@
                 <Referte>0437dd31-9d7b-469f-90d4-b021f4e39bdb</Referte>
                 <Uitzonderingen>
                     <Uitzondering>
-                        <Identificatie>40000</Identificatie>
-                        <Oorsprong>LED</Oorsprong>
+                        <Identificatie>30014</Identificatie>
+                        <Oorsprong>MAGDA</Oorsprong>
                         <Type>FOUT</Type>
                         <Tijdstip>
-                            <Datum>2021-04-19</Datum>
-                            <Tijd>12:47:42.361</Tijd>
+                            <Datum>2012-08-23</Datum>
+                            <Tijd>14:16:15.289</Tijd>
                         </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden</Diagnose>
+                        <Diagnose>Ongeldige ontvangstreferte</Diagnose>
                     </Uitzondering>
                 </Uitzonderingen>
             </Antwoord>
         </Antwoorden>
     </Repliek>
-</p:RegistreerBewijsResponse>
+</web:GeefPersoonMutatiesNotificatiesResponse>

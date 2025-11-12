@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<p:RegistreerBewijsResponse xmlns:p="http://registreerbewijs.bewijsregistratiedienst.led.vlaanderen.be">
+<v02:ZoekPersoonOpAdresResponse xmlns:v02="http://magda.vlaanderen.be/persoon/soap/zoekpersoonopadres/v02_02">
     <Repliek>
         <Context>
-            <Naam>todo</Naam>
+            <Naam>ZoekPersoonOpAdres</Naam>
             <Versie>02.02.0000</Versie>
             <Bericht>
                 <Type>ANTWOORD</Type>
@@ -27,17 +27,17 @@
                 <Referte>0437dd31-9d7b-469f-90d4-b021f4e39bdb</Referte>
                 <Uitzonderingen>
                     <Uitzondering>
-                        <Identificatie>40000</Identificatie>
-                        <Oorsprong>LED</Oorsprong>
+                        <Identificatie>48074</Identificatie>
+                        <Oorsprong>RR</Oorsprong>
                         <Type>FOUT</Type>
                         <Tijdstip>
-                            <Datum>2021-04-19</Datum>
-                            <Tijd>12:47:42.361</Tijd>
+                            <Datum>2019-03-30</Datum>
+                            <Tijd>10:36:38</Tijd>
                         </Tijdstip>
-                        <Diagnose>Geen gegevens gevonden</Diagnose>
+                        <Diagnose>Adres: Ongeldige straatcode</Diagnose>
                     </Uitzondering>
                 </Uitzonderingen>
             </Antwoord>
         </Antwoorden>
     </Repliek>
-</p:RegistreerBewijsResponse>
+</v02:ZoekPersoonOpAdresResponse>

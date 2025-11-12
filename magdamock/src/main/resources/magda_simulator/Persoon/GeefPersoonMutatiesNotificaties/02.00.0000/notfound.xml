@@ -27,14 +27,14 @@
                 <Referte>0437dd31-9d7b-469f-90d4-b021f4e39bdb</Referte>
                 <Uitzonderingen>
                     <Uitzondering>
-                        <Identificatie>30014</Identificatie>
+                        <Identificatie>30016</Identificatie>
                         <Oorsprong>MAGDA</Oorsprong>
                         <Type>FOUT</Type>
                         <Tijdstip>
                             <Datum>2012-08-23</Datum>
                             <Tijd>14:16:15.289</Tijd>
                         </Tijdstip>
-                        <Diagnose>Ongeldige ontvangstreferte</Diagnose>
+                        <Diagnose>Geen verdere gegevens beschikbaar</Diagnose>
                     </Uitzondering>
                 </Uitzonderingen>
             </Antwoord>
