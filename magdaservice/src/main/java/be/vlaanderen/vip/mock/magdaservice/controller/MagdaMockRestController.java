@@ -32,7 +32,8 @@ public class MagdaMockRestController {
             produces = {APPLICATION_JSON_VALUE}, consumes = {APPLICATION_JSON_VALUE},
             method = {RequestMethod.DELETE, RequestMethod.GET, RequestMethod.PATCH, RequestMethod.POST, RequestMethod.PUT}
     )
-    protected ResponseEntity<String> magdaRestEndpoint(@RequestBody String requestBody, HttpServletRequest incomingRequest) throws MagdaConnectionException {
+    protected ResponseEntity<String> magdaRestEndpoint(@RequestBody(required = false) String requestBody, HttpServletRequest incomingRequest) throws MagdaConnectionException {
+        requestBody = requestBody == null ? "" : requestBody;
         String method = incomingRequest.getMethod();
         List<String> splittedRequestUri = new ArrayList<>(Arrays.stream(incomingRequest.getRequestURI().split(MAGDA_REST_V1)).toList());
         String query = incomingRequest.getQueryString();

@@ -8,6 +8,7 @@ import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import org.apache.hc.core5.http.Method;
 
+import java.awt.*;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Map;
@@ -31,7 +32,8 @@ public class RestMobilityRegistrationService implements MobilityRegistrationServ
                         Map.of("X-Magda-Sender-ID", request.getRegistrationInfo().getIdentification(),
                                 "X-Magda-Sender-QualityCode", request.getRegistrationInfo().getHoedanigheidscode().orElse(""),
                                 "X-Correlation-ID", request.getCorrelationId().toString(),
-                                "X-Magda-Enduser-ID", request.getEnduserId()
+                                "X-Magda-Enduser-ID", request.getEnduserId(),
+                                "Content-Type", "application/json"
                         )
                 )
                 .urlQueryParams(request.getQueryParameters())
