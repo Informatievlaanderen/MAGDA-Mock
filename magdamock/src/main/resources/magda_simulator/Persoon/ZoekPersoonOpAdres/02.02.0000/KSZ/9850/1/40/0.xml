@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v02:ZoekPersoonOpAdresResponse xmlns:v02="http://magda.vlaanderen.be/persoon/soap/zoekpersoonopadres/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>ZoekPersoonOpAdres</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2021-04-19</Datum>
+                    <Tijd>12:47:42.361</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>159d70b1-a6ba-45b6-ba97-cba30d17e065</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-aip</Identificatie>
+                    <Referte>0437dd31-9d7b-469f-90d4-b021f4e39bdb</Referte>
+                    <Hoedanigheid>1303</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>0437dd31-9d7b-469f-90d4-b021f4e39bdb</Referte>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>48074</Identificatie>
+                        <Oorsprong>KSZ</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2019-03-30</Datum>
+                            <Tijd>10:36:38</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Adres: Ongeldige straatcode</Diagnose>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</v02:ZoekPersoonOpAdresResponse>
