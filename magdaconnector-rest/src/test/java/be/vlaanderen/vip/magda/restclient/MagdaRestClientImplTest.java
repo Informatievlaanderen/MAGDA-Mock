@@ -47,7 +47,7 @@ class MagdaRestClientImplTest {
 
     @Test
     @SneakyThrows
-    public void testAllOkMocked() {
+    public void testWhenAllPartsAreMocked_returnsMockedInput() {
         MagdaEndpoints endpoints = mock(MagdaEndpoints.class);
         CloseableHttpClient httpClient = mock(CloseableHttpClient.class);
         CloseableHttpResponse response = mock(CloseableHttpResponse.class);
@@ -80,7 +80,7 @@ class MagdaRestClientImplTest {
 
     @Test
     @SneakyThrows
-    public void testWithWiremockConnection() {
+    public void testWhenUsingWiremockAsRestSimulation_returnsSimulatedInput() {
         MagdaServiceIdentification dienst = new MagdaServiceIdentification("mobility-registrations", "00.01");
         MagdaRestRequest request = MagdaRestRequest.builder()
                 .dienst(dienst)
@@ -116,7 +116,7 @@ class MagdaRestClientImplTest {
 
     @Test
     @SneakyThrows
-    public void testResponseStatus4xx() {
+    public void testResponseStatus4xx_throwsMagdaConnectionException() {
         MagdaEndpoints endpoints = mock(MagdaEndpoints.class);
         CloseableHttpClient httpClient = mock(CloseableHttpClient.class);
         CloseableHttpResponse response = mock(CloseableHttpResponse.class);
@@ -146,22 +146,17 @@ class MagdaRestClientImplTest {
 
     @Test
     @SneakyThrows
-    public void testEndpointNotFound() {
-        MagdaEndpoints endpoints = mock(MagdaEndpoints.class);
-        CloseableHttpClient httpClient = mock(CloseableHttpClient.class);
-        CloseableHttpResponse response = mock(CloseableHttpResponse.class);
-        magdaRestClientImpl = new MagdaRestTestClientImpl(endpoints, httpClient);
-
-        MagdaServiceIdentification dienst = new MagdaServiceIdentification("mobility-registrations", "00.01");
+    public void testServiceNotFound_throwsIllegalArgumentException() {
+        MagdaServiceIdentification dienst = new MagdaServiceIdentification("mobility-registrations", "00.00");
+        MagdaServiceIdentification dienst1 = new MagdaServiceIdentification("mobility-registrations", "00.01");
         MagdaRestRequest request = MagdaRestRequest.builder()
                 .dienst(dienst)
                 .method(Method.GET)
-                .urlQueryParams(Map.of())
+                .urlQueryParams(
+                        Map.of("plateNr", "1XNN230"))
                 .headers(Map.of())
                 .build();
-        when(endpoints.magdaUri(dienst)).thenReturn(URI.create("http://localhost"));
-        when(httpClient.execute(any())).thenReturn(response);
-        when(response.getCode()).thenReturn(200);
+
         String input = """
                 {
                     "a": "b",
@@ -169,17 +164,24 @@ class MagdaRestClientImplTest {
                     "d": ["a", 1, {"y": "x"}]
                 }
                 """;
-        when(response.getEntity()).thenReturn(new BasicHttpEntity(IOUtils.toInputStream(input, Charset.defaultCharset()), ContentType.APPLICATION_JSON));
-
-        MagdaResponseJson magdaResponseJson = magdaRestClientImpl.sendRestRequest(request);
-        Assertions.assertNotNull(magdaResponseJson);
-        JsonNode json = magdaResponseJson.json();
-        JSONAssert.assertEquals(input, json.toString(), JSONCompareMode.NON_EXTENSIBLE);
+        WireMockServer wireMockServer = new WireMockServer(0);
+        wireMockServer.start();
+        wireMockServer.stubFor(get(urlEqualTo("/v1/mobility/registrations?plateNr=1XNN230"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody(input)
+                ));
+        MagdaEndpoints endpoints = MagdaEndpoints.builder()
+                .addMapping(dienst1.getName(), dienst1.getVersion(), MagdaEndpoint.of(wireMockServer.baseUrl() + "/v1/mobility/registrations"))
+                .build();
+        magdaRestClientImpl = new MagdaRestClientBuilder().withEndpoints(endpoints).build();
+        assertThrows(IllegalArgumentException.class, () -> magdaRestClientImpl.sendRestRequest(request));
     }
 
     @Test
     @SneakyThrows
-    public void testJsonInvalid() {
+    public void testJsonInvalid_throwsMagdaConnectionException() {
         MagdaEndpoints endpoints = mock(MagdaEndpoints.class);
         CloseableHttpClient httpClient = mock(CloseableHttpClient.class);
         CloseableHttpResponse response = mock(CloseableHttpResponse.class);
