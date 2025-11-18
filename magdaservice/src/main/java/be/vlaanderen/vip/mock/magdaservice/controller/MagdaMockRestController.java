@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -35,10 +36,10 @@ public class MagdaMockRestController {
     protected ResponseEntity<String> magdaRestEndpoint(@RequestBody(required = false) String requestBody, HttpServletRequest incomingRequest) throws MagdaConnectionException {
         requestBody = requestBody == null ? "" : requestBody;
         String method = incomingRequest.getMethod();
-        List<String> splittedRequestUri = new ArrayList<>(Arrays.stream(incomingRequest.getRequestURI().split(MAGDA_REST_V1)).toList());
+        List<String> splittedRequestUri = new ArrayList<>(Arrays.stream(incomingRequest.getRequestURI().split(Pattern.quote(MAGDA_REST_V1))).toList());
         String query = incomingRequest.getQueryString();
         splittedRequestUri.remove(0);
-        String path = String.join("", splittedRequestUri);
+        String path = String.join(MAGDA_REST_V1, splittedRequestUri);
         return mockRestClient.processRestRequest(path, query, method, requestBody);
     }
 
