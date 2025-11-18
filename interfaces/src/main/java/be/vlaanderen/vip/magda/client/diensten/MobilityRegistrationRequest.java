@@ -89,7 +89,7 @@ public class MobilityRegistrationRequest {
 
     public static class MobilityRegistrationRequestBuilder {
         public MobilityRegistrationRequest build() {
-            if (this.unifier != null && !this.unifier.trim().isEmpty() && (this.vin == null || this.vin.trim().isEmpty())) {
+            if (!isNullOrBlank(this.unifier) && isNullOrBlank(this.vin)) {
                 throw new IllegalArgumentException("Unifier cannot be given without vin");
             }
             if (correlationId == null) {
@@ -101,6 +101,10 @@ public class MobilityRegistrationRequest {
 
             return this.internalBuild();
         }
+    }
+
+    private static boolean isNullOrBlank(String string) {
+        return string == null || string.isBlank();
     }
 
     public Map<String, String> getQueryParameters() {
