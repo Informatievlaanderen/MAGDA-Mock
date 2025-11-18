@@ -6,6 +6,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 public class MobilityRegistrationJsonAdapter implements MobilityRegistrationAdapter {
     private final ObjectMapper mapper;
@@ -15,9 +18,11 @@ public class MobilityRegistrationJsonAdapter implements MobilityRegistrationAdap
     }
 
     public List<Registration> adapt(MagdaResponseJson response) {
-        List<Registration> registrations = new ArrayList<>();
         JsonNode mainNode = response.json();
-        mainNode.get("items").iterator().forEachRemaining(item -> registrations.add(mapper.convertValue(item, Registration.class)));
-        return registrations;
+        return Optional.ofNullable(mainNode.get("items"))
+                .map(items -> StreamSupport.stream(items.spliterator(), false))
+                .orElse(Stream.empty())
+                .map(item -> mapper.convertValue(item, Registration.class))
+                .toList();
     }
 }

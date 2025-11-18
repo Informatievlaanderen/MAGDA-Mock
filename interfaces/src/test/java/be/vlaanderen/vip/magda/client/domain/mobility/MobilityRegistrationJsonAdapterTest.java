@@ -15,7 +15,7 @@ public class MobilityRegistrationJsonAdapterTest {
     private final MobilityRegistrationJsonAdapter adapter = new MobilityRegistrationJsonAdapter();
 
     @Test
-    public void producesCorrectObjectsFromResponseJson() throws Exception {
+    public void whenAdaptingResponseFromValidJson_returnsFilledList() throws Exception {
         MagdaResponseJson response = new MagdaResponseJson(new ObjectMapper().readTree(TestHelpers.getResourceAsString(getClass(), "/magdamock/mobility/registration-sample.json")));
         List<Registration> registrationList = adapter.adapt(response);
         assertEquals(1, registrationList.size());
@@ -23,8 +23,9 @@ public class MobilityRegistrationJsonAdapterTest {
     }
 
     @Test
-    public void producesIncorrectObjectsFromInvalidResponseJson() throws Exception {
+    public void whenAdaptingResponseFromInvalidJson_returnsEmptyList() throws Exception {
         MagdaResponseJson response = new MagdaResponseJson(new ObjectMapper().readTree(TestHelpers.getResourceAsString(getClass(), "/magdamock/mobility/registration-error.json")));
-        assertThrows(Exception.class, () -> adapter.adapt(response));
+        List<Registration> registrationList = adapter.adapt(response);
+        assertEquals(0, registrationList.size());
     }
 }
