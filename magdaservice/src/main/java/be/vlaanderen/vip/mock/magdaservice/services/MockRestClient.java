@@ -16,14 +16,16 @@ import java.net.http.HttpResponse;
 @Service
 public class MockRestClient {
     private final WireMockServer wireMockServer;
+    private final HttpClient httpClient;
 
     public MockRestClient(WireMockServer wireMockServer) {
         this.wireMockServer = wireMockServer;
+        httpClient = HttpClient.newHttpClient();
     }
 
     public ResponseEntity<String> processRestRequest(String path, String query, String method, String requestBody) throws MagdaConnectionException {
         String url = wireMockServer.url(path) + "?" + query;
-        try (HttpClient client = HttpClient.newHttpClient()) {
+        try {
             HttpRequest.BodyPublisher body = HttpRequest.BodyPublishers.ofString(requestBody);
 
             HttpRequest request = HttpRequest.newBuilder()
@@ -32,7 +34,7 @@ public class MockRestClient {
                     .header("Content-Type", "application/json")
                     .build();
 
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             if (response.statusCode() == 404) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
