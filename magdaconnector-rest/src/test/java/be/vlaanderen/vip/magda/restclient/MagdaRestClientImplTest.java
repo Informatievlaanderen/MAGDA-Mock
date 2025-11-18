@@ -20,6 +20,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.skyscreamer.jsonassert.JSONAssert;
+import org.skyscreamer.jsonassert.JSONCompareMode;
 
 import java.net.URI;
 import java.nio.charset.Charset;
@@ -73,14 +75,7 @@ class MagdaRestClientImplTest {
         MagdaResponseJson magdaResponseJson = magdaRestClientImpl.sendRestRequest(request);
         Assertions.assertNotNull(magdaResponseJson);
         JsonNode json = magdaResponseJson.json();
-        assertEquals("b", json.get("a").asText());
-        assertEquals(1, json.get("c").asInt());
-        JsonNode jsonArray = json.get("d");
-        assertEquals(3, jsonArray.size());
-        assertEquals("a", jsonArray.get(0).asText());
-        assertEquals(1, jsonArray.get(1).asInt());
-        JsonNode subNode = jsonArray.get(2);
-        assertEquals("x", subNode.get("y").asText());
+        JSONAssert.assertEquals(input, json.toString(), JSONCompareMode.NON_EXTENSIBLE);
     }
 
     @Test
@@ -102,7 +97,7 @@ class MagdaRestClientImplTest {
                     "d": ["a", 1, {"y": "x"}]
                 }
                 """;
-        WireMockServer wireMockServer = new WireMockServer();
+        WireMockServer wireMockServer = new WireMockServer(0);
         wireMockServer.start();
         wireMockServer.stubFor(get(urlEqualTo("/v1/mobility/registrations?plateNr=1XNN230"))
                 .willReturn(aResponse()
@@ -116,15 +111,7 @@ class MagdaRestClientImplTest {
         magdaRestClientImpl = new MagdaRestClientBuilder().withEndpoints(endpoints).build();
         MagdaResponseJson magdaResponseJson = magdaRestClientImpl.sendRestRequest(request);
         JsonNode json = magdaResponseJson.json();
-        assertEquals("b", json.get("a").asText());
-        assertEquals(1, json.get("c").asInt());
-        JsonNode jsonArray = json.get("d");
-        assertEquals(3, jsonArray.size());
-        assertEquals("a", jsonArray.get(0).asText());
-        assertEquals(1, jsonArray.get(1).asInt());
-        JsonNode subNode = jsonArray.get(2);
-        assertEquals("x", subNode.get("y").asText());
-        wireMockServer.stop();
+        JSONAssert.assertEquals(input, json.toString(), JSONCompareMode.NON_EXTENSIBLE);
     }
 
     @Test
@@ -187,14 +174,7 @@ class MagdaRestClientImplTest {
         MagdaResponseJson magdaResponseJson = magdaRestClientImpl.sendRestRequest(request);
         Assertions.assertNotNull(magdaResponseJson);
         JsonNode json = magdaResponseJson.json();
-        assertEquals("b", json.get("a").asText());
-        assertEquals(1, json.get("c").asInt());
-        JsonNode jsonArray = json.get("d");
-        assertEquals(3, jsonArray.size());
-        assertEquals("a", jsonArray.get(0).asText());
-        assertEquals(1, jsonArray.get(1).asInt());
-        JsonNode subNode = jsonArray.get(2);
-        assertEquals("x", subNode.get("y").asText());
+        JSONAssert.assertEquals(input, json.toString(), JSONCompareMode.NON_EXTENSIBLE);
     }
 
     @Test

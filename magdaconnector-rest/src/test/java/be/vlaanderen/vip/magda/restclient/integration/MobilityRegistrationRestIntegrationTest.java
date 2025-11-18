@@ -214,7 +214,7 @@ public class MobilityRegistrationRestIntegrationTest {
                 }
                 """;
         MagdaServiceIdentification dienst = new MagdaServiceIdentification("mobility-registrations", "00.01");
-        WireMockServer wireMockServer = new WireMockServer();
+        WireMockServer wireMockServer = new WireMockServer(0);
         wireMockServer.start();
         wireMockServer.stubFor(get(urlEqualTo("/v1/mobility/registrations?plateNr=1XNN230"))
                 .willReturn(aResponse()
