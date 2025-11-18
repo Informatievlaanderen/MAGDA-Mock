@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class MobilityRegistrationRestIntegrationTest {
     @Test
     @SneakyThrows
-    public void test1() {
+    public void testMobilityRegistrationsEndpoint_returnsRegistrationsList() {
         String input = """
                 {
                     "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
