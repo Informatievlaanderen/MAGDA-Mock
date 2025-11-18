@@ -130,8 +130,7 @@ public class MagdaRestClientImpl implements MagdaRestClient, Closeable {
         URI urlString = uriBuilder.build();
 
         HttpUriRequestBase httpRequest = new HttpUriRequestBase(request.getMethod().name(), urlString);
-        httpRequest.setHeader("Content-type", "application/json");
-        httpRequest.setHeader("X-Correlation-Id", UUID.randomUUID().toString());
+        httpRequest.setHeader("Content-Type", "application/json");
         for (Map.Entry<String, String> header : request.getHeaders().entrySet()) {
             httpRequest.setHeader(header.getKey(), header.getValue());
         }

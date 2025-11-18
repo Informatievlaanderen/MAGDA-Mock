@@ -32,8 +32,7 @@ public class RestMobilityRegistrationService implements MobilityRegistrationServ
                         Map.of("X-Magda-Sender-ID", request.getRegistrationInfo().getIdentification(),
                                 "X-Magda-Sender-QualityCode", request.getRegistrationInfo().getHoedanigheidscode().orElse(""),
                                 "X-Correlation-ID", request.getCorrelationId().toString(),
-                                "X-Magda-Enduser-ID", request.getEnduserId(),
-                                "Content-Type", "application/json"
+                                "X-Magda-Enduser-ID", request.getEnduserId()
                         )
                 )
                 .urlQueryParams(request.getQueryParameters())
