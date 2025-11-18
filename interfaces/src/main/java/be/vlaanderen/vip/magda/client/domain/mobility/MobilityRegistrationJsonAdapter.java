@@ -8,8 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MobilityRegistrationJsonAdapter implements MobilityRegistrationAdapter {
+    private final ObjectMapper mapper;
+
+    public MobilityRegistrationJsonAdapter() {
+        mapper = new ObjectMapper();
+    }
+
     public List<Registration> adapt(MagdaResponseJson response) {
-        ObjectMapper mapper = new ObjectMapper();
         List<Registration> registrations = new ArrayList<>();
         JsonNode mainNode = response.json();
         mainNode.get("items").iterator().forEachRemaining(item -> registrations.add(mapper.convertValue(item, Registration.class)));

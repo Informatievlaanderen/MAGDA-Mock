@@ -34,17 +34,18 @@ import java.security.*;
 import java.security.cert.CertificateException;
 import java.util.Map;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.function.UnaryOperator;
 
 @Slf4j
 public class MagdaRestClientImpl implements MagdaRestClient, Closeable {
     private final MagdaEndpoints magdaEndpoints;
     private final CloseableHttpClient httpClient;
+    private final ObjectMapper mapper;
 
     protected MagdaRestClientImpl(MagdaEndpoints magdaEndpoints, CloseableHttpClient httpClient) {
         this.magdaEndpoints = magdaEndpoints;
         this.httpClient = httpClient;
+        this.mapper = new ObjectMapper();
     }
 
     /**
@@ -52,11 +53,6 @@ public class MagdaRestClientImpl implements MagdaRestClient, Closeable {
      */
     MagdaRestClientImpl(MagdaEndpoints magdaEndpoints, TwoWaySslProperties config, UnaryOperator<HttpClientBuilder> extraOptions) throws TwoWaySslException {
         this(magdaEndpoints, buildHttpClient(buildHttpClientBuilder(buildSslConnectionFactoryFromConfig(config)), extraOptions));
-    }
-
-    @Override
-    public void close() throws IOException {
-        httpClient.close();
     }
 
     private static SSLConnectionSocketFactory buildSslConnectionFactoryFromConfig(TwoWaySslProperties config) throws TwoWaySslException {
@@ -122,6 +118,11 @@ public class MagdaRestClientImpl implements MagdaRestClient, Closeable {
         }
     }
 
+    @Override
+    public void close() throws IOException {
+        httpClient.close();
+    }
+
     public MagdaResponseJson sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException {
         URIBuilder uriBuilder = new URIBuilder(magdaEndpoints.magdaUri(request.getDienst()));
         for (Map.Entry<String, String> header : request.getUrlQueryParams().entrySet()) {
@@ -155,7 +156,6 @@ public class MagdaRestClientImpl implements MagdaRestClient, Closeable {
     }
 
     private MagdaResponseJson parseStream(InputStream content) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
         JsonNode json = mapper.readTree(content);
         return new MagdaResponseJson(json);
     }
