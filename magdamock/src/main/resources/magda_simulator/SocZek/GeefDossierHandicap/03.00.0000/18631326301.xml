@@ -48,7 +48,8 @@
                                             <streetName language="FR">VOLDERSSTRAAT</streetName>
                                             <streetName language="NL">VOLDERSSTRAAT</streetName>
                                             <streetName language="DE">VOLDERSSTRAAT</streetName>
-                                            <houseNumber>75 C</houseNumber>
+                                            <houseNumber>75</houseNumber>
+                                            <boxNumber>C</boxNumber>
                                             <postalCode>9000</postalCode>
                                             <cityCode>44021</cityCode>
                                             <cityName language="FR">GAND</cityName>

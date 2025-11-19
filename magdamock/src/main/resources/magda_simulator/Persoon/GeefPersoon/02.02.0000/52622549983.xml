@@ -96,7 +96,8 @@
                                     <String>Savaanstraat</String>
                                     <Taal>nl</Taal>
                                 </Straatnaam>
-                                <Huisnummer>9F</Huisnummer>
+                                <Huisnummer>9</Huisnummer>
+                                <Busnummer>F</Busnummer>
                                 <Gemeentenaam>
                                     <String>Gent</String>
                                     <Taal>nl</Taal>

@@ -96,7 +96,8 @@
                                     <String>Voldersstraat</String>
                                     <Taal>nl</Taal>
                                 </Straatnaam>
-                                <Huisnummer>75 C</Huisnummer>
+                                <Huisnummer>75</Huisnummer>
+                                <Busnummer>C</Busnummer>
                                 <Gemeentenaam>
                                     <String>Gent</String>
                                     <Taal>nl</Taal>

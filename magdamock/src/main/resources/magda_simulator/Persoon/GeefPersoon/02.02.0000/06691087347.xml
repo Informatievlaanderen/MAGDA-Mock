@@ -96,7 +96,8 @@
                                     <String>Meersemhof</String>
                                     <Taal>nl</Taal>
                                 </Straatnaam>
-                                <Huisnummer>47 B</Huisnummer>
+                                <Huisnummer>47</Huisnummer>
+                                <Busnummer>B</Busnummer>
                                 <Gemeentenaam>
                                     <String>Gent</String>
                                     <Taal>nl</Taal>

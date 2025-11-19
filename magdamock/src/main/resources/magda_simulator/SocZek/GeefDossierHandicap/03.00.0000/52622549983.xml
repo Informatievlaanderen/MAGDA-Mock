@@ -48,7 +48,8 @@
                                             <streetName language="FR">SAVAANSTRAAT</streetName>
                                             <streetName language="NL">SAVAANSTRAAT</streetName>
                                             <streetName language="DE">SAVAANSTRAAT</streetName>
-                                            <houseNumber>9F</houseNumber>
+                                            <houseNumber>9</houseNumber>
+                                            <boxNumber>F</boxNumber>
                                             <postalCode>9000</postalCode>
                                             <cityCode>44021</cityCode>
                                             <cityName language="FR">GAND</cityName>
