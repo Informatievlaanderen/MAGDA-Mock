@@ -58,7 +58,10 @@ class MagdaRestClientImplTest {
                 .dienst(dienst)
                 .method(Method.GET)
                 .urlQueryParams(Map.of())
-                .headers(Map.of())
+                .senderId("senderid")
+                .senderQualityCode("senderqualitycode")
+                .enduserId("enduserid")
+                .correlationId("")
                 .build();
         when(endpoints.magdaUri(dienst)).thenReturn(URI.create("http://localhost"));
         when(httpClient.execute(any())).thenReturn(response);
@@ -87,7 +90,10 @@ class MagdaRestClientImplTest {
                 .method(Method.GET)
                 .urlQueryParams(
                         Map.of("plateNr", "1XNN230"))
-                .headers(Map.of())
+                .senderId("senderid")
+                .senderQualityCode("senderqualitycode")
+                .enduserId("enduserid")
+                .correlationId("")
                 .build();
 
         String input = """
@@ -127,7 +133,10 @@ class MagdaRestClientImplTest {
                 .dienst(dienst)
                 .method(Method.GET)
                 .urlQueryParams(Map.of())
-                .headers(Map.of())
+                .senderId("senderid")
+                .senderQualityCode("senderqualitycode")
+                .enduserId("enduserid")
+                .correlationId("")
                 .build();
         when(endpoints.magdaUri(dienst)).thenReturn(URI.create("http://localhost"));
         when(httpClient.execute(any())).thenReturn(response);
@@ -154,7 +163,10 @@ class MagdaRestClientImplTest {
                 .method(Method.GET)
                 .urlQueryParams(
                         Map.of("plateNr", "1XNN230"))
-                .headers(Map.of())
+                .senderId("senderid")
+                .senderQualityCode("senderqualitycode")
+                .enduserId("enduserid")
+                .correlationId("")
                 .build();
 
         String input = """
@@ -192,7 +204,10 @@ class MagdaRestClientImplTest {
                 .dienst(dienst)
                 .method(Method.GET)
                 .urlQueryParams(Map.of())
-                .headers(Map.of())
+                .senderId("senderid")
+                .senderQualityCode("senderqualitycode")
+                .enduserId("enduserid")
+                .correlationId("")
                 .build();
         when(endpoints.magdaUri(dienst)).thenReturn(URI.create("http://localhost"));
         when(httpClient.execute(any())).thenReturn(response);
