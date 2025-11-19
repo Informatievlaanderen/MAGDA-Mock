@@ -1,6 +1,11 @@
-package be.vlaanderen.vip.magda.restclient.integration;
+package be.vlaanderen.vip.magda.client.integration;
 
+import be.vlaanderen.vip.magda.client.ConnectorMagdaClient;
+import be.vlaanderen.vip.magda.client.MagdaConnector;
+import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
+import be.vlaanderen.vip.magda.client.MagdaSoapConnectionBuilder;
+import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.diensten.MobilityRegistrationRequest;
 import be.vlaanderen.vip.magda.client.domain.mobility.MobilityRegistrationJsonAdapter;
 import be.vlaanderen.vip.magda.client.domain.mobility.MobilityRegistrationService;
@@ -9,8 +14,6 @@ import be.vlaanderen.vip.magda.client.domain.mobility.RestMobilityRegistrationSe
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoint;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
-import be.vlaanderen.vip.magda.client.rest.MagdaRestClient;
-import be.vlaanderen.vip.magda.restclient.MagdaRestClientBuilder;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
@@ -25,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
- * In this test class we will test the RestMobilityRegistrationService with the MagdaRestClient implementation as defined in this module.
+ * In this test class we will test the RestMobilityRegistrationService with the MagdaClient implementation for REST.
  */
 public class MobilityRegistrationRestIntegrationTest {
     @Test
@@ -225,7 +228,11 @@ public class MobilityRegistrationRestIntegrationTest {
         MagdaEndpoints endpoints = MagdaEndpoints.builder()
                 .addMapping(dienst.getName(), dienst.getVersion(), MagdaEndpoint.of(wireMockServer.baseUrl() + "/v1/mobility/registrations"))
                 .build();
-        MagdaRestClient client = new MagdaRestClientBuilder().withEndpoints(endpoints).build();
+        MagdaConnection magdaConnection = new MagdaSoapConnectionBuilder()
+                .withEndpoints(endpoints)
+                .build();
+        MagdaConnector magdaConnector = new MagdaConnectorImpl(magdaConnection, null, null);
+        ConnectorMagdaClient client = new ConnectorMagdaClient(magdaConnector);
         MobilityRegistrationService mobilityRegistrationService = new RestMobilityRegistrationService(client, new MobilityRegistrationJsonAdapter());
         List<Registration> registrations = mobilityRegistrationService.getRegistrations(
                 MobilityRegistrationRequest.builder()
@@ -235,7 +242,7 @@ public class MobilityRegistrationRestIntegrationTest {
                         .enduserId("00000000097")
                         .build());
         assertEquals(1, registrations.size());
-        Registration registration = registrations.get(0);
+        Registration registration = registrations.getFirst();
         Registration.Titular titular = registration.getTitular();
         assertNotNull(titular);
         Registration.Titular.Person person = titular.getPerson();

@@ -1,14 +1,19 @@
 package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
+import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.client.security.*;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
+import com.fasterxml.jackson.databind.JsonNode;
 import jakarta.annotation.Nullable;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wss4j.common.ext.WSSecurityException;
 import org.w3c.dom.Document;
+
+import java.util.Optional;
 
 @Slf4j
 public class MagdaSignedConnection implements MagdaConnection {
@@ -59,5 +64,10 @@ public class MagdaSignedConnection implements MagdaConnection {
         }
 
         return response;
+    }
+
+    @Override
+    public JsonNode sendRestRequest(MagdaRestRequest request) {
+        throw new NotImplementedException();
     }
 }

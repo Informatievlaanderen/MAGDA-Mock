@@ -5,13 +5,23 @@ import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.SubjectIdentificationNumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import be.vlaanderen.vip.magda.client.rest.MagdaResponseJson;
+import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.client.xml.XmlUtils;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import be.vlaanderen.vip.magda.exception.NoResponseException;
 import be.vlaanderen.vip.magda.exception.ServerException;
 import be.vlaanderen.vip.magda.exception.UitzonderingenSectionInResponseException;
-import be.vlaanderen.vip.magda.legallogging.model.*;
+import be.vlaanderen.vip.magda.legallogging.model.AnnotatieField;
+import be.vlaanderen.vip.magda.legallogging.model.FailedLoggedRequest;
+import be.vlaanderen.vip.magda.legallogging.model.MagdaLoggedRequest;
+import be.vlaanderen.vip.magda.legallogging.model.SucceededLoggedRequest;
+import be.vlaanderen.vip.magda.legallogging.model.UitzonderingEntry;
+import be.vlaanderen.vip.magda.legallogging.model.UitzonderingType;
+import be.vlaanderen.vip.magda.legallogging.model.UnansweredLoggedRequest;
 import be.vlaanderen.vip.magda.legallogging.service.ClientLogService;
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.event.Level;
@@ -22,9 +32,15 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.StringWriter;
+import java.net.URISyntaxException;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 import static be.vlaanderen.vip.magda.client.util.LoggingUtils.magdaRequestLoggingEventBuilder;
 import static java.util.stream.Collectors.joining;
@@ -72,13 +88,13 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
             final var antwoordUitzonderingen = antwoord.getResponseUitzonderingEntries();
 
-            if(antwoordUitzonderingen.isEmpty() && uitzonderingen.isEmpty()) {
+            if (antwoordUitzonderingen.isEmpty() && uitzonderingen.isEmpty()) {
                 logRequestResultMessage(Level.INFO, magdaRequest, requestId, duration, "Ok");
             } else {
                 logRequestResultMessage(Level.WARN, magdaRequest, requestId, duration, messageForUitzonderingEntries(uitzonderingen, antwoordUitzonderingen));
             }
 
-            if(!antwoord.isHasContents() && antwoordUitzonderingen.isEmpty() && uitzonderingen.isEmpty()) {
+            if (!antwoord.isHasContents() && antwoordUitzonderingen.isEmpty() && uitzonderingen.isEmpty()) {
                 throw new UitzonderingenSectionInResponseException(magdaRequest.getSubject(), getLevel1UitzonderingEntry(response), magdaRequest.magdaServiceIdentification(), magdaRequest.getCorrelationId(), requestId);
             }
 
@@ -90,6 +106,30 @@ public class MagdaConnectorImpl implements MagdaConnector {
         } finally {
             CorrelationId.clear();
         }
+    }
+
+    @Override
+    public MagdaResponseJson sendRestRequest(MagdaRestRequest request) throws ServerException {
+        try {
+            JsonNode jsonNode = connection.sendRestRequest(request);
+            return new MagdaResponseJson(jsonNode);
+        } catch (MagdaConnectionException e) {
+            throw new ServerException("Error occurred while fetching REST data", e, UUID.fromString(request.getCorrelationId()), null);
+        } catch (URISyntaxException e) {
+            throw new ServerException("Error occurred while constructing the REST url", e, UUID.fromString(request.getCorrelationId()), null);
+        }
+    }
+
+    @Override
+    public MagdaResponseJson sendRestRequest(MagdaRestRequest.MagdaRestRequestBuilder requestBuilder, String registration) throws ServerException {
+        MagdaRestRequest request;
+            if (registration != null) {
+                MagdaRegistrationInfo registrationInfo = magdaHoedanigheidService.getDomeinService(registration);
+                requestBuilder.senderId(registrationInfo.getIdentification());
+                requestBuilder.senderQualityCode(registrationInfo.getHoedanigheidscode().orElse(""));
+            }
+            request = requestBuilder.build();
+            return sendRestRequest(request);
     }
 
     private List<UitzonderingEntry> getLevel1UitzonderingEntry(MagdaDocument response) {

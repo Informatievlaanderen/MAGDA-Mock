@@ -1,25 +1,22 @@
 package be.vlaanderen.vip.magda.client.domain.mobility;
 
+import be.vlaanderen.vip.magda.client.MagdaClient;
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.MagdaServiceIdentification;
 import be.vlaanderen.vip.magda.client.diensten.MobilityRegistrationRequest;
-import be.vlaanderen.vip.magda.client.rest.MagdaRestClient;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
-import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
+import be.vlaanderen.vip.magda.exception.ServerException;
 import org.apache.hc.core5.http.Method;
 
-import java.awt.*;
-import java.net.URISyntaxException;
 import java.util.List;
-import java.util.Map;
 
 public class RestMobilityRegistrationService implements MobilityRegistrationService {
     private static final MagdaServiceIdentification dienst = new MagdaServiceIdentification("mobility-registrations", "00.01");
-    private final MagdaRestClient magdaRestClient;
     private final MobilityRegistrationAdapter adapter;
+    private final MagdaClient client;
 
-    public RestMobilityRegistrationService(MagdaRestClient magdaRestClient, MobilityRegistrationAdapter adapter) {
-        this.magdaRestClient = magdaRestClient;
+    public RestMobilityRegistrationService(MagdaClient client, MobilityRegistrationAdapter adapter) {
+        this.client = client;
         this.adapter = adapter;
     }
 
@@ -35,9 +32,9 @@ public class RestMobilityRegistrationService implements MobilityRegistrationServ
                 .urlQueryParams(request.getQueryParameters())
                 .build();
         try {
-            return adapter.adapt(magdaRestClient.sendRestRequest(restRequest));
-        } catch (URISyntaxException | MagdaConnectionException e) {
-            throw new MagdaClientException("Registrations call went wrong: ",e);
+            return adapter.adapt(client.sendRestRequest(restRequest));
+        } catch (ServerException e) {
+            throw new MagdaClientException("Registrations call went wrong: ", e);
         }
     }
 }

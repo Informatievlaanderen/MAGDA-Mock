@@ -1,10 +1,10 @@
 package be.vlaanderen.vip.magda.client.domain.mobility;
 
 import be.vlaanderen.vip.magda.TestHelpers;
+import be.vlaanderen.vip.magda.client.MagdaClient;
 import be.vlaanderen.vip.magda.client.diensten.MobilityRegistrationRequest;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.rest.MagdaResponseJson;
-import be.vlaanderen.vip.magda.client.rest.MagdaRestClient;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class RestMobilityRegistrationServiceTest {
     @Mock
-    private MagdaRestClient magdaRestClient;
+    private MagdaClient magdaRestClient;
 
     @Nested
     class GetRegistrations {

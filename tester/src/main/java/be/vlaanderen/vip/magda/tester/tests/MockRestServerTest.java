@@ -1,7 +1,13 @@
 package be.vlaanderen.vip.magda.tester.tests;
 
+import be.vlaanderen.vip.magda.client.ConnectorMagdaClient;
+import be.vlaanderen.vip.magda.client.MagdaConnector;
+import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
+import be.vlaanderen.vip.magda.client.MagdaSoapConnectionBuilder;
+import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.diensten.MobilityRegistrationRequest;
 import be.vlaanderen.vip.magda.client.domain.mobility.MobilityRegistrationJsonAdapter;
+import be.vlaanderen.vip.magda.client.domain.mobility.MobilityRegistrationService;
 import be.vlaanderen.vip.magda.client.domain.mobility.Registration;
 import be.vlaanderen.vip.magda.client.domain.mobility.RestMobilityRegistrationService;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
@@ -41,7 +47,11 @@ public class MockRestServerTest extends MockServerTest {
     @SneakyThrows
     void setup() {
         var magdaEndpoints = makeMockEndpoints();
-        MagdaRestClientImpl client = new MagdaRestClientBuilder().withEndpoints(magdaEndpoints).build();
+        MagdaConnection magdaConnection = new MagdaSoapConnectionBuilder()
+                .withEndpoints(magdaEndpoints)
+                .build();
+        MagdaConnector magdaConnector = new MagdaConnectorImpl(magdaConnection, null, null);
+        ConnectorMagdaClient client = new ConnectorMagdaClient(magdaConnector);
         registrationInfo = MagdaRegistrationInfo.builder().identification("id").hoedanigheidscode("hc").build();
         service = new RestMobilityRegistrationService(client, new MobilityRegistrationJsonAdapter());
     }

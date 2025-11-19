@@ -2,14 +2,18 @@ package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
+import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
+import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.slf4j.Slf4j;
 import org.w3c.dom.Document;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Optional;
 
 @Slf4j
 public class MagdaMockConnection implements MagdaConnection {
@@ -33,6 +37,12 @@ public class MagdaMockConnection implements MagdaConnection {
         }
 
         return send(xml);
+    }
+
+    @Override
+    public JsonNode sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException {
+        // XXX: rewrire Wiremock to here
+        return null;
     }
 
     private Document send(Document xml) {
