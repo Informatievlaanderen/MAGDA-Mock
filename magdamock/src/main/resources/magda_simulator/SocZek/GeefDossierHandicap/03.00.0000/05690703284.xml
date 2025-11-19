@@ -1,0 +1,137 @@
+<web:GeefDossierHandicapResponse xmlns:web="http://magda.vlaanderen.be/soczek/soap/geefdossierhandicap/v03_00">
+    <Repliek>
+        <Context>
+            <Naam>GeefDossierHandicap</Naam>
+            <Versie>03.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2025-11-19</Datum>
+                    <Tijd>12:29:43.419</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>6befc972-b5d9-4788-9ee7-23fed997dea5</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>gent.be/ipdc57648</Identificatie>
+                    <Referte>AREF_QT_911125_033610</Referte>
+                    <Hoedanigheid>ipdc57648</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>ec7b22fe-137b-45a0-9f86-f08f770faab6</Referte>
+                <Inhoud>
+                    <ConsultFilesByDateResponse>
+                        <status>
+                            <value>DATA_FOUND</value>
+                            <code>MSG00000</code>
+                            <description>Treatment successful</description>
+                        </status>
+                        <ssin>05690703284</ssin>
+                        <results>
+                            <dgphResult>
+                                <status>
+                                    <value>DATA_FOUND</value>
+                                    <code>MSG00000</code>
+                                    <description>Treatment successful</description>
+                                </status>
+                                <file>
+                                    <addressHandicappedPerson>
+                                        <lastName>BENALI</lastName>
+                                        <firstName>AMIRA</firstName>
+                                        <address class="belgianAddress">
+                                            <streetCode>0000071649</streetCode>
+                                            <streetName language="FR">SLEEPSTRAAT</streetName>
+                                            <streetName language="NL">SLEEPSTRAAT</streetName>
+                                            <streetName language="DE">SLEEPSTRAAT</streetName>
+                                            <houseNumber>82</houseNumber>
+                                            <postalCode>9000</postalCode>
+                                            <cityCode>44021</cityCode>
+                                            <cityName language="FR">GENT</cityName>
+                                            <cityName language="NL">GENT</cityName>
+                                            <cityName language="DE">GENT</cityName>
+                                            <countryCode>150</countryCode>
+                                            <countryName language="FR">Belgique</countryName>
+                                            <countryName language="NL">België</countryName>
+                                            <countryName language="DE">Belgien</countryName>
+                                        </address>
+                                    </addressHandicappedPerson>
+                                    <evolutionOfRequest>
+                                        <legislation>0</legislation>
+                                        <administrativePendingRequest>false</administrativePendingRequest>
+                                        <handicapRecognitionPending>false</handicapRecognitionPending>
+                                        <appeal>false</appeal>
+                                    </evolutionOfRequest>
+                                    <handicapRecognitions>
+                                        <handicapRecognition>
+                                            <recognitionStatus>
+                                                <dateOfDecision>2020-09-04</dateOfDecision>
+                                                <startDateRecognition>2020-09-04</startDateRecognition>
+                                            </recognitionStatus>
+                                            <legislation>3</legislation>
+                                            <resultRecognitionAdult>
+                                                <diminuationIndependence>
+                                                    <mobility>1</mobility>
+                                                    <nourishment>2</nourishment>
+                                                    <hygiene>1</hygiene>
+                                                    <household>1</household>
+                                                    <supervision>2</supervision>
+                                                    <socialSkills>1</socialSkills>
+                                                    <totalPoints>8</totalPoints>
+                                                </diminuationIndependence>
+                                                <diminuationEarnings>true</diminuationEarnings>
+                                                <unsuitability>
+                                                    <mentalUnsuitability>0</mentalUnsuitability>
+                                                    <physicalUnsuitability>0</physicalUnsuitability>
+                                                </unsuitability>
+                                            </resultRecognitionAdult>
+                                            <decisionStatus>RECOGNITION_DETERMINED</decisionStatus>
+                                        </handicapRecognition>
+                                    </handicapRecognitions>
+
+                                    <rights>
+                                        <period>
+                                            <beginDate>2020-09-04</beginDate>
+                                        </period>
+                                        <legislation>3</legislation>
+                                        <totalMonthAmount>154.65</totalMonthAmount>
+                                        <monthAmount>84.85</monthAmount>
+                                        <categoryIVT>C</categoryIVT>
+                                        <categoryIT>1</categoryIT>
+                                        <partnerIncome>false</partnerIncome>
+                                        <decisionStatus>POSITIVE</decisionStatus>
+                                    </rights>
+                                </file>
+                            </dgphResult>
+                            <irisCareResult>
+                                <status>
+                                    <value>NO_DATA_FOUND</value>
+                                    <code>MSG00021</code>
+                                    <description>The SSIN is not sufficiently integrated for the provider of the data</description>
+                                </status>
+                            </irisCareResult>
+                            <aviqResult>
+                                <status>
+                                    <value>NO_DATA_FOUND</value>
+                                    <code>MSG00021</code>
+                                    <description>The SSIN is not sufficiently integrated for the provider of the data</description>
+                                </status>
+                            </aviqResult>
+                            <dslResult>
+                                <status>
+                                    <value>NO_DATA_FOUND</value>
+                                    <code>MSG00021</code>
+                                    <description>The SSIN is not sufficiently integrated for the provider of the data</description>
+                                </status>
+                            </dslResult>
+                        </results>
+                    </ConsultFilesByDateResponse>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefDossierHandicapResponse>

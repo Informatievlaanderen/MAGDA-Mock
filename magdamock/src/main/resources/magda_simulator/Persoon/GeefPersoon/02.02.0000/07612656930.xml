@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefPersoon</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2025-11-18</Datum>
+                    <Tijd>11:45:29.741</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>9b7f6a5e-3d2c-4b1a-8f0e-1c2b3a4d5e6f</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>gent.be/ipdc57648</Identificatie>
+                    <Referte>AREF_QT_911125_274591</Referte>
+                    <Hoedanigheid>ipdc57648</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>c4d3e2f1-0a9b-4c8d-8e7f-6a5b4c3d2e1f</Referte>
+                <Inhoud>
+                    <Persoon Bron="RR" DatumCreatie="2007-01-26">
+                        <INSZ>07612656930</INSZ>
+                        <Naam DatumBegin="2007-01-26">
+                            <Achternamen>
+                                <Achternaam>Dupont</Achternaam>
+                            </Achternamen>
+                            <Voornamen>
+                                <Voornaam>Adam</Voornaam>
+                            </Voornamen>
+                        </Naam>
+                        <Geslacht>
+                            <Code>1</Code>
+                            <Omschrijving>Mannelijk</Omschrijving>
+                        </Geslacht>
+                        <Beheerder DatumBegin="2007-01-26">
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Fusie>
+                                <Code>0</Code>
+                                <Omschrijving Taal="nl">NEEN</Omschrijving>
+                            </Fusie>
+                            <Taalregime>
+                                <Code>2</Code>
+                                <Omschrijving Taal="nl">Nederlands</Omschrijving>
+                            </Taalregime>
+                        </Beheerder>
+                        <Register DatumBegin="2007-01-26">
+                            <Code>RR</Code>
+                            <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                        </Register>
+                        <Nationaliteiten>
+                            <Nationaliteit DatumBegin="2007-01-26">
+                                <Code>150</Code>
+                                <Omschrijving>Belg</Omschrijving>
+                            </Nationaliteit>
+                        </Nationaliteiten>
+                        <Geboorte DatumBegin="2007-01-26">
+                            <Datum>2007-01-26</Datum>
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Aktenummer>53728</Aktenummer>
+                            <Bewijsstuk>
+                                <Code>00</Code>
+                                <Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
+                            </Bewijsstuk>
+                        </Geboorte>
+                        <Adressen>
+                            <Hoofdverblijfplaats DatumBegin="2025-04-05">
+                                <Straatnaam>
+                                    <String>Veurestraat</String>
+                                    <Taal>nl</Taal>
+                                </Straatnaam>
+                                <Huisnummer>6</Huisnummer>
+                                <Gemeentenaam>
+                                    <String>Gent</String>
+                                    <Taal>nl</Taal>
+                                </Gemeentenaam>
+                                <Land>
+                                    <String>BELGIE</String>
+                                    <Taal>nl</Taal>
+                                </Land>
+                                <Postcode>9051</Postcode>
+                                <NISCodeLand>150</NISCodeLand>
+                                <ISOCodeLand>BEL</ISOCodeLand>
+                                <NISCodeGemeente>44021</NISCodeGemeente>
+                            </Hoofdverblijfplaats>
+                        </Adressen>
+                        <Gezinsleden>
+                            <Gezinslid DatumBegin="2007-01-26">
+                                <Positie>
+                                    <Code>03</Code>
+                                </Positie>
+                            </Gezinslid>
+                        </Gezinsleden>
+                    </Persoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefPersoonResponse>

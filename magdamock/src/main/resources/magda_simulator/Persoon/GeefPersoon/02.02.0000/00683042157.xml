@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefPersoon</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2025-11-18</Datum>
+                    <Tijd>13:49:12.715</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>921edec9-bb42-4d54-a155-0e54e61153c5</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>gent.be/ipdc57648</Identificatie>
+                    <Referte>AREF_QT_911125_445082</Referte>
+                    <Hoedanigheid>ipdc57648</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>3427d4a8-5e25-4af5-81e1-441730614bba</Referte>
+                <Inhoud>
+                    <Persoon Bron="RR" DatumCreatie="2000-08-30">
+                        <INSZ>00683042157</INSZ>
+                        <Naam DatumBegin="2000-08-30">
+                            <Achternamen>
+                                <Achternaam>Dekker</Achternaam>
+                            </Achternamen>
+                            <Voornamen>
+                                <Voornaam>Marc</Voornaam>
+                            </Voornamen>
+                        </Naam>
+                        <Geslacht>
+                            <Code>1</Code>
+                            <Omschrijving>Mannelijk</Omschrijving>
+                        </Geslacht>
+                        <Beheerder DatumBegin="2000-08-30">
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Fusie>
+                                <Code>0</Code>
+                                <Omschrijving Taal="nl">NEEN</Omschrijving>
+                            </Fusie>
+                            <Taalregime>
+                                <Code>2</Code>
+                                <Omschrijving Taal="nl">Nederlands</Omschrijving>
+                            </Taalregime>
+                        </Beheerder>
+                        <Register DatumBegin="2000-08-30">
+                            <Code>RR</Code>
+                            <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                        </Register>
+                        <Nationaliteiten>
+                            <Nationaliteit DatumBegin="2000-08-30">
+                                <Code>150</Code>
+                                <Omschrijving>Belg</Omschrijving>
+                            </Nationaliteit>
+                        </Nationaliteiten>
+                        <Geboorte DatumBegin="2000-08-30">
+                            <Datum>2000-08-30</Datum>
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Aktenummer>47195</Aktenummer>
+                            <Bewijsstuk>
+                                <Code>00</Code>
+                                <Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
+                            </Bewijsstuk>
+                        </Geboorte>
+                        <Adressen>
+                            <Hoofdverblijfplaats DatumBegin="2019-02-14">
+                                <Straatnaam>
+                                    <String>Kompasplein</String>
+                                    <Taal>nl</Taal>
+                                </Straatnaam>
+                                <Huisnummer>16</Huisnummer>
+                                <Gemeentenaam>
+                                    <String>Gent</String>
+                                    <Taal>nl</Taal>
+                                </Gemeentenaam>
+                                <Land>
+                                    <String>BELGIE</String>
+                                    <Taal>nl</Taal>
+                                </Land>
+                                <Postcode>9000</Postcode>
+                                <NISCodeLand>150</NISCodeLand>
+                                <ISOCodeLand>BEL</ISOCodeLand>
+                                <NISCodeGemeente>44021</NISCodeGemeente>
+                            </Hoofdverblijfplaats>
+                        </Adressen>
+                        <Gezinsleden>
+                            <Gezinslid DatumBegin="2019-02-14">
+                                <Positie>
+                                    <Code>01</Code>
+                                </Positie>
+                            </Gezinslid>
+                        </Gezinsleden>
+                    </Persoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefPersoonResponse>

@@ -1,0 +1,139 @@
+<web:GeefDossierHandicapResponse xmlns:web="http://magda.vlaanderen.be/soczek/soap/geefdossierhandicap/v03_00">
+    <Repliek>
+        <Context>
+            <Naam>GeefDossierHandicap</Naam>
+            <Versie>03.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2025-11-18</Datum>
+                    <Tijd>14:41:15.381</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>8e220381-a535-4e7f-886f-9e83aa100090</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>gent.be/ipdc57648</Identificatie>
+                    <Referte>AREF_QT_911125_143815</Referte>
+                    <Hoedanigheid>ipdc2858</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>3ab44cf1-59fd-40b9-ac7e-e150cb3bbd57</Referte>
+                <Inhoud>
+                    <ConsultFilesByDateResponse>
+                        <status>
+                            <value>DATA_FOUND</value>
+                            <code>MSG00000</code>
+                            <description>Treatment successful</description>
+                        </status>
+                        <ssin>12630962125</ssin>
+                        <results>
+                            <dgphResult>
+                                <status>
+                                    <value>DATA_FOUND</value>
+                                    <code>MSG00000</code>
+                                    <description>Treatment successful</description>
+                                </status>
+                                <file>
+                                    <addressHandicappedPerson>
+                                        <lastName>VLIETINCK</lastName>
+                                        <firstName>BRUNO</firstName>
+                                        <address class="belgianAddress">
+                                            <streetCode>0000000157</streetCode>
+                                            <streetName language="FR">HOOGSTRAAT</streetName>
+                                            <streetName language="NL">HOOGSTRAAT</streetName>
+                                            <streetName language="DE">HOOGSTRAAT</streetName>
+                                            <houseNumber>78</houseNumber>
+                                            <postalCode>9000</postalCode>
+                                            <cityCode>44021</cityCode>
+                                            <cityName language="FR">GENT</cityName>
+                                            <cityName language="NL">GENT</cityName>
+                                            <cityName language="DE">GENT</cityName>
+                                            <countryCode>150</countryCode>
+                                            <countryName language="FR">Belgique</countryName>
+                                            <countryName language="NL">België</countryName>
+                                            <countryName language="DE">Belgien</countryName>
+                                        </address>
+                                    </addressHandicappedPerson>
+                                    <evolutionOfRequest>
+                                        <legislation>0</legislation>
+                                        <administrativePendingRequest>false</administrativePendingRequest>
+                                        <handicapRecognitionPending>false</handicapRecognitionPending>
+                                        <appeal>false</appeal>
+                                    </evolutionOfRequest>
+                                    <handicapRecognitions>
+                                        <handicapRecognition>
+                                            <recognitionStatus>
+                                                <dateOfDecision>2022-08-29</dateOfDecision>
+                                                <startDateRecognition>2022-07-01</startDateRecognition>
+                                            </recognitionStatus>
+                                            <legislation>3</legislation>
+                                            <handicapRecognitionDetails>
+                                                <lowerLimbs50p>true</lowerLimbs50p>
+                                                <fullBlindness>false</fullBlindness>
+                                                <upperLimbsAmputated>false</upperLimbsAmputated>
+                                                <upperLimbsParalyzed>false</upperLimbsParalyzed>
+                                            </handicapRecognitionDetails>
+                                            <resultRecognitionChild>
+                                                <inabilityFollowCourse>false</inabilityFollowCourse>
+                                                <inabilityToWork>false</inabilityToWork>
+                                                <disabilityCode>1</disabilityCode>
+                                                <independencyScore>1</independencyScore>
+                                                <pillars>
+                                                    <pillar1>1</pillar1>
+                                                    <pillar2>3</pillar2>
+                                                    <pillar3>6</pillar3>
+                                                    <pillarsTotal>10</pillarsTotal>
+                                                </pillars>
+                                                <childPathology>true</childPathology>
+                                            </resultRecognitionChild>
+                                            <decisionStatus>RECOGNITION_DETERMINED</decisionStatus>
+                                        </handicapRecognition>
+                                    </handicapRecognitions>
+                                    <rights>
+                                        <period>
+                                            <beginDate>2025-02-01</beginDate>
+                                        </period>
+                                        <legislation>3</legislation>
+                                        <totalMonthAmount>154.65</totalMonthAmount>
+                                        <monthAmount>84.85</monthAmount>
+                                        <categoryIVT>C</categoryIVT>
+                                        <categoryIT>1</categoryIT>
+                                        <partnerIncome>false</partnerIncome>
+                                        <decisionStatus>POSITIVE</decisionStatus>
+                                    </rights>
+                                </file>
+                            </dgphResult>
+                            <irisCareResult>
+                                <status>
+                                    <value>NO_DATA_FOUND</value>
+                                    <code>MSG00021</code>
+                                    <description>The SSIN is not sufficiently integrated for the provider of the data</description>
+                                </status>
+                            </irisCareResult>
+                            <aviqResult>
+                                <status>
+                                    <value>NO_DATA_FOUND</value>
+                                    <code>MSG00021</code>
+                                    <description>The SSIN is not sufficiently integrated for the provider of the data</description>
+                                </status>
+                            </aviqResult>
+                            <dslResult>
+                                <status>
+                                    <value>NO_DATA_FOUND</value>
+                                    <code>MSG00021</code>
+                                    <description>The SSIN is not sufficiently integrated for the provider of the data</description>
+                                </status>
+                            </dslResult>
+                        </results>
+                    </ConsultFilesByDateResponse>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefDossierHandicapResponse>

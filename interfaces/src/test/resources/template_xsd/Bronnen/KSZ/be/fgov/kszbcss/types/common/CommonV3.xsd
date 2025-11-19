@@ -105,6 +105,12 @@
 					<xsd:documentation xml:lang="NL">Bisregister : Ternummer</xsd:documentation>
 				</xsd:annotation>
 			</xsd:pattern>
+			<xsd:pattern value="[0-9][0-9](([6][0-9])|([7][0-2]))(([0-2][0-9])|([3][0-1]))[0-9]{3}(([0-8][0-9])|([9][0-7]))">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="FR">Registre Mock : numero Mock</xsd:documentation>
+					<xsd:documentation xml:lang="NL">Mockregister : Mock nummer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:pattern>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LegalContextType">
