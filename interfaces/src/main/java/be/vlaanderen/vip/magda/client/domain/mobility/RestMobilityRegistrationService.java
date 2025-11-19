@@ -28,13 +28,10 @@ public class RestMobilityRegistrationService implements MobilityRegistrationServ
         MagdaRestRequest restRequest = MagdaRestRequest.builder()
                 .dienst(dienst)
                 .method(Method.GET)
-                .headers(
-                        Map.of("X-Magda-Sender-ID", request.getRegistrationInfo().getIdentification(),
-                                "X-Magda-Sender-QualityCode", request.getRegistrationInfo().getHoedanigheidscode().orElse(""),
-                                "X-Correlation-ID", request.getCorrelationId().toString(),
-                                "X-Magda-Enduser-ID", request.getEnduserId()
-                        )
-                )
+                .senderId(request.getRegistrationInfo().getIdentification())
+                .senderQualityCode(request.getRegistrationInfo().getHoedanigheidscode().orElse(""))
+                .correlationId(request.getCorrelationId().toString())
+                .enduserId(request.getEnduserId())
                 .urlQueryParams(request.getQueryParameters())
                 .build();
         try {
