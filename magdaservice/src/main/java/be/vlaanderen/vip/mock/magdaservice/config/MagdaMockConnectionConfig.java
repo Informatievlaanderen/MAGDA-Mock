@@ -73,14 +73,9 @@ public class MagdaMockConnectionConfig {
         return builder.build();
     }
 
-    @Bean
-    public WireMockServer wireMockServer(){
-        return EmbeddedWireMockBuilder.wireMockServer();
-    }
-    
-    @Bean
-    public MagdaConnection magdaMockConnection(SOAPSimulator simulator, WireMockServer wireMockServer) {
-        return MagdaMockConnection.create(simulator, wireMockServer);
+    @Bean("magdaSoapConnection")
+    public MagdaConnection magdaMockConnection(SOAPSimulator simulator) {
+        return MagdaMockConnection.create(simulator);
     }
     
 }

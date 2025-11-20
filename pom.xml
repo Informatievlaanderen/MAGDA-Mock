@@ -98,7 +98,8 @@
 		<module>common</module>
 		<module>signing</module>
 		<module>magdaservice</module>
-		<module>magdamock</module>
+        <module>magdamock</module>
+        <module>magdamock-rest</module>
 		<module>magdamock-starter</module>
         <module>magdaconnector</module>
 		<module>interfaces</module>

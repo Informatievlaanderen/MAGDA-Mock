@@ -1,13 +1,12 @@
 package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.ConnectorMagdaClient;
+import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
 import be.vlaanderen.vip.magda.client.diensten.MobilityRegistrationRequest;
 import be.vlaanderen.vip.magda.client.domain.mobility.MobilityRegistrationJsonAdapter;
 import be.vlaanderen.vip.magda.client.domain.mobility.RestMobilityRegistrationService;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.rest.MagdaResponseJson;
-import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
-import be.vlaanderen.vip.mock.magda.config.EmbeddedWireMockBuilder;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
@@ -16,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Slf4j
-public class MobilityRegistrationTest extends MockTestBase {
+public class MobilityRegistrationTest {
     @Test
     @SneakyThrows
     void getMobilityRegistration_givesResponse() {
@@ -28,8 +27,8 @@ public class MobilityRegistrationTest extends MockTestBase {
                 .enduserId("00000000097")
                 .build();
 
-        var clientLogService = new ClientLogServiceMock();
-        var connector = makeMagdaConnector(clientLogService);
+        var connection = MagdaMockRestConnection.create();
+        var connector = new MagdaConnectorImpl(connection, null, null);
         var client = new ConnectorMagdaClient(connector);
         RestMobilityRegistrationService restMobilityRegistrationService = new RestMobilityRegistrationService(client, new MobilityRegistrationJsonAdapter());
         var antwoord = restMobilityRegistrationService.getRegistrations(request);
@@ -40,7 +39,7 @@ public class MobilityRegistrationTest extends MockTestBase {
     @Test
     @SneakyThrows
     void rawRestCall_givesResponse() {
-        var mockConnection = MagdaMockConnection.create();
+        var mockConnection = MagdaMockRestConnection.create();
         var json = mockConnection.sendRestRequest("/v1/mobility/registrations", "plateNr=1ABC123", "GET", "");
         MobilityRegistrationJsonAdapter mobilityRegistrationJsonAdapter = new MobilityRegistrationJsonAdapter();
         var antwoord = mobilityRegistrationJsonAdapter.adapt(new MagdaResponseJson(json));
