@@ -40,9 +40,9 @@ public class MobilityRegistrationTest {
     @SneakyThrows
     void rawRestCall_givesResponse() {
         var mockConnection = MagdaMockRestConnection.create();
-        var json = mockConnection.sendRestRequest("/v1/mobility/registrations", "plateNr=1ABC123", "GET", "");
+        var response = mockConnection.sendRestRequest("/v1/mobility/registrations", "plateNr=1ABC123", "GET", "");
         MobilityRegistrationJsonAdapter mobilityRegistrationJsonAdapter = new MobilityRegistrationJsonAdapter();
-        var antwoord = mobilityRegistrationJsonAdapter.adapt(new MagdaResponseJson(json));
+        var antwoord = mobilityRegistrationJsonAdapter.adapt(new MagdaResponseJson(response.getLeft(), response.getRight()));
         Assertions.assertNotNull(antwoord);
         assertEquals("71640618918", antwoord.getFirst().getTitular().getPerson().getNationalNr().getIdentificator());
     }

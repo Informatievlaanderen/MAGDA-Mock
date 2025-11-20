@@ -9,6 +9,7 @@ import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
+import org.apache.commons.lang3.tuple.Pair;
 import org.w3c.dom.Document;
 
 import java.io.IOException;
@@ -48,12 +49,12 @@ public class MagdaMockConnection implements MagdaConnection {
     }
 
     @Override
-    public JsonNode sendRestRequest(MagdaRestRequest request) {
+    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) {
         throw new NotImplementedException();
     }
 
     @Override
-    public JsonNode sendRestRequest(String path, String query, String method, String requestBody) {
+    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) {
         throw new NotImplementedException();
     }
 

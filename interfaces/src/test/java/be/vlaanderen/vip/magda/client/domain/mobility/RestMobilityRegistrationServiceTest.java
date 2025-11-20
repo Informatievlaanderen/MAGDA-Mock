@@ -36,7 +36,7 @@ public class RestMobilityRegistrationServiceTest {
                     .plateNr("TXAA999")
                     .build();
 
-            MagdaResponseJson response = new MagdaResponseJson(new ObjectMapper().readTree(TestHelpers.getResourceAsString(getClass(), "/magdamock/mobility/registration-sample.json")));
+            MagdaResponseJson response = new MagdaResponseJson(new ObjectMapper().readTree(TestHelpers.getResourceAsString(getClass(), "/magdamock/mobility/registration-sample.json")), 200);
             when(magdaRestClient.sendRestRequest(any())).thenReturn(response);
             List<Registration> registrationList = service.getRegistrations(request);
             assertEquals(1, registrationList.size());

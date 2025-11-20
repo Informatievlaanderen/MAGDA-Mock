@@ -2,7 +2,6 @@ package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
-import be.vlaanderen.vip.magda.client.rest.MagdaResponseJson;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
@@ -17,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
 import org.apache.hc.client5.http.config.ConnectionConfig;
@@ -40,12 +40,21 @@ import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.security.*;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.util.Map;
 import java.util.Optional;
@@ -195,7 +204,7 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
     private final ObjectMapper mapper;
 
     @Override
-    public JsonNode sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException {
+    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException {
         URIBuilder uriBuilder = new URIBuilder(magdaEndpoints.magdaUri(request.getDienst()));
         for (Map.Entry<String, String> header : request.getUrlQueryParams().entrySet()) {
             uriBuilder.addParameter(header.getKey(), header.getValue());
@@ -209,12 +218,14 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
         }
 
         try (var response = httpClient.execute(httpRequest)) {
-            log.info("Response from SOAP endpoint {}: {}", urlString, response.getCode());
+            log.info("Response from REST endpoint {}: {}", urlString, response.getCode());
 
             if (response.getCode() == 200) {
                 var responseEntity = response.getEntity();
 
-                return parseStreamAsJson(responseEntity.getContent());
+                return Pair.of(parseStreamAsJson(responseEntity.getContent()), 200);
+            } else if (response.getCode() == 204) {
+                return Pair.of(null, 204);
             } else {
                 var errorBody = IOUtils.toString(response.getEntity().getContent(), Charset.defaultCharset());
                 log.error("REST {} {} failed with HTTP error {} {} and body {}", request.getMethod(), urlString, response.getCode(), response.getReasonPhrase(), errorBody);
@@ -228,7 +239,7 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
     }
 
     @Override
-    public JsonNode sendRestRequest(String path, String query, String method, String requestBody) {
+    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) {
         throw new NotImplementedException();
     }
 

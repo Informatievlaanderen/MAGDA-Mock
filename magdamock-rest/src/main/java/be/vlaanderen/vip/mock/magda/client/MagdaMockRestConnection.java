@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
+import org.apache.commons.lang3.tuple.Pair;
 import org.w3c.dom.Document;
 
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class MagdaMockRestConnection implements MagdaConnection {
     }
 
     @Override
-    public JsonNode sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException {
+    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException {
         String queryParams = request.getUrlQueryParams().entrySet().stream().map((kv) -> String.format("%s=%s", kv.getKey(), kv.getValue())).collect(Collectors.joining("&"));
         String method = request.getMethod().name();
 
@@ -65,7 +66,7 @@ public class MagdaMockRestConnection implements MagdaConnection {
     }
 
     @Override
-    public JsonNode sendRestRequest(String path, String query, String method, String requestBody) throws MagdaConnectionException {
+    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) throws MagdaConnectionException {
         String url = wireMockServer.url(path) + "?" + query;
         try {
             HttpRequest.BodyPublisher body = HttpRequest.BodyPublishers.ofString(requestBody);
@@ -78,9 +79,9 @@ public class MagdaMockRestConnection implements MagdaConnection {
 
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             if (response.statusCode() == 404) {
-                return null;
+                return Pair.of(null, 404);
             }
-            return mapper.readTree(response.body());
+            return Pair.of(mapper.readTree(response.body()), response.statusCode());
         } catch (IOException | InterruptedException e) {
             throw new MagdaConnectionException("Rest call failed", e);
         }

@@ -16,15 +16,22 @@ public class MobilityRegistrationJsonAdapterTest {
 
     @Test
     public void whenAdaptingResponseFromValidJson_returnsFilledList() throws Exception {
-        MagdaResponseJson response = new MagdaResponseJson(new ObjectMapper().readTree(TestHelpers.getResourceAsString(getClass(), "/magdamock/mobility/registration-sample.json")));
+        MagdaResponseJson response = new MagdaResponseJson(new ObjectMapper().readTree(TestHelpers.getResourceAsString(getClass(), "/magdamock/mobility/registration-sample.json")), 200);
         List<Registration> registrationList = adapter.adapt(response);
         assertEquals(1, registrationList.size());
-        assertNotNull(registrationList.get(0));
+        assertNotNull(registrationList.getFirst());
+    }
+
+    @Test
+    public void whenAdaptingResponseFromStatus204_returnsEmptyList() throws Exception {
+        MagdaResponseJson response = new MagdaResponseJson(null, 204);
+        List<Registration> registrationList = adapter.adapt(response);
+        assertEquals(0, registrationList.size());
     }
 
     @Test
     public void whenAdaptingResponseFromInvalidJson_returnsEmptyList() throws Exception {
-        MagdaResponseJson response = new MagdaResponseJson(new ObjectMapper().readTree(TestHelpers.getResourceAsString(getClass(), "/magdamock/mobility/registration-error.json")));
+        MagdaResponseJson response = new MagdaResponseJson(new ObjectMapper().readTree(TestHelpers.getResourceAsString(getClass(), "/magdamock/mobility/registration-error.json")), 200);
         List<Registration> registrationList = adapter.adapt(response);
         assertEquals(0, registrationList.size());
     }

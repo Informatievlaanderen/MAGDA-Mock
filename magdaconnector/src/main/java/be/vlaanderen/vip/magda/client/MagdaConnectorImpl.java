@@ -24,6 +24,7 @@ import be.vlaanderen.vip.magda.legallogging.service.ClientLogService;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.event.Level;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -111,8 +112,8 @@ public class MagdaConnectorImpl implements MagdaConnector {
     @Override
     public MagdaResponseJson sendRestRequest(MagdaRestRequest request) throws ServerException {
         try {
-            JsonNode jsonNode = connection.sendRestRequest(request);
-            return new MagdaResponseJson(jsonNode);
+            Pair<JsonNode, Integer> response = connection.sendRestRequest(request);
+            return new MagdaResponseJson(response.getLeft(), response.getRight());
         } catch (MagdaConnectionException e) {
             throw new ServerException("Error occurred while fetching REST data", e, UUID.fromString(request.getCorrelationId()), null);
         } catch (URISyntaxException e) {

@@ -16,6 +16,7 @@ import be.vlaanderen.vip.magda.legallogging.model.UitzonderingEntry;
 import be.vlaanderen.vip.magda.legallogging.service.ClientLogService;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.SneakyThrows;
+import org.apache.commons.lang3.tuple.Pair;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -384,12 +385,13 @@ class MagdaConnectorImplTest {
                     .enduserId("")
                     .build();
             JsonNode jsonNode = mock(JsonNode.class);
-            when(connection.sendRestRequest(request)).thenReturn(jsonNode);
+            when(connection.sendRestRequest(request)).thenReturn(Pair.of(jsonNode, 200));
 
             MagdaResponseJson response = connector.sendRestRequest(request);
             assertNotNull(response);
             assertNotNull(response.json());
             assertEquals(jsonNode, response.json());
+            assertEquals(200, response.statusCode());
         }
 
         @SneakyThrows
@@ -415,12 +417,13 @@ class MagdaConnectorImplTest {
                     .enduserId("")
                     .build();
             JsonNode jsonNode = mock(JsonNode.class);
-            when(connection.sendRestRequest(request)).thenReturn(jsonNode);
+            when(connection.sendRestRequest(request)).thenReturn(Pair.of(jsonNode, 200));
 
             MagdaResponseJson response = connector.sendRestRequest(requestBuilder, "default");
             assertNotNull(response);
             assertNotNull(response.json());
             assertEquals(jsonNode, response.json());
+            assertEquals(200, response.statusCode());
         }
 
         @SneakyThrows

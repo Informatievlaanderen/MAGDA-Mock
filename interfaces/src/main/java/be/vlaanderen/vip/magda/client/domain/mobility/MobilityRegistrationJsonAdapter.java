@@ -18,6 +18,9 @@ public class MobilityRegistrationJsonAdapter implements MobilityRegistrationAdap
     }
 
     public List<Registration> adapt(MagdaResponseJson response) {
+        if (response.statusCode() == 204) {
+            return new ArrayList<>();
+        }
         JsonNode mainNode = response.json();
         return Optional.ofNullable(mainNode.get("items"))
                 .map(items -> StreamSupport.stream(items.spliterator(), false))

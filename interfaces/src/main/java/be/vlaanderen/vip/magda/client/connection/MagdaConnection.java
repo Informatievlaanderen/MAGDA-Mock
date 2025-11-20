@@ -3,6 +3,7 @@ package be.vlaanderen.vip.magda.client.connection;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.apache.commons.lang3.tuple.Pair;
 import org.w3c.dom.Document;
 
 import java.net.URISyntaxException;
@@ -24,9 +25,9 @@ public interface MagdaConnection {
     /**
      * Sends a REST request and receives an according Json response document
      * @param request a DTO describing the REST request
-     * @return the response document.
+     * @return the response document and status code.
      */
-    JsonNode sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException;
+    Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException;
 
-    JsonNode sendRestRequest(String path, String query, String method, String requestBody) throws MagdaConnectionException;
+    Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) throws MagdaConnectionException;
 }
