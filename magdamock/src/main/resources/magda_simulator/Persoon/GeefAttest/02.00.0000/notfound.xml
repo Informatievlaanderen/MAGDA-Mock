@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web:GeefAttestResponse xmlns:web="http://webservice.geefattestdienst-02_00.persoon-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefAttest</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2021-04-19</Datum>
+                    <Tijd>12:47:42.361</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>159d70b1-a6ba-45b6-ba97-cba30d17e065</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kb.vlaanderen.be/aiv/burgerloket-wwoom-aip</Identificatie>
+                    <Referte>0437dd31-9d7b-469f-90d4-b021f4e39bdb</Referte>
+                    <Hoedanigheid>1303</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>10552</Referte>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>445810</Identificatie>
+                        <Oorsprong>MAGDA</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2018-06-20</Datum>
+                            <Tijd>13:37:03.806</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Fout in opgegeven zoekcriteria: Ongekende attestnaam</Diagnose>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefAttestResponse>

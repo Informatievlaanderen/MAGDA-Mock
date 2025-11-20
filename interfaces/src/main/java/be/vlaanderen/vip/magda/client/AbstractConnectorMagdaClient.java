@@ -1,5 +1,7 @@
 package be.vlaanderen.vip.magda.client;
 
+import be.vlaanderen.vip.magda.client.rest.MagdaResponseJson;
+import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.exception.ServerException;
 
 import java.util.UUID;
@@ -29,6 +31,15 @@ public abstract class AbstractConnectorMagdaClient implements MagdaClient {
         }
         catch (ServerException e) {
             throw new MagdaClientException("Error occurred while sending magda request", e);
+        }
+    }
+
+    @Override
+    public MagdaResponseJson sendRestRequest(MagdaRestRequest request) throws MagdaClientException{
+        try {
+            return connector.sendRestRequest(request);
+        } catch (ServerException e) {
+            throw new MagdaClientException("Error occurred while sending magda REST request", e);
         }
     }
 

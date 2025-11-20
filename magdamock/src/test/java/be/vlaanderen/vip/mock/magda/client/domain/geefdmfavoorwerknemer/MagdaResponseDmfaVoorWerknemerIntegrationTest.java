@@ -4,7 +4,6 @@ import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.diensten.GeefDmfaVoorWerknemerRequest;
 import be.vlaanderen.vip.magda.client.domain.dto.Kwartaal;
 import be.vlaanderen.vip.magda.client.domain.geefdmfavoorwerknemer.DmfaAttest;
-import be.vlaanderen.vip.magda.client.domain.giveenterprise.Enterprise;
 import be.vlaanderen.vip.mock.magda.client.domain.MagdaMock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

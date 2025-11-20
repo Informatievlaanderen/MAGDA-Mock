@@ -3,7 +3,7 @@
   <parent>
     <artifactId>magda</artifactId>
     <groupId>be.vlaanderen.vip.mock</groupId>
-    <version>3.8.0</version>
+    <version>3.9.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -44,6 +44,12 @@
 			<version>${project.parent.version}</version>
 			<scope>compile</scope>
 		</dependency>
+
+        <dependency>
+            <groupId>org.wiremock</groupId>
+            <artifactId>wiremock-jetty12</artifactId>
+            <version>3.13.1</version>
+        </dependency>
 	</dependencies>
 	<artifactId>magdamock</artifactId>
 

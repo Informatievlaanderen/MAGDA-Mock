@@ -2,6 +2,7 @@ package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
+import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.magda.client.xml.XmlUtils;
@@ -9,10 +10,15 @@ import be.vlaanderen.vip.magda.config.MagdaConfigDto;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import brave.Tracing;
 import brave.httpclient5.HttpClient5TracingBuilder;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
 import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
@@ -23,6 +29,7 @@ import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
 import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactoryBuilder;
 import org.apache.hc.core5.http.ContentType;
 import org.apache.hc.core5.http.io.entity.InputStreamEntity;
+import org.apache.hc.core5.net.URIBuilder;
 import org.apache.hc.core5.ssl.SSLContextBuilder;
 import org.apache.hc.core5.util.Timeout;
 import org.w3c.dom.Document;
@@ -33,11 +40,23 @@ import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.security.*;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
+import java.util.Map;
 import java.util.Optional;
 import java.util.function.UnaryOperator;
 
@@ -49,6 +68,7 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
     private MagdaSoapConnection(MagdaEndpoints magdaEndpoints, CloseableHttpClient httpClient) {
         this.magdaEndpoints = magdaEndpoints;
         this.httpClient = httpClient;
+        this.mapper = new ObjectMapper();
     }
 
     public MagdaSoapConnection(MagdaEndpoints magdaEndpoints, MagdaConfigDto config) throws TwoWaySslException {
@@ -181,6 +201,47 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
             throw new MagdaConnectionException(String.format("POST %s failed", urlString), e);
         }
     }
+    private final ObjectMapper mapper;
+
+    @Override
+    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException {
+        URIBuilder uriBuilder = new URIBuilder(magdaEndpoints.magdaUri(request.getDienst()));
+        for (Map.Entry<String, String> header : request.getUrlQueryParams().entrySet()) {
+            uriBuilder.addParameter(header.getKey(), header.getValue());
+        }
+        URI urlString = uriBuilder.build();
+
+        HttpUriRequestBase httpRequest = new HttpUriRequestBase(request.getMethod().name(), urlString);
+        httpRequest.setHeader("Content-Type", "application/json");
+        for (Map.Entry<String, String> header : request.getHeaders().entrySet()) {
+            httpRequest.setHeader(header.getKey(), header.getValue());
+        }
+
+        try (var response = httpClient.execute(httpRequest)) {
+            log.info("Response from REST endpoint {}: {}", urlString, response.getCode());
+
+            if (response.getCode() == 200) {
+                var responseEntity = response.getEntity();
+
+                return Pair.of(parseStreamAsJson(responseEntity.getContent()), 200);
+            } else if (response.getCode() == 204) {
+                return Pair.of(null, 204);
+            } else {
+                var errorBody = IOUtils.toString(response.getEntity().getContent(), Charset.defaultCharset());
+                log.error("REST {} {} failed with HTTP error {} {} and body {}", request.getMethod(), urlString, response.getCode(), response.getReasonPhrase(), errorBody);
+
+                var exceptionMessage = String.format("REST %s %s faalt met HTTP error %d %s", request.getMethod(), urlString, response.getCode(), response.getReasonPhrase());
+                throw new MagdaConnectionException(exceptionMessage, response.getCode());
+            }
+        } catch (IOException e) {
+            throw new MagdaConnectionException(String.format("REST call with method %s to %s failed", request.getMethod(), urlString), e);
+        }
+    }
+
+    @Override
+    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) {
+        throw new NotImplementedException();
+    }
 
     private InputStreamEntity makeEntityWithXmlDocument(Document xml) throws TransformerException {
         var outputStream = new ByteArrayOutputStream();
@@ -193,5 +254,10 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
 
     private Document parseStream(InputStream resource) {
         return MagdaDocument.fromStream(resource).getXml();
+    }
+
+
+    private JsonNode parseStreamAsJson(InputStream content) throws IOException {
+        return mapper.readTree(content);
     }
 }

@@ -39,3 +39,4 @@ registratie:
   key-alias: ${MAGDA_KEY_ALIAS}
   key-password : ${MAGDA_KEY_PASSWORD}
   keystore-password : ${MAGDA_KEYSTORE_PASSWORD}
+

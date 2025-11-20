@@ -5,7 +5,7 @@
   <parent>
     <artifactId>magda</artifactId>
     <groupId>be.vlaanderen.vip.mock</groupId>
-    <version>3.8.0</version>
+    <version>3.9.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -86,6 +86,12 @@
         <artifactId>springfox-swagger2</artifactId>
         <version>${springfox-swagger2.version}</version>
       </dependency>
+      <dependency>
+          <groupId>be.vlaanderen.vip.mock</groupId>
+          <artifactId>magdamock-rest</artifactId>
+          <version>3.9.0</version>
+          <scope>compile</scope>
+      </dependency>
   </dependencies>
 
   <build>
@@ -110,7 +116,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.14.0</version>
+        <version>3.14.1</version>
         <configuration>
           <encoding>${project.build.sourceEncoding}</encoding>
           <forceJavacCompilerUse>true</forceJavacCompilerUse>

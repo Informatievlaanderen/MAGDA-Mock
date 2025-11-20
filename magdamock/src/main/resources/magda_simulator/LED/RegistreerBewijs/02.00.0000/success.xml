@@ -1,7 +1,4 @@
-<p:RegistreerBewijsResponse
-        xmlns:p="http://registreerbewijs.bewijsregistratiedienst.led.vlaanderen.be"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://registreerbewijs.bewijsregistratiedienst.led.vlaanderen.be RegistreerBewijsResponse.xsd ">
+<p:RegistreerBewijsResponse xmlns:p="http://registreerbewijs.bewijsregistratiedienst.led.vlaanderen.be">
     <Repliek>
         <Context>
             <Naam>RegistreerBewijs</Naam>

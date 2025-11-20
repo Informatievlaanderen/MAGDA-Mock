@@ -1,0 +1,43 @@
+<web:GeefEigendomstoestandenResponse
+        xmlns:web="http://webservice.geefeigendomstoestandendienst-02_00.kadaster-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefEigendomstoestanden</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2017-03-21</Datum>
+                    <Tijd>11:26:37.960</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>0f82bc0c-e54a-4ba3-955c-344bd3485bf1</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>ov.vlaanderen.be/studietoelagen/daf-aip-jg</Identificatie>
+                    <Referte>XE:1047:24558:5780</Referte>
+                    <Hoedanigheid>102</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>5800</Referte>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>30001</Identificatie>
+                        <Oorsprong>AAPD</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2023-03-18</Datum>
+                            <Tijd>12:57:28.957</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefEigendomstoestandenResponse>
