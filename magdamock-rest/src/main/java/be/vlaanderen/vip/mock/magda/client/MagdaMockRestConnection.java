@@ -4,6 +4,7 @@ import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
+import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockRestException;
 import be.vlaanderen.vip.mock.magda.config.EmbeddedWireMockBuilder;
 import be.vlaanderen.vip.mock.magda.config.MockRestMagdaEndpoints;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -53,20 +54,24 @@ public class MagdaMockRestConnection implements MagdaConnection {
     }
 
     @Override
-    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException {
+    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) {
         String queryParams = request.getUrlQueryParams().entrySet().stream().map((kv) -> String.format("%s=%s", kv.getKey(), kv.getValue())).collect(Collectors.joining("&"));
         String method = request.getMethod().name();
 
-        String stubUrl = "http://stub";
-        MockRestMagdaEndpoints endpoints = new MockRestMagdaEndpoints(new URI(stubUrl));
-        List<String> parts = new ArrayList<>(Arrays.stream(endpoints.magdaUri(request.getDienst()).toString().split(stubUrl)).toList());
-        parts.removeFirst();
-        String path = String.join(stubUrl, parts);
-        return sendRestRequest(path, queryParams, method, "");
+        try {
+            String stubUrl = "http://stub";
+            MockRestMagdaEndpoints endpoints = new MockRestMagdaEndpoints(new URI(stubUrl));
+            List<String> parts = new ArrayList<>(Arrays.stream(endpoints.magdaUri(request.getDienst()).toString().split(stubUrl)).toList());
+            parts.removeFirst();
+            String path = String.join(stubUrl, parts);
+            return sendRestRequest(path, queryParams, method, "");
+        } catch (URISyntaxException e) {
+            throw new MagdaMockRestException("Error simulating REST call", e.getCause());
+        }
     }
 
     @Override
-    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) throws MagdaConnectionException {
+    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) {
         String url = wireMockServer.url(path) + "?" + query;
         try {
             HttpRequest.BodyPublisher body = HttpRequest.BodyPublishers.ofString(requestBody);
@@ -83,7 +88,7 @@ public class MagdaMockRestConnection implements MagdaConnection {
             }
             return Pair.of(mapper.readTree(response.body()), response.statusCode());
         } catch (IOException | InterruptedException e) {
-            throw new MagdaConnectionException("Rest call failed", e);
+            throw new MagdaMockRestException("Error simulating REST call", e.getCause());
         }
     }
 }
