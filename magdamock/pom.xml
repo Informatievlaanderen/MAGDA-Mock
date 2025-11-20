@@ -44,6 +44,12 @@
 			<version>${project.parent.version}</version>
 			<scope>compile</scope>
 		</dependency>
+
+        <dependency>
+            <groupId>org.wiremock</groupId>
+            <artifactId>wiremock-jetty12</artifactId>
+            <version>3.13.1</version>
+        </dependency>
 	</dependencies>
 	<artifactId>magdamock</artifactId>
 

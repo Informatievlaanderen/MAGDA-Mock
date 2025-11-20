@@ -5,9 +5,11 @@ import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.mock.magda.client.MagdaMockConnection;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
+import be.vlaanderen.vip.mock.magda.config.EmbeddedWireMockBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import be.vlaanderen.vip.mock.magdaservice.exception.InitializationException;
+import com.github.tomakehurst.wiremock.WireMockServer;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -70,8 +72,8 @@ public class MagdaMockConnectionConfig {
 
         return builder.build();
     }
-    
-    @Bean
+
+    @Bean("magdaSoapConnection")
     public MagdaConnection magdaMockConnection(SOAPSimulator simulator) {
         return MagdaMockConnection.create(simulator);
     }

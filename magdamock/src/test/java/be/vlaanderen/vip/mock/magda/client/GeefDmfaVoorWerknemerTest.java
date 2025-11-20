@@ -1,14 +1,11 @@
 package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.diensten.GeefDmfaVoorWerknemerRequest;
-import be.vlaanderen.vip.magda.client.diensten.GeefWerkrelatiesRequest;
 import be.vlaanderen.vip.magda.client.domain.dto.Kwartaal;
 import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
