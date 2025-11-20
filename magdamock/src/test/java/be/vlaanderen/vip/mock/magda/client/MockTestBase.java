@@ -6,7 +6,6 @@ import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslProperties;
 import be.vlaanderen.vip.mock.magda.client.legallogging.ClientLogServiceMock;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
-import be.vlaanderen.vip.mock.magda.config.EmbeddedWireMockBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import lombok.extern.slf4j.Slf4j;
@@ -94,7 +93,7 @@ public abstract class MockTestBase {
                 throw new RuntimeException(e);
             }
         }
-        return new MagdaMockConnection(simulatorBuilder.build(), EmbeddedWireMockBuilder.wireMockServer());
+        return new MagdaMockConnection(simulatorBuilder.build());
     }
 
     protected void assertThatTechnicalFieldsInResponseMatchRequest(MagdaResponse magdaResponse, UUID requestId) {
