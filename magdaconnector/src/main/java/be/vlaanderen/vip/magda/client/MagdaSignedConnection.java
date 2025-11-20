@@ -70,4 +70,9 @@ public class MagdaSignedConnection implements MagdaConnection {
     public JsonNode sendRestRequest(MagdaRestRequest request) {
         throw new NotImplementedException();
     }
+
+    @Override
+    public JsonNode sendRestRequest(String path, String query, String method, String requestBody) throws MagdaConnectionException {
+        throw new NotImplementedException();
+    }
 }

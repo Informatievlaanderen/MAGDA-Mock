@@ -27,4 +27,6 @@ public interface MagdaConnection {
      * @return the response document.
      */
     JsonNode sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException;
+
+    JsonNode sendRestRequest(String path, String query, String method, String requestBody) throws MagdaConnectionException;
 }

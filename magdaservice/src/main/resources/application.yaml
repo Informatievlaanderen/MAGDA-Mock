@@ -43,3 +43,9 @@ registratie:
 wiremock:
   port: 0
   mappings-path: "classpath:/wiremock"
+
+rest:
+  path-mapping:
+    - name: "mobility-registrations"
+      version: "00.01"
+      path: "/v1/mobility/registrations"

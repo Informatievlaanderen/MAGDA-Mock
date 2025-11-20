@@ -227,6 +227,11 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
         }
     }
 
+    @Override
+    public JsonNode sendRestRequest(String path, String query, String method, String requestBody) {
+        throw new NotImplementedException();
+    }
+
     private InputStreamEntity makeEntityWithXmlDocument(Document xml) throws TransformerException {
         var outputStream = new ByteArrayOutputStream();
         Source xmlSource = new DOMSource(xml);
