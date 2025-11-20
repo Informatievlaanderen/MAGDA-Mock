@@ -5,6 +5,7 @@ import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
 import be.vlaanderen.vip.mock.magda.client.MagdaMockConnection;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
+import be.vlaanderen.vip.mock.magda.config.EmbeddedWireMockBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
 import be.vlaanderen.vip.mock.magdaservice.exception.InitializationException;
@@ -74,7 +75,7 @@ public class MagdaMockConnectionConfig {
 
     @Bean
     public WireMockServer wireMockServer(){
-        return new EmbeddedWireMockConfig().wireMockServer();
+        return EmbeddedWireMockBuilder.wireMockServer();
     }
     
     @Bean
