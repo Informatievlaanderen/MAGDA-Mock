@@ -4,7 +4,7 @@
     "urlPath": "/v1/mobility/registrations",
     "queryParameters": {
       "plateNr": {
-        "equalTo": "1PVF787"
+        "equalTo": "1ABC123"
       }
     }
   },
@@ -13,6 +13,6 @@
     "headers": {
       "Content-Type": "application/json"
     },
-    "bodyFileName": "mobility-registrations/1PVF787.json"
+    "bodyFileName": "mobility/registrations/1ABC123.json"
   }
 }

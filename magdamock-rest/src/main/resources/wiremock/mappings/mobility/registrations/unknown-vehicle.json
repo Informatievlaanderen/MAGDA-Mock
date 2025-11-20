@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/v1/mobility/registrations"
+  },
+  "response": {
+    "status": 204,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
