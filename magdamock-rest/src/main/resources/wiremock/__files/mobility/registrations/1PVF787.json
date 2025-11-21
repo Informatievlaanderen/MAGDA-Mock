@@ -1,0 +1,188 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
+  "self": "/registrations?plateNr=1PVF787",
+  "items": [
+    {
+      "license": {
+        "plateNr": "1PVF787",
+        "plateUID": "0277132773",
+        "plateType": {
+          "code": "NM",
+          "description": "Normaal"
+        },
+        "languageCode": "NL",
+        "startSituationDate": "2016-09-27T00:00:00Z",
+        "lastRegistrationDate": "2016-09-27T00:00:00Z",
+        "status": {
+          "code": "REG",
+          "description": "Ingeschreven"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "lastUpdateDateTime": "2016-09-27T18:55:16.782Z"
+      },
+      "certificates": [
+        {
+          "id": "748070937",
+          "beginDate": "2016-09-26T22:00:00Z",
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          }
+        }
+      ],
+      "titular": {
+        "@id": "_:100",
+        "@type": "http://purl.org/dc/terms/Agent",
+        "type": "M",
+        "source": "KBO",
+        "organisation": {
+          "@id": "_:100",
+          "@type": "http://www.w3.org/ns/org#Organization",
+          "companyNr": {
+            "identificator": "0465771828"
+          },
+          "organisationName": {
+            "string": "CAMCO TECHNOLOGIES"
+          },
+          "isLeaseCompany": "N",
+          "legalFormCode": {
+            "@type": "http://www.w3.org/2004/02/skos/core#Concept",
+            "prefLabel": {
+              "string": "014"
+            }
+          },
+          "legalFormAbbrev": {
+            "@type": "http://www.w3.org/2004/02/skos/core#Concept",
+            "prefLabel": {
+              "string": "NV"
+            }
+          }
+        },
+        "contactInfo": {
+          "@type": "https://schema.org/ContactPoint",
+          "registrationAddress": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Technologielaan"
+            },
+            "houseNumber": "13",
+            "postalCode": "3001",
+            "cityNisCode": "24062",
+            "cityName": {
+              "string": "Leuven"
+            }
+          },
+          "address": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Technologielaan"
+            },
+            "houseNumber": "13",
+            "postalCode": "3001",
+            "cityNisCode": "24062",
+            "cityName": {
+              "string": "Leuven"
+            }
+          }
+        }
+      },
+      "transaction": {
+        "typeCode": "REG",
+        "subTypeCode": {
+          "code": "REGNM",
+          "description": "Normale inschrijving"
+        },
+        "dateTime": "2016-09-27T18:55:16.782Z",
+        "info": {
+          "plateNumberPriorTitular": "",
+          "importedVehicle": false
+        }
+      },
+      "vehicle": {
+        "vin": "WF06XXGCC6GL75647",
+        "unifier": "01",
+        "category": {
+          "code": "M1",
+          "description": "Voertuigen bestemd voor personenvervoer, ten hoogste 8 zitplaatsen (zonder bestuurder)"
+        },
+        "makeName": "FORD",
+        "commercialName": "Focus",
+        "firstRegistrationDate": "2016-09-27",
+        "firstKnownUseDate": "2016-09-27",
+        "type": "DYB",
+        "wvta": "e13*2007/46*1138*20",
+        "variant": "XWDB16",
+        "version": "5DAAMC",
+        "status": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "statusAdministrative": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "customsStickerCode": "3",
+        "distanceType": "K",
+        "techControlValidityDate": "2023-09-27",
+        "techControlEntryDatetime": "2021-09-24T11:35:40Z",
+        "codeForBodyWork": [
+          {
+            "code": "AC",
+            "description": "STATIONWAGEN"
+          }
+        ],
+        "kind": {
+          "code": "AC",
+          "description": "STATIONWAGEN"
+        },
+        "colour": [
+          {
+            "code": "8",
+            "description": "Grijs"
+          }
+        ],
+        "technicPermissibleMaxMass": 1900,
+        "massOfTheVehicleInRunningOrder": 1368,
+        "referenceMass": 1393,
+        "numberOfAxles": 2,
+        "wheelBase": 2648,
+        "maximumSpeed": 193,
+        "limiterIndicator": false,
+        "handicapIndicator": false,
+        "tachoIndicator": false,
+        "sizeHeight": 1510,
+        "sizeLength": 4584,
+        "sizeWidth": 1823,
+        "nrOfSeatingPositions": 5,
+        "suspension": {
+          "code": "1",
+          "description": "Niet pneumatische ophanging"
+        },
+        "engine": [
+          {
+            "engineCapacity": 1499.0,
+            "fuel": [
+              {
+                "code": "20",
+                "description": "Diesel",
+                "maximumNetPower": 88.0,
+                "euroNormCode": "6b",
+                "combinedFuelConsumption": 3.8,
+                "combinedCO2": 99,
+                "particulatesMassBenchTest": 520.0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "total": 1
+}

@@ -6,12 +6,17 @@ import be.vlaanderen.vip.magda.client.diensten.subject.INSZNumber;
 import be.vlaanderen.vip.magda.client.diensten.subject.KBONumber;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidService;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
+import be.vlaanderen.vip.magda.client.rest.MagdaResponseJson;
+import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import be.vlaanderen.vip.magda.exception.NoResponseException;
+import be.vlaanderen.vip.magda.exception.ServerException;
 import be.vlaanderen.vip.magda.exception.UitzonderingenSectionInResponseException;
 import be.vlaanderen.vip.magda.legallogging.model.UitzonderingEntry;
 import be.vlaanderen.vip.magda.legallogging.service.ClientLogService;
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.SneakyThrows;
+import org.apache.commons.lang3.tuple.Pair;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -21,6 +26,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.w3c.dom.Document;
 
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -358,4 +364,98 @@ class MagdaConnectorImplTest {
 				</Uitzondering>
 				""".formatted(id);
 	}
+
+    @Nested
+    class REST {
+        @InjectMocks
+        private MagdaConnectorImpl connector;
+        @Mock
+        private MagdaConnection connection;
+        @Mock
+        private MagdaHoedanigheidService identityService;
+
+        @SneakyThrows
+        @Test
+        void whenRequestIsGiven_returnsAccordingResponse() {
+            String uuid = "682d0ab6-c565-11f0-a0f2-04cf4b22694c";
+            MagdaRestRequest request = MagdaRestRequest.builder()
+                    .correlationId(uuid)
+                    .senderId("http://magda-test")
+                    .senderQualityCode("test-identity")
+                    .enduserId("")
+                    .build();
+            JsonNode jsonNode = mock(JsonNode.class);
+            when(connection.sendRestRequest(request)).thenReturn(Pair.of(jsonNode, 200));
+
+            MagdaResponseJson response = connector.sendRestRequest(request);
+            assertNotNull(response);
+            assertNotNull(response.json());
+            assertEquals(jsonNode, response.json());
+            assertEquals(200, response.statusCode());
+        }
+
+        @SneakyThrows
+        @Test
+        void whenIdentityIsGiven_senderParametersAreOverwritten() {
+            var identity = MagdaRegistrationInfo.builder()
+                    .identification("http://magda-test")
+                    .hoedanigheidscode("test-identity")
+                    .build();
+            doReturn(identity).when(identityService).getDomeinService("default");
+
+            String uuid = "682d0ab6-c565-11f0-a0f2-04cf4b22694c";
+            MagdaRestRequest.MagdaRestRequestBuilder requestBuilder = MagdaRestRequest.builder()
+                    .correlationId(uuid)
+                    .senderId("")
+                    .senderQualityCode("")
+                    .enduserId("");
+
+            MagdaRestRequest request = MagdaRestRequest.builder()
+                    .correlationId(uuid)
+                    .senderId("http://magda-test")
+                    .senderQualityCode("test-identity")
+                    .enduserId("")
+                    .build();
+            JsonNode jsonNode = mock(JsonNode.class);
+            when(connection.sendRestRequest(request)).thenReturn(Pair.of(jsonNode, 200));
+
+            MagdaResponseJson response = connector.sendRestRequest(requestBuilder, "default");
+            assertNotNull(response);
+            assertNotNull(response.json());
+            assertEquals(jsonNode, response.json());
+            assertEquals(200, response.statusCode());
+        }
+
+        @SneakyThrows
+        @Test
+        void whenMagdaConnectionExceptionIsThrownByConnection_connectorShouldThrowServerException() {
+            String uuid = "682d0ab6-c565-11f0-a0f2-04cf4b22694c";
+            MagdaRestRequest request = MagdaRestRequest.builder()
+                    .correlationId(uuid)
+                    .senderId("http://magda-test")
+                    .senderQualityCode("test-identity")
+                    .enduserId("")
+                    .build();
+            doThrow(MagdaConnectionException.class).when(connection).sendRestRequest(request);
+
+            assertThrows(ServerException.class, () ->  connector.sendRestRequest(request));
+        }
+
+        @SneakyThrows
+        @Test
+        void whenURISyntaxExceptionIsThrownByConnection_connectorShouldThrowServerException() {
+            String uuid = "682d0ab6-c565-11f0-a0f2-04cf4b22694c";
+            MagdaRestRequest request = MagdaRestRequest.builder()
+                    .correlationId(uuid)
+                    .senderId("http://magda-test")
+                    .senderQualityCode("test-identity")
+                    .enduserId("")
+                    .build();
+            doThrow(URISyntaxException.class).when(connection).sendRestRequest(request);
+
+            assertThrows(ServerException.class, () ->  connector.sendRestRequest(request));
+        }
+
+
+    }
 }

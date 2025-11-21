@@ -5,7 +5,7 @@
     <parent>
         <artifactId>magda</artifactId>
         <groupId>be.vlaanderen.vip.mock</groupId>
-        <version>3.9.0-SNAPSHOT</version>
+        <version>3.10.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -75,6 +75,12 @@
             <groupId>be.vlaanderen.vip.bluegreen</groupId>
             <artifactId>generiek.junit-bluegreen-test-runner</artifactId>
             <version>${testrunner.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>be.vlaanderen.vip.mock</groupId>
+            <artifactId>magdamock-rest</artifactId>
+            <version>3.10.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

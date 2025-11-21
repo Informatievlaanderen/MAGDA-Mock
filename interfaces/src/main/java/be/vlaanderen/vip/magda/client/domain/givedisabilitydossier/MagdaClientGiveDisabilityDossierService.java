@@ -3,7 +3,6 @@ package be.vlaanderen.vip.magda.client.domain.givedisabilitydossier;
 import be.vlaanderen.vip.magda.client.MagdaClient;
 import be.vlaanderen.vip.magda.client.MagdaClientException;
 import be.vlaanderen.vip.magda.client.diensten.GeefDossierHandicapByDateRequest;
-import be.vlaanderen.vip.magda.client.domain.geefdmfavoorwerknemer.MagdaResponseDmfaVoorWerknemerAdapter;
 
 public class MagdaClientGiveDisabilityDossierService implements GiveDisabilityDossierService {
     private final MagdaClient service;

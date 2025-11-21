@@ -5,6 +5,7 @@ import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +23,7 @@ public class MagdaMockController {
 
     private final MagdaConnection mockConnection;
 
-    public MagdaMockController(MagdaConnection mockConnection) {
+    public MagdaMockController(@Qualifier("magdaSoapConnection") MagdaConnection mockConnection) {
         this.mockConnection = mockConnection;
     }
 
@@ -30,7 +31,6 @@ public class MagdaMockController {
     public ResponseEntity<String> magdaSoap0200WebService(@RequestBody String request) throws MagdaConnectionException {
         return processMagdaMockRequest(request);
     }
-
 
     private ResponseEntity<String> processMagdaMockRequest(String request) throws MagdaConnectionException {
         //TODO: handle request parsing errors and return Magda Uitzondering error
@@ -47,7 +47,7 @@ public class MagdaMockController {
 
     private ResponseEntity<String> parseInputstream(MagdaDocument magdaDocument) {
         if (magdaDocument != null) {
-              return ResponseEntity.ok().contentType(TEXT_XML).body(magdaDocument.toString());
+            return ResponseEntity.ok().contentType(TEXT_XML).body(magdaDocument.toString());
         } else {
             log.error("Could not find XML");
 
