@@ -1,0 +1,181 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
+  "self": "/registrations?plateNr=3SQZ924",
+  "items": [
+    {
+      "license": {
+        "plateNr": "3SQZ924",
+        "plateUID": "5829471036",
+        "plateType": {
+          "code": "NM",
+          "description": "Normaal"
+        },
+        "languageCode": "NL",
+        "startSituationDate": "2019-04-16T00:00:00Z",
+        "lastRegistrationDate": "2019-04-16T00:00:00Z",
+        "status": {
+          "code": "REG",
+          "description": "Ingeschreven"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "lastUpdateDateTime": "2019-04-16T09:12:11.321Z"
+      },
+      "certificates": [
+        {
+          "id": "483920571",
+          "beginDate": "2019-04-15T20:00:00Z",
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          }
+        }
+      ],
+      "titular": {
+        "@id": "_:100",
+        "@type": "http://purl.org/dc/terms/Agent",
+        "type": "P",
+        "source": "RRN",
+        "person": {
+          "@id": "_:100",
+          "@type": "http://www.w3.org/ns/person#Person",
+          "nationalNr": {
+            "identificator": "89661014345"
+          },
+          "lastName": [
+            "De Boer"
+          ],
+          "firstName": [
+            "Marnix"
+          ],
+          "birthYear": "1989"
+        },
+        "contactInfo": {
+          "@type": "https://schema.org/ContactPoint",
+          "registrationAddress": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Oud-Strijderslaan"
+            },
+            "houseNumber": "1",
+            "postalCode": "9000",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          },
+          "address": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Oud-Strijderslaan"
+            },
+            "houseNumber": "1",
+            "postalCode": "9000",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          }
+        }
+      },
+      "transaction": {
+        "typeCode": "REG",
+        "subTypeCode": {
+          "code": "REGNM",
+          "description": "Normale inschrijving"
+        },
+        "dateTime": "2019-04-15T05:12:30.000Z",
+        "info": {
+          "plateNumberPriorTitular": "",
+          "importedVehicle": false
+        }
+      },
+      "vehicle": {
+        "vin": "ZFA312CN8P5B6K7L3",
+        "unifier": "01",
+        "category": {
+          "code": "M1",
+          "description": "Voertuigen bestemd voor personenvervoer, ten hoogste 8 zitplaatsen (zonder bestuurder)"
+        },
+        "makeName": "DS AUTOMOBILES",
+        "commercialName": "DS3",
+        "firstRegistrationDate": "2016-07-20",
+        "firstKnownUseDate": "2016-07-20",
+        "type": "VP",
+        "wvta": "e2*2007/46*0777*01",
+        "variant": "DS3-1.2-PURETECH",
+        "version": "DS3-1.2-PURETECH-HATCH",
+        "dateCOC": "2016-06-08",
+        "status": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "statusAdministrative": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "customsStickerCode": "3",
+        "distanceType": "K",
+        "techControlValidityDate": "2021-04-15",
+        "techControlEntryDatetime": "2019-04-15T13:20:00Z",
+        "codeForBodyWork": [
+          {
+            "code": "AA",
+            "description": "BERLINE"
+          }
+        ],
+        "kind": {
+          "code": "AA",
+          "description": "BERLINE"
+        },
+        "colour": [
+          {
+            "code": "4",
+            "description": "Rood"
+          }
+        ],
+        "technicPermissibleMaxMass": 1500,
+        "massOfTheVehicleInRunningOrder": 1100,
+        "referenceMass": 1100,
+        "actualMassOfTheVehicle": 1185,
+        "numberOfAxles": 2,
+        "wheelBase": 2435,
+        "maximumSpeed": 185,
+        "limiterIndicator": false,
+        "handicapIndicator": false,
+        "tachoIndicator": false,
+        "assistanceWithoutPedallingIndicator": false,
+        "nrOfSeatingPositions": 5,
+        "suspension": {
+          "code": "3",
+          "description": "Hydraulische ophanging"
+        },
+        "exhaustDirectiveRefCode": "715/2007*2018/1832DG",
+        "engine": [
+          {
+            "engineCapacity": 1199.0,
+            "fuel": [
+              {
+                "code": "10",
+                "description": "Petrol",
+                "maximumNetPower": 82.0,
+                "euroNormCode": "5b",
+                "euroNormDescription": "Euro 5b",
+                "combinedFuelConsumption": 5.2,
+                "combinedCO2": 120,
+                "WLTPCombinedCO2": 130
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "total": 1
+}

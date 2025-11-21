@@ -1,0 +1,181 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
+  "self": "/registrations?plateNr=2VNF496",
+  "items": [
+    {
+      "license": {
+        "plateNr": "2VNF496",
+        "plateUID": "8392746152",
+        "plateType": {
+          "code": "NM",
+          "description": "Normaal"
+        },
+        "languageCode": "NL",
+        "startSituationDate": "2023-04-21T00:00:00Z",
+        "lastRegistrationDate": "2023-04-21T00:00:00Z",
+        "status": {
+          "code": "REG",
+          "description": "Ingeschreven"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "lastUpdateDateTime": "2023-04-21T10:05:11.456Z"
+      },
+      "certificates": [
+        {
+          "id": "571213987",
+          "beginDate": "2023-04-20T18:40:00Z",
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          }
+        }
+      ],
+      "titular": {
+        "@id": "_:100",
+        "@type": "http://purl.org/dc/terms/Agent",
+        "type": "P",
+        "source": "RRN",
+        "person": {
+          "@id": "_:100",
+          "@type": "http://www.w3.org/ns/person#Person",
+          "nationalNr": {
+            "identificator": "69650368562"
+          },
+          "lastName": [
+            "Leclercq"
+          ],
+          "firstName": [
+            "Adam"
+          ],
+          "birthYear": "1969"
+        },
+        "contactInfo": {
+          "@type": "https://schema.org/ContactPoint",
+          "registrationAddress": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Botestraat"
+            },
+            "houseNumber": "23",
+            "postalCode": "9032",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          },
+          "address": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Botestraat"
+            },
+            "houseNumber": "23",
+            "postalCode": "9032",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          }
+        }
+      },
+      "transaction": {
+        "typeCode": "REG",
+        "subTypeCode": {
+          "code": "REGNM",
+          "description": "Normale inschrijving"
+        },
+        "dateTime": "2023-04-20T08:15:22.123Z",
+        "info": {
+          "plateNumberPriorTitular": "",
+          "importedVehicle": false
+        }
+      },
+      "vehicle": {
+        "vin": "WVWZZZ1KZCW987654",
+        "unifier": "01",
+        "category": {
+          "code": "M1",
+          "description": "Voertuigen bestemd voor personenvervoer, ten hoogste 8 zitplaatsen (zonder bestuurder)"
+        },
+        "makeName": "VOLKSWAGEN",
+        "commercialName": "Golf",
+        "firstRegistrationDate": "2021-01-05",
+        "firstKnownUseDate": "2021-01-05",
+        "type": "VP",
+        "wvta": "e2*2007/46*0345*01",
+        "variant": "GOLF-1.6-TDI",
+        "version": "GOLF-1.6-TDI-MK7",
+        "dateCOC": "2020-06-12",
+        "status": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "statusAdministrative": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "customsStickerCode": "3",
+        "distanceType": "K",
+        "techControlValidityDate": "2025-04-20",
+        "techControlEntryDatetime": "2023-04-20T14:20:00Z",
+        "codeForBodyWork": [
+          {
+            "code": "AD",
+            "description": "COUPE"
+          }
+        ],
+        "kind": {
+          "code": "AD",
+          "description": "COUPE"
+        },
+        "colour": [
+          {
+            "code": "6",
+            "description": "Blauw"
+          }
+        ],
+        "technicPermissibleMaxMass": 2450,
+        "massOfTheVehicleInRunningOrder": 1790,
+        "referenceMass": 2450,
+        "actualMassOfTheVehicle": 1905,
+        "numberOfAxles": 2,
+        "wheelBase": 2946,
+        "maximumSpeed": 175,
+        "limiterIndicator": false,
+        "handicapIndicator": false,
+        "tachoIndicator": false,
+        "assistanceWithoutPedallingIndicator": false,
+        "nrOfSeatingPositions": 7,
+        "suspension": {
+          "code": "2",
+          "description": "Pneumatische ophanging"
+        },
+        "exhaustDirectiveRefCode": "715/2007*2018/1832DG",
+        "engine": [
+          {
+            "engineCapacity": 3400.0,
+            "fuel": [
+              {
+                "code": "21",
+                "description": "Biodiesel",
+                "maximumNetPower": 85.0,
+                "euroNormCode": "6b",
+                "euroNormDescription": "Euro 6b",
+                "combinedFuelConsumption": 4.9,
+                "combinedCO2": 2,
+                "WLTPCombinedCO2": 18
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "total": 1
+}
