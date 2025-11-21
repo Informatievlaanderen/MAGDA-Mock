@@ -57,10 +57,10 @@
           "registrationAddress": {
             "@type": "http://www.w3.org/ns/locn#Address",
             "streetName": {
-              "string": "Tramstraat"
+              "string": "James Ensorlaan"
             },
-            "houseNumber": "59",
-            "postalCode": "9052",
+            "houseNumber": "44",
+            "postalCode": "9051",
             "cityNisCode": "44021",
             "cityName": {
               "string": "Gent"
@@ -69,10 +69,10 @@
           "address": {
             "@type": "http://www.w3.org/ns/locn#Address",
             "streetName": {
-              "string": "Tramstraat"
+              "string": "James Ensorlaan"
             },
-            "houseNumber": "59",
-            "postalCode": "9052",
+            "houseNumber": "44",
+            "postalCode": "9051",
             "cityNisCode": "44021",
             "cityName": {
               "string": "Gent"
