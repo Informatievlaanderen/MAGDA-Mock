@@ -1,0 +1,181 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
+  "self": "/registrations?plateNr=1IYS292",
+  "items": [
+    {
+      "license": {
+        "plateNr": "1IYS292",
+        "plateUID": "4819057623",
+        "plateType": {
+          "code": "NM",
+          "description": "Normaal"
+        },
+        "languageCode": "NL",
+        "startSituationDate": "2024-11-10T00:00:00Z",
+        "lastRegistrationDate": "2024-11-10T00:00:00Z",
+        "status": {
+          "code": "REG",
+          "description": "Ingeschreven"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "lastUpdateDateTime": "2024-11-10T09:45:33.210Z"
+      },
+      "certificates": [
+        {
+          "id": "571213987",
+          "beginDate": "2024-11-09T19:30:00Z",
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          }
+        }
+      ],
+      "titular": {
+        "@id": "_:100",
+        "@type": "http://purl.org/dc/terms/Agent",
+        "type": "P",
+        "source": "RRN",
+        "person": {
+          "@id": "_:100",
+          "@type": "http://www.w3.org/ns/person#Person",
+          "nationalNr": {
+            "identificator": "05652221505"
+          },
+          "lastName": [
+            "Verduyn"
+          ],
+          "firstName": [
+            "Jef"
+          ],
+          "birthYear": "2005"
+        },
+        "contactInfo": {
+          "@type": "https://schema.org/ContactPoint",
+          "registrationAddress": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Zandloperstraat"
+            },
+            "houseNumber": "158",
+            "postalCode": "9030",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          },
+          "address": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Zandloperstraat"
+            },
+            "houseNumber": "158",
+            "postalCode": "9030",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          }
+        }
+      },
+      "transaction": {
+        "typeCode": "REG",
+        "subTypeCode": {
+          "code": "REGNM",
+          "description": "Normale inschrijving"
+        },
+        "dateTime": "2024-11-09T06:22:11.001Z",
+        "info": {
+          "plateNumberPriorTitular": "",
+          "importedVehicle": false
+        }
+      },
+      "vehicle": {
+        "vin": "VF3A4HMZ7J9B8C2D3",
+        "unifier": "01",
+        "category": {
+          "code": "M1",
+          "description": "Voertuigen bestemd voor personenvervoer, ten hoogste 8 zitplaatsen (zonder bestuurder)"
+        },
+        "makeName": "PEUGEOT",
+        "commercialName": "208",
+        "firstRegistrationDate": "2021-01-05",
+        "firstKnownUseDate": "2021-01-05",
+        "type": "VP",
+        "wvta": "e2*2007/46*0567*01",
+        "variant": "208-1.2-PURETECH",
+        "version": "208-1.2-PURETECH-HATCH",
+        "dateCOC": "2020-12-20",
+        "status": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "statusAdministrative": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "customsStickerCode": "3",
+        "distanceType": "K",
+        "techControlValidityDate": "2026-11-09",
+        "techControlEntryDatetime": "2024-11-09T14:05:00Z",
+        "codeForBodyWork": [
+          {
+            "code": "AA",
+            "description": "BERLINE"
+          }
+        ],
+        "kind": {
+          "code": "AA",
+          "description": "BERLINE"
+        },
+        "colour": [
+          {
+            "code": "4",
+            "description": "Rood"
+          }
+        ],
+        "technicPermissibleMaxMass": 1800,
+        "massOfTheVehicleInRunningOrder": 1150,
+        "referenceMass": 1150,
+        "actualMassOfTheVehicle": 1250,
+        "numberOfAxles": 2,
+        "wheelBase": 2540,
+        "maximumSpeed": 180,
+        "limiterIndicator": false,
+        "handicapIndicator": false,
+        "tachoIndicator": false,
+        "assistanceWithoutPedallingIndicator": false,
+        "nrOfSeatingPositions": 5,
+        "suspension": {
+          "code": "1",
+          "description": "Niet pneumatische ophanging"
+        },
+        "exhaustDirectiveRefCode": "715/2007*2018/1832DG",
+        "engine": [
+          {
+            "engineCapacity": 1199.0,
+            "fuel": [
+              {
+                "code": "21",
+                "description": "Biodiesel",
+                "maximumNetPower": 73.0,
+                "euroNormCode": "6",
+                "euroNormDescription": "Euro 6",
+                "combinedFuelConsumption": 4.8,
+                "combinedCO2": 110,
+                "WLTPCombinedCO2": 120
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "total": 1
+}

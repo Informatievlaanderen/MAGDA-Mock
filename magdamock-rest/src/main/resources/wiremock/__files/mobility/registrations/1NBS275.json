@@ -1,0 +1,194 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
+  "self": "/registrations?plateNr=1NBS275",
+  "items": [
+    {
+      "license": {
+        "plateNr": "1NBS275",
+        "plateUID": "9374601825",
+        "plateType": {
+          "code": "NM",
+          "description": "Normaal"
+        },
+        "languageCode": "NL",
+        "startSituationDate": "2018-12-11T00:00:00Z",
+        "lastRegistrationDate": "2018-12-11T00:00:00Z",
+        "status": {
+          "code": "REG",
+          "description": "Ingeschreven"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "lastUpdateDateTime": "2018-12-11T09:10:05.321Z"
+      },
+      "certificates": [
+        {
+          "id": "814572903",
+          "beginDate": "2018-12-10T20:00:00Z",
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          }
+        }
+      ],
+      "titular": {
+        "@id": "_:100",
+        "@type": "http://purl.org/dc/terms/Agent",
+        "type": "O",
+        "source": "KBO",
+        "organisation": {
+          "@id": "_:100",
+          "@type": "http://schema.org/Organization",
+          "companyNr": {
+            "identificator": "0316380841"
+          },
+          "organisationName": [
+            {
+              "string": "Ministeries van de Vlaamse Gemeenschap",
+              "lang": "nl"
+            }
+          ],
+          "namePrintable": "Ministeries van de Vlaamse Gemeenschap",
+          "isLeaseCompany": false,
+          "contactInfo": {
+            "@type": "https://schema.org/ContactPoint",
+            "registrationAddress": {
+              "@type": "http://www.w3.org/ns/locn#Address",
+              "streetName": {
+                "string": "Havenlaan",
+                "lang": "nl"
+              },
+              "houseNumber": "88",
+              "box": "C",
+              "postalCode": "1000",
+              "cityName": {
+                "string": "Brussel",
+                "lang": "nl"
+              },
+              "countryName": {
+                "string": "België",
+                "lang": "nl"
+              }
+            },
+            "address": {
+              "@type": "http://www.w3.org/ns/locn#Address",
+              "streetName": {
+                "string": "Havenlaan",
+                "lang": "nl"
+              },
+              "houseNumber": "88",
+              "box": "C",
+              "postalCode": "1000",
+              "cityName": {
+                "string": "Brussel",
+                "lang": "nl"
+              },
+              "countryName": {
+                "string": "België",
+                "lang": "nl"
+              }
+            }
+          }
+        }
+      },
+      "transaction": {
+        "typeCode": "REG",
+        "subTypeCode": {
+          "code": "REGNM",
+          "description": "Normale inschrijving"
+        },
+        "dateTime": "2018-12-10T05:12:30.000Z",
+        "info": {
+          "plateNumberPriorTitular": "",
+          "importedVehicle": false
+        }
+      },
+      "vehicle": {
+        "vin": "KNAFB4128M7R6T9V2",
+        "unifier": "01",
+        "category": {
+          "code": "M1",
+          "description": "Voertuigen bestemd voor personenvervoer, ten hoogste 8 zitplaatsen (zonder bestuurder)"
+        },
+        "makeName": "KIA",
+        "commercialName": "Picanto",
+        "firstRegistrationDate": "2015-05-10",
+        "firstKnownUseDate": "2015-05-10",
+        "type": "VP",
+        "wvta": "e2*2007/46*0888*01",
+        "variant": "PICANTO-1.0",
+        "version": "PICANTO-1.0-HATCH",
+        "dateCOC": "2015-04-01",
+        "status": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "statusAdministrative": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "customsStickerCode": "3",
+        "distanceType": "K",
+        "techControlValidityDate": "2020-12-10",
+        "techControlEntryDatetime": "2018-12-10T13:20:00Z",
+        "codeForBodyWork": [
+          {
+            "code": "AA",
+            "description": "BERLINE"
+          }
+        ],
+        "kind": {
+          "code": "AA",
+          "description": "BERLINE"
+        },
+        "colour": [
+          {
+            "code": "8",
+            "description": "Grijs"
+          }
+        ],
+        "technicPermissibleMaxMass": 1350,
+        "massOfTheVehicleInRunningOrder": 980,
+        "referenceMass": 980,
+        "actualMassOfTheVehicle": 1030,
+        "numberOfAxles": 2,
+        "wheelBase": 2400,
+        "maximumSpeed": 160,
+        "limiterIndicator": false,
+        "handicapIndicator": false,
+        "tachoIndicator": false,
+        "assistanceWithoutPedallingIndicator": false,
+        "nrOfSeatingPositions": 5,
+        "suspension": {
+          "code": "3",
+          "description": "Hydraulische ophanging"
+        },
+        "exhaustDirectiveRefCode": "715/2007*2018/1832DG",
+        "engine": [
+          {
+            "engineCapacity": 998.0,
+            "fuel": [
+              {
+                "code": "10",
+                "description": "Petrol",
+                "maximumNetPower": 66.0,
+                "euroNormCode": "6b",
+                "euroNormDescription": "Euro 6b",
+                "combinedFuelConsumption": 4.6,
+                "combinedCO2": 105,
+                "WLTPCombinedCO2": 115
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "total": 1
+}

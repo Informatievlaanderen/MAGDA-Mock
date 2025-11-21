@@ -1,0 +1,181 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
+  "self": "/registrations?plateNr=2KND544",
+  "items": [
+    {
+      "license": {
+        "plateNr": "2KND544",
+        "plateUID": "3917280456",
+        "plateType": {
+          "code": "NM",
+          "description": "Normaal"
+        },
+        "languageCode": "NL",
+        "startSituationDate": "2021-03-11T00:00:00Z",
+        "lastRegistrationDate": "2021-03-11T00:00:00Z",
+        "status": {
+          "code": "REG",
+          "description": "Ingeschreven"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "lastUpdateDateTime": "2021-03-11T09:10:05.321Z"
+      },
+      "certificates": [
+        {
+          "id": "642983157",
+          "beginDate": "2021-03-10T20:05:00Z",
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          }
+        }
+      ],
+      "titular": {
+        "@id": "_:100",
+        "@type": "http://purl.org/dc/terms/Agent",
+        "type": "P",
+        "source": "RRN",
+        "person": {
+          "@id": "_:100",
+          "@type": "http://www.w3.org/ns/person#Person",
+          "nationalNr": {
+            "identificator": "60612221635"
+          },
+          "lastName": [
+            "De Wit"
+          ],
+          "firstName": [
+            "Jade"
+          ],
+          "birthYear": "1960"
+        },
+        "contactInfo": {
+          "@type": "https://schema.org/ContactPoint",
+          "registrationAddress": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Maagdestraat"
+            },
+            "houseNumber": "56",
+            "postalCode": "9000",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          },
+          "address": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Maagdestraat"
+            },
+            "houseNumber": "56",
+            "postalCode": "9000",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          }
+        }
+      },
+      "transaction": {
+        "typeCode": "REG",
+        "subTypeCode": {
+          "code": "REGNM",
+          "description": "Normale inschrijving"
+        },
+        "dateTime": "2021-03-10T05:10:30.000Z",
+        "info": {
+          "plateNumberPriorTitular": "",
+          "importedVehicle": false
+        }
+      },
+      "vehicle": {
+        "vin": "TSMZV1K9L8F7D6C2B",
+        "unifier": "01",
+        "category": {
+          "code": "M1",
+          "description": "Voertuigen bestemd voor personenvervoer, ten hoogste 8 zitplaatsen (zonder bestuurder)"
+        },
+        "makeName": "SUZUKI",
+        "commercialName": "Ignis",
+        "firstRegistrationDate": "2019-03-12",
+        "firstKnownUseDate": "2019-03-12",
+        "type": "VP",
+        "wvta": "e2*2007/46*0823*01",
+        "variant": "IGNIS-1.2",
+        "version": "IGNIS-1.2-HATCH",
+        "dateCOC": "2019-02-10",
+        "status": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "statusAdministrative": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "customsStickerCode": "3",
+        "distanceType": "K",
+        "techControlValidityDate": "2023-03-10",
+        "techControlEntryDatetime": "2021-03-10T13:20:00Z",
+        "codeForBodyWork": [
+          {
+            "code": "AA",
+            "description": "BERLINE"
+          }
+        ],
+        "kind": {
+          "code": "AA",
+          "description": "BERLINE"
+        },
+        "colour": [
+          {
+            "code": "6",
+            "description": "Blauw"
+          }
+        ],
+        "technicPermissibleMaxMass": 1500,
+        "massOfTheVehicleInRunningOrder": 980,
+        "referenceMass": 980,
+        "actualMassOfTheVehicle": 1100,
+        "numberOfAxles": 2,
+        "wheelBase": 2435,
+        "maximumSpeed": 165,
+        "limiterIndicator": false,
+        "handicapIndicator": false,
+        "tachoIndicator": false,
+        "assistanceWithoutPedallingIndicator": false,
+        "nrOfSeatingPositions": 5,
+        "suspension": {
+          "code": "2",
+          "description": "Pneumatische ophanging"
+        },
+        "exhaustDirectiveRefCode": "715/2007*2018/1832DG",
+        "engine": [
+          {
+            "engineCapacity": 1242.0,
+            "fuel": [
+              {
+                "code": "10",
+                "description": "Petrol",
+                "maximumNetPower": 66.0,
+                "euroNormCode": "6",
+                "euroNormDescription": "Euro 6",
+                "combinedFuelConsumption": 5.5,
+                "combinedCO2": 127,
+                "WLTPCombinedCO2": 140
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "total": 1
+}
