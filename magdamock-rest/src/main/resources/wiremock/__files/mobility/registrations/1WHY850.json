@@ -1,0 +1,181 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
+  "self": "/registrations?plateNr=1WHY850",
+  "items": [
+    {
+      "license": {
+        "plateNr": "1WHY850",
+        "plateUID": "3847192056",
+        "plateType": {
+          "code": "NM",
+          "description": "Normaal"
+        },
+        "languageCode": "NL",
+        "startSituationDate": "2025-06-04T00:00:00Z",
+        "lastRegistrationDate": "2025-06-04T00:00:00Z",
+        "status": {
+          "code": "REG",
+          "description": "Ingeschreven"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "lastUpdateDateTime": "2025-06-04T08:11:22.999Z"
+      },
+      "certificates": [
+        {
+          "id": "571213987",
+          "beginDate": "2025-06-03T19:45:00Z",
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          }
+        }
+      ],
+      "titular": {
+        "@id": "_:100",
+        "@type": "http://purl.org/dc/terms/Agent",
+        "type": "P",
+        "source": "RRN",
+        "person": {
+          "@id": "_:100",
+          "@type": "http://www.w3.org/ns/person#Person",
+          "nationalNr": {
+            "identificator": "78672448529"
+          },
+          "lastName": [
+            "Claes"
+          ],
+          "firstName": [
+            "Leon"
+          ],
+          "birthYear": "1978"
+        },
+        "contactInfo": {
+          "@type": "https://schema.org/ContactPoint",
+          "registrationAddress": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Tramstraat"
+            },
+            "houseNumber": "59",
+            "postalCode": "9052",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          },
+          "address": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Tramstraat"
+            },
+            "houseNumber": "59",
+            "postalCode": "9052",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          }
+        }
+      },
+      "transaction": {
+        "typeCode": "REG",
+        "subTypeCode": {
+          "code": "REGNM",
+          "description": "Normale inschrijving"
+        },
+        "dateTime": "2025-06-03T04:10:15.000Z",
+        "info": {
+          "plateNumberPriorTitular": "",
+          "importedVehicle": false
+        }
+      },
+      "vehicle": {
+        "vin": "WVWZZZ1KZPW867530",
+        "unifier": "01",
+        "category": {
+          "code": "M1",
+          "description": "Voertuigen bestemd voor personenvervoer, ten hoogste 8 zitplaatsen (zonder bestuurder)"
+        },
+        "makeName": "VOLKSWAGEN",
+        "commercialName": "Golf",
+        "firstRegistrationDate": "2018-06-15",
+        "firstKnownUseDate": "2018-06-15",
+        "type": "VP",
+        "wvta": "e2*2007/46*0123*01",
+        "variant": "GOLF-1.0-TSI",
+        "version": "GOLF-1.0-TSI-HATCH",
+        "dateCOC": "2018-05-25",
+        "status": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "statusAdministrative": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "customsStickerCode": "3",
+        "distanceType": "K",
+        "techControlValidityDate": "2027-06-03",
+        "techControlEntryDatetime": "2025-06-03T12:30:00Z",
+        "codeForBodyWork": [
+          {
+            "code": "AA",
+            "description": "BERLINE"
+          }
+        ],
+        "kind": {
+          "code": "AA",
+          "description": "BERLINE"
+        },
+        "colour": [
+          {
+            "code": "4",
+            "description": "Rood"
+          }
+        ],
+        "technicPermissibleMaxMass": 1800,
+        "massOfTheVehicleInRunningOrder": 1225,
+        "referenceMass": 1225,
+        "actualMassOfTheVehicle": 1350,
+        "numberOfAxles": 2,
+        "wheelBase": 2638,
+        "maximumSpeed": 197,
+        "limiterIndicator": false,
+        "handicapIndicator": false,
+        "tachoIndicator": false,
+        "assistanceWithoutPedallingIndicator": false,
+        "nrOfSeatingPositions": 5,
+        "suspension": {
+          "code": "3",
+          "description": "Hydraulische ophanging"
+        },
+        "exhaustDirectiveRefCode": "715/2007*2018/1832DG",
+        "engine": [
+          {
+            "engineCapacity": 999.0,
+            "fuel": [
+              {
+                "code": "21",
+                "description": "Biodiesel",
+                "maximumNetPower": 95.0,
+                "euroNormCode": "5b",
+                "euroNormDescription": "Euro 5b",
+                "combinedFuelConsumption": 4.6,
+                "combinedCO2": 105,
+                "WLTPCombinedCO2": 115
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "total": 1
+}

@@ -1,0 +1,181 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
+  "self": "/registrations?plateNr=2AHV889",
+  "items": [
+    {
+      "license": {
+        "plateNr": "2AHV889",
+        "plateUID": "9051723846",
+        "plateType": {
+          "code": "NM",
+          "description": "Normaal"
+        },
+        "languageCode": "NL",
+        "startSituationDate": "2018-06-22T00:00:00Z",
+        "lastRegistrationDate": "2018-06-22T00:00:00Z",
+        "status": {
+          "code": "REG",
+          "description": "Ingeschreven"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "lastUpdateDateTime": "2018-06-22T09:10:05.321Z"
+      },
+      "certificates": [
+        {
+          "id": "928374651",
+          "beginDate": "2018-06-21T20:10:00Z",
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          }
+        }
+      ],
+      "titular": {
+        "@id": "_:100",
+        "@type": "http://purl.org/dc/terms/Agent",
+        "type": "P",
+        "source": "RRN",
+        "person": {
+          "@id": "_:100",
+          "@type": "http://www.w3.org/ns/person#Person",
+          "nationalNr": {
+            "identificator": "90641713346"
+          },
+          "lastName": [
+            "Dedeycker"
+          ],
+          "firstName": [
+            "Rudiger"
+          ],
+          "birthYear": "1990"
+        },
+        "contactInfo": {
+          "@type": "https://schema.org/ContactPoint",
+          "registrationAddress": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Alpacastraat"
+            },
+            "houseNumber": "14",
+            "postalCode": "9000",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          },
+          "address": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Alpacastraat"
+            },
+            "houseNumber": "14",
+            "postalCode": "9000",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          }
+        }
+      },
+      "transaction": {
+        "typeCode": "REG",
+        "subTypeCode": {
+          "code": "REGNM",
+          "description": "Normale inschrijving"
+        },
+        "dateTime": "2018-06-21T05:12:30.000Z",
+        "info": {
+          "plateNumberPriorTitular": "",
+          "importedVehicle": false
+        }
+      },
+      "vehicle": {
+        "vin": "JMZDK4DW7F1R23847",
+        "unifier": "01",
+        "category": {
+          "code": "M1",
+          "description": "Voertuigen bestemd voor personenvervoer, ten hoogste 8 zitplaatsen (zonder bestuurder)"
+        },
+        "makeName": "MAZDA",
+        "commercialName": "2",
+        "firstRegistrationDate": "2016-02-15",
+        "firstKnownUseDate": "2016-02-15",
+        "type": "VP",
+        "wvta": "e2*2007/46*0998*01",
+        "variant": "MAZDA2-1.5-SKYACTIV",
+        "version": "MAZDA2-1.5-GT-HATCH",
+        "dateCOC": "2016-01-20",
+        "status": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "statusAdministrative": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "customsStickerCode": "3",
+        "distanceType": "K",
+        "techControlValidityDate": "2020-06-21",
+        "techControlEntryDatetime": "2018-06-21T13:15:00Z",
+        "codeForBodyWork": [
+          {
+            "code": "AA",
+            "description": "BERLINE"
+          }
+        ],
+        "kind": {
+          "code": "AA",
+          "description": "BERLINE"
+        },
+        "colour": [
+          {
+            "code": "8",
+            "description": "Grijs"
+          }
+        ],
+        "technicPermissibleMaxMass": 1500,
+        "massOfTheVehicleInRunningOrder": 1040,
+        "referenceMass": 1040,
+        "actualMassOfTheVehicle": 1120,
+        "numberOfAxles": 2,
+        "wheelBase": 2570,
+        "maximumSpeed": 190,
+        "limiterIndicator": false,
+        "handicapIndicator": false,
+        "tachoIndicator": false,
+        "assistanceWithoutPedallingIndicator": false,
+        "nrOfSeatingPositions": 5,
+        "suspension": {
+          "code": "3",
+          "description": "Hydraulische ophanging"
+        },
+        "exhaustDirectiveRefCode": "715/2007*2018/1832DG",
+        "engine": [
+          {
+            "engineCapacity": 1496.0,
+            "fuel": [
+              {
+                "code": "30",
+                "description": "LPG",
+                "maximumNetPower": 90.0,
+                "euroNormCode": "6",
+                "euroNormDescription": "Euro 6",
+                "combinedFuelConsumption": 5.4,
+                "combinedCO2": 115,
+                "WLTPCombinedCO2": 125
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "total": 1
+}

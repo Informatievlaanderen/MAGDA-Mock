@@ -1,0 +1,181 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
+  "self": "/registrations?plateNr=2JNI434",
+  "items": [
+    {
+      "license": {
+        "plateNr": "2JNI434",
+        "plateUID": "6203958714",
+        "plateType": {
+          "code": "NM",
+          "description": "Normaal"
+        },
+        "languageCode": "NL",
+        "startSituationDate": "2019-03-11T00:00:00Z",
+        "lastRegistrationDate": "2019-03-11T00:00:00Z",
+        "status": {
+          "code": "REG",
+          "description": "Ingeschreven"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "lastUpdateDateTime": "2019-03-11T09:10:05.321Z"
+      },
+      "certificates": [
+        {
+          "id": "583912407",
+          "beginDate": "2019-03-10T20:00:00Z",
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          }
+        }
+      ],
+      "titular": {
+        "@id": "_:100",
+        "@type": "http://purl.org/dc/terms/Agent",
+        "type": "P",
+        "source": "RRN",
+        "person": {
+          "@id": "_:100",
+          "@type": "http://www.w3.org/ns/person#Person",
+          "nationalNr": {
+            "identificator": "71652116386"
+          },
+          "lastName": [
+            "Deleu"
+          ],
+          "firstName": [
+            "Bob"
+          ],
+          "birthYear": "1971"
+        },
+        "contactInfo": {
+          "@type": "https://schema.org/ContactPoint",
+          "registrationAddress": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Muinkkaai"
+            },
+            "houseNumber": "120",
+            "postalCode": "9000",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          },
+          "address": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Muinkkaai"
+            },
+            "houseNumber": "120",
+            "postalCode": "9000",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          }
+        }
+      },
+      "transaction": {
+        "typeCode": "REG",
+        "subTypeCode": {
+          "code": "REGNM",
+          "description": "Normale inschrijving"
+        },
+        "dateTime": "2019-03-10T05:12:30.000Z",
+        "info": {
+          "plateNumberPriorTitular": "",
+          "importedVehicle": false
+        }
+      },
+      "vehicle": {
+        "vin": "JN1BZ44U7KW568392",
+        "unifier": "01",
+        "category": {
+          "code": "M1",
+          "description": "Voertuigen bestemd voor personenvervoer, ten hoogste 8 zitplaatsen (zonder bestuurder)"
+        },
+        "makeName": "NISSAN",
+        "commercialName": "Micra",
+        "firstRegistrationDate": "2015-05-10",
+        "firstKnownUseDate": "2015-05-10",
+        "type": "VP",
+        "wvta": "e2*2007/46*0991*01",
+        "variant": "MICRA-1.2-ACENTA",
+        "version": "MICRA-1.2-ACENTA-HATCH",
+        "dateCOC": "2015-04-20",
+        "status": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "statusAdministrative": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "customsStickerCode": "3",
+        "distanceType": "K",
+        "techControlValidityDate": "2021-03-10",
+        "techControlEntryDatetime": "2019-03-10T13:20:00Z",
+        "codeForBodyWork": [
+          {
+            "code": "AA",
+            "description": "BERLINE"
+          }
+        ],
+        "kind": {
+          "code": "AA",
+          "description": "BERLINE"
+        },
+        "colour": [
+          {
+            "code": "7",
+            "description": "Groen"
+          }
+        ],
+        "technicPermissibleMaxMass": 1450,
+        "massOfTheVehicleInRunningOrder": 980,
+        "referenceMass": 980,
+        "actualMassOfTheVehicle": 1065,
+        "numberOfAxles": 2,
+        "wheelBase": 2395,
+        "maximumSpeed": 165,
+        "limiterIndicator": false,
+        "handicapIndicator": false,
+        "tachoIndicator": false,
+        "assistanceWithoutPedallingIndicator": false,
+        "nrOfSeatingPositions": 5,
+        "suspension": {
+          "code": "1",
+          "description": "Niet pneumatische ophanging"
+        },
+        "exhaustDirectiveRefCode": "715/2007*2018/1832DG",
+        "engine": [
+          {
+            "engineCapacity": 1198.0,
+            "fuel": [
+              {
+                "code": "20",
+                "description": "Diesel",
+                "maximumNetPower": 65.0,
+                "euroNormCode": "5",
+                "euroNormDescription": "Euro 5",
+                "combinedFuelConsumption": 4.2,
+                "combinedCO2": 110,
+                "WLTPCombinedCO2": 120
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "total": 1
+}

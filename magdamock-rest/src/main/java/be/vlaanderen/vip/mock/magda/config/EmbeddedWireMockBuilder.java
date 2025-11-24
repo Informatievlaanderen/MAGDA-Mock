@@ -3,27 +3,55 @@ package be.vlaanderen.vip.mock.magda.config;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.util.FileCopyUtils;
+
 public class EmbeddedWireMockBuilder {
     
     public static WireMockServer wireMockServer() {
-        return wireMockServer(0, "classpath:/wiremock");
+        return wireMockServer(0);
     }
 
-    public static WireMockServer wireMockServer(Integer wiremockPort, String mappingsPath) {
-        // Get the path relative to the classpath root
-        String filesRoot = mappingsPath.replace("classpath:/", "");
+    private static String unpackWireMockResources() {
+        try {
+            Path tempDir = Files.createTempDirectory("magdamock-rest-wiremock");
+
+            PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+            Resource[] resources = resolver.getResources("classpath*:wiremock/**/*");
+
+            for (Resource resource : resources) {
+                if (resource.exists() && resource.isReadable() && resource.getURL().getPath().endsWith(".json")) {
+                    String fullPath = resource.getURL().getPath();
+
+                    String wiremockPrefix = "wiremock/";
+                    String relativePath = fullPath.substring(fullPath.indexOf(wiremockPrefix) + wiremockPrefix.length());
+
+                    if (relativePath.isEmpty()) continue;
+
+                    Path target = tempDir.resolve(relativePath);
+                    Files.createDirectories(target.getParent());
+
+                    try (var is = resource.getInputStream()) {
+                        FileCopyUtils.copy(is, Files.newOutputStream(target));
+                    }
+                }
+            }
+            return tempDir.toAbsolutePath().toString();
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to provide files for wiremock", e);
+        }
+    }
+
+    public static WireMockServer wireMockServer(Integer wiremockPort) {
+        String fileSource = unpackWireMockResources();
 
         WireMockConfiguration config = WireMockConfiguration.wireMockConfig()
                 .port(wiremockPort)
-                .usingFilesUnderClasspath(filesRoot);
+                .usingFilesUnderDirectory(fileSource);
 
-        WireMockServer wireMockServer = new WireMockServer(config);
-
-        System.out.println(
-                "### Starting Embedded WireMockServer on port " + wiremockPort +
-                        " with mappings from " + mappingsPath + " ###"
-        );
-
-        return wireMockServer;
+        return new WireMockServer(config);
     }
 }

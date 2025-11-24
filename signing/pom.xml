@@ -5,7 +5,7 @@
     <parent>
         <artifactId>magda</artifactId>
         <groupId>be.vlaanderen.vip.mock</groupId>
-        <version>3.9.0</version>
+        <version>3.10.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -88,6 +88,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
                 <executions>
                     <!-- Prepare jacoco agent - once for unit test and once for integration
                          test (cucumber) -->
@@ -167,7 +168,7 @@
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.13</version>
+                    <version>${jacoco.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

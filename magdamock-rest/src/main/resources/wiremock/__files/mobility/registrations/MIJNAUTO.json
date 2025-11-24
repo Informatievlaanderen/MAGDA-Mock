@@ -1,0 +1,182 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
+  "self": "/registrations?plateNr=MIJNAUTO",
+  "items": [
+    {
+      "license": {
+        "plateNr": "MIJNAUTO",
+        "plateUID": "5175298527",
+        "plateType": {
+          "code": "NM",
+          "description": "Normaal"
+        },
+        "languageCode": "NL",
+        "startSituationDate": "2022-06-25T00:00:00Z",
+        "lastRegistrationDate": "2022-06-25T00:00:00Z",
+        "status": {
+          "code": "REG",
+          "description": "Ingeschreven"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "lastUpdateDateTime": "2022-06-25T09:25:57.303Z"
+      },
+      "certificates": [
+        {
+          "id": "571213987",
+          "beginDate": "2022-06-24T23:00:00Z",
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          }
+        }
+      ],
+      "titular": {
+        "@id": "_:100",
+        "@type": "http://purl.org/dc/terms/Agent",
+        "type": "P",
+        "source": "RRN",
+        "person": {
+          "@id": "_:100",
+          "@type": "http://www.w3.org/ns/person#Person",
+          "nationalNr": {
+            "identificator": "01700462685"
+          },
+          "lastName": [
+            "Baeckeland"
+          ],
+          "firstName": [
+            "Annemie"
+          ],
+          "birthYear": "2001"
+        },
+        "contactInfo": {
+          "@type": "https://schema.org/ContactPoint",
+          "registrationAddress": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Varendrieskouter"
+            },
+            "houseNumber": "31",
+            "box": "",
+            "postalCode": "9031",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          },
+          "address": {
+            "@type": "http://www.w3.org/ns/locn#Address",
+            "streetName": {
+              "string": "Varendrieskouter"
+            },
+            "houseNumber": "31",
+            "box": "",
+            "postalCode": "9031",
+            "cityNisCode": "44021",
+            "cityName": {
+              "string": "Gent"
+            }
+          }
+        }
+      },
+      "transaction": {
+        "typeCode": "REG",
+        "subTypeCode": {
+          "code": "REGNM",
+          "description": "Normale inschrijving"
+        },
+        "dateTime": "2022-06-25T09:25:57.303Z",
+        "info": {
+          "plateNumberPriorTitular": "",
+          "importedVehicle": false
+        }
+      },
+      "vehicle": {
+        "vin": "1GNDM3A57KYF482L9",
+        "unifier": "01",
+        "category": {
+          "code": "M1",
+          "description": "Voertuigen bestemd voor personenvervoer, ten hoogste 8 zitplaatsen (zonder bestuurder)"
+        },
+        "makeName": "Emmett Brown Motor Vehicle Corporation",
+        "commercialName": "DELORIAN",
+        "firstRegistrationDate": "2022-06-25",
+        "firstKnownUseDate": "2022-06-25",
+        "type": "AUV",
+        "wvta": "e3*2014/45*9876*12",
+        "variant": "VACPRNCR01",
+        "version": "V8K9Z3F1Q7R6T2M5B4N0L8S9D3P1X",
+        "dateCOC": "2020-01-29",
+        "status": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "statusLegal": {
+          "code": "NOR",
+          "description": "Normaal"
+        },
+        "statusAdministrative": {
+          "code": "NOR",
+          "description": "normaal"
+        },
+        "customsStickerCode": "3",
+        "distanceType": "K",
+        "techControlValidityDate": "2028-02-20",
+        "techControlEntryDatetime": "2024-02-25T16:13:11Z",
+        "codeForBodyWork": [
+          {
+            "code": "VC",
+            "description": "KAMPEERAUTO"
+          }
+        ],
+        "kind": {
+          "code": "VC",
+          "description": "KAMPEERAUTO"
+        },
+        "colour": [
+          {
+            "code": "6",
+            "description": "Blauw"
+          }
+        ],
+        "technicPermissibleMaxMass": 2450,
+        "massOfTheVehicleInRunningOrder": 1860,
+        "referenceMass": 2450,
+        "actualMassOfTheVehicle": 1990,
+        "numberOfAxles": 2,
+        "wheelBase": 2946,
+        "maximumSpeed": 170,
+        "limiterIndicator": false,
+        "handicapIndicator": false,
+        "tachoIndicator": false,
+        "assistanceWithoutPedallingIndicator": false,
+        "nrOfSeatingPositions": 5,
+        "suspension": {
+          "code": "1",
+          "description": "Niet pneumatische ophanging"
+        },
+        "exhaustDirectiveRefCode": "715/2007*2018/1832DG",
+        "engine": [
+          {
+            "engineCapacity": 999.0,
+            "fuel": [
+              {
+                "code": "50",
+                "description": "Waterstof",
+                "maximumNetPower": 85.0,
+                "euroNormCode": "6ei",
+                "combinedFuelConsumption": 4.9,
+                "combinedCO2": 5,
+                "WLTPCombinedCO2": 23
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "total": 1
+}
