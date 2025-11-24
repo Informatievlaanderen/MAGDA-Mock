@@ -8,11 +8,21 @@ import java.util.UUID;
 
 public abstract class AbstractConnectorMagdaClient implements MagdaClient {
 
-    private final MagdaConnector connector;
+    private final MagdaConnector soapConnector;
+    private final MagdaConnector restConnector;
 
     protected AbstractConnectorMagdaClient(
             MagdaConnector connector) {
-        this.connector = connector;
+        this.soapConnector = connector;
+        this.restConnector = connector;
+    }
+
+    protected AbstractConnectorMagdaClient(
+            MagdaConnector soapConnector,
+            MagdaConnector restConnector
+    ){
+        this.soapConnector = soapConnector;
+        this.restConnector = restConnector;
     }
 
     @Override
@@ -23,7 +33,7 @@ public abstract class AbstractConnectorMagdaClient implements MagdaClient {
     @Override
     public MagdaResponseWrapper send(MagdaRequest request, UUID requestId) throws MagdaClientException {
         try {
-            var response = connector.send(request, requestId);
+            var response = soapConnector.send(request, requestId);
 
             validateMagdaResponse(response, request);
 
@@ -37,7 +47,7 @@ public abstract class AbstractConnectorMagdaClient implements MagdaClient {
     @Override
     public MagdaResponseJson sendRestRequest(MagdaRestRequest request) throws MagdaClientException{
         try {
-            return connector.sendRestRequest(request);
+            return restConnector.sendRestRequest(request);
         } catch (ServerException e) {
             throw new MagdaClientException("Error occurred while sending magda REST request", e);
         }
