@@ -97,6 +97,7 @@
       <plugin>
 	<groupId>org.jacoco</groupId>
 	<artifactId>jacoco-maven-plugin</artifactId>
+    <version>${jacoco.version}</version>
 	<executions>
 	  <!-- Prepare jacoco agent - once for unit test and once for integration 
 	       test (cucumber) -->
@@ -176,7 +177,7 @@
 	<plugin>
 	  <groupId>org.jacoco</groupId>
 	  <artifactId>jacoco-maven-plugin</artifactId>
-	  <version>0.8.13</version>
+      <version>${jacoco.version}</version>
 	</plugin>
       </plugins>
     </pluginManagement>
