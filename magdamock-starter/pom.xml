@@ -56,7 +56,13 @@
             <artifactId>logbook-spring-boot-starter</artifactId>
             <version>${logbook.version}</version>
         </dependency>
-	</dependencies>
+        <dependency>
+            <groupId>be.vlaanderen.vip.mock</groupId>
+            <artifactId>magdamock-rest</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
     
 	<build>
 		<resources>
