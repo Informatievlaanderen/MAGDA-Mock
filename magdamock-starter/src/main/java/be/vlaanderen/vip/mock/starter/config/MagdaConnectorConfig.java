@@ -33,6 +33,7 @@ public class MagdaConnectorConfig {
     private WssConfig wss;
     private Map<String, MagdaRegistration> registrations = new HashMap<>();
     private List<MagdaEndpointMapping> endpoints = new ArrayList<>();
+    private List<MagdaEndpointMapping> restEndpoints = new ArrayList<>();
     private MagdaConnectorTracing tracing = MagdaConnectorTracing.BRAVE; // BRAVE by default for backward compatibility, should be removed in the future
 
     public MagdaConnector connector(VaultTemplate template,
@@ -120,11 +121,14 @@ public class MagdaConnectorConfig {
                                  .registrations(registrations())
                                  .build();
     }
-    
+
     private MagdaEndpoints endpoints() {
-        return MagdaEndpointMapping.toMagdaEndpoints(endpoints);
+        ArrayList<MagdaEndpointMapping> endpointList = new ArrayList<>();
+        endpointList.addAll(endpoints);
+        endpointList.addAll(restEndpoints);
+        return MagdaEndpointMapping.toMagdaEndpoints(endpointList);
     }
-    
+
     private Map<String, MagdaRegistrationConfigDto> registrations() {
         return registrations.entrySet()
                             .stream()
