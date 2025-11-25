@@ -16,6 +16,11 @@ public class ConnectorMagdaClient extends AbstractConnectorMagdaClient {
         super(connector);
     }
 
+    public ConnectorMagdaClient(MagdaConnector soapConnector,
+                                MagdaConnector restConnector) {
+        super(soapConnector, restConnector);
+    }
+
     @Override
     protected void validateMagdaResponse(MagdaResponse response, MagdaRequest request) throws MagdaClientException {
         if(!response.getUitzonderingEntries().isEmpty()) {
