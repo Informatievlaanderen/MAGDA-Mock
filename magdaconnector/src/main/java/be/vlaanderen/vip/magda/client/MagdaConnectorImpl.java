@@ -60,6 +60,7 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     @Override
     public MagdaResponse send(MagdaRequest magdaRequest, UUID requestId) throws ServerException {
+        CorrelationId.set(magdaRequest.getCorrelationId());
         magdaRequest.setCorrelationId(CorrelationId.get());
 
         try {
