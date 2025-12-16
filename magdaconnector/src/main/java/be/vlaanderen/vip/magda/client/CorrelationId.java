@@ -19,7 +19,7 @@ public class CorrelationId {
         return value;
     }
 
-    private static synchronized void set(UUID value) {
+    public static synchronized void set(UUID value) {
         CORRELATION_ID.set(value);
         MDC.put(LABELS, value.toString());
     }
