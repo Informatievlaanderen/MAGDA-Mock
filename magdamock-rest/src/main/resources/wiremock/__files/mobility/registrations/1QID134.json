@@ -44,12 +44,10 @@
           "companyNr": {
             "identificator": "0316380841"
           },
-          "organisationName": [
-            {
-              "string": "Ministeries van de Vlaamse Gemeenschap",
-              "lang": "nl"
-            }
-          ],
+          "organisationName": {
+            "string": "Ministeries van de Vlaamse Gemeenschap",
+            "lang": "nl"
+          },
           "namePrintable": "Ministeries van de Vlaamse Gemeenschap",
           "isLeaseCompany": false,
           "contactInfo": {

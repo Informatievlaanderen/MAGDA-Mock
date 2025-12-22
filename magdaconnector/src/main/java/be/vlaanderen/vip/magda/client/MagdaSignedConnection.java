@@ -14,6 +14,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.apache.wss4j.common.ext.WSSecurityException;
 import org.w3c.dom.Document;
 
+import java.net.URISyntaxException;
 import java.util.Optional;
 
 @Slf4j
