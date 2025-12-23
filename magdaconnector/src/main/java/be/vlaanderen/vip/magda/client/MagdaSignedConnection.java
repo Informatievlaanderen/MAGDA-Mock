@@ -14,6 +14,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.apache.wss4j.common.ext.WSSecurityException;
 import org.w3c.dom.Document;
 
+import java.net.URISyntaxException;
 import java.util.Optional;
 
 @Slf4j
@@ -68,8 +69,9 @@ public class MagdaSignedConnection implements MagdaConnection {
     }
 
     @Override
-    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) {
-        throw new NotImplementedException();
+    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException {
+        log.info("Sending REST request, this is not signed.");
+        return magdaConnection.sendRestRequest(request);
     }
 
     @Override
