@@ -60,7 +60,12 @@ public class MagdaConnectorImpl implements MagdaConnector {
 
     @Override
     public MagdaResponse send(MagdaRequest magdaRequest, UUID requestId) throws ServerException {
-        magdaRequest.setCorrelationId(CorrelationId.get());
+        UUID value = magdaRequest.getCorrelationId();
+        if (value == null) {
+            value = UUID.randomUUID();
+        }
+        magdaRequest.setCorrelationId(value);
+        CorrelationId.set(value);
 
         try {
             var start = System.nanoTime();
