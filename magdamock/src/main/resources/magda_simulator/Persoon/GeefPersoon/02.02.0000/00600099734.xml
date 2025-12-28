@@ -28,7 +28,7 @@
 			<Antwoord>
 				<Referte>2050</Referte>
 				<Inhoud>
-					<Persoon DatumCreatie="2011-07-11" DatumModificatie="2014-09-17">
+					<Persoon DatumCreatie="2011-07-11" DatumModificatie="{{#dateTemplate}}-1y,sq{{/dateTemplate}}">
 						<INSZ>00600099734</INSZ>
 						<Naam DatumBegin="2000-01-01">
 							<Achternamen>

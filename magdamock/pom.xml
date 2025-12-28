@@ -50,6 +50,11 @@
             <artifactId>wiremock-jetty12</artifactId>
             <version>3.13.1</version>
         </dependency>
+		<dependency>
+			<groupId>com.github.spullara.mustache.java</groupId>
+			<artifactId>compiler</artifactId>
+			<version>0.9.14</version>
+		</dependency>
 	</dependencies>
 	<artifactId>magdamock</artifactId>
 
