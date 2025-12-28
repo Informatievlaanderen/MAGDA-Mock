@@ -3,6 +3,7 @@ package be.vlaanderen.vip.mock.magda.client;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
+import be.vlaanderen.vip.magda.client.utils.MockDataTemplating;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
@@ -37,6 +38,7 @@ public class MagdaMockConnection implements MagdaConnection {
 
     @Override
     public Document sendDocument(Document xml) {
+        // TODO: templating hier?
         log.info("Answering using MAGDA Mock");
 
         if (defaultResponse != null) {
@@ -45,7 +47,9 @@ public class MagdaMockConnection implements MagdaConnection {
             return answer;
         }
 
-        return send(xml);
+        String document = MagdaDocument.fromDocument(send(xml)).toString();
+        document = MockDataTemplating.processTemplatingValues(document);
+        return MagdaDocument.fromString(document).getXml();
     }
 
     @Override

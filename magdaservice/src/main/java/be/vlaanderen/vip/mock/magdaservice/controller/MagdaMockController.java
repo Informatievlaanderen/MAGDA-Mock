@@ -39,7 +39,6 @@ public class MagdaMockController {
         var magdaResponse = mockConnection.sendDocument(requestDocument.getXml());
         if (magdaResponse != null) {
             return parseInputstream(MagdaDocument.fromDocument(magdaResponse));
-
         } else {
             return ResponseEntity.notFound().build();
         }

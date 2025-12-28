@@ -3,6 +3,7 @@ package be.vlaanderen.vip.mock.magda.client;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
+import be.vlaanderen.vip.magda.client.utils.MockDataTemplating;
 import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockRestException;
 import be.vlaanderen.vip.mock.magda.config.EmbeddedWireMockBuilder;
@@ -55,6 +56,7 @@ public class MagdaMockRestConnection implements MagdaConnection {
 
     @Override
     public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) {
+        // TODO: templating hier (voor rest)
         String queryParams = request.getUrlQueryParams().entrySet().stream().map((kv) -> String.format("%s=%s", kv.getKey(), kv.getValue())).collect(Collectors.joining("&"));
         String method = request.getMethod().name();
 
@@ -86,7 +88,9 @@ public class MagdaMockRestConnection implements MagdaConnection {
             if (response.statusCode() == 404) {
                 return Pair.of(null, 404);
             }
-            return Pair.of(mapper.readTree(response.body()), response.statusCode());
+            String responseBody = response.body();
+            responseBody = MockDataTemplating.processTemplatingValues(responseBody);
+            return Pair.of(mapper.readTree(responseBody), response.statusCode());
         } catch (IOException | InterruptedException e) {
             throw new MagdaMockRestException("Error simulating REST call", e.getCause());
         }

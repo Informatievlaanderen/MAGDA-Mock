@@ -4,6 +4,7 @@ spring:
 
 logging:
   pattern.level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+  config: src/main/resources/logback-dev.xml
 
 server:
   error:
