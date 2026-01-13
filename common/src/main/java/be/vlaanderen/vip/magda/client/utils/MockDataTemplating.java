@@ -54,13 +54,12 @@ public class MockDataTemplating {
      * - take 2 months before that
      * - take 3 days before that
      */
-    private static String processDateTemplate(String dateTemplate, OffsetDateTime dateTime) {
+    protected static String processDateTemplate(String dateTemplate, OffsetDateTime dateTime) {
         List<String> parts = Arrays.stream(dateTemplate.split(",")).toList();
         OffsetDateTime newTime = dateTime.minusDays(0);
         for (String part : parts) {
-            Pattern dateTimeDiffPattern = Pattern.compile("([-+][0-9]+)?([a-z]+)", Pattern.CASE_INSENSITIVE);
+            Pattern dateTimeDiffPattern = Pattern.compile("([-+][0-9]*)?([a-z]+)", Pattern.CASE_INSENSITIVE);
             Matcher matcher = dateTimeDiffPattern.matcher(part);
-            log.info("Matched groups: {}", matcher.namedGroups());
             if (!matcher.find())
                 continue;
             String group = matcher.group(2).toLowerCase(Locale.ROOT);
