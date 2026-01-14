@@ -1,6 +1,10 @@
 package be.vlaanderen.vip.mock.magda.client;
 
+import be.vlaanderen.vip.magda.client.utils.MockDataTemplating;
 import lombok.SneakyThrows;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.input.BOMInputStream;
 import org.junit.jupiter.api.DynamicContainer;
 import org.junit.jupiter.api.DynamicNode;
 import org.junit.jupiter.api.DynamicTest;
@@ -14,6 +18,10 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.StringReader;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -131,10 +139,13 @@ class SimulatorXmlValidationTest {
                                  (m, i) -> m.put(data[i], data[i+1]),
                                  HashMap::putAll);
     }
-    
+
+    @SneakyThrows
     void validateXml(File xml, Validator validator) {
-        try {
-            validator.validate(new StreamSource(xml));
+        try (BOMInputStream bomIn = BOMInputStream.builder().setFile(xml).get()) {
+            String content = IOUtils.toString(bomIn, Charset.defaultCharset());
+            content = MockDataTemplating.processTemplatingValues(content);
+            validator.validate(new StreamSource(new StringReader(content)));
         } catch (Exception e) {
             fail("Validation failure for %s: %s".formatted(xml.getName(), e.getMessage()));
         }
