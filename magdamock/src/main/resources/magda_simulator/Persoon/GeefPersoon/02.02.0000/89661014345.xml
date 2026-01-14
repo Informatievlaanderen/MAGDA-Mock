@@ -93,10 +93,10 @@
                         <Adressen>
                             <Hoofdverblijfplaats DatumBegin="2006-11-03">
                                 <Straatnaam>
-                                    <String>Dapperheidstraat</String>
+                                    <String>Oudstrijderslaan</String>
                                     <Taal>nl</Taal>
                                 </Straatnaam>
-                                <Huisnummer>6</Huisnummer>
+                                <Huisnummer>1</Huisnummer>
                                 <Busnummer />
                                 <Gemeentenaam>
                                     <String>Gent</String>
