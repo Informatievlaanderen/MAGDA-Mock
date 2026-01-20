@@ -42,6 +42,7 @@ public class MockDataTemplating {
     /**
      * Function to process the datetime templating, which happens by adjusting the current timestamp with the following possible modifiers:
      * - years (with "+1y" or "-5y" or any other number)
+     * - quarters (with "+1q" or "-3q" or any other number)
      * - months (with "+1m" or "-5m" or any other number)
      * - days (with "+1d" or "-5d" or any other number)
      * - start of the current quarter (with "sq")
@@ -63,24 +64,24 @@ public class MockDataTemplating {
             if (!matcher.find())
                 continue;
             String group = matcher.group(2).toLowerCase(Locale.ROOT);
-            if (group.endsWith("y")) {
-                var years = Integer.parseInt(matcher.group(1));
-                newTime = newTime.plusYears(years);
-            }
-            if (group.endsWith("m")) {
-                var months = Integer.parseInt(matcher.group(1));
-                newTime = newTime.plusMonths(months);
-            }
-            if (group.endsWith("d")) {
-                var days = Integer.parseInt(matcher.group(1));
-                newTime = newTime.plusDays(days);
-            }
             if (group.endsWith("sq")) {
                 // determine start of the quarter
                 int month = Math.floorDivExact(newTime.getMonthValue() - 1, 3) * 3 + 1;
                 int day = 1;
                 newTime = newTime.withMonth(month);
                 newTime = newTime.withDayOfMonth(day);
+            } else if (group.endsWith("y")) {
+                var years = Integer.parseInt(matcher.group(1));
+                newTime = newTime.plusYears(years);
+            } else if (group.endsWith("q")) {
+                var months = Integer.parseInt(matcher.group(1)) * 3;
+                newTime = newTime.plusMonths(months);
+            } else if (group.endsWith("m")) {
+                var months = Integer.parseInt(matcher.group(1));
+                newTime = newTime.plusMonths(months);
+            } else if (group.endsWith("d")) {
+                var days = Integer.parseInt(matcher.group(1));
+                newTime = newTime.plusDays(days);
             }
             // QUESTION: should the format be added? with a sensible default
             // TODO: add more options, first day of quarter, days, months, weeks
