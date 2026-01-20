@@ -20,7 +20,6 @@ import java.util.regex.Pattern;
 @Slf4j
 public class MockDataTemplating {
 
-    // !!!NOTE: very much WIP!!!
     public static String processTemplatingValues(String response) {
         MustacheFactory mf = new DefaultMustacheFactory();
         OffsetDateTime now = OffsetDateTime.now();
@@ -84,7 +83,6 @@ public class MockDataTemplating {
                 newTime = newTime.plusDays(days);
             }
             // QUESTION: should the format be added? with a sensible default
-            // TODO: add more options, first day of quarter, days, months, weeks
         }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         log.debug("Parsing date template {} on {} returns date {}", dateTemplate, dateTime, newTime);
