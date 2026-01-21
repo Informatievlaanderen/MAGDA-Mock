@@ -38,7 +38,6 @@ public class MagdaMockConnection implements MagdaConnection {
 
     @Override
     public Document sendDocument(Document xml) {
-        // TODO: templating hier?
         log.info("Answering using MAGDA Mock");
 
         if (defaultResponse != null) {

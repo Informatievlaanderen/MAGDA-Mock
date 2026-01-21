@@ -56,7 +56,6 @@ public class MagdaMockRestConnection implements MagdaConnection {
 
     @Override
     public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) {
-        // TODO: templating hier (voor rest)
         String queryParams = request.getUrlQueryParams().entrySet().stream().map((kv) -> String.format("%s=%s", kv.getKey(), kv.getValue())).collect(Collectors.joining("&"));
         String method = request.getMethod().name();
 
