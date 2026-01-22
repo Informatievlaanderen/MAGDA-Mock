@@ -1,0 +1,358 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/485949995/handicapvolledigeDossiers-context.jsonld?api=v2",
+  "wettelijkeVertegenwoordigers": [
+    {
+      "persoon": {
+        "@type": "Persoon",
+        "achternaam": "Harris",
+        "voornaam": "Kamala",
+        "heeftGeboorte": {
+          "@type": "PersoonsGebeurtenis",
+          "datum": "1964-10-20"
+        },
+        "volledigeNaam": "Kamala Harris",
+        "rijksregisternummer": {
+          "notatie": "196410-200-01",
+          "agent": "rijksregister"
+        }
+      },
+      "wettelijkeVertegenwoordigerType": {
+        "code": "BEWINDVOERDER",
+        "omschrijving": "Bewindvoerder"
+      }
+    }
+  ],
+  "persoonsgegevens": {
+    "@type": "Persoon",
+    "achternaam": "Biden",
+    "voornaam": "Joe",
+    "geslacht": "M",
+    "heeftGeboorte": {
+      "@type": "PersoonsGebeurtenis",
+      "datum": "1942-11-20"
+    },
+    "volledigeNaam": "Joe Biden",
+    "contactinfo": {
+      "adres": {
+        "@type": "AdresVoorstelling",
+        "straatnaam": {
+          "nl": "Pennsylvania Avenue"
+        },
+        "huisnummer": "1600",
+        "busnummer": "3",
+        "postcode": "270",
+        "postnaam": {
+          "nl": "Washington D.C."
+        },
+        "land": {
+          "nl": "Verenigde Staten"
+        }
+      }
+    },
+    "rijksregisternummer": {
+      "notatie": "194211-200-02",
+      "agent": "rijksregister"
+    },
+    "dossiernummer": {
+      "notatie": "654321",
+      "agent": "VAPH"
+    },
+    "erkenningHandicap": {
+      "heeftHandicap": "JA",
+      "startdatum": "2021-01-20"
+    }
+  },
+  "persoonsvolgendBudget": {
+    "ondersteuningsplannen": [
+      {
+        "verzendingsdatum": "2021-01-20",
+        "gewoneVraag": {
+          "ondersteuningsfuncties": [
+            {
+              "functie": "Dagondersteuning",
+              "frequentie": "5.0",
+              "eenheid": "dagen per week"
+            }
+          ]
+        }
+      },
+      {
+        "verzendingsdatum": "2021-01-20",
+        "gewoneVraag": {
+          "ondersteuningsfuncties": [
+            {
+              "functie": "Dagondersteuning",
+              "frequentie": "7.0",
+              "eenheid": "dagen per week"
+            },
+            {
+              "functie": "Woonondersteuning",
+              "frequentie": "7.0",
+              "eenheid": "nachten per week"
+            },
+            {
+              "functie": "Individuele Praktische Hulp",
+              "frequentie": "10.0",
+              "eenheid": "uren per week"
+            },
+            {
+              "functie": "Oproepbare permanentie"
+            }
+          ]
+        },
+        "dringendeVraag": {
+          "ondersteuningsfuncties": [
+            {
+              "functie": "Dagondersteuning",
+              "frequentie": "5.0",
+              "eenheid": "dagen per week"
+            },
+            {
+              "functie": "Woonondersteuning",
+              "frequentie": "7.0",
+              "eenheid": "nachten per week"
+            },
+            {
+              "functie": "Oproepbare permanentie"
+            }
+          ]
+        }
+      }
+    ],
+    "inAfwachtingVanBudgetOfExtraBudget": "NEEN",
+    "budget": {
+      "startdatum": "2021-01-20",
+      "startDatumEersteContract": "2021-01-20",
+      "terugvorderbaarVoorschot": 5800.0,
+      "budgetcategorie": {
+        "code": "III"
+      },
+      "toegewezenZorgpunten": 30.123456,
+      "jaarbudgetten": [
+        {
+          "jaar": 2021,
+          "type": "PVB",
+          "startdatum": "2021-01-01",
+          "einddatum": "2021-12-31",
+          "budgethoogte": 83773.83,
+          "saldoBudget": 23847.23
+        },
+        {
+          "jaar": 2021,
+          "type": "PVB",
+          "startdatum": "2021-01-01",
+          "einddatum": "2021-12-31",
+          "budgethoogte": 93842.3,
+          "saldoBudget": 840.43
+        }
+      ],
+      "overeenkomsten": [
+        {
+          "startdatum": "2021-01-20",
+          "type": {
+            "code": "CASH",
+            "omschrijving": "Cash"
+          },
+          "zorgaanbieder": {
+            "organisatie": {
+              "@type": "Organisatie",
+              "ondernemingsnummer": {
+                "notatie": "BE1234.567.890",
+                "agent": "KBO"
+              },
+              "naam": "Zorgaanbieder"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "rth": [],
+  "overeenkomsten": {
+    "mfc": [],
+    "odb": [],
+    "geinterneerden": [],
+    "forensischeVAPHUnit": [],
+    "nah": []
+  },
+  "diagnose": {
+    "laatsteVerslag": {
+      "verzendingsdatum": "2021-01-20",
+      "mdtVerslagNemer": {
+        "mdt": {
+          "@type": "Organisatie",
+          "erkenningsnummer": {
+            "notatie": "MDT.321.654",
+            "agent": "VAPH"
+          },
+          "naam": "MDT Foobar"
+        }
+      }
+    },
+    "stoornissen": [
+      {
+        "code": "R32",
+        "naam": "Incontinentie, urine",
+        "verslag": {
+          "verzendingsdatum": "2021-01-20",
+          "mdtVerslagNemer": {
+            "mdt": {
+              "@type": "Organisatie",
+              "erkenningsnummer": {
+                "notatie": "MDT.321.654",
+                "agent": "VAPH"
+              },
+              "naam": "DMW-Foobar"
+            }
+          }
+        }
+      },
+      {
+        "code": "F72",
+        "naam": "Alzheimer",
+        "verslag": {
+          "verzendingsdatum": "2021-01-20",
+          "mdtVerslagNemer": {
+            "mdt": {
+              "@type": "Organisatie",
+              "erkenningsnummer": {
+                "notatie": "MDT.654.321",
+                "agent": "VAPH"
+              },
+              "naam": "DMW-Foobar"
+            }
+          }
+        }
+      },
+      {
+        "code": "F71",
+        "naam": "Stotteren",
+        "verslag": {
+          "verzendingsdatum": "2021-01-20",
+          "mdtVerslagNemer": {
+            "mdt": {
+              "@type": "Organisatie",
+              "erkenningsnummer": {
+                "notatie": "MDT.231",
+                "agent": "VAPH"
+              },
+              "naam": "CLB"
+            }
+          }
+        }
+      },
+      {
+        "code": "F72   1",
+        "naam": "Mentale retardatie (zwakzinnigheid), ernstige (IQ 20 - 34)",
+        "verslag": {
+          "verzendingsdatum": "2001-02-27",
+          "mdtVerslagNemer": {
+            "mdt": {
+              "@type": "Organisatie",
+              "erkenningsnummer": {
+                "notatie": "MDT.845.55",
+                "agent": "VAPH"
+              },
+              "naam": "Centrum voor Ontwikkelingsstoornissen"
+            }
+          }
+        }
+      }
+    ],
+    "handicaps": [
+      {
+        "code": "1113",
+        "naam": "Ernstig verstandelijk"
+      }
+    ],
+    "iqTest": {
+      "t": 30.0,
+      "datum": "2004-06-01",
+      "type": "Andere",
+      "verslag": {
+        "verzendingsdatum": "2016-06-03",
+        "mdtVerslagNemer": {
+          "mdt": {
+            "@type": "Organisatie",
+            "erkenningsnummer": {
+              "notatie": "MDT.231.564",
+              "agent": "VAPH"
+            },
+            "naam": "DMW-Foobar"
+          }
+        }
+      }
+    },
+    "motorischeBeperkingen": {
+      "verslag": {
+        "verzendingsdatum": "2021-01-20",
+        "mdtVerslagNemer": {
+          "mdt": {
+            "@type": "Organisatie",
+            "erkenningsnummer": {
+              "notatie": "MDT.654.321",
+              "agent": "VAPH"
+            },
+            "naam": "DMW-Foobar"
+          }
+        }
+      },
+      "bovensteLedematenLinks": "Geen probleem",
+      "bovensteLedematenRechts": "Geen probleem",
+      "ondersteLedematenLinks": "Geen probleem",
+      "ondersteLedematenRechts": "Geen probleem",
+      "wervelkolom": "Geen probleem",
+      "stappen300m": "nee"
+    },
+    "zelfredzaamheid": {
+      "barthel": 63.0,
+      "verslag": {
+        "verzendingsdatum": "2021-01-20",
+        "mdtVerslagNemer": {
+          "mdt": {
+            "@type": "Organisatie",
+            "erkenningsnummer": {
+              "notatie": "MDT.312.45",
+              "agent": "VAPH"
+            },
+            "naam": "DMW-Foobar"
+          }
+        }
+      }
+    },
+    "beperkingen": [
+      {
+        "code": "24",
+        "omschrijving": "Personen met ernstige incontinentie"
+      }
+    ],
+    "stoornisCodes": []
+  },
+  "hulpmiddelen": {
+    "doelgroepen": [
+      {
+        "omschrijving": "Personen met ernstige incontinentie",
+        "categorien": [
+          {
+            "code": "10",
+            "omschrijving": "incontinentie"
+          }
+        ]
+      }
+    ],
+    "hulpmiddel": [
+      {
+        "naam": "incontinentiemateriaal",
+        "domein": "incont",
+        "omschrijving": "incontinentiemateriaal",
+        "aanvraagdatum": "2021-01-20",
+        "facturenBetaalbaarVanaf": "2021-01-20",
+        "bewijzen": [],
+        "status": {
+          "code": "actief.goedgekeurd",
+          "omschrijving": ""
+        }
+      }
+    ]
+  }
+}
