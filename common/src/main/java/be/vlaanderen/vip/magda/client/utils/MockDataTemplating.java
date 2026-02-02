@@ -20,9 +20,8 @@ import java.util.regex.Pattern;
 @Slf4j
 public class MockDataTemplating {
 
-    public static String processTemplatingValues(String response) {
+    public static String processTemplatingValues(String response, OffsetDateTime now) {
         MustacheFactory mf = new DefaultMustacheFactory();
-        OffsetDateTime now = OffsetDateTime.now();
         Function<String, String> dateTemplateFunction = (text) -> processDateTemplate(text, now);
         Map<String, Object> scope = Map.of(
                 "year", now.getYear(),

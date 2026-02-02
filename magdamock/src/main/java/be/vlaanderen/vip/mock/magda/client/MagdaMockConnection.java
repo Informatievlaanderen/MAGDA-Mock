@@ -15,6 +15,7 @@ import org.w3c.dom.Document;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.time.OffsetDateTime;
 
 @Slf4j
 public class MagdaMockConnection implements MagdaConnection {
@@ -46,8 +47,15 @@ public class MagdaMockConnection implements MagdaConnection {
             return answer;
         }
 
+        OffsetDateTime date;
+        try {
+            String templateTimestampString = MagdaDocument.fromDocument(xml).getValue("//Verzoek/TemplateTimestamp").strip();
+            date = OffsetDateTime.parse(templateTimestampString);
+        } catch (Exception e) {
+            date = OffsetDateTime.now();
+        }
         String document = MagdaDocument.fromDocument(send(xml)).toString();
-        document = MockDataTemplating.processTemplatingValues(document);
+        document = MockDataTemplating.processTemplatingValues(document, date);
         return MagdaDocument.fromString(document).getXml();
     }
 

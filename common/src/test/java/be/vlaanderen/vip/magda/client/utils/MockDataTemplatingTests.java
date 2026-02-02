@@ -19,7 +19,7 @@ public class MockDataTemplatingTests {
     @Test
     public void templatingShouldNotChangeStaticString(){
         String staticString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nibh.";
-        String templatedString = MockDataTemplating.processTemplatingValues(staticString);
+        String templatedString = MockDataTemplating.processTemplatingValues(staticString, OffsetDateTime.now());
         assertEquals(staticString, templatedString);
     }
 

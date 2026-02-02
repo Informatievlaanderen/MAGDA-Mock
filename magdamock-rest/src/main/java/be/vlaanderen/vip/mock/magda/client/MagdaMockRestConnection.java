@@ -12,6 +12,9 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.tuple.Pair;
+import org.apache.hc.core5.http.NameValuePair;
+import org.apache.hc.core5.net.URIBuilder;
+import org.apache.hc.core5.net.URLEncodedUtils;
 import org.w3c.dom.Document;
 
 import java.io.IOException;
@@ -20,9 +23,12 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -86,7 +92,18 @@ public class MagdaMockRestConnection implements MagdaConnection {
                 return Pair.of(null, 404);
             }
             String responseBody = response.body();
-            responseBody = MockDataTemplating.processTemplatingValues(responseBody);
+            OffsetDateTime date = OffsetDateTime.now();
+            try {
+                List<NameValuePair> params = new URIBuilder(url).getQueryParams();
+                NameValuePair templateTimestamp = params.stream().filter(param -> Objects.equals(param.getName(), "templateTimestamp")).findFirst().orElse(null);
+                if (templateTimestamp != null) {
+                    String templateTimestampString = templateTimestamp.getValue();
+                    date = OffsetDateTime.parse(templateTimestampString);
+                }
+            } catch (Exception e) {
+                date = OffsetDateTime.now();
+            }
+            responseBody = MockDataTemplating.processTemplatingValues(responseBody, date);
             return Pair.of(mapper.readTree(responseBody), response.statusCode());
         } catch (IOException | InterruptedException e) {
             throw new MagdaMockRestException("Error simulating REST call", e.getCause());
