@@ -1,9 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client;
 
-import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
-import be.vlaanderen.vip.magda.exception.MagdaConnectionException;
 import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockRestException;
 import be.vlaanderen.vip.mock.magda.config.EmbeddedWireMockBuilder;
 import be.vlaanderen.vip.mock.magda.config.MockRestMagdaEndpoints;

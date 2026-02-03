@@ -36,7 +36,7 @@ public class MobilityRegistrationRestIntegrationTest {
     @SneakyThrows
     public void testMobilityRegistrationsEndpoint_returnsRegistrationsList() {
         String input = TestHelpers.getResourceAsString(getClass(), "/mobility/registrations/1ABC123.json");
-        MagdaServiceIdentification dienst = new MagdaServiceIdentification("mobility-registrations", "00.01");
+        MagdaServiceIdentification dienst = new MagdaServiceIdentification("REST /v1/mobility/registrations", "00.01");
         WireMockServer wireMockServer = new WireMockServer(0);
         wireMockServer.start();
         wireMockServer.stubFor(get(urlEqualTo("/v1/mobility/registrations?plateNr=1XNN230"))

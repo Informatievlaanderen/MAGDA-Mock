@@ -11,7 +11,7 @@ import org.apache.hc.core5.http.Method;
 import java.util.List;
 
 public class RestMobilityRegistrationService implements MobilityRegistrationService {
-    private static final MagdaServiceIdentification dienst = new MagdaServiceIdentification("mobility-registrations", "00.01");
+    private static final MagdaServiceIdentification dienst = new MagdaServiceIdentification("REST /v1/mobility/registrations", "00.01");
     private final MobilityRegistrationAdapter adapter;
     private final MagdaClient client;
 
