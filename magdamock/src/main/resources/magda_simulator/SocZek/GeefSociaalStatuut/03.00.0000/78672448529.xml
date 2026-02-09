@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<v03:GeefSociaalStatuutResponse xmlns:v03="http://magda.vlaanderen.be/soczek/soap/geefsociaalstatuut/v03_00">
+    <Repliek>
+        <Context>
+            <Naam>GeefSociaalStatuut</Naam>
+            <Versie>03.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2026-02-01</Datum>
+                    <Tijd>16:00:00.000</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>d00c2291-f643-489f-8071-791822f0ad8f</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>gent.be/ovo002949/ipdc181-aa-aip</Identificatie>
+                    <Referte>12ed8a10-8f18-4fd6-92c6-bf6de578d8b5</Referte>
+                    <Hoedanigheid>ipdc88</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>d974f00c-2a6b-402e-8f19-471978f1f136</Referte>
+                <Inhoud>
+                    <Persoon>
+                        <INSZ>78672448529</INSZ>
+                        <SocialeStatuten>
+                            <SociaalStatuut>
+                                <Naam>PARKING_GENT_CHILD</Naam>
+                                <Resultaat>
+                                    <Code>0</Code>
+                                    <Omschrijving>Niet van toepassing</Omschrijving>
+                                </Resultaat>
+                            </SociaalStatuut>
+                            <SociaalStatuut>
+                                <Naam>PARKING_GENT_ADULT</Naam>
+                                <Resultaat>
+                                    <Code>1</Code>
+                                    <Omschrijving>Van toepassing</Omschrijving>
+                                </Resultaat>
+                            </SociaalStatuut>
+                        </SocialeStatuten>
+                    </Persoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</v03:GeefSociaalStatuutResponse>

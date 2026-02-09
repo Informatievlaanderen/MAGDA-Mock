@@ -44,22 +44,25 @@ public class GeefSociaalStatuutSimulator extends PathBasedStaticResponseSimulato
                 </Resultaat>
             </SociaalStatuut>
          */
-        var doc = response.getXml();
-        var sociaalStatuutNode = doc.createElement("SociaalStatuut");
-        //Include name
-        var nameNode = doc.createElement("Naam");
-        nameNode.appendChild(doc.createTextNode(socialStatuteName));
-        sociaalStatuutNode.appendChild(nameNode);
-        //Include result
-        var resultNode = doc.createElement("Resultaat");
-        var resultCodeNode = doc.createElement("Code");
-        resultCodeNode.appendChild(doc.createTextNode("0"));
-        resultNode.appendChild(resultCodeNode);
-        var resultDescriptionNode = doc.createElement("Omschrijving");
-        resultDescriptionNode.appendChild(doc.createTextNode("Niet van toepassing"));
-        resultNode.appendChild(resultDescriptionNode);
-        sociaalStatuutNode.appendChild(resultNode);
-        //Add to collection
-        response.xpath("//SocialeStatuten").item(0).appendChild(sociaalStatuutNode);
+        var socialeStatuten = response.xpath("//SocialeStatuten");
+        if(socialeStatuten.getLength() > 0) {
+            var doc = response.getXml();
+            var sociaalStatuutNode = doc.createElement("SociaalStatuut");
+            //Include name
+            var nameNode = doc.createElement("Naam");
+            nameNode.appendChild(doc.createTextNode(socialStatuteName));
+            sociaalStatuutNode.appendChild(nameNode);
+            //Include result
+            var resultNode = doc.createElement("Resultaat");
+            var resultCodeNode = doc.createElement("Code");
+            resultCodeNode.appendChild(doc.createTextNode("0"));
+            resultNode.appendChild(resultCodeNode);
+            var resultDescriptionNode = doc.createElement("Omschrijving");
+            resultDescriptionNode.appendChild(doc.createTextNode("Niet van toepassing"));
+            resultNode.appendChild(resultDescriptionNode);
+            sociaalStatuutNode.appendChild(resultNode);
+            //Add to collection
+            socialeStatuten.item(0).appendChild(sociaalStatuutNode);
+        }
     }
 }
