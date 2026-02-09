@@ -1,0 +1,192 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/485949995/handicapvolledigeDossiers-context.jsonld?api=v2",
+  "wettelijkeVertegenwoordigers": [
+    {
+      "persoon": {
+        "@type": "Persoon",
+        "achternaam": "Vance",
+        "voornaam": "JD",
+        "heeftGeboorte": {
+          "@type": "PersoonsGebeurtenis",
+          "datum": "1984-08-02"
+        },
+        "volledigeNaam": "JD Vance",
+        "rijksregisternummer": {
+          "notatie": "198408-020-01",
+          "agent": "rijksregister"
+        }
+      },
+      "wettelijkeVertegenwoordigerType": {
+        "code": "OUDER",
+        "omschrijving": "Ouder"
+      }
+    }
+  ],
+  "persoonsgegevens": {
+    "@type": "Persoon",
+    "achternaam": "Trump",
+    "voornaam": "Donald",
+    "geslacht": "M",
+    "heeftGeboorte": {
+      "@type": "PersoonsGebeurtenis",
+      "datum": "1946-06-14"
+    },
+    "volledigeNaam": "Donald Trump",
+    "contactinfo": {
+      "adres": {
+        "@type": "AdresVoorstelling",
+        "straatnaam": {
+          "nl": "Pennsylvania Avenue"
+        },
+        "huisnummer": "1600",
+        "busnummer": "3",
+        "postcode": "270",
+        "postnaam": {
+          "nl": "Washington D.C."
+        },
+        "land": {
+          "nl": "Verenigde Staten"
+        }
+      }
+    },
+    "rijksregisternummer": {
+      "notatie": "194606-140-01",
+      "agent": "rijksregister"
+    },
+    "dossiernummer": {
+      "notatie": "123456",
+      "agent": "VAPH"
+    },
+    "erkenningHandicap": {
+      "heeftHandicap": "JA",
+      "startdatum": "2017-01-20"
+    }
+  },
+  "persoonsvolgendBudget": {
+    "ondersteuningsplannen": [],
+    "inAfwachtingVanBudgetOfExtraBudget": "NEEN"
+  },
+  "rth": [],
+  "overeenkomsten": {
+    "mfc": [],
+    "odb": [],
+    "geinterneerden": [],
+    "forensischeVAPHUnit": [],
+    "nah": []
+  },
+  "diagnose": {
+    "laatsteVerslag": {
+      "verzendingsdatum": "2017-01-20",
+      "mdtVerslagNemer": {
+        "mdt": {
+          "@type": "Organisatie",
+          "erkenningsnummer": {
+            "notatie": "MDT.123.456",
+            "agent": "VAPH"
+          },
+          "naam": "Psychiatrisch centrum"
+        }
+      }
+    },
+    "stoornissen": [
+      {
+        "code": "F72   1",
+        "naam": "Mentale retardatie (zwakzinnigheid), ernstige (IQ 20 - 34)",
+        "verslag": {
+          "verzendingsdatum": "2017-01-20",
+          "mdtVerslagNemer": {
+            "mdt": {
+              "@type": "Organisatie",
+              "erkenningsnummer": {
+                "notatie": "MDT.123.456",
+                "agent": "VAPH"
+              },
+              "naam": "Psychiatrisch centrum"
+            }
+          }
+        }
+      },
+      {
+        "code": "F918  1",
+        "naam": "Gedragsstoornis (conduct disorder)",
+        "verslag": {
+          "verzendingsdatum": "2017-01-20",
+          "mdtVerslagNemer": {
+            "mdt": {
+              "@type": "Organisatie",
+              "erkenningsnummer": {
+                "notatie": "MDT.123.456",
+                "agent": "VAPH"
+              },
+              "naam": "Psychiatrisch centrum"
+            }
+          }
+        }
+      },
+      {
+        "code": "Z63   1",
+        "naam": "Relationele problemen",
+        "verslag": {
+          "verzendingsdatum": "2017-01-20",
+          "mdtVerslagNemer": {
+            "mdt": {
+              "@type": "Organisatie",
+              "erkenningsnummer": {
+                "notatie": "MDT.123.456",
+                "agent": "VAPH"
+              },
+              "naam": "Psychiatrisch centrum"
+            }
+          }
+        }
+      }
+    ],
+    "handicaps": [
+      {
+        "code": "1130",
+        "naam": "Psychische stoornis [SUBDOMEIN]"
+      },
+      {
+        "code": "1141",
+        "naam": "Zwakbegaafd"
+      }
+    ],
+    "iqTest": {
+      "p": 20.0,
+      "v": 20.0,
+      "t": 20.0,
+      "type": "WISC-R",
+      "verslag": {
+        "verzendingsdatum": "2017-01-20",
+        "mdtVerslagNemer": {
+          "mdt": {
+            "@type": "Organisatie",
+            "erkenningsnummer": {
+              "notatie": "MDT.123.456",
+              "agent": "VAPH"
+            },
+            "naam": "Psychiatrisch centrum"
+          }
+        }
+      }
+    },
+    "motorischeBeperkingen": {
+      "verslag": {
+        "verzendingsdatum": "2017-01-20",
+        "mdtVerslagNemer": {
+          "mdt": {
+            "@type": "Organisatie",
+            "erkenningsnummer": {
+              "notatie": "MDT.123.456",
+              "agent": "VAPH"
+            },
+            "naam": "Psychiatrisch centrum"
+          }
+        }
+      },
+      "stappen300m": "nee"
+    },
+    "beperkingen": [],
+    "stoornisCodes": []
+  }
+}

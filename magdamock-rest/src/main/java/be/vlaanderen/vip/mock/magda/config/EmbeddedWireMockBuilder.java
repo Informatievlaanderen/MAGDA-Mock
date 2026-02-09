@@ -2,12 +2,12 @@ package be.vlaanderen.vip.mock.magda.config;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
-
-import java.nio.file.Files;
-import java.nio.file.Path;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.util.FileCopyUtils;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class EmbeddedWireMockBuilder {
     
