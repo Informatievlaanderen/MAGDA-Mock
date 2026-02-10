@@ -30,14 +30,14 @@
                         <INSZ>18631326301</INSZ>
                         <SocialeStatuten>
                             <SociaalStatuut>
-                                <Naam>PARKING_GENT_CHILD</Naam>
+                                <Naam>GENT_PARKING_CHILD</Naam>
                                 <Resultaat>
                                     <Code>0</Code>
                                     <Omschrijving>Niet van toepassing</Omschrijving>
                                 </Resultaat>
                             </SociaalStatuut>
                             <SociaalStatuut>
-                                <Naam>PARKING_GENT_ADULT</Naam>
+                                <Naam>GENT_PARKING_ADULT</Naam>
                                 <Resultaat>
                                     <Code>0</Code>
                                     <Omschrijving>Niet van toepassing</Omschrijving>
