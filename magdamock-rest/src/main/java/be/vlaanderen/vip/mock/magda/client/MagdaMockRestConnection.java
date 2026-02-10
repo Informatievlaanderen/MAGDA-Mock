@@ -5,9 +5,15 @@ import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockRestException;
 import be.vlaanderen.vip.mock.magda.config.EmbeddedWireMockBuilder;
 import be.vlaanderen.vip.mock.magda.config.MockRestMagdaEndpoints;
+import be.vlaanderen.vip.mock.magda.config.WireMockData;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.direct.DirectCallHttpServer;
+import com.github.tomakehurst.wiremock.http.ImmutableRequest;
+import com.github.tomakehurst.wiremock.http.Request;
+import com.github.tomakehurst.wiremock.http.RequestMethod;
+import com.github.tomakehurst.wiremock.http.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.tuple.Pair;
@@ -17,8 +23,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,12 +33,12 @@ public class MagdaMockRestConnection implements MagdaConnection {
 
     private final WireMockServer wireMockServer;
     private final ObjectMapper mapper;
-    private final HttpClient httpClient;
+    private final DirectCallHttpServer internalWiremockHttpServer;
 
-    MagdaMockRestConnection(WireMockServer wireMockServer) {
-        this.wireMockServer = wireMockServer;
+    MagdaMockRestConnection(WireMockData wiremockServerData) {
+        this.wireMockServer = wiremockServerData.wireMockServer();
         this.wireMockServer.start();
-        httpClient = HttpClient.newHttpClient();
+        internalWiremockHttpServer = wiremockServerData.factory().getHttpServer();
         mapper = new ObjectMapper();
     }
 
@@ -42,8 +46,8 @@ public class MagdaMockRestConnection implements MagdaConnection {
         return create(EmbeddedWireMockBuilder.wireMockServer());
     }
 
-    public static MagdaConnection create(WireMockServer wireMockServer) {
-        return new MagdaMockRestConnection(wireMockServer);
+    public static MagdaConnection create(WireMockData wiremockServerData) {
+        return new MagdaMockRestConnection(wiremockServerData);
     }
 
     @Override
@@ -72,20 +76,17 @@ public class MagdaMockRestConnection implements MagdaConnection {
     public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) {
         String url = wireMockServer.url(path) + "?" + query;
         try {
-            HttpRequest.BodyPublisher body = HttpRequest.BodyPublishers.ofString(requestBody);
-
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
-                    .method(method, body)
-                    .header("Content-Type", "application/json")
+            Request mockRequest = new ImmutableRequest.Builder()
+                    .withAbsoluteUrl(url)
+                    .withMethod(RequestMethod.fromString(method))
                     .build();
+            Response response = internalWiremockHttpServer.stubRequest(mockRequest);
 
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-            if (response.statusCode() == 404) {
+            if (response.getStatus() == 404) {
                 return Pair.of(null, 404);
             }
-            return Pair.of(mapper.readTree(response.body()), response.statusCode());
-        } catch (IOException | InterruptedException e) {
+            return Pair.of(mapper.readTree(response.getBody()), response.getStatus());
+        } catch (IOException e) {
             throw new MagdaMockRestException("Error simulating REST call", e.getCause());
         }
     }
