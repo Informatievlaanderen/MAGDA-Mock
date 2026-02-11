@@ -3,6 +3,7 @@ package be.vlaanderen.vip.mock.magda.client;
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
+import be.vlaanderen.vip.magda.client.utils.MockDataTemplating;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
 import be.vlaanderen.vip.mock.magda.inventory.ResourceFinders;
@@ -14,6 +15,9 @@ import org.w3c.dom.Document;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
 
 @Slf4j
 public class MagdaMockConnection implements MagdaConnection {
@@ -45,7 +49,17 @@ public class MagdaMockConnection implements MagdaConnection {
             return answer;
         }
 
-        return send(xml);
+        LocalDate date;
+        try {
+            String dateString = MagdaDocument.fromDocument(xml).getValue("//Verzoek/Context/Bericht/Tijdstip/Datum").strip();
+            date = LocalDate.parse(dateString);
+        } catch (Exception e) {
+            log.info("Unable to extract date and time from request");
+            date = LocalDate.now();
+        }
+        String document = MagdaDocument.fromDocument(send(xml)).toString();
+        document = MockDataTemplating.processTemplatingValues(document, date);
+        return MagdaDocument.fromString(document).getXml();
     }
 
     @Override
@@ -54,7 +68,7 @@ public class MagdaMockConnection implements MagdaConnection {
     }
 
     @Override
-    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) {
+    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody, String dateHeader) {
         throw new NotImplementedException();
     }
 

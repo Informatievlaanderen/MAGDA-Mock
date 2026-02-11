@@ -25,6 +25,7 @@ public class MobilityRegistrationTest {
                         MagdaRegistrationInfo.builder().identification("id").hoedanigheidscode("hc").build()
                 )
                 .enduserId("00000000097")
+                .httpDateHeader("Tue, 29 Oct 2024 16:56:32 GMT")
                 .build();
 
         var connection = MagdaMockRestConnection.create();
@@ -40,7 +41,7 @@ public class MobilityRegistrationTest {
     @SneakyThrows
     void rawRestCall_givesResponse() {
         var mockConnection = MagdaMockRestConnection.create();
-        var response = mockConnection.sendRestRequest("/v1/mobility/registrations", "plateNr=1ABC123", "GET", "");
+        var response = mockConnection.sendRestRequest("/v1/mobility/registrations", "plateNr=1ABC123", "GET", "", "Tue, 29 Oct 2024 16:56:32 GMT");
         MobilityRegistrationJsonAdapter mobilityRegistrationJsonAdapter = new MobilityRegistrationJsonAdapter();
         var antwoord = mobilityRegistrationJsonAdapter.adapt(new MagdaResponseJson(response.getLeft(), response.getRight()));
         Assertions.assertNotNull(antwoord);

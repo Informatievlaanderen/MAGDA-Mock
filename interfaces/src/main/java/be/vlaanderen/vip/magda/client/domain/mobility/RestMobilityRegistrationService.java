@@ -8,7 +8,9 @@ import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.exception.ServerException;
 import org.apache.hc.core5.http.Method;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RestMobilityRegistrationService implements MobilityRegistrationService {
     private static final MagdaServiceIdentification dienst = new MagdaServiceIdentification("REST /v1/mobility/registrations", "00.01");
@@ -22,6 +24,10 @@ public class RestMobilityRegistrationService implements MobilityRegistrationServ
 
     @Override
     public List<Registration> getRegistrations(MobilityRegistrationRequest request) throws MagdaClientException {
+        Map<String, String> headers = new HashMap<>();
+        if (!request.getHttpDateHeader().isEmpty()){
+            headers.put("Date", request.getHttpDateHeader());
+        }
         MagdaRestRequest restRequest = MagdaRestRequest.builder()
                 .dienst(dienst)
                 .method(Method.GET)
@@ -30,6 +36,7 @@ public class RestMobilityRegistrationService implements MobilityRegistrationServ
                 .correlationId(request.getCorrelationId().toString())
                 .enduserId(request.getEnduserId())
                 .urlQueryParams(request.getQueryParameters())
+                .headers(headers)
                 .build();
         try {
             return adapter.adapt(client.sendRestRequest(restRequest));

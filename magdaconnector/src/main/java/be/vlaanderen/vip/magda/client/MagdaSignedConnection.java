@@ -75,7 +75,7 @@ public class MagdaSignedConnection implements MagdaConnection {
     }
 
     @Override
-    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) {
+    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody, String dateHeader) {
         throw new NotImplementedException();
     }
 }

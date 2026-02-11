@@ -239,7 +239,7 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
     }
 
     @Override
-    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) {
+    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody, String dateHeader) {
         throw new NotImplementedException();
     }
 

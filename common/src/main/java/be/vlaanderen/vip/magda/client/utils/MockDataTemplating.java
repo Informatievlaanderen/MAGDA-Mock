@@ -7,7 +7,8 @@ import com.github.jknack.handlebars.Template;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
@@ -18,7 +19,7 @@ import java.util.regex.Pattern;
 @Slf4j
 public class MockDataTemplating {
 
-    public static String processTemplatingValues(String response, OffsetDateTime now) {
+    public static String processTemplatingValues(String response, LocalDate now) {
         try {
             Handlebars handlebars = new Handlebars();
             handlebars.registerHelper("formatDate", new DateFormatter());
@@ -44,17 +45,17 @@ public class MockDataTemplating {
         };
     }
 
-    public static class DateFormatter implements Helper<OffsetDateTime> {
+    public static class DateFormatter implements Helper<LocalDate> {
         @Override
-        public Object apply(OffsetDateTime date, Options options) {
+        public Object apply(LocalDate date, Options options) {
             String format = options.param(0, "yyyy-MM-dd");
             return DateTimeFormatter.ofPattern(format).format(date);
         }
     }
 
-    public static class DateMathHelper implements Helper<OffsetDateTime> {
+    public static class DateMathHelper implements Helper<LocalDate> {
         @Override
-        public Object apply(OffsetDateTime date, Options options) {
+        public Object apply(LocalDate date, Options options) {
             String addition = options.param(0);
             Pattern dateTimeDiffPattern = Pattern.compile("([-+][0-9]*)?([a-z]+)", Pattern.CASE_INSENSITIVE);
             Matcher matcher = dateTimeDiffPattern.matcher(addition);
@@ -66,10 +67,10 @@ public class MockDataTemplating {
         }
     }
 
-    public static class StartQuarterHelper implements Helper<OffsetDateTime> {
+    public static class StartQuarterHelper implements Helper<LocalDate> {
         @Override
-        public Object apply(OffsetDateTime date, Options options) {
-            OffsetDateTime newTime = date.minusDays(0);
+        public Object apply(LocalDate date, Options options) {
+            LocalDate newTime = date.minusDays(0);
             int month = Math.floorDivExact(newTime.getMonthValue() - 1, 3) * 3 + 1;
             int day = 1;
             newTime = newTime.withMonth(month);
@@ -78,10 +79,10 @@ public class MockDataTemplating {
         }
     }
 
-    public static class EndQuarterHelper implements Helper<OffsetDateTime> {
+    public static class EndQuarterHelper implements Helper<LocalDate> {
         @Override
-        public Object apply(OffsetDateTime date, Options options) {
-            OffsetDateTime newTime = date.plusMonths(3);
+        public Object apply(LocalDate date, Options options) {
+            LocalDate newTime = date.plusMonths(3);
             int month = Math.floorDivExact(newTime.getMonthValue() - 1, 3) * 3 + 1;
             int day = 1;
             newTime = newTime.withMonth(month);

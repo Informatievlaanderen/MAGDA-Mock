@@ -29,5 +29,5 @@ public interface MagdaConnection {
      */
     Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException;
 
-    Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) throws MagdaConnectionException;
+    Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody, String dateHeader) throws MagdaConnectionException;
 }

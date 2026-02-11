@@ -2,22 +2,22 @@ package be.vlaanderen.vip.magda.client.utils;
 
 import org.junit.jupiter.api.Test;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 import java.time.ZoneOffset;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MockDataTemplatingTests {
-    private final OffsetDateTime dateTime;
+    private final LocalDate dateTime;
 
     private MockDataTemplatingTests(){
-        this.dateTime = OffsetDateTime.of(1582, 10, 11, 0, 0, 0, 0, ZoneOffset.ofHours(0));
+        this.dateTime = LocalDate.of(1582, 10, 11);
     }
 
     @Test
     public void templatingShouldNotChangeStaticString(){
         String staticString = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nibh.";
-        String templatedString = MockDataTemplating.processTemplatingValues(staticString, OffsetDateTime.now());
+        String templatedString = MockDataTemplating.processTemplatingValues(staticString, LocalDate.now());
         assertEquals(staticString, templatedString);
     }
 

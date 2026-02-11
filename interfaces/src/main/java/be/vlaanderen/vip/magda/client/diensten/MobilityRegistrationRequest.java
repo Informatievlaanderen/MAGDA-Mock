@@ -74,6 +74,8 @@ public class MobilityRegistrationRequest {
     private MagdaRegistrationInfo registrationInfo;
     @Getter
     private String enduserId;
+    @Getter
+    private String httpDateHeader;
 
     @Getter
     public enum EnrichmentSource {

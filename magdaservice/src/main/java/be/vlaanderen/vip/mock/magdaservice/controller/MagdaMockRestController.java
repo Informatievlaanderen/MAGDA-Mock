@@ -41,12 +41,13 @@ public class MagdaMockRestController {
     )
     protected ResponseEntity<String> magdaRestEndpoint(@RequestBody(required = false) String requestBody, HttpServletRequest incomingRequest) throws MagdaConnectionException {
         requestBody = requestBody == null ? "" : requestBody;
+        String dateHeader = incomingRequest.getHeader("Date");
         String method = incomingRequest.getMethod();
         List<String> splittedRequestUri = new ArrayList<>(Arrays.stream(incomingRequest.getRequestURI().split(Pattern.quote(MAGDA_REST_V1))).toList());
         String query = incomingRequest.getQueryString();
         splittedRequestUri.remove(0);
         String path = String.join(MAGDA_REST_V1, splittedRequestUri);
-        Pair<JsonNode, Integer> response = magdaMockRestConnection.sendRestRequest(path, query, method, requestBody);
+        Pair<JsonNode, Integer> response = magdaMockRestConnection.sendRestRequest(path, query, method, requestBody, dateHeader);
         return new ResponseEntity<>(response.getLeft().toString(), HttpStatusCode.valueOf(response.getRight()));
     }
 

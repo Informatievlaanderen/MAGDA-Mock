@@ -2,6 +2,7 @@ package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
+import be.vlaanderen.vip.magda.client.utils.MockDataTemplating;
 import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockRestException;
 import be.vlaanderen.vip.mock.magda.config.EmbeddedWireMockBuilder;
 import be.vlaanderen.vip.mock.magda.config.MockRestMagdaEndpoints;
@@ -19,6 +20,8 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -62,14 +65,15 @@ public class MagdaMockRestConnection implements MagdaConnection {
             List<String> parts = new ArrayList<>(Arrays.stream(endpoints.magdaUri(request.getDienst()).toString().split(stubUrl)).toList());
             parts.removeFirst();
             String path = String.join(stubUrl, parts);
-            return sendRestRequest(path, queryParams, method, "");
+            String dateHeader = request.getHeaders().get("Date");
+            return sendRestRequest(path, queryParams, method, "", dateHeader);
         } catch (URISyntaxException e) {
             throw new MagdaMockRestException("Error simulating REST call", e.getCause());
         }
     }
 
     @Override
-    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) {
+    public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody, String dateHeader) {
         String url = wireMockServer.url(path) + "?" + query;
         try {
             HttpRequest.BodyPublisher body = HttpRequest.BodyPublishers.ofString(requestBody);
@@ -84,7 +88,16 @@ public class MagdaMockRestConnection implements MagdaConnection {
             if (response.statusCode() == 404) {
                 return Pair.of(null, 404);
             }
-            return Pair.of(mapper.readTree(response.body()), response.statusCode());
+
+            LocalDate date;
+            try {
+                date = LocalDate.parse(dateHeader, DateTimeFormatter.RFC_1123_DATE_TIME);
+            } catch (Exception e) {
+                date = LocalDate.now();
+            }
+            String responseBody = response.body();
+            responseBody = MockDataTemplating.processTemplatingValues(responseBody, date);
+            return Pair.of(mapper.readTree(responseBody), response.statusCode());
         } catch (IOException | InterruptedException e) {
             throw new MagdaMockRestException("Error simulating REST call", e.getCause());
         }
