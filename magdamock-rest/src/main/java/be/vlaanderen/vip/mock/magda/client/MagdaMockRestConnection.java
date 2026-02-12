@@ -37,7 +37,6 @@ public class MagdaMockRestConnection implements MagdaConnection {
 
     MagdaMockRestConnection(WireMockData wiremockServerData) {
         this.wireMockServer = wiremockServerData.wireMockServer();
-        this.wireMockServer.start();
         internalWiremockHttpServer = wiremockServerData.factory().getHttpServer();
         mapper = new ObjectMapper();
     }
@@ -74,7 +73,12 @@ public class MagdaMockRestConnection implements MagdaConnection {
 
     @Override
     public Pair<JsonNode, Integer> sendRestRequest(String path, String query, String method, String requestBody) {
-        String url = wireMockServer.url(path) + "?" + query;
+        List<String> parts = new ArrayList<>();
+        parts.add(wireMockServer.url(path));
+        if (!query.isEmpty()){
+            parts.add(query);
+        }
+        String url = String.join("?", parts);
         try {
             Request mockRequest = new ImmutableRequest.Builder()
                     .withAbsoluteUrl(url)
