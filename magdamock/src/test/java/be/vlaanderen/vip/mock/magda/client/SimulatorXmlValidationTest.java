@@ -141,7 +141,6 @@ class SimulatorXmlValidationTest {
     
     void validateXml(File xml, Validator validator) {
         try (BOMInputStream bomIn = BOMInputStream.builder().setFile(xml).get()) {
-            validator.validate(new StreamSource(xml));
             String content = IOUtils.toString(bomIn, Charset.defaultCharset());
             content = MockDataTemplating.processTemplatingValues(content, LocalDate.now());
             validator.validate(new StreamSource(new StringReader(content)));

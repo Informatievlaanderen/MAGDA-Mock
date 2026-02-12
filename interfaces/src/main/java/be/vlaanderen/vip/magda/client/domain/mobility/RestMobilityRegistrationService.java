@@ -25,7 +25,7 @@ public class RestMobilityRegistrationService implements MobilityRegistrationServ
     @Override
     public List<Registration> getRegistrations(MobilityRegistrationRequest request) throws MagdaClientException {
         Map<String, String> headers = new HashMap<>();
-        if (!request.getHttpDateHeader().isEmpty()){
+        if (request.getHttpDateHeader() != null && !request.getHttpDateHeader().isEmpty()){
             headers.put("Date", request.getHttpDateHeader());
         }
         MagdaRestRequest restRequest = MagdaRestRequest.builder()
