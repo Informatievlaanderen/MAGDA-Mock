@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Slf4j
 public class MobilityRegistrationTest {
@@ -45,5 +46,24 @@ public class MobilityRegistrationTest {
         var antwoord = mobilityRegistrationJsonAdapter.adapt(new MagdaResponseJson(response.getLeft(), response.getRight()));
         Assertions.assertNotNull(antwoord);
         assertEquals("71640618918", antwoord.getFirst().getTitular().getPerson().getNationalNr().getIdentificator());
+    }
+
+    @Test
+    @SneakyThrows
+    void unknownLicensePlate_givesEmptyListResponse() {
+        var request = MobilityRegistrationRequest.builder()
+                .plateNr("UNKNOWN")
+                .registrationInfo(
+                        MagdaRegistrationInfo.builder().identification("id").hoedanigheidscode("hc").build()
+                )
+                .enduserId("00000000097")
+                .build();
+
+        var connection = MagdaMockRestConnection.create();
+        var connector = new MagdaConnectorImpl(connection, null, null);
+        var client = new ConnectorMagdaClient(connector);
+        RestMobilityRegistrationService restMobilityRegistrationService = new RestMobilityRegistrationService(client, new MobilityRegistrationJsonAdapter());
+        var antwoord = restMobilityRegistrationService.getRegistrations(request);
+        assertTrue(antwoord.isEmpty());
     }
 }
