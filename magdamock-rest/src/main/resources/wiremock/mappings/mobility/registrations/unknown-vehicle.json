@@ -1,12 +1,8 @@
 {
+  "priority": 100,
   "request": {
     "method": "GET",
-    "urlPath": "/v1/mobility/registrations",
-    "queryParameters": {
-      "plateNr": {
-        "matches": "XXXXXX"
-      }
-    }
+    "urlPath": "/v1/mobility/registrations"
   },
   "response": {
     "status": 204,
