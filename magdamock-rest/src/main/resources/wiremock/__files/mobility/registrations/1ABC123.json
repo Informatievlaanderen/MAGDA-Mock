@@ -11,7 +11,7 @@
           "description": "Normaal"
         },
         "languageCode": "NL",
-        "startSituationDate": "{{formatDate (dateMath now '-10d')}}T00:00:00Z",
+        "startSituationDate": "{{formatDate (dateMath (dateMath (parseDate request.headers.Date) '-10d') '-5y')}}T00:00:00Z",
         "lastRegistrationDate": "2020-02-20T00:00:00Z",
         "status": {
           "code": "REG",
