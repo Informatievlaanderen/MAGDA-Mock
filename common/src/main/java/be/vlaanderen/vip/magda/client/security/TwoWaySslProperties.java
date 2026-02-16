@@ -1,13 +1,10 @@
 package be.vlaanderen.vip.magda.client.security;
 
 import lombok.Data;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
+import static be.vlaanderen.vip.magda.client.utils.HashingUtils.hashSha512;
 
 @Data
 @Slf4j
@@ -34,17 +31,5 @@ public class TwoWaySslProperties {
         log.info("TwoWaySslProperties: keyStorePassword {}", hashSha512(keyStorePassword));
         log.info("TwoWaySslProperties: keyAlias {}", keyAlias);
         log.info("TwoWaySslProperties: keyPassword {}", hashSha512(keyPassword));
-    }
-
-    @SneakyThrows
-    private String hashSha512(String s){
-        MessageDigest md = MessageDigest.getInstance("SHA-512");
-        byte[] messageDigest = md.digest(s.getBytes());
-        BigInteger no = new BigInteger(1, messageDigest);
-        StringBuilder hashtext = new StringBuilder(no.toString(16));
-        while (hashtext.length() < 128) {
-            hashtext.insert(0, "0");
-        }
-        return hashtext.toString();
     }
 }
