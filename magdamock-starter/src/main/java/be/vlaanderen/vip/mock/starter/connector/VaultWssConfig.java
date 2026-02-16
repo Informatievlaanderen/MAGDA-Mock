@@ -30,6 +30,7 @@ public class VaultWssConfig {
         properties.setKeyAlias(getDataField(data, keyAliasKey));
         properties.setKeyPassword(getDataField(data, keyPasswordKey));
         properties.setKeyStorePassword(getDataField(data, keyStorePasswordKey));
+        properties.logHashes();
         return properties;
     }
     
