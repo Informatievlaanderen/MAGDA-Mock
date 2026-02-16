@@ -29,10 +29,10 @@ public class TwoWaySslProperties {
     }
 
     public void logHashes() {
-        log.info("TwoWaySslProperties: keyStoreType {}", hashSha512(keyStoreType));
-        log.info("TwoWaySslProperties: keyStoreLocation {}", hashSha512(keyStoreLocation));
+        log.info("TwoWaySslProperties: keyStoreType {}", keyStoreType);
+        log.info("TwoWaySslProperties: keyStoreLocation {}", keyStoreLocation);
         log.info("TwoWaySslProperties: keyStorePassword {}", hashSha512(keyStorePassword));
-        log.info("TwoWaySslProperties: keyAlias {}", hashSha512(keyAlias));
+        log.info("TwoWaySslProperties: keyAlias {}", keyAlias);
         log.info("TwoWaySslProperties: keyPassword {}", hashSha512(keyPassword));
     }
 
