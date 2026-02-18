@@ -146,6 +146,38 @@ public class BewijzenJaxb implements Bewijzen, Serializable {
             }
         }
 
+        @XmlElementWrapper(name = "Beroepskwalificaties")
+        @XmlElement(name = "Beroepskwalificatie")
+        @Nullable
+        ArrayList<BeroepskwalificatieJaxb> beroepskwalificaties;
+
+        @Override
+        public List<Beroepskwalificatie> beroepskwalificaties() {
+            if(beroepskwalificaties != null) {
+                return beroepskwalificaties.stream()
+                        .map(x -> (Beroepskwalificatie) x)
+                        .toList();
+            } else {
+                return List.of();
+            }
+        }
+
+        @XmlElementWrapper(name = "Deelkwalificaties")
+        @XmlElement(name = "Deelkwalificatie")
+        @Nullable
+        ArrayList<DeelkwalificatieJaxb> deelkwalificaties;
+
+        @Override
+        public List<Deelkwalificatie> deelkwalificaties() {
+            if(deelkwalificaties != null) {
+                return deelkwalificaties.stream()
+                        .map(x -> (Deelkwalificatie) x)
+                        .toList();
+            } else {
+                return List.of();
+            }
+        }
+
         @XmlElement(name = "Categorie")
         NaamJaxb categorie;
 
@@ -211,6 +243,32 @@ public class BewijzenJaxb implements Bewijzen, Serializable {
 
         @XmlElement(name = "Inhoud")
         String inhoud;
+    }
+
+    @Getter
+    private static class BeroepskwalificatieJaxb implements Beroepskwalificatie, Serializable {
+
+        @Serial
+        private static final long serialVersionUID = 4829173645109827346L;
+
+        @XmlElement(name = "Naam")
+        String naam;
+
+        @XmlElement(name = "Code")
+        String code;
+    }
+
+    @Getter
+    private static class DeelkwalificatieJaxb implements Deelkwalificatie, Serializable {
+
+        @Serial
+        private static final long serialVersionUID = -913746205871234569L;
+
+        @XmlElement(name = "Naam")
+        String naam;
+
+        @XmlElement(name = "Code")
+        String code;
     }
 
     @Getter
