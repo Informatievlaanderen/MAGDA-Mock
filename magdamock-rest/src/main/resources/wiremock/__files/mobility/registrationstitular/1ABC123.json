@@ -1,38 +1,34 @@
 {
   "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
-  "self": "/registrations?vin=WVWZZZAUZLP551560",
+  "self": "/registrationsTitular?plateNr=1ABC123&dateTime=2017-05-01T00:00:00Z",
   "items": [
     {
-      "license": {
-        "plateNr": "1ABC123",
-        "plateUID": "0282335146",
-        "plateType": {
-          "code": "NM",
-          "description": "Normaal"
+      "driver": {
+        "person": {
+          "nationalNr": "string",
+          "lastName": [
+            "string"
+          ],
+          "firstName": [
+            "string"
+          ]
         },
-        "languageCode": "NL",
-        "startSituationDate": "2020-02-20T00:00:00Z",
-        "lastRegistrationDate": "2020-02-20T00:00:00Z",
-        "status": {
-          "code": "REG",
-          "description": "Ingeschreven"
-        },
-        "statusLegal": {
-          "code": "NOR",
-          "description": "Normaal"
-        },
-        "lastUpdateDateTime": "2020-02-20T09:25:57.303Z"
-      },
-      "certificates": [
-        {
-          "id": "374424351",
-          "beginDate": "2020-02-19T23:00:00Z",
-          "statusLegal": {
-            "code": "NOR",
-            "description": "Normaal"
-          }
+        "source": "string",
+        "address": {
+          "box": "string",
+          "lastUpdateSource": "string",
+          "lastUpdateDateTime": "2022-01-27T12:35:34.095Z",
+          "country": {
+            "code": "string",
+            "description": "string"
+          },
+          "cityName": "string",
+          "cityNisCode": "string",
+          "postalCode": "string",
+          "houseNumber": "string",
+          "streetName": "string"
         }
-      ],
+      },
       "titular": {
         "@id": "_:100",
         "@type": "http://purl.org/dc/terms/Agent",
@@ -42,139 +38,152 @@
           "@id": "_:100",
           "@type": "http://www.w3.org/ns/person#Person",
           "nationalNr": {
-            "identificator": "71640618918"
+            "identificator": "01234567890"
           },
           "lastName": [
-            "Serruys"
+            "Silva Urbanczyk"
           ],
           "firstName": [
-            "Anna"
-          ],
-          "birthYear": "1971"
+            "Michaël",
+            "David"
+          ]
         },
         "contactInfo": {
           "@type": "https://schema.org/ContactPoint",
-          "registrationAddress": {
-            "@type": "http://www.w3.org/ns/locn#Address",
-            "streetName": {
-              "string": "Vandenschrieckstraat"
-            },
-            "houseNumber": "101",
-            "postalCode": "1500",
-            "cityNisCode": "23027",
-            "cityName": {
-              "string": "Halle"
-            }
-          },
           "address": {
-            "@type": "http://www.w3.org/ns/locn#Address",
+            "@type": "http://www.w3.org/ns/Locn#Address",
+            "lastUpdateSource": "RRN",
+            "lastUpdateDateTime": "2017-03-06T10:20:27.123Z",
             "streetName": {
-              "string": "Vandenschrieckstraat"
+              "string": "Rue de Hollogne"
             },
-            "houseNumber": "101",
-            "postalCode": "1500",
-            "cityNisCode": "23027",
+            "houseNumber": "185",
+            "postalCode": "4101",
+            "cityNisCode": "62096",
             "cityName": {
-              "string": "Halle"
+              "string": "Seraing"
+            },
+            "currentAddress": {
+              "@type": "http://www.w3.org/ns/Locn#Address",
+              "lastUpdateSource": "RRN",
+              "lastUpdateDateTime": "2017-03-06T10:20:27.123Z",
+              "streetName": {
+                "string": "Rue de Hollogne",
+                "lang": "nl"
+              },
+              "houseNumber": "185",
+              "postalCode": "4101",
+              "cityNisCode": "62096",
+              "cityName": {
+                "string": "Seraing",
+                "lang": "nl"
+              }
             }
           }
-        }
-      },
-      "transaction": {
-        "typeCode": "REG",
-        "subTypeCode": {
-          "code": "REGNM",
-          "description": "Normale inschrijving"
         },
-        "dateTime": "2020-02-20T09:25:57.303Z",
-        "info": {
-          "plateNumberPriorTitular": "",
-          "importedVehicle": false
-        }
-      },
-      "vehicle": {
-        "vin": "WVWZZZAUZLP551560",
-        "unifier": "01",
-        "category": {
-          "code": "M1",
-          "description": "Voertuigen bestemd voor personenvervoer, ten hoogste 8 zitplaatsen (zonder bestuurder)"
+        "license": {
+          "plateNr": "1ABC123",
+          "plateType": {
+            "code": "NM",
+            "description": "Normaal"
+          },
+          "languageCode": "NL",
+          "startSituationDate": "2017-03-06T00:00:00Z",
+          "lastRegistrationDate": "2017-03-06T00:00:00Z",
+          "reRegistrationFlag": "N",
+          "commercialMaxMass": 0,
+          "commercialMaxCapacity": 0,
+          "status": {
+            "code": "REG",
+            "description": "Ingeschreven"
+          },
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          }
         },
-        "makeName": "VOLKSWAGEN, VW",
-        "commercialName": "GOLF",
-        "firstRegistrationDate": "2020-02-20",
-        "firstKnownUseDate": "2020-02-20",
-        "type": "AUV",
-        "wvta": "e1*2007/46*0627*40",
-        "variant": "VACDKRFX0",
-        "version": "FM6FM6AJ019N4BFON1VL1BVR2A",
-        "dateCOC": "2020-01-29",
-        "status": {
-          "code": "NOR",
-          "description": "normaal"
-        },
-        "statusLegal": {
-          "code": "NOR",
-          "description": "Normaal"
-        },
-        "statusAdministrative": {
-          "code": "NOR",
-          "description": "normaal"
-        },
-        "customsStickerCode": "3",
-        "distanceType": "K",
-        "techControlValidityDate": "2024-02-20",
-        "techControlEntryDatetime": "2020-02-25T16:13:11Z",
-        "codeForBodyWork": [
-          {
+        "vehicle": {
+          "vin": "XX0X0XXXXXX000000",
+          "unifier": "01",
+          "category": {
+            "code": "M1",
+            "description": "Voertuigen bestemd voor personenvervoer-ten hoogste 8 zitplaatsen-bestuurder niet meegerekend"
+          },
+          "makeName": "DS",
+          "commercialName": "DS 7 CROSSBACK",
+          "firstRegistrationDate": "2022-06-10",
+          "firstKnownUseDate": "2022-06-10",
+          "type": "J",
+          "wvta": "e2*2007/46*0601*20",
+          "variant": "4",
+          "version": "DGZU-C11000",
+          "dateCOC": "2022-04-27",
+          "status": {
+            "code": "NOR",
+            "description": "normaal"
+          },
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          },
+          "statusAdministrative": {
+            "code": "NOR",
+            "description": "normaal"
+          },
+          "customsStickerCode": "3",
+          "codeForBodyWork": [
+            {
+              "code": "AC",
+              "description": "STATIONWAGEN"
+            }
+          ],
+          "kind": {
             "code": "AC",
             "description": "STATIONWAGEN"
-          }
-        ],
-        "kind": {
-          "code": "AC",
-          "description": "STATIONWAGEN"
-        },
-        "colour": [
-          {
-            "code": "8",
-            "description": "Grijs"
-          }
-        ],
-        "technicPermissibleMaxMass": 1850,
-        "massOfTheVehicleInRunningOrder": 1300,
-        "referenceMass": 1325,
-        "actualMassOfTheVehicle": 1366,
-        "numberOfAxles": 2,
-        "wheelBase": 2620,
-        "maximumSpeed": 200,
-        "limiterIndicator": false,
-        "handicapIndicator": false,
-        "tachoIndicator": false,
-        "assistanceWithoutPedallingIndicator": false,
-        "nrOfSeatingPositions": 5,
-        "suspension": {
-          "code": "1",
-          "description": "Niet pneumatische ophanging"
-        },
-        "exhaustDirectiveRefCode": "715/2007*2018/1832DG",
-        "engine": [
-          {
-            "engineCapacity": 999.0,
-            "fuel": [
-              {
-                "code": "10",
-                "description": "Benzine",
-                "maximumNetPower": 85.0,
-                "euroNormCode": "6ei",
-                "combinedFuelConsumption": 4.9,
-                "combinedCO2": 113,
-                "WLTPCombinedCO2": 131
-              }
-            ]
-          }
-        ]
+          },
+          "colour": [
+            {
+              "code": "10",
+              "description": "Zwart"
+            }
+          ],
+          "technicPermissibleMaxMass": 2350,
+          "massOfTheVehicleInRunningOrder": 1835,
+          "referenceMass": 1860,
+          "actualMassOfTheVehicle": 1854,
+          "numberOfAxles": 2,
+          "wheelBase": 2738,
+          "maximumSpeed": 225,
+          "limiterIndicator": false,
+          "assistanceWithoutPedallingIndicator": false,
+          "sizeHeight": 1631,
+          "sizeLength": 4595,
+          "sizeWidth": 1895,
+          "nrOfSeatingPositions": 5,
+          "suspension": {
+            "code": "1",
+            "description": "Niet pneumatische ophanging"
+          },
+          "exhaustDirectiveRefCode": "715/2007*2018/1832AP",
+          "engine": [
+            {
+              "engineCapacity": 1598.0,
+              "electricEngineIndicator": true,
+              "fuel": [
+                {
+                  "code": "10",
+                  "description": "Benzine",
+                  "maximumNetPower": 133.0,
+                  "euroNormCode": "6if",
+                  "combinedCO2": 35,
+                  "weightedCombinedCO2": 35,
+                  "WLTPWeightedCombinedCO2": 31
+                }
+              ]
+            }
+          ]
+        }
       }
     }
-  ],
-  "total": 1
+  ]
 }
