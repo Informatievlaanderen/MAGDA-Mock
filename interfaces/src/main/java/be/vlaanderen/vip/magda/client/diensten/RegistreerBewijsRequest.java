@@ -11,6 +11,8 @@ import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 import java.time.Instant;
 import java.util.Optional;
@@ -203,5 +205,7 @@ public class RegistreerBewijsRequest extends PersonMagdaRequest {
                 inhoudNode.appendChild(xml.createTextNode(bijkomendeInformatie.inhoud()));
             }
         }
+        RegistreerBewijsHelper.voegBeroepskwalificatiesToe(xml, bewijsNode, bewijsBasis.beroepskwalificaties());
+        RegistreerBewijsHelper.voegDeelkwalificatiesToe(xml, bewijsNode, bewijsBasis.deelkwalificaties());
     }
 }
