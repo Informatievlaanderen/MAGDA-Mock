@@ -44,6 +44,12 @@ public interface Bewijs {
         @Nullable
         List<AlternatieveInstantie> alternatieveInstanties();
 
+        @Nullable
+        List<Beroepskwalificatie> beroepskwalificaties();
+
+        @Nullable
+        List<Deelkwalificatie> deelkwalificaties();
+
         Naam authenticiteit();
 
         Naam bewijsstaat();

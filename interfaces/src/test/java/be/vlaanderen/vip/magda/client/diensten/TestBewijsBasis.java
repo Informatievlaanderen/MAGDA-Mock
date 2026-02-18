@@ -1,6 +1,8 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
+import be.vlaanderen.vip.magda.client.domain.geefbewijzen.Beroepskwalificatie;
 import be.vlaanderen.vip.magda.client.domain.geefbewijzen.Bewijs;
+import be.vlaanderen.vip.magda.client.domain.geefbewijzen.Deelkwalificatie;
 import jakarta.annotation.Nullable;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
@@ -48,6 +50,71 @@ class TestBewijsBasis implements Bewijs.Basis {
                 return () -> "alternatieveInstantie 2 instantie naam";
             }
         });
+    }
+
+    @Nullable
+    @Override
+    public List<Beroepskwalificatie> beroepskwalificaties() {
+        if(!complete) {
+            return null;
+        }
+
+        return List.of(new Beroepskwalificatie() {
+
+            @Override
+            public String naam() {
+                return "beroepskwalificatie 1 naam";
+            }
+
+            @Override
+            public String code() {
+                return "beroepskwalificatie 1 code";
+            }
+        }, new Beroepskwalificatie() {
+
+            @Override
+            public String naam() {
+                return "beroepskwalificatie 2 naam";
+            }
+
+            @Override
+            public String code() {
+                return "beroepskwalificatie 2 code";
+            }
+        });
+    }
+
+    @Nullable
+    @Override
+    public List<Deelkwalificatie> deelkwalificaties() {
+        if(!complete) {
+            return null;
+        }
+
+        return List.of(new Deelkwalificatie() {
+
+            @Override
+            public String naam() {
+                return "deelkwalificatie 1 naam";
+            }
+
+            @Override
+            public String code() {
+                return "deelkwalificatie 1 code";
+            }
+        }, new Deelkwalificatie() {
+
+            @Override
+            public String naam() {
+                return "deelkwalificatie 2 naam";
+            }
+
+            @Override
+            public String code() {
+                return "deelkwalificatie 2 code";
+            }
+        });
+
     }
 
     @Override

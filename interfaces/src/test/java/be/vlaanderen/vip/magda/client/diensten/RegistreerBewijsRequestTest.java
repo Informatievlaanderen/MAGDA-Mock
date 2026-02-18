@@ -132,7 +132,15 @@ class RegistreerBewijsRequestTest {
                     () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/BijkomendeInformaties/BijkomendeInformatie[1]/Naam"), is(equalTo("bijkomendeInformatie 1 naam"))),
                     () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/BijkomendeInformaties/BijkomendeInformatie[1]/Inhoud"), is(equalTo("bijkomendeInformatie 1 inhoud"))),
                     () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/BijkomendeInformaties/BijkomendeInformatie[2]/Naam"), is(equalTo("bijkomendeInformatie 2 naam"))),
-                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/BijkomendeInformaties/BijkomendeInformatie[2]/Inhoud"), is(equalTo("bijkomendeInformatie 2 inhoud")))
+                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/BijkomendeInformaties/BijkomendeInformatie[2]/Inhoud"), is(equalTo("bijkomendeInformatie 2 inhoud"))),
+                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/Beroepskwalificaties/Beroepskwalificatie[1]/Naam"), is(equalTo("beroepskwalificatie 1 naam"))),
+                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/Beroepskwalificaties/Beroepskwalificatie[1]/Code"), is(equalTo("beroepskwalificatie 1 code"))),
+                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/Beroepskwalificaties/Beroepskwalificatie[2]/Naam"), is(equalTo("beroepskwalificatie 2 naam"))),
+                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/Beroepskwalificaties/Beroepskwalificatie[2]/Code"), is(equalTo("beroepskwalificatie 2 code"))),
+                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/Deelkwalificaties/Deelkwalificatie[1]/Naam"), is(equalTo("deelkwalificatie 1 naam"))),
+                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/Deelkwalificaties/Deelkwalificatie[1]/Code"), is(equalTo("deelkwalificatie 1 code"))),
+                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/Deelkwalificaties/Deelkwalificatie[2]/Naam"), is(equalTo("deelkwalificatie 2 naam"))),
+                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/Deelkwalificaties/Deelkwalificatie[2]/Code"), is(equalTo("deelkwalificatie 2 code")))
             );
         }
 
@@ -171,7 +179,9 @@ class RegistreerBewijsRequestTest {
                     () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/Vervalperiode"), is(nullValue())),
                     () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/UrenVolwassenenonderwijs"), is(nullValue())),
                     () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/AlternatieveInstanties"), is(nullValue())),
-                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/BijkomendeInformaties"), is(nullValue()))
+                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/BijkomendeInformaties"), is(nullValue())),
+                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/Beroepskwalificaties"), is(nullValue())),
+                    () -> assertThat(request.getValue("//Bewijsregistratie/Bewijs/Deelkwalificaties"), is(nullValue()))
             );
         }
     }
