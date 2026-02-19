@@ -1,0 +1,189 @@
+{
+  "@context": "https://vlaamseoverheid.atlassian.net/wiki/download/attachments/1693680273/Mobility-context.jsonld",
+  "self": "/registrationsTitular?plateNr=1ABC123&dateTime=2017-05-01T00:00:00Z",
+  "items": [
+    {
+      "driver": {
+        "person": {
+          "nationalNr": "string",
+          "lastName": [
+            "string"
+          ],
+          "firstName": [
+            "string"
+          ]
+        },
+        "source": "string",
+        "address": {
+          "box": "string",
+          "lastUpdateSource": "string",
+          "lastUpdateDateTime": "2022-01-27T12:35:34.095Z",
+          "country": {
+            "code": "string",
+            "description": "string"
+          },
+          "cityName": "string",
+          "cityNisCode": "string",
+          "postalCode": "string",
+          "houseNumber": "string",
+          "streetName": "string"
+        }
+      },
+      "titular": {
+        "@id": "_:100",
+        "@type": "http://purl.org/dc/terms/Agent",
+        "type": "P",
+        "source": "RRN",
+        "person": {
+          "@id": "_:100",
+          "@type": "http://www.w3.org/ns/person#Person",
+          "nationalNr": {
+            "identificator": "01234567890"
+          },
+          "lastName": [
+            "Silva Urbanczyk"
+          ],
+          "firstName": [
+            "Michaël",
+            "David"
+          ]
+        },
+        "contactInfo": {
+          "@type": "https://schema.org/ContactPoint",
+          "address": {
+            "@type": "http://www.w3.org/ns/Locn#Address",
+            "lastUpdateSource": "RRN",
+            "lastUpdateDateTime": "2017-03-06T10:20:27.123Z",
+            "streetName": {
+              "string": "Rue de Hollogne"
+            },
+            "houseNumber": "185",
+            "postalCode": "4101",
+            "cityNisCode": "62096",
+            "cityName": {
+              "string": "Seraing"
+            },
+            "currentAddress": {
+              "@type": "http://www.w3.org/ns/Locn#Address",
+              "lastUpdateSource": "RRN",
+              "lastUpdateDateTime": "2017-03-06T10:20:27.123Z",
+              "streetName": {
+                "string": "Rue de Hollogne",
+                "lang": "nl"
+              },
+              "houseNumber": "185",
+              "postalCode": "4101",
+              "cityNisCode": "62096",
+              "cityName": {
+                "string": "Seraing",
+                "lang": "nl"
+              }
+            }
+          }
+        },
+        "license": {
+          "plateNr": "1ABC123",
+          "plateType": {
+            "code": "NM",
+            "description": "Normaal"
+          },
+          "languageCode": "NL",
+          "startSituationDate": "2017-03-06T00:00:00Z",
+          "lastRegistrationDate": "2017-03-06T00:00:00Z",
+          "reRegistrationFlag": "N",
+          "commercialMaxMass": 0,
+          "commercialMaxCapacity": 0,
+          "status": {
+            "code": "REG",
+            "description": "Ingeschreven"
+          },
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          }
+        },
+        "vehicle": {
+          "vin": "XX0X0XXXXXX000000",
+          "unifier": "01",
+          "category": {
+            "code": "M1",
+            "description": "Voertuigen bestemd voor personenvervoer-ten hoogste 8 zitplaatsen-bestuurder niet meegerekend"
+          },
+          "makeName": "DS",
+          "commercialName": "DS 7 CROSSBACK",
+          "firstRegistrationDate": "2022-06-10",
+          "firstKnownUseDate": "2022-06-10",
+          "type": "J",
+          "wvta": "e2*2007/46*0601*20",
+          "variant": "4",
+          "version": "DGZU-C11000",
+          "dateCOC": "2022-04-27",
+          "status": {
+            "code": "NOR",
+            "description": "normaal"
+          },
+          "statusLegal": {
+            "code": "NOR",
+            "description": "Normaal"
+          },
+          "statusAdministrative": {
+            "code": "NOR",
+            "description": "normaal"
+          },
+          "customsStickerCode": "3",
+          "codeForBodyWork": [
+            {
+              "code": "AC",
+              "description": "STATIONWAGEN"
+            }
+          ],
+          "kind": {
+            "code": "AC",
+            "description": "STATIONWAGEN"
+          },
+          "colour": [
+            {
+              "code": "10",
+              "description": "Zwart"
+            }
+          ],
+          "technicPermissibleMaxMass": 2350,
+          "massOfTheVehicleInRunningOrder": 1835,
+          "referenceMass": 1860,
+          "actualMassOfTheVehicle": 1854,
+          "numberOfAxles": 2,
+          "wheelBase": 2738,
+          "maximumSpeed": 225,
+          "limiterIndicator": false,
+          "assistanceWithoutPedallingIndicator": false,
+          "sizeHeight": 1631,
+          "sizeLength": 4595,
+          "sizeWidth": 1895,
+          "nrOfSeatingPositions": 5,
+          "suspension": {
+            "code": "1",
+            "description": "Niet pneumatische ophanging"
+          },
+          "exhaustDirectiveRefCode": "715/2007*2018/1832AP",
+          "engine": [
+            {
+              "engineCapacity": 1598.0,
+              "electricEngineIndicator": true,
+              "fuel": [
+                {
+                  "code": "10",
+                  "description": "Benzine",
+                  "maximumNetPower": 133.0,
+                  "euroNormCode": "6if",
+                  "combinedCO2": 35,
+                  "weightedCombinedCO2": 35,
+                  "WLTPWeightedCombinedCO2": 31
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
