@@ -26,6 +26,8 @@ public class MagdaRestRequest {
     private String senderQualityCode;
     private String correlationId;
     private String enduserId;
+    @Setter
+    private String bearerToken;
 
     public static class MagdaRestRequestBuilder {
         public MagdaRestRequest build() {
@@ -48,6 +50,9 @@ public class MagdaRestRequest {
                 throw new IllegalArgumentException("Enduser ID is required");
             }
             this.headers.put("X-Magda-Enduser-ID", enduserId);
+            if (bearerToken != null) {
+                this.headers.put("Authorization", "Bearer " + bearerToken);
+            }
             return this.internalBuild();
         }
     }

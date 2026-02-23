@@ -29,6 +29,7 @@ public class RestMobilityRegistrationService implements MobilityRegistrationServ
                 .senderQualityCode(request.getRegistrationInfo().getHoedanigheidscode().orElse(""))
                 .correlationId(request.getCorrelationId().toString())
                 .enduserId(request.getEnduserId())
+                .bearerToken(request.getBearerToken())
                 .urlQueryParams(request.getQueryParameters())
                 .build();
         try {

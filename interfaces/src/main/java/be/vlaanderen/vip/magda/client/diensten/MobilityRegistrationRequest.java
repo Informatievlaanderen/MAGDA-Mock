@@ -1,14 +1,9 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -67,6 +62,8 @@ public class MobilityRegistrationRequest {
     private EnrichmentSource addressEnrichmentPerson;
     @Getter(AccessLevel.PROTECTED)
     private String addressEnrichmentOrganization;
+    @Getter
+    private String bearerToken; // TODO remove this when we move the authentication responsibility to the level of Magda Sandbox
 
     @Getter
     private UUID correlationId;
