@@ -1,0 +1,40 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/v1/mobility/registrationsTitular",
+        "queryParameters": {
+          "plateNr": {
+            "equalTo": "1ABC123"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "mobility/registrationstitular/1ABC123.json"
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/v1/mobility/registrationsTitular",
+        "queryParameters": {
+          "vin": {
+            "matches": "XX0X0XXXXXX000000"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "mobility/registrationstitular/1ABC123.json"
+      }
+    }
+  ]
+}

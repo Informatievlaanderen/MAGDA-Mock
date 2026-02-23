@@ -1,0 +1,13 @@
+{
+  "priority": 100,
+  "request": {
+    "method": "GET",
+    "urlPath": "/v1/mobility/registrationsTitular"
+  },
+  "response": {
+    "status": 204,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
