@@ -165,10 +165,12 @@ class GeefMultipleSociaalStatuutRequestTest {
                     SociaalStatuutRequestCriteria.builder()
                             .socialStatusName("SOCIAL_STATUTE_NAME_1")
                             .date(LocalDate.of(2024, 3, 1))
+                            .maximumAge(20)
                             .build(),
                     SociaalStatuutRequestCriteria.builder()
                             .socialStatusName("SOCIAL_STATUTE_NAME_2")
                             .startDate(LocalDate.of(2024, 3, 1))
+                            .minimumAge(21)
                             .build(),
                     SociaalStatuutRequestCriteria.builder()
                             .socialStatusName("SOCIAL_STATUTE_NAME_3")
@@ -185,11 +187,13 @@ class GeefMultipleSociaalStatuutRequestTest {
 
             assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_1']]/Naam"), is(equalTo("SOCIAL_STATUTE_NAME_1")));
             assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_1']]/Datum/Datum"), is(equalTo("2024-03-01")));
+            assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_1']]/Leeftijd/Maximum"), is(equalTo("20")));
             assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_1']]/Datum/Periode"), is(nullValue()));
             assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_1']]/Locatie"), is(nullValue()));
 
             assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_2']]/Naam"), is(equalTo("SOCIAL_STATUTE_NAME_2")));
             assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_2']]/Datum/Datum"), is(nullValue()));
+            assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_2']]/Leeftijd/Minimum"), is(equalTo("21")));
             assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_2']]/Datum/Periode/Begindatum"), is(equalTo("2024-03-01")));
             assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_2']]/Datum/Periode/Einddatum"), is(nullValue()));
             assertThat(request.getValue("//SociaalStatuut[Naam[text()='SOCIAL_STATUTE_NAME_2']]/Locatie"), is(nullValue()));

@@ -145,6 +145,22 @@ public class GeefMultipleSociaalStatuutRequest extends PersonMagdaRequest {
             sociaalStatuutNode.appendChild(locationNode);
         }
 
+        if (socialStatute.getMinimumAge() != null) {
+            var leeftijdNode = doc.createElement("Leeftijd");
+            var minimumValueNode = doc.createElement("Minimum");
+            minimumValueNode.appendChild(doc.createTextNode(socialStatute.getMinimumAge().toString()));
+            leeftijdNode.appendChild(minimumValueNode);
+            sociaalStatuutNode.appendChild(leeftijdNode);
+        }
+
+        if (socialStatute.getMaximumAge() != null) {
+            var leeftijdNode = doc.createElement("Leeftijd");
+            var maximumValueNode = doc.createElement("Maximum");
+            maximumValueNode.appendChild(doc.createTextNode(socialStatute.getMaximumAge().toString()));
+            leeftijdNode.appendChild(maximumValueNode);
+            sociaalStatuutNode.appendChild(leeftijdNode);
+        }
+
         request.xpath("//SocialeStatuten").item(0).appendChild(sociaalStatuutNode);
     }
 }

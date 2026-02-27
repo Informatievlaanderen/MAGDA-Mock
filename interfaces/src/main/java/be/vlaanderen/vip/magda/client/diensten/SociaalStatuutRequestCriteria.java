@@ -35,6 +35,10 @@ public class SociaalStatuutRequestCriteria
         private LocalDate endDate;
         @Getter(AccessLevel.PROTECTED)
         private String locationName;
+        @Getter(AccessLevel.PROTECTED)
+        private Integer maximumAge;
+        @Getter(AccessLevel.PROTECTED)
+        private Integer minimumAge;
 
         public Builder socialStatusName(String socialStatusName) {
             this.socialStatusName = socialStatusName;
@@ -61,6 +65,16 @@ public class SociaalStatuutRequestCriteria
             return this;
         }
 
+        public Builder maximumAge(Integer maximumAge) {
+            this.maximumAge = maximumAge;
+            return this;
+        }
+
+        public Builder minimumAge(Integer minimumAge) {
+            this.minimumAge = minimumAge;
+            return this;
+        }
+
         public SociaalStatuutRequestCriteria build() {
             if(socialStatusName == null) { throw new IllegalStateException("socialStatusName must be given"); }
             if((date == null && startDate == null) || (date != null && startDate != null)) { throw new IllegalStateException("Either date or startDate must be given"); }
@@ -71,7 +85,9 @@ public class SociaalStatuutRequestCriteria
                     date,
                     startDate,
                     endDate,
-                    locationName
+                    locationName,
+                    minimumAge,
+                    maximumAge
             );
         }
     }
@@ -90,17 +106,25 @@ public class SociaalStatuutRequestCriteria
     private final LocalDate endDate;
     @Nullable
     private final String locationName;
+    @Nullable
+    private final Integer minimumAge;
+    @Nullable
+    private final Integer maximumAge;
 
     protected SociaalStatuutRequestCriteria(
             @NotNull String socialStatusName,
             @Nullable LocalDate date,
             @Nullable LocalDate startDate,
             @Nullable LocalDate endDate,
-            @Nullable String locationName) {
+            @Nullable String locationName,
+            @Nullable Integer minimumAge,
+            @Nullable Integer maximumAge) {
         this.socialStatusName = socialStatusName;
         this.date = date;
         this.startDate = startDate;
         this.endDate = endDate;
         this.locationName = locationName;
+        this.minimumAge = minimumAge;
+        this.maximumAge = maximumAge;
     }
 }
