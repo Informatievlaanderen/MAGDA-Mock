@@ -22,18 +22,15 @@ public class RestMobilityRegistrationService implements MobilityRegistrationServ
 
     @Override
     public List<Registration> getRegistrations(MobilityRegistrationRequest request) throws MagdaClientException {
-        MagdaRestRequest restRequest = MagdaRestRequest.builder()
+        MagdaRestRequest.MagdaRestRequestBuilder restRequestBuilder = MagdaRestRequest.builder()
                 .dienst(dienst)
                 .method(Method.GET)
-                .senderId(request.getRegistrationInfo().getIdentification())
-                .senderQualityCode(request.getRegistrationInfo().getHoedanigheidscode().orElse(""))
                 .correlationId(request.getCorrelationId().toString())
                 .enduserId(request.getEnduserId())
                 .bearerToken(request.getBearerToken())
-                .urlQueryParams(request.getQueryParameters())
-                .build();
+                .urlQueryParams(request.getQueryParameters());
         try {
-            return adapter.adapt(client.sendRestRequest(restRequest));
+            return adapter.adapt(client.sendRestRequest(restRequestBuilder, request.getRegistrationInfo().getIdentification()));
         } catch (ServerException e) {
             throw new MagdaClientException("Registrations call went wrong: ", e);
         }

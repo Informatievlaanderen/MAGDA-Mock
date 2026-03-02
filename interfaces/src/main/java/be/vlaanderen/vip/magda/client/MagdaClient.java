@@ -12,4 +12,6 @@ public interface MagdaClient {
     MagdaResponseWrapper send(MagdaRequest request, UUID requestId) throws MagdaClientException;
 
     MagdaResponseJson sendRestRequest(MagdaRestRequest request) throws MagdaClientException;
+
+    MagdaResponseJson sendRestRequest(MagdaRestRequest.MagdaRestRequestBuilder requestBuilder, String registration) throws MagdaClientException;
 }

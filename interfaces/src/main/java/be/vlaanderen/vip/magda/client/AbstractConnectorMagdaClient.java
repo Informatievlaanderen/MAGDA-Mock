@@ -53,5 +53,14 @@ public abstract class AbstractConnectorMagdaClient implements MagdaClient {
         }
     }
 
+    @Override
+    public MagdaResponseJson sendRestRequest(MagdaRestRequest.MagdaRestRequestBuilder requestBuilder, String registration) throws MagdaClientException{
+        try {
+            return restConnector.sendRestRequest(requestBuilder, registration);
+        } catch (ServerException e) {
+            throw new MagdaClientException("Error occurred while sending magda REST request", e);
+        }
+    }
+
     protected abstract void validateMagdaResponse(MagdaResponse response, MagdaRequest request) throws MagdaClientException;
 }

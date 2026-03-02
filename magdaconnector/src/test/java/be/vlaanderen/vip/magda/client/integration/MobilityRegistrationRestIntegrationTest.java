@@ -12,14 +12,18 @@ import be.vlaanderen.vip.magda.client.domain.mobility.MobilityRegistrationJsonAd
 import be.vlaanderen.vip.magda.client.domain.mobility.MobilityRegistrationService;
 import be.vlaanderen.vip.magda.client.domain.mobility.Registration;
 import be.vlaanderen.vip.magda.client.domain.mobility.RestMobilityRegistrationService;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceImpl;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoint;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
+import be.vlaanderen.vip.magda.config.MagdaConfigDto;
+import be.vlaanderen.vip.magda.config.MagdaRegistrationConfigDto;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
@@ -51,7 +55,16 @@ public class MobilityRegistrationRestIntegrationTest {
         MagdaConnection magdaConnection = new MagdaSoapConnectionBuilder()
                 .withEndpoints(endpoints)
                 .build();
-        MagdaConnector magdaConnector = new MagdaConnectorImpl(magdaConnection, null, null);
+        MagdaConnector magdaConnector = new MagdaConnectorImpl(magdaConnection, null, new MagdaHoedanigheidServiceImpl(
+                MagdaConfigDto.builder()
+                        .registration(
+                                Map.of("identificatie", MagdaRegistrationConfigDto.builder()
+                                                .identification("test-ID")
+                                                .hoedanigheidscode("test-HC")
+                                        .build())
+                        )
+                        .build()
+        ));
         ConnectorMagdaClient client = new ConnectorMagdaClient(magdaConnector);
         MobilityRegistrationService mobilityRegistrationService = new RestMobilityRegistrationService(client, new MobilityRegistrationJsonAdapter());
         List<Registration> registrations = mobilityRegistrationService.getRegistrations(

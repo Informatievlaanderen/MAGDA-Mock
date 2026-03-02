@@ -5,12 +5,17 @@ import be.vlaanderen.vip.magda.client.MagdaConnectorImpl;
 import be.vlaanderen.vip.magda.client.diensten.MobilityRegistrationRequest;
 import be.vlaanderen.vip.magda.client.domain.mobility.MobilityRegistrationJsonAdapter;
 import be.vlaanderen.vip.magda.client.domain.mobility.RestMobilityRegistrationService;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaHoedanigheidServiceImpl;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.rest.MagdaResponseJson;
+import be.vlaanderen.vip.magda.config.MagdaConfigDto;
+import be.vlaanderen.vip.magda.config.MagdaRegistrationConfigDto;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -29,7 +34,16 @@ public class MobilityRegistrationTest {
                 .build();
 
         var connection = MagdaMockRestConnection.create();
-        var connector = new MagdaConnectorImpl(connection, null, null);
+        var connector = new MagdaConnectorImpl(connection, null, new MagdaHoedanigheidServiceImpl(
+                MagdaConfigDto.builder()
+                        .registration(
+                                Map.of("id", MagdaRegistrationConfigDto.builder()
+                                        .identification("test-ID")
+                                        .hoedanigheidscode("test-HC")
+                                        .build())
+                        )
+                        .build()
+        ));
         var client = new ConnectorMagdaClient(connector);
         RestMobilityRegistrationService restMobilityRegistrationService = new RestMobilityRegistrationService(client, new MobilityRegistrationJsonAdapter());
         var antwoord = restMobilityRegistrationService.getRegistrations(request);
@@ -60,7 +74,16 @@ public class MobilityRegistrationTest {
                 .build();
 
         var connection = MagdaMockRestConnection.create();
-        var connector = new MagdaConnectorImpl(connection, null, null);
+        var connector = new MagdaConnectorImpl(connection, null, new MagdaHoedanigheidServiceImpl(
+                MagdaConfigDto.builder()
+                        .registration(
+                                Map.of("id", MagdaRegistrationConfigDto.builder()
+                                        .identification("test-ID")
+                                        .hoedanigheidscode("test-HC")
+                                        .build())
+                        )
+                        .build()
+        ));
         var client = new ConnectorMagdaClient(connector);
         RestMobilityRegistrationService restMobilityRegistrationService = new RestMobilityRegistrationService(client, new MobilityRegistrationJsonAdapter());
         var antwoord = restMobilityRegistrationService.getRegistrations(request);
