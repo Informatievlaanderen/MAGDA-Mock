@@ -7,7 +7,7 @@
                     <Bericht>
                         <Type>ANTWOORD</Type>
                         <Tijdstip>
-                            <Datum>2024-12-12</Datum>
+                            <Datum>2025-12-12</Datum>
                             <Tijd>14:18:45.123</Tijd>
                         </Tijdstip>
                         <Afzender>
@@ -35,10 +35,10 @@
                                             <Code>1</Code>
                                             <Omschrijving>Aangepast</Omschrijving>
                                         </Status>
-                                        <DatumCreatie>2023-06-15</DatumCreatie>
+                                        <DatumCreatie>2024-06-15</DatumCreatie>
                                     </Identificatie>
                                     <AangifteWerkgever>
-                                        <Kwartaal>20232</Kwartaal>
+                                        <Kwartaal>20242</Kwartaal>
                                         <RSZNummer>1234567890</RSZNummer>
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>SEC</SectorIndicator>
@@ -53,8 +53,8 @@
                                                 <Categorie>20</Categorie>
                                                 <Kerngetal>999</Kerngetal>
                                                 <Periode>
-                                                    <Begin>2023-04-01</Begin>
-                                                    <Einde>2023-06-30</Einde>
+                                                    <Begin>2024-04-01</Begin>
+                                                    <Einde>2024-06-30</Einde>
                                                 </Periode>
                                                 <Grensarbeider>1</Grensarbeider>
                                                 <Tewerkstellingen>
@@ -66,7 +66,7 @@
                                                             <NISCode>99999</NISCode>
                                                         </LokaleEenheid>
                                                         <Periode>
-                                                            <Begin>2023-04-01</Begin>
+                                                            <Begin>2024-04-01</Begin>
                                                         </Periode>
                                                         <ParitairComite>999</ParitairComite>
                                                         <AantalWerkdagenPerWeek>400</AantalWerkdagenPerWeek>
@@ -99,10 +99,10 @@
                                             <Code>2</Code>
                                             <Omschrijving>Geannuleerd</Omschrijving>
                                         </Status>
-                                        <DatumCreatie>2024-01-10</DatumCreatie>
+                                        <DatumCreatie>2025-01-10</DatumCreatie>
                                     </Identificatie>
                                     <AangifteWerkgever>
-                                        <Kwartaal>20233</Kwartaal>
+                                        <Kwartaal>20243</Kwartaal>
                                         <RSZNummer>1234567890</RSZNummer>
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>SEC</SectorIndicator>
@@ -110,7 +110,7 @@
                                         <Ondernemingsnummer>0408881724</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>888888</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>0</ConversieNaarRegime5>
-                                        <DatumBeginVakantie>2024-05-01</DatumBeginVakantie>
+                                        <DatumBeginVakantie>2025-05-01</DatumBeginVakantie>
                                         <Werknemer>
                                             <INSZ>88691900114</INSZ>
                                             <OriolusValidatie>0</OriolusValidatie>
@@ -118,8 +118,8 @@
                                                 <Categorie>30</Categorie>
                                                 <Kerngetal>888</Kerngetal>
                                                 <Periode>
-                                                    <Begin>2023-07-01</Begin>
-                                                    <Einde>2023-09-30</Einde>
+                                                    <Begin>2024-07-01</Begin>
+                                                    <Einde>2024-09-30</Einde>
                                                 </Periode>
                                                 <Grensarbeider>1</Grensarbeider>
                                                 <Tewerkstellingen>
@@ -164,10 +164,10 @@
                                             <Code>0</Code>
                                             <Omschrijving>Nieuw</Omschrijving>
                                         </Status>
-                                        <DatumCreatie>2024-03-15</DatumCreatie>
+                                        <DatumCreatie>2025-03-15</DatumCreatie>
                                     </Identificatie>
                                     <AangifteWerkgever>
-                                        <Kwartaal>20234</Kwartaal>
+                                        <Kwartaal>20244</Kwartaal>
                                         <RSZNummer>1234567890</RSZNummer>
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
@@ -175,7 +175,7 @@
                                         <Ondernemingsnummer>0408881724</Ondernemingsnummer>
                                         <VerschuldigdNettoBedrag>777777</VerschuldigdNettoBedrag>
                                         <ConversieNaarRegime5>0</ConversieNaarRegime5>
-                                        <DatumBeginVakantie>2024-09-01</DatumBeginVakantie>
+                                        <DatumBeginVakantie>2025-09-01</DatumBeginVakantie>
                                         <Werknemer>
                                             <INSZ>88691900114</INSZ>
                                             <OriolusValidatie>0</OriolusValidatie>
@@ -183,8 +183,8 @@
                                                 <Categorie>40</Categorie>
                                                 <Kerngetal>777</Kerngetal>
                                                 <Periode>
-                                                    <Begin>2023-10-01</Begin>
-                                                    <Einde>2023-12-31</Einde>
+                                                    <Begin>2024-10-01</Begin>
+                                                    <Einde>2024-12-31</Einde>
                                                 </Periode>
                                                 <Grensarbeider>0</Grensarbeider>
                                                 <Tewerkstellingen>
@@ -226,13 +226,13 @@
                                             <Code>1</Code>
                                             <Omschrijving>Aangepast</Omschrijving>
                                         </Status>
-                                        <DatumCreatie>2024-06-10</DatumCreatie>
+                                        <DatumCreatie>2025-06-10</DatumCreatie>
                                     </Identificatie>
                                     <Versie>
                                         <Volgende>5678901234</Volgende>
                                     </Versie>
                                     <AangifteWerkgever>
-                                        <Kwartaal>20241</Kwartaal>
+                                        <Kwartaal>20251</Kwartaal>
                                         <RSZNummer>1234567890</RSZNummer>
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
@@ -247,8 +247,8 @@
                                                 <Categorie>50</Categorie>
                                                 <Kerngetal>666</Kerngetal>
                                                 <Periode>
-                                                    <Begin>2024-01-01</Begin>
-                                                    <Einde>2024-03-31</Einde>
+                                                    <Begin>2025-01-01</Begin>
+                                                    <Einde>2025-03-31</Einde>
                                                 </Periode>
                                                 <Grensarbeider>1</Grensarbeider>
                                                 <Tewerkstellingen>
@@ -290,13 +290,13 @@
                                             <Code>2</Code>
                                             <Omschrijving>Geannuleerd</Omschrijving>
                                         </Status>
-                                        <DatumCreatie>2024-09-05</DatumCreatie>
+                                        <DatumCreatie>2025-09-05</DatumCreatie>
                                     </Identificatie>
                                     <Versie>
                                         <Vorige>4567890123</Vorige>
                                     </Versie>
                                     <AangifteWerkgever>
-                                        <Kwartaal>20242</Kwartaal>
+                                        <Kwartaal>20252</Kwartaal>
                                         <RSZNummer>1234567890</RSZNummer>
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
@@ -311,8 +311,8 @@
                                                 <Categorie>60</Categorie>
                                                 <Kerngetal>555</Kerngetal>
                                                 <Periode>
-                                                    <Begin>2024-04-01</Begin>
-                                                    <Einde>2024-06-30</Einde>
+                                                    <Begin>2025-04-01</Begin>
+                                                    <Einde>2025-06-30</Einde>
                                                 </Periode>
                                                 <Grensarbeider>0</Grensarbeider>
                                                 <Tewerkstellingen>
@@ -354,10 +354,10 @@
                                             <Code>1</Code>
                                             <Omschrijving>Aangepast</Omschrijving>
                                         </Status>
-                                        <DatumCreatie>2024-11-20</DatumCreatie>
+                                        <DatumCreatie>2025-11-20</DatumCreatie>
                                     </Identificatie>
                                     <AangifteWerkgever>
-                                        <Kwartaal>20243</Kwartaal>
+                                        <Kwartaal>20253</Kwartaal>
                                         <RSZNummer>1234567890</RSZNummer>
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
@@ -372,8 +372,8 @@
                                                 <Categorie>70</Categorie>
                                                 <Kerngetal>444</Kerngetal>
                                                 <Periode>
-                                                    <Begin>2024-07-01</Begin>
-                                                    <Einde>2024-09-30</Einde>
+                                                    <Begin>2025-07-01</Begin>
+                                                    <Einde>2025-09-30</Einde>
                                                 </Periode>
                                                 <Grensarbeider>1</Grensarbeider>
                                                 <Tewerkstellingen>
