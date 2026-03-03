@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.mock.magda.client.exceptions.MagdaMockRestException;
 import be.vlaanderen.vip.mock.magda.config.EmbeddedWireMockBuilder;
@@ -22,7 +23,6 @@ import org.w3c.dom.Document;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.http.HttpClient;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,7 +55,7 @@ public class MagdaMockRestConnection implements MagdaConnection {
     }
 
     @Override
-    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) {
+    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request, MagdaRegistrationInfo registrationInfo) {
         String queryParams = request.getUrlQueryParams().entrySet().stream().map((kv) -> String.format("%s=%s", kv.getKey(), kv.getValue())).collect(Collectors.joining("&"));
         String method = request.getMethod().name();
 

@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.client.security.*;
 import be.vlaanderen.vip.magda.config.MagdaConfigDto;
@@ -15,7 +16,6 @@ import org.apache.wss4j.common.ext.WSSecurityException;
 import org.w3c.dom.Document;
 
 import java.net.URISyntaxException;
-import java.util.Optional;
 
 @Slf4j
 public class MagdaSignedConnection implements MagdaConnection {
@@ -69,9 +69,9 @@ public class MagdaSignedConnection implements MagdaConnection {
     }
 
     @Override
-    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException {
+    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request, MagdaRegistrationInfo registrationInfo) throws MagdaConnectionException, URISyntaxException {
         log.info("Sending REST request, this is not signed.");
-        return magdaConnection.sendRestRequest(request);
+        return magdaConnection.sendRestRequest(request, registrationInfo);
     }
 
     @Override
