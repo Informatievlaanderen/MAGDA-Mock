@@ -1,16 +1,16 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
+import be.vlaanderen.vip.magda.client.DirectRegistration;
+import be.vlaanderen.vip.magda.client.KeyRegistration;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
 import java.util.Map;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static be.vlaanderen.vip.magda.client.diensten.MobilityRegistrationRequest.DEFAULT_REGISTRATION;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MobilityRegistrationRequestTest {
 
@@ -26,19 +26,42 @@ public class MobilityRegistrationRequestTest {
         MobilityRegistrationRequest mobilityRegistrationRequest = builder.build();
         assertEquals(correlationId, mobilityRegistrationRequest.getCorrelationId());
         assertEquals("00000000097", mobilityRegistrationRequest.getEnduserId());
-        assertEquals(registrationInfo, mobilityRegistrationRequest.getRegistrationInfo());
+        assertEquals(new DirectRegistration(registrationInfo), mobilityRegistrationRequest.getRegistration());
 
         Map<String, String> queryParameters = mobilityRegistrationRequest.getQueryParameters();
         assertEquals(0, queryParameters.size());
     }
 
     @Test
-    public void whenRegistrationInfoIsMissing_shouldThrowException() {
+    public void whenRegistrationKeyIsGiven_usesKeyRegistration() {
+        MobilityRegistrationRequest.MobilityRegistrationRequestBuilder builder = new MobilityRegistrationRequest.MobilityRegistrationRequestBuilder();
+        UUID correlationId = UUID.randomUUID();
+        builder.registrationKey("registration-key");
+        builder.correlationId(correlationId);
+        builder.enduserId("00000000097");
+        MobilityRegistrationRequest mobilityRegistrationRequest = builder.build();
+        assertEquals(new KeyRegistration("registration-key"), mobilityRegistrationRequest.getRegistration());
+    }
+
+    @Test
+    public void whenRegistrationIsMissing_usesDefaultRegistration() {
         MobilityRegistrationRequest.MobilityRegistrationRequestBuilder builder = new MobilityRegistrationRequest.MobilityRegistrationRequestBuilder();
         UUID correlationId = UUID.randomUUID();
         builder.correlationId(correlationId);
         builder.enduserId("00000000097");
-        assertThrows(IllegalArgumentException.class, builder::build);
+        MobilityRegistrationRequest mobilityRegistrationRequest = builder.build();
+        assertEquals(new KeyRegistration(DEFAULT_REGISTRATION), mobilityRegistrationRequest.getRegistration());
+    }
+
+    @Test
+    public void whenRegistrationKeyAndInfoAreBothGiven_throwsException() {
+        MobilityRegistrationRequest.MobilityRegistrationRequestBuilder builder = new MobilityRegistrationRequest.MobilityRegistrationRequestBuilder();
+        UUID correlationId = UUID.randomUUID();
+        builder.registrationKey("registration-key");
+        builder.registrationInfo(registrationInfo);
+        builder.correlationId(correlationId);
+        builder.enduserId("00000000097");
+        assertThrows(IllegalStateException.class, builder::build);
     }
 
     @Test
@@ -49,7 +72,7 @@ public class MobilityRegistrationRequestTest {
         MobilityRegistrationRequest mobilityRegistrationRequest = builder.build();
         assertNotNull(mobilityRegistrationRequest.getCorrelationId());
         assertEquals("00000000097", mobilityRegistrationRequest.getEnduserId());
-        assertEquals(registrationInfo, mobilityRegistrationRequest.getRegistrationInfo());
+        assertEquals(new DirectRegistration(registrationInfo), mobilityRegistrationRequest.getRegistration());
     }
 
     @Test
