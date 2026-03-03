@@ -38,13 +38,4 @@ public interface MagdaConnector {
      * @throws ServerException an error that may be thrown in cases of no response or validation errors from the server.
      */
     MagdaResponseJson sendRestRequest(MagdaRestRequest request) throws ServerException;
-
-    /**
-     * Sends a MAGDA REST request for a specific registration.
-     * @param requestBuilder the builder for the REST request to MAGDA to which the details from the registration will be added.
-     * @param registration the registration to be used with the request.
-     * @return the response from MAGDA.
-     * @throws ServerException an error that may be thrown in cases of no response or validation errors from the server.
-     */
-    MagdaResponseJson sendRestRequest(MagdaRestRequest.MagdaRestRequestBuilder requestBuilder, String registration) throws ServerException;
 }

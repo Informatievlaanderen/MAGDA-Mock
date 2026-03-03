@@ -1,5 +1,8 @@
 package be.vlaanderen.vip.magda.client.diensten;
 
+import be.vlaanderen.vip.magda.client.DirectRegistration;
+import be.vlaanderen.vip.magda.client.KeyRegistration;
+import be.vlaanderen.vip.magda.client.Registration;
 import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.*;
 
@@ -36,6 +39,8 @@ import java.util.UUID;
 @Builder(toBuilder = true, buildMethodName = "internalBuild")
 public class MobilityRegistrationRequest {
 
+    public static final String DEFAULT_REGISTRATION = "default";
+
     @Getter(AccessLevel.PROTECTED)
     private String plateNr;
     @Getter(AccessLevel.PROTECTED)
@@ -68,7 +73,7 @@ public class MobilityRegistrationRequest {
     @Getter
     private UUID correlationId;
     @Getter
-    private MagdaRegistrationInfo registrationInfo;
+    private Registration registration;
     @Getter
     private String enduserId;
 
@@ -85,15 +90,45 @@ public class MobilityRegistrationRequest {
     }
 
     public static class MobilityRegistrationRequestBuilder {
+
+        private String registrationKey;
+        private MagdaRegistrationInfo registrationInfo;
+
+        public MobilityRegistrationRequestBuilder registrationKey(String registrationKey) {
+            this.registrationKey = registrationKey;
+            return this;
+        }
+
+        public MobilityRegistrationRequestBuilder registrationInfo(MagdaRegistrationInfo registrationInfo) {
+            this.registrationInfo = registrationInfo;
+            return this;
+        }
+
+        protected Registration getRegistration() {
+            if(registrationKey != null) {
+                if(registrationInfo != null) {
+                    throw new IllegalStateException("Cannot provide both registration key and registration info.");
+                } else {
+                    return new KeyRegistration(registrationKey);
+                }
+            } else {
+                if(registrationInfo != null) {
+                    return new DirectRegistration(registrationInfo);
+                } else {
+                    return new KeyRegistration(DEFAULT_REGISTRATION);
+                }
+            }
+        }
+
         public MobilityRegistrationRequest build() {
             if (!isNullOrBlank(this.unifier) && isNullOrBlank(this.vin)) {
                 throw new IllegalArgumentException("Unifier cannot be given without vin");
             }
-            if (correlationId == null) {
-                correlationId = UUID.randomUUID();
+            if (this.correlationId == null) {
+                this.correlationId = UUID.randomUUID();
             }
-            if (registrationInfo == null) {
-                throw new IllegalArgumentException("RegistrationInfo must be given");
+            if(this.registration == null) {
+                this.registration = getRegistration();
             }
 
             return this.internalBuild();

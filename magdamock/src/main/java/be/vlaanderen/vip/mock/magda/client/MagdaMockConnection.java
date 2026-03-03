@@ -2,6 +2,7 @@ package be.vlaanderen.vip.mock.magda.client;
 
 import be.vlaanderen.vip.magda.client.MagdaDocument;
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulator;
 import be.vlaanderen.vip.mock.magda.client.simulators.SOAPSimulatorBuilder;
@@ -49,7 +50,7 @@ public class MagdaMockConnection implements MagdaConnection {
     }
 
     @Override
-    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) {
+    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request, MagdaRegistrationInfo registrationInfo) {
         throw new NotImplementedException();
     }
 

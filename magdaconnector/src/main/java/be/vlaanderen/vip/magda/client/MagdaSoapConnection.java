@@ -1,6 +1,7 @@
 package be.vlaanderen.vip.magda.client;
 
 import be.vlaanderen.vip.magda.client.connection.MagdaConnection;
+import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import be.vlaanderen.vip.magda.client.endpoints.MagdaEndpoints;
 import be.vlaanderen.vip.magda.client.rest.MagdaRestRequest;
 import be.vlaanderen.vip.magda.client.security.TwoWaySslException;
@@ -204,7 +205,7 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
     private final ObjectMapper mapper;
 
     @Override
-    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request) throws MagdaConnectionException, URISyntaxException {
+    public Pair<JsonNode, Integer> sendRestRequest(MagdaRestRequest request, MagdaRegistrationInfo registrationInfo) throws MagdaConnectionException, URISyntaxException {
         URIBuilder uriBuilder = new URIBuilder(magdaEndpoints.magdaUri(request.getDienst()));
         for (Map.Entry<String, String> header : request.getUrlQueryParams().entrySet()) {
             uriBuilder.addParameter(header.getKey(), header.getValue());
@@ -216,6 +217,10 @@ public class MagdaSoapConnection implements MagdaConnection, Closeable {
         for (Map.Entry<String, String> header : request.getHeaders().entrySet()) {
             httpRequest.setHeader(header.getKey(), header.getValue());
         }
+
+        httpRequest.setHeader("X-Magda-Sender-ID", registrationInfo.getIdentification());
+        registrationInfo.getHoedanigheidscode().ifPresent(hoedanigheidscode ->
+                httpRequest.setHeader("X-Magda-Sender-QualityCode", hoedanigheidscode));
 
         try (var response = httpClient.execute(httpRequest)) {
             log.info("Response from REST endpoint {}: {}", urlString, response.getCode());
