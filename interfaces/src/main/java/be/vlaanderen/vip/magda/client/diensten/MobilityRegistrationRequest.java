@@ -7,6 +7,7 @@ import be.vlaanderen.vip.magda.client.domeinservice.MagdaRegistrationInfo;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -56,7 +57,7 @@ public class MobilityRegistrationRequest {
     @Getter(AccessLevel.PROTECTED)
     private String companyNr;
     @Getter(AccessLevel.PROTECTED)
-    private LocalDate dateTime;
+    private OffsetDateTime dateTime;
     @Getter(AccessLevel.PROTECTED)
     private String transactionUID;
     @Getter(AccessLevel.PROTECTED)
