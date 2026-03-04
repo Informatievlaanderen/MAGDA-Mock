@@ -35,7 +35,7 @@ public class MagdaRestRequest {
             if (correlationId == null) {
                 throw new IllegalArgumentException("Correlation ID is required");
             }
-            this.headers.put("X-Magda-Correlation-ID", correlationId);
+            this.headers.put("x-correlation-id", correlationId);
             if (enduserId == null) {
                 throw new IllegalArgumentException("Enduser ID is required");
             }

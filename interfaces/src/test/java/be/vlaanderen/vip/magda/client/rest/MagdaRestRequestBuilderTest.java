@@ -23,7 +23,7 @@ public class MagdaRestRequestBuilderTest {
         builder.bearerToken(bearerToken);
         MagdaRestRequest request = builder.build();
         Map<String, String> headers = request.getHeaders();
-        assertEquals(correlationId, headers.get("X-Magda-Correlation-ID"));
+        assertEquals(correlationId, headers.get("x-correlation-id"));
         assertEquals(enduserId, headers.get("X-Magda-Enduser-ID"));
         assertEquals("Bearer bearerToken", headers.get("Authorization"));
     }
