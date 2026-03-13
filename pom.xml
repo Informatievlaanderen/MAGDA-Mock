@@ -104,6 +104,5 @@
 		<module>magdamock-starter</module>
         <module>magdaconnector</module>
 		<module>interfaces</module>
-		<module>tester</module>
 	</modules>
 </project>
