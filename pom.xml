@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>be.vlaanderen.vip.mock</groupId>
 	<artifactId>magda</artifactId>
-	<version>3.24.0</version>
+	<version>3.25.0</version>
 	<name>magdaservice</name>
 	<description>MAGDA diensten Mock voor afnemers</description>
 	<properties>
@@ -104,6 +104,5 @@
 		<module>magdamock-starter</module>
         <module>magdaconnector</module>
 		<module>interfaces</module>
-		<module>tester</module>
 	</modules>
 </project>
