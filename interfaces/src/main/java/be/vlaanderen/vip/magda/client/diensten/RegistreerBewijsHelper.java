@@ -20,13 +20,13 @@ public final class RegistreerBewijsHelper {
                 var beroepskwalificatieNode = xml.createElement("Beroepskwalificatie");
                 beroepskwalificatiesNode.appendChild(beroepskwalificatieNode);
 
-                var naamNode = xml.createElement("Naam");
-                beroepskwalificatieNode.appendChild(naamNode);
-                naamNode.appendChild(xml.createTextNode(beroepskwalificatie.naam()));
-
                 var codeNode = xml.createElement("Code");
                 beroepskwalificatieNode.appendChild(codeNode);
                 codeNode.appendChild(xml.createTextNode(beroepskwalificatie.code()));
+
+                var naamNode = xml.createElement("Naam");
+                beroepskwalificatieNode.appendChild(naamNode);
+                naamNode.appendChild(xml.createTextNode(beroepskwalificatie.naam()));
             }
         }
     }
@@ -40,13 +40,13 @@ public final class RegistreerBewijsHelper {
                 var deelkwalificatieNode = xml.createElement("Deelkwalificatie");
                 deelkwalificatiesNode.appendChild(deelkwalificatieNode);
 
-                var naamNode = xml.createElement("Naam");
-                deelkwalificatieNode.appendChild(naamNode);
-                naamNode.appendChild(xml.createTextNode(deelkwalificatie.naam()));
-
                 var codeNode = xml.createElement("Code");
                 deelkwalificatieNode.appendChild(codeNode);
                 codeNode.appendChild(xml.createTextNode(deelkwalificatie.code()));
+
+                var naamNode = xml.createElement("Naam");
+                deelkwalificatieNode.appendChild(naamNode);
+                naamNode.appendChild(xml.createTextNode(deelkwalificatie.naam()));
             }
         }
     }
