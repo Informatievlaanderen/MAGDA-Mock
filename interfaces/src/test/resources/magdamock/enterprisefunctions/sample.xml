@@ -26,17 +26,80 @@
                 <Referte>4556</Referte>
                 <Inhoud>
                     <Functies>
-                        <Functie>
-                            <FunctiehouderVan>123</FunctiehouderVan>
-                            <AanduidingPersoonOnderneming>
-                                <Code>1</Code>
-                            </AanduidingPersoonOnderneming>
-                        </Functie>
-                        <Functie>
-                            <FunctiehouderVan>456</FunctiehouderVan>
+                        <Functie DatumModificatie="2011-01-10">
+                            <AuthentiekeBron>
+                                <Code>03</Code>
+                                <Omschrijving>KBO</Omschrijving>
+                            </AuthentiekeBron>
+                            <INSZ>12345678901</INSZ>
+                            <FunctiehouderVan>0427643504</FunctiehouderVan>
                             <AanduidingPersoonOnderneming>
                                 <Code>2</Code>
+                                <Omschrijving>Vertegenwoordiging door onderneming</Omschrijving>
                             </AanduidingPersoonOnderneming>
+                            <Ondernemingsnummer>0476821316</Ondernemingsnummer>
+                            <VolgNummer>001</VolgNummer>
+                            <AardFunctie>
+                                <Code>10002</Code>
+                                <Omschrijving>Bestuurder</Omschrijving>
+                            </AardFunctie>
+                            <AardFunctieCAC>
+                                <Code>10002</Code>
+                                <Omschrijving>Bestuurder</Omschrijving>
+                            </AardFunctieCAC>
+                            <Periode>
+                                <Begin>2002-05-04</Begin>
+                                <Einde>9999-12-31</Einde>
+                            </Periode>
+                            <PeriodeCAC>
+                                <Begin>2020-01-01</Begin>
+                                <Einde>2022-07-15</Einde>
+                            </PeriodeCAC>
+                            <AanduidingVrijstelling>
+                                <Code>999</Code>
+                                <Omschrijving>geen vrijstelling mogelijk</Omschrijving>
+                            </AanduidingVrijstelling>
+                            <EindeFunctie>
+                                <Code>666</Code>
+                                <Omschrijving>geen goesting meer</Omschrijving>
+                            </EindeFunctie>
+                        </Functie>
+                        <Functie DatumModificatie="2011-01-10">
+                            <AuthentiekeBron>
+                                <Code>03</Code>
+                                <Omschrijving>KBO</Omschrijving>
+                            </AuthentiekeBron>
+                            <FunctiehouderVan>0427643504</FunctiehouderVan>
+                            <AanduidingPersoonOnderneming>
+                                <Code>2</Code>
+                                <Omschrijving>Vertegenwoordiging door onderneming</Omschrijving>
+                            </AanduidingPersoonOnderneming>
+                            <Ondernemingsnummer>0476821316</Ondernemingsnummer>
+                            <VolgNummer>001</VolgNummer>
+                            <AardFunctie>
+                                <Code>10007</Code>
+                                <Omschrijving>Gedelegeerd bestuurder</Omschrijving>
+                            </AardFunctie>
+                            <AardFunctieCAC>
+                                <Code>10002</Code>
+                                <Omschrijving>Bestuurder</Omschrijving>
+                            </AardFunctieCAC>
+                            <Periode>
+                                <Begin>2002-05-04</Begin>
+                                <Einde>9999-12-31</Einde>
+                            </Periode>
+                            <PeriodeCAC>
+                                <Begin>2020-01-01</Begin>
+                                <Einde>2022-12-31</Einde>
+                            </PeriodeCAC>
+                            <AanduidingVrijstelling>
+                                <Code>999</Code>
+                                <Omschrijving>geen vrijstelling mogelijk</Omschrijving>
+                            </AanduidingVrijstelling>
+                            <SoortVrijstelling>
+                                <Code>001</Code>
+                                <Omschrijving>Verworven rechten:actief bij de start van de reglementering</Omschrijving>
+                            </SoortVrijstelling>
                         </Functie>
                     </Functies>
                 </Inhoud>
