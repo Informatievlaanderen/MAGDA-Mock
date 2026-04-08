@@ -7,10 +7,16 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import lombok.SneakyThrows;
 
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class MagdaResponseDmfaVoorWerknemerAdapterJaxbImpl implements MagdaResponseDmfaVoorWerknemerAdapter {
+    private final XPath xpath = XPathFactory.newInstance().newXPath();
+
     JAXBContext context;
 
     @SneakyThrows
@@ -21,19 +27,43 @@ public class MagdaResponseDmfaVoorWerknemerAdapterJaxbImpl implements MagdaRespo
     @Override
     public DmfaAttest adapt(MagdaResponseWrapper wrapper) throws MagdaClientException {
         try {
-            var contentNode = Optional.ofNullable(wrapper
+            var document = wrapper
                     .getResponse()
-                    .getDocument()
+                    .getDocument();
+            var contentNode = Optional.ofNullable(document
                     .xpath("//Inhoud")
                     .item(0));
 
             if(contentNode.isEmpty()) {
                 return null;
             }
-            return (DmfaAttest) context.createUnmarshaller()
+
+            var dmfaAttestJaxb = (DmfaAttestJaxb) context.createUnmarshaller()
                     .unmarshal(contentNode.orElseThrow());
+
+            var uitzonderingNodes = document.xpath("//Uitzonderingen/Uitzondering");
+            for(var i = 0; i < uitzonderingNodes.getLength(); i++) {
+                var uitzonderingNode = uitzonderingNodes.item(i);
+
+                if(keyMatchesValue(uitzonderingNode, "Type", "INFORMATIE")
+                   && keyMatchesValue(uitzonderingNode, "Oorsprong", "MAGDA")
+                   && keyMatchesValue(uitzonderingNode, "Identificatie", "30040")) {
+                    dmfaAttestJaxb.moreInformationAvailable = true;
+                    break;
+                }
+            }
+
+            return dmfaAttestJaxb;
         } catch (NoSuchElementException | JAXBException e) {
             throw new MagdaClientException("Could not parse magda response", e);
+        }
+    }
+
+    private boolean keyMatchesValue(org.w3c.dom.Node node, String key, String value) {
+        try {
+            return Boolean.TRUE.equals(xpath.evaluate("boolean(/%s[. = '%s'])".formatted(key, value), node, XPathConstants.BOOLEAN));
+        } catch(NoSuchElementException | XPathExpressionException ex) {
+            throw new IllegalStateException("BUG: Exception on XPath evaluation", ex);
         }
     }
 }

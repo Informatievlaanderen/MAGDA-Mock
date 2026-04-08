@@ -23,6 +23,8 @@ public interface DmfaAttest {
 
     List<Result> antwoordInBatch();
 
+    boolean isMoreInformationAvailable();
+
     interface Attest {
         Identificatie identificatie();
         Versie versie();
