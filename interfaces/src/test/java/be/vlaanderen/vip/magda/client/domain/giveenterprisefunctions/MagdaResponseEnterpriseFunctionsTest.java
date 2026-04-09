@@ -29,9 +29,27 @@ class MagdaResponseEnterpriseFunctionsTest {
         var enterpriseFunctionList = enterpriseFunctions.enterpriseFunctions();
         assertNotNull(enterpriseFunctionList);
         assertEquals(2, enterpriseFunctionList.size());
+        assertEquals("0427643504", enterpriseFunctionList.get(0).enterpriseNumber());
+        assertEquals("2", enterpriseFunctionList.get(0).personOrEnterpriseCode());
+        assertEquals("0427643504", enterpriseFunctionList.get(1).enterpriseNumber());
+        assertEquals("2", enterpriseFunctionList.get(1).personOrEnterpriseCode());
+    }
 
-        var function1 = enterpriseFunctions.enterpriseFunctions().get(0);
-        var function2 = enterpriseFunctions.enterpriseFunctions().get(1);
+    @Test
+    void producesEnterpriseFunctionsFromResponseXmlV2() throws IOException, MagdaClientException {
+        var magdaResponse = MagdaResponse.builder()
+                .document(MagdaDocument.fromString(TestHelpers.getResourceAsString(getClass(), "/magdamock/enterprisefunctions/sample.xml")))
+                .build();
+
+        var enterpriseFunctions = adapter.adapt(new MagdaResponseWrapper(magdaResponse));
+
+        assertNotNull(enterpriseFunctions);
+        var enterpriseFunctionList = enterpriseFunctions.enterpriseFunctionsV2();
+        assertNotNull(enterpriseFunctionList);
+        assertEquals(2, enterpriseFunctionList.size());
+
+        var function1 = enterpriseFunctions.enterpriseFunctionsV2().get(0);
+        var function2 = enterpriseFunctions.enterpriseFunctionsV2().get(1);
 
         assertEquals("12345678901", function1.insz());
         assertEquals("03", function1.source().codeValue());

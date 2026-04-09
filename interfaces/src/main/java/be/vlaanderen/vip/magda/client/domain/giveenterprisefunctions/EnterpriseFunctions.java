@@ -7,9 +7,20 @@ import java.util.List;
 
 public interface EnterpriseFunctions {
 
+    @Deprecated
     List<EnterpriseFunction> enterpriseFunctions();
 
+    @Deprecated
     interface EnterpriseFunction {
+
+        String enterpriseNumber();
+
+        String personOrEnterpriseCode();
+    }
+
+    List<EnterpriseFunctionV2> enterpriseFunctionsV2();
+
+    interface EnterpriseFunctionV2 {
 
         String enterpriseNumber();
 
