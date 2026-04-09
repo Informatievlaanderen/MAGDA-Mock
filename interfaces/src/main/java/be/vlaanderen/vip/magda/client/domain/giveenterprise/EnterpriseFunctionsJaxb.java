@@ -18,15 +18,42 @@ import java.util.List;
 @XmlRootElement(name = "Functies")
 @Accessors(fluent = true)
 public class EnterpriseFunctionsJaxb implements EnterpriseFunctions, Serializable {
+
     @XmlElement(name = "Functie")
-    ArrayList<EnterpriseFunctionJaxb> functions = new ArrayList<>();
+    ArrayList<EnterpriseFunctionJaxbV2> functions = new ArrayList<>();
 
     @Override
     public List<EnterpriseFunction> enterpriseFunctions() {
-        return functions.stream().map(x -> (EnterpriseFunction) x).toList();
+        return functions.stream()
+                .map(enterpriseFunctionJaxb -> new EnterpriseFunctionAdapter(enterpriseFunctionJaxb))
+                .map(x -> (EnterpriseFunction) x)
+                .toList();
     }
 
-    private static class EnterpriseFunctionJaxb implements EnterpriseFunctions.EnterpriseFunction, Serializable {
+    @Override
+    public List<EnterpriseFunctionV2> enterpriseFunctionsV2() {
+        return List.copyOf(functions);
+    }
+
+    private static class EnterpriseFunctionAdapter implements EnterpriseFunction, Serializable {
+        private final EnterpriseFunctionJaxbV2 source;
+
+         EnterpriseFunctionAdapter(EnterpriseFunctionJaxbV2 source) {
+            this.source = source;
+        }
+
+        @Override
+        public String enterpriseNumber() {
+            return source.functionHolderOf;
+        }
+
+        @Override
+        public String personOrEnterpriseCode() {
+            return source.entityType() != null ? source.entityType().codeValue() : null;
+        }
+    }
+
+    private static class EnterpriseFunctionJaxbV2 implements EnterpriseFunctionV2, Serializable {
 
         @XmlElement(name = "FunctiehouderVan")
         @Nullable

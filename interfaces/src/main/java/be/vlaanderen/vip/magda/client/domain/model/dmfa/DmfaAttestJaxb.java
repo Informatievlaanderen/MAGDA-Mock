@@ -34,6 +34,8 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @XmlElement(name = "AntwoordInBatch")
     List<Result> antwoordInBatch;
 
+    public boolean moreInformationAvailable = false; // this field is manually mapped for a quick fix
+
     @Override
     public List<DmfaAttest.Attest> attesten() {
         return Optional.ofNullable(attesten).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Attest) o).toList();
@@ -42,6 +44,11 @@ public class DmfaAttestJaxb implements DmfaAttest, Serializable {
     @Override
     public List<DmfaAttest.Result> antwoordInBatch() {
         return Optional.ofNullable(antwoordInBatch).stream().flatMap(Collection::stream).map(o -> (DmfaAttest.Result) o).toList();
+    }
+
+    @Override
+    public boolean isMoreInformationAvailable() {
+        return moreInformationAvailable;
     }
 
     @Getter
