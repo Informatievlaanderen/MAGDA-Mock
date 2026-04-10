@@ -22,6 +22,8 @@ public interface EnterpriseFunctions {
 
     interface EnterpriseFunctionV2 {
 
+        LocalDate modificationDate();
+
         String enterpriseNumber();
 
         String functionHolderOf();

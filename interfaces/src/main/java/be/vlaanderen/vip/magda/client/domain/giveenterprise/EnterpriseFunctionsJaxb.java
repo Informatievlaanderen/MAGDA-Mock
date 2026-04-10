@@ -4,6 +4,7 @@ import be.vlaanderen.vip.magda.client.domain.giveenterprisefunctions.EnterpriseF
 import be.vlaanderen.vip.magda.client.domain.model.shared.CodeAndDescriptionJaxb;
 import be.vlaanderen.vip.magda.client.domain.model.shared.LocalDateXmlAdapter;
 import jakarta.annotation.Nullable;
+import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -54,6 +55,11 @@ public class EnterpriseFunctionsJaxb implements EnterpriseFunctions, Serializabl
     }
 
     private static class EnterpriseFunctionJaxbV2 implements EnterpriseFunctionV2, Serializable {
+
+        @XmlAttribute(name = "DatumModificatie")
+        @XmlJavaTypeAdapter(LocalDateXmlAdapter.class)
+        @Nullable
+        LocalDate modificationDate;
 
         @XmlElement(name = "FunctiehouderVan")
         @Nullable
@@ -106,6 +112,11 @@ public class EnterpriseFunctionsJaxb implements EnterpriseFunctions, Serializabl
         @XmlElement(name = "SoortVrijstelling")
         @Nullable
         CodeAndDescriptionJaxb exemptionType;
+
+        @Override
+        public LocalDate modificationDate() {
+            return modificationDate;
+        }
 
         @Override
         public String enterpriseNumber() {

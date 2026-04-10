@@ -71,6 +71,7 @@ class MagdaResponseEnterpriseFunctionsTest {
         assertEquals("geen vrijstelling mogelijk", function1.exemptionStatus().descriptionValue());
         assertEquals("666", function1.endOfFunction().codeValue());
         assertEquals("geen goesting meer", function1.endOfFunction().descriptionValue());
+        assertEquals(LocalDate.of(2011, 1, 10), function1.modificationDate());
 
         assertEquals("03", function2.source().codeValue());
         assertEquals("KBO", function2.source().descriptionValue());
@@ -91,6 +92,7 @@ class MagdaResponseEnterpriseFunctionsTest {
         assertEquals("geen vrijstelling mogelijk", function2.exemptionStatus().descriptionValue());
         assertEquals("001", function2.exemptionType().codeValue());
         assertEquals("Verworven rechten:actief bij de start van de reglementering", function2.exemptionType().descriptionValue());
+        assertEquals(LocalDate.of(2012, 2, 11), function2.modificationDate());
     }
 
     @Test
