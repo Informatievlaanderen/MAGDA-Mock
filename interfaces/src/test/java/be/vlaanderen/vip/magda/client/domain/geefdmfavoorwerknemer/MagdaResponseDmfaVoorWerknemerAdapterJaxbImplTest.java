@@ -12,6 +12,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class MagdaResponseDmfaVoorWerknemerAdapterJaxbImplTest {
@@ -93,7 +94,7 @@ class MagdaResponseDmfaVoorWerknemerAdapterJaxbImplTest {
                     </web:GeefDmfaVoorWerknemerResponse>
                     """.formatted(identificatie, oorsprong, type)));
 
-            assertFalse(attesten.isMoreInformationAvailable());
+            assertEquals(isMoreInformationAvailable, attesten.isMoreInformationAvailable());
         }
     }
 

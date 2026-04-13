@@ -41,13 +41,14 @@ public class MagdaResponseDmfaVoorWerknemerAdapterJaxbImpl implements MagdaRespo
             var dmfaAttestJaxb = (DmfaAttestJaxb) context.createUnmarshaller()
                     .unmarshal(contentNode.orElseThrow());
 
-            var uitzonderingNodes = document.xpath("//Uitzonderingen/Uitzondering");
+            String prefix = "//Uitzonderingen/Uitzondering";
+            var uitzonderingNodes = document.xpath(prefix);
             for(var i = 0; i < uitzonderingNodes.getLength(); i++) {
                 var uitzonderingNode = uitzonderingNodes.item(i);
 
-                if(keyMatchesValue(uitzonderingNode, "Type", "INFORMATIE")
-                   && keyMatchesValue(uitzonderingNode, "Oorsprong", "MAGDA")
-                   && keyMatchesValue(uitzonderingNode, "Identificatie", "30040")) {
+                if (keyMatchesValue(uitzonderingNode, prefix, "Type", "INFORMATIE")
+                        && keyMatchesValue(uitzonderingNode, prefix, "Oorsprong", "MAGDA")
+                        && keyMatchesValue(uitzonderingNode, prefix, "Identificatie", "30040")) {
                     dmfaAttestJaxb.moreInformationAvailable = true;
                     break;
                 }
@@ -59,9 +60,9 @@ public class MagdaResponseDmfaVoorWerknemerAdapterJaxbImpl implements MagdaRespo
         }
     }
 
-    private boolean keyMatchesValue(org.w3c.dom.Node node, String key, String value) {
+    private boolean keyMatchesValue(org.w3c.dom.Node node, String prefix, String key, String value) {
         try {
-            return Boolean.TRUE.equals(xpath.evaluate("boolean(/%s[. = '%s'])".formatted(key, value), node, XPathConstants.BOOLEAN));
+            return Boolean.TRUE.equals(xpath.evaluate("boolean(%s/%s[. = '%s'])".formatted(prefix, key, value), node, XPathConstants.BOOLEAN));
         } catch(NoSuchElementException | XPathExpressionException ex) {
             throw new IllegalStateException("BUG: Exception on XPath evaluation", ex);
         }
