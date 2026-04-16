@@ -10,15 +10,15 @@
 	</parent>
 	<groupId>be.vlaanderen.vip.mock</groupId>
 	<artifactId>magda</artifactId>
-	<version>3.32.0</version>
+	<version>3.33.0</version>
 	<name>magdaservice</name>
 	<description>MAGDA diensten Mock voor afnemers</description>
 	<properties>
-		<java.version>21</java.version>
-		<maven.compiler.source>21</maven.compiler.source>
-		<maven.compiler.target>21</maven.compiler.target>
+		<java.version>25</java.version>
+		<maven.compiler.source>25</maven.compiler.source>
+		<maven.compiler.target>25</maven.compiler.target>
 		<!-- Used for Docker image -->
-		<magda-openjdk.version>21.0.2</magda-openjdk.version>
+		<vdip-java.version>25-jre</vdip-java.version>
 		<docker.image>magdamock.service</docker.image>
 		<assertj-core.version>3.24.2</assertj-core.version>
 		<commons-io.version>2.20.0</commons-io.version>

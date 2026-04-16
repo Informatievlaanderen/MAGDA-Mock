@@ -8,7 +8,7 @@
 	<parent>
 		<artifactId>magda</artifactId>
 		<groupId>be.vlaanderen.vip.mock</groupId>
-		<version>3.32.0</version>
+		<version>3.33.0</version>
 	</parent>
 	<artifactId>magdamock-starter</artifactId>
 	
@@ -78,6 +78,42 @@
 					<groupId>org.sonarsource.scanner.maven</groupId>
 					<artifactId>sonar-maven-plugin</artifactId>
 					<version>5.2.0.4988</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.14.1</version>
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<forceJavacCompilerUse>true</forceJavacCompilerUse>
+						<parameters>true</parameters>
+						<compilerArgs>
+							<compilerArg>
+								-Amapstruct.suppressGeneratorTimestamp=true
+							</compilerArg>
+							<compilerArg>
+								-Amapstruct.suppressGeneratorVersionInfoComment=true
+							</compilerArg>
+							<compilerArg>
+								-Amapstruct.defaultComponentModel=spring
+							</compilerArg>
+							<compilerArg>
+								-Amapstruct.unmappedTargetPolicy=WARN
+							</compilerArg>
+						</compilerArgs>
+						<annotationProcessorPaths>
+							<path>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok</artifactId>
+								<version>${lombok.version}</version>
+							</path>
+							<path>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok-mapstruct-binding</artifactId>
+								<version>${mapstruct-lombok.version}</version>
+							</path>
+						</annotationProcessorPaths>
+					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.jacoco</groupId>
