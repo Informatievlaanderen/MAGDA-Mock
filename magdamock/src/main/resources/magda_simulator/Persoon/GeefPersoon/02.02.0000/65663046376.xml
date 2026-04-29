@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefPersoon</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2026-04-28</Datum>
+                    <Tijd>10:21:40.797</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>VIP</Naam>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>gent.be/ipdc94-aa-aip</Identificatie>
+                    <Referte>5ccd0d4f-f136-4c3d-88f5-2fb0f78ac425</Referte>
+                    <Hoedanigheid>ipdc94</Hoedanigheid>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>9b3942ef-8639-46cf-8e95-58768717bb12</Referte>
+                <Inhoud>
+                    <Persoon Bron="RR" DatumCreatie="1965-06-30">
+                        <INSZ>65663046376</INSZ>
+                        <Naam DatumBegin="1965-06-30">
+                            <Achternamen>
+                                <Achternaam>Slabbinck</Achternaam>
+                            </Achternamen>
+                            <Voornamen>
+                                <Voornaam>Wim</Voornaam>
+                            </Voornamen>
+                        </Naam>
+                        <Geslacht>
+                            <Code>1</Code>
+                            <Omschrijving>Mannelijk</Omschrijving>
+                        </Geslacht>
+                        <Register DatumBegin="1965-06-30">
+                            <Code>RR</Code>
+                            <Omschrijving Taal="nl">Rijksregister</Omschrijving>
+                        </Register>
+                        <Nationaliteiten>
+                            <Nationaliteit DatumBegin="1965-06-30">
+                                <Code>150</Code>
+                                <Omschrijving>Belg</Omschrijving>
+                            </Nationaliteit>
+                        </Nationaliteiten>
+                        <Geboorte DatumBegin="1965-06-30">
+                            <Datum>1965-06-30</Datum>
+                            <Plaats>
+                                <Gemeente>
+                                    <NISCode>44021</NISCode>
+                                    <Naam>Gent</Naam>
+                                </Gemeente>
+                                <Land>
+                                    <NISCode>150</NISCode>
+                                    <ISOCode>BEL</ISOCode>
+                                    <Naam>BELGIE</Naam>
+                                </Land>
+                            </Plaats>
+                            <Aktenummer>80985</Aktenummer>
+                            <Bewijsstuk>
+                                <Code>00</Code>
+                                <Omschrijving>Uittreksel uit de geboorteakte</Omschrijving>
+                            </Bewijsstuk>
+                        </Geboorte>
+                        <Adressen>
+                            <Hoofdverblijfplaats DatumBegin="2020-01-01">
+                                <Straatnaam>
+                                    <String>Tolhuislaan</String>
+                                    <Taal>nl</Taal>
+                                </Straatnaam>
+                                <Huisnummer>7</Huisnummer>
+                                <Gemeentenaam>
+                                    <String>Gent</String>
+                                    <Taal>nl</Taal>
+                                </Gemeentenaam>
+                                <Land>
+                                    <String>BELGIE</String>
+                                    <Taal>nl</Taal>
+                                </Land>
+                                <Postcode>9000</Postcode>
+                                <NISCodeLand>150</NISCodeLand>
+                                <ISOCodeLand>BEL</ISOCodeLand>
+                                <NISCodeGemeente>44021</NISCodeGemeente>
+                            </Hoofdverblijfplaats>
+                        </Adressen>
+                        <Referentiepersoon DatumBegin="2020-01-01">
+                            <INSZ>81652315946</INSZ>
+                            <Naam>
+                                <Achternamen>
+                                    <Achternaam>De Cock</Achternaam>
+                                </Achternamen>
+                                <Voornamen>
+                                    <Voornaam>Tom</Voornaam>
+                                </Voornamen>
+                            </Naam>
+                            <Geboortedatum>1981-05-23</Geboortedatum>
+                            <Positie>
+                                <Code>12</Code>
+                                <Omschrijving Taal="nl">Niet verwant</Omschrijving>
+                            </Positie>
+                        </Referentiepersoon>
+                    </Persoon>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefPersoonResponse>
