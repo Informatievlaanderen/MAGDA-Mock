@@ -1,0 +1,37 @@
+<p:RegistreerInschrijvingResponse
+        xmlns:p="http://webservice.registreerinschrijvingdienst-02_00.repertorium-02_00.vip.vlaanderen.be"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://webservice.registreerinschrijvingdienst-02_00.repertorium-02_00.vip.vlaanderen.be RegistreerInschrijvingResponse.xsd ">
+    <Repliek>
+        <Context>
+            <Naam>RegistreerInschrijving</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2026-04-29</Datum>
+                    <Tijd>07:46:54.891</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>10abe64c-195f-47ec-929b-7fbbf7fa051c</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>gent.be/ipdc94-aa-aip</Identificatie>
+                    <Referte>1277826d-84dd-4636-8470-bc4ae056aa0f</Referte>
+                    <Hoedanigheid>ipdc94</Hoedanigheid>
+                    <Gebruiker>56663058952</Gebruiker>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>bcc358d5-9419-4358-9b63-6f1747ed21b9</Referte>
+                <Inhoud>
+                    <Resultaat Beschrijving="Niet geslaagd">0</Resultaat>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</p:RegistreerInschrijvingResponse>
