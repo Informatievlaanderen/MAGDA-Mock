@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+	<Repliek>
+		<Context>
+			<Naam>GeefPersoon</Naam>
+			<Versie>02.02.0000</Versie>
+			<Bericht>
+				<Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2026-05-05</Datum>
+					<Tijd>16:21:40.797</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>vip.vlaanderen.be</Identificatie>
+					<Naam>VIP</Naam>
+					<Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>kbbj.vlaanderen.be/dv/wse-dwse-ipdc1975-aa-aip</Identificatie>
+					<Referte>4226311d-16f4-44bb-a141-2a1f83cd0401</Referte>
+					<Hoedanigheid>ipdc1975</Hoedanigheid>
+				</Ontvanger>
+			</Bericht>
+		</Context>
+		<Antwoorden>
+			<Antwoord>
+				<Referte>7ef87c67-0724-4879-8a47-eed2b0d926ed</Referte>
+				<Inhoud>
+					<Persoon Bron="RR" DatumCreatie="1963-01-30">
+						<INSZ>63613082228</INSZ>
+						<Naam DatumBegin="1963-01-30">
+							<Achternamen>
+								<Achternaam>Dubois</Achternaam>
+							</Achternamen>
+							<Voornamen>
+								<Voornaam>Nathalie</Voornaam>
+							</Voornamen>
+						</Naam>
+						<Geslacht>
+							<Code>2</Code>
+							<Omschrijving Taal="nl">Vrouwelijk</Omschrijving>
+						</Geslacht>
+						<Register>
+							<Code>RR</Code>
+							<Omschrijving Taal="nl">Rijksregister</Omschrijving>
+						</Register>
+						<Nationaliteiten>
+							<Nationaliteit DatumBegin="1963-01-30">
+								<Code>150</Code>
+								<Omschrijving>Belg</Omschrijving>
+							</Nationaliteit>
+						</Nationaliteiten>
+						<Geboorte DatumBegin="1963-01-30">
+							<Datum>1963-01-30</Datum>
+						</Geboorte>
+                        <Overlijden>
+                            <Datum>2025-01-25</Datum>
+                        </Overlijden>
+						<Adressen>
+							<Hoofdverblijfplaats DatumBegin="1963-01-30">
+								<Straatnaam>
+									<String>Graanmarkt</String>
+									<Taal>nl</Taal>
+								</Straatnaam>
+								<Huisnummer>8</Huisnummer>
+                                <Busnummer>B</Busnummer>
+								<Gemeentenaam>
+									<String>Aalst</String>
+									<Taal>nl</Taal>
+								</Gemeentenaam>
+								<Land>
+									<String>BELGIE</String>
+									<Taal>nl</Taal>
+								</Land>
+								<Postcode>9300</Postcode>
+								<NISCodeLand>150</NISCodeLand>
+								<ISOCodeLand>BEL</ISOCodeLand>
+								<NISCodeGemeente>41002</NISCodeGemeente>
+							</Hoofdverblijfplaats>
+						</Adressen>
+					</Persoon>
+				</Inhoud>
+			</Antwoord>
+		</Antwoorden>
+	</Repliek>
+</web:GeefPersoonResponse>

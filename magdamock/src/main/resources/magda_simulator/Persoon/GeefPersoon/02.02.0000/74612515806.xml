@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web:GeefPersoonResponse xmlns:web="http://magda.vlaanderen.be/persoon/soap/geefpersoon/v02_02">
+    <Repliek>
+        <Context>
+            <Naam>GeefPersoon</Naam>
+            <Versie>02.02.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2026-05-05</Datum>
+                    <Tijd>16:21:40.797</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kbbj.vlaanderen.be/dv/wse-dwse-ipdc1975-aa-aip</Identificatie>
+                    <Referte>4226311d-16f4-44bb-a141-2a1f83cd0401</Referte>
+                    <Hoedanigheid>ipdc1975</Hoedanigheid>
+                    <Gebruiker>74612515806</Gebruiker>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>0437dd31-9d7b-469f-90d4-b021f4e39bdb</Referte>
+                <Uitzonderingen>
+                    <Uitzondering>
+                        <Identificatie>30001</Identificatie>
+                        <Oorsprong>RR</Oorsprong>
+                        <Type>FOUT</Type>
+                        <Tijdstip>
+                            <Datum>2021-04-19</Datum>
+                            <Tijd>12:47:42.361</Tijd>
+                        </Tijdstip>
+                        <Diagnose>Geen gegevens gevonden voor de vraag</Diagnose>
+                        <Omstandigheid>140</Omstandigheid>
+                    </Uitzondering>
+                </Uitzonderingen>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefPersoonResponse>

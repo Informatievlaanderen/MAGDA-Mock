@@ -6,19 +6,19 @@
             <Bericht>
                 <Type>ANTWOORD</Type>
                 <Tijdstip>
-                    <Datum>2026-04-28</Datum>
-                    <Tijd>13:30:00.000</Tijd>
+                    <Datum>2026-05-05</Datum>
+                    <Tijd>16:21:40.797</Tijd>
                 </Tijdstip>
                 <Afzender>
                     <Identificatie>vip.vlaanderen.be</Identificatie>
                     <Naam>MagdaGateway</Naam>
-                    <Referte>c42275a3-f433-4fa1-b469-e47651f08208</Referte>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
                 </Afzender>
                 <Ontvanger>
-                    <Identificatie>gent.be/ipdc94-aa-aip</Identificatie>
-                    <Referte>60df949b-f389-463c-acec-2c92a13f7b00</Referte>
-                    <Hoedanigheid>ipdc94</Hoedanigheid>
-                    <Gebruiker>13662188822</Gebruiker>
+                    <Identificatie>kbbj.vlaanderen.be/dv/wse-dwse-ipdc1975-aa-aip</Identificatie>
+                    <Referte>4226311d-16f4-44bb-a141-2a1f83cd0401</Referte>
+                    <Hoedanigheid>ipdc1975</Hoedanigheid>
+                    <Gebruiker>74612515905</Gebruiker>
                 </Ontvanger>
             </Bericht>
         </Context>
