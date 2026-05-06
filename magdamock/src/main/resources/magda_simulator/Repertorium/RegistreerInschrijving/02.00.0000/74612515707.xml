@@ -1,0 +1,41 @@
+<p:RegistreerInschrijvingResponse
+        xmlns:p="http://webservice.registreerinschrijvingdienst-02_00.repertorium-02_00.vip.vlaanderen.be"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://webservice.registreerinschrijvingdienst-02_00.repertorium-02_00.vip.vlaanderen.be RegistreerInschrijvingResponse.xsd ">
+    <Repliek>
+        <Context>
+            <Naam>RegistreerInschrijving</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+                <Tijdstip>
+                    <Datum>2026-05-05</Datum>
+                    <Tijd>16:21:40.797</Tijd>
+                </Tijdstip>
+                <Afzender>
+                    <Identificatie>vip.vlaanderen.be</Identificatie>
+                    <Naam>MagdaGateway</Naam>
+                    <Referte>229b11a6-2b3d-4086-b8bd-da9bf6d97fc2</Referte>
+                </Afzender>
+                <Ontvanger>
+                    <Identificatie>kbbj.vlaanderen.be/dv/wse-dwse-ipdc1975-aa-aip</Identificatie>
+                    <Referte>4226311d-16f4-44bb-a141-2a1f83cd0401</Referte>
+                    <Hoedanigheid>ipdc1975</Hoedanigheid>
+                    <Gebruiker>74612515707</Gebruiker>
+                </Ontvanger>
+            </Bericht>
+        </Context>
+        <Uitzonderingen>
+            <Uitzondering>
+                <Identificatie>99996</Identificatie>
+                <Oorsprong>MAGDA</Oorsprong>
+                <Type>FOUT</Type>
+                <Tijdstip>
+                    <Datum>2017-03-08</Datum>
+                    <Tijd>10:05:00.000</Tijd>
+                </Tijdstip>
+                <Diagnose>Te veel gelijktijdige bevragingen</Diagnose>
+            </Uitzondering>
+        </Uitzonderingen>
+    </Repliek>
+</p:RegistreerInschrijvingResponse>
