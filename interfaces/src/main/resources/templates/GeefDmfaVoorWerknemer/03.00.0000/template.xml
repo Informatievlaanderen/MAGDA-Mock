@@ -40,6 +40,7 @@
                             <TypeAntwoord>0</TypeAntwoord>
                             <LaatsteSituatie>0</LaatsteSituatie>
                             <Bron>RSZ</Bron>
+                            <Volgende>0</Volgende>
                         </Inhoud>
                     </Vraag>
                 </Vragen>
