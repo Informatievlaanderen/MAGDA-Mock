@@ -45,6 +45,8 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
     private final LaatsteSituatie laatsteSituatie;
     @Nullable
     private final Bron bron;
+    @Nullable
+    private final String volgende;
 
     private GeefDmfaVoorWerknemerRequest(
             @NotNull INSZNumber insz,
@@ -53,13 +55,15 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
             @NotNull Kwartaal eindKwartaal,
             @Nullable TypeAntwoord typeAntwoord,
             @Nullable LaatsteSituatie laatsteSituatie,
-            @Nullable Bron bron) {
+            @Nullable Bron bron,
+            @Nullable String volgende) {
         super(insz, registratie);
         this.beginKwartaal = beginKwartaal;
         this.eindKwartaal = eindKwartaal;
         this.typeAntwoord = typeAntwoord;
         this.laatsteSituatie = laatsteSituatie;
         this.bron = bron;
+        this.volgende = volgende;
     }
 
     public static GeefDmfaVoorWerknemerRequest.Builder builder() {
@@ -86,6 +90,11 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
             request.setValue("//Bron", bron.getTypeString());
         } else {
             request.removeNode("//Bron");
+        }
+        if (volgende != null) {
+            request.setValue("//volgende", volgende);
+        } else {
+            request.removeNode("//volgende");
         }
     }
 
@@ -140,6 +149,8 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
         private LaatsteSituatie laatsteSituatie;
         @Getter(AccessLevel.PROTECTED)
         private Bron bron;
+        @Getter(AccessLevel.PROTECTED)
+        private String volgende;
 
         public GeefDmfaVoorWerknemerRequest.Builder beginKwartaal(Kwartaal beginKwartaal) {
             this.beginKwartaal = beginKwartaal;
@@ -166,6 +177,11 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
             return this;
         }
 
+        public GeefDmfaVoorWerknemerRequest.Builder volgende(String volgende) {
+            this.volgende = volgende;
+            return this;
+        }
+
         public GeefDmfaVoorWerknemerRequest build() {
             if (getInsz() == null) {
                 throw new IllegalStateException("INSZ number must be given");
@@ -187,7 +203,8 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
                     getEndKwartaal(),
                     getTypeAntwoord(),
                     getLaatsteSituatie(),
-                    getBron()
+                    getBron(),
+                    getVolgende()
             );
         }
     }
