@@ -92,9 +92,9 @@ public class GeefDmfaVoorWerknemerRequest extends PersonMagdaRequest {
             request.removeNode("//Bron");
         }
         if (volgende != null) {
-            request.setValue("//volgende", volgende);
+            request.setValue("//Volgende", volgende);
         } else {
-            request.removeNode("//volgende");
+            request.removeNode("//Volgende");
         }
     }
 
