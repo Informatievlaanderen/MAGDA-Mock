@@ -23,9 +23,8 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
       - name: Publish
-        # Disable tester module because it depends on an internal library.
         # Disable artifactory profile and enable github for deployment.
-        run: mvn --batch-mode deploy -pl "!tester" -P "!artifactory,github"
+        run: mvn --batch-mode deploy -P "!artifactory,github"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Login to docker registry

@@ -24,7 +24,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
       - name: Generate JavaDoc
-        run: mvn --batch-mode install javadoc:javadoc -pl "!tester"
+        run: mvn --batch-mode install javadoc:javadoc
       - name: Upload interface artifact
         uses: actions/upload-pages-artifact@v1.0.8
         with:
