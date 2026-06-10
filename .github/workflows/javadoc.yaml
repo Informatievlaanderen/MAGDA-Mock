@@ -14,12 +14,12 @@ jobs:
   generate-javadoc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/cache@v3
+      - uses: actions/checkout@v5
+      - uses: actions/cache@v5
         with:
           path: ~/.m2/repository
           key: javadoc-cache
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v5
         with:
           java-version: '21'
           distribution: 'temurin'
@@ -44,4 +44,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2.0.1
+        uses: actions/deploy-pages@v4
