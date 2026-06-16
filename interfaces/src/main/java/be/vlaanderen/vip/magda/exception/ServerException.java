@@ -1,18 +1,23 @@
 package be.vlaanderen.vip.magda.exception;
 
-import lombok.Getter;
-
 import java.io.Serial;
 import java.util.UUID;
 
 /**
  * An exception that occurs in a communication with a MAGDA server.
  */
-@Getter
 public class ServerException extends RuntimeException {
 
     private final UUID correlationID;
     private final UUID requestID;
+
+    public UUID getCorrelationID() {
+        return correlationID;
+    }
+
+    public UUID getRequestID() {
+        return requestID;
+    }
 
     @Serial
     private static final long serialVersionUID = -3155129158010790297L;
