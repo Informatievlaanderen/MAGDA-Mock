@@ -24,7 +24,7 @@ public class NoResponseException extends ServerException {
     }
 
     /**
-     * @deprecated use {@link #getCorrelationID()} instead
+     * @deprecated use {@link ServerException#getCorrelationID()} instead
      */
     @Deprecated
     public UUID getTransactionID() {
@@ -32,7 +32,7 @@ public class NoResponseException extends ServerException {
     }
 
     /**
-     * @deprecated use {@link #getRequestID()} instead
+     * @deprecated use {@link ServerException#getRequestID()} instead
      */
     @Deprecated
     public UUID getLocalTransactionID() {
