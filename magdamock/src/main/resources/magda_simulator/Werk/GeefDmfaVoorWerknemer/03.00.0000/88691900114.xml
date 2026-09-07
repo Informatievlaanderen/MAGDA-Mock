@@ -38,7 +38,7 @@
                                         <DatumCreatie>2024-06-15</DatumCreatie>
                                     </Identificatie>
                                     <AangifteWerkgever>
-                                        <Kwartaal>20242</Kwartaal>
+                                        <Kwartaal>20243</Kwartaal>
                                         <RSZNummer>1234567890</RSZNummer>
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>SEC</SectorIndicator>
@@ -53,8 +53,8 @@
                                                 <Categorie>20</Categorie>
                                                 <Kerngetal>999</Kerngetal>
                                                 <Periode>
-                                                    <Begin>2024-04-01</Begin>
-                                                    <Einde>2024-06-30</Einde>
+                                                    <Begin>2024-07-01</Begin>
+                                                    <Einde>2024-09-30</Einde>
                                                 </Periode>
                                                 <Grensarbeider>1</Grensarbeider>
                                                 <Tewerkstellingen>
@@ -102,7 +102,7 @@
                                         <DatumCreatie>2025-01-10</DatumCreatie>
                                     </Identificatie>
                                     <AangifteWerkgever>
-                                        <Kwartaal>20243</Kwartaal>
+                                        <Kwartaal>20244</Kwartaal>
                                         <RSZNummer>1234567890</RSZNummer>
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>SEC</SectorIndicator>
@@ -118,8 +118,8 @@
                                                 <Categorie>30</Categorie>
                                                 <Kerngetal>888</Kerngetal>
                                                 <Periode>
-                                                    <Begin>2024-07-01</Begin>
-                                                    <Einde>2024-09-30</Einde>
+                                                    <Begin>2024-10-01</Begin>
+                                                    <Einde>2024-12-31</Einde>
                                                 </Periode>
                                                 <Grensarbeider>1</Grensarbeider>
                                                 <Tewerkstellingen>
@@ -167,7 +167,7 @@
                                         <DatumCreatie>2025-03-15</DatumCreatie>
                                     </Identificatie>
                                     <AangifteWerkgever>
-                                        <Kwartaal>20244</Kwartaal>
+                                        <Kwartaal>20251</Kwartaal>
                                         <RSZNummer>1234567890</RSZNummer>
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
@@ -183,8 +183,8 @@
                                                 <Categorie>40</Categorie>
                                                 <Kerngetal>777</Kerngetal>
                                                 <Periode>
-                                                    <Begin>2024-10-01</Begin>
-                                                    <Einde>2024-12-31</Einde>
+                                                    <Begin>2025-01-01</Begin>
+                                                    <Einde>2025-03-31</Einde>
                                                 </Periode>
                                                 <Grensarbeider>0</Grensarbeider>
                                                 <Tewerkstellingen>
@@ -232,7 +232,7 @@
                                         <Volgende>5678901234</Volgende>
                                     </Versie>
                                     <AangifteWerkgever>
-                                        <Kwartaal>20251</Kwartaal>
+                                        <Kwartaal>20252</Kwartaal>
                                         <RSZNummer>1234567890</RSZNummer>
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
@@ -247,8 +247,8 @@
                                                 <Categorie>50</Categorie>
                                                 <Kerngetal>666</Kerngetal>
                                                 <Periode>
-                                                    <Begin>2025-01-01</Begin>
-                                                    <Einde>2025-03-31</Einde>
+                                                    <Begin>2025-04-01</Begin>
+                                                    <Einde>2025-06-30</Einde>
                                                 </Periode>
                                                 <Grensarbeider>1</Grensarbeider>
                                                 <Tewerkstellingen>
@@ -296,7 +296,7 @@
                                         <Vorige>4567890123</Vorige>
                                     </Versie>
                                     <AangifteWerkgever>
-                                        <Kwartaal>20252</Kwartaal>
+                                        <Kwartaal>20253</Kwartaal>
                                         <RSZNummer>1234567890</RSZNummer>
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
@@ -311,8 +311,8 @@
                                                 <Categorie>60</Categorie>
                                                 <Kerngetal>555</Kerngetal>
                                                 <Periode>
-                                                    <Begin>2025-04-01</Begin>
-                                                    <Einde>2025-06-30</Einde>
+                                                    <Begin>2025-07-01</Begin>
+                                                    <Einde>2025-09-30</Einde>
                                                 </Periode>
                                                 <Grensarbeider>0</Grensarbeider>
                                                 <Tewerkstellingen>
@@ -357,7 +357,7 @@
                                         <DatumCreatie>2025-11-20</DatumCreatie>
                                     </Identificatie>
                                     <AangifteWerkgever>
-                                        <Kwartaal>20253</Kwartaal>
+                                        <Kwartaal>20254</Kwartaal>
                                         <RSZNummer>1234567890</RSZNummer>
                                         <Bron>RSZ</Bron>
                                         <SectorIndicator>PRI</SectorIndicator>
@@ -372,8 +372,8 @@
                                                 <Categorie>70</Categorie>
                                                 <Kerngetal>444</Kerngetal>
                                                 <Periode>
-                                                    <Begin>2025-07-01</Begin>
-                                                    <Einde>2025-09-30</Einde>
+                                                    <Begin>2025-10-01</Begin>
+                                                    <Einde>2025-12-31</Einde>
                                                 </Periode>
                                                 <Grensarbeider>1</Grensarbeider>
                                                 <Tewerkstellingen>
