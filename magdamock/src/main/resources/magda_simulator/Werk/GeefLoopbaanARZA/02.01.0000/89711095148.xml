@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web:GeefLoopbaanARZAResponse xmlns:web="http://webservice.geefloopbaanarzadienst-02_01.werk-02_01.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefLoopbaanARZA</Naam>
+            <Versie>02.01.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2021-06-24</Datum>
+					<Tijd>15:36:57.132</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>kb.vlaanderen.be/aiv/magda-mock-server</Identificatie>
+					<Naam>Magda Mock Server</Naam>
+					<Referte>7bbaa065-01a8-4ebf-8be0-dd4865c6aa51</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>kbbj.vlaanderen.be/dv/wse-dwse-ipdc2784-aa-aip</Identificatie>
+					<Referte>ed6aebc9-ef3d-47d3-b17a-c38e754c6a77</Referte>
+					<Hoedanigheid>ipdc2784</Hoedanigheid>
+				</Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>2443de41-7332-4d32-8b5f-d92d2314687f</Referte>
+                <Inhoud>
+                    <Zelfstandige>
+                        <INSZ>89711095148</INSZ>
+                        <Ondernemingsnummer>1000100187</Ondernemingsnummer>
+                        <Aansluitingen>
+                            <Aansluiting>
+                                <SociaalVerzekeringsfonds>
+                                    <Code>003</Code>
+                                    <Omschrijving Oorsprong="MAGDA" TaalCode="nl">S.V.M.B.</Omschrijving>
+                                    <Ondernemingsnummer>0409088689</Ondernemingsnummer>
+                                </SociaalVerzekeringsfonds>
+                                <Loopbanen>
+                                    <Loopbaan>
+                                        <Bijdragereeks>
+                                            <Code>100</Code>
+                                            <Omschrijving Oorsprong="KSZ">Hoofdberoep</Omschrijving>
+                                        </Bijdragereeks>
+                                        <Periode>
+                                            <Begin>2022-05-01</Begin>
+                                        </Periode>
+                                        <Beroep>
+                                            <Code>310106</Code>
+                                            <Omschrijving Oorsprong="KSZ">Schilder-decorateur</Omschrijving>
+                                        </Beroep>
+                                        <Hoedanigheid>
+                                            <Code>100</Code>
+                                            <Omschrijving Oorsprong="KSZ">Activiteit in eigen naam</Omschrijving>
+                                        </Hoedanigheid>
+                                        <DatumOndertekening>2022-05-01</DatumOndertekening>
+                                    </Loopbaan>
+                                </Loopbanen>
+                            </Aansluiting>
+                        </Aansluitingen>
+                    </Zelfstandige>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefLoopbaanARZAResponse>

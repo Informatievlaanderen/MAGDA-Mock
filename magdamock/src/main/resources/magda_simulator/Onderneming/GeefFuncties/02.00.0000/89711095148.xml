@@ -1,0 +1,57 @@
+<web:GeefFunctiesResponse xmlns:web="http://webservice.geeffunctiesdienst-02_00.onderneming-02_00.vip.vlaanderen.be">
+    <Repliek>
+        <Context>
+            <Naam>GeefFuncties</Naam>
+            <Versie>02.00.0000</Versie>
+            <Bericht>
+                <Type>ANTWOORD</Type>
+				<Tijdstip>
+					<Datum>2021-06-24</Datum>
+					<Tijd>15:36:57.132</Tijd>
+				</Tijdstip>
+				<Afzender>
+					<Identificatie>kb.vlaanderen.be/aiv/magda-mock-server</Identificatie>
+					<Naam>Magda Mock Server</Naam>
+					<Referte>7bbaa065-01a8-4ebf-8be0-dd4865c6aa51</Referte>
+				</Afzender>
+				<Ontvanger>
+					<Identificatie>kbbj.vlaanderen.be/dv/wse-dwse-ipdc2784-aa-aip</Identificatie>
+					<Referte>ed6aebc9-ef3d-47d3-b17a-c38e754c6a77</Referte>
+				</Ontvanger>
+            </Bericht>
+        </Context>
+        <Antwoorden>
+            <Antwoord>
+                <Referte>8d5f5cf8-b698-4bb4-bbeb-c4b9dc8b22e5</Referte>
+                <Inhoud>
+                    <Functies>
+                        <Functie DatumModificatie="2022-05-01">
+                            <AuthentiekeBron>
+                                <Code>03</Code>
+                                <Omschrijving>KBO</Omschrijving>
+                            </AuthentiekeBron>
+                            <FunctiehouderVan>1000100187</FunctiehouderVan>
+                            <AanduidingPersoonOnderneming>
+                                <Code>1</Code>
+                                <Omschrijving>Vertegenwoordiging door natuurlijke persoon</Omschrijving>
+                            </AanduidingPersoonOnderneming>
+                            <INSZ>89711095148</INSZ>
+                            <VolgNummer>001</VolgNummer>
+                            <AardFunctie>
+                                <Code>20090</Code>
+                                <Omschrijving>Basiskennis bedrijfsbeheer</Omschrijving>
+                            </AardFunctie>
+                            <Periode>
+                                <Begin>2022-05-01</Begin>
+                            </Periode>
+                            <AanduidingVrijstelling>
+                                <Code>N</Code>
+                                <Omschrijving>geen vrijstelling bekomen</Omschrijving>
+                            </AanduidingVrijstelling>
+                        </Functie>
+                    </Functies>
+                </Inhoud>
+            </Antwoord>
+        </Antwoorden>
+    </Repliek>
+</web:GeefFunctiesResponse>
