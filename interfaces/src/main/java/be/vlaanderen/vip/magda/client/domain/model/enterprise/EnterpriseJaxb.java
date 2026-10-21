@@ -173,6 +173,9 @@ public class EnterpriseJaxb implements Enterprise, Serializable {
         @XmlJavaTypeAdapter(OffsetDateXmlAdapter.class)
         @Getter
         OffsetDateTime endDate;
+        @XmlElement(name = "Vestigingsnummer")
+        @Getter
+        String branchOfficeNumber;
 
         @Override
         public List<Address> addresses() {
