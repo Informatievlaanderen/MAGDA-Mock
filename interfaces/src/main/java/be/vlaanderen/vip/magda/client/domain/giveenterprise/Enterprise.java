@@ -62,6 +62,8 @@ public interface Enterprise {
         OffsetDateTime startDate();
 
         OffsetDateTime endDate();
+
+        String branchOfficeNumber();
     }
 
     interface HeadOffice {
